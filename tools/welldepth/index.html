@@ -174,8 +174,30 @@
         async function geocode(address) {
             const params = new URLSearchParams({ q: address, format: 'json', limit: 1, countrycodes: 'us' });
             const resp = await fetch(`${NOMINATIM_API}?${params}`, { headers: { 'User-Agent': 'WellDepthLookup/1.0' } });
-            const data = await resp.json();
-            if (!data.length) throw new Error('Could not find that address. Try being more specific.');
+            let data = await resp.json();
+            
+            // If exact address not found, try simplifying (city + state or zip)
+            if (!data.length) {
+                // Try extracting zip code
+                const zipMatch = address.match(/\b(\d{5})\b/);
+                if (zipMatch) {
+                    const zipParams = new URLSearchParams({ q: zipMatch[1], format: 'json', limit: 1, countrycodes: 'us' });
+                    const zipResp = await fetch(`${NOMINATIM_API}?${zipParams}`, { headers: { 'User-Agent': 'WellDepthLookup/1.0' } });
+                    data = await zipResp.json();
+                }
+            }
+            
+            // Try city, state if still not found
+            if (!data.length) {
+                const cityMatch = address.match(/,\s*([^,]+),\s*([A-Z]{2})/i);
+                if (cityMatch) {
+                    const cityParams = new URLSearchParams({ q: `${cityMatch[1]}, ${cityMatch[2]}`, format: 'json', limit: 1, countrycodes: 'us' });
+                    const cityResp = await fetch(`${NOMINATIM_API}?${cityParams}`, { headers: { 'User-Agent': 'WellDepthLookup/1.0' } });
+                    data = await cityResp.json();
+                }
+            }
+            
+            if (!data.length) throw new Error('Could not find that location. Try just the city name and state (e.g., "Aguanga, CA") or zip code.');
             return { lat: parseFloat(data[0].lat), lon: parseFloat(data[0].lon), display: data[0].display_name };
         }
         
