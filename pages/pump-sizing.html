@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pump Sizing Calculator | Southern California Well Service</title>
+    <meta name="description" content="Free pump sizing calculator. Enter your well depth, water level, and flow requirements to get the right pump recommendation for your property.">
+    <link rel="icon" type="image/png" href="../images/logo.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1f3b4d',
+                        accent: '#4e9271',
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-primary text-white sticky top-0 z-50 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <a href="../index.html" class="flex items-center space-x-3">
+                    <img src="../images/logo.png" alt="Southern California Well Service" class="h-12 w-auto">
+                </a>
+                <nav class="hidden md:flex space-x-8">
+                    <a href="../index.html#services" class="hover:text-accent transition">Services</a>
+                    <a href="../index.html#areas" class="hover:text-accent transition">Service Areas</a>
+                    <a href="estimate.html" class="hover:text-accent transition">Free Estimate</a>
+                    <a href="#" class="text-accent font-semibold">Pump Calculator</a>
+                    <a href="about.html" class="hover:text-accent transition">About</a>
+                </nav>
+                <a href="tel:7604408520" class="bg-accent hover:bg-green-600 text-white font-semibold py-2 px-6 rounded-lg transition">
+                    (760) 440-8520
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-primary text-white py-12">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h1 class="text-3xl md:text-4xl font-bold mb-4">🔧 Pump Sizing Calculator</h1>
+            <p class="text-lg text-gray-300">Get the right pump for your well — powered by Franklin Electric specifications</p>
+        </div>
+    </section>
+
+    <!-- Calculator Section -->
+    <section class="py-8 md:py-12">
+        <div class="max-w-3xl mx-auto px-4">
+            <form id="pumpForm" class="bg-white rounded-2xl shadow-xl overflow-hidden">
+                
+                <!-- Step 1: Well Information -->
+                <div class="p-6 border-b border-gray-100">
+                    <div class="flex items-center gap-3 mb-6">
+                        <span class="bg-primary text-white w-8 h-8 rounded-full flex items-center justify-center font-semibold">1</span>
+                        <h2 class="text-xl font-semibold text-primary">Well Information</h2>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Total Well Depth (ft)</label>
+                            <input type="number" id="wellDepth" required min="20" max="2000" placeholder="e.g., 400"
+                                class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-accent focus:outline-none transition">
+                            <p class="text-xs text-gray-500 mt-1">From ground to bottom of well</p>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Static Water Level (ft)</label>
+                            <input type="number" id="staticLevel" required min="0" max="1500" placeholder="e.g., 100"
+                                class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-accent focus:outline-none transition">
+                            <p class="text-xs text-gray-500 mt-1">Water level when not pumping</p>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Drawdown Level (ft)</label>
+                            <input type="number" id="drawdown" required min="0" max="1500" placeholder="e.g., 200"
+                                class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-accent focus:outline-none transition">
+                            <p class="text-xs text-gray-500 mt-1">Water level while pumping</p>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Casing Diameter (in)</label>
+                            <select id="casingDia" required
+                                class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-accent focus:outline-none transition">
+                                <option value="">Select...</option>
+                                <option value="4">4"</option>
+                                <option value="5">5"</option>
+                                <option value="6">6"</option>
+                                <option value="8">8"</option>
+                                <option value="10">10"</option>
+                                <option value="12">12"</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2: Water Requirements -->
+                <div class="p-6 border-b border-gray-100">
+                    <div class="flex items-center gap-3 mb-6">
+                        <span class="bg-primary text-white w-8 h-8 rounded-full flex items-center justify-center font-semibold">2</span>
+                        <h2 class="text-xl font-semibold text-primary">Water Requirements</h2>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Desired Flow Rate (GPM)</label>
+                            <input type="number" id="flowRate" required min="1" max="500" placeholder="e.g., 15"
+                                class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-accent focus:outline-none transition">
+                            <p class="text-xs text-gray-500 mt-1">Typical home: 8-12 GPM</p>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Desired Pressure (PSI)</label>
+                            <select id="pressurePSI" required
+                                class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-accent focus:outline-none transition">
+                                <option value="40">40 PSI (30/50 switch)</option>
+                                <option value="50" selected>50 PSI (40/60 switch)</option>
+                                <option value="60">60 PSI (50/70 switch)</option>
+                                <option value="70">70 PSI (high pressure)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Elevation Above Well (ft)</label>
+                            <input type="number" id="elevation" value="0" min="0" max="500" placeholder="e.g., 50"
+                                class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-accent focus:outline-none transition">
+                            <p class="text-xs text-gray-500 mt-1">Height from well to highest fixture</p>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Pipe Run Length (ft)</label>
+                            <input type="number" id="pipeLength" value="100" min="10" max="2000" placeholder="e.g., 200"
+                                class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-accent focus:outline-none transition">
+                            <p class="text-xs text-gray-500 mt-1">Total pipe from pump to house</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3: Power Supply -->
+                <div class="p-6 border-b border-gray-100">
+                    <div class="flex items-center gap-3 mb-6">
+                        <span class="bg-primary text-white w-8 h-8 rounded-full flex items-center justify-center font-semibold">3</span>
+                        <h2 class="text-xl font-semibold text-primary">Power Supply</h2>
+                    </div>
+                    <div class="max-w-xs">
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Available Voltage</label>
+                        <select id="voltage" required
+                            class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-accent focus:outline-none transition">
+                            <option value="230" selected>230V Single Phase</option>
+                            <option value="230-3">230V Three Phase</option>
+                            <option value="460-3">460V Three Phase</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="p-6 bg-gray-50">
+                    <button type="submit" 
+                        class="w-full bg-accent hover:bg-green-600 text-white font-semibold py-4 px-6 rounded-lg text-lg transition transform hover:scale-[1.02] shadow-lg">
+                        Calculate Pump Size →
+                    </button>
+                </div>
+            </form>
+
+            <!-- Results Section (Hidden by default) -->
+            <div id="results" class="hidden mt-8">
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+                    <!-- TDH Result -->
+                    <div class="bg-gradient-to-r from-primary to-blue-600 text-white p-8 text-center">
+                        <p class="text-sm uppercase tracking-wide opacity-80 mb-2">Total Dynamic Head (TDH)</p>
+                        <p class="text-5xl font-bold"><span id="tdhValue">--</span> <span class="text-2xl font-normal">feet</span></p>
+                    </div>
+
+                    <!-- Specs Grid -->
+                    <div class="p-6">
+                        <h3 class="text-lg font-semibold text-primary mb-4">Recommended Specifications</h3>
+                        <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                            <div class="bg-gray-50 p-4 rounded-lg border-l-4 border-accent">
+                                <p class="text-xs text-gray-500 uppercase">Motor HP</p>
+                                <p class="text-xl font-bold text-gray-800" id="hpValue">--</p>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg border-l-4 border-accent">
+                                <p class="text-xs text-gray-500 uppercase">Motor Size</p>
+                                <p class="text-xl font-bold text-gray-800" id="motorSize">--</p>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg border-l-4 border-accent">
+                                <p class="text-xs text-gray-500 uppercase">Wire Size</p>
+                                <p class="text-xl font-bold text-gray-800" id="wireSize">--</p>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg border-l-4 border-accent">
+                                <p class="text-xs text-gray-500 uppercase">Control Box</p>
+                                <p class="text-xl font-bold text-gray-800" id="controlBox">--</p>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg border-l-4 border-accent">
+                                <p class="text-xs text-gray-500 uppercase">Pump Setting</p>
+                                <p class="text-xl font-bold text-gray-800" id="pumpSetting">--</p>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg border-l-4 border-accent">
+                                <p class="text-xs text-gray-500 uppercase">Est. Flow</p>
+                                <p class="text-xl font-bold text-gray-800" id="estFlow">--</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recommendation -->
+                    <div class="px-6 pb-6">
+                        <div class="bg-green-50 border border-green-200 rounded-lg p-4">
+                            <h4 class="font-semibold text-green-800 mb-2">💡 Our Recommendation</h4>
+                            <p class="text-green-700" id="recText"></p>
+                        </div>
+                    </div>
+
+                    <!-- Warnings -->
+                    <div id="warnings" class="hidden px-6 pb-6">
+                        <div class="bg-amber-50 border border-amber-200 rounded-lg p-4">
+                            <h4 class="font-semibold text-amber-800 mb-2">⚠️ Important Notes</h4>
+                            <ul id="warningList" class="text-amber-700 text-sm list-disc list-inside space-y-1"></ul>
+                        </div>
+                    </div>
+
+                    <!-- CTA -->
+                    <div class="bg-gray-50 p-6 text-center border-t">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Ready to Install?</h3>
+                        <p class="text-gray-600 mb-4">Our team can verify these calculations and provide a professional quote.</p>
+                        <a href="tel:7604408520" 
+                            class="inline-flex items-center gap-2 bg-accent hover:bg-green-600 text-white font-semibold py-3 px-8 rounded-lg transition">
+                            📞 Call (760) 440-8520
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Disclaimer -->
+            <p class="text-xs text-gray-500 text-center mt-6 px-4">
+                This calculator provides estimates based on Franklin Electric specifications. Actual requirements may vary based on well conditions, water quality, and other factors. Always consult a licensed well professional for final sizing.
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white py-8 mt-12">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="text-gray-400">© 2026 Southern California Well Service. All rights reserved.</p>
+            <p class="mt-2">
+                <a href="tel:7604408520" class="text-accent hover:text-green-400">(760) 440-8520</a> · 
+                <a href="mailto:brighton@scwellservice.com" class="text-accent hover:text-green-400">brighton@scwellservice.com</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Franklin Electric pump sizing data
+        const PUMP_DATA = {
+            sizeChart: [
+                { maxGPM: 5, maxTDH: 250, hp: 0.5, motorDia: '4"' },
+                { maxGPM: 5, maxTDH: 400, hp: 0.75, motorDia: '4"' },
+                { maxGPM: 5, maxTDH: 600, hp: 1, motorDia: '4"' },
+                { maxGPM: 10, maxTDH: 200, hp: 0.5, motorDia: '4"' },
+                { maxGPM: 10, maxTDH: 350, hp: 0.75, motorDia: '4"' },
+                { maxGPM: 10, maxTDH: 500, hp: 1, motorDia: '4"' },
+                { maxGPM: 10, maxTDH: 700, hp: 1.5, motorDia: '4"' },
+                { maxGPM: 15, maxTDH: 200, hp: 0.75, motorDia: '4"' },
+                { maxGPM: 15, maxTDH: 350, hp: 1, motorDia: '4"' },
+                { maxGPM: 15, maxTDH: 500, hp: 1.5, motorDia: '4"' },
+                { maxGPM: 15, maxTDH: 650, hp: 2, motorDia: '4"' },
+                { maxGPM: 15, maxTDH: 850, hp: 3, motorDia: '4"' },
+                { maxGPM: 20, maxTDH: 150, hp: 0.75, motorDia: '4"' },
+                { maxGPM: 20, maxTDH: 280, hp: 1, motorDia: '4"' },
+                { maxGPM: 20, maxTDH: 400, hp: 1.5, motorDia: '4"' },
+                { maxGPM: 20, maxTDH: 550, hp: 2, motorDia: '4"' },
+                { maxGPM: 20, maxTDH: 700, hp: 3, motorDia: '4"' },
+                { maxGPM: 20, maxTDH: 900, hp: 5, motorDia: '4"' },
+                { maxGPM: 30, maxTDH: 200, hp: 1.5, motorDia: '4"' },
+                { maxGPM: 30, maxTDH: 350, hp: 2, motorDia: '4"' },
+                { maxGPM: 30, maxTDH: 500, hp: 3, motorDia: '4"' },
+                { maxGPM: 30, maxTDH: 700, hp: 5, motorDia: '4"' },
+                { maxGPM: 30, maxTDH: 900, hp: 7.5, motorDia: '6"' },
+                { maxGPM: 50, maxTDH: 200, hp: 2, motorDia: '4"' },
+                { maxGPM: 50, maxTDH: 300, hp: 3, motorDia: '4"' },
+                { maxGPM: 50, maxTDH: 450, hp: 5, motorDia: '4"' },
+                { maxGPM: 50, maxTDH: 600, hp: 7.5, motorDia: '6"' },
+                { maxGPM: 50, maxTDH: 800, hp: 10, motorDia: '6"' },
+                { maxGPM: 75, maxTDH: 200, hp: 3, motorDia: '6"' },
+                { maxGPM: 75, maxTDH: 350, hp: 5, motorDia: '6"' },
+                { maxGPM: 75, maxTDH: 500, hp: 7.5, motorDia: '6"' },
+                { maxGPM: 75, maxTDH: 700, hp: 10, motorDia: '6"' },
+                { maxGPM: 75, maxTDH: 900, hp: 15, motorDia: '6"' },
+                { maxGPM: 100, maxTDH: 200, hp: 5, motorDia: '6"' },
+                { maxGPM: 100, maxTDH: 350, hp: 7.5, motorDia: '6"' },
+                { maxGPM: 100, maxTDH: 500, hp: 10, motorDia: '6"' },
+                { maxGPM: 100, maxTDH: 700, hp: 15, motorDia: '6"' },
+                { maxGPM: 100, maxTDH: 900, hp: 20, motorDia: '6"' },
+            ],
+            wireChart: {
+                0.5: { 100: 14, 200: 12, 300: 10, 500: 8 },
+                0.75: { 100: 14, 200: 12, 300: 10, 500: 8 },
+                1: { 100: 14, 200: 10, 300: 8, 500: 6 },
+                1.5: { 100: 12, 200: 10, 300: 8, 500: 6 },
+                2: { 100: 10, 200: 8, 300: 6, 500: 4 },
+                3: { 100: 10, 200: 8, 300: 6, 500: 4 },
+                5: { 100: 8, 200: 6, 300: 4, 500: 2 },
+                7.5: { 100: 6, 200: 4, 300: 2, 500: 1 },
+                10: { 100: 6, 200: 4, 300: 2, 500: '1/0' },
+            },
+            controlBox: {
+                0.5: 'QD (2-wire)',
+                0.75: 'QD (2-wire)',
+                1: 'Standard 3-wire',
+                1.5: 'Standard 3-wire',
+                2: 'Standard 3-wire',
+                3: 'Standard 3-wire',
+                5: 'Standard 3-wire',
+                7.5: 'Magnetic Starter',
+                10: 'Magnetic Starter',
+                15: 'Magnetic Starter',
+                20: 'Magnetic Starter',
+            }
+        };
+
+        document.getElementById('pumpForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            calculatePump();
+        });
+
+        function calculatePump() {
+            const wellDepth = parseFloat(document.getElementById('wellDepth').value);
+            const staticLevel = parseFloat(document.getElementById('staticLevel').value);
+            const drawdown = parseFloat(document.getElementById('drawdown').value);
+            const casingDia = parseFloat(document.getElementById('casingDia').value);
+            const flowRate = parseFloat(document.getElementById('flowRate').value);
+            const pressurePSI = parseFloat(document.getElementById('pressurePSI').value);
+            const elevation = parseFloat(document.getElementById('elevation').value) || 0;
+            const pipeLength = parseFloat(document.getElementById('pipeLength').value) || 100;
+            const voltage = document.getElementById('voltage').value;
+
+            const pumpingLevel = drawdown;
+            const pressureHead = pressurePSI * 2.31;
+            const frictionLoss = calculateFrictionLoss(flowRate, pipeLength);
+            const elevationHead = elevation;
+            const tdh = Math.round(pumpingLevel + pressureHead + frictionLoss + elevationHead);
+
+            const pump = findPump(flowRate, tdh, casingDia);
+            const totalCableLength = wellDepth + 50;
+            const wireSize = getWireSize(pump.hp, totalCableLength);
+            const pumpSetting = Math.round(drawdown + 20);
+
+            document.getElementById('tdhValue').textContent = tdh;
+            document.getElementById('hpValue').textContent = pump.hp + ' HP';
+            document.getElementById('motorSize').textContent = pump.motorDia;
+            document.getElementById('wireSize').textContent = '#' + wireSize + ' AWG';
+            document.getElementById('controlBox').textContent = PUMP_DATA.controlBox[pump.hp] || 'Magnetic Starter';
+            document.getElementById('pumpSetting').textContent = pumpSetting + ' ft';
+            document.getElementById('estFlow').textContent = flowRate + ' GPM';
+
+            let recText = `Based on your well conditions, we recommend a ${pump.hp} HP ${pump.motorDia} submersible pump `;
+            recText += `capable of ${flowRate} GPM at ${tdh} feet TDH. `;
+            recText += `The pump should be set at approximately ${pumpSetting} feet for optimal performance.`;
+            document.getElementById('recText').textContent = recText;
+
+            const warnings = [];
+            if (tdh > 700) warnings.push('High TDH application - consider VFD for soft start and energy savings');
+            if (casingDia < 6 && pump.hp >= 5) warnings.push('High HP in small casing may require flow sleeve for motor cooling');
+            if (pumpSetting > wellDepth - 20) warnings.push('Pump setting is close to well bottom - ensure adequate clearance');
+            if (drawdown > wellDepth * 0.8) warnings.push('High drawdown relative to well depth - well yield may be marginal');
+            if (pump.hp >= 7.5 && voltage === '230') warnings.push('Consider 3-phase power for motors 7.5 HP and larger');
+
+            const warningsDiv = document.getElementById('warnings');
+            const warningList = document.getElementById('warningList');
+            if (warnings.length > 0) {
+                warningList.innerHTML = warnings.map(w => `<li>${w}</li>`).join('');
+                warningsDiv.classList.remove('hidden');
+            } else {
+                warningsDiv.classList.add('hidden');
+            }
+
+            document.getElementById('results').classList.remove('hidden');
+            document.getElementById('results').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function calculateFrictionLoss(gpm, pipeLength) {
+            const pipeDia = gpm > 30 ? 2 : 1.25;
+            const velocity = (gpm * 0.321) / (Math.PI * Math.pow(pipeDia/2, 2));
+            const frictionPerFt = 0.002 * Math.pow(velocity, 1.85);
+            return Math.round(frictionPerFt * pipeLength);
+        }
+
+        function findPump(gpm, tdh, casingDia) {
+            const motorFits = {
+                4: ['4"'], 5: ['4"'], 6: ['4"', '6"'],
+                8: ['4"', '6"', '8"'], 10: ['4"', '6"', '8"'], 12: ['4"', '6"', '8"'],
+            };
+            const allowedMotors = motorFits[casingDia] || ['4"', '6"', '8"'];
+            for (const pump of PUMP_DATA.sizeChart) {
+                if (gpm <= pump.maxGPM && tdh <= pump.maxTDH && allowedMotors.includes(pump.motorDia)) {
+                    return pump;
+                }
+            }
+            return { hp: 20, motorDia: '6"' };
+        }
+
+        function getWireSize(hp, distance) {
+            const chart = PUMP_DATA.wireChart[hp];
+            if (!chart) return 6;
+            const distances = [100, 200, 300, 500];
+            for (let i = 0; i < distances.length; i++) {
+                if (distance <= distances[i]) return chart[distances[i]];
+            }
+            return chart[500];
+        }
+    </script>
+</body>
+</html>

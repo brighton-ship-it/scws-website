@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Well Drilling Estimate | Southern California Well Service</title>
+    <meta name="description" content="Get a free well drilling estimate for your property. Enter your address to see typical well depths in your area and get a ballpark cost estimate.">
+    <link rel="icon" type="image/png" href="../images/logo.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1f3b4d',
+                        accent: '#4e9271',
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .loading-spinner {
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #4e9271;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            animation: spin 1s linear infinite;
+            display: inline-block;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-primary text-white sticky top-0 z-50 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <a href="../index.html" class="flex items-center space-x-3">
+                    <img src="../images/logo.png" alt="Southern California Well Service" class="h-12 w-auto">
+                </a>
+                <nav class="hidden md:flex space-x-8">
+                    <a href="../index.html#services" class="hover:text-accent transition">Services</a>
+                    <a href="../index.html#areas" class="hover:text-accent transition">Service Areas</a>
+                    <a href="../index.html#reviews" class="hover:text-accent transition">Reviews</a>
+                    <a href="../index.html#contact" class="hover:text-accent transition">Contact</a>
+                </nav>
+                <a href="tel:7604408520" class="bg-accent hover:bg-green-600 text-white font-semibold py-2 px-6 rounded-lg transition">
+                    (760) 440-8520
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="bg-gradient-to-br from-primary to-slate-800 text-white py-12">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h1 class="text-3xl lg:text-4xl font-bold mb-4">Free Well Drilling Estimate</h1>
+            <p class="text-xl text-gray-300">Enter your property address to see well data for your area and get a ballpark cost estimate.</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="max-w-4xl mx-auto px-4 py-12">
+        <!-- Step 1: Address Input -->
+        <div id="step1" class="bg-white rounded-2xl shadow-lg p-8 mb-8">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-10 h-10 bg-accent text-white rounded-full flex items-center justify-center font-bold">1</div>
+                <h2 class="text-2xl font-bold text-primary">Enter Your Property Address</h2>
+            </div>
+            <div class="flex flex-col sm:flex-row gap-4">
+                <input 
+                    type="text" 
+                    id="address" 
+                    placeholder="123 Main St, Ramona, CA 92065"
+                    class="flex-1 px-4 py-4 text-lg border-2 border-gray-200 rounded-xl focus:border-accent focus:outline-none"
+                >
+                <button 
+                    id="searchBtn"
+                    onclick="searchWells()"
+                    class="bg-accent hover:bg-green-600 text-white font-semibold py-4 px-8 rounded-xl transition text-lg"
+                >
+                    Get Estimate
+                </button>
+            </div>
+            <p class="text-gray-500 text-sm mt-3">We search California's well database to find wells drilled near your property.</p>
+        </div>
+
+        <!-- Loading State -->
+        <div id="loading" class="hidden bg-white rounded-2xl shadow-lg p-12 text-center mb-8">
+            <div class="loading-spinner mx-auto mb-4"></div>
+            <p class="text-gray-600 text-lg">Searching well records near your property...</p>
+        </div>
+
+        <!-- Error State -->
+        <div id="error" class="hidden bg-red-50 border border-red-200 rounded-2xl p-6 mb-8">
+            <p class="text-red-700" id="errorMsg"></p>
+        </div>
+
+        <!-- Step 2: Results -->
+        <div id="step2" class="hidden">
+            <div class="bg-white rounded-2xl shadow-lg p-8 mb-8">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-10 h-10 bg-accent text-white rounded-full flex items-center justify-center font-bold">2</div>
+                    <h2 class="text-2xl font-bold text-primary">Well Data for Your Area</h2>
+                </div>
+                
+                <div class="bg-gray-50 rounded-xl p-4 mb-6">
+                    <p class="text-gray-600"><strong class="text-primary">📍 Location:</strong> <span id="locationText"></span></p>
+                    <p class="text-gray-500 text-sm mt-1"><span id="wellCount"></span> wells found — estimate based on 3 closest</p>
+                </div>
+
+                <!-- Stats Grid -->
+                <div class="grid md:grid-cols-3 gap-6 mb-6">
+                    <div class="bg-blue-50 rounded-xl p-6 text-center">
+                        <div class="text-4xl font-bold text-primary" id="depthValue">--</div>
+                        <div class="text-gray-600">Typical Depth (ft)</div>
+                        <div class="text-sm text-gray-400 mt-1" id="depthRange"></div>
+                    </div>
+                    <div class="bg-green-50 rounded-xl p-6 text-center">
+                        <div class="text-4xl font-bold text-primary" id="yieldValue">--</div>
+                        <div class="text-gray-600">Typical Yield (GPM)</div>
+                        <div class="text-sm text-gray-400 mt-1" id="yieldRange"></div>
+                    </div>
+                    <div class="bg-purple-50 rounded-xl p-6 text-center">
+                        <div class="text-4xl font-bold text-primary" id="casingValue">--</div>
+                        <div class="text-gray-600">Common Casing</div>
+                        <div class="text-sm text-gray-400 mt-1">diameter</div>
+                    </div>
+                </div>
+
+                <!-- Estimate Box -->
+                <div class="bg-gradient-to-r from-accent to-green-600 rounded-xl p-6 text-white">
+                    <h3 class="text-xl font-bold mb-2">💰 Ballpark Estimate</h3>
+                    <div class="text-4xl font-bold mb-2" id="priceEstimate">--</div>
+                    <p class="text-green-100 text-sm">*Estimate based on typical depth. Actual cost depends on site conditions, permits, and equipment needed. We'll provide a detailed quote after site assessment.</p>
+                </div>
+            </div>
+
+            <!-- Step 3: Lead Capture -->
+            <div class="bg-white rounded-2xl shadow-lg p-8">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-10 h-10 bg-accent text-white rounded-full flex items-center justify-center font-bold">3</div>
+                    <h2 class="text-2xl font-bold text-primary">Get Your Detailed Quote</h2>
+                </div>
+                <p class="text-gray-600 mb-6">Want an accurate quote? Enter your info and we'll reach out to schedule a free site assessment.</p>
+                
+                <form id="leadForm" onsubmit="submitLead(event)">
+                    <div class="grid md:grid-cols-2 gap-4 mb-4">
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">Name *</label>
+                            <input type="text" id="leadName" required class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-accent focus:outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">Phone *</label>
+                            <input type="tel" id="leadPhone" required class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-accent focus:outline-none" placeholder="(555) 555-5555">
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">Email</label>
+                        <input type="email" id="leadEmail" class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-accent focus:outline-none">
+                    </div>
+                    <div class="mb-6">
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">Anything else we should know?</label>
+                        <textarea id="leadNotes" rows="3" class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-accent focus:outline-none" placeholder="Property details, timeline, existing well issues..."></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-accent hover:bg-green-600 text-white font-bold py-4 px-8 rounded-xl transition text-lg">
+                        Request Free Site Assessment
+                    </button>
+                </form>
+
+                <div id="leadSuccess" class="hidden text-center py-8">
+                    <div class="text-5xl mb-4">✅</div>
+                    <h3 class="text-2xl font-bold text-primary mb-2">Request Submitted!</h3>
+                    <p class="text-gray-600">We'll reach out within 24 hours to schedule your free site assessment.</p>
+                    <p class="text-gray-600 mt-4">Need immediate help? Call us at <a href="tel:7604408520" class="text-accent font-semibold">(760) 440-8520</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="text-gray-400">© 2026 Southern California Well Service. All rights reserved.</p>
+            <p class="text-gray-500 text-sm mt-2">Well data sourced from California Department of Water Resources</p>
+        </div>
+    </footer>
+
+    <script>
+        const DWR_API = 'https://gis.water.ca.gov/arcgis/rest/services/Environment/i07_WellCompletionReports/FeatureServer/0/query';
+        const NOMINATIM_API = 'https://nominatim.openstreetmap.org/search';
+        const FIELDS = ['TotalDrillDepth', 'TotalCompletedDepth', 'DrillingMethod', 'Fluid', 'CasingDiameter', 'WellYield', 'DecimalLatitude', 'DecimalLongitude'];
+        
+        // Price per foot estimate (rough ballpark)
+        const PRICE_PER_FOOT = 65;
+        const BASE_COST = 8000; // Permits, mobilization, pump system base
+        
+        let analysisData = null;
+        
+        document.getElementById('address').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') searchWells();
+        });
+        
+        async function searchWells() {
+            const address = document.getElementById('address').value.trim();
+            if (!address) {
+                showError('Please enter an address');
+                return;
+            }
+            
+            showLoading(true);
+            hideError();
+            document.getElementById('step2').classList.add('hidden');
+            
+            try {
+                // Geocode
+                const coords = await geocode(address);
+                
+                // Query wells
+                const wells = await queryWells(coords.lat, coords.lon, 1);
+                
+                // Analyze
+                analysisData = analyzeWells(wells, coords);
+                analysisData.address = address;
+                
+                showResults(analysisData);
+            } catch (err) {
+                showError(err.message);
+            } finally {
+                showLoading(false);
+            }
+        }
+        
+        async function geocode(address) {
+            const params = new URLSearchParams({
+                q: address,
+                format: 'json',
+                limit: 1,
+                countrycodes: 'us'
+            });
+            
+            const resp = await fetch(`${NOMINATIM_API}?${params}`, {
+                headers: { 'User-Agent': 'SCWellService/1.0' }
+            });
+            const data = await resp.json();
+            
+            if (!data.length) {
+                throw new Error('Could not find that address. Please try a more specific address.');
+            }
+            
+            return {
+                lat: parseFloat(data[0].lat),
+                lon: parseFloat(data[0].lon),
+                display: data[0].display_name
+            };
+        }
+        
+        async function queryWells(lat, lon, radiusMiles) {
+            const latOffset = radiusMiles / 69.0;
+            const lonOffset = radiusMiles / (69.0 * Math.cos(lat * Math.PI / 180));
+            
+            const geometry = JSON.stringify({
+                xmin: lon - lonOffset,
+                ymin: lat - latOffset,
+                xmax: lon + lonOffset,
+                ymax: lat + latOffset,
+                spatialReference: { wkid: 4326 }
+            });
+            
+            const params = new URLSearchParams({
+                where: '1=1',
+                geometry: geometry,
+                geometryType: 'esriGeometryEnvelope',
+                spatialRel: 'esriSpatialRelIntersects',
+                inSR: 4326,
+                outFields: FIELDS.join(','),
+                returnGeometry: 'false',
+                resultRecordCount: 500,
+                f: 'json'
+            });
+            
+            const resp = await fetch(`${DWR_API}?${params}`);
+            const data = await resp.json();
+            
+            if (data.error) throw new Error('Error querying well database');
+            
+            return data.features.map(f => f.attributes);
+        }
+        
+        function calcDistance(lat1, lon1, lat2, lon2) {
+            const R = 3959;
+            const dLat = (lat2 - lat1) * Math.PI / 180;
+            const dLon = (lon2 - lon1) * Math.PI / 180;
+            const a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+                      Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+                      Math.sin(dLon/2) * Math.sin(dLon/2);
+            return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+        }
+        
+        function analyzeWells(wells, coords) {
+            const casings = {};
+            
+            // Add distance and depth to each well
+            wells.forEach(w => {
+                const wLat = w.DecimalLatitude;
+                const wLon = w.DecimalLongitude;
+                if (wLat && wLon) {
+                    w._distance = calcDistance(coords.lat, coords.lon, wLat, wLon);
+                } else {
+                    w._distance = 999;
+                }
+                w._depth = parseFloat(w.TotalCompletedDepth) || parseFloat(w.TotalDrillDepth) || null;
+                w._yield = parseFloat(w.WellYield) || null;
+                
+                if (w.CasingDiameter) {
+                    const c = String(w.CasingDiameter);
+                    casings[c] = (casings[c] || 0) + 1;
+                }
+            });
+            
+            // Filter wells with depth data and sort by distance
+            const wellsWithDepth = wells.filter(w => w._depth && w._depth > 0 && w._depth < 5000);
+            wellsWithDepth.sort((a, b) => a._distance - b._distance);
+            
+            // Get 3 closest wells
+            const closest3 = wellsWithDepth.slice(0, 3);
+            
+            const result = {
+                count: wells.length,
+                closestCount: closest3.length,
+                location: coords.display,
+                coords: coords
+            };
+            
+            if (closest3.length > 0) {
+                const depths = closest3.map(w => w._depth);
+                const avgDepth = Math.round(depths.reduce((a, b) => a + b, 0) / depths.length);
+                result.depth = {
+                    min: Math.min(...depths),
+                    max: Math.max(...depths),
+                    median: avgDepth,
+                    mean: avgDepth,
+                    closest3: closest3.map(w => ({ depth: w._depth, distance: w._distance.toFixed(2) }))
+                };
+            }
+            
+            // Get yields from closest 3 wells too
+            const yieldsFrom3 = closest3.filter(w => w._yield && w._yield > 0).map(w => w._yield);
+            if (yieldsFrom3.length > 0) {
+                result.yield = {
+                    min: Math.min(...yieldsFrom3),
+                    max: Math.max(...yieldsFrom3),
+                    median: Math.round(yieldsFrom3.reduce((a, b) => a + b, 0) / yieldsFrom3.length)
+                };
+            }
+            
+            const topCasing = Object.entries(casings).sort((a, b) => b[1] - a[1])[0];
+            if (topCasing) result.casing = topCasing[0];
+            
+            return result;
+        }
+        
+        function showResults(data) {
+            document.getElementById('locationText').textContent = data.location;
+            document.getElementById('wellCount').textContent = data.count;
+            
+            if (data.depth) {
+                document.getElementById('depthValue').textContent = data.depth.median;
+                document.getElementById('depthRange').textContent = `Range: ${data.depth.min} - ${data.depth.max} ft`;
+                
+                // Calculate estimate based on median depth (less scary)
+                const baseEstimate = Math.round((data.depth.median * PRICE_PER_FOOT + BASE_COST) / 1000) * 1000;
+                const bufferEstimate = Math.round(baseEstimate * 1.15 / 1000) * 1000; // 15% buffer
+                document.getElementById('priceEstimate').textContent = `$${baseEstimate.toLocaleString()} - $${bufferEstimate.toLocaleString()}`;
+            } else {
+                document.getElementById('depthValue').textContent = 'N/A';
+                document.getElementById('depthRange').textContent = 'No depth data';
+                document.getElementById('priceEstimate').textContent = 'Contact us for estimate';
+            }
+            
+            if (data.yield) {
+                document.getElementById('yieldValue').textContent = data.yield.median;
+                document.getElementById('yieldRange').textContent = `Range: ${data.yield.min} - ${data.yield.max} GPM`;
+            } else {
+                document.getElementById('yieldValue').textContent = 'N/A';
+                document.getElementById('yieldRange').textContent = 'No yield data';
+            }
+            
+            document.getElementById('casingValue').textContent = data.casing ? data.casing + '"' : 'N/A';
+            
+            document.getElementById('step2').classList.remove('hidden');
+            document.getElementById('step2').scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        async function submitLead(e) {
+            e.preventDefault();
+            
+            const lead = {
+                name: document.getElementById('leadName').value,
+                phone: document.getElementById('leadPhone').value,
+                email: document.getElementById('leadEmail').value,
+                notes: document.getElementById('leadNotes').value,
+                address: analysisData?.address || '',
+                estimatedDepth: analysisData?.depth?.median || null,
+                timestamp: new Date().toISOString()
+            };
+            
+            // For now, just show success - we'll hook this up to Jobber/webhook later
+            console.log('Lead captured:', lead);
+            
+            // Store in localStorage as backup
+            const leads = JSON.parse(localStorage.getItem('scws_leads') || '[]');
+            leads.push(lead);
+            localStorage.setItem('scws_leads', JSON.stringify(leads));
+            
+            // Show success
+            document.getElementById('leadForm').classList.add('hidden');
+            document.getElementById('leadSuccess').classList.remove('hidden');
+        }
+        
+        function showLoading(show) {
+            document.getElementById('loading').classList.toggle('hidden', !show);
+            document.getElementById('searchBtn').disabled = show;
+        }
+        
+        function showError(msg) {
+            document.getElementById('errorMsg').textContent = msg;
+            document.getElementById('error').classList.remove('hidden');
+        }
+        
+        function hideError() {
+            document.getElementById('error').classList.add('hidden');
+        }
+    </script>
+</body>
+</html>
