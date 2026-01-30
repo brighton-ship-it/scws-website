@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Fuel Tracker | SCWS</title>
+    <meta name="theme-color" content="#1a5276">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <style>
+        :root {
+            --primary: #1a5276;
+            --secondary: #2980b9;
+            --accent: #27ae60;
+            --warning: #e67e22;
+            --danger: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+        }
+        
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f5f6fa;
+            min-height: 100vh;
+            padding-bottom: 80px;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        
+        .header h1 { font-size: 22px; display: flex; align-items: center; justify-content: center; gap: 10px; }
+        .header p { font-size: 13px; opacity: 0.9; margin-top: 4px; }
+        
+        .container { max-width: 500px; margin: 0 auto; padding: 15px; }
+        
+        .card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            margin-bottom: 15px;
+            overflow: hidden;
+        }
+        
+        .card-header {
+            background: var(--light);
+            padding: 12px 16px;
+            font-weight: 600;
+            color: var(--dark);
+            font-size: 14px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .card-body { padding: 16px; }
+        .form-group { margin-bottom: 16px; }
+        .form-group:last-child { margin-bottom: 0; }
+        
+        label { display: block; font-size: 13px; font-weight: 600; color: var(--dark); margin-bottom: 6px; }
+        
+        input, select, textarea {
+            width: 100%;
+            padding: 14px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.2s;
+            -webkit-appearance: none;
+        }
+        
+        input:focus, select:focus { outline: none; border-color: var(--secondary); }
+        
+        .btn {
+            width: 100%;
+            padding: 16px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.1s;
+        }
+        
+        .btn:active { transform: scale(0.98); }
+        .btn-primary { background: var(--accent); color: white; }
+        .btn-secondary { background: var(--light); color: var(--dark); }
+        .btn-danger { background: var(--danger); color: white; }
+        .btn-warning { background: var(--warning); color: white; }
+        
+        .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 15px; }
+        
+        .stat-card {
+            background: white;
+            border-radius: 10px;
+            padding: 14px 10px;
+            text-align: center;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+        }
+        
+        .stat-card .value { font-size: 22px; font-weight: 700; color: var(--primary); }
+        .stat-card .label { font-size: 10px; color: #888; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 4px; }
+        
+        .maintenance-alert {
+            background: linear-gradient(135deg, var(--warning), #f39c12);
+            color: white;
+            padding: 14px 16px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .maintenance-alert.danger { background: linear-gradient(135deg, var(--danger), #c0392b); }
+        .maintenance-alert .icon { font-size: 28px; }
+        .maintenance-alert .info { flex: 1; }
+        .maintenance-alert .info h4 { font-size: 14px; margin-bottom: 2px; }
+        .maintenance-alert .info p { font-size: 12px; opacity: 0.9; }
+        
+        .truck-select-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+        
+        .truck-option {
+            padding: 14px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s;
+            position: relative;
+        }
+        
+        .truck-option:hover { border-color: var(--secondary); }
+        .truck-option.selected { border-color: var(--accent); background: #e8f8f0; }
+        .truck-option .icon { font-size: 24px; margin-bottom: 4px; }
+        .truck-option .name { font-weight: 600; font-size: 13px; }
+        .truck-option .mileage { font-size: 11px; color: #888; margin-top: 2px; }
+        .truck-option .mpg-badge {
+            position: absolute;
+            top: 6px;
+            right: 6px;
+            background: var(--primary);
+            color: white;
+            font-size: 10px;
+            padding: 2px 6px;
+            border-radius: 8px;
+        }
+        
+        .maintenance-badge {
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            background: var(--danger);
+            color: white;
+            font-size: 10px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .history-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .history-item:last-child { border-bottom: none; }
+        .history-item .info { flex: 1; }
+        .history-item .truck { font-weight: 600; color: var(--dark); font-size: 15px; }
+        .history-item .meta { font-size: 12px; color: #888; margin-top: 2px; }
+        .history-item .data { text-align: right; }
+        .history-item .gallons { font-size: 18px; font-weight: 700; color: var(--primary); }
+        .history-item .mpg { font-size: 11px; color: var(--accent); }
+        
+        .tabs {
+            display: flex;
+            background: white;
+            border-radius: 10px;
+            padding: 4px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+        }
+        
+        .tab {
+            flex: 1;
+            padding: 12px;
+            text-align: center;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            color: #888;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .tab.active { background: var(--primary); color: white; }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        
+        .empty-state { text-align: center; padding: 40px 20px; color: #888; }
+        .empty-state .icon { font-size: 48px; margin-bottom: 10px; }
+        
+        .filter-row { display: flex; gap: 10px; margin-bottom: 15px; }
+        .filter-row select { flex: 1; padding: 10px; font-size: 14px; }
+        .export-btn {
+            background: var(--warning);
+            color: white;
+            padding: 10px 16px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 13px;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+        
+        .maintenance-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px;
+            background: #f8f8f8;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+        
+        .maintenance-item .service { font-weight: 600; font-size: 14px; }
+        .maintenance-item .interval { font-size: 12px; color: #888; }
+        .maintenance-item .due { font-size: 13px; font-weight: 600; }
+        .maintenance-item .due.overdue { color: var(--danger); }
+        .maintenance-item .due.soon { color: var(--warning); }
+        .maintenance-item .due.ok { color: var(--accent); }
+        
+        .success-message {
+            position: fixed;
+            top: 80px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--accent);
+            color: white;
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(39, 174, 96, 0.4);
+            z-index: 200;
+            animation: slideIn 0.3s ease;
+        }
+        
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(-50%) translateY(-20px); }
+            to { opacity: 1; transform: translateX(-50%) translateY(0); }
+        }
+        
+        .truck-detail { padding: 10px 0; }
+        .truck-detail h4 { margin-bottom: 10px; font-size: 14px; }
+        
+        @media (max-width: 400px) {
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .truck-select-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header" id="appHeader">
+        <h1>⛽ SCWS Fuel Tracker</h1>
+        <p>Anza Shop Fuel Pumps</p>
+    </div>
+    <script>
+        if (window.self !== window.top) {
+            document.getElementById('appHeader').style.display = 'none';
+            document.body.style.paddingTop = '0';
+        }
+    </script>
+    
+    <div class="container">
+        <div class="tabs">
+            <div class="tab active" onclick="showTab('log')">Log Fuel</div>
+            <div class="tab" onclick="showTab('history')">History</div>
+            <div class="tab" onclick="showTab('maintenance')">Service</div>
+            <div class="tab" onclick="showTab('settings')">Setup</div>
+        </div>
+        
+        <!-- Maintenance Alerts (shown on log tab) -->
+        <div id="maintenanceAlerts"></div>
+        
+        <!-- Log Fuel Tab -->
+        <div id="tab-log" class="tab-content active">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="value" id="todayGallons">0</div>
+                    <div class="label">Today (gal)</div>
+                </div>
+                <div class="stat-card">
+                    <div class="value" id="weekGallons">0</div>
+                    <div class="label">This Week</div>
+                </div>
+                <div class="stat-card">
+                    <div class="value" id="avgMPG">--</div>
+                    <div class="label">Avg MPG</div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header">Select Truck</div>
+                <div class="card-body">
+                    <div class="truck-select-grid" id="truckGrid"></div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header">Fuel Details</div>
+                <div class="card-body">
+                    <form id="fuelForm">
+                        <div class="form-group">
+                            <label for="odometer">Odometer Reading *</label>
+                            <input type="number" id="odometer" min="0" placeholder="Current mileage" required>
+                            <small style="color:#888; font-size:11px;">Last reading: <span id="lastOdometer">--</span></small>
+                        </div>
+                        <div class="form-group">
+                            <label for="gallons">Gallons *</label>
+                            <input type="number" id="gallons" step="0.1" min="0.1" max="200" placeholder="Gallons pumped" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="notes">Notes (optional)</label>
+                            <input type="text" id="notes" placeholder="e.g., Topped off, filled tank">
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary">⛽ Log Fuel</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <!-- History Tab -->
+        <div id="tab-history" class="tab-content">
+            <div class="filter-row">
+                <select id="historyTruckFilter" onchange="renderHistory()">
+                    <option value="">All Trucks</option>
+                </select>
+                <select id="historyDateFilter" onchange="renderHistory()">
+                    <option value="7">Last 7 Days</option>
+                    <option value="30" selected>Last 30 Days</option>
+                    <option value="90">Last 90 Days</option>
+                    <option value="all">All Time</option>
+                </select>
+                <button class="export-btn" onclick="exportCSV()">📊</button>
+            </div>
+            
+            <div class="card">
+                <div class="card-header">
+                    <span>Fuel Log</span>
+                    <span id="historyTotal"></span>
+                </div>
+                <div class="card-body" id="historyList">
+                    <div class="empty-state">
+                        <div class="icon">📋</div>
+                        <p>No fuel entries yet</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Maintenance Tab -->
+        <div id="tab-maintenance" class="tab-content">
+            <div class="card">
+                <div class="card-header">
+                    <span>Select Truck</span>
+                </div>
+                <div class="card-body">
+                    <select id="maintenanceTruckSelect" onchange="renderMaintenanceStatus()" style="width:100%; padding:12px; font-size:16px; border-radius:8px; border:2px solid #e0e0e0;">
+                        <option value="">Choose truck...</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div id="maintenanceStatusContainer"></div>
+            
+            <div class="card">
+                <div class="card-header">Service Intervals</div>
+                <div class="card-body" id="serviceIntervals"></div>
+            </div>
+        </div>
+        
+        <!-- Settings Tab -->
+        <div id="tab-settings" class="tab-content">
+            <div class="card">
+                <div class="card-header">Your Name</div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <input type="text" id="employeeName" placeholder="Enter your name">
+                    </div>
+                    <button class="btn btn-secondary" onclick="saveName()">Save Name</button>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header">Manage Trucks</div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <label>Add New Truck</label>
+                        <input type="text" id="newTruckName" placeholder="e.g., White F-350" style="margin-bottom:10px;">
+                        <input type="number" id="newTruckMileage" placeholder="Current odometer reading">
+                    </div>
+                    <button class="btn btn-secondary" onclick="addTruck()">+ Add Truck</button>
+                    <div id="truckList" style="margin-top: 20px;"></div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header">Log Maintenance</div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <label>Truck</label>
+                        <select id="maintTruck" style="width:100%;">
+                            <option value="">Select truck...</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Service Type</label>
+                        <select id="maintType" style="width:100%;">
+                            <option value="oil">Oil Change</option>
+                            <option value="tires">Tire Rotation</option>
+                            <option value="brakes">Brake Service</option>
+                            <option value="transmission">Transmission Service</option>
+                            <option value="coolant">Coolant Flush</option>
+                            <option value="air_filter">Air Filter</option>
+                            <option value="fuel_filter">Fuel Filter</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Mileage at Service</label>
+                        <input type="number" id="maintMileage" placeholder="Odometer reading">
+                    </div>
+                    <button class="btn btn-secondary" onclick="logMaintenance()">Log Service</button>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header">Data</div>
+                <div class="card-body">
+                    <button class="btn btn-secondary" onclick="exportAllData()" style="margin-bottom:10px;">📥 Export All Data</button>
+                    <button class="btn btn-danger" onclick="confirmClearData()">🗑️ Clear All Data</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Maintenance intervals (miles)
+        const MAINTENANCE_INTERVALS = {
+            oil: { name: 'Oil Change', interval: 5000, icon: '🛢️' },
+            tires: { name: 'Tire Rotation', interval: 7500, icon: '🔄' },
+            brakes: { name: 'Brake Inspection', interval: 15000, icon: '🛑' },
+            transmission: { name: 'Transmission Service', interval: 30000, icon: '⚙️' },
+            coolant: { name: 'Coolant Flush', interval: 30000, icon: '❄️' },
+            air_filter: { name: 'Air Filter', interval: 15000, icon: '💨' },
+            fuel_filter: { name: 'Fuel Filter', interval: 20000, icon: '⛽' },
+        };
+        
+        // Data
+        let trucks = JSON.parse(localStorage.getItem('scws_trucks')) || [
+            { id: 1, name: 'Truck 1', icon: '🚛', currentMileage: 0, maintenance: {} },
+            { id: 2, name: 'Truck 2', icon: '🚚', currentMileage: 0, maintenance: {} },
+            { id: 3, name: 'Service Van', icon: '🚐', currentMileage: 0, maintenance: {} },
+        ];
+        let fuelEntries = JSON.parse(localStorage.getItem('scws_fuel_entries')) || [];
+        let employeeName = localStorage.getItem('scws_employee_name') || '';
+        let selectedTruck = null;
+        
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            renderTruckGrid();
+            renderHistory();
+            updateStats();
+            renderMaintenanceAlerts();
+            renderServiceIntervals();
+            document.getElementById('employeeName').value = employeeName;
+            renderTruckList();
+            populateTruckFilters();
+        });
+        
+        function showTab(tabName) {
+            document.querySelectorAll('.tab').forEach((t, i) => t.classList.toggle('active', 
+                (tabName === 'log' && i === 0) || (tabName === 'history' && i === 1) || 
+                (tabName === 'maintenance' && i === 2) || (tabName === 'settings' && i === 3)));
+            document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+            document.getElementById(`tab-${tabName}`).classList.add('active');
+            if (tabName === 'history') renderHistory();
+            if (tabName === 'maintenance') renderServiceIntervals();
+            if (tabName === 'log') renderMaintenanceAlerts();
+        }
+        
+        function renderTruckGrid() {
+            const grid = document.getElementById('truckGrid');
+            grid.innerHTML = trucks.map(t => {
+                const alerts = getMaintenanceAlerts(t);
+                const mpg = calculateTruckMPG(t.id);
+                return `
+                    <div class="truck-option ${selectedTruck === t.id ? 'selected' : ''}" onclick="selectTruck(${t.id})">
+                        ${alerts.length > 0 ? `<div class="maintenance-badge">${alerts.length}</div>` : ''}
+                        ${mpg ? `<div class="mpg-badge">${mpg} mpg</div>` : ''}
+                        <div class="icon">${t.icon}</div>
+                        <div class="name">${t.name}</div>
+                        <div class="mileage">${t.currentMileage ? t.currentMileage.toLocaleString() + ' mi' : 'No mileage'}</div>
+                    </div>
+                `;
+            }).join('');
+        }
+        
+        function selectTruck(id) {
+            selectedTruck = id;
+            renderTruckGrid();
+            const truck = trucks.find(t => t.id === id);
+            document.getElementById('lastOdometer').textContent = truck?.currentMileage ? truck.currentMileage.toLocaleString() + ' mi' : 'None';
+        }
+        
+        function calculateTruckMPG(truckId) {
+            const entries = fuelEntries.filter(e => e.truckId === truckId && e.odometer && e.mpg);
+            if (entries.length < 1) return null;
+            const recent = entries.slice(0, 5);
+            const avg = recent.reduce((sum, e) => sum + e.mpg, 0) / recent.length;
+            return avg.toFixed(1);
+        }
+        
+        function getMaintenanceAlerts(truck) {
+            const alerts = [];
+            if (!truck.currentMileage) return alerts;
+            
+            for (const [key, svc] of Object.entries(MAINTENANCE_INTERVALS)) {
+                const lastService = truck.maintenance?.[key] || 0;
+                const milesSince = truck.currentMileage - lastService;
+                const milesUntil = svc.interval - milesSince;
+                
+                if (milesUntil <= 0) {
+                    alerts.push({ type: key, ...svc, milesOver: Math.abs(milesUntil), severity: 'overdue' });
+                } else if (milesUntil <= 500) {
+                    alerts.push({ type: key, ...svc, milesUntil, severity: 'soon' });
+                }
+            }
+            return alerts;
+        }
+        
+        function renderMaintenanceAlerts() {
+            const container = document.getElementById('maintenanceAlerts');
+            let html = '';
+            
+            trucks.forEach(truck => {
+                const alerts = getMaintenanceAlerts(truck);
+                alerts.forEach(alert => {
+                    const isDanger = alert.severity === 'overdue';
+                    html += `
+                        <div class="maintenance-alert ${isDanger ? 'danger' : ''}">
+                            <div class="icon">${alert.icon}</div>
+                            <div class="info">
+                                <h4>${truck.name}: ${alert.name}</h4>
+                                <p>${isDanger ? `${alert.milesOver.toLocaleString()} miles overdue!` : `Due in ${alert.milesUntil.toLocaleString()} miles`}</p>
+                            </div>
+                        </div>
+                    `;
+                });
+            });
+            
+            container.innerHTML = html;
+        }
+        
+        document.getElementById('fuelForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            if (!selectedTruck) { alert('Please select a truck first'); return; }
+            if (!employeeName) { alert('Please set your name in Setup first'); showTab('settings'); return; }
+            
+            const gallons = parseFloat(document.getElementById('gallons').value);
+            const odometer = parseInt(document.getElementById('odometer').value);
+            const notes = document.getElementById('notes').value.trim();
+            const truck = trucks.find(t => t.id === selectedTruck);
+            
+            // Validate odometer
+            if (truck.currentMileage && odometer < truck.currentMileage) {
+                alert(`Odometer must be greater than last reading (${truck.currentMileage.toLocaleString()} mi)`);
+                return;
+            }
+            
+            // Calculate MPG if we have previous reading
+            let mpg = null;
+            const prevEntry = fuelEntries.find(e => e.truckId === selectedTruck && e.odometer);
+            if (prevEntry && odometer > prevEntry.odometer && gallons > 0) {
+                const milesDriven = odometer - prevEntry.odometer;
+                mpg = parseFloat((milesDriven / gallons).toFixed(1));
+            }
+            
+            const entry = {
+                id: Date.now(),
+                truckId: selectedTruck,
+                truckName: truck.name,
+                gallons,
+                odometer,
+                mpg,
+                notes,
+                employee: employeeName,
+                timestamp: new Date().toISOString()
+            };
+            
+            fuelEntries.unshift(entry);
+            
+            // Update truck mileage
+            truck.currentMileage = odometer;
+            
+            saveData();
+            
+            document.getElementById('gallons').value = '';
+            document.getElementById('odometer').value = '';
+            document.getElementById('notes').value = '';
+            
+            updateStats();
+            renderTruckGrid();
+            renderMaintenanceAlerts();
+            showSuccess(mpg ? `Logged! ${mpg} MPG` : 'Fuel entry logged!');
+        });
+        
+        function updateStats() {
+            const now = new Date();
+            const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+            const weekAgo = new Date(today.getTime() - 7 * 24 * 60 * 60 * 1000);
+            
+            let todayTotal = 0, weekTotal = 0;
+            let mpgEntries = [];
+            
+            fuelEntries.forEach(entry => {
+                const entryDate = new Date(entry.timestamp);
+                if (entryDate >= today) todayTotal += entry.gallons;
+                if (entryDate >= weekAgo) weekTotal += entry.gallons;
+                if (entry.mpg) mpgEntries.push(entry.mpg);
+            });
+            
+            document.getElementById('todayGallons').textContent = todayTotal.toFixed(1);
+            document.getElementById('weekGallons').textContent = weekTotal.toFixed(1);
+            document.getElementById('avgMPG').textContent = mpgEntries.length > 0 
+                ? (mpgEntries.reduce((a,b) => a+b, 0) / mpgEntries.length).toFixed(1)
+                : '--';
+        }
+        
+        function renderHistory() {
+            const truckFilter = document.getElementById('historyTruckFilter').value;
+            const dateFilter = document.getElementById('historyDateFilter').value;
+            
+            let filtered = [...fuelEntries];
+            
+            if (truckFilter) filtered = filtered.filter(e => e.truckId == truckFilter);
+            
+            if (dateFilter !== 'all') {
+                const days = parseInt(dateFilter);
+                const cutoff = new Date(Date.now() - days * 24 * 60 * 60 * 1000);
+                filtered = filtered.filter(e => new Date(e.timestamp) >= cutoff);
+            }
+            
+            const container = document.getElementById('historyList');
+            const totalEl = document.getElementById('historyTotal');
+            
+            if (filtered.length === 0) {
+                container.innerHTML = `<div class="empty-state"><div class="icon">📋</div><p>No fuel entries found</p></div>`;
+                totalEl.textContent = '';
+                return;
+            }
+            
+            const total = filtered.reduce((sum, e) => sum + e.gallons, 0);
+            totalEl.textContent = `${total.toFixed(1)} gal`;
+            
+            container.innerHTML = filtered.map(entry => {
+                const date = new Date(entry.timestamp);
+                const dateStr = date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+                const timeStr = date.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
+                
+                return `
+                    <div class="history-item">
+                        <div class="info">
+                            <div class="truck">${entry.truckName}</div>
+                            <div class="meta">${dateStr} ${timeStr} • ${entry.employee}${entry.odometer ? ` • ${entry.odometer.toLocaleString()} mi` : ''}</div>
+                        </div>
+                        <div class="data">
+                            <div class="gallons">${entry.gallons.toFixed(1)} gal</div>
+                            ${entry.mpg ? `<div class="mpg">${entry.mpg} mpg</div>` : ''}
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+        
+        function renderServiceIntervals() {
+            const container = document.getElementById('serviceIntervals');
+            container.innerHTML = Object.entries(MAINTENANCE_INTERVALS).map(([key, svc]) => `
+                <div class="maintenance-item">
+                    <div>
+                        <div class="service">${svc.icon} ${svc.name}</div>
+                        <div class="interval">Every ${svc.interval.toLocaleString()} miles</div>
+                    </div>
+                </div>
+            `).join('');
+        }
+        
+        function renderMaintenanceStatus() {
+            const truckId = parseInt(document.getElementById('maintenanceTruckSelect').value);
+            const container = document.getElementById('maintenanceStatusContainer');
+            
+            if (!truckId) { container.innerHTML = ''; return; }
+            
+            const truck = trucks.find(t => t.id === truckId);
+            if (!truck) return;
+            
+            let html = '<div class="card"><div class="card-header">Service Status</div><div class="card-body">';
+            
+            if (!truck.currentMileage) {
+                html += '<p style="color:#888;">Log a fuel entry with mileage to see service status.</p>';
+            } else {
+                for (const [key, svc] of Object.entries(MAINTENANCE_INTERVALS)) {
+                    const lastService = truck.maintenance?.[key] || 0;
+                    const milesSince = truck.currentMileage - lastService;
+                    const milesUntil = svc.interval - milesSince;
+                    
+                    let statusClass = 'ok', statusText = `${milesUntil.toLocaleString()} mi until due`;
+                    if (milesUntil <= 0) {
+                        statusClass = 'overdue';
+                        statusText = `${Math.abs(milesUntil).toLocaleString()} mi OVERDUE`;
+                    } else if (milesUntil <= 500) {
+                        statusClass = 'soon';
+                        statusText = `Due in ${milesUntil.toLocaleString()} mi`;
+                    }
+                    
+                    html += `
+                        <div class="maintenance-item">
+                            <div>
+                                <div class="service">${svc.icon} ${svc.name}</div>
+                                <div class="interval">Last: ${lastService ? lastService.toLocaleString() + ' mi' : 'Never'}</div>
+                            </div>
+                            <div class="due ${statusClass}">${statusText}</div>
+                        </div>
+                    `;
+                }
+            }
+            
+            html += '</div></div>';
+            container.innerHTML = html;
+        }
+        
+        function populateTruckFilters() {
+            const options = '<option value="">All Trucks</option>' + trucks.map(t => `<option value="${t.id}">${t.name}</option>`).join('');
+            document.getElementById('historyTruckFilter').innerHTML = options;
+            document.getElementById('maintenanceTruckSelect').innerHTML = '<option value="">Choose truck...</option>' + trucks.map(t => `<option value="${t.id}">${t.name}</option>`).join('');
+            document.getElementById('maintTruck').innerHTML = '<option value="">Select truck...</option>' + trucks.map(t => `<option value="${t.id}">${t.name}</option>`).join('');
+        }
+        
+        function saveName() {
+            employeeName = document.getElementById('employeeName').value.trim();
+            localStorage.setItem('scws_employee_name', employeeName);
+            showSuccess('Name saved!');
+        }
+        
+        function addTruck() {
+            const name = document.getElementById('newTruckName').value.trim();
+            const mileage = parseInt(document.getElementById('newTruckMileage').value) || 0;
+            if (!name) return;
+            
+            const icons = ['🚛', '🚚', '🚐', '🛻', '🚗'];
+            trucks.push({
+                id: Date.now(),
+                name,
+                icon: icons[trucks.length % icons.length],
+                currentMileage: mileage,
+                maintenance: {}
+            });
+            
+            saveData();
+            document.getElementById('newTruckName').value = '';
+            document.getElementById('newTruckMileage').value = '';
+            renderTruckGrid();
+            renderTruckList();
+            populateTruckFilters();
+            showSuccess('Truck added!');
+        }
+        
+        function renderTruckList() {
+            document.getElementById('truckList').innerHTML = trucks.map(t => `
+                <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #eee;">
+                    <span>${t.icon} ${t.name} <small style="color:#888;">${t.currentMileage ? t.currentMileage.toLocaleString() + ' mi' : ''}</small></span>
+                    <button onclick="removeTruck(${t.id})" style="background: none; border: none; color: var(--danger); cursor: pointer; font-size: 18px;">×</button>
+                </div>
+            `).join('');
+        }
+        
+        function removeTruck(id) {
+            if (!confirm('Remove this truck?')) return;
+            trucks = trucks.filter(t => t.id !== id);
+            if (selectedTruck === id) selectedTruck = null;
+            saveData();
+            renderTruckGrid();
+            renderTruckList();
+            populateTruckFilters();
+        }
+        
+        function logMaintenance() {
+            const truckId = parseInt(document.getElementById('maintTruck').value);
+            const type = document.getElementById('maintType').value;
+            const mileage = parseInt(document.getElementById('maintMileage').value);
+            
+            if (!truckId || !mileage) { alert('Please fill in all fields'); return; }
+            
+            const truck = trucks.find(t => t.id === truckId);
+            if (!truck) return;
+            
+            if (!truck.maintenance) truck.maintenance = {};
+            truck.maintenance[type] = mileage;
+            if (mileage > truck.currentMileage) truck.currentMileage = mileage;
+            
+            saveData();
+            renderTruckGrid();
+            renderMaintenanceAlerts();
+            renderMaintenanceStatus();
+            showSuccess('Service logged!');
+            
+            document.getElementById('maintMileage').value = '';
+        }
+        
+        function exportCSV() {
+            const headers = ['Date', 'Time', 'Truck', 'Gallons', 'Odometer', 'MPG', 'Employee', 'Notes'];
+            const rows = fuelEntries.map(e => {
+                const d = new Date(e.timestamp);
+                return [d.toLocaleDateString(), d.toLocaleTimeString(), e.truckName, e.gallons, e.odometer || '', e.mpg || '', e.employee, e.notes || ''];
+            });
+            
+            const csv = [headers, ...rows].map(r => r.map(c => `"${c}"`).join(',')).join('\n');
+            downloadFile(csv, `scws-fuel-log-${new Date().toISOString().split('T')[0]}.csv`, 'text/csv');
+        }
+        
+        function exportAllData() {
+            const data = { trucks, fuelEntries, employeeName, exportedAt: new Date().toISOString() };
+            downloadFile(JSON.stringify(data, null, 2), `scws-backup-${new Date().toISOString().split('T')[0]}.json`, 'application/json');
+        }
+        
+        function downloadFile(content, filename, type) {
+            const blob = new Blob([content], { type });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = filename;
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+        
+        function confirmClearData() {
+            if (!confirm('Delete ALL data? This cannot be undone.')) return;
+            if (!confirm('Really sure?')) return;
+            fuelEntries = [];
+            trucks.forEach(t => { t.currentMileage = 0; t.maintenance = {}; });
+            saveData();
+            renderHistory();
+            updateStats();
+            renderTruckGrid();
+            renderMaintenanceAlerts();
+            showSuccess('Data cleared');
+        }
+        
+        function saveData() {
+            localStorage.setItem('scws_trucks', JSON.stringify(trucks));
+            localStorage.setItem('scws_fuel_entries', JSON.stringify(fuelEntries));
+        }
+        
+        function showSuccess(message) {
+            const el = document.createElement('div');
+            el.className = 'success-message';
+            el.textContent = message;
+            document.body.appendChild(el);
+            setTimeout(() => el.remove(), 2000);
+        }
+    </script>
+</body>
+</html>

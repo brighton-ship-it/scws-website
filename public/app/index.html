@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#1a5276">
+    <title>SCWS Tools</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="icons/icon-192.png">
+    <style>
+        :root {
+            --primary: #1a5276;
+            --secondary: #2980b9;
+            --accent: #27ae60;
+            --warning: #e67e22;
+            --danger: #e74c3c;
+            --light: #f5f6fa;
+            --dark: #2c3e50;
+            --safe-top: env(safe-area-inset-top, 0px);
+            --safe-bottom: env(safe-area-inset-bottom, 0px);
+        }
+        
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--light);
+            min-height: 100vh;
+            padding-top: var(--safe-top);
+            padding-bottom: calc(70px + var(--safe-bottom));
+            overflow-x: hidden;
+        }
+        
+        .app-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 16px 20px;
+            padding-top: calc(16px + var(--safe-top));
+            text-align: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        
+        .app-header h1 {
+            font-size: 20px;
+            font-weight: 600;
+        }
+        
+        .app-content {
+            padding-top: calc(60px + var(--safe-top));
+            min-height: calc(100vh - 70px);
+        }
+        
+        .page {
+            display: none;
+            animation: fadeIn 0.2s ease;
+        }
+        
+        .page.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .tab-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: white;
+            display: flex;
+            padding-bottom: var(--safe-bottom);
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+            z-index: 100;
+        }
+        
+        .tab {
+            flex: 1;
+            padding: 10px 0;
+            text-align: center;
+            color: #888;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-decoration: none;
+        }
+        
+        .tab.active {
+            color: var(--primary);
+        }
+        
+        .tab .icon {
+            font-size: 24px;
+            margin-bottom: 2px;
+        }
+        
+        .tab .label {
+            font-size: 10px;
+            font-weight: 600;
+        }
+        
+        /* Home Page Styles */
+        .home-container {
+            padding: 20px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .logo-area {
+            text-align: center;
+            padding: 30px 0;
+        }
+        
+        .logo-area .logo {
+            font-size: 64px;
+            margin-bottom: 10px;
+        }
+        
+        .logo-area h2 {
+            color: var(--dark);
+            font-size: 22px;
+        }
+        
+        .logo-area p {
+            color: #888;
+            font-size: 14px;
+            margin-top: 4px;
+        }
+        
+        .tool-card {
+            background: white;
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .tool-card:active {
+            transform: scale(0.98);
+        }
+        
+        .tool-card .icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            flex-shrink: 0;
+        }
+        
+        .tool-card .info {
+            flex: 1;
+        }
+        
+        .tool-card .info h3 {
+            font-size: 17px;
+            color: var(--dark);
+            margin-bottom: 4px;
+        }
+        
+        .tool-card .info p {
+            font-size: 13px;
+            color: #888;
+            line-height: 1.4;
+        }
+        
+        .tool-card .arrow {
+            color: #ccc;
+            font-size: 20px;
+        }
+        
+        .tool-fuel .icon { background: linear-gradient(135deg, #27ae60, #2ecc71); }
+        .tool-pump .icon { background: linear-gradient(135deg, #1a5276, #2980b9); }
+        .tool-depth .icon { background: linear-gradient(135deg, #8e44ad, #9b59b6); }
+        
+        /* Iframe container for tools */
+        .tool-frame {
+            width: 100%;
+            height: calc(100vh - 60px - 70px - var(--safe-top) - var(--safe-bottom));
+            border: none;
+            background: var(--light);
+        }
+        
+        .frame-loading {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 200px;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <header class="app-header">
+        <h1 id="pageTitle">SCWS Tools</h1>
+    </header>
+    
+    <main class="app-content">
+        <!-- Home Page -->
+        <div id="page-home" class="page active">
+            <div class="home-container">
+                <div class="logo-area">
+                    <div class="logo">🔧</div>
+                    <h2>Southern California<br>Well Service</h2>
+                    <p>Field Tools & Utilities</p>
+                </div>
+                
+                <div class="tool-card tool-fuel" onclick="navigateTo('fuel')">
+                    <div class="icon">⛽</div>
+                    <div class="info">
+                        <h3>Fuel Tracker</h3>
+                        <p>Log fuel fills for company trucks at the Anza shop</p>
+                    </div>
+                    <div class="arrow">›</div>
+                </div>
+                
+                <div class="tool-card tool-pump" onclick="navigateTo('pump')">
+                    <div class="icon">💧</div>
+                    <div class="info">
+                        <h3>Pump Sizing Calculator</h3>
+                        <p>Size pumps with Goulds, Grundfos & Franklin specs</p>
+                    </div>
+                    <div class="arrow">›</div>
+                </div>
+                
+                <div class="tool-card tool-depth" onclick="navigateTo('depth')">
+                    <div class="icon">📏</div>
+                    <div class="info">
+                        <h3>Well Depth Lookup</h3>
+                        <p>Search drilling logs for San Diego County wells</p>
+                    </div>
+                    <div class="arrow">›</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Fuel Tracker Page -->
+        <div id="page-fuel" class="page">
+            <iframe id="frame-fuel" class="tool-frame" src="about:blank"></iframe>
+        </div>
+        
+        <!-- Pump Sizing Page -->
+        <div id="page-pump" class="page">
+            <iframe id="frame-pump" class="tool-frame" src="about:blank"></iframe>
+        </div>
+        
+        <!-- Well Depth Page -->
+        <div id="page-depth" class="page">
+            <iframe id="frame-depth" class="tool-frame" src="about:blank"></iframe>
+        </div>
+    </main>
+    
+    <nav class="tab-bar">
+        <div class="tab active" onclick="navigateTo('home')" id="tab-home">
+            <div class="icon">🏠</div>
+            <div class="label">Home</div>
+        </div>
+        <div class="tab" onclick="navigateTo('fuel')" id="tab-fuel">
+            <div class="icon">⛽</div>
+            <div class="label">Fuel</div>
+        </div>
+        <div class="tab" onclick="navigateTo('pump')" id="tab-pump">
+            <div class="icon">💧</div>
+            <div class="label">Pump</div>
+        </div>
+        <div class="tab" onclick="navigateTo('depth')" id="tab-depth">
+            <div class="icon">📏</div>
+            <div class="label">Depth</div>
+        </div>
+    </nav>
+    
+    <script>
+        const titles = {
+            home: 'SCWS Tools',
+            fuel: 'Fuel Tracker',
+            pump: 'Pump Calculator',
+            depth: 'Well Depth Lookup'
+        };
+        
+        const frameSources = {
+            fuel: 'fuel-tracker.html',
+            pump: 'pump-sizing-tool.html',
+            depth: 'well-depth.html'
+        };
+        
+        let loadedFrames = {};
+        
+        function navigateTo(page) {
+            // Update pages
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            document.getElementById(`page-${page}`).classList.add('active');
+            
+            // Update tabs
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            document.getElementById(`tab-${page}`).classList.add('active');
+            
+            // Update title
+            document.getElementById('pageTitle').textContent = titles[page];
+            
+            // Lazy load iframe if needed
+            if (frameSources[page] && !loadedFrames[page]) {
+                document.getElementById(`frame-${page}`).src = frameSources[page];
+                loadedFrames[page] = true;
+            }
+        }
+        
+        // Handle back navigation
+        window.addEventListener('popstate', (e) => {
+            if (e.state && e.state.page) {
+                navigateTo(e.state.page);
+            }
+        });
+        
+        // Register service worker for offline support
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js')
+                .then(reg => console.log('SW registered'))
+                .catch(err => console.log('SW registration failed:', err));
+        }
+    </script>
+</body>
+</html>
