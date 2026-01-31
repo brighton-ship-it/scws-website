@@ -149,7 +149,6 @@
         
         async function search() {
             const address = document.getElementById('address').value.trim();
-            const radius = parseFloat(document.getElementById('radius').value);
             
             if (!address) { showError('Please enter an address'); return; }
             
@@ -159,8 +158,9 @@
             
             try {
                 const coords = await geocode(address);
-                const wells = queryLocalWells(coords.lat, coords.lon, radius);
+                // Re-read radius in case fallback expanded it
                 const currentRadius = parseFloat(document.getElementById('radius').value);
+                const wells = queryLocalWells(coords.lat, coords.lon, currentRadius);
                 const analysis = analyzeWells(wells, coords.lat, coords.lon);
                 analysis.location = coords.display;
                 analysis.coords = coords;
