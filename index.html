@@ -600,6 +600,10 @@
                     <ul class="space-y-2 text-gray-400">
                         <li><a href="tel:7604408520" class="hover:text-white">(760) 440-8520</a></li>
                         <li><a href="mailto:info@scwellservice.com" class="hover:text-white">info@scwellservice.com</a></li>
+                        <li class="pt-2" id="office-address">
+                            <span class="text-gray-500 text-sm">📍 Ramona Office</span><br>
+                            <span class="text-gray-400">1077 Main St, Ramona, CA</span>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -619,5 +623,75 @@
     </div>
     <!-- Chat Widget -->
     <script src="js/chat-widget.js"></script>
+    
+    <!-- Location Selector Script -->
+    <script>
+        const locations = {
+            ramona: {
+                name: 'Ramona Office',
+                address: '1077 Main St, Ramona, CA',
+                areas: 'Ramona, Valley Center, Escondido, Poway, San Diego'
+            },
+            anza: {
+                name: 'Anza Office', 
+                address: '58449 CA-371, Anza, CA',
+                areas: 'Anza, Temecula, Hemet, Idyllwild, Aguanga'
+            }
+        };
+
+        function setLocation(loc) {
+            // Update button styles
+            document.querySelectorAll('.location-btn').forEach(btn => {
+                if (btn.dataset.location === loc) {
+                    btn.classList.remove('bg-slate-600');
+                    btn.classList.add('bg-accent');
+                } else {
+                    btn.classList.remove('bg-accent');
+                    btn.classList.add('bg-slate-600');
+                }
+            });
+
+            // Update footer address
+            const addressEl = document.getElementById('office-address');
+            if (addressEl && locations[loc]) {
+                addressEl.innerHTML = `
+                    <span class="text-gray-500 text-sm">📍 ${locations[loc].name}</span><br>
+                    <span class="text-gray-400">${locations[loc].address}</span>
+                `;
+            }
+
+            // Save preference
+            localStorage.setItem('scws-location', loc);
+
+            // Show brief confirmation
+            showToast(`Viewing from ${locations[loc].name}`);
+            
+            return false; // Prevent link default
+        }
+
+        function showToast(message) {
+            const existing = document.getElementById('location-toast');
+            if (existing) existing.remove();
+
+            const toast = document.createElement('div');
+            toast.id = 'location-toast';
+            toast.className = 'fixed bottom-24 left-1/2 transform -translate-x-1/2 bg-slate-800 text-white px-4 py-2 rounded-lg shadow-lg text-sm z-50 transition-opacity duration-300';
+            toast.textContent = message;
+            document.body.appendChild(toast);
+
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                setTimeout(() => toast.remove(), 300);
+            }, 2000);
+        }
+
+        // Load saved preference on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const saved = localStorage.getItem('scws-location');
+            if (saved && locations[saved]) {
+                setLocation(saved);
+            }
+        });
+    </script>
 </body>
 </html>
