@@ -272,7 +272,8 @@
                 City: w.city,
                 WellYield: w.yield,
                 CasingDiameter: w.casing,
-                WCRNumber: w.wcr
+                WCRNumber: w.wcr,
+                DrillingMethod: w.method
             }));
             console.log('DEBUG - Found', results.length, 'wells');
             return results;
@@ -316,6 +317,15 @@
             
             const depths = wellsWithDepth.map(w => w._depth);
             
+            // Count drilling methods
+            const methods = {};
+            wells.forEach(w => {
+                const m = w.DrillingMethod || 'Unknown';
+                methods[m] = (methods[m] || 0) + 1;
+            });
+            // Get top method
+            const topMethod = Object.entries(methods).sort((a,b) => b[1] - a[1])[0];
+            
             return {
                 wells: wells.slice(0, 20),
                 stats: {
@@ -324,7 +334,10 @@
                     minDepth: depths.length ? Math.min(...depths) : null,
                     maxDepth: depths.length ? Math.max(...depths) : null,
                     medianDepth: depths.length ? depths.sort((a,b)=>a-b)[Math.floor(depths.length/2)] : null,
-                    avgYield: yields.length ? Math.round(yields.reduce((a,b)=>a+b,0)/yields.length) : null
+                    avgYield: yields.length ? Math.round(yields.reduce((a,b)=>a+b,0)/yields.length) : null,
+                    topMethod: topMethod ? topMethod[0] : null,
+                    topMethodPct: topMethod ? Math.round(topMethod[1] / wells.length * 100) : null,
+                    methods: methods
                 }
             };
         }
@@ -351,6 +364,7 @@
                         <div class="stat-item"><div class="stat-value">${stats.avgDepth}'</div><div class="stat-label">Avg Depth</div></div>
                         <div class="stat-item"><div class="stat-value">${stats.minDepth}'-${stats.maxDepth}'</div><div class="stat-label">Depth Range</div></div>
                         <div class="stat-item"><div class="stat-value">${stats.avgYield || 'N/A'}</div><div class="stat-label">Avg GPM</div></div>
+                        ${stats.topMethod ? `<div class="stat-item"><div class="stat-value">${stats.topMethod}</div><div class="stat-label">${stats.topMethodPct}% of wells</div></div>` : ''}
                     </div>
                 </div>
                 <div class="estimate-box">
@@ -368,6 +382,7 @@
                             </div>
                             <div class="details">
                                 ${w.City ? `<span>📍 ${w.City}</span>` : ''}
+                                ${w.DrillingMethod ? `<span>🔧 ${w.DrillingMethod}</span>` : ''}
                                 ${w.WellYield ? `<span>💧 ${w.WellYield} GPM</span>` : ''}
                                 ${w.CasingDiameter ? `<span>⭕ ${w.CasingDiameter}" casing</span>` : ''}
                             </div>
