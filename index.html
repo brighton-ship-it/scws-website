@@ -1,16 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google Analytics + Google Ads Conversion Tracking -->
+    <!-- Google Analytics (GA4) + Google Ads Conversion Tracking -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-KR42LY3LF7"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
+        
+        // GA4 Config
         gtag('config', 'G-KR42LY3LF7');
+        
+        // Google Ads Config
+        gtag('config', 'AW-490838730');
+        
+        // Google Ads Phone Call Tracking - replaces phone number with Google Forwarding Number
+        gtag('config', 'AW-490838730/aFiRCMDlofAbEMq1huoB', {
+            'phone_conversion_number': '(760) 440-8520'
+        });
         
         // Track form button clicks as lead form submissions
         function trackFormClick() {
+            // GA4 event
             gtag('event', 'ads_conversion_submit_lead_form', {
                 'event_category': 'lead',
                 'event_label': 'jobber_form_click'
@@ -19,11 +30,16 @@
                 'event_category': 'engagement',
                 'value': 100
             });
-            console.log('GA4: Form click tracked');
+            // Google Ads conversion
+            gtag('event', 'conversion', {
+                'send_to': 'AW-490838730/form_lead'
+            });
+            console.log('Tracking: Form click');
         }
         
         // Track phone clicks as contact conversions
         function trackPhoneClick() {
+            // GA4 events
             gtag('event', 'contact_page', {
                 'event_category': 'contact',
                 'event_label': 'phone_click'
@@ -31,7 +47,7 @@
             gtag('event', 'click_to_call', {
                 'event_category': 'engagement'
             });
-            console.log('GA4: Phone click tracked');
+            console.log('Tracking: Phone click');
         }
     </script>
     <meta charset="UTF-8">
