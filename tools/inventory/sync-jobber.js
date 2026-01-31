@@ -136,8 +136,9 @@ async function main() {
                 internalCost: p.internalUnitCost || 0,
                 category: p.category,
                 // Preserve inventory data if exists
-                warehouse: existing.warehouse ?? 0,
                 truck: existing.truck ?? 0,
+                ramona: existing.ramona ?? 0,
+                anza: existing.anza ?? 0,
                 minStock: existing.minStock ?? 0,
                 lastUpdated: existing.lastUpdated || null
             };

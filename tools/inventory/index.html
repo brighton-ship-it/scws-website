@@ -126,8 +126,9 @@
         }
         
         .stock-controls {
-            display: flex;
-            gap: 20px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
         }
         .stock-group {
             flex: 1;
@@ -238,8 +239,16 @@
         .modal-btns .cancel { background: #eee; }
         .modal-btns .save { background: #4e9271; color: white; }
         
-        @media (max-width: 500px) {
-            .stock-controls { flex-direction: column; gap: 10px; }
+        @media (max-width: 600px) {
+            .stock-controls { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+            .stock-label { font-size: 0.65rem; }
+            .stock-btn { width: 30px; height: 30px; font-size: 1rem; }
+            .stock-count { font-size: 1.1rem; min-width: 30px; }
+        }
+        @media (max-width: 400px) {
+            .stock-controls { grid-template-columns: 1fr; gap: 10px; }
+            .stock-group { display: flex; align-items: center; justify-content: space-between; }
+            .stock-label { margin-bottom: 0; margin-right: 10px; }
         }
     </style>
 </head>
@@ -256,7 +265,8 @@
     <div class="tabs">
         <div class="tab active" data-tab="all">All</div>
         <div class="tab" data-tab="truck">🚚 Truck</div>
-        <div class="tab" data-tab="warehouse">🏠 Warehouse</div>
+        <div class="tab" data-tab="ramona">📍 Ramona</div>
+        <div class="tab" data-tab="anza">📍 Anza</div>
         <div class="tab" data-tab="low">⚠️ Low Stock</div>
     </div>
     
@@ -310,7 +320,7 @@
         
         function updateLowStockCount() {
             const lowCount = inventory.items.filter(i => {
-                const total = (i.warehouse || 0) + (i.truck || 0);
+                const total = (i.truck || 0) + (i.ramona || 0) + (i.anza || 0);
                 return i.minStock > 0 && total < i.minStock;
             }).length;
             const el = document.getElementById('lowStockCount');
@@ -333,10 +343,11 @@
                     return false;
                 }
                 // Tab filter
-                const total = (item.warehouse || 0) + (item.truck || 0);
+                const total = (item.truck || 0) + (item.ramona || 0) + (item.anza || 0);
                 const isLow = item.minStock > 0 && total < item.minStock;
                 if (currentTab === 'truck' && !item.truck) return false;
-                if (currentTab === 'warehouse' && !item.warehouse) return false;
+                if (currentTab === 'ramona' && !item.ramona) return false;
+                if (currentTab === 'anza' && !item.anza) return false;
                 if (currentTab === 'low' && !isLow) return false;
                 return true;
             });
@@ -363,19 +374,27 @@
                         ${item.description ? `<div class="item-desc">${escapeHtml(item.description)}</div>` : ''}
                         <div class="stock-controls">
                             <div class="stock-group">
-                                <div class="stock-label">🏠 Warehouse</div>
-                                <div class="stock-row">
-                                    <button class="stock-btn minus" onclick="adjustStock('${item.jobberId}', 'warehouse', -1)">−</button>
-                                    <span class="stock-count ${item.warehouse ? '' : 'zero'}">${item.warehouse || 0}</span>
-                                    <button class="stock-btn plus" onclick="adjustStock('${item.jobberId}', 'warehouse', 1)">+</button>
-                                </div>
-                            </div>
-                            <div class="stock-group">
                                 <div class="stock-label">🚚 Truck</div>
                                 <div class="stock-row">
                                     <button class="stock-btn minus" onclick="adjustStock('${item.jobberId}', 'truck', -1)">−</button>
                                     <span class="stock-count ${item.truck ? '' : 'zero'}">${item.truck || 0}</span>
                                     <button class="stock-btn plus" onclick="adjustStock('${item.jobberId}', 'truck', 1)">+</button>
+                                </div>
+                            </div>
+                            <div class="stock-group">
+                                <div class="stock-label">📍 Ramona</div>
+                                <div class="stock-row">
+                                    <button class="stock-btn minus" onclick="adjustStock('${item.jobberId}', 'ramona', -1)">−</button>
+                                    <span class="stock-count ${item.ramona ? '' : 'zero'}">${item.ramona || 0}</span>
+                                    <button class="stock-btn plus" onclick="adjustStock('${item.jobberId}', 'ramona', 1)">+</button>
+                                </div>
+                            </div>
+                            <div class="stock-group">
+                                <div class="stock-label">📍 Anza</div>
+                                <div class="stock-row">
+                                    <button class="stock-btn minus" onclick="adjustStock('${item.jobberId}', 'anza', -1)">−</button>
+                                    <span class="stock-count ${item.anza ? '' : 'zero'}">${item.anza || 0}</span>
+                                    <button class="stock-btn plus" onclick="adjustStock('${item.jobberId}', 'anza', 1)">+</button>
                                 </div>
                             </div>
                         </div>
@@ -460,8 +479,9 @@
                     local.items.forEach(i => localMap[i.jobberId] = i);
                     inventory.items.forEach(item => {
                         if (localMap[item.jobberId]) {
-                            item.warehouse = localMap[item.jobberId].warehouse;
                             item.truck = localMap[item.jobberId].truck;
+                            item.ramona = localMap[item.jobberId].ramona;
+                            item.anza = localMap[item.jobberId].anza;
                             item.minStock = localMap[item.jobberId].minStock;
                             item.lastUpdated = localMap[item.jobberId].lastUpdated;
                         }
