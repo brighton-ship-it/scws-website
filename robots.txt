@@ -1,0 +1,12 @@
+# Robots.txt for Southern California Well Service
+# https://scwellservice.com
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://scwellservice.com/sitemap.xml
+
+# Block internal tools/apps from indexing
+Disallow: /public/app/
+Disallow: /tools/inventory/
