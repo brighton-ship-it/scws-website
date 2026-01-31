@@ -251,6 +251,43 @@
         ]
     }
     </script>
+    <!-- WebSite Schema for Sitelinks -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Southern California Well Service",
+        "url": "https://scwellservice.com",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://scwellservice.com/search?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+        }
+    }
+    </script>
+    <!-- Organization Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Southern California Well Service",
+        "url": "https://scwellservice.com",
+        "logo": "https://scwellservice.com/images/logo.png",
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+1-760-440-8520",
+            "contactType": "customer service",
+            "availableLanguage": ["English", "Spanish"],
+            "areaServed": ["San Diego County", "Riverside County", "San Bernardino County"]
+        },
+        "founder": [
+            {"@type": "Person", "name": "Brighton Sego"},
+            {"@type": "Person", "name": "Travis Sego"}
+        ],
+        "foundingDate": "2020",
+        "numberOfEmployees": {"@type": "QuantitativeValue", "value": "5-10"}
+    }
+    </script>
 </head>
 <body class="bg-white">
     <!-- Emergency Banner -->
