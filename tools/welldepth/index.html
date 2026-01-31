@@ -190,10 +190,12 @@
             let fallback = false;
             
             // If exact address not found, try zip code first (most accurate fallback)
+            // Use the LAST 5-digit number (zip codes come after street numbers)
             if (!data.length) {
-                const zipMatch = address.match(/\b(\d{5})\b/);
-                if (zipMatch) {
-                    const zipParams = new URLSearchParams({ q: zipMatch[1], format: 'json', limit: 1, countrycodes: 'us' });
+                const allZips = address.match(/\b\d{5}\b/g);
+                const zipCode = allZips ? allZips[allZips.length - 1] : null;
+                if (zipCode) {
+                    const zipParams = new URLSearchParams({ q: zipCode, format: 'json', limit: 1, countrycodes: 'us' });
                     const zipResp = await fetch(`${NOMINATIM_API}?${zipParams}`, { headers: { 'User-Agent': 'WellDepthLookup/1.0' } });
                     data = await zipResp.json();
                     if (data.length) fallback = true;
