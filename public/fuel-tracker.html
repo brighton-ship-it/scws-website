@@ -275,6 +275,68 @@
     </style>
 </head>
 <body>
+    <!-- PIN Login Screen -->
+    <div id="loginScreen" style="position:fixed; top:0; left:0; right:0; bottom:0; background:linear-gradient(135deg, #1a5276 0%, #2980b9 100%); z-index:9999; display:flex; flex-direction:column; align-items:center; justify-content:center; color:white;">
+        <div style="font-size:64px; margin-bottom:20px;">⛽</div>
+        <h1 style="font-size:24px; margin-bottom:8px;">SCWS Fuel Tracker</h1>
+        <p style="opacity:0.8; margin-bottom:30px;">Enter PIN to continue</p>
+        <div style="display:flex; gap:10px; margin-bottom:20px;">
+            <input type="password" id="pin1" maxlength="1" style="width:50px; height:60px; text-align:center; font-size:24px; border:none; border-radius:10px;" oninput="pinInput(1)" autofocus>
+            <input type="password" id="pin2" maxlength="1" style="width:50px; height:60px; text-align:center; font-size:24px; border:none; border-radius:10px;" oninput="pinInput(2)">
+            <input type="password" id="pin3" maxlength="1" style="width:50px; height:60px; text-align:center; font-size:24px; border:none; border-radius:10px;" oninput="pinInput(3)">
+            <input type="password" id="pin4" maxlength="1" style="width:50px; height:60px; text-align:center; font-size:24px; border:none; border-radius:10px;" oninput="pinInput(4)">
+        </div>
+        <p id="pinError" style="color:#ff6b6b; display:none;">Incorrect PIN</p>
+    </div>
+    
+    <script>
+        const CORRECT_PIN = '8520'; // Last 4 of phone number - change this!
+        
+        function pinInput(num) {
+            const current = document.getElementById('pin' + num);
+            if (current.value && num < 4) {
+                document.getElementById('pin' + (num + 1)).focus();
+            }
+            if (num === 4 && current.value) {
+                checkPin();
+            }
+        }
+        
+        function checkPin() {
+            const pin = document.getElementById('pin1').value + 
+                       document.getElementById('pin2').value + 
+                       document.getElementById('pin3').value + 
+                       document.getElementById('pin4').value;
+            
+            if (pin === CORRECT_PIN) {
+                document.getElementById('loginScreen').style.display = 'none';
+                sessionStorage.setItem('scws_authenticated', 'true');
+            } else {
+                document.getElementById('pinError').style.display = 'block';
+                document.getElementById('pin1').value = '';
+                document.getElementById('pin2').value = '';
+                document.getElementById('pin3').value = '';
+                document.getElementById('pin4').value = '';
+                document.getElementById('pin1').focus();
+                setTimeout(() => document.getElementById('pinError').style.display = 'none', 2000);
+            }
+        }
+        
+        // Check if already authenticated this session
+        if (sessionStorage.getItem('scws_authenticated') === 'true') {
+            document.getElementById('loginScreen').style.display = 'none';
+        }
+        
+        // Handle backspace
+        document.querySelectorAll('#loginScreen input').forEach((input, i) => {
+            input.addEventListener('keydown', (e) => {
+                if (e.key === 'Backspace' && !input.value && i > 0) {
+                    document.getElementById('pin' + i).focus();
+                }
+            });
+        });
+    </script>
+    
     <div class="header" id="appHeader">
         <h1>⛽ SCWS Fuel Tracker</h1>
         <p>Anza Shop Fuel Pumps</p>
@@ -473,11 +535,22 @@
             fuel_filter: { name: 'Fuel Filter', interval: 20000, icon: '⛽' },
         };
         
-        // Data
+        // Data - Real SCWS Fleet (from Federated Insurance Policy #1932414)
         let trucks = JSON.parse(localStorage.getItem('scws_trucks')) || [
-            { id: 1, name: 'Truck 1', icon: '🚛', currentMileage: 0, maintenance: {} },
-            { id: 2, name: 'Truck 2', icon: '🚚', currentMileage: 0, maintenance: {} },
-            { id: 3, name: 'Service Van', icon: '🚐', currentMileage: 0, maintenance: {} },
+            { id: 1, name: '2016 Peterbilt 367', vin: '2NPTL40X6GM295801', icon: '🚛', type: 'Drill Rig', currentMileage: 0, maintenance: {} },
+            { id: 2, name: '2024 Dump Trailer', vin: 'SPDCP1422RR020256', icon: '🚜', type: 'Trailer', currentMileage: 0, maintenance: {} },
+            { id: 3, name: '2017 Ford F550', vin: '1FD0X5HTXHED27104', icon: '🚚', type: 'Service', currentMileage: 0, maintenance: {} },
+            { id: 4, name: '2016 Ram 5500 Pump', vin: '3C7WRNAL7GG261429', icon: '🔧', type: 'Pump Truck', currentMileage: 0, maintenance: {} },
+            { id: 5, name: '2021 Ram 5500 Flat', vin: '3C7WRNFL0MG530164', icon: '🛻', type: 'Flatbed', currentMileage: 0, maintenance: {} },
+            { id: 6, name: '2017 Ford F150', vin: '1FTEW1EF0HKD96440', icon: '🚗', type: 'Light Truck', currentMileage: 0, maintenance: {} },
+            { id: 7, name: '2015 Ford F250 #1', vin: '1FT7W2BT5FEA40425', icon: '🚙', type: 'Light Truck', currentMileage: 0, maintenance: {} },
+            { id: 8, name: '2015 Ford F250 #2', vin: '1FT7W2BT6FEA12083', icon: '🚙', type: 'Light Truck', currentMileage: 0, maintenance: {} },
+            { id: 9, name: '2020 Ford F250', vin: '1FT7W2BT6LEC22517', icon: '🚙', type: 'Service', currentMileage: 0, maintenance: {} },
+            { id: 10, name: '2022 Ram 5500 Pump', vin: '3C7WRNBL2NG352264', icon: '🔧', type: 'Pump Truck', currentMileage: 0, maintenance: {} },
+            { id: 11, name: '2020 Chevy 2500 #1', vin: '1GC0YLE79LF229570', icon: '🚐', type: 'Service', currentMileage: 0, maintenance: {} },
+            { id: 12, name: '2020 Chevy 2500 #2', vin: '1GC0YLE72LF229524', icon: '🚐', type: 'Service', currentMileage: 0, maintenance: {} },
+            { id: 13, name: '2012 Ford F350', vin: '1FD8X3B65CEA99001', icon: '🚚', type: 'Service', currentMileage: 0, maintenance: {} },
+            { id: 14, name: '2023 Mud Puppy', vin: '1T9BU1122ND271500', icon: '🚜', type: 'Mud Trailer', currentMileage: 0, maintenance: {} },
         ];
         let fuelEntries = JSON.parse(localStorage.getItem('scws_fuel_entries')) || [];
         let employeeName = localStorage.getItem('scws_employee_name') || '';

@@ -187,11 +187,38 @@
                 }
             }
             
-            // Try city, state if still not found
+            // Try city, state if still not found (with commas)
             if (!data.length) {
                 const cityMatch = address.match(/,\s*([^,]+),\s*([A-Z]{2})/i);
                 if (cityMatch) {
                     const cityParams = new URLSearchParams({ q: `${cityMatch[1]}, ${cityMatch[2]}`, format: 'json', limit: 1, countrycodes: 'us' });
+                    const cityResp = await fetch(`${NOMINATIM_API}?${cityParams}`, { headers: { 'User-Agent': 'WellDepthLookup/1.0' } });
+                    data = await cityResp.json();
+                }
+            }
+            
+            // Try extracting city name WITHOUT commas (e.g., "123 main st ramona ca")
+            if (!data.length) {
+                // Common CA cities in well drilling areas
+                const knownCities = ['ramona', 'aguanga', 'escondido', 'valley center', 'fallbrook', 'temecula', 
+                    'murrieta', 'poway', 'alpine', 'jamul', 'descanso', 'julian', 'borrego springs',
+                    'hemet', 'winchester', 'anza', 'idyllwild', 'lake elsinore', 'wildomar'];
+                const lowerAddr = address.toLowerCase();
+                for (const city of knownCities) {
+                    if (lowerAddr.includes(city)) {
+                        const cityParams = new URLSearchParams({ q: `${city}, CA`, format: 'json', limit: 1, countrycodes: 'us' });
+                        const cityResp = await fetch(`${NOMINATIM_API}?${cityParams}`, { headers: { 'User-Agent': 'WellDepthLookup/1.0' } });
+                        data = await cityResp.json();
+                        if (data.length) break;
+                    }
+                }
+            }
+            
+            // Last resort: try the last 2-3 words before "ca" or "california"
+            if (!data.length) {
+                const lastWordsMatch = address.match(/(\w+(?:\s+\w+)?)\s+(?:ca|california)\s*$/i);
+                if (lastWordsMatch) {
+                    const cityParams = new URLSearchParams({ q: `${lastWordsMatch[1]}, CA`, format: 'json', limit: 1, countrycodes: 'us' });
                     const cityResp = await fetch(`${NOMINATIM_API}?${cityParams}`, { headers: { 'User-Agent': 'WellDepthLookup/1.0' } });
                     data = await cityResp.json();
                 }
