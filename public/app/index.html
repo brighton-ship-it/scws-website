@@ -187,6 +187,7 @@
         .tool-fuel .icon { background: linear-gradient(135deg, #27ae60, #2ecc71); }
         .tool-pump .icon { background: linear-gradient(135deg, #1a5276, #2980b9); }
         .tool-depth .icon { background: linear-gradient(135deg, #8e44ad, #9b59b6); }
+        .tool-inventory .icon { background: linear-gradient(135deg, #e67e22, #f39c12); }
         
         /* Iframe container for tools */
         .tool-frame {
@@ -246,6 +247,15 @@
                     </div>
                     <div class="arrow">›</div>
                 </div>
+                
+                <div class="tool-card tool-inventory" onclick="navigateTo('inventory')">
+                    <div class="icon">📦</div>
+                    <div class="info">
+                        <h3>Inventory Tracker</h3>
+                        <p>Track parts on truck, Ramona shop & Anza shop</p>
+                    </div>
+                    <div class="arrow">›</div>
+                </div>
             </div>
         </div>
         
@@ -262,6 +272,11 @@
         <!-- Well Depth Page -->
         <div id="page-depth" class="page">
             <iframe id="frame-depth" class="tool-frame" src="about:blank"></iframe>
+        </div>
+        
+        <!-- Inventory Page -->
+        <div id="page-inventory" class="page">
+            <iframe id="frame-inventory" class="tool-frame" src="about:blank"></iframe>
         </div>
     </main>
     
@@ -282,6 +297,10 @@
             <div class="icon">📏</div>
             <div class="label">Depth</div>
         </div>
+        <div class="tab" onclick="navigateTo('inventory')" id="tab-inventory">
+            <div class="icon">📦</div>
+            <div class="label">Inventory</div>
+        </div>
     </nav>
     
     <script>
@@ -289,13 +308,15 @@
             home: 'SCWS Tools',
             fuel: 'Fuel Tracker',
             pump: 'Pump Calculator',
-            depth: 'Well Depth Lookup'
+            depth: 'Well Depth Lookup',
+            inventory: 'Inventory Tracker'
         };
         
         const frameSources = {
             fuel: 'fuel-tracker.html',
             pump: 'pump-sizing-tool.html',
-            depth: 'well-depth.html'
+            depth: 'well-depth.html',
+            inventory: '../../tools/inventory/index.html'
         };
         
         let loadedFrames = {};
