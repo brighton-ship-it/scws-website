@@ -106,7 +106,7 @@
             <label for="address">Enter Property Address</label>
             <div class="search-row">
                 <input type="text" id="address" placeholder="123 Main St, Ramona, CA 92065" autocomplete="off">
-                <button id="searchBtn" onclick="search()">Search</button>
+                <button id="searchBtn" onclick="search()" disabled>Loading...</button>
             </div>
             <p style="margin-top: 10px; font-size: 0.85rem; color: #666;">💡 <strong>Tip:</strong> Include your <strong>zip code</strong> for best results. Well depths can vary significantly even within a few miles.</p>
             <div class="options">
@@ -135,10 +135,14 @@
                 const data = await resp.json();
                 LOCAL_WELLS = data.wells;
                 document.getElementById('dataBadge').textContent = `✓ ${data.count.toLocaleString()} wells loaded`;
+                document.getElementById('searchBtn').disabled = false;
+                document.getElementById('searchBtn').textContent = 'Search';
                 console.log(`Loaded ${data.count} wells from local database`);
             } catch (e) {
-                document.getElementById('dataBadge').textContent = '⚠ Using live API';
-                console.log('Local data not available, will use API');
+                document.getElementById('dataBadge').textContent = '⚠ Data failed to load';
+                document.getElementById('searchBtn').textContent = 'Search';
+                document.getElementById('searchBtn').disabled = false;
+                console.log('Local data not available:', e);
             }
         }
         loadLocalData();
@@ -151,6 +155,11 @@
             const address = document.getElementById('address').value.trim();
             
             if (!address) { showError('Please enter an address'); return; }
+            
+            if (!LOCAL_WELLS) {
+                showError('Well data is still loading. Please wait a few seconds and try again.');
+                return;
+            }
             
             showLoading(true);
             hideError();
