@@ -113,8 +113,16 @@
     </div>
 
     <!-- Hero Section -->
-    <section class="bg-gradient-to-br from-primary to-slate-800 text-white py-20 lg:py-32">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section class="relative text-white py-20 lg:py-32 overflow-hidden">
+        <!-- Background image for mobile -->
+        <div class="absolute inset-0 lg:hidden">
+            <img src="images/drilling-rig.jpg" alt="" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-b from-primary/90 via-primary/80 to-slate-800/90"></div>
+        </div>
+        <!-- Solid background for desktop -->
+        <div class="hidden lg:block absolute inset-0 bg-gradient-to-br from-primary to-slate-800"></div>
+        
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
                 <div>
                     <div class="flex items-center space-x-2 mb-6">
@@ -143,7 +151,8 @@
                         </a>
                     </div>
                 </div>
-                <div class="mt-10 lg:mt-0">
+                <!-- Image only shows on desktop (side by side) -->
+                <div class="hidden lg:block">
                     <img src="images/drilling-rig.jpg" alt="SCWS drilling rig in action" class="rounded-2xl shadow-2xl w-full">
                 </div>
             </div>
