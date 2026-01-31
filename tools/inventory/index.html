@@ -19,7 +19,25 @@
             top: 0;
             z-index: 100;
         }
-        .header h1 { font-size: 1.3rem; margin-bottom: 5px; }
+        .header-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 5px;
+        }
+        .home-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background: rgba(255,255,255,0.15);
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 1.2rem;
+        }
+        .home-btn:hover { background: rgba(255,255,255,0.25); }
+        .header h1 { font-size: 1.3rem; }
         .header-stats {
             display: flex;
             gap: 15px;
@@ -254,7 +272,10 @@
 </head>
 <body>
     <div class="header">
-        <h1>📦 Inventory Tracker</h1>
+        <div class="header-row">
+            <a href="/scws-website/public/app/" class="home-btn">🏠</a>
+            <h1>📦 Inventory Tracker</h1>
+        </div>
         <div class="header-stats">
             <span id="totalItems">-- items</span>
             <span id="lowStockCount" class="low-stock" style="display:none">⚠️ -- low</span>
