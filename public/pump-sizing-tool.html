@@ -579,12 +579,7 @@
                     '13GS': { minGPM: 10, maxGPM: 18, minCasing: 4, series: 'GS', desc: '4" SS, 13 GPM nominal', useActualModels: true },
                     '18GS': { minGPM: 14, maxGPM: 25, minCasing: 4, series: 'GS', desc: '4" SS, 18 GPM nominal', useActualModels: true },
                     '25GS': { minGPM: 20, maxGPM: 35, minCasing: 4, series: 'GS', desc: '4" SS, 25 GPM nominal', useActualModels: true },
-                    // 6" HS Series
-                    '35HS': { minGPM: 28, maxGPM: 50, headPerStage: 10, maxStages: 25, minCasing: 6, series: 'HS', desc: '6" SS, 35 GPM nominal' },
-                    '50HS': { minGPM: 40, maxGPM: 65, headPerStage: 8, maxStages: 22, minCasing: 6, series: 'HS', desc: '6" SS, 50 GPM nominal' },
-                    '65HS': { minGPM: 50, maxGPM: 85, headPerStage: 6.5, maxStages: 20, minCasing: 6, series: 'HS', desc: '6" SS, 65 GPM nominal' },
-                    '85HS': { minGPM: 70, maxGPM: 110, headPerStage: 5.5, maxStages: 18, minCasing: 6, series: 'HS', desc: '6" SS, 85 GPM nominal' },
-                    '120HS': { minGPM: 95, maxGPM: 150, headPerStage: 4.5, maxStages: 16, minCasing: 6, series: 'HS', desc: '6" SS, 120 GPM nominal' },
+                    // Note: Goulds GS series maxes out at 25GS (35 GPM). For higher flows, use Grundfos SP or Franklin FPS.
                 }
             },
             grundfos: {
@@ -855,7 +850,7 @@
                 warnings.push('Consider 3-phase power for motors 7.5 HP and larger');
             }
             // Check for 6" pump end with 4" motor warning
-            const has6inchPumpEnd = Object.values(pumpEnds).some(pe => pe.series === 'HS' || pe.series === '6500' || pe.series === 'SP');
+            const has6inchPumpEnd = Object.values(pumpEnds).some(pe => pe.series === '6400' || pe.series === '6500' || pe.series === 'SP');
             if (has6inchPumpEnd && pump.motorDia === '4"') {
                 warnings.push('Some recommended pump ends require 6" or larger motors - verify motor compatibility');
             }

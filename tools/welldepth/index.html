@@ -137,12 +137,10 @@
                 document.getElementById('dataBadge').textContent = `✓ ${data.count.toLocaleString()} wells loaded`;
                 document.getElementById('searchBtn').disabled = false;
                 document.getElementById('searchBtn').textContent = 'Search';
-                console.log(`Loaded ${data.count} wells from local database`);
             } catch (e) {
                 document.getElementById('dataBadge').textContent = '⚠ Data failed to load';
                 document.getElementById('searchBtn').textContent = 'Search';
                 document.getElementById('searchBtn').disabled = false;
-                console.log('Local data not available:', e);
             }
         }
         loadLocalData();
@@ -169,9 +167,7 @@
                 const coords = await geocode(address);
                 // Re-read radius in case fallback expanded it
                 const currentRadius = parseFloat(document.getElementById('radius').value);
-                console.log('DEBUG - Coords:', coords.lat, coords.lon, 'Radius:', currentRadius, 'Fallback:', coords.fallback);
                 const wells = queryLocalWells(coords.lat, coords.lon, currentRadius);
-                console.log('DEBUG - Wells found:', wells.length);
                 const analysis = analyzeWells(wells, coords.lat, coords.lon);
                 analysis.location = coords.display;
                 analysis.coords = coords;
@@ -260,8 +256,7 @@
         }
         
         function queryLocalWells(lat, lon, radiusMiles) {
-            if (!LOCAL_WELLS) { console.log('DEBUG - LOCAL_WELLS is null!'); return []; }
-            console.log('DEBUG - Searching', LOCAL_WELLS.length, 'wells within', radiusMiles, 'mi of', lat, lon);
+            if (!LOCAL_WELLS) return [];
             const results = LOCAL_WELLS.filter(w => {
                 const dist = calcDistance(lat, lon, w.lat, w.lon);
                 return dist <= radiusMiles;
@@ -275,7 +270,6 @@
                 WCRNumber: w.wcr,
                 DrillingMethod: w.method
             }));
-            console.log('DEBUG - Found', results.length, 'wells');
             return results;
         }
         

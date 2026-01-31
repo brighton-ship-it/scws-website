@@ -508,62 +508,123 @@
         };
         
         // Multi-Brand Pump End Selection Data
+        // Goulds GS Series - Model suffix = HP (05=0.5HP, 07=0.75HP, 10=1HP, 15=1.5HP, 20=2HP, 30=3HP, 50=5HP)
+        // Each HP rating has a fixed number of stages providing specific TDH
+        const GOULDS_MODELS = {
+            // 5GS Series (5 GPM nominal, 3-7 GPM range) - ~27 ft/stage at BEP
+            '5GS': {
+                '05': { stages: 4, tdh: 107, hp: 0.5 },
+                '07': { stages: 6, tdh: 160, hp: 0.75 },
+                '10': { stages: 8, tdh: 214, hp: 1.0 },
+                '15': { stages: 12, tdh: 321, hp: 1.5 },
+                '20': { stages: 16, tdh: 428, hp: 2.0 },
+                '30': { stages: 24, tdh: 641, hp: 3.0 }
+            },
+            // 7GS Series (7 GPM nominal, 5-10 GPM range) - ~22 ft/stage at BEP
+            '7GS': {
+                '05': { stages: 5, tdh: 108, hp: 0.5 },
+                '07': { stages: 7, tdh: 151, hp: 0.75 },
+                '10': { stages: 9, tdh: 195, hp: 1.0 },
+                '15': { stages: 14, tdh: 303, hp: 1.5 },
+                '20': { stages: 18, tdh: 389, hp: 2.0 },
+                '30': { stages: 27, tdh: 584, hp: 3.0 }
+            },
+            // 10GS Series (10 GPM nominal, 7-15 GPM range) - ~19 ft/stage at BEP
+            '10GS': {
+                '05': { stages: 5, tdh: 95, hp: 0.5 },
+                '07': { stages: 7, tdh: 133, hp: 0.75 },
+                '10': { stages: 10, tdh: 190, hp: 1.0 },
+                '15': { stages: 15, tdh: 285, hp: 1.5 },
+                '20': { stages: 20, tdh: 380, hp: 2.0 },
+                '30': { stages: 30, tdh: 570, hp: 3.0 },
+                '50': { stages: 50, tdh: 950, hp: 5.0 }
+            },
+            // 13GS Series (13 GPM nominal, 10-18 GPM range) - ~15 ft/stage at BEP
+            '13GS': {
+                '05': { stages: 6, tdh: 91, hp: 0.5 },
+                '07': { stages: 9, tdh: 136, hp: 0.75 },
+                '10': { stages: 12, tdh: 181, hp: 1.0 },
+                '15': { stages: 18, tdh: 272, hp: 1.5 },
+                '20': { stages: 24, tdh: 362, hp: 2.0 },
+                '30': { stages: 36, tdh: 544, hp: 3.0 }
+            },
+            // 18GS Series (18 GPM nominal, 14-25 GPM range) - ~11 ft/stage at BEP
+            '18GS': {
+                '05': { stages: 7, tdh: 81, hp: 0.5 },
+                '07': { stages: 11, tdh: 127, hp: 0.75 },
+                '10': { stages: 15, tdh: 173, hp: 1.0 },
+                '15': { stages: 22, tdh: 254, hp: 1.5 },
+                '20': { stages: 30, tdh: 346, hp: 2.0 },
+                '30': { stages: 45, tdh: 519, hp: 3.0 }
+            },
+            // 25GS Series (25 GPM nominal, 20-35 GPM range) - ~9 ft/stage at BEP  
+            '25GS': {
+                '05': { stages: 8, tdh: 71, hp: 0.5 },
+                '10': { stages: 17, tdh: 150, hp: 1.0 },
+                '15': { stages: 25, tdh: 221, hp: 1.5 },
+                '20': { stages: 34, tdh: 301, hp: 2.0 },
+                '30': { stages: 50, tdh: 442, hp: 3.0 }
+            }
+        };
+        
         const PUMP_BRANDS = {
             goulds: {
                 name: 'Goulds',
                 color: '#1a5276',
                 models: {
-                    // 4" GS Series - Stainless Steel
-                    '5GS': { minGPM: 3, maxGPM: 7, headPerStage: 25, maxStages: 30, minCasing: 4, series: 'GS', desc: '4" SS, 5 GPM nominal' },
-                    '7GS': { minGPM: 5, maxGPM: 10, headPerStage: 21, maxStages: 30, minCasing: 4, series: 'GS', desc: '4" SS, 7 GPM nominal' },
-                    '10GS': { minGPM: 7, maxGPM: 15, headPerStage: 17, maxStages: 50, minCasing: 4, series: 'GS', desc: '4" SS, 10 GPM nominal' },
-                    '13GS': { minGPM: 10, maxGPM: 18, headPerStage: 14, maxStages: 42, minCasing: 4, series: 'GS', desc: '4" SS, 13 GPM nominal' },
-                    '18GS': { minGPM: 14, maxGPM: 25, headPerStage: 11, maxStages: 35, minCasing: 4, series: 'GS', desc: '4" SS, 18 GPM nominal' },
-                    '25GS': { minGPM: 20, maxGPM: 35, headPerStage: 8.5, maxStages: 30, minCasing: 4, series: 'GS', desc: '4" SS, 25 GPM nominal' },
-                    // 6" HS Series
-                    '35HS': { minGPM: 28, maxGPM: 50, headPerStage: 10, maxStages: 25, minCasing: 6, series: 'HS', desc: '6" SS, 35 GPM nominal' },
-                    '50HS': { minGPM: 40, maxGPM: 65, headPerStage: 8, maxStages: 22, minCasing: 6, series: 'HS', desc: '6" SS, 50 GPM nominal' },
-                    '65HS': { minGPM: 50, maxGPM: 85, headPerStage: 6.5, maxStages: 20, minCasing: 6, series: 'HS', desc: '6" SS, 65 GPM nominal' },
-                    '85HS': { minGPM: 70, maxGPM: 110, headPerStage: 5.5, maxStages: 18, minCasing: 6, series: 'HS', desc: '6" SS, 85 GPM nominal' },
-                    '120HS': { minGPM: 95, maxGPM: 150, headPerStage: 4.5, maxStages: 16, minCasing: 6, series: 'HS', desc: '6" SS, 120 GPM nominal' },
+                    // 4" GS Series - Stainless Steel (using actual catalog specs)
+                    '5GS': { minGPM: 3, maxGPM: 7, minCasing: 4, series: 'GS', desc: '4" SS, 5 GPM nominal', useActualModels: true },
+                    '7GS': { minGPM: 5, maxGPM: 10, minCasing: 4, series: 'GS', desc: '4" SS, 7 GPM nominal', useActualModels: true },
+                    '10GS': { minGPM: 7, maxGPM: 15, minCasing: 4, series: 'GS', desc: '4" SS, 10 GPM nominal', useActualModels: true },
+                    '13GS': { minGPM: 10, maxGPM: 18, minCasing: 4, series: 'GS', desc: '4" SS, 13 GPM nominal', useActualModels: true },
+                    '18GS': { minGPM: 14, maxGPM: 25, minCasing: 4, series: 'GS', desc: '4" SS, 18 GPM nominal', useActualModels: true },
+                    '25GS': { minGPM: 20, maxGPM: 35, minCasing: 4, series: 'GS', desc: '4" SS, 25 GPM nominal', useActualModels: true },
+                    // Note: Goulds GS series maxes out at 25GS (35 GPM). For higher flows, use Grundfos SP or Franklin FPS.
                 }
             },
             grundfos: {
                 name: 'Grundfos',
                 color: '#e74c3c',
                 models: {
-                    // SQ Series - 3" submersible (fits 4" well)
-                    'SQ 1': { minGPM: 1, maxGPM: 5, headPerStage: 0, maxTDH: 350, minCasing: 4, series: 'SQ', desc: '3" variable speed, 1-5 GPM', integrated: true },
-                    'SQ 2': { minGPM: 3, maxGPM: 10, headPerStage: 0, maxTDH: 400, minCasing: 4, series: 'SQ', desc: '3" variable speed, 3-10 GPM', integrated: true },
-                    'SQ 3': { minGPM: 5, maxGPM: 18, headPerStage: 0, maxTDH: 380, minCasing: 4, series: 'SQ', desc: '3" variable speed, 5-18 GPM', integrated: true },
-                    'SQ 5': { minGPM: 10, maxGPM: 25, headPerStage: 0, maxTDH: 350, minCasing: 4, series: 'SQ', desc: '3" variable speed, 10-25 GPM', integrated: true },
-                    'SQ 7': { minGPM: 15, maxGPM: 35, headPerStage: 0, maxTDH: 300, minCasing: 4, series: 'SQ', desc: '3" variable speed, 15-35 GPM', integrated: true },
-                    // SP Series - Industrial (staged)
-                    'SP 5A': { minGPM: 3, maxGPM: 8, headPerStage: 18, maxStages: 60, minCasing: 4, series: 'SP', desc: '4" SS, 5 GPM nominal' },
-                    'SP 8A': { minGPM: 5, maxGPM: 12, headPerStage: 15, maxStages: 55, minCasing: 4, series: 'SP', desc: '4" SS, 8 GPM nominal' },
-                    'SP 11': { minGPM: 8, maxGPM: 16, headPerStage: 12, maxStages: 50, minCasing: 4, series: 'SP', desc: '4" SS, 11 GPM nominal' },
-                    'SP 17': { minGPM: 12, maxGPM: 22, headPerStage: 10, maxStages: 45, minCasing: 4, series: 'SP', desc: '4" SS, 17 GPM nominal' },
-                    'SP 30': { minGPM: 22, maxGPM: 42, headPerStage: 7, maxStages: 40, minCasing: 6, series: 'SP', desc: '6" SS, 30 GPM nominal' },
-                    'SP 46': { minGPM: 35, maxGPM: 60, headPerStage: 5.5, maxStages: 35, minCasing: 6, series: 'SP', desc: '6" SS, 46 GPM nominal' },
-                    'SP 77': { minGPM: 55, maxGPM: 100, headPerStage: 4, maxStages: 30, minCasing: 6, series: 'SP', desc: '6" SS, 77 GPM nominal' },
+                    // SQ/SQE Series - 3" variable speed submersible (fits 4" well)
+                    // Integrated motor with VFD - constant pressure capability
+                    'SQ 1-35': { minGPM: 1, maxGPM: 5, maxTDH: 330, hp: 0.5, minCasing: 4, series: 'SQ', desc: '3" VFD, constant pressure', integrated: true },
+                    'SQ 2-55': { minGPM: 2, maxGPM: 10, maxTDH: 540, hp: 1.0, minCasing: 4, series: 'SQ', desc: '3" VFD, constant pressure', integrated: true },
+                    'SQ 2-85': { minGPM: 2, maxGPM: 10, maxTDH: 840, hp: 1.5, minCasing: 4, series: 'SQ', desc: '3" VFD, constant pressure', integrated: true },
+                    'SQ 3-55': { minGPM: 5, maxGPM: 18, maxTDH: 350, hp: 1.5, minCasing: 4, series: 'SQ', desc: '3" VFD, constant pressure', integrated: true },
+                    'SQ 3-80': { minGPM: 5, maxGPM: 18, maxTDH: 530, hp: 2.0, minCasing: 4, series: 'SQ', desc: '3" VFD, constant pressure', integrated: true },
+                    'SQ 5-60': { minGPM: 10, maxGPM: 25, maxTDH: 340, hp: 2.0, minCasing: 4, series: 'SQ', desc: '3" VFD, constant pressure', integrated: true },
+                    'SQ 5-70': { minGPM: 10, maxGPM: 25, maxTDH: 400, hp: 3.0, minCasing: 4, series: 'SQ', desc: '3" VFD, constant pressure', integrated: true },
+                    'SQ 7-40': { minGPM: 15, maxGPM: 35, maxTDH: 240, hp: 3.0, minCasing: 4, series: 'SQ', desc: '3" VFD, constant pressure', integrated: true },
+                    // SP Series - 4" Industrial staged pumps (model format: SP {flow}-{stages})
+                    'SP 5A': { minGPM: 3, maxGPM: 8, headPerStage: 18.5, maxStages: 60, minCasing: 4, series: 'SP', desc: '4" SS, 5 GPM nominal' },
+                    'SP 8A': { minGPM: 5, maxGPM: 12, headPerStage: 14.8, maxStages: 55, minCasing: 4, series: 'SP', desc: '4" SS, 8 GPM nominal' },
+                    'SP 11': { minGPM: 8, maxGPM: 16, headPerStage: 11.5, maxStages: 50, minCasing: 4, series: 'SP', desc: '4" SS, 11 GPM nominal' },
+                    'SP 17': { minGPM: 12, maxGPM: 22, headPerStage: 9.2, maxStages: 45, minCasing: 4, series: 'SP', desc: '4" SS, 17 GPM nominal' },
+                    'SP 30': { minGPM: 22, maxGPM: 42, headPerStage: 7.0, maxStages: 40, minCasing: 6, series: 'SP', desc: '6" SS, 30 GPM nominal' },
+                    'SP 46': { minGPM: 35, maxGPM: 60, headPerStage: 5.2, maxStages: 35, minCasing: 6, series: 'SP', desc: '6" SS, 46 GPM nominal' },
+                    'SP 60': { minGPM: 45, maxGPM: 75, headPerStage: 4.4, maxStages: 32, minCasing: 6, series: 'SP', desc: '6" SS, 60 GPM nominal' },
+                    'SP 77': { minGPM: 55, maxGPM: 100, headPerStage: 3.8, maxStages: 30, minCasing: 6, series: 'SP', desc: '6" SS, 77 GPM nominal' },
+                    'SP 95': { minGPM: 70, maxGPM: 125, headPerStage: 3.2, maxStages: 28, minCasing: 6, series: 'SP', desc: '6" SS, 95 GPM nominal' },
                 }
             },
             franklin: {
                 name: 'Franklin (FPS)',
                 color: '#27ae60',
                 models: {
-                    // FPS 4400 Series - 4" Stainless
-                    '5F': { minGPM: 3, maxGPM: 8, headPerStage: 24, maxStages: 35, minCasing: 4, series: '4400', desc: '4" SS, 5 GPM nominal' },
-                    '7F': { minGPM: 5, maxGPM: 10, headPerStage: 20, maxStages: 35, minCasing: 4, series: '4400', desc: '4" SS, 7 GPM nominal' },
-                    '10F': { minGPM: 7, maxGPM: 15, headPerStage: 16, maxStages: 50, minCasing: 4, series: '4400', desc: '4" SS, 10 GPM nominal' },
-                    '15F': { minGPM: 10, maxGPM: 20, headPerStage: 12, maxStages: 45, minCasing: 4, series: '4400', desc: '4" SS, 15 GPM nominal' },
-                    '22F': { minGPM: 16, maxGPM: 28, headPerStage: 9, maxStages: 40, minCasing: 4, series: '4400', desc: '4" SS, 22 GPM nominal' },
-                    '30F': { minGPM: 22, maxGPM: 38, headPerStage: 7.5, maxStages: 35, minCasing: 4, series: '4400', desc: '4" SS, 30 GPM nominal' },
-                    // FPS 6500 Series - 6" High Capacity
-                    '45F': { minGPM: 35, maxGPM: 55, headPerStage: 8, maxStages: 28, minCasing: 6, series: '6500', desc: '6" SS, 45 GPM nominal' },
-                    '65F': { minGPM: 50, maxGPM: 80, headPerStage: 6, maxStages: 24, minCasing: 6, series: '6500', desc: '6" SS, 65 GPM nominal' },
-                    '95F': { minGPM: 75, maxGPM: 115, headPerStage: 4.5, maxStages: 20, minCasing: 6, series: '6500', desc: '6" SS, 95 GPM nominal' },
-                    '135F': { minGPM: 110, maxGPM: 165, headPerStage: 3.5, maxStages: 18, minCasing: 8, series: '6500', desc: '8" SS, 135 GPM nominal' },
+                    // FPS 4400 Series - 4" Stainless Steel (actual model naming: 5FA, 7FA, 10FA, etc.)
+                    '5FA': { minGPM: 3, maxGPM: 8, headPerStage: 25.5, maxStages: 40, minCasing: 4, series: '4400', desc: '4" SS, 5 GPM nominal' },
+                    '7FA': { minGPM: 5, maxGPM: 10, headPerStage: 21.0, maxStages: 38, minCasing: 4, series: '4400', desc: '4" SS, 7 GPM nominal' },
+                    '10FA': { minGPM: 7, maxGPM: 15, headPerStage: 17.0, maxStages: 55, minCasing: 4, series: '4400', desc: '4" SS, 10 GPM nominal' },
+                    '15FA': { minGPM: 10, maxGPM: 20, headPerStage: 12.5, maxStages: 48, minCasing: 4, series: '4400', desc: '4" SS, 15 GPM nominal' },
+                    '22FA': { minGPM: 16, maxGPM: 28, headPerStage: 9.0, maxStages: 42, minCasing: 4, series: '4400', desc: '4" SS, 22 GPM nominal' },
+                    '25FA': { minGPM: 20, maxGPM: 32, headPerStage: 8.0, maxStages: 40, minCasing: 4, series: '4400', desc: '4" SS, 25 GPM nominal' },
+                    '33FA': { minGPM: 26, maxGPM: 42, headPerStage: 6.5, maxStages: 35, minCasing: 4, series: '4400', desc: '4" SS, 33 GPM nominal' },
+                    // FPS 6400 Series - 6" High Capacity
+                    '50FA': { minGPM: 40, maxGPM: 65, headPerStage: 6.8, maxStages: 30, minCasing: 6, series: '6400', desc: '6" SS, 50 GPM nominal' },
+                    '75FA': { minGPM: 60, maxGPM: 95, headPerStage: 5.2, maxStages: 26, minCasing: 6, series: '6400', desc: '6" SS, 75 GPM nominal' },
+                    '100FA': { minGPM: 80, maxGPM: 130, headPerStage: 4.0, maxStages: 24, minCasing: 6, series: '6400', desc: '6" SS, 100 GPM nominal' },
+                    '150FA': { minGPM: 120, maxGPM: 180, headPerStage: 3.2, maxStages: 20, minCasing: 8, series: '6400', desc: '8" SS, 150 GPM nominal' },
                 }
             }
         };
@@ -577,20 +638,61 @@
                 for (const [model, specs] of Object.entries(brand.models)) {
                     if (gpm >= specs.minGPM && gpm <= specs.maxGPM && casingDia >= specs.minCasing) {
                         
-                        // Handle integrated pumps (Grundfos SQ) vs staged pumps
+                        // Handle integrated pumps (Grundfos SQ/SQE) vs staged pumps
                         if (specs.integrated) {
                             if (tdh <= specs.maxTDH) {
+                                // Score: prefer models that match GPM well and have minimal excess TDH
+                                const gpmScore = Math.abs(gpm - (specs.minGPM + specs.maxGPM) / 2);
+                                const tdhScore = (specs.maxTDH - tdh) * 0.005; // Small penalty for excess TDH
                                 candidates.push({
                                     model: model,
                                     fullModel: model,
                                     stages: null,
+                                    hp: specs.hp || null,
                                     actualTDH: specs.maxTDH,
                                     specs: specs,
-                                    score: Math.abs(gpm - (specs.minGPM + specs.maxGPM) / 2)
+                                    score: gpmScore + tdhScore
                                 });
                             }
-                        } else {
-                            // Staged pumps - calculate required stages
+                        } else if (brandKey === 'goulds' && specs.useActualModels && GOULDS_MODELS[model]) {
+                            // Use actual Goulds catalog model lookup
+                            const modelSeries = GOULDS_MODELS[model];
+                            
+                            // Find the smallest model that meets the TDH requirement
+                            const hpCodes = Object.keys(modelSeries).sort((a, b) => parseFloat(a) - parseFloat(b));
+                            let bestMatch = null;
+                            
+                            for (const hpCode of hpCodes) {
+                                const modelSpec = modelSeries[hpCode];
+                                if (modelSpec.tdh >= tdh) {
+                                    bestMatch = { hpCode, ...modelSpec };
+                                    break;
+                                }
+                            }
+                            
+                            // If no exact match, use the largest available
+                            if (!bestMatch) {
+                                const lastCode = hpCodes[hpCodes.length - 1];
+                                const lastSpec = modelSeries[lastCode];
+                                if (lastSpec.tdh >= tdh * 0.85) { // Allow 15% deficit for borderline cases
+                                    bestMatch = { hpCode: lastCode, ...lastSpec, borderline: true };
+                                }
+                            }
+                            
+                            if (bestMatch) {
+                                candidates.push({
+                                    model: model,
+                                    stages: bestMatch.stages,
+                                    hp: bestMatch.hp,
+                                    fullModel: `${model}${bestMatch.hpCode}`,
+                                    actualTDH: bestMatch.tdh,
+                                    specs: specs,
+                                    borderline: bestMatch.borderline,
+                                    score: Math.abs(gpm - (specs.minGPM + specs.maxGPM) / 2) + (bestMatch.tdh - tdh) * 0.01
+                                });
+                            }
+                        } else if (specs.headPerStage) {
+                            // Generic staged pumps - calculate required stages
                             const requiredStages = Math.ceil((tdh * 1.1) / specs.headPerStage);
                             
                             if (requiredStages <= specs.maxStages) {
@@ -611,16 +713,29 @@
                 if (candidates.length > 0) {
                     candidates.sort((a, b) => a.score - b.score);
                     const best = candidates[0];
+                    
+                    let desc;
+                    if (best.specs.integrated) {
+                        // Grundfos SQ/SQE series - show HP and TDH
+                        const hpStr = best.specs.hp ? `, ${best.specs.hp} HP` : '';
+                        desc = `${best.specs.desc}${hpStr}, up to ${best.actualTDH} ft TDH`;
+                    } else if (best.hp) {
+                        desc = `${best.specs.desc} - ${best.stages} stg, ${best.hp} HP, ${best.actualTDH} ft TDH`;
+                        if (best.borderline) desc += ' (borderline)';
+                    } else {
+                        desc = `${best.specs.desc} - ${best.stages} stages for ${Math.round(best.actualTDH)} ft TDH`;
+                    }
+                    
                     results[brandKey] = {
                         brand: brand.name,
                         color: brand.color,
                         fullModel: best.fullModel,
                         stages: best.stages,
+                        hp: best.hp,
                         actualTDH: best.actualTDH,
-                        desc: best.specs.integrated 
-                            ? `${best.specs.desc} - up to ${best.actualTDH} ft TDH`
-                            : `${best.specs.desc} - ${best.stages} stages for ${best.actualTDH} ft TDH`,
-                        series: best.specs.series
+                        desc: desc,
+                        series: best.specs.series,
+                        borderline: best.borderline
                     };
                 }
             }
@@ -735,7 +850,7 @@
                 warnings.push('Consider 3-phase power for motors 7.5 HP and larger');
             }
             // Check for 6" pump end with 4" motor warning
-            const has6inchPumpEnd = Object.values(pumpEnds).some(pe => pe.series === 'HS' || pe.series === '6500' || pe.series === 'SP');
+            const has6inchPumpEnd = Object.values(pumpEnds).some(pe => pe.series === '6400' || pe.series === '6500' || pe.series === 'SP');
             if (has6inchPumpEnd && pump.motorDia === '4"') {
                 warnings.push('Some recommended pump ends require 6" or larger motors - verify motor compatibility');
             }

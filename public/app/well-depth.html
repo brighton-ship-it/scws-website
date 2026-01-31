@@ -21,8 +21,6 @@
             margin-bottom: 20px;
             border-radius: 8px;
         }
-        body.embedded header { display: none; }
-        body.embedded .container { padding: 10px; }
         header h1 { font-size: 1.5rem; margin-bottom: 5px; }
         header p { opacity: 0.8; font-size: 0.9rem; }
         .data-badge {
@@ -107,13 +105,14 @@
         <div class="search-box">
             <label for="address">Enter Property Address</label>
             <div class="search-row">
-                <input type="text" id="address" placeholder="123 Main St, Ramona, CA" autocomplete="off">
-                <button id="searchBtn" onclick="search()">Search</button>
+                <input type="text" id="address" placeholder="123 Main St, Ramona, CA 92065" autocomplete="off">
+                <button id="searchBtn" onclick="search()" disabled>Loading...</button>
             </div>
+            <p style="margin-top: 10px; font-size: 0.85rem; color: #666;">💡 <strong>Tip:</strong> Include your <strong>zip code</strong> for best results. Well depths can vary significantly even within a few miles.</p>
             <div class="options">
                 <label>Radius: <select id="radius">
-                    <option value="0.5">0.5 miles</option>
-                    <option value="1" selected>1 mile</option>
+                    <option value="0.5" selected>0.5 miles</option>
+                    <option value="1">1 mile</option>
                     <option value="2">2 miles</option>
                     <option value="5">5 miles</option>
                 </select></label>
@@ -136,10 +135,12 @@
                 const data = await resp.json();
                 LOCAL_WELLS = data.wells;
                 document.getElementById('dataBadge').textContent = `✓ ${data.count.toLocaleString()} wells loaded`;
-                console.log(`Loaded ${data.count} wells from local database`);
+                document.getElementById('searchBtn').disabled = false;
+                document.getElementById('searchBtn').textContent = 'Search';
             } catch (e) {
-                document.getElementById('dataBadge').textContent = '⚠ Using live API';
-                console.log('Local data not available, will use API');
+                document.getElementById('dataBadge').textContent = '⚠ Data failed to load';
+                document.getElementById('searchBtn').textContent = 'Search';
+                document.getElementById('searchBtn').disabled = false;
             }
         }
         loadLocalData();
@@ -150,9 +151,13 @@
         
         async function search() {
             const address = document.getElementById('address').value.trim();
-            const radius = parseFloat(document.getElementById('radius').value);
             
             if (!address) { showError('Please enter an address'); return; }
+            
+            if (!LOCAL_WELLS) {
+                showError('Well data is still loading. Please wait a few seconds and try again.');
+                return;
+            }
             
             showLoading(true);
             hideError();
@@ -160,11 +165,14 @@
             
             try {
                 const coords = await geocode(address);
-                const wells = queryLocalWells(coords.lat, coords.lon, radius);
+                // Re-read radius in case fallback expanded it
+                const currentRadius = parseFloat(document.getElementById('radius').value);
+                const wells = queryLocalWells(coords.lat, coords.lon, currentRadius);
                 const analysis = analyzeWells(wells, coords.lat, coords.lon);
                 analysis.location = coords.display;
                 analysis.coords = coords;
-                analysis.radius = radius;
+                analysis.radius = currentRadius;
+                analysis.fallback = coords.fallback;
                 showResults(analysis);
             } catch (err) {
                 showError(err.message);
@@ -176,14 +184,80 @@
         async function geocode(address) {
             const params = new URLSearchParams({ q: address, format: 'json', limit: 1, countrycodes: 'us' });
             const resp = await fetch(`${NOMINATIM_API}?${params}`, { headers: { 'User-Agent': 'WellDepthLookup/1.0' } });
-            const data = await resp.json();
-            if (!data.length) throw new Error('Could not find that address. Try being more specific.');
-            return { lat: parseFloat(data[0].lat), lon: parseFloat(data[0].lon), display: data[0].display_name };
+            let data = await resp.json();
+            let fallback = false;
+            
+            // If exact address not found, try zip code first (most accurate fallback)
+            // Use the LAST 5-digit number (zip codes come after street numbers)
+            if (!data.length) {
+                const allZips = address.match(/\b\d{5}\b/g);
+                const zipCode = allZips ? allZips[allZips.length - 1] : null;
+                if (zipCode) {
+                    const zipParams = new URLSearchParams({ q: zipCode, format: 'json', limit: 1, countrycodes: 'us' });
+                    const zipResp = await fetch(`${NOMINATIM_API}?${zipParams}`, { headers: { 'User-Agent': 'WellDepthLookup/1.0' } });
+                    data = await zipResp.json();
+                    if (data.length) fallback = true;
+                }
+            }
+            
+            // Try city, state if still not found (with commas)
+            if (!data.length) {
+                const cityMatch = address.match(/,\s*([^,]+),\s*([A-Z]{2})/i);
+                if (cityMatch) {
+                    const cityParams = new URLSearchParams({ q: `${cityMatch[1]}, ${cityMatch[2]}`, format: 'json', limit: 1, countrycodes: 'us' });
+                    const cityResp = await fetch(`${NOMINATIM_API}?${cityParams}`, { headers: { 'User-Agent': 'WellDepthLookup/1.0' } });
+                    data = await cityResp.json();
+                    if (data.length) fallback = true;
+                }
+            }
+            
+            // Try extracting city name WITHOUT commas (e.g., "123 main st ramona ca")
+            if (!data.length) {
+                // Common CA cities in well drilling areas - expanded list
+                const knownCities = ['ramona', 'aguanga', 'escondido', 'valley center', 'fallbrook', 'temecula', 
+                    'murrieta', 'poway', 'alpine', 'jamul', 'descanso', 'julian', 'borrego springs',
+                    'hemet', 'winchester', 'anza', 'idyllwild', 'lake elsinore', 'wildomar',
+                    'apple valley', 'lucerne valley', 'hesperia', 'victorville', 'yucca valley',
+                    'twentynine palms', 'joshua tree', 'morongo valley', 'pioneertown',
+                    'perris', 'menifee', 'san jacinto', 'banning', 'beaumont', 'cherry valley',
+                    'nuevo', 'lakeview', 'homeland', 'romoland', 'lakeside', 'el cajon',
+                    'campo', 'potrero', 'pine valley', 'boulevard', 'jacumba', 'ocotillo',
+                    'warner springs', 'santa ysabel', 'ranchita', 'oak grove'];
+                const lowerAddr = address.toLowerCase();
+                for (const city of knownCities) {
+                    if (lowerAddr.includes(city)) {
+                        const cityParams = new URLSearchParams({ q: `${city}, CA`, format: 'json', limit: 1, countrycodes: 'us' });
+                        const cityResp = await fetch(`${NOMINATIM_API}?${cityParams}`, { headers: { 'User-Agent': 'WellDepthLookup/1.0' } });
+                        data = await cityResp.json();
+                        if (data.length) { fallback = true; break; }
+                    }
+                }
+            }
+            
+            // Last resort: try the last 2-3 words before "ca" or "california"
+            if (!data.length) {
+                const lastWordsMatch = address.match(/(\w+(?:\s+\w+)?)\s+(?:ca|california)\s*$/i);
+                if (lastWordsMatch) {
+                    const cityParams = new URLSearchParams({ q: `${lastWordsMatch[1]}, CA`, format: 'json', limit: 1, countrycodes: 'us' });
+                    const cityResp = await fetch(`${NOMINATIM_API}?${cityParams}`, { headers: { 'User-Agent': 'WellDepthLookup/1.0' } });
+                    data = await cityResp.json();
+                    if (data.length) fallback = true;
+                }
+            }
+            
+            if (!data.length) throw new Error('Could not find that location. Try adding your zip code or just enter the city name (e.g., "Aguanga, CA 92536").');
+            
+            // If we had to fall back, auto-expand radius to 2 miles and notify user
+            if (fallback) {
+                document.getElementById('radius').value = '2';
+            }
+            
+            return { lat: parseFloat(data[0].lat), lon: parseFloat(data[0].lon), display: data[0].display_name, fallback };
         }
         
         function queryLocalWells(lat, lon, radiusMiles) {
             if (!LOCAL_WELLS) return [];
-            return LOCAL_WELLS.filter(w => {
+            const results = LOCAL_WELLS.filter(w => {
                 const dist = calcDistance(lat, lon, w.lat, w.lon);
                 return dist <= radiusMiles;
             }).map(w => ({
@@ -193,8 +267,10 @@
                 City: w.city,
                 WellYield: w.yield,
                 CasingDiameter: w.casing,
-                WCRNumber: w.wcr
+                WCRNumber: w.wcr,
+                DrillingMethod: w.method
             }));
+            return results;
         }
         
         function calcDistance(lat1, lon1, lat2, lon2) {
@@ -208,29 +284,60 @@
         function analyzeWells(wells, centerLat, centerLon) {
             if (!wells.length) return { wells: [], stats: null };
             
-            const depths = wells.map(w => w.TotalCompletedDepth || w.TotalDrillDepth).filter(d => d > 0);
-            const yields = wells.map(w => w.WellYield).filter(y => y > 0);
-            
+            // Calculate distance for each well first
             wells.forEach(w => {
                 w._distance = calcDistance(centerLat, centerLon, w.DecimalLatitude, w.DecimalLongitude);
+                w._depth = w.TotalCompletedDepth || w.TotalDrillDepth;
             });
             wells.sort((a, b) => a._distance - b._distance);
+            
+            // Filter valid depths and yields
+            const wellsWithDepth = wells.filter(w => w._depth > 0);
+            const yields = wells.map(w => w.WellYield).filter(y => y > 0);
+            
+            // Inverse distance weighted average for depth (closer wells count more)
+            let weightedDepth = null;
+            if (wellsWithDepth.length) {
+                let totalWeight = 0;
+                let weightedSum = 0;
+                wellsWithDepth.forEach(w => {
+                    // Weight = 1 / (distance + 0.1)^2  (0.1 prevents division by zero for very close wells)
+                    const weight = 1 / Math.pow(w._distance + 0.1, 2);
+                    weightedSum += w._depth * weight;
+                    totalWeight += weight;
+                });
+                weightedDepth = Math.round(weightedSum / totalWeight);
+            }
+            
+            const depths = wellsWithDepth.map(w => w._depth);
+            
+            // Count drilling methods
+            const methods = {};
+            wells.forEach(w => {
+                const m = w.DrillingMethod || 'Unknown';
+                methods[m] = (methods[m] || 0) + 1;
+            });
+            // Get top method
+            const topMethod = Object.entries(methods).sort((a,b) => b[1] - a[1])[0];
             
             return {
                 wells: wells.slice(0, 20),
                 stats: {
                     count: wells.length,
-                    avgDepth: depths.length ? Math.round(depths.reduce((a,b)=>a+b,0)/depths.length) : null,
+                    avgDepth: weightedDepth,
                     minDepth: depths.length ? Math.min(...depths) : null,
                     maxDepth: depths.length ? Math.max(...depths) : null,
                     medianDepth: depths.length ? depths.sort((a,b)=>a-b)[Math.floor(depths.length/2)] : null,
-                    avgYield: yields.length ? Math.round(yields.reduce((a,b)=>a+b,0)/yields.length) : null
+                    avgYield: yields.length ? Math.round(yields.reduce((a,b)=>a+b,0)/yields.length) : null,
+                    topMethod: topMethod ? topMethod[0] : null,
+                    topMethodPct: topMethod ? Math.round(topMethod[1] / wells.length * 100) : null,
+                    methods: methods
                 }
             };
         }
         
         function showResults(analysis) {
-            const { wells, stats, location, radius } = analysis;
+            const { wells, stats, location, radius, fallback } = analysis;
             const resultsDiv = document.getElementById('results');
             
             if (!wells.length) {
@@ -245,11 +352,13 @@
             let html = `
                 <div class="stats-box">
                     <h2>📊 Well Data for This Area</h2>
-                    <p style="margin-bottom:15px;color:#666;font-size:0.9rem;">Based on ${stats.count} wells within ${radius} mile(s)</p>
+                    ${fallback ? '<p style="margin-bottom:10px;color:#b45309;font-size:0.85rem;background:#fef3c7;padding:8px 12px;border-radius:6px;">⚠️ Exact address not found — showing results for general area. Add your zip code for better accuracy.</p>' : ''}
+                    <p style="margin-bottom:15px;color:#666;font-size:0.9rem;">Based on ${stats.count} wells within ${radius} mile(s) (closer wells weighted more heavily)</p>
                     <div class="stats-grid">
                         <div class="stat-item"><div class="stat-value">${stats.avgDepth}'</div><div class="stat-label">Avg Depth</div></div>
                         <div class="stat-item"><div class="stat-value">${stats.minDepth}'-${stats.maxDepth}'</div><div class="stat-label">Depth Range</div></div>
                         <div class="stat-item"><div class="stat-value">${stats.avgYield || 'N/A'}</div><div class="stat-label">Avg GPM</div></div>
+                        ${stats.topMethod ? `<div class="stat-item"><div class="stat-value">${stats.topMethod}</div><div class="stat-label">${stats.topMethodPct}% of wells</div></div>` : ''}
                     </div>
                 </div>
                 <div class="estimate-box">
@@ -267,6 +376,7 @@
                             </div>
                             <div class="details">
                                 ${w.City ? `<span>📍 ${w.City}</span>` : ''}
+                                ${w.DrillingMethod ? `<span>🔧 ${w.DrillingMethod}</span>` : ''}
                                 ${w.WellYield ? `<span>💧 ${w.WellYield} GPM</span>` : ''}
                                 ${w.CasingDiameter ? `<span>⭕ ${w.CasingDiameter}" casing</span>` : ''}
                             </div>
@@ -288,11 +398,6 @@
         function showError(msg) { const el = document.getElementById('error'); el.textContent = msg; el.style.display = 'block'; }
         function hideError() { document.getElementById('error').style.display = 'none'; }
         function hideResults() { document.getElementById('results').style.display = 'none'; }
-        
-        // Detect if embedded in app shell
-        if (window.self !== window.top) {
-            document.body.classList.add('embedded');
-        }
     </script>
 </body>
 </html>
