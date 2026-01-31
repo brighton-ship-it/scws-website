@@ -105,10 +105,10 @@
         <div class="search-box">
             <label for="address">Enter Property Address</label>
             <div class="search-row">
-                <input type="text" id="address" placeholder="123 Main St, Ramona, CA" autocomplete="off">
+                <input type="text" id="address" placeholder="123 Main St, Ramona, CA 92065" autocomplete="off">
                 <button id="searchBtn" onclick="search()">Search</button>
             </div>
-            <p style="margin-top: 10px; font-size: 0.85rem; color: #666;">💡 <strong>Tip:</strong> Enter your full street address for the most accurate estimate. Well depths can vary significantly even within a few miles.</p>
+            <p style="margin-top: 10px; font-size: 0.85rem; color: #666;">💡 <strong>Tip:</strong> Include your <strong>zip code</strong> for best results. Well depths can vary significantly even within a few miles.</p>
             <div class="options">
                 <label>Radius: <select id="radius">
                     <option value="0.5" selected>0.5 miles</option>
@@ -160,10 +160,12 @@
             try {
                 const coords = await geocode(address);
                 const wells = queryLocalWells(coords.lat, coords.lon, radius);
+                const currentRadius = parseFloat(document.getElementById('radius').value);
                 const analysis = analyzeWells(wells, coords.lat, coords.lon);
                 analysis.location = coords.display;
                 analysis.coords = coords;
-                analysis.radius = radius;
+                analysis.radius = currentRadius;
+                analysis.fallback = coords.fallback;
                 showResults(analysis);
             } catch (err) {
                 showError(err.message);
@@ -176,15 +178,16 @@
             const params = new URLSearchParams({ q: address, format: 'json', limit: 1, countrycodes: 'us' });
             const resp = await fetch(`${NOMINATIM_API}?${params}`, { headers: { 'User-Agent': 'WellDepthLookup/1.0' } });
             let data = await resp.json();
+            let fallback = false;
             
-            // If exact address not found, try simplifying (city + state or zip)
+            // If exact address not found, try zip code first (most accurate fallback)
             if (!data.length) {
-                // Try extracting zip code
                 const zipMatch = address.match(/\b(\d{5})\b/);
                 if (zipMatch) {
                     const zipParams = new URLSearchParams({ q: zipMatch[1], format: 'json', limit: 1, countrycodes: 'us' });
                     const zipResp = await fetch(`${NOMINATIM_API}?${zipParams}`, { headers: { 'User-Agent': 'WellDepthLookup/1.0' } });
                     data = await zipResp.json();
+                    if (data.length) fallback = true;
                 }
             }
             
@@ -195,22 +198,29 @@
                     const cityParams = new URLSearchParams({ q: `${cityMatch[1]}, ${cityMatch[2]}`, format: 'json', limit: 1, countrycodes: 'us' });
                     const cityResp = await fetch(`${NOMINATIM_API}?${cityParams}`, { headers: { 'User-Agent': 'WellDepthLookup/1.0' } });
                     data = await cityResp.json();
+                    if (data.length) fallback = true;
                 }
             }
             
             // Try extracting city name WITHOUT commas (e.g., "123 main st ramona ca")
             if (!data.length) {
-                // Common CA cities in well drilling areas
+                // Common CA cities in well drilling areas - expanded list
                 const knownCities = ['ramona', 'aguanga', 'escondido', 'valley center', 'fallbrook', 'temecula', 
                     'murrieta', 'poway', 'alpine', 'jamul', 'descanso', 'julian', 'borrego springs',
-                    'hemet', 'winchester', 'anza', 'idyllwild', 'lake elsinore', 'wildomar'];
+                    'hemet', 'winchester', 'anza', 'idyllwild', 'lake elsinore', 'wildomar',
+                    'apple valley', 'lucerne valley', 'hesperia', 'victorville', 'yucca valley',
+                    'twentynine palms', 'joshua tree', 'morongo valley', 'pioneertown',
+                    'perris', 'menifee', 'san jacinto', 'banning', 'beaumont', 'cherry valley',
+                    'nuevo', 'lakeview', 'homeland', 'romoland', 'lakeside', 'el cajon',
+                    'campo', 'potrero', 'pine valley', 'boulevard', 'jacumba', 'ocotillo',
+                    'warner springs', 'santa ysabel', 'ranchita', 'oak grove'];
                 const lowerAddr = address.toLowerCase();
                 for (const city of knownCities) {
                     if (lowerAddr.includes(city)) {
                         const cityParams = new URLSearchParams({ q: `${city}, CA`, format: 'json', limit: 1, countrycodes: 'us' });
                         const cityResp = await fetch(`${NOMINATIM_API}?${cityParams}`, { headers: { 'User-Agent': 'WellDepthLookup/1.0' } });
                         data = await cityResp.json();
-                        if (data.length) break;
+                        if (data.length) { fallback = true; break; }
                     }
                 }
             }
@@ -222,11 +232,18 @@
                     const cityParams = new URLSearchParams({ q: `${lastWordsMatch[1]}, CA`, format: 'json', limit: 1, countrycodes: 'us' });
                     const cityResp = await fetch(`${NOMINATIM_API}?${cityParams}`, { headers: { 'User-Agent': 'WellDepthLookup/1.0' } });
                     data = await cityResp.json();
+                    if (data.length) fallback = true;
                 }
             }
             
-            if (!data.length) throw new Error('Could not find that location. Try just the city name and state (e.g., "Aguanga, CA") or zip code.');
-            return { lat: parseFloat(data[0].lat), lon: parseFloat(data[0].lon), display: data[0].display_name };
+            if (!data.length) throw new Error('Could not find that location. Try adding your zip code or just enter the city name (e.g., "Aguanga, CA 92536").');
+            
+            // If we had to fall back, auto-expand radius to 2 miles and notify user
+            if (fallback) {
+                document.getElementById('radius').value = '2';
+            }
+            
+            return { lat: parseFloat(data[0].lat), lon: parseFloat(data[0].lon), display: data[0].display_name, fallback };
         }
         
         function queryLocalWells(lat, lon, radiusMiles) {
@@ -297,7 +314,7 @@
         }
         
         function showResults(analysis) {
-            const { wells, stats, location, radius } = analysis;
+            const { wells, stats, location, radius, fallback } = analysis;
             const resultsDiv = document.getElementById('results');
             
             if (!wells.length) {
@@ -312,6 +329,7 @@
             let html = `
                 <div class="stats-box">
                     <h2>📊 Well Data for This Area</h2>
+                    ${fallback ? '<p style="margin-bottom:10px;color:#b45309;font-size:0.85rem;background:#fef3c7;padding:8px 12px;border-radius:6px;">⚠️ Exact address not found — showing results for general area. Add your zip code for better accuracy.</p>' : ''}
                     <p style="margin-bottom:15px;color:#666;font-size:0.9rem;">Based on ${stats.count} wells within ${radius} mile(s) (closer wells weighted more heavily)</p>
                     <div class="stats-grid">
                         <div class="stat-item"><div class="stat-value">${stats.avgDepth}'</div><div class="stat-label">Avg Depth</div></div>
