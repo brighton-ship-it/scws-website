@@ -108,10 +108,11 @@
                 <input type="text" id="address" placeholder="123 Main St, Ramona, CA" autocomplete="off">
                 <button id="searchBtn" onclick="search()">Search</button>
             </div>
+            <p style="margin-top: 10px; font-size: 0.85rem; color: #666;">💡 <strong>Tip:</strong> Enter your full street address for the most accurate estimate. Well depths can vary significantly even within a few miles.</p>
             <div class="options">
                 <label>Radius: <select id="radius">
-                    <option value="0.5">0.5 miles</option>
-                    <option value="1" selected>1 mile</option>
+                    <option value="0.5" selected>0.5 miles</option>
+                    <option value="1">1 mile</option>
                     <option value="2">2 miles</option>
                     <option value="5">5 miles</option>
                 </select></label>
@@ -255,19 +256,38 @@
         function analyzeWells(wells, centerLat, centerLon) {
             if (!wells.length) return { wells: [], stats: null };
             
-            const depths = wells.map(w => w.TotalCompletedDepth || w.TotalDrillDepth).filter(d => d > 0);
-            const yields = wells.map(w => w.WellYield).filter(y => y > 0);
-            
+            // Calculate distance for each well first
             wells.forEach(w => {
                 w._distance = calcDistance(centerLat, centerLon, w.DecimalLatitude, w.DecimalLongitude);
+                w._depth = w.TotalCompletedDepth || w.TotalDrillDepth;
             });
             wells.sort((a, b) => a._distance - b._distance);
+            
+            // Filter valid depths and yields
+            const wellsWithDepth = wells.filter(w => w._depth > 0);
+            const yields = wells.map(w => w.WellYield).filter(y => y > 0);
+            
+            // Inverse distance weighted average for depth (closer wells count more)
+            let weightedDepth = null;
+            if (wellsWithDepth.length) {
+                let totalWeight = 0;
+                let weightedSum = 0;
+                wellsWithDepth.forEach(w => {
+                    // Weight = 1 / (distance + 0.1)^2  (0.1 prevents division by zero for very close wells)
+                    const weight = 1 / Math.pow(w._distance + 0.1, 2);
+                    weightedSum += w._depth * weight;
+                    totalWeight += weight;
+                });
+                weightedDepth = Math.round(weightedSum / totalWeight);
+            }
+            
+            const depths = wellsWithDepth.map(w => w._depth);
             
             return {
                 wells: wells.slice(0, 20),
                 stats: {
                     count: wells.length,
-                    avgDepth: depths.length ? Math.round(depths.reduce((a,b)=>a+b,0)/depths.length) : null,
+                    avgDepth: weightedDepth,
                     minDepth: depths.length ? Math.min(...depths) : null,
                     maxDepth: depths.length ? Math.max(...depths) : null,
                     medianDepth: depths.length ? depths.sort((a,b)=>a-b)[Math.floor(depths.length/2)] : null,
@@ -292,7 +312,7 @@
             let html = `
                 <div class="stats-box">
                     <h2>📊 Well Data for This Area</h2>
-                    <p style="margin-bottom:15px;color:#666;font-size:0.9rem;">Based on ${stats.count} wells within ${radius} mile(s)</p>
+                    <p style="margin-bottom:15px;color:#666;font-size:0.9rem;">Based on ${stats.count} wells within ${radius} mile(s) (closer wells weighted more heavily)</p>
                     <div class="stats-grid">
                         <div class="stat-item"><div class="stat-value">${stats.avgDepth}'</div><div class="stat-label">Avg Depth</div></div>
                         <div class="stat-item"><div class="stat-value">${stats.minDepth}'-${stats.maxDepth}'</div><div class="stat-label">Depth Range</div></div>
