@@ -110,6 +110,10 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Preload hero image for faster LCP -->
+    <link rel="preload" as="image" href="images/drilling-rig.jpg" fetchpriority="high">
+    
     <title>Southern California Well Service | Water Well Drilling & Pump Repair</title>
     <meta name="description" content="Expert water well drilling, pump repair, and maintenance in San Diego, Riverside, and San Bernardino Counties. 4.9★ rating, fast response, fair pricing. Call (760) 440-8520.">
     <meta name="keywords" content="well drilling, pump repair, water well service, San Diego, Riverside, San Bernardino, well maintenance, well drilling Ramona, pump repair Temecula, water well Anza, emergency well service">
@@ -454,7 +458,7 @@
     <section class="relative text-white py-24 lg:py-32 overflow-hidden min-h-[600px] lg:min-h-0 flex items-center">
         <!-- Background image for mobile -->
         <div class="absolute inset-0 lg:hidden">
-            <img src="images/drilling-rig.jpg" alt="Southern California Well Service drilling rig and service truck at job site" class="w-full h-full object-cover object-center">
+            <img src="images/drilling-rig.jpg" alt="Southern California Well Service drilling rig and service truck at job site" class="w-full h-full object-cover object-center" fetchpriority="high" loading="eager" width="1920" height="1080">
             <div class="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/70 to-slate-900/60"></div>
         </div>
         <!-- Solid background for desktop -->
@@ -491,7 +495,7 @@
                 </div>
                 <!-- Image only shows on desktop (side by side) -->
                 <div class="hidden lg:block">
-                    <img src="images/drilling-rig.jpg" alt="SCWS drilling rig in action" class="rounded-2xl shadow-2xl w-full">
+                    <img src="images/drilling-rig.jpg" alt="SCWS drilling rig in action" loading="lazy" class="rounded-2xl shadow-2xl w-full">
                 </div>
             </div>
         </div>
@@ -587,7 +591,7 @@
                     </div>
                 </div>
                 <div class="relative">
-                    <img src="images/water-system.jpg" alt="SCWS Ram pump truck on service call" class="rounded-2xl shadow-xl">
+                    <img src="images/water-system.jpg" loading="lazy" alt="SCWS Ram pump truck on service call" class="rounded-2xl shadow-xl">
                     <div class="absolute -bottom-6 -left-6 bg-accent text-white p-4 rounded-xl shadow-lg hidden lg:block">
                         <div class="text-3xl font-bold">1000+</div>
                         <div class="text-sm">Wells Serviced</div>
@@ -828,7 +832,7 @@
                     </ul>
                 </div>
                 <div>
-                    <img src="images/service-truck.jpg" alt="SCWS service truck at job site" class="rounded-2xl shadow-2xl">
+                    <img src="images/service-truck.jpg" loading="lazy" alt="SCWS service truck at job site" class="rounded-2xl shadow-2xl">
                 </div>
             </div>
         </div>
