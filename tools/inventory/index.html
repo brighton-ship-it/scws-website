@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory - SCWS</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f5f5f5;
+            color: #333;
+        }
+        .header {
+            background: #1f3b4d;
+            color: white;
+            padding: 15px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .header h1 { font-size: 1.3rem; margin-bottom: 5px; }
+        .header-stats {
+            display: flex;
+            gap: 15px;
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+        .header-stats span { background: rgba(255,255,255,0.15); padding: 3px 10px; border-radius: 12px; }
+        .low-stock { background: #e74c3c !important; }
+        
+        .tabs {
+            display: flex;
+            background: white;
+            border-bottom: 1px solid #ddd;
+            position: sticky;
+            top: 60px;
+            z-index: 99;
+        }
+        .tab {
+            flex: 1;
+            padding: 12px;
+            text-align: center;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+            font-weight: 500;
+            color: #666;
+        }
+        .tab.active {
+            color: #1f3b4d;
+            border-bottom-color: #4e9271;
+            background: #f8f9fa;
+        }
+        
+        .search-bar {
+            padding: 10px 15px;
+            background: white;
+            border-bottom: 1px solid #eee;
+            position: sticky;
+            top: 107px;
+            z-index: 98;
+        }
+        .search-bar input {
+            width: 100%;
+            padding: 10px 15px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+        .search-bar input:focus { outline: none; border-color: #4e9271; }
+        
+        .filters {
+            padding: 10px 15px;
+            background: #f8f9fa;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .filter-btn {
+            padding: 6px 12px;
+            border: 1px solid #ddd;
+            background: white;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            cursor: pointer;
+        }
+        .filter-btn.active { background: #1f3b4d; color: white; border-color: #1f3b4d; }
+        
+        .item-list { padding: 10px; }
+        
+        .item {
+            background: white;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 10px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .item.low-stock { border-left: 4px solid #e74c3c; }
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 10px;
+        }
+        .item-name {
+            font-weight: 600;
+            font-size: 1rem;
+            color: #1f3b4d;
+            flex: 1;
+        }
+        .item-cost {
+            font-size: 0.85rem;
+            color: #666;
+            background: #f0f0f0;
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+        .item-desc {
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 12px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        
+        .stock-controls {
+            display: flex;
+            gap: 20px;
+        }
+        .stock-group {
+            flex: 1;
+        }
+        .stock-label {
+            font-size: 0.75rem;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 5px;
+        }
+        .stock-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .stock-btn {
+            width: 36px;
+            height: 36px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .stock-btn.minus { background: #fee; color: #c00; }
+        .stock-btn.plus { background: #efe; color: #060; }
+        .stock-btn:active { transform: scale(0.95); }
+        .stock-count {
+            font-size: 1.3rem;
+            font-weight: 700;
+            min-width: 40px;
+            text-align: center;
+        }
+        .stock-count.zero { color: #999; }
+        .stock-count.low { color: #e74c3c; }
+        
+        .item-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid #eee;
+            font-size: 0.8rem;
+            color: #888;
+        }
+        .min-stock-btn {
+            background: none;
+            border: 1px dashed #ccc;
+            padding: 4px 8px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            color: #666;
+        }
+        
+        .empty-state {
+            text-align: center;
+            padding: 40px 20px;
+            color: #888;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+        }
+        
+        /* Modal */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 200;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-overlay.show { display: flex; }
+        .modal {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            width: 90%;
+            max-width: 400px;
+        }
+        .modal h3 { margin-bottom: 15px; }
+        .modal input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+        .modal-btns { display: flex; gap: 10px; }
+        .modal-btns button {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+        .modal-btns .cancel { background: #eee; }
+        .modal-btns .save { background: #4e9271; color: white; }
+        
+        @media (max-width: 500px) {
+            .stock-controls { flex-direction: column; gap: 10px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>📦 Inventory Tracker</h1>
+        <div class="header-stats">
+            <span id="totalItems">-- items</span>
+            <span id="lowStockCount" class="low-stock" style="display:none">⚠️ -- low</span>
+            <span id="lastSync">Synced: --</span>
+        </div>
+    </div>
+    
+    <div class="tabs">
+        <div class="tab active" data-tab="all">All</div>
+        <div class="tab" data-tab="truck">🚚 Truck</div>
+        <div class="tab" data-tab="warehouse">🏠 Warehouse</div>
+        <div class="tab" data-tab="low">⚠️ Low Stock</div>
+    </div>
+    
+    <div class="search-bar">
+        <input type="text" id="search" placeholder="Search products...">
+    </div>
+    
+    <div class="filters">
+        <button class="filter-btn active" data-category="all">All</button>
+        <button class="filter-btn" data-category="PRODUCT">Products</button>
+        <button class="filter-btn" data-category="SERVICE">Services</button>
+    </div>
+    
+    <div id="itemList" class="item-list">
+        <div class="loading">Loading inventory...</div>
+    </div>
+    
+    <!-- Min Stock Modal -->
+    <div class="modal-overlay" id="minStockModal">
+        <div class="modal">
+            <h3>Set Minimum Stock</h3>
+            <p id="modalItemName" style="margin-bottom:15px;color:#666;"></p>
+            <input type="number" id="minStockInput" min="0" placeholder="Minimum quantity">
+            <div class="modal-btns">
+                <button class="cancel" onclick="closeModal()">Cancel</button>
+                <button class="save" onclick="saveMinStock()">Save</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let inventory = { items: [] };
+        let currentTab = 'all';
+        let currentCategory = 'all';
+        let searchQuery = '';
+        let editingItemId = null;
+        
+        // Load inventory
+        async function loadInventory() {
+            try {
+                const resp = await fetch('inventory.json');
+                inventory = await resp.json();
+                document.getElementById('totalItems').textContent = `${inventory.items.length} items`;
+                document.getElementById('lastSync').textContent = `Synced: ${new Date(inventory.syncedAt).toLocaleDateString()}`;
+                updateLowStockCount();
+                renderItems();
+            } catch (e) {
+                document.getElementById('itemList').innerHTML = '<div class="empty-state">Failed to load inventory. Run sync-jobber.js first.</div>';
+            }
+        }
+        
+        function updateLowStockCount() {
+            const lowCount = inventory.items.filter(i => {
+                const total = (i.warehouse || 0) + (i.truck || 0);
+                return i.minStock > 0 && total < i.minStock;
+            }).length;
+            const el = document.getElementById('lowStockCount');
+            if (lowCount > 0) {
+                el.textContent = `⚠️ ${lowCount} low`;
+                el.style.display = 'inline';
+            } else {
+                el.style.display = 'none';
+            }
+        }
+        
+        function getFilteredItems() {
+            return inventory.items.filter(item => {
+                // Search filter
+                if (searchQuery && !item.name.toLowerCase().includes(searchQuery.toLowerCase())) {
+                    return false;
+                }
+                // Category filter
+                if (currentCategory !== 'all' && item.category !== currentCategory) {
+                    return false;
+                }
+                // Tab filter
+                const total = (item.warehouse || 0) + (item.truck || 0);
+                const isLow = item.minStock > 0 && total < item.minStock;
+                if (currentTab === 'truck' && !item.truck) return false;
+                if (currentTab === 'warehouse' && !item.warehouse) return false;
+                if (currentTab === 'low' && !isLow) return false;
+                return true;
+            });
+        }
+        
+        function renderItems() {
+            const items = getFilteredItems();
+            const container = document.getElementById('itemList');
+            
+            if (items.length === 0) {
+                container.innerHTML = '<div class="empty-state">No items found</div>';
+                return;
+            }
+            
+            container.innerHTML = items.slice(0, 100).map(item => {
+                const total = (item.warehouse || 0) + (item.truck || 0);
+                const isLow = item.minStock > 0 && total < item.minStock;
+                return `
+                    <div class="item ${isLow ? 'low-stock' : ''}" data-id="${item.jobberId}">
+                        <div class="item-header">
+                            <div class="item-name">${escapeHtml(item.name)}</div>
+                            ${item.cost ? `<div class="item-cost">$${item.cost.toFixed(2)}</div>` : ''}
+                        </div>
+                        ${item.description ? `<div class="item-desc">${escapeHtml(item.description)}</div>` : ''}
+                        <div class="stock-controls">
+                            <div class="stock-group">
+                                <div class="stock-label">🏠 Warehouse</div>
+                                <div class="stock-row">
+                                    <button class="stock-btn minus" onclick="adjustStock('${item.jobberId}', 'warehouse', -1)">−</button>
+                                    <span class="stock-count ${item.warehouse ? '' : 'zero'}">${item.warehouse || 0}</span>
+                                    <button class="stock-btn plus" onclick="adjustStock('${item.jobberId}', 'warehouse', 1)">+</button>
+                                </div>
+                            </div>
+                            <div class="stock-group">
+                                <div class="stock-label">🚚 Truck</div>
+                                <div class="stock-row">
+                                    <button class="stock-btn minus" onclick="adjustStock('${item.jobberId}', 'truck', -1)">−</button>
+                                    <span class="stock-count ${item.truck ? '' : 'zero'}">${item.truck || 0}</span>
+                                    <button class="stock-btn plus" onclick="adjustStock('${item.jobberId}', 'truck', 1)">+</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item-footer">
+                            <button class="min-stock-btn" onclick="openMinStockModal('${item.jobberId}')">
+                                Min: ${item.minStock || 'Set'}
+                            </button>
+                            ${item.lastUpdated ? `<span>Updated: ${new Date(item.lastUpdated).toLocaleDateString()}</span>` : ''}
+                        </div>
+                    </div>
+                `;
+            }).join('');
+            
+            if (items.length > 100) {
+                container.innerHTML += `<div class="empty-state">Showing first 100 of ${items.length} items. Use search to narrow down.</div>`;
+            }
+        }
+        
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+        
+        function adjustStock(itemId, location, delta) {
+            const item = inventory.items.find(i => i.jobberId === itemId);
+            if (!item) return;
+            
+            item[location] = Math.max(0, (item[location] || 0) + delta);
+            item.lastUpdated = new Date().toISOString();
+            
+            saveInventory();
+            renderItems();
+            updateLowStockCount();
+        }
+        
+        function openMinStockModal(itemId) {
+            const item = inventory.items.find(i => i.jobberId === itemId);
+            if (!item) return;
+            
+            editingItemId = itemId;
+            document.getElementById('modalItemName').textContent = item.name;
+            document.getElementById('minStockInput').value = item.minStock || '';
+            document.getElementById('minStockModal').classList.add('show');
+        }
+        
+        function closeModal() {
+            document.getElementById('minStockModal').classList.remove('show');
+            editingItemId = null;
+        }
+        
+        function saveMinStock() {
+            const item = inventory.items.find(i => i.jobberId === editingItemId);
+            if (!item) return;
+            
+            item.minStock = parseInt(document.getElementById('minStockInput').value) || 0;
+            item.lastUpdated = new Date().toISOString();
+            
+            saveInventory();
+            renderItems();
+            updateLowStockCount();
+            closeModal();
+        }
+        
+        function saveInventory() {
+            // Save to localStorage as backup
+            localStorage.setItem('scws_inventory', JSON.stringify(inventory));
+            
+            // Note: To persist to file, would need a backend
+            // For now, changes are in localStorage only
+            console.log('Inventory saved to localStorage');
+        }
+        
+        // Load from localStorage if available (more recent than file)
+        function loadFromLocalStorage() {
+            const saved = localStorage.getItem('scws_inventory');
+            if (saved) {
+                const local = JSON.parse(saved);
+                // Merge: prefer localStorage stock counts over file
+                if (local.items) {
+                    const localMap = {};
+                    local.items.forEach(i => localMap[i.jobberId] = i);
+                    inventory.items.forEach(item => {
+                        if (localMap[item.jobberId]) {
+                            item.warehouse = localMap[item.jobberId].warehouse;
+                            item.truck = localMap[item.jobberId].truck;
+                            item.minStock = localMap[item.jobberId].minStock;
+                            item.lastUpdated = localMap[item.jobberId].lastUpdated;
+                        }
+                    });
+                }
+            }
+        }
+        
+        // Tab switching
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                currentTab = tab.dataset.tab;
+                renderItems();
+            });
+        });
+        
+        // Category filter
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                currentCategory = btn.dataset.category;
+                renderItems();
+            });
+        });
+        
+        // Search
+        document.getElementById('search').addEventListener('input', (e) => {
+            searchQuery = e.target.value;
+            renderItems();
+        });
+        
+        // Close modal on overlay click
+        document.getElementById('minStockModal').addEventListener('click', (e) => {
+            if (e.target.classList.contains('modal-overlay')) closeModal();
+        });
+        
+        // Init
+        loadInventory().then(() => {
+            loadFromLocalStorage();
+            renderItems();
+            updateLowStockCount();
+        });
+    </script>
+</body>
+</html>
