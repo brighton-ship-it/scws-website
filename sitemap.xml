@@ -7,79 +7,160 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://scwellservice.com/pages/about.html</loc>
-    <lastmod>2026-01-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://scwellservice.com/pages/estimate.html</loc>
-    <lastmod>2026-01-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <!-- Services -->
-  <url>
-    <loc>https://scwellservice.com/pages/services/well-drilling.html</loc>
+    <loc>https://scwellservice.com/tools/inventory/</loc>
     <lastmod>2026-01-31</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://scwellservice.com/pages/services/pump-repair.html</loc>
+    <loc>https://scwellservice.com/tools/welldepth/</loc>
     <lastmod>2026-01-31</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://scwellservice.com/pages/services/maintenance.html</loc>
+    <loc>https://scwellservice.com/</loc>
     <lastmod>2026-01-31</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://scwellservice.com/pages/services/diagnostics.html</loc>
+    <loc>https://scwellservice.com/404.html</loc>
     <lastmod>2026-01-31</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://scwellservice.com/pages/services/water-testing.html</loc>
-    <lastmod>2026-01-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://scwellservice.com/pages/services/controls.html</loc>
+    <loc>https://scwellservice.com/blog/well-permit-san-diego.html</loc>
     <lastmod>2026-01-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <!-- County Locations -->
   <url>
-    <loc>https://scwellservice.com/pages/locations/san-diego.html</loc>
-    <lastmod>2026-01-30</lastmod>
+    <loc>https://scwellservice.com/blog/well-water-smells-bad.html</loc>
+    <lastmod>2026-01-31</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://scwellservice.com/pages/locations/riverside.html</loc>
-    <lastmod>2026-01-30</lastmod>
+    <loc>https://scwellservice.com/blog/how-deep-should-well-be-san-diego.html</loc>
+    <lastmod>2026-01-31</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://scwellservice.com/blog/low-water-pressure-well.html</loc>
+    <lastmod>2026-01-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://scwellservice.com/blog/well-water-vs-city-water.html</loc>
+    <lastmod>2026-01-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://scwellservice.com/blog/water-well-maintenance-guide.html</loc>
+    <lastmod>2026-01-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://scwellservice.com/blog/signs-well-pump-failing.html</loc>
+    <lastmod>2026-01-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://scwellservice.com/blog/well-drilling-cost-san-diego.html</loc>
+    <lastmod>2026-01-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://scwellservice.com/public/fuel-tracker.html</loc>
+    <lastmod>2026-01-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://scwellservice.com/public/app/fuel-tracker.html</loc>
+    <lastmod>2026-01-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://scwellservice.com/public/app/</loc>
+    <lastmod>2026-01-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://scwellservice.com/public/app/splash.html</loc>
+    <lastmod>2026-01-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://scwellservice.com/public/app/well-depth.html</loc>
+    <lastmod>2026-01-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://scwellservice.com/public/app/pump-sizing-tool.html</loc>
+    <lastmod>2026-01-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://scwellservice.com/public/pump-sizing-tool.html</loc>
+    <lastmod>2026-01-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://scwellservice.com/pages/landing/emergency.html</loc>
+    <lastmod>2026-01-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://scwellservice.com/pages/estimate.html</loc>
+    <lastmod>2026-01-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://scwellservice.com/pages/about.html</loc>
+    <lastmod>2026-01-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://scwellservice.com/pages/pump-sizing.html</loc>
+    <lastmod>2026-01-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://scwellservice.com/pages/locations/san-bernardino.html</loc>
-    <lastmod>2026-01-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <!-- City Pages - San Diego County -->
-  <url>
-    <loc>https://scwellservice.com/pages/locations/cities/ramona.html</loc>
     <lastmod>2026-01-31</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://scwellservice.com/pages/locations/riverside.html</loc>
+    <lastmod>2026-01-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://scwellservice.com/pages/locations/san-diego.html</loc>
+    <lastmod>2026-01-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://scwellservice.com/pages/locations/cities/valley-center.html</loc>
@@ -88,7 +169,43 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://scwellservice.com/pages/locations/cities/escondido.html</loc>
+    <loc>https://scwellservice.com/pages/locations/cities/lakeside.html</loc>
+    <lastmod>2026-01-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://scwellservice.com/pages/locations/cities/winchester.html</loc>
+    <lastmod>2026-01-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://scwellservice.com/pages/locations/cities/wildomar.html</loc>
+    <lastmod>2026-01-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://scwellservice.com/pages/locations/cities/la-mesa.html</loc>
+    <lastmod>2026-01-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://scwellservice.com/pages/locations/cities/san-marcos.html</loc>
+    <lastmod>2026-01-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://scwellservice.com/pages/locations/cities/el-cajon.html</loc>
+    <lastmod>2026-01-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://scwellservice.com/pages/locations/cities/carlsbad.html</loc>
     <lastmod>2026-01-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -100,7 +217,19 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://scwellservice.com/pages/locations/cities/alpine.html</loc>
+    <loc>https://scwellservice.com/pages/locations/cities/julian.html</loc>
+    <lastmod>2026-01-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://scwellservice.com/pages/locations/cities/ramona.html</loc>
+    <lastmod>2026-01-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://scwellservice.com/pages/locations/cities/banning.html</loc>
     <lastmod>2026-01-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -112,18 +241,17 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://scwellservice.com/pages/locations/cities/julian.html</loc>
-    <lastmod>2026-01-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://scwellservice.com/pages/locations/cities/poway.html</loc>
     <lastmod>2026-01-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  <!-- City Pages - Riverside County -->
+  <url>
+    <loc>https://scwellservice.com/pages/locations/cities/lake-elsinore.html</loc>
+    <lastmod>2026-01-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
   <url>
     <loc>https://scwellservice.com/pages/locations/cities/temecula.html</loc>
     <lastmod>2026-01-31</lastmod>
@@ -131,7 +259,37 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://scwellservice.com/pages/locations/cities/murrieta.html</loc>
+    <loc>https://scwellservice.com/pages/locations/cities/bonsall.html</loc>
+    <lastmod>2026-01-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://scwellservice.com/pages/locations/cities/san-jacinto.html</loc>
+    <lastmod>2026-01-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://scwellservice.com/pages/locations/cities/beaumont.html</loc>
+    <lastmod>2026-01-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://scwellservice.com/pages/locations/cities/pauma-valley.html</loc>
+    <lastmod>2026-01-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://scwellservice.com/pages/locations/cities/spring-valley.html</loc>
+    <lastmod>2026-01-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://scwellservice.com/pages/locations/cities/perris.html</loc>
     <lastmod>2026-01-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -143,7 +301,61 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://scwellservice.com/pages/locations/cities/murrieta.html</loc>
+    <lastmod>2026-01-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://scwellservice.com/pages/locations/cities/borrego-springs.html</loc>
+    <lastmod>2026-01-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://scwellservice.com/pages/locations/cities/rancho-santa-fe.html</loc>
+    <lastmod>2026-01-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://scwellservice.com/pages/locations/cities/anza.html</loc>
+    <lastmod>2026-01-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://scwellservice.com/pages/locations/cities/vista.html</loc>
+    <lastmod>2026-01-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://scwellservice.com/pages/locations/cities/oceanside.html</loc>
+    <lastmod>2026-01-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://scwellservice.com/pages/locations/cities/menifee.html</loc>
+    <lastmod>2026-01-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://scwellservice.com/pages/locations/cities/escondido.html</loc>
+    <lastmod>2026-01-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://scwellservice.com/pages/locations/cities/idyllwild.html</loc>
+    <lastmod>2026-01-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://scwellservice.com/pages/locations/cities/alpine.html</loc>
     <lastmod>2026-01-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -154,74 +366,52 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  <!-- Tools -->
   <url>
-    <loc>https://scwellservice.com/pages/pump-sizing.html</loc>
-    <lastmod>2026-01-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://scwellservice.com/tools/welldepth/</loc>
-    <lastmod>2026-01-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <!-- Landing Pages -->
-  <url>
-    <loc>https://scwellservice.com/pages/landing/emergency.html</loc>
-    <lastmod>2026-01-30</lastmod>
+    <loc>https://scwellservice.com/pages/locations/cities/santee.html</loc>
+    <lastmod>2026-01-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  <!-- Blog -->
   <url>
-    <loc>https://scwellservice.com/blog/how-deep-should-well-be-san-diego.html</loc>
+    <loc>https://scwellservice.com/pages/locations/cities/encinitas.html</loc>
     <lastmod>2026-01-31</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://scwellservice.com/blog/well-drilling-cost-san-diego.html</loc>
-    <lastmod>2026-01-30</lastmod>
+    <loc>https://scwellservice.com/pages/services/pump-repair.html</loc>
+    <lastmod>2026-01-31</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://scwellservice.com/blog/signs-well-pump-failing.html</loc>
-    <lastmod>2026-01-30</lastmod>
+    <loc>https://scwellservice.com/pages/services/water-testing.html</loc>
+    <lastmod>2026-01-31</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://scwellservice.com/blog/well-water-vs-city-water.html</loc>
-    <lastmod>2026-01-30</lastmod>
+    <loc>https://scwellservice.com/pages/services/well-drilling.html</loc>
+    <lastmod>2026-01-31</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://scwellservice.com/blog/water-well-maintenance-guide.html</loc>
-    <lastmod>2026-01-30</lastmod>
+    <loc>https://scwellservice.com/pages/services/diagnostics.html</loc>
+    <lastmod>2026-01-31</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.9</priority>
   </url>
-
-    <url>
-        <loc>https://scwellservice.com/blog/low-water-pressure-well.html</loc>
-        <lastmod>2026-01-31</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-    <url>
-        <loc>https://scwellservice.com/blog/well-permit-san-diego.html</loc>
-        <lastmod>2026-01-31</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-    <url>
-        <loc>https://scwellservice.com/blog/well-water-smells-bad.html</loc>
-        <lastmod>2026-01-31</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
+  <url>
+    <loc>https://scwellservice.com/pages/services/maintenance.html</loc>
+    <lastmod>2026-01-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://scwellservice.com/pages/services/controls.html</loc>
+    <lastmod>2026-01-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
 </urlset>
