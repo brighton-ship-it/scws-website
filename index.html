@@ -142,7 +142,8 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"></noscript>
 <!-- Local Business Schema Markup -->
     <script type="application/ld+json">
     {
@@ -428,7 +429,7 @@
     <section class="relative text-white py-24 lg:py-32 overflow-hidden min-h-[600px] flex items-center">
         <!-- Background image for all screen sizes -->
         <div class="absolute inset-0">
-            <img src="images/drilling-rig.jpg" alt="Southern California Well Service drilling rig and service truck at job site" class="w-full h-full object-cover object-center" fetchpriority="high" loading="eager" width="1920" height="1080">
+            <img src="images/drilling-rig.jpg" alt="Southern California Well Service drilling rig and service truck at job site" class="w-full h-full object-cover object-center" fetchpriority="high" loading="eager" width="1920" height="1080" width="1200" height="800">
             <div class="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/70 to-slate-900/60"></div>
         </div>
         

@@ -24,7 +24,8 @@
     <meta property="og:image" content="https://scwellservice.com/images/og-image.jpg">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"></noscript>
 <!-- Article Schema -->
     <script type="application/ld+json">
     {
@@ -157,7 +158,7 @@
         <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center py-4">
                 <a href="../index.html" class="flex items-center space-x-3">
-                    <img src="../images/logo.png" alt="SC Well Service" class="h-12 w-12">
+                    <img src="../images/logo.png" alt="SC Well Service" class="h-12 w-12" loading="lazy">
                     <div>
                         <div class="font-bold text-xl">SC Well Service</div>
                         <div class="text-xs text-blue-200">Southern California's Trusted Well Experts</div>
@@ -888,7 +889,7 @@
             <div class="grid md:grid-cols-4 gap-8">
                 <div>
                     <div class="flex items-center space-x-3 mb-4">
-                        <img src="../images/logo.png" alt="SC Well Service" class="h-10 w-10">
+                        <img src="../images/logo.png" alt="SC Well Service" class="h-10 w-10" loading="lazy">
                         <div class="font-bold text-lg">SC Well Service</div>
                     </div>
                     <p class="text-blue-200 text-sm">Professional well services for San Diego, Riverside, and San Bernardino counties.</p>

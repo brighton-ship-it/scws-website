@@ -28,7 +28,8 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"></noscript>
 <!-- Blog Schema -->
     <script type="application/ld+json">
     {
@@ -62,7 +63,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center py-4">
                 <a href="../" class="flex items-center space-x-3">
-                    <img src="../images/logo.png" alt="Southern California Well Service" class="h-12 w-auto">
+                    <img src="../images/logo.png" alt="Southern California Well Service" class="h-12 w-auto" loading="lazy">
                 </a>
                 <nav class="hidden md:flex space-x-8">
                     <a href="../#services" class="hover:text-accent transition">Services</a>
@@ -906,7 +907,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid md:grid-cols-4 gap-8">
                 <div>
-                    <img src="../images/logo.png" alt="Southern California Well Service" class="h-12 mb-4">
+                    <img src="../images/logo.png" alt="Southern California Well Service" class="h-12 mb-4" loading="lazy">
                     <p class="text-gray-400">Professional well drilling, pump repair, and maintenance serving Southern California.</p>
                 </div>
                 <div>
