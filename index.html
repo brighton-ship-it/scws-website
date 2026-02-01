@@ -436,7 +436,6 @@
                 <nav class="hidden md:flex space-x-8">
                     <a href="#services" class="hover:text-accent transition">Services</a>
                     <a href="#areas" class="hover:text-accent transition">Service Areas</a>
-                    <a href="pages/pump-sizing.html" class="hover:text-accent transition">Pump Calculator</a>
                     <a href="blog/" class="hover:text-accent transition">Resources</a>
                     <a href="faq.html" class="hover:text-accent transition">FAQ</a>
                     <a href="contact.html" class="text-accent font-semibold hover:text-green-400 transition">Contact</a>
@@ -471,17 +470,15 @@
     </div>
 
     <!-- Hero Section -->
-    <section class="relative text-white py-24 lg:py-32 overflow-hidden min-h-[600px] lg:min-h-0 flex items-center">
-        <!-- Background image for mobile -->
-        <div class="absolute inset-0 lg:hidden">
+    <section class="relative text-white py-24 lg:py-32 overflow-hidden min-h-[600px] flex items-center">
+        <!-- Background image for all screen sizes -->
+        <div class="absolute inset-0">
             <img src="images/drilling-rig.jpg" alt="Southern California Well Service drilling rig and service truck at job site" class="w-full h-full object-cover object-center" fetchpriority="high" loading="eager" width="1920" height="1080">
             <div class="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/70 to-slate-900/60"></div>
         </div>
-        <!-- Solid background for desktop -->
-        <div class="hidden lg:block absolute inset-0 bg-gradient-to-br from-primary to-slate-800"></div>
         
         <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div class="max-w-3xl mx-auto lg:mx-0">
                 <div class="text-center lg:text-left">
                     <div class="flex items-center justify-center lg:justify-start space-x-2 mb-6">
                         <div class="flex text-yellow-400">
@@ -508,10 +505,6 @@
                             Get Free Estimate
                         </a>
                     </div>
-                </div>
-                <!-- Image only shows on desktop (side by side) -->
-                <div class="hidden lg:block">
-                    <img src="images/drilling-rig.jpg" alt="SCWS drilling rig in action" loading="lazy" class="rounded-2xl shadow-2xl w-full">
                 </div>
             </div>
         </div>
