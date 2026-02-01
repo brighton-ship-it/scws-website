@@ -60,6 +60,63 @@
         }
     }
     </script>
+    <!-- FAQPage Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "How much does well pump repair cost?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Repair costs vary depending on the problem. Simple electrical fixes or pressure switch replacements typically cost $200-500. Pressure tank replacement runs $500-1,200. Pulling and replacing a submersible pump ranges from $1,500-3,500 depending on well depth. We provide upfront quotes before any work begins."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Should I repair or replace my well pump?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Generally, if your pump is over 10-15 years old and needs major repair, replacement is often more cost-effective. We'll give you an honest recommendation based on the pump's age, condition, repair costs, and your water demands. Sometimes a repair makes sense; sometimes replacement is the smarter investment."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How long do well pumps last?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Quality submersible pumps typically last 10-15 years with proper installation and favorable water conditions. Pumps in wells with sandy, sediment-heavy, or corrosive water may fail sooner. Jet pumps average 10-12 years. Regular maintenance and proper sizing can extend pump life significantly."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Do you offer emergency pump repair service?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes! We offer 24/7 emergency service for no-water situations. Call (760) 440-8520 anytime — day, night, weekends, or holidays. We prioritize emergencies and can often respond same-day. We carry common parts and pumps on our trucks to restore your water as quickly as possible."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Why is my well pump cycling on and off constantly?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Rapid cycling usually indicates a pressure tank problem — either a failed bladder or incorrect air charge. Other causes include a faulty pressure switch, check valve failure, or a small leak in the system. This wastes energy and wears out your pump prematurely. We can diagnose and fix the issue quickly."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What brands of well pumps do you service?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "We service all major pump brands including Grundfos, Franklin Electric, Goulds, Pentair, Sta-Rite, Flotec, and more. Whether you have a submersible pump, jet pump, booster pump, or agricultural system, we have the expertise and parts to repair or replace it."
+                }
+            }
+        ]
+    }
+    </script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -77,6 +134,32 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>body { font-family: 'Inter', sans-serif; }</style>
+    <!-- BreadcrumbList Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+                {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Home",
+                        "item": "https://scwellservice.com/"
+                },
+                {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": "Services",
+                        "item": "https://scwellservice.com/pages/services/"
+                },
+                {
+                        "@type": "ListItem",
+                        "position": 3,
+                        "name": "Pump Repair"
+                }
+        ]
+}
+    </script>
 </head>
 <body class="bg-white">
     <!-- Header -->
@@ -270,19 +353,27 @@
                     <div class="space-y-4 mt-6">
                         <div class="border border-gray-200 rounded-lg p-6">
                             <h4 class="font-semibold text-primary mb-2">How much does well pump repair cost?</h4>
-                            <p class="text-gray-600">Repair costs vary widely. Simple electrical fixes or pressure tank replacements might be $300-600. Pulling and replacing a submersible pump typically ranges from $1,500-3,500 depending on well depth. We provide upfront quotes before work begins.</p>
+                            <p class="text-gray-600">Repair costs vary depending on the problem. Simple electrical fixes or pressure switch replacements typically cost $200-500. Pressure tank replacement runs $500-1,200. Pulling and replacing a submersible pump ranges from $1,500-3,500 depending on well depth. We provide upfront quotes before any work begins.</p>
                         </div>
                         <div class="border border-gray-200 rounded-lg p-6">
                             <h4 class="font-semibold text-primary mb-2">Should I repair or replace my well pump?</h4>
-                            <p class="text-gray-600">Generally, if your pump is over 10-15 years old and needs major repair, replacement is often more cost-effective. We'll give you an honest recommendation based on the pump's age, condition, and repair costs.</p>
+                            <p class="text-gray-600">Generally, if your pump is over 10-15 years old and needs major repair, replacement is often more cost-effective. We'll give you an honest recommendation based on the pump's age, condition, repair costs, and your water demands. Sometimes a repair makes sense; sometimes replacement is the smarter investment.</p>
                         </div>
                         <div class="border border-gray-200 rounded-lg p-6">
                             <h4 class="font-semibold text-primary mb-2">How long do well pumps last?</h4>
-                            <p class="text-gray-600">Quality submersible pumps typically last 10-15 years with proper installation and water conditions. Pumps in wells with sandy or corrosive water may fail sooner. Regular maintenance can extend pump life.</p>
+                            <p class="text-gray-600">Quality submersible pumps typically last 10-15 years with proper installation and favorable water conditions. Pumps in wells with sandy, sediment-heavy, or corrosive water may fail sooner. Jet pumps average 10-12 years. Regular maintenance and proper sizing can extend pump life significantly.</p>
                         </div>
                         <div class="border border-gray-200 rounded-lg p-6">
-                            <h4 class="font-semibold text-primary mb-2">Do you offer emergency service?</h4>
-                            <p class="text-gray-600">Yes! We offer 24/7 emergency service for no-water situations. Call (760) 440-8520 anytime. We prioritize emergencies and often can respond same-day.</p>
+                            <h4 class="font-semibold text-primary mb-2">Do you offer emergency pump repair service?</h4>
+                            <p class="text-gray-600">Yes! We offer 24/7 emergency service for no-water situations. Call (760) 440-8520 anytime — day, night, weekends, or holidays. We prioritize emergencies and can often respond same-day. We carry common parts and pumps on our trucks to restore your water as quickly as possible.</p>
+                        </div>
+                        <div class="border border-gray-200 rounded-lg p-6">
+                            <h4 class="font-semibold text-primary mb-2">Why is my well pump cycling on and off constantly?</h4>
+                            <p class="text-gray-600">Rapid cycling usually indicates a pressure tank problem — either a failed bladder or incorrect air charge. Other causes include a faulty pressure switch, check valve failure, or a small leak in the system. This wastes energy and wears out your pump prematurely. We can diagnose and fix the issue quickly.</p>
+                        </div>
+                        <div class="border border-gray-200 rounded-lg p-6">
+                            <h4 class="font-semibold text-primary mb-2">What brands of well pumps do you service?</h4>
+                            <p class="text-gray-600">We service all major pump brands including Grundfos, Franklin Electric, Goulds, Pentair, Sta-Rite, Flotec, and more. Whether you have a submersible pump, jet pump, booster pump, or agricultural system, we have the expertise and parts to repair or replace it.</p>
                         </div>
                     </div>
                 </div>

@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body { font-family: 'Inter', sans-serif; }
+
+/* Floating Call Button */
+.floating-call {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    animation: pulse-ring 2s infinite;
+}
+.floating-call a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    background: #4e9271;
+    border-radius: 50%;
+    box-shadow: 0 4px 15px rgba(78, 146, 113, 0.4);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.floating-call a:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(78, 146, 113, 0.6);
+}
+@keyframes pulse-ring {
+    0% { box-shadow: 0 0 0 0 rgba(78, 146, 113, 0.4); }
+    70% { box-shadow: 0 0 0 15px rgba(78, 146, 113, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(78, 146, 113, 0); }
+}
+@media (min-width: 768px) {
+    .floating-call { display: none; }
+}
+
+/* Service card hover effects */
+.service-card {
+    transition: all 0.3s ease;
+}
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+}
