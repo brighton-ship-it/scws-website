@@ -110,22 +110,11 @@
             "addressRegion": "CA",
             "addressCountry": "US"
         },
-        "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": 33.0198,
-            "longitude": -116.8465
-        },
         "areaServed": {
             "@type": "Place",
             "name": "San Diego County"
         },
-        "priceRange": "$$",
-        "openingHoursSpecification": {
-            "@type": "OpeningHoursSpecification",
-            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-            "opens": "07:00",
-            "closes": "17:00"
-        }
+        "priceRange": "$$"
     }
     </script>
     <!-- BreadcrumbList Schema -->
@@ -134,25 +123,25 @@
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
         "itemListElement": [
-                {
-                        "@type": "ListItem",
-                        "position": 1,
-                        "name": "Home",
-                        "item": "https://scwellservice.com/"
-                },
-                {
-                        "@type": "ListItem",
-                        "position": 2,
-                        "name": "Blog",
-                        "item": "https://scwellservice.com/blog/"
-                },
-                {
-                        "@type": "ListItem",
-                        "position": 3,
-                        "name": "Well Check Valve Guide: Types, Signs of Failure & Replacement"
-                }
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://scwellservice.com/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Blog",
+                "item": "https://scwellservice.com/blog/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Well Check Valve Guide: Types, Signs of Failure & Replacement"
+            }
         ]
-}
+    }
     </script>
 </head>
 <body class="bg-gray-50">
@@ -169,6 +158,18 @@
         </div>
     </header>
 
+    <!-- Hero Image Section -->
+    <div class="w-full bg-gradient-to-br from-slate-700 to-slate-900 py-16">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <div class="inline-block p-6 bg-white/10 rounded-2xl backdrop-blur mb-6">
+                <svg class="w-20 h-20 text-white mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                </svg>
+            </div>
+            <p class="text-slate-300 text-lg">Well Components Series</p>
+        </div>
+    </div>
+
     <!-- Article -->
     <article class="py-12">
         <div class="max-w-4xl mx-auto px-4">
@@ -177,22 +178,46 @@
             </div>
             
             <h1 class="text-4xl font-bold text-primary mb-4">Well Check Valve Guide: Everything You Need to Know</h1>
-            <p class="text-gray-500 mb-8">Published February 1, 2026 • 8 min read</p>
+            
+            <!-- Author Byline -->
+            <p class="text-gray-500 mb-8 flex items-center gap-2">
+                <span class="font-medium text-gray-700">By SCWS Team</span>
+                <span class="text-gray-300">|</span>
+                <span>February 1, 2026</span>
+                <span class="text-gray-300">|</span>
+                <span>8 min read</span>
+            </p>
 
             <div class="prose prose-lg max-w-none text-gray-700">
-                <p class="text-xl mb-6">
-                    That small valve you've never thought about could be the reason your pump is burning out prematurely or your pipes are making alarming noises. A <strong>well check valve</strong> is one of the most critical—and often overlooked—components in your well system. When it fails, you'll know it.
+                <!-- Engaging Technical Hook -->
+                <p class="text-xl mb-8">
+                    <strong>Every time your pump shuts off, 300 feet of water wants to rush back down into your well.</strong> That's hundreds of pounds of water, driven by gravity, ready to slam through your system in reverse. The only thing stopping this cascade? A simple mechanical device with a flapper, a spring, and about $50 worth of parts. When that <strong>well check valve</strong> fails, you'll hear the evidence: banging pipes, cycling pumps, and eventually, the expensive silence of a burned-out motor.
                 </p>
 
-                <p>
-                    In this guide, we'll cover everything San Diego County homeowners need to know about check valves: what they do, the different types, where they're installed, warning signs of failure, and what to expect when replacement becomes necessary.
-                </p>
+                <!-- Technical Tip Callout -->
+                <div class="bg-slate-50 border-l-4 border-slate-500 p-4 my-6">
+                    <p class="font-semibold text-slate-800 mb-1">🔊 Listen for the Symptoms</p>
+                    <p class="text-slate-700 text-sm">A failing check valve often announces itself with sound. Water hammer (loud banging when pump stops), pump short cycling (on-off every few seconds), and sputtering faucets are the telltale signs. If you hear these, a check valve replacement now can prevent pump damage later.</p>
+                </div>
 
                 <h2 class="text-3xl font-bold text-primary mt-12 mb-4">What Does a Well Check Valve Do?</h2>
 
                 <p>
                     A <strong>well check valve</strong> serves one crucial purpose: it prevents water from flowing backward through your well system. Think of it as a one-way door—water can push through in the direction of flow, but when the pump shuts off, the valve closes and holds the water in place.
                 </p>
+
+                <!-- Inline Image Placeholder 1 -->
+                <div class="my-8 bg-gray-100 rounded-lg overflow-hidden">
+                    <div class="aspect-video bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center">
+                        <div class="text-center p-8">
+                            <svg class="w-16 h-16 text-gray-400 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                            </svg>
+                            <p class="text-gray-500 font-medium">Check Valve Cutaway Diagram</p>
+                            <p class="text-gray-400 text-sm">Showing flapper mechanism and flow direction</p>
+                        </div>
+                    </div>
+                </div>
 
                 <p>
                     Without a functioning check valve, here's what happens: every time your pump turns off, the entire column of water in your drop pipe drains back down into the well. When the pump kicks on again, it has to work overtime to refill that entire pipe before any water reaches your house.
@@ -220,9 +245,12 @@
                 <p>
                     The <strong>foot valve</strong> is installed at the very bottom of your drop pipe, just above the pump intake. It's called a "foot" valve because it sits at the foot of the water column. Foot valves include a built-in strainer screen that filters sand and debris before they can enter the pump.
                 </p>
-                <p>
-                    Foot valves are typically brass or stainless steel for durability. They're the first line of defense against backflow and play a critical role in keeping your pump primed. When a foot valve fails, the pump loses prime and may run dry—a quick path to motor burnout.
-                </p>
+
+                <!-- Technical Tip Callout -->
+                <div class="bg-slate-50 border-l-4 border-slate-500 p-4 my-6">
+                    <p class="font-semibold text-slate-800 mb-1">💡 Foot Valve Failure = Loss of Prime</p>
+                    <p class="text-slate-700 text-sm">When a foot valve fails, the pump loses prime and may run dry—a quick path to motor burnout. If your pump runs but produces no water after sitting idle, suspect the foot valve first.</p>
+                </div>
 
                 <h3 class="text-2xl font-semibold text-primary mt-8 mb-3">Inline Check Valve</h3>
                 <p>
@@ -236,9 +264,19 @@
                 <p>
                     <strong>Spring-loaded check valves</strong> use a spring mechanism to hold the valve closed until water pressure overcomes the spring resistance. These valves are more positive-acting than gravity-dependent designs and work well in both vertical and horizontal installations.
                 </p>
-                <p>
-                    You'll often find spring-loaded <strong>well pump check valves</strong> installed above ground, near the pressure tank. They provide the final barrier against backflow into the well and are easier to access for inspection and replacement.
-                </p>
+
+                <!-- Inline Image Placeholder 2 -->
+                <div class="my-8 bg-gray-100 rounded-lg overflow-hidden">
+                    <div class="aspect-video bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center">
+                        <div class="text-center p-8">
+                            <svg class="w-16 h-16 text-blue-400 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
+                            </svg>
+                            <p class="text-blue-600 font-medium">Well System Diagram</p>
+                            <p class="text-blue-400 text-sm">Showing check valve placement locations</p>
+                        </div>
+                    </div>
+                </div>
 
                 <h2 class="text-3xl font-bold text-primary mt-12 mb-4">Where Check Valves Are Installed</h2>
 
@@ -320,9 +358,12 @@
                     <li>Reinstalling the pump assembly</li>
                     <li>Testing system operation</li>
                 </ol>
-                <p>
-                    Since you're already pulling the pump—a significant undertaking—most technicians recommend inspecting and replacing all check valves in the system at once. It's also an opportunity to evaluate pump condition.
-                </p>
+
+                <!-- Technical Tip Callout -->
+                <div class="bg-slate-50 border-l-4 border-slate-500 p-4 my-6">
+                    <p class="font-semibold text-slate-800 mb-1">🔧 Replace All Valves at Once</p>
+                    <p class="text-slate-700 text-sm">Since you're already pulling the pump—a significant undertaking—most technicians recommend inspecting and replacing all check valves in the system at once. It's also an opportunity to evaluate pump condition and other components.</p>
+                </div>
 
                 <h2 class="text-3xl font-bold text-primary mt-12 mb-4">Check Valve Replacement Cost</h2>
 
@@ -406,15 +447,34 @@
     <!-- Related Articles -->
     <section class="py-12 bg-gray-100">
         <div class="max-w-4xl mx-auto px-4">
-            <h2 class="text-2xl font-bold text-primary mb-6">Related Articles</h2>
-            <div class="grid md:grid-cols-2 gap-6">
-                <a href="signs-well-pump-failing.html" class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
-                    <h3 class="font-semibold text-lg text-primary mb-2">7 Signs Your Well Pump Is Failing</h3>
-                    <p class="text-gray-600">Catch pump problems early before they leave you without water.</p>
+            <h2 class="text-2xl font-bold text-primary mb-6">Related Technical Guides</h2>
+            <div class="grid md:grid-cols-3 gap-6">
+                <a href="pitless-adapter-guide.html" class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold text-lg text-primary mb-2">Pitless Adapter Guide</h3>
+                    <p class="text-gray-600 text-sm">How this component connects pump to plumbing.</p>
                 </a>
-                <a href="low-water-pressure-well.html" class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
-                    <h3 class="font-semibold text-lg text-primary mb-2">Low Water Pressure from Your Well?</h3>
-                    <p class="text-gray-600">Common causes and fixes for weak water flow.</p>
+                <a href="torque-arrestor-guide.html" class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold text-lg text-primary mb-2">Torque Arrestor Guide</h3>
+                    <p class="text-gray-600 text-sm">Protect your pump from spin damage.</p>
+                </a>
+                <a href="signs-well-pump-failing.html" class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold text-lg text-primary mb-2">7 Signs Your Pump Is Failing</h3>
+                    <p class="text-gray-600 text-sm">Catch pump problems early.</p>
                 </a>
             </div>
         </div>

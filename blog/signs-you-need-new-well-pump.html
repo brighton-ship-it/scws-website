@@ -169,14 +169,37 @@
         </div>
     </div>
 
+    <!-- Hero Image Section -->
+    <div class="relative h-64 md:h-80 lg:h-96 bg-gradient-to-r from-primary to-blue-800 overflow-hidden">
+        <div class="absolute inset-0 bg-black/40"></div>
+        <img src="../images/blog/well-pump-replacement-hero.jpg" alt="Well pump being pulled from deep well for replacement" class="w-full h-full object-cover" onerror="this.style.display='none'">
+        <div class="absolute inset-0 flex items-center justify-center">
+            <div class="text-center text-white px-4">
+                <span class="inline-block bg-accent px-4 py-1 rounded-full text-sm font-semibold mb-4">Decision Guide</span>
+                <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 drop-shadow-lg">Signs You Need a New Well Pump</h1>
+                <p class="text-lg md:text-xl text-gray-100 max-w-2xl mx-auto">When to Repair vs Replace</p>
+            </div>
+        </div>
+    </div>
+
     <!-- Article -->
     <article class="py-12">
         <div class="max-w-4xl mx-auto px-4">
-            <h1 class="text-4xl md:text-5xl font-bold text-primary mb-4">Signs You Need a New Well Pump</h1>
-            <p class="text-gray-600 mb-8">Published February 1, 2026 | 12 min read</p>
+            <!-- Author Byline -->
+            <div class="flex items-center gap-4 mb-8 pb-8 border-b border-gray-200">
+                <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-bold text-lg">SC</div>
+                <div>
+                    <p class="font-semibold text-gray-900">By SCWS Team</p>
+                    <p class="text-gray-600 text-sm">Published February 1, 2026 · 12 min read</p>
+                </div>
+            </div>
 
             <div class="prose prose-lg max-w-none">
-                <p class="text-xl text-gray-700 leading-relaxed mb-6">
+                <p class="text-xl md:text-2xl text-gray-700 leading-relaxed mb-8 font-light">
+                    <strong class="text-primary">Don't wait for complete failure.</strong> A pump that dies suddenly at 11 PM on a holiday weekend costs 2-3x more to replace than one you plan for. Here are the warning signs that tell you it's time—and how to know if a repair might buy you more time.
+                </p>
+
+                <p class="text-lg text-gray-700 leading-relaxed mb-6">
                     Your well pump is the heart of your water system, working silently underground to deliver water to your home every day. But like all mechanical equipment, it won't last forever. For California-specific well pump guidance and FAQs, visit <a href="https://california-groundwater.org/faq/" target="_blank" rel="noopener" class="text-accent hover:underline">California Groundwater FAQs</a>. Knowing the warning signs of pump failure—and understanding when to repair versus replace—can save you from emergency situations and help you budget for this significant investment.
                 </p>
 
@@ -206,7 +229,24 @@
                     <li><strong>Depth:</strong> Deeper installations create more stress on the pump</li>
                 </ul>
 
+                <!-- Key Decision Callout -->
+                <div class="bg-gradient-to-r from-primary/10 to-blue-50 border-l-4 border-primary p-6 my-8 rounded-r-lg">
+                    <div class="flex items-start gap-4">
+                        <div class="text-3xl">⚖️</div>
+                        <div>
+                            <h4 class="font-bold text-gray-900 mb-2">The 50% Rule</h4>
+                            <p class="text-gray-700">If repair costs exceed 50% of replacement cost, replace the pump. You'll get full lifespan from new equipment instead of partial life from patched equipment. This rule becomes absolute when pumps are over 10 years old.</p>
+                        </div>
+                    </div>
+                </div>
+
                 <h2 class="text-3xl font-bold text-primary mt-12 mb-4">The Warning Signs: When Your Pump Is Failing</h2>
+
+                <!-- Inline Image -->
+                <figure class="my-8">
+                    <img src="../images/blog/well-pump-warning-signs.jpg" alt="Common well pump failure symptoms including pressure gauge and control box issues" class="w-full rounded-lg shadow-md" onerror="this.parentElement.style.display='none'">
+                    <figcaption class="text-center text-gray-600 text-sm mt-2 italic">Watch your pressure gauge and listen to your system for early warning signs</figcaption>
+                </figure>
 
                 <p>
                     Pay attention to these warning signs. Catching problems early can sometimes extend pump life with repairs, but recognizing when replacement is inevitable helps you plan rather than panic.
@@ -491,15 +531,23 @@
     <!-- Related Articles -->
     <section class="py-12 bg-gray-50">
         <div class="max-w-4xl mx-auto px-4">
-            <h2 class="text-2xl font-bold text-primary mb-6">Related Articles</h2>
+            <h2 class="text-2xl font-bold text-primary mb-6">Related Equipment & Maintenance Guides</h2>
             <div class="grid md:grid-cols-2 gap-6">
-                <a href="well-pump-replacement-cost.html" class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
-                    <h3 class="font-semibold text-lg text-primary mb-2">Well Pump Replacement Cost Guide</h3>
-                    <p class="text-gray-600">Detailed breakdown of pump replacement costs by type and depth.</p>
+                <a href="best-submersible-pump-brands.html" class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition group">
+                    <h3 class="font-semibold text-lg text-primary group-hover:text-accent mb-2">Best Submersible Pump Brands</h3>
+                    <p class="text-gray-600">When you do replace, choose a pump that lasts 15-20 years.</p>
                 </a>
-                <a href="signs-well-pump-failing.html" class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
-                    <h3 class="font-semibold text-lg text-primary mb-2">7 Signs Your Well Pump Is Failing</h3>
-                    <p class="text-gray-600">Recognize the warning signs before you're left without water.</p>
+                <a href="well-pump-noise-problems.html" class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition group">
+                    <h3 class="font-semibold text-lg text-primary group-hover:text-accent mb-2">Well Pump Noise Problems</h3>
+                    <p class="text-gray-600">What those strange sounds really mean for your pump.</p>
+                </a>
+                <a href="pressure-tank-maintenance.html" class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition group">
+                    <h3 class="font-semibold text-lg text-primary group-hover:text-accent mb-2">Pressure Tank Maintenance</h3>
+                    <p class="text-gray-600">A healthy tank extends your pump's lifespan.</p>
+                </a>
+                <a href="signs-you-need-new-well.html" class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition group">
+                    <h3 class="font-semibold text-lg text-primary group-hover:text-accent mb-2">Signs You Need a New Well</h3>
+                    <p class="text-gray-600">When the problem isn't the pump—it's the well itself.</p>
                 </a>
             </div>
         </div>

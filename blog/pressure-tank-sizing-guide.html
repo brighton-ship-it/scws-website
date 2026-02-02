@@ -198,6 +198,19 @@
         </nav>
     </header>
 
+    <!-- Hero Image Section -->
+    <div class="relative h-64 md:h-80 lg:h-96 bg-gradient-to-r from-primary to-blue-800 overflow-hidden">
+        <div class="absolute inset-0 bg-black/40"></div>
+        <img src="../images/blog/pressure-tank-sizing-hero.jpg" alt="Various sizes of well pressure tanks for proper sizing selection" class="w-full h-full object-cover" onerror="this.style.display='none'">
+        <div class="absolute inset-0 flex items-center justify-center">
+            <div class="text-center text-white px-4">
+                <span class="inline-block bg-accent px-4 py-1 rounded-full text-sm font-semibold mb-4">Equipment Guide</span>
+                <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 drop-shadow-lg">Pressure Tank Sizing Guide</h1>
+                <p class="text-lg md:text-xl text-gray-100 max-w-2xl mx-auto">How to Choose the Right Size for Pump Protection</p>
+            </div>
+        </div>
+    </div>
+
     <!-- Breadcrumb -->
     <div class="bg-white border-b">
         <div class="max-w-4xl mx-auto px-4 py-3">
@@ -214,13 +227,19 @@
     <!-- Article Content -->
     <article class="max-w-4xl mx-auto px-4 py-8">
         <header class="mb-8">
-            <h1 class="text-4xl font-bold text-primary mb-4">Pressure Tank Sizing Guide: How to Choose the Right Size</h1>
-            <div class="flex items-center text-gray-600 text-sm mb-4">
-                <span>Published: February 1, 2025</span>
-                <span class="mx-2">•</span>
-                <span>18 min read</span>
+            <!-- Author Byline -->
+            <div class="flex items-center gap-4 mb-6 pb-6 border-b border-gray-200">
+                <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-bold text-lg">SC</div>
+                <div>
+                    <p class="font-semibold text-gray-900">By SCWS Team</p>
+                    <p class="text-gray-600 text-sm">Published February 1, 2025 · 18 min read</p>
+                </div>
             </div>
-            <p class="text-xl text-gray-700">Selecting the right pressure tank size is crucial for your well pump's longevity and your home's water pressure consistency. This comprehensive guide walks you through the sizing calculations, factors to consider, and recommendations for every situation.</p>
+            
+            <p class="text-xl md:text-2xl text-gray-700 leading-relaxed mb-6 font-light">
+                <strong class="text-primary">An undersized pressure tank is the #1 reason pumps die young.</strong> Every time your pump cycles on and off, it draws massive startup current and generates heat. A properly sized tank means fewer cycles, cooler motors, and pumps that last 15-20 years instead of 5-8.
+            </p>
+            <p class="text-lg text-gray-700">This comprehensive guide walks you through the sizing calculations, factors to consider, and recommendations for every situation.</p>
         </header>
 
         <div class="prose prose-lg max-w-none">
@@ -263,8 +282,26 @@
                 </ul>
             </div>
 
+            <!-- Pro Tip Callout -->
+            <div class="bg-gradient-to-r from-accent/10 to-green-50 border-l-4 border-accent p-6 my-8 rounded-r-lg">
+                <div class="flex items-start gap-4">
+                    <div class="text-3xl">💡</div>
+                    <div>
+                        <h4 class="font-bold text-gray-900 mb-2">The 1-Minute Rule</h4>
+                        <p class="text-gray-700">Your pump should run for at least 1 minute each time it cycles on. If it runs for less, your tank is too small. Count the seconds from when the pump kicks on to when it shuts off—that simple test tells you everything.</p>
+                    </div>
+                </div>
+            </div>
+
             <section id="why-size-matters">
                 <h2 class="text-2xl font-bold text-primary mt-8 mb-4">Why Pressure Tank Size Matters</h2>
+                
+                <!-- Inline Image -->
+                <figure class="my-8">
+                    <img src="../images/blog/pressure-tank-sizes.jpg" alt="Comparison of different pressure tank sizes from 20 gallon to 80 gallon" class="w-full rounded-lg shadow-md" onerror="this.parentElement.style.display='none'">
+                    <figcaption class="text-center text-gray-600 text-sm mt-2 italic">Pressure tanks range from 20 gallons for small systems to 120+ gallons for high-demand homes</figcaption>
+                </figure>
+                
                 <p>The pressure tank is one of the most critical components in your well system, yet it's frequently undersized or misunderstood. Choosing the wrong size can lead to serious consequences:</p>
 
                 <h3 class="text-xl font-semibold mt-6 mb-3">Problems with Undersized Tanks</h3>

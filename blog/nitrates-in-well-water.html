@@ -176,15 +176,35 @@
         </div>
     </div>
 
+    <!-- Hero Image -->
+    <div class="relative h-64 md:h-96 bg-gradient-to-r from-green-900 to-green-700 overflow-hidden">
+        <div class="absolute inset-0 bg-black/40"></div>
+        <img src="../images/blog/nitrates-agricultural-hero.jpg" alt="Agricultural field with irrigation representing nitrate contamination sources" class="w-full h-full object-cover opacity-60" onerror="this.style.display='none'">
+        <div class="absolute inset-0 flex items-center justify-center">
+            <div class="text-center text-white px-4">
+                <h1 class="text-3xl md:text-5xl font-bold mb-4 drop-shadow-lg">Nitrates in Well Water</h1>
+                <p class="text-xl md:text-2xl opacity-90">Health Risks, Testing & Treatment Options</p>
+            </div>
+        </div>
+    </div>
+
     <!-- Article -->
     <article class="py-12">
         <div class="max-w-4xl mx-auto px-4">
-            <h1 class="text-4xl md:text-5xl font-bold text-primary mb-4">Nitrates in Well Water: Health Risks, Testing & Treatment Options</h1>
-            <p class="text-gray-600 mb-8">Published February 1, 2026 | 12 min read</p>
+            <!-- Author Byline -->
+            <div class="flex items-center gap-4 mb-8 pb-8 border-b border-gray-200">
+                <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center">
+                    <span class="text-white font-bold text-lg">SC</span>
+                </div>
+                <div>
+                    <p class="font-semibold text-gray-900">By SCWS Team</p>
+                    <p class="text-gray-500 text-sm">February 1, 2026 · 12 min read</p>
+                </div>
+            </div>
 
             <div class="prose prose-lg max-w-none">
                 <p class="text-xl text-gray-700 leading-relaxed mb-6">
-                    Finding high nitrates in your well water is a serious concern that requires immediate attention. Unlike many water quality issues that cause unpleasant tastes or stains, nitrate contamination is invisible yet poses significant health risks—particularly for infants and pregnant women. This comprehensive guide explains what nitrates are, where they come from, and most importantly, how to effectively remove them from your well water.
+                    <strong>Your well water looks crystal clear—but there could be a hidden danger lurking inside.</strong> Nitrate contamination is invisible, odorless, and tasteless, yet poses life-threatening risks to infants and serious health concerns for everyone. If you live in an agricultural area or near a septic system, understanding nitrates isn't optional—it's essential for protecting your family.
                 </p>
 
                 <div class="bg-red-50 border-l-4 border-red-500 p-6 my-8">
@@ -251,6 +271,12 @@
                     This condition progresses rapidly and requires immediate medical attention. If you notice any of these symptoms in an infant and suspect nitrate exposure, call 911 immediately.
                 </p>
 
+                <!-- Inline Image 1 -->
+                <figure class="my-10 rounded-xl overflow-hidden shadow-lg">
+                    <img src="../images/blog/infant-water-safety.jpg" alt="Safe water preparation for infant formula" class="w-full h-64 object-cover" onerror="this.parentElement.style.display='none'">
+                    <figcaption class="bg-gray-50 px-4 py-3 text-sm text-gray-600 italic">Infants under 6 months are at highest risk from nitrate exposure—always use tested, safe water for formula.</figcaption>
+                </figure>
+
                 <h3 class="text-2xl font-semibold text-primary mt-8 mb-3">Risks for Pregnant Women</h3>
 
                 <p>
@@ -310,6 +336,25 @@
                 <p>
                     To collect a sample: run cold water for 2-3 minutes, fill the lab-provided container, and deliver it within 24-48 hours (nitrate samples don't require refrigeration but should be analyzed promptly).
                 </p>
+
+                <!-- Inline Image 2 -->
+                <figure class="my-10 rounded-xl overflow-hidden shadow-lg">
+                    <img src="../images/blog/reverse-osmosis-system.jpg" alt="Under-sink reverse osmosis water filtration system" class="w-full h-64 object-cover" onerror="this.parentElement.style.display='none'">
+                    <figcaption class="bg-gray-50 px-4 py-3 text-sm text-gray-600 italic">Reverse osmosis systems are the most popular and cost-effective solution for nitrate removal.</figcaption>
+                </figure>
+
+                <!-- Critical Warning Callout -->
+                <div class="bg-gradient-to-r from-red-50 to-orange-50 border border-red-200 rounded-xl p-6 my-10">
+                    <div class="flex items-start gap-4">
+                        <div class="flex-shrink-0 w-12 h-12 bg-red-500 rounded-full flex items-center justify-center">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-red-700 mb-2">Common Methods That DON'T Work</h3>
+                            <p class="text-gray-700"><strong>Water softeners, carbon filters, sediment filters, and UV treatment</strong> do NOT remove nitrates. And <strong>boiling water makes it worse</strong>—concentrating nitrates as water evaporates. Only RO, ion exchange, or distillation are effective.</p>
+                        </div>
+                    </div>
+                </div>
 
                 <h2 class="text-3xl font-bold text-primary mt-12 mb-4">Nitrate Removal Treatment Options</h2>
 

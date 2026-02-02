@@ -169,14 +169,37 @@
         </div>
     </div>
 
+    <!-- Hero Image Section -->
+    <div class="relative h-64 md:h-80 lg:h-96 bg-gradient-to-r from-primary to-blue-800 overflow-hidden">
+        <div class="absolute inset-0 bg-black/40"></div>
+        <img src="../images/blog/new-well-drilling-hero.jpg" alt="Well drilling rig setting up for new residential well installation" class="w-full h-full object-cover" onerror="this.style.display='none'">
+        <div class="absolute inset-0 flex items-center justify-center">
+            <div class="text-center text-white px-4">
+                <span class="inline-block bg-accent px-4 py-1 rounded-full text-sm font-semibold mb-4">Decision Guide</span>
+                <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 drop-shadow-lg">Signs You Need a New Well</h1>
+                <p class="text-lg md:text-xl text-gray-100 max-w-2xl mx-auto">When Rehabilitation Won't Work</p>
+            </div>
+        </div>
+    </div>
+
     <!-- Article -->
     <article class="py-12">
         <div class="max-w-4xl mx-auto px-4">
-            <h1 class="text-4xl md:text-5xl font-bold text-primary mb-4">Signs You Need a New Well</h1>
-            <p class="text-gray-600 mb-8">Published February 1, 2026 | 14 min read</p>
+            <!-- Author Byline -->
+            <div class="flex items-center gap-4 mb-8 pb-8 border-b border-gray-200">
+                <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-bold text-lg">SC</div>
+                <div>
+                    <p class="font-semibold text-gray-900">By SCWS Team</p>
+                    <p class="text-gray-600 text-sm">Published February 1, 2026 · 14 min read</p>
+                </div>
+            </div>
 
             <div class="prose prose-lg max-w-none">
-                <p class="text-xl text-gray-700 leading-relaxed mb-6">
+                <p class="text-xl md:text-2xl text-gray-700 leading-relaxed mb-8 font-light">
+                    <strong class="text-primary">Sometimes the pump isn't the problem—the well is.</strong> Before you replace your third pump in five years, it's worth asking: is the well itself failing? Replacing pumps in a dying well is like putting new tires on a car with a broken transmission.
+                </p>
+
+                <p class="text-lg text-gray-700 leading-relaxed mb-6">
                     No one wants to hear that their well needs replacement. It's a major expense—often $15,000 to $50,000 or more in Southern California. But sometimes, a new well is the only viable solution. Understanding when your well is truly failing (not just the pump) and when rehabilitation won't work can save you from throwing money at a lost cause.
                 </p>
 
@@ -195,7 +218,27 @@
                     The pump needs replacement every 10-15 years, but the well itself should far outlast the pump. If your well is having problems, the first step is determining whether it's the pump, the well, or the aquifer.
                 </p>
 
+                <!-- Key Distinction Callout -->
+                <div class="bg-gradient-to-r from-yellow-50 to-orange-50 border-l-4 border-yellow-500 p-6 my-8 rounded-r-lg">
+                    <div class="flex items-start gap-4">
+                        <div class="text-3xl">🔍</div>
+                        <div>
+                            <h4 class="font-bold text-gray-900 mb-2">Pump Problem vs Well Problem</h4>
+                            <p class="text-gray-700">
+                                <strong>Pump problem:</strong> Pump won't start, cycles rapidly, no pressure<br>
+                                <strong>Well problem:</strong> Declining yield over years, sand/sediment, persistent contamination, structural damage visible on camera
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
                 <h2 class="text-3xl font-bold text-primary mt-12 mb-4">Warning Signs Your Well Is Failing</h2>
+
+                <!-- Inline Image -->
+                <figure class="my-8">
+                    <img src="../images/blog/well-video-inspection.jpg" alt="Downhole camera video inspection revealing well casing damage" class="w-full rounded-lg shadow-md" onerror="this.parentElement.style.display='none'">
+                    <figcaption class="text-center text-gray-600 text-sm mt-2 italic">Video inspection can reveal casing damage, sediment buildup, and screen failure</figcaption>
+                </figure>
 
                 <p>
                     These symptoms suggest problems with the well itself—not just the pump:
@@ -352,6 +395,12 @@
                 </p>
 
                 <h2 class="text-3xl font-bold text-primary mt-12 mb-4">Your Options: New Well vs. Deepening vs. Hydrofracturing</h2>
+
+                <!-- Inline Image -->
+                <figure class="my-8">
+                    <img src="../images/blog/well-drilling-rig.jpg" alt="Well drilling rig in operation for new residential well installation in San Diego" class="w-full rounded-lg shadow-md" onerror="this.parentElement.style.display='none'">
+                    <figcaption class="text-center text-gray-600 text-sm mt-2 italic">A new well provides decades of reliable water but requires significant investment</figcaption>
+                </figure>
 
                 <p>
                     Before committing to a new well, understand all your options:
@@ -565,15 +614,23 @@
     <!-- Related Articles -->
     <section class="py-12 bg-gray-50">
         <div class="max-w-4xl mx-auto px-4">
-            <h2 class="text-2xl font-bold text-primary mb-6">Related Articles</h2>
+            <h2 class="text-2xl font-bold text-primary mb-6">Related Equipment & Maintenance Guides</h2>
             <div class="grid md:grid-cols-2 gap-6">
-                <a href="well-deepening-vs-new-well.html" class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
-                    <h3 class="font-semibold text-lg text-primary mb-2">Well Deepening vs. New Well</h3>
-                    <p class="text-gray-600">Compare the costs and benefits of deepening your existing well versus drilling new.</p>
+                <a href="signs-you-need-new-well-pump.html" class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition group">
+                    <h3 class="font-semibold text-lg text-primary group-hover:text-accent mb-2">Signs You Need a New Well Pump</h3>
+                    <p class="text-gray-600">Make sure the problem is the well, not just the pump.</p>
                 </a>
-                <a href="well-drilling-cost-san-diego.html" class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
-                    <h3 class="font-semibold text-lg text-primary mb-2">Well Drilling Cost in San Diego</h3>
-                    <p class="text-gray-600">Complete cost breakdown for new well drilling in San Diego County.</p>
+                <a href="best-submersible-pump-brands.html" class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition group">
+                    <h3 class="font-semibold text-lg text-primary group-hover:text-accent mb-2">Best Submersible Pump Brands</h3>
+                    <p class="text-gray-600">When you drill a new well, equip it with quality.</p>
+                </a>
+                <a href="pressure-tank-sizing-guide.html" class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition group">
+                    <h3 class="font-semibold text-lg text-primary group-hover:text-accent mb-2">Pressure Tank Sizing Guide</h3>
+                    <p class="text-gray-600">Properly size your new well's pressure tank.</p>
+                </a>
+                <a href="submersible-well-pump-guide.html" class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition group">
+                    <h3 class="font-semibold text-lg text-primary group-hover:text-accent mb-2">Submersible Pump Guide</h3>
+                    <p class="text-gray-600">Everything you need to know about your new well's pump.</p>
                 </a>
             </div>
         </div>

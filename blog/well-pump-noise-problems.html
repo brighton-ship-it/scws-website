@@ -169,15 +169,38 @@
         </div>
     </div>
 
+    <!-- Hero Image Section -->
+    <div class="relative h-64 md:h-80 lg:h-96 bg-gradient-to-r from-primary to-blue-800 overflow-hidden">
+        <div class="absolute inset-0 bg-black/40"></div>
+        <img src="../images/blog/well-pump-noise-hero.jpg" alt="Technician diagnosing well pump noise problems at pressure tank and control box" class="w-full h-full object-cover" onerror="this.style.display='none'">
+        <div class="absolute inset-0 flex items-center justify-center">
+            <div class="text-center text-white px-4">
+                <span class="inline-block bg-red-500 px-4 py-1 rounded-full text-sm font-semibold mb-4">Troubleshooting Guide</span>
+                <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 drop-shadow-lg">Well Pump Noise Problems</h1>
+                <p class="text-lg md:text-xl text-gray-100 max-w-2xl mx-auto">What Different Sounds Mean & When to Worry</p>
+            </div>
+        </div>
+    </div>
+
     <!-- Article -->
     <article class="py-12">
         <div class="max-w-4xl mx-auto px-4">
-            <h1 class="text-4xl md:text-5xl font-bold text-primary mb-4">Well Pump Noise Problems: What Different Sounds Mean & When to Worry</h1>
-            <p class="text-gray-600 mb-8">Published February 1, 2026 | 9 min read</p>
+            <!-- Author Byline -->
+            <div class="flex items-center gap-4 mb-8 pb-8 border-b border-gray-200">
+                <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-bold text-lg">SC</div>
+                <div>
+                    <p class="font-semibold text-gray-900">By SCWS Team</p>
+                    <p class="text-gray-600 text-sm">Published February 1, 2026 · 9 min read</p>
+                </div>
+            </div>
 
             <div class="prose prose-lg max-w-none">
-                <p class="text-xl text-gray-700 leading-relaxed mb-6">
-                    Your well pump shouldn't sound like a horror movie. If you're suddenly hearing strange sounds from your well system—whether it's a <strong>loud well pump</strong> humming, clicking, grinding, or screaming—your pump is trying to tell you something. Understanding what these <strong>well pump noise</strong> problems mean can help you catch minor issues before they become expensive emergencies and know when you need to call a professional immediately.
+                <p class="text-xl md:text-2xl text-gray-700 leading-relaxed mb-8 font-light">
+                    <strong class="text-primary">That new sound from your well system? It's probably a warning.</strong> Your pump can't call for help, so it speaks in clicks, hums, and grinding noises. Learn its language—and you might save yourself a $3,000 emergency replacement at 2 AM.
+                </p>
+
+                <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                    Understanding what these <strong>well pump noise</strong> problems mean can help you catch minor issues before they become expensive emergencies and know when you need to call a professional immediately.
                 </p>
 
                 <div class="bg-gray-50 p-6 rounded-lg my-8">
@@ -217,7 +240,28 @@
                     Any new sound that wasn't there before deserves attention. The key warning signs include sounds that are louder than usual, intermittent or stuttering noises, metallic grinding or scraping, high-pitched whining or screaming, rapid repetitive clicking, or any sound accompanied by reduced water pressure or flow.
                 </p>
 
+                <!-- Sound Reference Callout with Better Styling -->
+                <div class="bg-gradient-to-r from-yellow-50 to-orange-50 border-l-4 border-yellow-500 p-6 my-8 rounded-r-lg">
+                    <div class="flex items-start gap-4">
+                        <div class="text-3xl">🔊</div>
+                        <div>
+                            <h4 class="font-bold text-gray-900 mb-2">Sound Severity Guide</h4>
+                            <p class="text-gray-700">
+                                <span class="inline-block bg-green-100 text-green-800 px-2 py-1 rounded text-sm mr-2">✓ Normal</span> Steady hum, brief click<br>
+                                <span class="inline-block bg-yellow-100 text-yellow-800 px-2 py-1 rounded text-sm mr-2 mt-1">⚡ Urgent</span> Grinding, louder than usual<br>
+                                <span class="inline-block bg-red-100 text-red-800 px-2 py-1 rounded text-sm mr-2 mt-1">🚨 Emergency</span> Humming + no water, screaming, rapid clicking
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
                 <h2 class="text-3xl font-bold text-primary mt-12 mb-4">Common Well Pump Noises and Their Causes</h2>
+
+                <!-- Inline Image -->
+                <figure class="my-8">
+                    <img src="../images/blog/pump-pressure-switch.jpg" alt="Well pump pressure switch and control box where clicking sounds originate" class="w-full rounded-lg shadow-md" onerror="this.parentElement.style.display='none'">
+                    <figcaption class="text-center text-gray-600 text-sm mt-2 italic">The pressure switch (clicking) and control box (humming) are common noise sources</figcaption>
+                </figure>
 
                 <p>
                     Let's break down the most common <strong>well pump noise</strong> problems, what causes them, and how serious they are.
@@ -487,14 +531,26 @@
                     </a>
                 </div>
 
-                <h2 class="text-3xl font-bold text-primary mt-12 mb-4">Related Articles</h2>
-                <ul class="list-disc pl-6 mb-6 text-gray-700">
-                    <li><a href="signs-well-pump-failing.html" class="text-accent hover:underline">Signs Your Well Pump Is Failing</a></li>
-                    <li><a href="well-pump-replacement-cost.html" class="text-accent hover:underline">Well Pump Replacement Cost Guide</a></li>
-                    <li><a href="jet-pump-vs-submersible.html" class="text-accent hover:underline">Jet Pump vs Submersible Pump</a></li>
-                    <li><a href="emergency-well-no-water.html" class="text-accent hover:underline">No Water From Your Well: Emergency Guide</a></li>
-                    <li><a href="pressure-tank-maintenance.html" class="text-accent hover:underline">Pressure Tank Maintenance Guide</a></li>
-                </ul>
+                <h2 class="text-3xl font-bold text-primary mt-12 mb-4">Related Equipment & Maintenance Guides</h2>
+                
+                <div class="grid md:grid-cols-2 gap-6 my-8">
+                    <a href="signs-you-need-new-well-pump.html" class="group bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg hover:border-accent transition-all">
+                        <h3 class="font-semibold text-lg text-primary group-hover:text-accent mb-2">Signs You Need a New Well Pump</h3>
+                        <p class="text-gray-600 text-sm">When noise is telling you it's time to replace.</p>
+                    </a>
+                    <a href="pressure-tank-maintenance.html" class="group bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg hover:border-accent transition-all">
+                        <h3 class="font-semibold text-lg text-primary group-hover:text-accent mb-2">Pressure Tank Maintenance</h3>
+                        <p class="text-gray-600 text-sm">Fix the clicking before it kills your pump.</p>
+                    </a>
+                    <a href="submersible-vs-jet-pump.html" class="group bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg hover:border-accent transition-all">
+                        <h3 class="font-semibold text-lg text-primary group-hover:text-accent mb-2">Submersible vs Jet Pump</h3>
+                        <p class="text-gray-600 text-sm">Different pump types make different sounds.</p>
+                    </a>
+                    <a href="best-submersible-pump-brands.html" class="group bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg hover:border-accent transition-all">
+                        <h3 class="font-semibold text-lg text-primary group-hover:text-accent mb-2">Best Submersible Pump Brands</h3>
+                        <p class="text-gray-600 text-sm">Quality pumps run quieter and last longer.</p>
+                    </a>
+                </div>
             </div>
         </div>
     </article>

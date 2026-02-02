@@ -26,7 +26,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"></noscript>
-<!-- Article Schema -->
+    <!-- Article Schema -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -122,25 +122,25 @@
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
         "itemListElement": [
-                {
-                        "@type": "ListItem",
-                        "position": 1,
-                        "name": "Home",
-                        "item": "https://scwellservice.com/"
-                },
-                {
-                        "@type": "ListItem",
-                        "position": 2,
-                        "name": "Blog",
-                        "item": "https://scwellservice.com/blog/"
-                },
-                {
-                        "@type": "ListItem",
-                        "position": 3,
-                        "name": "Understanding Well Logs: How to Read Your Well Drilling Report (2026)"
-                }
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://scwellservice.com/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Blog",
+                "item": "https://scwellservice.com/blog/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Understanding Well Logs: How to Read Your Well Drilling Report (2026)"
+            }
         ]
-}
+    }
     </script>
 </head>
 <body class="bg-white">
@@ -169,22 +169,63 @@
         </div>
     </div>
 
+    <!-- Hero Image Section -->
+    <div class="w-full bg-gradient-to-br from-slate-800 to-slate-900 py-16">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <div class="inline-block p-6 bg-white/10 rounded-2xl backdrop-blur mb-6">
+                <svg class="w-20 h-20 text-white mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                </svg>
+            </div>
+            <p class="text-slate-300 text-lg">Technical Documentation Guide</p>
+        </div>
+    </div>
+
     <!-- Article -->
     <article class="py-12">
         <div class="max-w-4xl mx-auto px-4">
             <h1 class="text-4xl md:text-5xl font-bold text-primary mb-4">Understanding Well Logs: How to Read Your Well Drilling Report</h1>
-            <p class="text-gray-600 mb-8">Published February 1, 2026 | 12 min read</p>
+            
+            <!-- Author Byline -->
+            <p class="text-gray-500 mb-8 flex items-center gap-2">
+                <span class="font-medium text-gray-700">By SCWS Team</span>
+                <span class="text-gray-300">|</span>
+                <span>February 1, 2026</span>
+                <span class="text-gray-300">|</span>
+                <span>12 min read</span>
+            </p>
 
             <div class="prose prose-lg max-w-none">
-                <p class="text-xl text-gray-700 leading-relaxed mb-6">
-                    Your well log is one of the most important documents you can have as a well owner. Also known as a well drilling report or well completion report, this document contains critical information about your well's construction, the geological formations it passes through, and the water-bearing zones that supply your home. Whether you're troubleshooting a problem, planning maintenance, selling your property, or simply trying to understand your water supply better, knowing how to read and use your well log is essential knowledge for any well owner.
+                <!-- Engaging Technical Hook Intro -->
+                <p class="text-xl text-gray-700 leading-relaxed mb-8">
+                    <strong>Somewhere in a California database sits a document that knows your well better than you do.</strong> It recorded every foot the drill bit traveled, every rock layer it punched through, and the exact moment it hit water. This document—your well log—is the Rosetta Stone of your water system. Yet most homeowners have never seen theirs, don't know how to read it, and couldn't find it if they tried. That ends today.
                 </p>
+
+                <!-- Technical Tip Callout -->
+                <div class="bg-slate-50 border-l-4 border-slate-500 p-4 my-6">
+                    <p class="font-semibold text-slate-800 mb-1">📋 Quick Reference</p>
+                    <p class="text-slate-700 text-sm">California law has required well drillers to file completion reports with the Department of Water Resources since 1949—meaning if your well was drilled in the past 75+ years, an official record likely exists.</p>
+                </div>
 
                 <h2 class="text-3xl font-bold text-primary mt-12 mb-4">What Is a Well Log?</h2>
 
                 <p>
                     A well log is an official record created by the licensed well driller who constructed your water well. It documents everything about the drilling process and the completed well—from the geology encountered underground to the materials used in construction. Think of it as the birth certificate and blueprint of your well combined into one document.
                 </p>
+
+                <!-- Inline Image Placeholder 1 -->
+                <div class="my-8 bg-gray-100 rounded-lg overflow-hidden">
+                    <div class="aspect-video bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center">
+                        <div class="text-center p-8">
+                            <svg class="w-16 h-16 text-gray-400 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                            </svg>
+                            <p class="text-gray-500 font-medium">Sample Well Completion Report Form</p>
+                            <p class="text-gray-400 text-sm">California DWR Standard Format</p>
+                        </div>
+                    </div>
+                </div>
+
                 <p class="mt-4">
                     In California, all licensed water well drillers are required by law to submit a Well Completion Report to the Department of Water Resources (DWR) within 60 days of finishing a well. This requirement has been in place since 1949, meaning most wells drilled in the past 75+ years have official records on file.
                 </p>
@@ -221,9 +262,12 @@
                     <li><strong>Borehole diameter:</strong> Width of the drilled hole (typically 6-12 inches)</li>
                     <li><strong>Casing diameter:</strong> Size of the installed pipe (commonly 5-8 inches)</li>
                 </ul>
-                <p>
-                    Understanding your well's depth helps with pump selection, troubleshooting water level issues, and evaluating options if your well needs deepening. For more about depth considerations, see our guide on <a href="factors-affecting-well-depth.html" class="text-accent hover:underline">factors affecting well depth</a>.
-                </p>
+
+                <!-- Technical Tip Callout -->
+                <div class="bg-slate-50 border-l-4 border-slate-500 p-4 my-6">
+                    <p class="font-semibold text-slate-800 mb-1">💡 Technical Tip</p>
+                    <p class="text-slate-700 text-sm">Understanding your well's depth helps with pump selection, troubleshooting water level issues, and evaluating options if your well needs deepening. For more about depth considerations, see our guide on <a href="factors-affecting-well-depth.html" class="text-accent hover:underline">factors affecting well depth</a>.</p>
+                </div>
 
                 <h3 class="text-2xl font-semibold text-primary mt-8 mb-3">Geological Formations (Driller's Log)</h3>
                 <p>
@@ -272,6 +316,19 @@
                     This geological information tells you where water enters your well and helps technicians understand your aquifer when troubleshooting or planning rehabilitation.
                 </p>
 
+                <!-- Inline Image Placeholder 2 -->
+                <div class="my-8 bg-gray-100 rounded-lg overflow-hidden">
+                    <div class="aspect-video bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center">
+                        <div class="text-center p-8">
+                            <svg class="w-16 h-16 text-blue-400 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
+                            </svg>
+                            <p class="text-blue-600 font-medium">Cross-Section Diagram: Geological Layers</p>
+                            <p class="text-blue-400 text-sm">Showing water-bearing zones and casing placement</p>
+                        </div>
+                    </div>
+                </div>
+
                 <h3 class="text-2xl font-semibold text-primary mt-8 mb-3">Water-Bearing Zones</h3>
                 <p>
                     The log identifies depths where the driller encountered groundwater:
@@ -297,9 +354,6 @@
                     <li><strong>Annular seal/grout:</strong> Material sealing the space between casing and borehole</li>
                     <li><strong>Surface seal depth:</strong> How deep the sanitary seal extends (typically 20-50 feet)</li>
                 </ul>
-                <p>
-                    Proper casing construction prevents surface contamination from entering your water supply. For more about casing issues, see our guide on <a href="well-casing-damage.html" class="text-accent hover:underline">well casing damage and repairs</a>.
-                </p>
 
                 <h3 class="text-2xl font-semibold text-primary mt-8 mb-3">Water Level and Yield Information</h3>
                 <p>
@@ -339,6 +393,12 @@
                     <li>Original static water level</li>
                     <li>Original yield (GPM)</li>
                 </ul>
+
+                <!-- Technical Tip Callout -->
+                <div class="bg-slate-50 border-l-4 border-slate-500 p-4 my-6">
+                    <p class="font-semibold text-slate-800 mb-1">🔧 Pro Tip</p>
+                    <p class="text-slate-700 text-sm">Keep a photo of your well log on your phone. When calling a well service company, having these numbers handy speeds up diagnosis and helps technicians prepare the right equipment before they arrive.</p>
+                </div>
 
                 <h3 class="text-2xl font-semibold text-primary mt-8 mb-3">Step 3: Identify Water-Producing Zones</h3>
                 <p>
@@ -393,9 +453,6 @@
                     <li><strong>Property value:</strong> Documented wells typically support higher valuations</li>
                     <li><strong>Disclosure compliance:</strong> Sellers should provide well information to buyers</li>
                 </ul>
-                <p>
-                    For more about buying or selling property with a well, see our <a href="buying-home-with-well.html" class="text-accent hover:underline">guide to buying a home with a well</a>.
-                </p>
 
                 <h3 class="text-2xl font-semibold text-primary mt-8 mb-3">For Troubleshooting Problems</h3>
                 <p>
@@ -407,9 +464,6 @@
                     <li>Are there formations that might be collapsing or causing sediment?</li>
                     <li>Was the well properly sealed to prevent contamination?</li>
                 </ul>
-                <p>
-                    If you're experiencing issues, check our guides on <a href="no-water-from-well.html" class="text-accent hover:underline">troubleshooting no water</a> and <a href="low-water-pressure-well.html" class="text-accent hover:underline">fixing low water pressure</a>.
-                </p>
 
                 <h2 class="text-3xl font-bold text-primary mt-12 mb-4">Getting Your Well Log from the County</h2>
 
@@ -477,9 +531,6 @@
                     <li>Pump may need replacement or adjustment</li>
                     <li>Well rehabilitation may restore flow</li>
                 </ul>
-                <p>
-                    Learn more in our guide to <a href="well-rehabilitation-cost.html" class="text-accent hover:underline">well rehabilitation costs and options</a>.
-                </p>
 
                 <h3 class="text-2xl font-semibold text-primary mt-8 mb-3">Water Quality Changes</h3>
                 <p>
@@ -513,9 +564,6 @@
                     <li>Photos of equipment and wellhead</li>
                     <li>Contact information for your well service company</li>
                 </ul>
-                <p>
-                    This file will be invaluable if you ever sell the property or need emergency repairs. For more maintenance advice, see our <a href="water-well-maintenance-guide.html" class="text-accent hover:underline">complete well maintenance guide</a>.
-                </p>
 
                 <h2 class="text-3xl font-bold text-primary mt-12 mb-4">Frequently Asked Questions</h2>
 
@@ -570,23 +618,34 @@
     <!-- Related Articles -->
     <section class="py-12 bg-gray-50">
         <div class="max-w-4xl mx-auto px-4">
-            <h2 class="text-2xl font-bold text-primary mb-6">Related Articles</h2>
-            <div class="grid md:grid-cols-2 gap-6">
+            <h2 class="text-2xl font-bold text-primary mb-6">Related Technical Guides</h2>
+            <div class="grid md:grid-cols-3 gap-6">
                 <a href="well-inspection-guide.html" class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>
+                        </svg>
+                    </div>
                     <h3 class="font-semibold text-lg text-primary mb-2">Complete Well Inspection Guide</h3>
-                    <p class="text-gray-600">What's included in a professional well inspection and when you need one.</p>
+                    <p class="text-gray-600 text-sm">What's included in a professional well inspection and when you need one.</p>
                 </a>
-                <a href="buying-home-with-well.html" class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
-                    <h3 class="font-semibold text-lg text-primary mb-2">Buying a Home with a Well</h3>
-                    <p class="text-gray-600">Essential considerations when purchasing property with a private water well.</p>
-                </a>
-                <a href="water-well-maintenance-guide.html" class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
-                    <h3 class="font-semibold text-lg text-primary mb-2">Water Well Maintenance Guide</h3>
-                    <p class="text-gray-600">Essential maintenance tips to keep your well running smoothly for decades.</p>
+                <a href="well-grout-and-sealing.html" class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold text-lg text-primary mb-2">Well Grout & Annular Seals</h3>
+                    <p class="text-gray-600 text-sm">Understanding the seal requirements documented in your well log.</p>
                 </a>
                 <a href="factors-affecting-well-depth.html" class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+                        </svg>
+                    </div>
                     <h3 class="font-semibold text-lg text-primary mb-2">Factors Affecting Well Depth</h3>
-                    <p class="text-gray-600">Understand what determines how deep your well needs to be drilled.</p>
+                    <p class="text-gray-600 text-sm">Understand what determines how deep your well needs to be drilled.</p>
                 </a>
             </div>
         </div>

@@ -26,7 +26,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"></noscript>
-<!-- Article Schema -->
+    <!-- Article Schema -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -122,25 +122,25 @@
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
         "itemListElement": [
-                {
-                        "@type": "ListItem",
-                        "position": 1,
-                        "name": "Home",
-                        "item": "https://scwellservice.com/"
-                },
-                {
-                        "@type": "ListItem",
-                        "position": 2,
-                        "name": "Blog",
-                        "item": "https://scwellservice.com/blog/"
-                },
-                {
-                        "@type": "ListItem",
-                        "position": 3,
-                        "name": "How Do Wells Work? Complete Guide to Water Well Systems"
-                }
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://scwellservice.com/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Blog",
+                "item": "https://scwellservice.com/blog/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "How Do Wells Work? Complete Guide to Water Well Systems"
+            }
         ]
-}
+    }
     </script>
 </head>
 <body class="bg-white">
@@ -156,8 +156,25 @@
         </div>
     </header>
 
+    <!-- Hero Image -->
+    <div class="relative h-64 md:h-96 bg-gray-900">
+        <img 
+            src="https://images.unsplash.com/photo-1584267385494-9fdd9a71ad75?auto=format&fit=crop&w=1920&q=80" 
+            alt="Water well drilling equipment in action" 
+            class="w-full h-full object-cover opacity-70"
+        >
+        <div class="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent"></div>
+        <div class="absolute bottom-0 left-0 right-0 p-6 md:p-12">
+            <div class="max-w-4xl mx-auto">
+                <span class="inline-block bg-accent text-white text-sm font-semibold px-3 py-1 rounded-full mb-4">Equipment & Guides</span>
+                <h1 class="text-3xl md:text-5xl font-bold text-white mb-2">How Do Wells Work?</h1>
+                <p class="text-xl text-gray-200">Complete Guide to Water Well Systems</p>
+            </div>
+        </div>
+    </div>
+
     <!-- Breadcrumb -->
-    <div class="bg-gray-50 py-3">
+    <div class="bg-gray-50 py-3 border-b">
         <div class="max-w-4xl mx-auto px-4">
             <nav class="text-sm">
                 <a href="../index.html" class="text-gray-600 hover:text-primary">Home</a>
@@ -172,16 +189,28 @@
     <!-- Article -->
     <article class="py-12">
         <div class="max-w-4xl mx-auto px-4">
-            <h1 class="text-4xl md:text-5xl font-bold text-primary mb-4">How Do Wells Work? Complete Guide to Water Well Systems</h1>
-            <p class="text-gray-600 mb-8">Published February 1, 2026 | 14 min read</p>
+            <!-- Author Byline -->
+            <div class="flex items-center gap-4 mb-8 pb-8 border-b border-gray-200">
+                <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center">
+                    <span class="text-white font-bold text-lg">SC</span>
+                </div>
+                <div>
+                    <p class="font-semibold text-gray-900">By SCWS Team</p>
+                    <p class="text-gray-500 text-sm">February 1, 2026 · 14 min read</p>
+                </div>
+            </div>
 
             <div class="prose prose-lg max-w-none">
-                <p class="text-xl text-gray-700 leading-relaxed mb-6">
-                    If you've ever turned on a faucet and wondered how water travels from deep underground to your glass, you're not alone. Understanding how wells work helps you maintain your system, troubleshoot problems, and appreciate the engineering that brings fresh groundwater to your home. In this comprehensive guide, we'll explain the complete journey of water from underground aquifers through your well system and into your household plumbing.
+                <p class="text-xl text-gray-700 leading-relaxed mb-8">
+                    Every time you turn on a faucet, flush a toilet, or water your garden, you're tapping into an engineering marvel that's been refined over centuries. For the <strong>43 million Americans</strong> who rely on private wells, understanding how this hidden water delivery system works isn't just interesting—it's essential. Whether you're a new well owner, considering drilling, or simply curious about the technology beneath your feet, this guide will transform you from mystified to informed in just 14 minutes.
                 </p>
 
-                <div class="bg-gray-50 p-6 rounded-lg my-8">
-                    <h3 class="text-xl font-bold text-primary mb-4">Water Well Basics: Key Concepts</h3>
+                <!-- Key Concepts Box -->
+                <div class="bg-emerald-50 border-l-4 border-emerald-500 p-6 my-8 rounded-r-lg">
+                    <h3 class="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                        <svg class="w-6 h-6 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        Water Well Basics: Key Concepts
+                    </h3>
                     <ul class="space-y-3 text-gray-700">
                         <li><strong>Aquifer:</strong> Underground layer of rock or sediment that holds and transmits groundwater</li>
                         <li><strong>Water Table:</strong> The top level of the saturated zone where groundwater begins</li>
@@ -191,45 +220,55 @@
                     </ul>
                 </div>
 
-                <h2 class="text-3xl font-bold text-primary mt-12 mb-4">Where Does Well Water Come From? Understanding Aquifers</h2>
+                <h2 class="text-3xl font-bold text-primary mt-12 mb-6">Where Does Well Water Come From? Understanding Aquifers</h2>
 
                 <p>
                     The water in your well doesn't come from underground rivers or lakes as many people imagine. Instead, it comes from aquifers—geological formations of permeable rock, sand, or gravel that can store and transmit significant quantities of water. Understanding aquifers is the first step to understanding how your well works. For a deeper dive into California's groundwater resources, visit <a href="https://california-groundwater.org/" target="_blank" rel="noopener" class="text-accent hover:underline">California Groundwater</a>, a comprehensive resource for well owners statewide.
                 </p>
 
-                <h3 class="text-2xl font-semibold text-primary mt-8 mb-3">The Water Cycle and Groundwater Recharge</h3>
+                <!-- Inline Image -->
+                <figure class="my-10">
+                    <img 
+                        src="https://images.unsplash.com/photo-1509316785289-025f5b846b35?auto=format&fit=crop&w=1200&q=80" 
+                        alt="Underground water and rock formations showing how aquifers store water"
+                        class="w-full rounded-lg shadow-lg"
+                    >
+                    <figcaption class="text-center text-gray-500 text-sm mt-3">Aquifers form in permeable rock and sediment layers that store vast quantities of groundwater</figcaption>
+                </figure>
+
+                <h3 class="text-2xl font-semibold text-primary mt-10 mb-4">The Water Cycle and Groundwater Recharge</h3>
                 <p>
                     Your well water began its journey as precipitation—rain or snow that fell on the Earth's surface. Some of this water runs off into streams and rivers, some evaporates, and some soaks into the ground. This infiltrating water is called recharge, and it's how aquifers get replenished.
                 </p>
-                <p>
+                <p class="mt-4">
                     As water percolates downward through soil and rock, gravity pulls it deeper until it reaches a zone where all the spaces between rock particles are completely saturated. The top of this saturated zone is called the water table. Below the water table, every crack, crevice, and pore space in the rock is filled with water—this is your aquifer.
                 </p>
 
-                <h3 class="text-2xl font-semibold text-primary mt-8 mb-3">Types of Aquifers</h3>
+                <h3 class="text-2xl font-semibold text-primary mt-10 mb-4">Types of Aquifers</h3>
                 <p>
                     Not all aquifers are created equal. The type of aquifer beneath your property affects well depth, yield, and water quality:
                 </p>
-                <ul class="list-disc pl-6 space-y-2 text-gray-700 my-4">
+                <ul class="list-disc pl-6 space-y-3 text-gray-700 my-6">
                     <li><strong>Unconfined Aquifers:</strong> The water table is the top boundary, and water can move freely up and down with precipitation. These aquifers are recharged directly from the surface and are more vulnerable to contamination.</li>
                     <li><strong>Confined Aquifers:</strong> Sandwiched between impermeable rock layers (called aquitards), these aquifers are under pressure. When a well taps a confined aquifer, water may rise above the aquifer level—sometimes creating an artesian well that flows without pumping.</li>
                     <li><strong>Fractured Rock Aquifers:</strong> Common in mountainous areas of Southern California, these aquifers store water in cracks and fractures rather than pore spaces. Well yields can be unpredictable depending on whether the well intersects productive fracture zones.</li>
                 </ul>
 
-                <div class="bg-accent/10 border-l-4 border-accent p-6 my-8">
-                    <p class="text-gray-700"><strong>Southern California Aquifers:</strong> Our region has diverse geology, from coastal alluvial basins with productive sand and gravel aquifers to inland fractured granite formations. This is why <a href="how-deep-should-well-be-san-diego.html" class="text-accent hover:underline">well depths vary dramatically</a> across San Diego County—from 150 feet in some valley areas to over 600 feet in the mountains.</p>
+                <div class="bg-emerald-50 border-l-4 border-emerald-500 p-6 my-8 rounded-r-lg">
+                    <p class="text-gray-700"><strong>🌴 Southern California Aquifers:</strong> Our region has diverse geology, from coastal alluvial basins with productive sand and gravel aquifers to inland fractured granite formations. This is why <a href="how-deep-should-well-be-san-diego.html" class="text-accent hover:underline">well depths vary dramatically</a> across San Diego County—from 150 feet in some valley areas to over 600 feet in the mountains.</p>
                 </div>
 
-                <h2 class="text-3xl font-bold text-primary mt-12 mb-4">Types of Water Wells: Drilled, Driven, and Dug</h2>
+                <h2 class="text-3xl font-bold text-primary mt-12 mb-6">Types of Water Wells: Drilled, Driven, and Dug</h2>
 
                 <p>
                     Throughout history, humans have developed different methods to access groundwater. Today, three main well types exist, though modern residential wells are almost exclusively drilled wells due to their depth capability and reliability.
                 </p>
 
-                <h3 class="text-2xl font-semibold text-primary mt-8 mb-3">Drilled Wells</h3>
+                <h3 class="text-2xl font-semibold text-primary mt-10 mb-4">Drilled Wells</h3>
                 <p>
                     Drilled wells are the modern standard for residential water supply. They're created using powerful drilling rigs that can penetrate hundreds of feet into bedrock. There are two main drilling methods:
                 </p>
-                <ul class="list-disc pl-6 space-y-2 text-gray-700 my-4">
+                <ul class="list-disc pl-6 space-y-3 text-gray-700 my-6">
                     <li><strong>Rotary Drilling:</strong> Uses a rotating drill bit with drilling fluid (mud) to cut through rock. The fluid carries rock cuttings to the surface and stabilizes the borehole. This is the fastest method and is used for most modern wells.</li>
                     <li><strong>Cable Tool (Percussion) Drilling:</strong> An older method where a heavy bit is repeatedly raised and dropped to pulverize rock. Slower but sometimes preferred in fractured rock where drilling mud could seal off water-producing fractures.</li>
                 </ul>
@@ -237,11 +276,21 @@
                     Drilled wells typically range from 4 to 8 inches in diameter and can reach depths exceeding 1,000 feet. The borehole is lined with steel or PVC casing to prevent collapse and protect water quality. Learn more about the drilling process and <a href="how-long-to-drill-well.html" class="text-accent hover:underline">how long it takes to drill a well</a>.
                 </p>
 
-                <h3 class="text-2xl font-semibold text-primary mt-8 mb-3">Driven Wells</h3>
+                <!-- Inline Image -->
+                <figure class="my-10">
+                    <img 
+                        src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=80" 
+                        alt="Well drilling rig equipment used to drill deep water wells"
+                        class="w-full rounded-lg shadow-lg"
+                    >
+                    <figcaption class="text-center text-gray-500 text-sm mt-3">Modern drilling rigs can reach depths of over 1,000 feet to access deep aquifers</figcaption>
+                </figure>
+
+                <h3 class="text-2xl font-semibold text-primary mt-10 mb-4">Driven Wells</h3>
                 <p>
                     Driven wells are constructed by hammering a small-diameter pipe (typically 1.25 to 2 inches) with a screened point directly into the ground. They're also called sand point wells or well points.
                 </p>
-                <p>
+                <p class="mt-4">
                     These wells can only be installed in soft, unconsolidated soil (sand, gravel, or loose alluvium) and typically reach depths of only 30-50 feet. Because of their shallow depth and small diameter, driven wells:
                 </p>
                 <ul class="list-disc pl-6 space-y-2 text-gray-700 my-4">
@@ -255,11 +304,11 @@
                     In Southern California, driven wells are rarely suitable due to our typically deep water tables and hard rock geology.
                 </p>
 
-                <h3 class="text-2xl font-semibold text-primary mt-8 mb-3">Dug Wells</h3>
+                <h3 class="text-2xl font-semibold text-primary mt-10 mb-4">Dug Wells</h3>
                 <p>
                     Dug wells are the oldest type, created by excavating a large-diameter hole (3-10 feet across) by hand or machine. Historically lined with stone, brick, or concrete, these wells are shallow—usually only 10-30 feet deep—and extend just below the water table.
                 </p>
-                <p>
+                <p class="mt-4">
                     While picturesque in old farmstead photos, dug wells have significant drawbacks:
                 </p>
                 <ul class="list-disc pl-6 space-y-2 text-gray-700 my-4">
@@ -272,48 +321,49 @@
                     If you have an older dug well on your property, it should be properly decommissioned and replaced with a drilled well for safety and reliability.
                 </p>
 
-                <div class="overflow-x-auto my-8">
-                    <table class="w-full border-collapse bg-gray-50 rounded-lg overflow-hidden">
+                <!-- Comparison Table -->
+                <div class="overflow-x-auto my-10">
+                    <table class="w-full border-collapse bg-white rounded-lg overflow-hidden shadow-lg">
                         <thead class="bg-primary text-white">
                             <tr>
-                                <th class="p-4 text-left">Characteristic</th>
-                                <th class="p-4 text-left">Drilled Well</th>
-                                <th class="p-4 text-left">Driven Well</th>
-                                <th class="p-4 text-left">Dug Well</th>
+                                <th class="p-4 text-left font-semibold">Characteristic</th>
+                                <th class="p-4 text-left font-semibold">Drilled Well</th>
+                                <th class="p-4 text-left font-semibold">Driven Well</th>
+                                <th class="p-4 text-left font-semibold">Dug Well</th>
                             </tr>
                         </thead>
                         <tbody class="text-gray-700">
-                            <tr class="border-b">
+                            <tr class="border-b border-gray-200">
                                 <td class="p-4 font-semibold">Typical Depth</td>
                                 <td class="p-4">100-1,000+ feet</td>
                                 <td class="p-4">30-50 feet</td>
                                 <td class="p-4">10-30 feet</td>
                             </tr>
-                            <tr class="border-b bg-white">
+                            <tr class="border-b border-gray-200 bg-gray-50">
                                 <td class="p-4 font-semibold">Diameter</td>
                                 <td class="p-4">4-8 inches</td>
                                 <td class="p-4">1.25-2 inches</td>
                                 <td class="p-4">3-10 feet</td>
                             </tr>
-                            <tr class="border-b">
+                            <tr class="border-b border-gray-200">
                                 <td class="p-4 font-semibold">Construction Method</td>
                                 <td class="p-4">Drilling rig</td>
                                 <td class="p-4">Hammering pipe</td>
                                 <td class="p-4">Excavation</td>
                             </tr>
-                            <tr class="border-b bg-white">
+                            <tr class="border-b border-gray-200 bg-gray-50">
                                 <td class="p-4 font-semibold">Contamination Risk</td>
-                                <td class="p-4">Low</td>
-                                <td class="p-4">Moderate</td>
-                                <td class="p-4">High</td>
+                                <td class="p-4 text-green-600 font-medium">Low</td>
+                                <td class="p-4 text-yellow-600 font-medium">Moderate</td>
+                                <td class="p-4 text-red-600 font-medium">High</td>
                             </tr>
-                            <tr class="border-b">
+                            <tr class="border-b border-gray-200">
                                 <td class="p-4 font-semibold">Drought Reliability</td>
-                                <td class="p-4">High</td>
-                                <td class="p-4">Low</td>
-                                <td class="p-4">Very Low</td>
+                                <td class="p-4 text-green-600 font-medium">High</td>
+                                <td class="p-4 text-yellow-600 font-medium">Low</td>
+                                <td class="p-4 text-red-600 font-medium">Very Low</td>
                             </tr>
-                            <tr>
+                            <tr class="bg-gray-50">
                                 <td class="p-4 font-semibold">Best For</td>
                                 <td class="p-4">Modern residential use</td>
                                 <td class="p-4">Shallow water tables only</td>
@@ -323,13 +373,13 @@
                     </table>
                 </div>
 
-                <h2 class="text-3xl font-bold text-primary mt-12 mb-4">Well Construction: What's Inside Your Well</h2>
+                <h2 class="text-3xl font-bold text-primary mt-12 mb-6">Well Construction: What's Inside Your Well</h2>
 
                 <p>
                     A modern drilled well is an engineered system with multiple components working together. Understanding these parts helps you communicate with well professionals and maintain your system properly.
                 </p>
 
-                <h3 class="text-2xl font-semibold text-primary mt-8 mb-3">Well Casing</h3>
+                <h3 class="text-2xl font-semibold text-primary mt-10 mb-4">Well Casing</h3>
                 <p>
                     The casing is a pipe (typically steel or PVC) that lines the borehole from the surface down into the aquifer. It serves several critical functions:
                 </p>
@@ -343,12 +393,12 @@
                     In California, steel casing is required through the upper portion of the well (typically the first 50+ feet) to ensure a proper sanitary seal. PVC casing may be used in the lower sections. <a href="well-casing-damage.html" class="text-accent hover:underline">Damaged well casing</a> can lead to water quality problems and should be inspected regularly.
                 </p>
 
-                <h3 class="text-2xl font-semibold text-primary mt-8 mb-3">Annular Seal (Grout)</h3>
+                <h3 class="text-2xl font-semibold text-primary mt-10 mb-4">Annular Seal (Grout)</h3>
                 <p>
                     The space between the casing and the borehole wall is called the annular space. This is filled with cement grout or bentonite clay to create a watertight seal. The annular seal is crucial—it prevents surface water and shallow contamination from traveling down alongside the casing into your drinking water aquifer.
                 </p>
 
-                <h3 class="text-2xl font-semibold text-primary mt-8 mb-3">Well Screen</h3>
+                <h3 class="text-2xl font-semibold text-primary mt-10 mb-4">Well Screen</h3>
                 <p>
                     At the bottom of the well, in the water-producing zone, the casing may have perforations or a specialized well screen. This allows groundwater to enter the well while keeping sand and sediment out. The screen design depends on the aquifer material:
                 </p>
@@ -358,22 +408,32 @@
                     <li><strong>Open hole:</strong> In stable bedrock, the casing may simply end and leave an open borehole in the rock</li>
                 </ul>
 
-                <h3 class="text-2xl font-semibold text-primary mt-8 mb-3">Well Cap</h3>
+                <h3 class="text-2xl font-semibold text-primary mt-10 mb-4">Well Cap</h3>
                 <p>
                     At the surface, a well cap seals the top of the casing. A proper well cap is vermin-proof (keeps out insects and small animals) and watertight while allowing electrical wires for the pump to pass through. The cap should be at least 12 inches above ground level to prevent surface water entry.
                 </p>
 
-                <h2 class="text-3xl font-bold text-primary mt-12 mb-4">Components of a Well System: From Pump to Faucet</h2>
+                <h2 class="text-3xl font-bold text-primary mt-12 mb-6">Components of a Well System: From Pump to Faucet</h2>
 
                 <p>
                     The well itself is just a hole in the ground until you add the equipment that makes it a working water system. Here's how each component functions in the journey from aquifer to your faucet.
                 </p>
 
-                <h3 class="text-2xl font-semibold text-primary mt-8 mb-3">The Well Pump</h3>
+                <!-- Inline Image -->
+                <figure class="my-10">
+                    <img 
+                        src="https://images.unsplash.com/photo-1585771724684-38269d6639fd?auto=format&fit=crop&w=1200&q=80" 
+                        alt="Well pump and pressure tank system components"
+                        class="w-full rounded-lg shadow-lg"
+                    >
+                    <figcaption class="text-center text-gray-500 text-sm mt-3">A complete well system includes pump, pressure tank, pressure switch, and control components</figcaption>
+                </figure>
+
+                <h3 class="text-2xl font-semibold text-primary mt-10 mb-4">The Well Pump</h3>
                 <p>
                     The pump is the heart of your well system—it lifts water from deep underground to the surface. For most residential wells, this is a <a href="types-of-well-pumps.html" class="text-accent hover:underline">submersible pump</a> installed inside the well casing, typically set 10-20 feet above the well bottom.
                 </p>
-                <p>
+                <p class="mt-4">
                     A submersible pump consists of:
                 </p>
                 <ul class="list-disc pl-6 space-y-2 text-gray-700 my-4">
@@ -386,31 +446,31 @@
                     When the pump activates, the motor spins the impellers at high speed, creating pressure that pushes water up through the drop pipe. Modern submersible pumps can lift water from over 400 feet and are remarkably efficient. Learn to recognize the <a href="signs-well-pump-failing.html" class="text-accent hover:underline">signs of a failing well pump</a>.
                 </p>
 
-                <h3 class="text-2xl font-semibold text-primary mt-8 mb-3">Drop Pipe</h3>
+                <h3 class="text-2xl font-semibold text-primary mt-10 mb-4">Drop Pipe</h3>
                 <p>
                     The drop pipe connects the pump to the surface. It's usually 1 to 2-inch diameter PVC or polyethylene pipe that carries water up from the pump. The pump, pipe, and electrical cable are all suspended from the wellhead by the pipe itself or by a safety rope.
                 </p>
 
-                <h3 class="text-2xl font-semibold text-primary mt-8 mb-3">Pitless Adapter</h3>
+                <h3 class="text-2xl font-semibold text-primary mt-10 mb-4">Pitless Adapter</h3>
                 <p>
                     The pitless adapter is an ingenious fitting that allows the water line to exit the well casing below the frost line (the depth where ground freezing occurs). This prevents freeze damage without requiring a buried well pit.
                 </p>
-                <p>
+                <p class="mt-4">
                     The adapter consists of two parts: one attached to the casing with a watertight seal, and one connected to the drop pipe. When the drop pipe is lowered into the well, the two parts lock together, creating a connection that directs water horizontally through the casing and into the underground supply line leading to your home.
                 </p>
 
-                <h3 class="text-2xl font-semibold text-primary mt-8 mb-3">Pressure Tank</h3>
+                <h3 class="text-2xl font-semibold text-primary mt-10 mb-4">Pressure Tank</h3>
                 <p>
                     The pressure tank is typically located in your garage, basement, or a pump house. It's a large steel tank (usually 20-120 gallons) that stores pressurized water and manages pump cycling.
                 </p>
-                <p>
+                <p class="mt-4">
                     Modern pressure tanks have a rubber bladder inside that separates air from water. The tank is pre-charged with air (typically to 2 PSI below cut-in pressure). When the pump fills the tank with water, it compresses this air, creating pressure that pushes water through your home's plumbing.
                 </p>
-                <p>
+                <p class="mt-4">
                     Without a pressure tank, your pump would turn on and off every time you used any water—this rapid cycling would quickly burn out the pump. The tank provides a buffer, allowing the pump to run for longer periods less frequently. <a href="pressure-tank-problems.html" class="text-accent hover:underline">Pressure tank problems</a> are a common cause of well system issues.
                 </p>
 
-                <h3 class="text-2xl font-semibold text-primary mt-8 mb-3">Pressure Switch</h3>
+                <h3 class="text-2xl font-semibold text-primary mt-10 mb-4">Pressure Switch</h3>
                 <p>
                     The pressure switch is the brain of the system. It monitors system pressure and tells the pump when to run. A typical residential switch is set to:
                 </p>
@@ -422,31 +482,64 @@
                     The 20-PSI difference between cut-in and cut-out is called the differential. This range provides consistent water pressure while minimizing pump cycles.
                 </p>
 
-                <h3 class="text-2xl font-semibold text-primary mt-8 mb-3">Control Box</h3>
+                <h3 class="text-2xl font-semibold text-primary mt-10 mb-4">Control Box</h3>
                 <p>
                     For pumps larger than ½ horsepower, a control box mounted near the pressure tank houses the starting capacitors and relay that manage the pump motor. The control box converts household electrical power into the proper starting and running power the pump needs.
                 </p>
 
-                <h2 class="text-3xl font-bold text-primary mt-12 mb-4">How Water Travels From Ground to Faucet: Step by Step</h2>
+                <h2 class="text-3xl font-bold text-primary mt-12 mb-6">How Water Travels From Ground to Faucet: Step by Step</h2>
 
                 <p>
                     Now let's trace the complete journey of water through your well system:
                 </p>
 
-                <div class="bg-gray-50 p-6 rounded-lg my-8">
+                <div class="bg-gray-50 p-6 rounded-lg my-8 shadow-inner">
                     <h3 class="text-xl font-bold text-primary mb-4">The Journey of Well Water</h3>
-                    <ol class="space-y-4 text-gray-700 list-decimal pl-6">
-                        <li><strong>Groundwater accumulates:</strong> Precipitation soaks into the ground and collects in the aquifer over months to thousands of years</li>
-                        <li><strong>Water enters the well:</strong> Groundwater flows through the well screen or perforations into the casing</li>
-                        <li><strong>You turn on a faucet:</strong> Water leaves the pressure tank, and system pressure begins to drop</li>
-                        <li><strong>Pressure switch activates:</strong> When pressure reaches the cut-in point (e.g., 40 PSI), the switch closes the circuit</li>
-                        <li><strong>Pump starts:</strong> The control box sends power to the submersible pump motor</li>
-                        <li><strong>Water is pushed upward:</strong> The pump's impellers spin, forcing water up the drop pipe</li>
-                        <li><strong>Water exits the well:</strong> At the pitless adapter, water is redirected horizontally through the casing</li>
-                        <li><strong>Water reaches the pressure tank:</strong> The supply line carries water to your pressure tank, refilling it</li>
-                        <li><strong>Pressure builds:</strong> As the tank fills, air compression increases system pressure</li>
-                        <li><strong>Pump stops:</strong> When pressure reaches cut-out (e.g., 60 PSI), the pressure switch opens and the pump stops</li>
-                        <li><strong>Water reaches your faucet:</strong> Pressurized water from the tank flows through your plumbing to every fixture</li>
+                    <ol class="space-y-4 text-gray-700">
+                        <li class="flex gap-4">
+                            <span class="flex-shrink-0 w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center font-bold">1</span>
+                            <div><strong>Groundwater accumulates:</strong> Precipitation soaks into the ground and collects in the aquifer over months to thousands of years</div>
+                        </li>
+                        <li class="flex gap-4">
+                            <span class="flex-shrink-0 w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center font-bold">2</span>
+                            <div><strong>Water enters the well:</strong> Groundwater flows through the well screen or perforations into the casing</div>
+                        </li>
+                        <li class="flex gap-4">
+                            <span class="flex-shrink-0 w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center font-bold">3</span>
+                            <div><strong>You turn on a faucet:</strong> Water leaves the pressure tank, and system pressure begins to drop</div>
+                        </li>
+                        <li class="flex gap-4">
+                            <span class="flex-shrink-0 w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center font-bold">4</span>
+                            <div><strong>Pressure switch activates:</strong> When pressure reaches the cut-in point (e.g., 40 PSI), the switch closes the circuit</div>
+                        </li>
+                        <li class="flex gap-4">
+                            <span class="flex-shrink-0 w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center font-bold">5</span>
+                            <div><strong>Pump starts:</strong> The control box sends power to the submersible pump motor</div>
+                        </li>
+                        <li class="flex gap-4">
+                            <span class="flex-shrink-0 w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center font-bold">6</span>
+                            <div><strong>Water is pushed upward:</strong> The pump's impellers spin, forcing water up the drop pipe</div>
+                        </li>
+                        <li class="flex gap-4">
+                            <span class="flex-shrink-0 w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center font-bold">7</span>
+                            <div><strong>Water exits the well:</strong> At the pitless adapter, water is redirected horizontally through the casing</div>
+                        </li>
+                        <li class="flex gap-4">
+                            <span class="flex-shrink-0 w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center font-bold">8</span>
+                            <div><strong>Water reaches the pressure tank:</strong> The supply line carries water to your pressure tank, refilling it</div>
+                        </li>
+                        <li class="flex gap-4">
+                            <span class="flex-shrink-0 w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center font-bold">9</span>
+                            <div><strong>Pressure builds:</strong> As the tank fills, air compression increases system pressure</div>
+                        </li>
+                        <li class="flex gap-4">
+                            <span class="flex-shrink-0 w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center font-bold">10</span>
+                            <div><strong>Pump stops:</strong> When pressure reaches cut-out (e.g., 60 PSI), the pressure switch opens and the pump stops</div>
+                        </li>
+                        <li class="flex gap-4">
+                            <span class="flex-shrink-0 w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center font-bold">11</span>
+                            <div><strong>Water reaches your faucet:</strong> Pressurized water from the tank flows through your plumbing to every fixture</div>
+                        </li>
                     </ol>
                 </div>
 
@@ -454,73 +547,75 @@
                     This entire cycle happens automatically, dozens of times per day, delivering fresh groundwater on demand. The system is designed to be hands-off—when working properly, you simply turn on the tap and water appears.
                 </p>
 
-                <h2 class="text-3xl font-bold text-primary mt-12 mb-4">Maintaining Your Well System</h2>
+                <h2 class="text-3xl font-bold text-primary mt-12 mb-6">Maintaining Your Well System</h2>
 
                 <p>
                     Understanding how your well works helps you keep it functioning properly. Here are key maintenance considerations:
                 </p>
 
-                <h3 class="text-2xl font-semibold text-primary mt-8 mb-3">Annual Inspection</h3>
+                <h3 class="text-2xl font-semibold text-primary mt-10 mb-4">Annual Inspection</h3>
                 <p>
                     Have your well system professionally inspected at least once per year. A technician will check pump performance, pressure tank operation, water flow rate, and electrical components. Catching small problems early prevents expensive emergency repairs. Read our complete <a href="well-inspection-guide.html" class="text-accent hover:underline">well inspection guide</a> for more details.
                 </p>
 
-                <h3 class="text-2xl font-semibold text-primary mt-8 mb-3">Water Testing</h3>
+                <h3 class="text-2xl font-semibold text-primary mt-10 mb-4">Water Testing</h3>
                 <p>
                     Test your water quality annually for bacteria and every few years for minerals and other contaminants. Changes in water quality can indicate problems with your well or aquifer. Our <a href="well-water-testing-guide.html" class="text-accent hover:underline">water testing guide</a> explains what to test for and how often.
                 </p>
 
-                <h3 class="text-2xl font-semibold text-primary mt-8 mb-3">Pressure Tank Maintenance</h3>
+                <h3 class="text-2xl font-semibold text-primary mt-10 mb-4">Pressure Tank Maintenance</h3>
                 <p>
                     Check your pressure tank's air charge annually. A waterlogged tank (low air pressure) causes rapid pump cycling that shortens pump life dramatically. You can check this by pressing the air valve—if water comes out, the bladder has failed and the tank needs replacement.
                 </p>
 
-                <h3 class="text-2xl font-semibold text-primary mt-8 mb-3">Watch for Warning Signs</h3>
-                <p>
-                    Know the signs of well problems so you can address them quickly:
-                </p>
-                <ul class="list-disc pl-6 space-y-2 text-gray-700 my-4">
-                    <li><a href="low-water-pressure-well.html" class="text-accent hover:underline">Decreased water pressure</a> or flow</li>
-                    <li><a href="well-pump-runs-constantly.html" class="text-accent hover:underline">Pump running constantly</a> or cycling rapidly</li>
-                    <li><a href="cloudy-well-water.html" class="text-accent hover:underline">Cloudy or murky water</a></li>
-                    <li><a href="well-water-smells-bad.html" class="text-accent hover:underline">Strange tastes or odors</a></li>
-                    <li>Air sputtering from faucets</li>
-                    <li>Unusually high electric bills</li>
-                </ul>
+                <div class="bg-emerald-50 border-l-4 border-emerald-500 p-6 my-8 rounded-r-lg">
+                    <h4 class="font-bold text-gray-900 mb-3">⚠️ Watch for Warning Signs</h4>
+                    <p class="text-gray-700 mb-3">Know the signs of well problems so you can address them quickly:</p>
+                    <ul class="space-y-2 text-gray-700">
+                        <li>• <a href="low-water-pressure-well.html" class="text-accent hover:underline">Decreased water pressure</a> or flow</li>
+                        <li>• <a href="well-pump-runs-constantly.html" class="text-accent hover:underline">Pump running constantly</a> or cycling rapidly</li>
+                        <li>• <a href="cloudy-well-water.html" class="text-accent hover:underline">Cloudy or murky water</a></li>
+                        <li>• <a href="well-water-smells-bad.html" class="text-accent hover:underline">Strange tastes or odors</a></li>
+                        <li>• Air sputtering from faucets</li>
+                        <li>• Unusually high electric bills</li>
+                    </ul>
+                </div>
 
-                <h2 class="text-3xl font-bold text-primary mt-12 mb-4">Frequently Asked Questions</h2>
+                <h2 class="text-3xl font-bold text-primary mt-12 mb-6">Frequently Asked Questions</h2>
 
                 <div class="space-y-6 my-8">
-                    <div class="bg-gray-50 p-6 rounded-lg">
-                        <h3 class="font-bold text-primary mb-2">How does water get into a well?</h3>
+                    <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+                        <h3 class="font-bold text-primary text-lg mb-3">How does water get into a well?</h3>
                         <p class="text-gray-700">Water enters a well through natural groundwater stored in underground aquifers. When rain and snowmelt seep into the ground, gravity pulls the water down through soil and rock until it reaches the water table—the top of the saturated zone where all pore spaces are filled with water. Wells are drilled deep enough to reach below this water table, allowing water to flow into the well casing through perforations or screens at the bottom.</p>
                     </div>
-                    <div class="bg-gray-50 p-6 rounded-lg">
-                        <h3 class="font-bold text-primary mb-2">How deep does a water well need to be?</h3>
+                    <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+                        <h3 class="font-bold text-primary text-lg mb-3">How deep does a water well need to be?</h3>
                         <p class="text-gray-700">Well depth depends on local geology and the depth of the water table. In Southern California, residential wells typically range from 200 to 600 feet deep, with some areas requiring wells over 1,000 feet. The well must reach at least 20-50 feet below the static water level to ensure consistent water supply even during drought conditions when water tables drop.</p>
                     </div>
-                    <div class="bg-gray-50 p-6 rounded-lg">
-                        <h3 class="font-bold text-primary mb-2">What are the main components of a well system?</h3>
+                    <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+                        <h3 class="font-bold text-primary text-lg mb-3">What are the main components of a well system?</h3>
                         <p class="text-gray-700">A complete well system includes: the well casing (steel or PVC pipe lining the borehole), well screen (perforated section allowing water entry), submersible pump (pushes water to surface), drop pipe (carries water up), pitless adapter (connects to horizontal pipe below frost line), pressure tank (stores water and maintains pressure), pressure switch (controls pump cycling), and the distribution plumbing to your home.</p>
                     </div>
-                    <div class="bg-gray-50 p-6 rounded-lg">
-                        <h3 class="font-bold text-primary mb-2">What is the difference between drilled, driven, and dug wells?</h3>
+                    <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+                        <h3 class="font-bold text-primary text-lg mb-3">What is the difference between drilled, driven, and dug wells?</h3>
                         <p class="text-gray-700">Drilled wells use rotary or cable-tool drilling to reach depths of 100-1,000+ feet, making them the most reliable for deep aquifers. Driven wells are created by hammering a small-diameter pipe into soft ground, typically reaching only 30-50 feet—suitable for areas with shallow water tables. Dug wells are large-diameter holes excavated by hand or machine, usually only 10-30 feet deep. Drilled wells are the standard for modern residential use due to their depth capability and contamination protection.</p>
                     </div>
-                    <div class="bg-gray-50 p-6 rounded-lg">
-                        <h3 class="font-bold text-primary mb-2">How does a well pump and pressure tank work together?</h3>
+                    <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+                        <h3 class="font-bold text-primary text-lg mb-3">How does a well pump and pressure tank work together?</h3>
                         <p class="text-gray-700">The pump and pressure tank work as a team to provide consistent water pressure. When you turn on a faucet, water flows from the pressure tank, which is pre-charged with air. As water leaves, pressure drops. When it reaches the cut-in pressure (typically 30-40 PSI), the pressure switch activates the pump. The pump refills the tank until the cut-out pressure (50-60 PSI) is reached, then shuts off. This system prevents the pump from cycling on and off with every small water use, extending pump life and providing steady pressure.</p>
                     </div>
                 </div>
 
-                <div class="bg-accent/10 border-l-4 border-accent p-6 mt-12">
-                    <h3 class="text-xl font-bold text-primary mb-2">Need Help With Your Well System?</h3>
-                    <p class="text-gray-700 mb-4">Whether you're considering drilling a new well, need repairs on an existing system, or just have questions about how your well works, our experienced technicians are here to help. We service wells throughout San Diego and Riverside counties, providing <a href="../pages/services/well-drilling.html" class="text-accent hover:underline font-semibold">well drilling</a>, <a href="../pages/services/well-pump-service.html" class="text-accent hover:underline font-semibold">pump installation and repair</a>, and comprehensive <a href="water-well-maintenance-guide.html" class="text-accent hover:underline font-semibold">maintenance services</a>.</p>
+                <!-- CTA Box -->
+                <div class="bg-gradient-to-r from-primary to-blue-800 text-white p-8 rounded-xl my-12 shadow-xl">
+                    <h3 class="text-2xl font-bold mb-4">Need Help With Your Well System?</h3>
+                    <p class="text-blue-100 mb-6">Whether you're considering drilling a new well, need repairs on an existing system, or just have questions about how your well works, our experienced technicians are here to help. We service wells throughout San Diego and Riverside counties, providing <a href="../pages/services/well-drilling.html" class="text-white underline hover:text-blue-200 font-semibold">well drilling</a>, <a href="../pages/services/well-pump-service.html" class="text-white underline hover:text-blue-200 font-semibold">pump installation and repair</a>, and comprehensive <a href="water-well-maintenance-guide.html" class="text-white underline hover:text-blue-200 font-semibold">maintenance services</a>.</p>
                     <div class="flex flex-col sm:flex-row gap-4">
-                        <a href="tel:7604408520" class="inline-block bg-accent hover:bg-green-700 text-white px-6 py-3 rounded-lg font-semibold transition text-center">
+                        <a href="tel:7604408520" class="inline-flex items-center justify-center gap-2 bg-white text-primary hover:bg-gray-100 px-6 py-3 rounded-lg font-semibold transition text-center">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
                             Call (760) 440-8520
                         </a>
-                        <a href="../pages/estimate.html" class="inline-block bg-primary hover:bg-blue-900 text-white px-6 py-3 rounded-lg font-semibold transition text-center">
+                        <a href="../pages/estimate.html" class="inline-flex items-center justify-center gap-2 bg-accent hover:bg-green-700 text-white px-6 py-3 rounded-lg font-semibold transition text-center">
                             Request Free Estimate
                         </a>
                     </div>
@@ -530,21 +625,36 @@
     </article>
 
     <!-- Related Articles -->
-    <section class="py-12 bg-gray-50">
+    <section class="py-16 bg-gray-50">
         <div class="max-w-4xl mx-auto px-4">
-            <h2 class="text-2xl font-bold text-primary mb-6">Related Articles</h2>
+            <h2 class="text-2xl font-bold text-primary mb-8">Related Articles</h2>
             <div class="grid md:grid-cols-3 gap-6">
-                <a href="types-of-well-pumps.html" class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
-                    <h3 class="font-semibold text-lg text-primary mb-2">Types of Well Pumps</h3>
-                    <p class="text-gray-600">Compare submersible, jet, and other pump types.</p>
+                <a href="types-of-well-pumps.html" class="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition">
+                    <div class="h-40 bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center">
+                        <svg class="w-16 h-16 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+                    </div>
+                    <div class="p-5">
+                        <h3 class="font-semibold text-lg text-primary mb-2 group-hover:text-accent transition">Types of Well Pumps</h3>
+                        <p class="text-gray-600 text-sm">Compare submersible, jet, and other pump types to find the best fit.</p>
+                    </div>
                 </a>
-                <a href="how-deep-should-well-be-san-diego.html" class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
-                    <h3 class="font-semibold text-lg text-primary mb-2">Well Depth by Location</h3>
-                    <p class="text-gray-600">How deep wells need to be in San Diego County.</p>
+                <a href="how-deep-should-well-be-san-diego.html" class="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition">
+                    <div class="h-40 bg-gradient-to-br from-emerald-600 to-emerald-800 flex items-center justify-center">
+                        <svg class="w-16 h-16 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+                    </div>
+                    <div class="p-5">
+                        <h3 class="font-semibold text-lg text-primary mb-2 group-hover:text-accent transition">Well Depth by Location</h3>
+                        <p class="text-gray-600 text-sm">How deep wells need to be in different San Diego County areas.</p>
+                    </div>
                 </a>
-                <a href="well-water-vs-city-water.html" class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
-                    <h3 class="font-semibold text-lg text-primary mb-2">Well Water vs City Water</h3>
-                    <p class="text-gray-600">Compare the benefits of private well ownership.</p>
+                <a href="well-water-vs-city-water.html" class="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition">
+                    <div class="h-40 bg-gradient-to-br from-cyan-600 to-cyan-800 flex items-center justify-center">
+                        <svg class="w-16 h-16 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path></svg>
+                    </div>
+                    <div class="p-5">
+                        <h3 class="font-semibold text-lg text-primary mb-2 group-hover:text-accent transition">Well Water vs City Water</h3>
+                        <p class="text-gray-600 text-sm">Compare the benefits and considerations of private well ownership.</p>
+                    </div>
                 </a>
             </div>
         </div>
