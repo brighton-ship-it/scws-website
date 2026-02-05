@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10 Warning Signs Your Well Pump Is Failing | Southern California Well Service</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: #1f3b4d;
+            line-height: 1.6;
+            background: #fff;
+        }
+        
+        .page {
+            max-width: 8.5in;
+            margin: 0 auto;
+            padding: 0.75in;
+            page-break-after: always;
+        }
+        
+        .page:last-child {
+            page-break-after: avoid;
+        }
+        
+        /* Cover Page */
+        .cover {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 9.5in;
+            text-align: center;
+            background: linear-gradient(135deg, #1f3b4d 0%, #2d5a6e 100%);
+            color: white;
+            padding: 1in;
+        }
+        
+        .logo-placeholder {
+            width: 120px;
+            height: 120px;
+            background: #4e9271;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 40px;
+            font-size: 48px;
+        }
+        
+        .company-name {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+        
+        .tagline {
+            font-size: 14px;
+            opacity: 0.9;
+            margin-bottom: 60px;
+        }
+        
+        .cover-title {
+            font-size: 42px;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            max-width: 500px;
+        }
+        
+        .cover-subtitle {
+            font-size: 18px;
+            opacity: 0.9;
+            margin-bottom: 60px;
+        }
+        
+        .cover-phone {
+            background: #4e9271;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-size: 24px;
+            font-weight: 700;
+        }
+        
+        .cover-phone a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        /* Content Pages */
+        .content-page {
+            min-height: auto;
+        }
+        
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #4e9271;
+            margin-bottom: 30px;
+        }
+        
+        .header-logo {
+            font-weight: 700;
+            color: #1f3b4d;
+            font-size: 14px;
+        }
+        
+        .header-phone {
+            color: #4e9271;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        
+        h1 {
+            font-size: 32px;
+            color: #1f3b4d;
+            margin-bottom: 20px;
+        }
+        
+        h2 {
+            font-size: 24px;
+            color: #1f3b4d;
+            margin-bottom: 15px;
+            margin-top: 30px;
+        }
+        
+        .intro {
+            background: #f0f7f4;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            border-left: 4px solid #4e9271;
+        }
+        
+        .intro p {
+            font-size: 16px;
+            line-height: 1.7;
+        }
+        
+        /* Warning Signs */
+        .warning-sign {
+            display: flex;
+            margin-bottom: 25px;
+            page-break-inside: avoid;
+        }
+        
+        .sign-number {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #1f3b4d 0%, #2d5a6e 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: 700;
+            flex-shrink: 0;
+            margin-right: 20px;
+        }
+        
+        .sign-content {
+            flex: 1;
+        }
+        
+        .sign-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1f3b4d;
+            margin-bottom: 8px;
+        }
+        
+        .sign-description {
+            font-size: 14px;
+            color: #4a5568;
+            line-height: 1.6;
+        }
+        
+        /* Alert Box */
+        .alert-box {
+            background: #fef3c7;
+            border: 2px solid #f59e0b;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 30px 0;
+            text-align: center;
+        }
+        
+        .alert-box strong {
+            color: #92400e;
+            font-size: 16px;
+        }
+        
+        /* CTA Page */
+        .cta-page {
+            text-align: center;
+        }
+        
+        .cta-box {
+            background: linear-gradient(135deg, #1f3b4d 0%, #2d5a6e 100%);
+            color: white;
+            padding: 50px;
+            border-radius: 20px;
+            margin: 40px 0;
+        }
+        
+        .cta-title {
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+        
+        .cta-phone {
+            font-size: 36px;
+            font-weight: 800;
+            color: #4e9271;
+            background: white;
+            padding: 15px 40px;
+            border-radius: 50px;
+            display: inline-block;
+            margin: 20px 0;
+        }
+        
+        .cta-phone a {
+            color: #4e9271;
+            text-decoration: none;
+        }
+        
+        .service-list {
+            text-align: left;
+            max-width: 400px;
+            margin: 30px auto 0;
+        }
+        
+        .service-list li {
+            padding: 10px 0;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .service-list li::before {
+            content: "✓";
+            color: #4e9271;
+            font-weight: 700;
+            margin-right: 15px;
+            font-size: 20px;
+        }
+        
+        .coverage {
+            margin-top: 40px;
+            padding: 25px;
+            background: #f8fafc;
+            border-radius: 10px;
+        }
+        
+        .coverage h3 {
+            color: #1f3b4d;
+            margin-bottom: 10px;
+        }
+        
+        .coverage p {
+            color: #4a5568;
+        }
+        
+        .website {
+            margin-top: 30px;
+            color: #4e9271;
+            font-weight: 600;
+            font-size: 18px;
+        }
+        
+        .website a {
+            color: #4e9271;
+            text-decoration: none;
+        }
+        
+        @media print {
+            body {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            .page {
+                page-break-after: always;
+            }
+            .cover {
+                height: 100vh;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Cover Page -->
+    <div class="page cover">
+        <div class="logo-placeholder">🔧</div>
+        <div class="company-name">SOUTHERN CALIFORNIA WELL SERVICE</div>
+        <div class="tagline">Professional Well Pump Services Since 1980</div>
+        
+        <h1 class="cover-title">10 Warning Signs Your Well Pump Is Failing</h1>
+        <p class="cover-subtitle">Catch problems early and save thousands in repair costs</p>
+        
+        <div class="cover-phone">
+            <a href="tel:7604408520">(760) 440-8520</a>
+        </div>
+    </div>
+    
+    <!-- Introduction Page -->
+    <div class="page content-page">
+        <div class="header">
+            <div class="header-logo">SOUTHERN CALIFORNIA WELL SERVICE</div>
+            <div class="header-phone">(760) 440-8520</div>
+        </div>
+        
+        <h1>Why Catching Pump Problems Early Saves Money</h1>
+        
+        <div class="intro">
+            <p>Your well pump is the heart of your water system. When it starts to fail, the signs are often subtle at first — but catching them early can mean the difference between a simple repair and a complete system replacement costing thousands of dollars.</p>
+            <p style="margin-top: 15px;">As Southern California's trusted well service experts with over 40 years of experience, we've seen it all. This guide will help you identify the warning signs before they become emergencies.</p>
+        </div>
+        
+        <div class="alert-box">
+            <strong>⚠️ Important: If you notice any of these signs, don't wait. Early detection can prevent costly damage to your pump, pressure tank, and even your home's plumbing.</strong>
+        </div>
+        
+        <h2>The 10 Warning Signs</h2>
+        
+        <!-- Signs 1-3 -->
+        <div class="warning-sign">
+            <div class="sign-number">1</div>
+            <div class="sign-content">
+                <div class="sign-title">Sputtering or Spitting Water from Faucets</div>
+                <div class="sign-description">When you turn on your faucet and get bursts of water mixed with air, your pump may be losing its prime or the water table has dropped below the pump intake. This forces the pump to work harder and can lead to premature failure.</div>
+            </div>
+        </div>
+        
+        <div class="warning-sign">
+            <div class="sign-number">2</div>
+            <div class="sign-content">
+                <div class="sign-title">Fluctuating Water Pressure</div>
+                <div class="sign-description">If your shower goes from strong to weak randomly, or pressure varies throughout the day, it often indicates a failing pressure switch, waterlogged pressure tank, or a pump that's struggling to maintain consistent output.</div>
+            </div>
+        </div>
+        
+        <div class="warning-sign">
+            <div class="sign-number">3</div>
+            <div class="sign-content">
+                <div class="sign-title">Higher Than Normal Electric Bills</div>
+                <div class="sign-description">A sudden spike in electricity costs — without other explanation — often points to a pump working overtime. Worn bearings, failing motors, or restricted lines force the pump to draw more power, which shows up on your bill before you notice other symptoms.</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Signs 4-7 -->
+    <div class="page content-page">
+        <div class="header">
+            <div class="header-logo">SOUTHERN CALIFORNIA WELL SERVICE</div>
+            <div class="header-phone">(760) 440-8520</div>
+        </div>
+        
+        <div class="warning-sign">
+            <div class="sign-number">4</div>
+            <div class="sign-content">
+                <div class="sign-title">Pump Runs Constantly (Short Cycling)</div>
+                <div class="sign-description">If you hear your pump turning on and off frequently — even when no water is being used — you likely have a leak in the system or a waterlogged pressure tank. This rapid cycling dramatically shortens pump life and can burn out the motor.</div>
+            </div>
+        </div>
+        
+        <div class="warning-sign">
+            <div class="sign-number">5</div>
+            <div class="sign-content">
+                <div class="sign-title">Strange Noises from the Pump</div>
+                <div class="sign-description">Grinding, clicking, or humming sounds are never normal. These typically indicate worn bearings, a damaged impeller, or electrical issues. Ignoring these sounds often leads to complete pump failure within weeks or months.</div>
+            </div>
+        </div>
+        
+        <div class="warning-sign">
+            <div class="sign-number">6</div>
+            <div class="sign-content">
+                <div class="sign-title">Air in Your Water Lines</div>
+                <div class="sign-description">Consistent air bubbles in your water — different from occasional sputtering — suggest a crack in the drop pipe, a failing check valve, or the pump drawing air. This indicates the pump is working under stress and needs immediate attention.</div>
+            </div>
+        </div>
+        
+        <div class="warning-sign">
+            <div class="sign-number">7</div>
+            <div class="sign-content">
+                <div class="sign-title">Dirty or Sandy Water</div>
+                <div class="sign-description">Sand, grit, or sediment in your water means the pump may have dropped to the bottom of the well, or the well screen has failed. Running a pump in sandy conditions destroys internal components rapidly and can contaminate your entire plumbing system.</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Signs 8-10 -->
+    <div class="page content-page">
+        <div class="header">
+            <div class="header-logo">SOUTHERN CALIFORNIA WELL SERVICE</div>
+            <div class="header-phone">(760) 440-8520</div>
+        </div>
+        
+        <div class="warning-sign">
+            <div class="sign-number">8</div>
+            <div class="sign-content">
+                <div class="sign-title">No Water at All</div>
+                <div class="sign-description">Complete loss of water is the most obvious sign, but also the most urgent. This could indicate pump failure, a tripped breaker, low water table, or a broken drop pipe. This is an emergency that requires immediate professional diagnosis.</div>
+            </div>
+        </div>
+        
+        <div class="warning-sign">
+            <div class="sign-number">9</div>
+            <div class="sign-content">
+                <div class="sign-title">Pump Is More Than 10-15 Years Old</div>
+                <div class="sign-description">Even well-maintained pumps have a lifespan. Most submersible pumps last 8-15 years depending on usage and water quality. If your pump is approaching this age, proactive replacement during a planned service call is far better than emergency replacement when it fails unexpectedly.</div>
+            </div>
+        </div>
+        
+        <div class="warning-sign">
+            <div class="sign-number">10</div>
+            <div class="sign-content">
+                <div class="sign-title">Visible Rust or Corrosion on Equipment</div>
+                <div class="sign-description">Rust on your pressure tank, visible corrosion on fittings, or discolored water can indicate internal corrosion you can't see. Corroded components weaken over time and often fail without warning, potentially flooding your pump house or mechanical room.</div>
+            </div>
+        </div>
+        
+        <div class="alert-box">
+            <strong>💡 Pro Tip: Many pump problems share similar symptoms. A professional diagnosis ensures you fix the actual problem — not just the symptoms — saving you time and money in the long run.</strong>
+        </div>
+    </div>
+    
+    <!-- CTA Page -->
+    <div class="page content-page cta-page">
+        <div class="header">
+            <div class="header-logo">SOUTHERN CALIFORNIA WELL SERVICE</div>
+            <div class="header-phone">(760) 440-8520</div>
+        </div>
+        
+        <h1>What To Do Next</h1>
+        
+        <div class="cta-box">
+            <div class="cta-title">Schedule Your FREE Diagnostic Inspection</div>
+            <p style="font-size: 18px; opacity: 0.9; margin-bottom: 20px;">Don't wait for a small problem to become an expensive emergency</p>
+            
+            <div class="cta-phone">
+                <a href="tel:7604408520">(760) 440-8520</a>
+            </div>
+            
+            <ul class="service-list">
+                <li>FREE diagnostic inspection</li>
+                <li>Same-day emergency service available</li>
+                <li>Upfront pricing — no surprises</li>
+                <li>40+ years of experience</li>
+                <li>Licensed & insured professionals</li>
+            </ul>
+        </div>
+        
+        <div class="coverage">
+            <h3>Proudly Serving Southern California</h3>
+            <p><strong>San Diego County</strong> • <strong>Riverside County</strong> • <strong>San Bernardino County</strong></p>
+            <p style="margin-top: 10px;">Including: Fallbrook, Temecula, Murrieta, Valley Center, Escondido, Ramona, Alpine, Jamul, Poway, and all surrounding communities</p>
+        </div>
+        
+        <div class="website">
+            <a href="https://www.scwellservice.com">www.scwellservice.com</a>
+        </div>
+    </div>
+</body>
+</html>

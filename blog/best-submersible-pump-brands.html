@@ -685,5 +685,120 @@
             </div>
         </div>
     </footer>
+
+    <!-- Blog Post CTA -->
+    <div class="blog-cta-section">
+        <div class="blog-cta-box">
+            <h3>Need Help With Your Well?</h3>
+            <p>Our expert technicians are ready to help with any well drilling, pump repair, or maintenance needs.</p>
+            <div class="blog-cta-actions">
+                <a href="tel:7604408520" class="blog-cta-phone">
+                    📞 Call (760) 440-8520
+                </a>
+                <a href="/contact.html" class="blog-cta-button">
+                    Request Free Quote →
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Lead Gen Components -->
+    <script src="/js/lead-gen.js"></script>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            padding-top: 64px; /* Account for sticky header */
+        }
+        
+        h1 { color: #1f3b4d; font-size: 2em; margin-bottom: 1em; }
+        h2 { color: #1f3b4d; margin-top: 1.5em; }
+        h3 { color: #1f3b4d; }
+        
+        a { color: #4e9271; }
+        a:hover { color: #3d7a5c; }
+        
+        ul, ol { margin: 1em 0; padding-left: 2em; }
+        li { margin: 0.5em 0; }
+        
+        p { margin: 1em 0; }
+        
+        .blog-cta-section {
+            margin-top: 3em;
+            padding-top: 2em;
+            border-top: 2px solid #e0e0e0;
+        }
+        
+        .blog-cta-box {
+            background: linear-gradient(135deg, #1f3b4d 0%, #2d5570 100%);
+            color: white;
+            padding: 2em;
+            border-radius: 12px;
+            text-align: center;
+        }
+        
+        .blog-cta-box h3 {
+            color: white;
+            font-size: 1.5em;
+            margin: 0 0 0.5em;
+        }
+        
+        .blog-cta-box p {
+            color: rgba(255,255,255,0.9);
+            margin: 0 0 1.5em;
+        }
+        
+        .blog-cta-actions {
+            display: flex;
+            gap: 1em;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .blog-cta-phone {
+            background: white;
+            color: #1f3b4d !important;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.2s;
+        }
+        
+        .blog-cta-phone:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        
+        .blog-cta-button {
+            background: #4e9271;
+            color: white !important;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.2s;
+        }
+        
+        .blog-cta-button:hover {
+            background: #3d7a5c;
+            transform: translateY(-2px);
+        }
+        
+        @media (max-width: 480px) {
+            body { padding: 15px; padding-top: 54px; }
+            .blog-cta-box { padding: 1.5em; }
+            .blog-cta-actions { flex-direction: column; }
+            .blog-cta-phone, .blog-cta-button { width: 100%; text-align: center; }
+        }
+    </style>
+
 </body>
 </html>
