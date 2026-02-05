@@ -377,6 +377,12 @@
                 event_label: 'quote_request',
                 value: 100
             });
+            // Google Ads conversion
+            gtag('event', 'conversion', {
+                'send_to': 'AW-490838730/aFiRCMDlofAbEMq1huoB',
+                'value': 100,
+                'currency': 'USD'
+            });
         }
 
         setTimeout(() => {
@@ -553,6 +559,12 @@
                 event_category: 'chat_widget',
                 event_label: 'service_request',
                 value: 150
+            });
+            // Google Ads conversion
+            gtag('event', 'conversion', {
+                'send_to': 'AW-490838730/aFiRCMDlofAbEMq1huoB',
+                'value': 150,
+                'currency': 'USD'
             });
         }
 

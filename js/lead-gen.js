@@ -114,6 +114,12 @@
                     'event_label': 'exit_popup_form',
                     'value': 100
                 });
+                // Google Ads conversion
+                gtag('event', 'conversion', {
+                    'send_to': 'AW-490838730/aFiRCMDlofAbEMq1huoB',
+                    'value': 100,
+                    'currency': 'USD'
+                });
             }
 
             fetch(form.action, {
