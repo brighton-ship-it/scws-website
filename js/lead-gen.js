@@ -26,10 +26,10 @@
             <div class="scws-sticky-inner">
                 <span class="scws-sticky-text">
                     <span class="scws-phone-icon">📞</span>
-                    <span class="scws-help-text">Need Help? Call Now:</span>
+                    <span class="scws-help-text">Need Well Help?</span>
                 </span>
                 <a href="${PHONE_LINK}" class="scws-sticky-phone" onclick="typeof trackPhoneClick === 'function' && trackPhoneClick()">
-                    ${PHONE_NUMBER}
+                    Call (760) 440-8520
                 </a>
             </div>
         `;
