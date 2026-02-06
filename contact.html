@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google Analytics -->
+    <!-- Google Analytics + Ads Conversion Tracking -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LL1YRWT5T"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
         gtag('config', 'G-5LL1YRWT5T');
+        gtag('config', 'AW-490838730');
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us | Southern California Well Service</title>
-    <meta name="description" content="Contact Southern California Well Service for well drilling, pump repair, and maintenance. Two locations: Ramona & Anza. Call (760) 440-8520 for same-day service.">
+    <title>Contact SCWS | Get a Free Well Service Estimate</title>
+    <meta name="description" content="Ready to fix your well? Contact SCWS for free estimates. Two locations in Ramona & Anza. Call (760) 440-8520 for same-day service.">
     <link rel="icon" type="image/png" href="images/logo.png">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="canonical" href="https://scwellservice.com/contact.html">
@@ -193,7 +194,7 @@
                 <h2 class="text-2xl font-bold text-primary mb-6 text-center">Request Service Online</h2>
                 <p class="text-gray-600 text-center mb-8">Fill out the form below and we'll get back to you within a few hours.</p>
                 
-                <form action="https://formspree.io/f/xwpewpvj" method="POST" class="max-w-2xl mx-auto space-y-6">
+                <form action="https://formspree.io/f/xwpewpvj" method="POST" class="max-w-2xl mx-auto space-y-6" id="contact-form" onsubmit="trackFormSubmission()">
                     <!-- UTM Tracking Fields (hidden) -->
                     <input type="hidden" name="utm_source" id="utm_source">
                     <input type="hidden" name="utm_medium" id="utm_medium">
@@ -317,5 +318,43 @@
 <script src="js/utm-tracking.js"></script>
     <!-- Lead Capture (Sticky Phone Bar + Exit Intent) -->
     <script src="js/lead-capture.js"></script>
+    
+    <!-- Conversion Tracking -->
+    <script>
+        // Track form submissions
+        function trackFormSubmission() {
+            if (typeof gtag !== 'undefined') {
+                // GA4 event
+                gtag('event', 'generate_lead', {
+                    'event_category': 'Contact',
+                    'event_label': 'Contact Form Submission'
+                });
+                // Google Ads conversion
+                gtag('event', 'conversion', {
+                    'send_to': 'AW-490838730/contact_form_submit'
+                });
+            }
+            return true; // Allow form to submit
+        }
+        
+        // Track all click-to-call events
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('a[href^="tel:"]').forEach(function(link) {
+                link.addEventListener('click', function() {
+                    if (typeof gtag !== 'undefined') {
+                        // GA4 event
+                        gtag('event', 'click_to_call', {
+                            'event_category': 'Contact',
+                            'event_label': this.href.replace('tel:', '')
+                        });
+                        // Google Ads conversion
+                        gtag('event', 'conversion', {
+                            'send_to': 'AW-490838730/click_to_call'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
