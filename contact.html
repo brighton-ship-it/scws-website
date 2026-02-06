@@ -194,6 +194,16 @@
                 <p class="text-gray-600 text-center mb-8">Fill out the form below and we'll get back to you within a few hours.</p>
                 
                 <form action="https://formspree.io/f/xwpewpvj" method="POST" class="max-w-2xl mx-auto space-y-6">
+                    <!-- UTM Tracking Fields (hidden) -->
+                    <input type="hidden" name="utm_source" id="utm_source">
+                    <input type="hidden" name="utm_medium" id="utm_medium">
+                    <input type="hidden" name="utm_campaign" id="utm_campaign">
+                    <input type="hidden" name="utm_term" id="utm_term">
+                    <input type="hidden" name="utm_content" id="utm_content">
+                    <input type="hidden" name="landing_page" id="landing_page">
+                    <input type="hidden" name="referrer" id="referrer">
+                    <input type="hidden" name="lead_source" id="lead_source">
+                    
                     <div class="grid md:grid-cols-2 gap-6">
                         <div>
                             <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name *</label>
@@ -305,5 +315,6 @@
     
     <!-- Lead Generation Components (Sticky Header + Exit Popup) -->
     <script src="js/lead-gen.js"></script>
+<script src="js/utm-tracking.js"></script>
 </body>
 </html>
