@@ -194,7 +194,7 @@
                 <h2 class="text-2xl font-bold text-primary mb-6 text-center">Request Service Online</h2>
                 <p class="text-gray-600 text-center mb-8">Fill out the form below and we'll get back to you within a few hours.</p>
                 
-                <form action="https://formspree.io/f/xwpewpvj" method="POST" class="max-w-2xl mx-auto space-y-6" id="contact-form" onsubmit="trackFormSubmission()">
+                <form action="https://scws-jobs.vercel.app/api/booking" method="POST" class="max-w-2xl mx-auto space-y-6" id="contact-form" onsubmit="return handleFormSubmit(event)">
                     <!-- UTM Tracking Fields (hidden) -->
                     <input type="hidden" name="utm_source" id="utm_source">
                     <input type="hidden" name="utm_medium" id="utm_medium">
@@ -219,18 +219,24 @@
                                 placeholder="(555) 555-5555">
                         </div>
                     </div>
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                        <input type="email" id="email" name="email"
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent"
+                            placeholder="your@email.com (optional)">
+                    </div>
                     <div class="grid md:grid-cols-2 gap-6">
                         <div>
-                            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
-                            <input type="email" id="email" name="email"
+                            <label for="address" class="block text-sm font-medium text-gray-700 mb-1">Property Address *</label>
+                            <input type="text" id="address" name="address" required
                                 class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent"
-                                placeholder="your@email.com (optional)">
+                                placeholder="Street address">
                         </div>
                         <div>
-                            <label for="location" class="block text-sm font-medium text-gray-700 mb-1">City/Area *</label>
+                            <label for="location" class="block text-sm font-medium text-gray-700 mb-1">City *</label>
                             <input type="text" id="location" name="location" required
                                 class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent"
-                                placeholder="e.g., Ramona, Anza, Temecula">
+                                placeholder="Ramona, Temecula, Anza, etc.">
                         </div>
                     </div>
                     <div>
@@ -319,22 +325,79 @@
     <!-- Lead Capture (Sticky Phone Bar + Exit Intent) -->
     <script src="js/lead-capture.js"></script>
     
-    <!-- Conversion Tracking -->
+    <!-- Conversion Tracking + CRM Integration -->
     <script>
-        // Track form submissions
-        function trackFormSubmission() {
+        // Handle form submission to CRM
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            
+            const form = document.getElementById('contact-form');
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const formData = new FormData(form);
+            
+            // Disable button and show loading
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+            
+            // Track conversions
             if (typeof gtag !== 'undefined') {
-                // GA4 event
                 gtag('event', 'generate_lead', {
                     'event_category': 'Contact',
                     'event_label': 'Contact Form Submission'
                 });
-                // Google Ads conversion
                 gtag('event', 'conversion', {
                     'send_to': 'AW-490838730/contact_form_submit'
                 });
             }
-            return true; // Allow form to submit
+            
+            // Map service types to CRM format
+            const serviceMap = {
+                'no-water': 'no_water',
+                'pump-repair': 'pump_repair',
+                'low-pressure': 'low_pressure',
+                'well-drilling': 'new_well',
+                'water-testing': 'inspection',
+                'maintenance': 'inspection',
+                'other': 'other'
+            };
+            
+            // Build CRM payload
+            const crmData = {
+                customer_name: formData.get('name') || '',
+                phone: formData.get('phone') || '',
+                email: formData.get('email') || '',
+                address: formData.get('address') || 'Not provided',
+                city: formData.get('location') || 'San Diego County',
+                service_type: serviceMap[formData.get('service')] || 'other',
+                notes: formData.get('message') || '',
+                source: 'website-contact',
+            };
+            
+            // Submit to CRM
+            fetch('https://scws-jobs.vercel.app/api/booking', {
+                method: 'POST',
+                body: JSON.stringify(crmData),
+                headers: { 
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    // Show success message
+                    form.innerHTML = '<div class="text-center py-8"><div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4"><svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div><h3 class="text-xl font-bold text-primary mb-2">Thank You!</h3><p class="text-gray-600 mb-4">We\'ve received your request and will call you back shortly.</p><a href="tel:7604408520" class="text-accent font-semibold hover:underline">Or call us now: (760) 440-8520</a></div>';
+                } else {
+                    throw new Error('Form submission failed');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Send Request →';
+                alert('There was an issue submitting the form. Please call us at (760) 440-8520.');
+            });
+            
+            return false;
         }
         
         // Track all click-to-call events

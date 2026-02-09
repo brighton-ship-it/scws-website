@@ -393,11 +393,19 @@
                                     class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent transition"
                                     placeholder="your@email.com">
                             </div>
-                            <div>
-                                <label for="lead-address" class="block text-sm font-medium text-gray-700 mb-1">Property Address *</label>
-                                <input type="text" id="lead-address" name="address" required
-                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent transition"
-                                    placeholder="123 Main St, Ramona, CA 92065">
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <div>
+                                    <label for="lead-address" class="block text-sm font-medium text-gray-700 mb-1">Property Address *</label>
+                                    <input type="text" id="lead-address" name="address" required
+                                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent transition"
+                                        placeholder="Street address">
+                                </div>
+                                <div>
+                                    <label for="lead-city" class="block text-sm font-medium text-gray-700 mb-1">City *</label>
+                                    <input type="text" id="lead-city" name="city" required
+                                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent transition"
+                                        placeholder="Ramona, Temecula, etc.">
+                                </div>
                             </div>
                         </div>
                         
@@ -665,12 +673,37 @@
                 });
             }
             
-            // Submit to Formspree
+            // Map service types to CRM format
+            const serviceMap = {
+                'new-well': 'new_well',
+                'pump-repair': 'pump_repair',
+                'inspection': 'inspection',
+                'pressure-tank': 'pump_repair',
+                'water-treatment': 'other',
+                'other': 'other'
+            };
+            
+            // Build CRM payload
             const formData = new FormData(form);
-            fetch('https://formspree.io/f/maqjggnz', {
+            const crmData = {
+                customer_name: formData.get('name') || '',
+                phone: formData.get('phone') || '',
+                email: formData.get('email') || '',
+                address: formData.get('address') || 'Not provided',
+                city: formData.get('city') || 'San Diego County',
+                service_type: serviceMap[calculatorData.service] || 'other',
+                notes: `Cost Calculator Lead - Service: ${calculatorData.service}, Property: ${calculatorData.property}, Depth: ${calculatorData.depthUnknown ? 'Unknown' : calculatorData.depth + 'ft'}, Urgency: ${calculatorData.urgency}`,
+                source: 'cost-calculator',
+            };
+            
+            // Submit to CRM
+            fetch('https://scws-jobs.vercel.app/api/booking', {
                 method: 'POST',
-                body: formData,
-                headers: { 'Accept': 'application/json' }
+                body: JSON.stringify(crmData),
+                headers: { 
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                }
             })
             .then(response => {
                 if (response.ok) {
