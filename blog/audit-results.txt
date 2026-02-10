@@ -1,0 +1,18 @@
+BROKEN UNSPLASH URLS
+================================================================================
+
+air-in-well-water-lines.html (line 175): https://images.unsplash.com/?w=1200&h=600&fit=crop
+air-in-well-water-lines.html (line 259): https://images.unsplash.com/?w=800&h=500&fit=crop
+air-in-well-water-lines.html (line 473): https://images.unsplash.com/?w=400&h=200&fit=crop
+air-in-well-water-lines.html (line 473): https://images.unsplash.com/?w=400&h=200&fit=crop
+air-in-well-water-lines.html (line 473): https://images.unsplash.com/?w=400&h=200&fit=crop
+new-construction-well-drilling.html (line 243): https://images.unsplash.com/?w=1200&q=80
+well-pump-repair-hemet.html (line 315): https://images.unsplash.com/?auto=format&fit=crop&w=1200&q=80
+
+
+MISSING LOCAL IMAGES
+================================================================================
+
+
+
+TOTAL FILES WITH IMAGES: 75
