@@ -166,12 +166,23 @@
     </script>
 </head>
 <body class="bg-white">
-    <!-- Header -->
+    <!-- Emergency Banner -->
+    <div class="bg-gradient-to-r from-red-600 to-red-700 text-white py-2.5">
+        <div class="max-w-7xl mx-auto px-4 text-center flex items-center justify-center gap-2 flex-wrap">
+            <span class="font-bold tracking-wide">🚨 No Water?</span>
+            <span class="hidden sm:inline">Same-day emergency service available.</span>
+            <a href="tel:7604408520" class="bg-white text-red-600 font-bold px-4 py-1 rounded-full text-sm hover:bg-red-100 transition ml-1">
+                Call Now →
+            </a>
+        </div>
+    </div>
+
+    <!-- Header (sticky) -->
     <header class="bg-primary text-white sticky top-0 z-50 shadow-lg">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center py-4">
                 <a href="../" class="flex items-center space-x-3 shrink-0">
-                    <img src="../images/logo.png" alt="Southern California Well Service" class="h-10 lg:h-12 w-auto" loading="lazy">
+                    <img src="../images/logo.png" alt="Southern California Well Service" class="h-10 lg:h-12 w-auto">
                 </a>
                 <!-- Desktop Navigation -->
                 <nav class="hidden lg:flex space-x-6">
@@ -185,7 +196,7 @@
                 </nav>
                 <div class="flex items-center gap-3">
                     <!-- Mobile Menu Button -->
-                    <button class="lg:hidden p-2 hover:bg-white/10 rounded-lg transition" aria-label="Toggle menu" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+                    <button id="mobile-menu-btn" class="lg:hidden p-2 hover:bg-white/10 rounded-lg transition" aria-label="Toggle menu">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                         </svg>
@@ -195,27 +206,25 @@
                     </a>
                 </div>
             </div>
-            <!-- Mobile Menu -->
-            <div id="mobile-menu" class="hidden lg:hidden pb-4">
-                <nav class="flex flex-col space-y-2">
-                    <a href="../#services" class="hover:text-accent transition py-2">Services</a>
-                    <a href="../#areas" class="hover:text-accent transition py-2">Service Areas</a>
-                    <a href="../blog/" class="hover:text-accent transition py-2">Resources</a>
-                    <a href="../faq.html" class="hover:text-accent transition py-2">FAQ</a>
-                    <a href="../contact.html" class="hover:text-accent transition py-2">Contact</a>
-                    <a href="../cost-calculator.html" class="text-accent font-semibold hover:text-green-400 transition py-2">Free Estimate</a>
-                    <a href="../pages/about.html" class="hover:text-accent transition py-2">About</a>
-                </nav>
-            </div>
+        </div>
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-primary/95 border-t border-white/10">
+            <nav class="max-w-7xl mx-auto px-4 py-4 flex flex-col space-y-3">
+                <a href="../#services" class="hover:text-accent transition py-2">Services</a>
+                <a href="../#areas" class="hover:text-accent transition py-2">Service Areas</a>
+                <a href="../blog/" class="hover:text-accent transition py-2">Resources</a>
+                <a href="../faq.html" class="hover:text-accent transition py-2">FAQ</a>
+                <a href="../contact.html" class="hover:text-accent transition py-2">Contact</a>
+                <a href="../cost-calculator.html" class="text-accent font-semibold hover:text-green-400 transition py-2">Free Estimate</a>
+                <a href="../pages/about.html" class="hover:text-accent transition py-2">About</a>
+            </nav>
         </div>
     </header>
-
-    <!-- Emergency Banner -->
-    <div class="bg-red-600 text-white py-3">
-        <div class="max-w-4xl mx-auto px-4 text-center">
-            <p class="font-semibold">⚠️ Well Pump Emergency? We're available <strong>24 hours a day, 7 days a week</strong>. Call <a href="tel:7604408520" class="underline font-bold">(760) 440-8520</a> now.</p>
-        </div>
-    </div>
+    <script>
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+    </script>
 
     <!-- Breadcrumb -->
     <div class="bg-gray-50 py-3">
@@ -272,7 +281,6 @@
                 <!-- Immediate CTA Box -->
                 <div class="bg-red-50 border-2 border-red-500 p-6 rounded-lg my-8">
                     <h2 class="text-xl font-bold text-red-700 mb-2">Need Emergency Help Right Now?</h2>
-                    <p class="text-gray-700 mb-4">If you've already checked the basics or have an urgent situation (electrical burning smell, vulnerable family members, livestock), skip the troubleshooting and call immediately. <strong>We provide true 24/7 emergency well service</strong>—nights, weekends, and holidays.</p>
                     <a href="tel:7604408520" class="inline-block bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-lg font-bold transition text-center text-lg">
                         📞 Call (760) 440-8520 Now
                     </a>
