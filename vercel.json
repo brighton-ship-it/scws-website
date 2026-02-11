@@ -1,6 +1,16 @@
 {
   "redirects": [
     {
+      "source": "/blog/well-pump-replacement.html",
+      "destination": "/pages/services/pump-repair.html",
+      "permanent": true
+    },
+    {
+      "source": "/pages/services.html",
+      "destination": "/pages/services/index.html",
+      "permanent": true
+    },
+    {
       "source": "/:path*",
       "has": [
         {
