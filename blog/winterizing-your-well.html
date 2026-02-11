@@ -225,13 +225,13 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center py-4">
                 <a href="../" class="flex items-center space-x-3 shrink-0">
-                    <img src="../images/logo.png" alt="Southern California Well Service" class="h-10 lg:h-12 w-auto" loading="lazy">
+                    <img src="../images/logo.png" alt="Southern California Well Service" class="h-10 lg:h-12 w-auto">
                 </a>
                 <!-- Desktop Navigation -->
                 <nav class="hidden lg:flex space-x-6">
                     <a href="../#services" class="hover:text-accent transition">Services</a>
                     <a href="../#areas" class="hover:text-accent transition">Service Areas</a>
-                    <a href="../blog/" class="hover:text-accent transition">Resources</a>
+                    <a href="./" class="hover:text-accent transition">Resources</a>
                     <a href="../faq.html" class="hover:text-accent transition">FAQ</a>
                     <a href="../contact.html" class="hover:text-accent transition">Contact</a>
                     <a href="../cost-calculator.html" class="text-accent font-semibold hover:text-green-400 transition">Free Estimate</a>
@@ -239,7 +239,7 @@
                 </nav>
                 <div class="flex items-center gap-3">
                     <!-- Mobile Menu Button -->
-                    <button class="lg:hidden p-2 hover:bg-white/10 rounded-lg transition" aria-label="Toggle menu" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+                    <button id="mobile-menu-btn" class="lg:hidden p-2 hover:bg-white/10 rounded-lg transition" aria-label="Toggle menu">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                         </svg>
@@ -249,20 +249,25 @@
                     </a>
                 </div>
             </div>
-            <!-- Mobile Menu -->
-            <div id="mobile-menu" class="hidden lg:hidden pb-4">
-                <nav class="flex flex-col space-y-2">
-                    <a href="../#services" class="hover:text-accent transition py-2">Services</a>
-                    <a href="../#areas" class="hover:text-accent transition py-2">Service Areas</a>
-                    <a href="../blog/" class="hover:text-accent transition py-2">Resources</a>
-                    <a href="../faq.html" class="hover:text-accent transition py-2">FAQ</a>
-                    <a href="../contact.html" class="hover:text-accent transition py-2">Contact</a>
-                    <a href="../cost-calculator.html" class="text-accent font-semibold hover:text-green-400 transition py-2">Free Estimate</a>
-                    <a href="../pages/about.html" class="hover:text-accent transition py-2">About</a>
-                </nav>
-            </div>
+        </div>
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-primary/95 border-t border-white/10">
+            <nav class="max-w-7xl mx-auto px-4 py-4 flex flex-col space-y-3">
+                <a href="../#services" class="hover:text-accent transition py-2">Services</a>
+                <a href="../#areas" class="hover:text-accent transition py-2">Service Areas</a>
+                <a href="./" class="hover:text-accent transition py-2">Resources</a>
+                <a href="../faq.html" class="hover:text-accent transition py-2">FAQ</a>
+                <a href="../contact.html" class="hover:text-accent transition py-2">Contact</a>
+                <a href="../cost-calculator.html" class="text-accent font-semibold hover:text-green-400 transition py-2">Free Estimate</a>
+                <a href="../pages/about.html" class="hover:text-accent transition py-2">About</a>
+            </nav>
         </div>
     </header>
+    <script>
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+    </script>
 
     <!-- Breadcrumb -->
     <div class="bg-gray-50 py-3">
