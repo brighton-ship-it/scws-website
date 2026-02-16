@@ -1,285 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LL1YRWT5T"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-5LL1YRWT5T');
-    </script>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Well Pump Overheating</title>
-    <meta name="description" content="Understand the reasons for well pump overheating and learn preventative measures with SCWS"s expert guidance.">
+    <title>Well Pump Overheating? Causes & Prevention | SCWS</title>
+    <meta name="description" content="Well pump overheating and shutting off? Common causes include low water, electrical problems, or worn components. Prevent pump burnout with these fixes.">
+    <link rel="canonical" href="https://www.scwellservice.com/blog/well-pump-overheating.html">
+    <link rel="stylesheet" href="../styles.css">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RLG5NJXP9M"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-RLG5NJXP9M');</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Why Your Well Pump Keeps Overheating","description":"Well pump overheating and shutting off? Common causes include low water, electrical problems, or worn components. Prevent pump burnout with these fixes.","author":{"@type":"Organization","name":"Southern California Well Service"},"publisher":{"@type":"Organization","name":"Southern California Well Service"},"datePublished":"2026-02-15"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type": "Question", "name": "How hot should a well pump control box get?", "acceptedAnswer": {"@type": "Answer", "text": "Warm is normal during operation. Hot to the touch (can't hold your hand on it) indicates a problem. If you smell burning, turn off power immediately."}},
+            {"@type": "Question", "name": "Can an overheating pump be repaired?", "acceptedAnswer": {"@type": "Answer", "text": "Sometimes. If caught early, addressing the cause (voltage, water level) can prevent further damage. Once windings burn, the pump must be replaced."}},
+            {"@type": "Question", "name": "What happens if a well pump overheats?", "acceptedAnswer": {"@type": "Answer", "text": "The thermal overload should trip, shutting the pump off. Repeated overheating cycles degrade motor windings until the pump fails completely."}},
+            {"@type": "Question", "name": "How do I prevent my well pump from overheating?", "acceptedAnswer": {"@type": "Answer", "text": "Ensure adequate water level, proper voltage, correct wire sizing, and install pump protection devices. Regular maintenance catches problems before they cause damage."}}]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.scwellservice.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://www.scwellservice.com/blog/"},{"@type":"ListItem","position":3,"name":"Why Your Well Pump Keeps Overheating"}]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","name":"Southern California Well Service","telephone":"(760) 440-8520","address":{"@type":"PostalAddress","streetAddress":"1077 Main Street, Unit B","addressLocality":"Ramona","addressRegion":"CA","postalCode":"92065"},"areaServed":["San Diego County","Riverside County","San Bernardino County"]}</script>
 </head>
-<body class="bg-white">
-    <!-- Emergency Banner -->
-    <div class="bg-gradient-to-r from-red-600 to-red-700 text-white py-2.5">
-        <div class="max-w-7xl mx-auto px-4 text-center flex items-center justify-center gap-2 flex-wrap">
-            <span class="font-bold tracking-wide">🚨 No Water?</span>
-            <span class="hidden sm:inline">Same-day emergency service available.</span>
-            <a href="tel:7604408520" class="bg-white text-red-600 font-bold px-4 py-1 rounded-full text-sm hover:bg-red-100 transition ml-1">
-                Call Now →
-            </a>
-        </div>
-    </div>
-
-    <!-- Header (sticky) -->
-    <header class="bg-primary text-white sticky top-0 z-50 shadow-lg">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center py-4">
-                <a href="../" class="flex items-center space-x-3 shrink-0">
-                    <img src="../images/logo.png" alt="Southern California Well Service" class="h-10 lg:h-12 w-auto">
-                </a>
-                <nav class="hidden lg:flex space-x-4 items-center">
-                    <a href="../#services" class="text-white hover:text-accent transition whitespace-nowrap">Services</a>
-                    <a href="../#areas" class="text-white hover:text-accent transition whitespace-nowrap">Service Areas</a>
-                    <a href="./" class="text-white hover:text-accent transition whitespace-nowrap">Resources</a>
-                    <a href="../faq.html" class="text-white hover:text-accent transition whitespace-nowrap">FAQ</a>
-                    <a href="../contact.html" class="text-white hover:text-accent transition whitespace-nowrap">Contact</a>
-                    <a href="../cost-calculator.html" class="text-white font-semibold hover:text-accent transition whitespace-nowrap">Free Estimate</a>
-                    <a href="../pages/about.html" class="text-white hover:text-accent transition whitespace-nowrap">About</a>
-                </nav>
-                <div class="flex items-center gap-3">
-                    <button id="mobile-menu-btn" class="lg:hidden p-2 hover:bg-white/10 rounded-lg transition" aria-label="Toggle menu">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                        </svg>
-                    </button>
-                    <a href="tel:7604408520" class="bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-4 lg:px-6 rounded-lg transition whitespace-nowrap text-sm lg:text-base">
-                        (760) 440-8520
-                    </a>
-                </div>
+<body>
+    <header><nav><a href="../index.html" class="logo">Southern California Well Service</a><a href="tel:(760) 440-8520" class="phone-link">(760) 440-8520</a></nav></header>
+    <main class="blog-post">
+        <article>
+            <h1>Why Your Well Pump Keeps Overheating</h1>
+            <div class="emergency-cta"><p><strong>Experiencing this problem right now?</strong> Call us for immediate assistance.</p><a href="tel:(760) 440-8520" class="cta-button">Call (760) 440-8520</a></div>
+            <section class="intro"><p>A well pump that runs hot isn't just an inconvenience—it's a warning sign that demands attention. Submersible pumps rely on water flow for cooling; when they overheat, motor failure isn't far behind. Understanding why your pump is overheating can help you prevent a costly replacement.</p></section>
+            <section class="causes"><h2>Common Causes</h2><ul>                <li><strong>Running Dry:</strong> The most damaging cause. Without water flowing past the motor, there's no cooling. Even brief dry-run periods cause cumulative damage.</li>
+                <li><strong>Low Water Level:</strong> If the water table has dropped, the pump may be partially exposed or drawing air, reducing cooling capacity.</li>
+                <li><strong>Undersized Wire:</strong> Wiring that's too small creates electrical resistance, generating heat in the motor and control box.</li>
+                <li><strong>Voltage Problems:</strong> Low voltage forces the motor to draw more current to maintain output, increasing heat generation.</li>
+                <li><strong>Worn Bearings:</strong> Bearings create friction as they wear, generating heat and eventually seizing the motor.</li>
+                <li><strong>Stuck Impeller:</strong> Sand or sediment jamming the impeller forces the motor to work harder, generating excess heat.</li></ul></section>
+            <section class="warning-signs"><h2>Warning Signs to Watch For</h2><ul>                <li>Pump motor hot to the touch (control box area)</li>
+                <li>Thermal overload trips repeatedly</li>
+                <li>Pump shuts off and restarts after cooling</li>
+                <li>Burning smell near control box or wellhead</li>
+                <li>Reduced water output before shutdown</li>
+                <li>Higher than normal electric bills</li></ul></section>
+            <section class="solutions"><h2>How to Fix This Problem</h2>
+            <div class="solution-step">
+                <h3>1. Check Water Level</h3>
+                <p>Have a professional measure your well's static and pumping water levels. If the pump is near or above the water, it's being starved for cooling.</p>
             </div>
-        </div>
-        <div id="mobile-menu" class="hidden lg:hidden bg-primary/95 border-t border-white/10">
-            <nav class="max-w-7xl mx-auto px-4 py-4 flex flex-col space-y-3">
-                <a href="../#services" class="hover:text-accent transition py-2">Services</a>
-                <a href="../#areas" class="hover:text-accent transition py-2">Service Areas</a>
-                <a href="./" class="hover:text-accent transition py-2">Resources</a>
-                <a href="../faq.html" class="hover:text-accent transition py-2">FAQ</a>
-                <a href="../contact.html" class="hover:text-accent transition py-2">Contact</a>
-                <a href="../cost-calculator.html" class="text-white font-semibold hover:text-accent transition py-2">Free Estimate</a>
-                <a href="../pages/about.html" class="hover:text-accent transition py-2">About</a>
-            </nav>
-        </div>
-    </header>
-    <script>
-        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
-            document.getElementById('mobile-menu').classList.toggle('hidden');
-        });
-    </script>
-    
-    <main class="max-w-4xl mx-auto px-4 py-8">
-    <h1>Well Pump Overheating</h1>
-    <p>Overheating in well pumps is a common problem that can lead to reduced efficiency or even mechanical failure. Identifying and addressing the cause is crucial for continued performance.</p>
-    <h2>Causes</h2>
-    <p>Common causes include a lack of adequate ventilation, excessive cycling, or issues with the motor bearings. Each can result in a well pump generating excessive heat.</p>
-    <h2>Symptoms</h2>
-    <p>Symptoms of overheating may include unusual smells, such as a burning odor, and the pump frequently cutting out due to built-in thermal protection.</p>
-    <h2>Solutions</h2>
-    <p>Ensure the area around the pump has proper ventilation, and inspect and maintain components like motor bearings. Reduce cycling by adjusting pressure settings accordingly.</p>
-    <h2>When to Call SCWS</h2>
-    <p>If you can't resolve overheating issues with simple adjustments, SCWS can provide in-depth repairs and replacement services to keep your system running cool.</p>
-    <p>Contact SCWS at <a href="tel:+17604408520">(760) 440-8520</a> or visit <a href="http://www.scwellservice.com">www.scwellservice.com</a> for expert assistance.</p>
-
-    
-    
-    <!-- Related Articles -->
-    <section class="py-16 bg-gray-50">
-        <div class="max-w-4xl mx-auto px-4">
-            <div class="text-center mb-10">
-                <h2 class="text-3xl font-bold text-primary mb-2">Related Articles</h2>
-                <p class="text-gray-600">Continue learning about well maintenance and troubleshooting</p>
+            <div class="solution-step">
+                <h3>2. Verify Voltage</h3>
+                <p>Measure voltage at the control box while the pump is running. It should be within 10% of motor nameplate voltage. Low voltage is a common overheating cause.</p>
             </div>
-            <div class="grid md:grid-cols-3 gap-6">
-                <a href="signs-well-pump-failing.html" class="group bg-white rounded-xl shadow-md hover:shadow-xl transition overflow-hidden">
-                    <div class="h-40 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=400&h=200&fit=crop" alt="Well pump warning signs" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
-                    </div>
-                    <div class="p-5">
-                        <span class="text-xs font-semibold text-accent uppercase tracking-wide">Troubleshooting</span>
-                        <h3 class="font-bold text-lg text-primary mt-1 mb-2 group-hover:text-accent transition">Signs Your Well Pump Is Failing</h3>
-                        <p class="text-gray-600 text-sm">Catch pump problems early before you lose water completely.</p>
-                    </div>
-                </a>
-                <a href="low-water-pressure-well.html" class="group bg-white rounded-xl shadow-md hover:shadow-xl transition overflow-hidden">
-                    <div class="h-40 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1562016600-ece13e8ba570?w=400&h=200&fit=crop" alt="Low water pressure from faucet" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
-                    </div>
-                    <div class="p-5">
-                        <span class="text-xs font-semibold text-accent uppercase tracking-wide">Pressure Issues</span>
-                        <h3 class="font-bold text-lg text-primary mt-1 mb-2 group-hover:text-accent transition">Low Water Pressure From Well</h3>
-                        <p class="text-gray-600 text-sm">Diagnose and fix pressure problems before they get worse.</p>
-                    </div>
-                </a>
-                <a href="water-well-maintenance-guide.html" class="group bg-white rounded-xl shadow-md hover:shadow-xl transition overflow-hidden">
-                    <div class="h-40 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=400&h=200&fit=crop" alt="Well maintenance and care" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
-                    </div>
-                    <div class="p-5">
-                        <span class="text-xs font-semibold text-accent uppercase tracking-wide">Maintenance</span>
-                        <h3 class="font-bold text-lg text-primary mt-1 mb-2 group-hover:text-accent transition">Well Maintenance Guide</h3>
-                        <p class="text-gray-600 text-sm">Keep your well running smoothly with regular maintenance.</p>
-                    </div>
-                </a>
+            <div class="solution-step">
+                <h3>3. Inspect Wiring</h3>
+                <p>Undersized wire heats up under load. A qualified electrician can verify wire gauge matches pump requirements and distance.</p>
             </div>
-        </div>
-    </section>
-
-    <!-- Blog Post CTA -->
-    <div class="blog-cta-section">
-        <div class="blog-cta-box">
-            <h3>Need Help With Your Well?</h3>
-            <p>Our expert technicians are ready to help with any well drilling, pump repair, or maintenance needs.</p>
-            <div class="blog-cta-actions">
-                <a href="sms:7604408520" class="blog-cta-phone" style="background:#4e9271;color:white !important;">
-                    💬 Text Us
-                </a>
-                <a href="tel:7604408520" class="blog-cta-phone">
-                    📞 Call (760) 440-8520
-                </a>
-                <a href="../contact.html" class="blog-cta-button">
-                    Request Free Quote →
-                </a>
+            <div class="solution-step">
+                <h3>4. Install Low-Water Protection</h3>
+                <p>A pump protection device shuts off the pump if water drops below safe levels, preventing dry-run damage.</p>
             </div>
-        </div>
-    </div>
-    
-    <!-- Lead Gen Components -->
-    <script src="/js/chat-widget.js"></script>
-    <script src="/js/lead-capture.js"></script>
-    
-    <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            
-            
-            
-            
-        }
-        
-        h1 { color: #1f3b4d; font-size: 2em; margin-bottom: 1em; }
-        h2 { color: #1f3b4d; margin-top: 1.5em; }
-        h3 { color: #1f3b4d; }
-        
-        a { color: #4e9271; }
-        a:hover { color: #3d7a5c; }
-        
-        ul, ol { margin: 1em 0; padding-left: 2em; }
-        li { margin: 0.5em 0; }
-        
-        p { margin: 1em 0; }
-        
-        .blog-cta-section {
-            margin-top: 3em;
-            padding-top: 2em;
-            border-top: 2px solid #e0e0e0;
-        }
-        
-        .blog-cta-box {
-            background: linear-gradient(135deg, #1f3b4d 0%, #2d5570 100%);
-            color: white;
-            padding: 2em;
-            border-radius: 12px;
-            text-align: center;
-        }
-        
-        .blog-cta-box h3 {
-            color: white;
-            font-size: 1.5em;
-            margin: 0 0 0.5em;
-        }
-        
-        .blog-cta-box p {
-            color: rgba(255,255,255,0.9);
-            margin: 0 0 1.5em;
-        }
-        
-        .blog-cta-actions {
-            display: flex;
-            gap: 1em;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        
-        .blog-cta-phone {
-            background: white;
-            color: #1f3b4d !important;
-            padding: 12px 24px;
-            border-radius: 8px;
-            font-weight: 700;
-            text-decoration: none;
-            display: inline-block;
-            transition: all 0.2s;
-        }
-        
-        .blog-cta-phone:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-        }
-        
-        .blog-cta-button {
-            background: #4e9271;
-            color: white !important;
-            padding: 12px 24px;
-            border-radius: 8px;
-            font-weight: 700;
-            text-decoration: none;
-            display: inline-block;
-            transition: all 0.2s;
-        }
-        
-        .blog-cta-button:hover {
-            background: #3d7a5c;
-            transform: translateY(-2px);
-        }
-        
-
-        .related-articles {
-            background: #f8f9fa;
-            border-left: 4px solid #4e9271;
-            padding: 1.5em;
-            margin: 2em 0;
-            border-radius: 0 8px 8px 0;
-        }
-        
-        .related-articles h3 {
-            margin-top: 0;
-            color: #1f3b4d;
-        }
-        
-        .related-articles ul {
-            margin-bottom: 0;
-        }
-        
-        .related-articles li {
-            margin: 0.5em 0;
-        }
-        
-        .related-articles a {
-            color: #4e9271;
-            text-decoration: none;
-        }
-        
-        .related-articles a:hover {
-            text-decoration: underline;
-        }
-
-        @media (max-width: 480px) {
-            body { padding: 15px; padding-top: 54px; }
-            .blog-cta-box { padding: 1.5em; }
-            .blog-cta-actions { flex-direction: column; }
-            .blog-cta-phone, .blog-cta-button { width: 100%; text-align: center; }
-        }
-    </style>
-
-<script src="/js/chat-widget.js"></script>
-</main>
+            <div class="solution-step">
+                <h3>5. Check Amp Draw</h3>
+                <p>Measure motor amp draw and compare to nameplate specs. High amps indicate mechanical problems; low amps often mean electrical issues.</p>
+            </div></section>
+            <section class="when-to-call">
+                <h2>When to Call a Professional</h2>
+                <p>While some minor issues can be addressed by homeowners, well system problems often require professional diagnosis. Call Southern California Well Service if:</p>
+                <ul>
+                    <li>You're not comfortable working with electrical systems</li>
+                    <li>The problem persists after basic troubleshooting</li>
+                    <li>You notice multiple symptoms at once</li>
+                    <li>Your well is over 10 years old and hasn't been serviced</li>
+                </ul>
+                <p>We offer same-day emergency service throughout San Diego, Riverside, and San Bernardino counties.</p>
+            </section>
+            <section class="faq"><h2>Frequently Asked Questions</h2>
+            <div class="faq-item">
+                <h3>How hot should a well pump control box get?</h3>
+                <p>Warm is normal during operation. Hot to the touch (can't hold your hand on it) indicates a problem. If you smell burning, turn off power immediately.</p>
+            </div>
+            <div class="faq-item">
+                <h3>Can an overheating pump be repaired?</h3>
+                <p>Sometimes. If caught early, addressing the cause (voltage, water level) can prevent further damage. Once windings burn, the pump must be replaced.</p>
+            </div>
+            <div class="faq-item">
+                <h3>What happens if a well pump overheats?</h3>
+                <p>The thermal overload should trip, shutting the pump off. Repeated overheating cycles degrade motor windings until the pump fails completely.</p>
+            </div>
+            <div class="faq-item">
+                <h3>How do I prevent my well pump from overheating?</h3>
+                <p>Ensure adequate water level, proper voltage, correct wire sizing, and install pump protection devices. Regular maintenance catches problems before they cause damage.</p>
+            </div></section>
+            <section class="cta-section"><h2>Need Help Now?</h2><p>Southern California Well Service provides expert well pump repair and diagnostics. We've been solving well problems across Southern California since 2006.</p><a href="tel:(760) 440-8520" class="cta-button">Call (760) 440-8520 for Service</a></section>
+            <section class="related"><h2>Related Articles</h2><ul>                <li><a href="well-pump-wont-turn-on.html">Pump Won't Turn On</a></li>
+                <li><a href="well-runs-dry.html">Well Runs Dry</a></li>
+                <li><a href="pump-protection-devices.html">Pump Protection Devices</a></li>
+                <li><a href="well-pump-replacement-cost.html">Pump Replacement Cost</a></li></ul></section>
+        </article>
+    </main>
+    <footer><p>&copy; 2026 Southern California Well Service. Serving San Diego, Riverside, and San Bernardino Counties.</p><p><a href="tel:(760) 440-8520">(760) 440-8520</a> | <a href="mailto:brighton@scwellservice.com">brighton@scwellservice.com</a></p></footer>
 </body>
 </html>
