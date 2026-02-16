@@ -97,11 +97,35 @@
         .footer { background: #0f172a; color: #94a3b8; padding: 2rem 1rem; text-align: center; }
         .footer a { color: #94a3b8; }
         
+        /* Nav */
+        .nav-links { display: flex; gap: 1.5rem; }
+        .nav-links a { color: white; text-decoration: none; font-weight: 500; }
+        .nav-links a:hover { color: #fbbf24; }
+        .hamburger { display: none; background: none; border: none; color: white; font-size: 1.5rem; cursor: pointer; }
+        
+        /* Form Section */
+        .form-section { background: #f8fafc; padding: 3rem 1rem; }
+        .form-container { max-width: 600px; margin: 0 auto; }
+        .form-section h2 { text-align: center; color: #1a365d; margin-bottom: 0.5rem; }
+        .form-section .subtitle { text-align: center; color: #64748b; margin-bottom: 2rem; }
+        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+        .form-group { margin-bottom: 1rem; }
+        .form-group.full { grid-column: 1 / -1; }
+        .form-group label { display: block; font-weight: 500; margin-bottom: 0.25rem; color: #374151; }
+        .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 0.75rem; border: 1px solid #d1d5db; border-radius: 6px; font-size: 1rem; }
+        .form-group input:focus, .form-group textarea:focus { outline: none; border-color: #1e40af; box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.1); }
+        .submit-btn { width: 100%; background: #1e40af; color: white; padding: 1rem; font-size: 1.1rem; font-weight: bold; border: none; border-radius: 6px; cursor: pointer; }
+        .submit-btn:hover { background: #1a365d; }
+        .form-note { text-align: center; margin-top: 1rem; color: #64748b; font-size: 0.9rem; }
+        
         /* Mobile */
         @media (max-width: 768px) {
             .hero h1 { font-size: 1.75rem; }
             .hero p { font-size: 1rem; }
             .phone-header { font-size: 1.25rem; }
+            .nav-links { display: none; }
+            .hamburger { display: block; }
+            .form-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -109,6 +133,13 @@
     <header class="header">
         <div class="header-content">
             <a href="/" class="logo"><img src="images/logo.png" alt="Southern California Well Service" style="height: 40px;"></a>
+            <nav class="nav-links">
+                <a href="/">Home</a>
+                <a href="/well-drilling.html">Drilling</a>
+                <a href="/pump-repair.html">Pump Repair</a>
+                <a href="/contact.html">Contact</a>
+            </nav>
+            <button class="hamburger" onclick="alert('Menu: Home | Drilling | Pump Repair | Contact')">☰</button>
             <div class="phone-header"><a href="tel:+17604408520" onclick="gtag('event', 'conversion', {'send_to': 'AW-490838730/phone_click'});">(760) 440-8520</a></div>
         </div>
     </header>
@@ -206,6 +237,44 @@
         <p><strong>Guaranteed Work:</strong> We stand behind our repairs.</p>
     </main>
     
+    <section class="form-section" id="quote">
+        <div class="form-container">
+            <h2>Request a Free Estimate</h2>
+            <p class="subtitle">Fill out the form and we'll get back to you within a few hours.</p>
+            <form action="https://scws-jobs.vercel.app/api/booking" method="POST" id="contact-form" onsubmit="return handleFormSubmit(event)">
+                <input type="hidden" name="utm_source" id="utm_source">
+                <input type="hidden" name="utm_medium" id="utm_medium">
+                <input type="hidden" name="utm_campaign" id="utm_campaign">
+                <input type="hidden" name="lead_source" value="pump-repair-landing">
+                <input type="hidden" name="service_type" value="Pump Repair">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="name">Name *</label>
+                        <input type="text" id="name" name="name" required placeholder="Your name">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone *</label>
+                        <input type="tel" id="phone" name="phone" required placeholder="(555) 555-5555">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="you@email.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="location">City/Area *</label>
+                        <input type="text" id="location" name="location" required placeholder="e.g. Ramona, Valley Center">
+                    </div>
+                    <div class="form-group full">
+                        <label for="message">Describe Your Pump Issue</label>
+                        <textarea id="message" name="message" rows="3" placeholder="Tell us what's happening with your pump..."></textarea>
+                    </div>
+                </div>
+                <button type="submit" class="submit-btn" id="submit-btn">Get Free Estimate</button>
+                <p class="form-note">We typically respond within 2-4 hours during business hours.</p>
+            </form>
+        </div>
+    </section>
+    
     <section class="cta-section">
         <h2>Need Your Pump Fixed?</h2>
         <p>Don't wait — pump problems only get worse. Call now for fast, reliable service.</p>
@@ -218,5 +287,48 @@
         <p>Serving San Diego & Riverside County | <a href="/">Home</a> | <a href="/contact.html">Contact</a></p>
         <p>&copy; 2026 Southern California Well Service. All rights reserved.</p>
     </footer>
+    <script>
+        // Capture UTM parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        ['utm_source', 'utm_medium', 'utm_campaign'].forEach(param => {
+            const el = document.getElementById(param);
+            if (el) el.value = urlParams.get(param) || '';
+        });
+        
+        // Handle form submission
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const form = document.getElementById('contact-form');
+            const submitBtn = document.getElementById('submit-btn');
+            const formData = new FormData(form);
+            
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+            
+            // Track conversion
+            gtag('event', 'conversion', { 'send_to': 'AW-490838730/form_submit' });
+            gtag('event', 'generate_lead', { 'event_category': 'engagement', 'value': 100 });
+            
+            fetch(form.action, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(Object.fromEntries(formData))
+            })
+            .then(response => {
+                if (response.ok) {
+                    form.innerHTML = '<div style="text-align:center;padding:2rem;"><h3 style="color:#16a34a;">✓ Request Received!</h3><p>We\'ll call you back within a few hours.</p><p style="margin-top:1rem;"><strong>Need help sooner?</strong> Call <a href="tel:+17604408520" style="color:#1e40af;">(760) 440-8520</a></p></div>';
+                } else {
+                    throw new Error('Submit failed');
+                }
+            })
+            .catch(error => {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Get Free Estimate';
+                alert('Something went wrong. Please call us at (760) 440-8520');
+            });
+            
+            return false;
+        }
+    </script>
 </body>
 </html>
