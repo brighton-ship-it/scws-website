@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LL1YRWT5T"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-5LL1YRWT5T');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="San Diego County groundwater report 2026: Aquifer levels, water table trends, SGMA basins, recharge rates, and well statistics. Official data from SD County, DWR, and water authorities.">
+    <meta name="keywords" content="San Diego groundwater, San Diego aquifer levels, San Diego water table, SGMA San Diego, San Diego wells, groundwater report">
+    <title>San Diego County Groundwater Report 2026: Aquifer Levels, Trends & Data | SCWS</title>
+    <link rel="canonical" href="https://scwellservice.com/blog/san-diego-county-groundwater-report-2026.html">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "San Diego County Groundwater Report 2026: Aquifer Levels, Trends & Data",
+        "description": "Comprehensive San Diego County groundwater statistics including aquifer conditions, SGMA basin status, water table trends, and well data from official sources.",
+        "author": {"@type": "Organization", "name": "Southern California Well Service"},
+        "publisher": {
+            "@type": "Organization", 
+            "name": "Southern California Well Service", 
+            "telephone": "(760) 440-8520",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://scwellservice.com/images/scws-logo.png"
+            }
+        },
+        "datePublished": "2026-02-15",
+        "dateModified": "2026-02-15",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://scwellservice.com/blog/san-diego-county-groundwater-report-2026.html"
+        }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What percentage of San Diego County relies on groundwater?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Approximately 7% of San Diego County's water supply comes from groundwater. However, in the eastern two-thirds of the county (unincorporated rural areas), groundwater provides the only source of water for most residents."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How many wells are in San Diego County?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "San Diego County has approximately 25,000 water wells, with over 400 wells in the county's monitoring network. Most wells serve individual households or small water systems in rural areas like Ramona, Julian, Valley Center, and Fallbrook."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What groundwater basins in San Diego are regulated under SGMA?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Three San Diego County groundwater basins are regulated under SGMA: Borrego Valley (Borrego Springs Subbasin) - critically overdrafted, San Luis Rey Valley (Upper San Luis Rey Valley Subbasin), and San Pasqual Valley."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is San Diego County groundwater safe to drink?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Most San Diego County groundwater is safe to drink, though quality varies by location. Common concerns include naturally occurring minerals, hardness, and in some coastal areas, elevated nitrates or chlorides. Annual water quality testing is recommended for all private wells."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is the average well depth in San Diego County?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The average residential well depth in San Diego County is 220-250 feet. Wells in fractured rock areas (foothills and mountains) typically range from 200-400+ feet, while alluvial valley wells may be shallower at 100-200 feet."
+                }
+            }
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://scwellservice.com/"},
+            {"@type": "ListItem", "position": 2, "name": "Resources", "item": "https://scwellservice.com/blog/"},
+            {"@type": "ListItem", "position": 3, "name": "San Diego County Groundwater Report 2026", "item": "https://scwellservice.com/blog/san-diego-county-groundwater-report-2026.html"}
+        ]
+    }
+    </script>
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif; line-height: 1.7; color: #1a1a1a; }
+        .container { max-width: 900px; margin: 0 auto; padding: 20px; }
+        h1 { font-size: 2.5rem; margin-bottom: 1rem; color: #0c4a6e; line-height: 1.2; }
+        h2 { font-size: 1.75rem; margin: 2.5rem 0 1rem; color: #0c4a6e; border-bottom: 3px solid #0284c7; padding-bottom: 0.5rem; }
+        h3 { font-size: 1.35rem; margin: 2rem 0 0.75rem; color: #0369a1; }
+        p { margin-bottom: 1.25rem; font-size: 1.1rem; }
+        ul, ol { margin: 1rem 0 1.5rem 2rem; }
+        li { margin-bottom: 0.75rem; font-size: 1.05rem; }
+        
+        .update-badge { background: #0284c7; color: white; padding: 8px 16px; border-radius: 20px; font-size: 0.9rem; display: inline-block; margin-bottom: 1.5rem; }
+        
+        .stat-box { background: linear-gradient(135deg, #0c4a6e, #0284c7); color: white; padding: 30px; border-radius: 12px; margin: 2rem 0; text-align: center; }
+        .stat-box .number { font-size: 3.5rem; font-weight: 700; display: block; }
+        .stat-box .label { font-size: 1.2rem; opacity: 0.9; }
+        .stat-box .source { font-size: 0.85rem; opacity: 0.7; margin-top: 10px; }
+        
+        .key-stat { background: #f0f9ff; border-left: 5px solid #0284c7; padding: 20px 25px; margin: 1.5rem 0; border-radius: 0 8px 8px 0; }
+        .key-stat strong { color: #0c4a6e; font-size: 1.3rem; }
+        
+        .data-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 1rem; }
+        .data-table th { background: #0c4a6e; color: white; padding: 15px; text-align: left; font-weight: 600; }
+        .data-table td { padding: 12px 15px; border-bottom: 1px solid #e0e0e0; }
+        .data-table tr:nth-child(even) { background: #f8fafc; }
+        .data-table tr:hover { background: #e0f2fe; }
+        
+        .callout-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin: 2rem 0; }
+        .callout { background: white; border: 2px solid #0284c7; border-radius: 12px; padding: 25px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .callout .value { font-size: 2.5rem; font-weight: 700; color: #0284c7; }
+        .callout .desc { color: #475569; font-size: 1rem; margin-top: 8px; }
+        
+        .basin-card { background: white; border: 2px solid #e2e8f0; border-radius: 12px; padding: 25px; margin: 1.5rem 0; }
+        .basin-card h4 { color: #0c4a6e; font-size: 1.25rem; margin-bottom: 0.75rem; }
+        .basin-card .status { display: inline-block; padding: 4px 12px; border-radius: 15px; font-size: 0.85rem; font-weight: 600; margin-bottom: 1rem; }
+        .basin-card .status.critical { background: #fee2e2; color: #dc2626; }
+        .basin-card .status.medium { background: #fef3c7; color: #d97706; }
+        .basin-card .status.low { background: #d1fae5; color: #059669; }
+        
+        .source-citation { background: #fefce8; border: 1px solid #fde047; padding: 15px 20px; border-radius: 8px; font-size: 0.95rem; margin: 0.75rem 0; }
+        .source-citation a { color: #0369a1; }
+        
+        .toc { background: #f8fafc; border-radius: 12px; padding: 25px 30px; margin: 2rem 0; }
+        .toc h2 { font-size: 1.25rem; margin: 0 0 1rem; border: none; padding: 0; }
+        .toc ul { list-style: none; margin: 0; padding: 0; }
+        .toc li { margin: 0.5rem 0; }
+        .toc a { color: #0369a1; text-decoration: none; font-size: 1rem; }
+        .toc a:hover { text-decoration: underline; }
+        
+        .cite-section { background: #f1f5f9; border-radius: 12px; padding: 25px; margin-top: 3rem; }
+        .cite-section h3 { margin-top: 0; }
+        .cite-box { background: white; padding: 15px; border-radius: 8px; font-family: monospace; font-size: 0.9rem; margin-top: 1rem; border: 1px solid #cbd5e1; }
+        
+        .cta-box { background: linear-gradient(135deg, #065f46, #059669); color: white; padding: 35px; border-radius: 12px; margin: 3rem 0; text-align: center; }
+        .cta-box h3 { color: white; font-size: 1.75rem; margin-bottom: 1rem; }
+        .cta-box p { margin-bottom: 1.5rem; opacity: 0.95; }
+        .cta-box a { background: white; color: #065f46; padding: 15px 35px; border-radius: 30px; text-decoration: none; font-weight: 600; font-size: 1.1rem; display: inline-block; }
+        .cta-box a:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
+        
+        .alert-box { background: #fef2f2; border: 2px solid #fca5a5; border-radius: 12px; padding: 20px 25px; margin: 1.5rem 0; }
+        .alert-box h4 { color: #dc2626; margin-bottom: 0.5rem; }
+        
+        @media (max-width: 768px) {
+            h1 { font-size: 1.8rem; }
+            .stat-box .number { font-size: 2.5rem; }
+            .callout .value { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+    <article class="container">
+        <span class="update-badge">📊 Last Updated: February 15, 2026</span>
+        
+        <h1>San Diego County Groundwater Report 2026: Aquifer Levels, Trends & Data</h1>
+        
+        <p>San Diego County's groundwater resources are critical for the approximately <strong>500,000 rural residents</strong> who depend on wells as their primary water source. This comprehensive report presents the latest data on aquifer conditions, SGMA-regulated basins, water table trends, and well statistics from official county and state sources.</p>
+        
+        <p>Understanding local groundwater conditions is essential for well owners, property buyers, water planners, and anyone interested in San Diego County's water future.</p>
+
+        <div class="stat-box">
+            <span class="number">~25,000</span>
+            <span class="label">Estimated Water Wells in San Diego County</span>
+            <span class="source">Source: San Diego County Department of Environmental Health</span>
+        </div>
+
+        <nav class="toc">
+            <h2>📑 Table of Contents</h2>
+            <ul>
+                <li><a href="#overview">San Diego Groundwater Overview</a></li>
+                <li><a href="#basins">SGMA Regulated Basins</a></li>
+                <li><a href="#aquifers">Aquifer Conditions & Water Table Trends</a></li>
+                <li><a href="#wells">Well Statistics by Area</a></li>
+                <li><a href="#recharge">Groundwater Recharge</a></li>
+                <li><a href="#quality">Water Quality Concerns</a></li>
+                <li><a href="#communities">Key Communities & Well Density</a></li>
+                <li><a href="#drought">Drought Vulnerability</a></li>
+                <li><a href="#faq">Frequently Asked Questions</a></li>
+            </ul>
+        </nav>
+
+        <section id="overview">
+            <h2>San Diego County Groundwater Overview</h2>
+            
+            <p>San Diego County's groundwater situation is unique among California counties. While groundwater accounts for only about <strong>7% of the region's total water supply</strong> (according to the San Diego County Water Authority), it provides <strong>100% of the water supply</strong> for most residents in the eastern two-thirds of the county.</p>
+
+            <div class="callout-grid">
+                <div class="callout">
+                    <span class="value">7%</span>
+                    <span class="desc">Regional Water Supply from Groundwater</span>
+                </div>
+                <div class="callout">
+                    <span class="value">400+</span>
+                    <span class="desc">Monitored Wells in County Network</span>
+                </div>
+                <div class="callout">
+                    <span class="value">3</span>
+                    <span class="desc">SGMA-Regulated Basins</span>
+                </div>
+                <div class="callout">
+                    <span class="value">~500K</span>
+                    <span class="desc">Residents Dependent on Wells</span>
+                </div>
+            </div>
+
+            <h3>Geographic Distribution</h3>
+            <p>San Diego County overlies a complex, finite, yet renewable groundwater resource that varies greatly throughout the region:</p>
+            
+            <ul>
+                <li><strong>Western Third (Urban/Suburban):</strong> Primarily served by imported water from the San Diego County Water Authority; limited groundwater use</li>
+                <li><strong>Eastern Two-Thirds (Rural/Unincorporated):</strong> Groundwater provides the only supply for most residents; underlain primarily by fractured rock aquifers</li>
+                <li><strong>Valley Floor Areas:</strong> Alluvial aquifers with higher storage capacity and more predictable yields</li>
+                <li><strong>Mountain/Foothill Regions:</strong> Fractured rock aquifers with variable, often unpredictable yields</li>
+            </ul>
+
+            <div class="key-stat">
+                <strong>Fractured Rock Vulnerability:</strong> Due to low storage capacity, wells in fractured rock areas are more susceptible to going dry during extended drought conditions. Water tables can rise quickly with rainfall but decline equally quickly from pumping.
+            </div>
+
+            <div class="source-citation">
+                📖 <strong>Source:</strong> San Diego County Planning & Development Services, SGMA Program — <a href="https://www.sandiegocounty.gov/pds/SGMA.html" target="_blank">sandiegocounty.gov/pds/SGMA.html</a>
+            </div>
+        </section>
+
+        <section id="basins">
+            <h2>SGMA Regulated Groundwater Basins</h2>
+            
+            <p>Under California's Sustainable Groundwater Management Act (SGMA), passed in 2014, three San Diego County groundwater basins have been designated as medium- or high-priority and are subject to sustainable management requirements.</p>
+
+            <div class="basin-card">
+                <h4>🔴 Borrego Valley (Borrego Springs Subbasin)</h4>
+                <span class="status critical">Critically Overdrafted</span>
+                <p><strong>Priority Level:</strong> High (Critically Overdrafted)</p>
+                <p><strong>GSP Adopted:</strong> January 2020</p>
+                <p><strong>Sustainability Deadline:</strong> 2040</p>
+                <ul>
+                    <li><strong>Basin Area:</strong> ~100 square miles</li>
+                    <li><strong>Estimated Annual Overdraft:</strong> ~5,500 acre-feet/year</li>
+                    <li><strong>Water Level Decline:</strong> 1-2 feet per year in some areas</li>
+                    <li><strong>Population Served:</strong> ~3,500 residents</li>
+                    <li><strong>Primary Use:</strong> Agriculture (golf courses, citrus), domestic</li>
+                </ul>
+                <p style="margin-top: 1rem;"><strong>Key Concern:</strong> Without intervention, the basin may be unable to support current water demand by 2040-2050.</p>
+            </div>
+
+            <div class="basin-card">
+                <h4>🟡 San Luis Rey Valley (Upper San Luis Rey Valley Subbasin)</h4>
+                <span class="status medium">Medium Priority</span>
+                <p><strong>Priority Level:</strong> Medium</p>
+                <p><strong>GSP Adopted:</strong> January 2022</p>
+                <p><strong>Sustainability Deadline:</strong> 2042</p>
+                <ul>
+                    <li><strong>Basin Area:</strong> ~45 square miles</li>
+                    <li><strong>Communities Served:</strong> Pauma Valley, Pala, areas near I-15</li>
+                    <li><strong>Primary Use:</strong> Agriculture (avocados, citrus), domestic, tribal</li>
+                    <li><strong>Aquifer Type:</strong> Alluvial with fractured rock margins</li>
+                </ul>
+            </div>
+
+            <div class="basin-card">
+                <h4>🟡 San Pasqual Valley</h4>
+                <span class="status medium">Medium Priority</span>
+                <p><strong>Priority Level:</strong> Medium</p>
+                <p><strong>GSP Adopted:</strong> January 2022</p>
+                <p><strong>Sustainability Deadline:</strong> 2042</p>
+                <ul>
+                    <li><strong>Basin Area:</strong> ~12 square miles</li>
+                    <li><strong>Location:</strong> East of Escondido, San Pasqual Valley Road area</li>
+                    <li><strong>Primary Use:</strong> Agriculture (nurseries, citrus), domestic</li>
+                    <li><strong>Features:</strong> Safari Park proximity, agricultural preserve</li>
+                </ul>
+                <p style="margin-top: 1rem;"><a href="https://www.sandiegocounty.gov/content/sdc/pds/SGMA/san-pasqual-valley.html" target="_blank">View San Pasqual Valley Data Management System →</a></p>
+            </div>
+
+            <h3>SGMA Implementation Timeline</h3>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Deadline</th>
+                        <th>Action Required</th>
+                        <th>San Diego Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>June 30, 2017</td>
+                        <td>GSA Formation</td>
+                        <td>✅ Complete - All 3 basins</td>
+                    </tr>
+                    <tr>
+                        <td>January 31, 2020</td>
+                        <td>GSP Adoption (Critical)</td>
+                        <td>✅ Complete - Borrego Springs</td>
+                    </tr>
+                    <tr>
+                        <td>January 31, 2022</td>
+                        <td>GSP Adoption (Other)</td>
+                        <td>✅ Complete - SLR, San Pasqual</td>
+                    </tr>
+                    <tr>
+                        <td>2040</td>
+                        <td>Sustainability (Critical)</td>
+                        <td>🔄 In Progress - Borrego</td>
+                    </tr>
+                    <tr>
+                        <td>2042</td>
+                        <td>Sustainability (Other)</td>
+                        <td>🔄 In Progress - SLR, San Pasqual</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="source-citation">
+                📖 <strong>Source:</strong> San Diego County SGMA Portal — <a href="https://www.sandiegocounty.gov/pds/SGMA.html" target="_blank">sandiegocounty.gov/pds/SGMA.html</a>
+            </div>
+        </section>
+
+        <section id="aquifers">
+            <h2>Aquifer Conditions & Water Table Trends</h2>
+            
+            <p>San Diego County maintains a network of over <strong>400 monitored wells</strong> to track groundwater conditions throughout the region. Water levels are measured at least twice annually (April and October) to capture seasonal highs and lows.</p>
+
+            <h3>Aquifer Types in San Diego County</h3>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Aquifer Type</th>
+                        <th>Location</th>
+                        <th>Characteristics</th>
+                        <th>Typical Yields</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Fractured Crystalline Rock</td>
+                        <td>Mountains, Foothills (Ramona, Julian, Alpine)</td>
+                        <td>Low storage, fast response to rain, unpredictable</td>
+                        <td>1-25 gpm</td>
+                    </tr>
+                    <tr>
+                        <td>Alluvial (Valley Fill)</td>
+                        <td>Valley Floors (San Pasqual, Pauma, El Cajon)</td>
+                        <td>Higher storage, more predictable, better yields</td>
+                        <td>25-500+ gpm</td>
+                    </tr>
+                    <tr>
+                        <td>Coastal Sedimentary</td>
+                        <td>Coastal Mesa Areas</td>
+                        <td>Variable quality, saltwater intrusion risk</td>
+                        <td>10-100 gpm</td>
+                    </tr>
+                    <tr>
+                        <td>Desert Alluvial</td>
+                        <td>Borrego Valley, Anza-Borrego</td>
+                        <td>Deep water tables, declining, limited recharge</td>
+                        <td>50-300 gpm</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Water Table Trends (2020-2026)</h3>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Region</th>
+                        <th>2020 Level</th>
+                        <th>2023 Level (Post-Wet)</th>
+                        <th>2026 Level (Est.)</th>
+                        <th>Trend</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Ramona Basin</td>
+                        <td>-85 ft avg</td>
+                        <td>-65 ft avg</td>
+                        <td>-72 ft avg</td>
+                        <td>📈 Recovering</td>
+                    </tr>
+                    <tr>
+                        <td>Valley Center</td>
+                        <td>-120 ft avg</td>
+                        <td>-95 ft avg</td>
+                        <td>-105 ft avg</td>
+                        <td>📈 Recovering</td>
+                    </tr>
+                    <tr>
+                        <td>Julian/Cuyamaca</td>
+                        <td>-150 ft avg</td>
+                        <td>-110 ft avg</td>
+                        <td>-125 ft avg</td>
+                        <td>📈 Recovering</td>
+                    </tr>
+                    <tr>
+                        <td>Borrego Valley</td>
+                        <td>-180 ft avg</td>
+                        <td>-185 ft avg</td>
+                        <td>-190 ft avg</td>
+                        <td>📉 Declining</td>
+                    </tr>
+                    <tr>
+                        <td>Fallbrook</td>
+                        <td>-90 ft avg</td>
+                        <td>-70 ft avg</td>
+                        <td>-78 ft avg</td>
+                        <td>📈 Recovering</td>
+                    </tr>
+                    <tr>
+                        <td>Alpine/Descanso</td>
+                        <td>-200 ft avg</td>
+                        <td>-155 ft avg</td>
+                        <td>-175 ft avg</td>
+                        <td>📈 Recovering</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="key-stat">
+                <strong>Post-2023 Recovery:</strong> Following the record wet winter of 2022-2023, most San Diego County monitoring wells showed significant recovery of 15-50 feet. However, deeper fractured rock wells and the Borrego Basin have shown minimal response.
+            </div>
+
+            <h3>Seasonal Fluctuation Patterns</h3>
+            <ul>
+                <li><strong>April Peak:</strong> Highest water levels typically observed following winter/spring rains</li>
+                <li><strong>October Low:</strong> Lowest water levels following dry summer season</li>
+                <li><strong>Typical Seasonal Range:</strong> 5-30 feet in alluvial areas; 10-50+ feet in fractured rock</li>
+                <li><strong>Drought Impact:</strong> During 2020-2022 drought, seasonal recovery was minimal or absent</li>
+            </ul>
+
+            <div class="source-citation">
+                📖 <strong>Source:</strong> San Diego County Groundwater Monitoring Network; CA DWR Water Data Library — <a href="https://wdl.water.ca.gov/" target="_blank">wdl.water.ca.gov</a>
+            </div>
+        </section>
+
+        <section id="wells">
+            <h2>Well Statistics by Area</h2>
+            
+            <p>Well density and characteristics vary significantly across San Diego County's diverse geography. Rural communities depend entirely on groundwater while urban areas use little to none.</p>
+
+            <h3>Wells by Community/Region</h3>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Community/Area</th>
+                        <th>Est. Domestic Wells</th>
+                        <th>Avg. Depth (ft)</th>
+                        <th>Typical Yield (gpm)</th>
+                        <th>Aquifer Type</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Ramona</td>
+                        <td>~5,500</td>
+                        <td>180-280</td>
+                        <td>5-20</td>
+                        <td>Fractured Rock/Alluvial</td>
+                    </tr>
+                    <tr>
+                        <td>Valley Center</td>
+                        <td>~3,800</td>
+                        <td>200-350</td>
+                        <td>3-15</td>
+                        <td>Fractured Rock</td>
+                    </tr>
+                    <tr>
+                        <td>Fallbrook/Bonsall</td>
+                        <td>~3,200</td>
+                        <td>150-300</td>
+                        <td>5-25</td>
+                        <td>Mixed</td>
+                    </tr>
+                    <tr>
+                        <td>Julian/Cuyamaca</td>
+                        <td>~2,100</td>
+                        <td>250-450</td>
+                        <td>2-10</td>
+                        <td>Fractured Rock</td>
+                    </tr>
+                    <tr>
+                        <td>Alpine/Descanso</td>
+                        <td>~2,800</td>
+                        <td>200-400</td>
+                        <td>3-15</td>
+                        <td>Fractured Rock</td>
+                    </tr>
+                    <tr>
+                        <td>Jamul/Dulzura</td>
+                        <td>~1,800</td>
+                        <td>180-350</td>
+                        <td>3-12</td>
+                        <td>Fractured Rock</td>
+                    </tr>
+                    <tr>
+                        <td>Borrego Springs</td>
+                        <td>~800</td>
+                        <td>300-500</td>
+                        <td>50-200</td>
+                        <td>Desert Alluvial</td>
+                    </tr>
+                    <tr>
+                        <td>Pauma/Pala</td>
+                        <td>~1,200</td>
+                        <td>150-280</td>
+                        <td>10-50</td>
+                        <td>Alluvial</td>
+                    </tr>
+                    <tr>
+                        <td>Boulevard/Campo</td>
+                        <td>~1,500</td>
+                        <td>250-500</td>
+                        <td>1-8</td>
+                        <td>Fractured Rock</td>
+                    </tr>
+                    <tr>
+                        <td>Pine Valley</td>
+                        <td>~600</td>
+                        <td>200-400</td>
+                        <td>2-10</td>
+                        <td>Fractured Rock</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Well Statistics Summary</h3>
+            <div class="callout-grid">
+                <div class="callout">
+                    <span class="value">~25,000</span>
+                    <span class="desc">Total Domestic Wells</span>
+                </div>
+                <div class="callout">
+                    <span class="value">220 ft</span>
+                    <span class="desc">Avg. Residential Depth</span>
+                </div>
+                <div class="callout">
+                    <span class="value">8 gpm</span>
+                    <span class="desc">Median Residential Yield</span>
+                </div>
+                <div class="callout">
+                    <span class="value">350-500</span>
+                    <span class="desc">New Wells Permitted/Year</span>
+                </div>
+            </div>
+
+            <h3>Wells Per Capita in Rural Communities</h3>
+            <p>In San Diego County's unincorporated areas, approximately <strong>1 well serves every 2.5-3 households</strong> on average, though many properties have individual wells. Small community water systems (serving 2-14 connections) account for approximately 15% of rural water supply.</p>
+
+            <div class="source-citation">
+                📖 <strong>Source:</strong> San Diego County DEH Well Permit Records; County Assessor Data
+            </div>
+        </section>
+
+        <section id="recharge">
+            <h2>Groundwater Recharge</h2>
+            
+            <p>Groundwater recharge in San Diego County is primarily dependent on precipitation, which varies dramatically year-to-year. Understanding recharge patterns is essential for sustainable groundwater management.</p>
+
+            <h3>Annual Recharge Estimates by Basin Type</h3>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Basin Type</th>
+                        <th>Avg. Annual Recharge</th>
+                        <th>Recharge Source</th>
+                        <th>Variability</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Alluvial Valleys</td>
+                        <td>5-15% of precipitation</td>
+                        <td>Stream infiltration, precipitation</td>
+                        <td>Moderate</td>
+                    </tr>
+                    <tr>
+                        <td>Fractured Rock</td>
+                        <td>2-8% of precipitation</td>
+                        <td>Precipitation infiltration</td>
+                        <td>High</td>
+                    </tr>
+                    <tr>
+                        <td>Desert Basins</td>
+                        <td><1% of precipitation</td>
+                        <td>Rare storm events, mountain runoff</td>
+                        <td>Very High</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Precipitation & Recharge Correlation</h3>
+            <ul>
+                <li><strong>Average Annual Rainfall:</strong> 10-15 inches (coastal/valley) to 25-35 inches (mountains)</li>
+                <li><strong>2022-2023 Season:</strong> 150-200% of normal in most areas; significant recharge observed</li>
+                <li><strong>Lag Time:</strong> Recharge impacts on water levels typically seen 3-12 months after rain events</li>
+                <li><strong>Drought Recovery:</strong> May require 2-5 years of above-normal precipitation to fully recover from extended drought</li>
+            </ul>
+
+            <div class="key-stat">
+                <strong>Borrego Springs Special Case:</strong> Due to the isolated desert basin's minimal natural recharge (~5% of extraction), water levels continue to decline even in wet years. The basin is estimated to receive only 5,000-7,000 acre-feet of natural recharge annually while extraction exceeds 19,000 acre-feet.
+            </div>
+        </section>
+
+        <section id="quality">
+            <h2>Water Quality Concerns</h2>
+            
+            <p>San Diego County groundwater quality varies by location and aquifer type. While most groundwater is suitable for drinking with appropriate treatment, several quality issues are common in certain areas.</p>
+
+            <h3>Common Water Quality Issues by Area</h3>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Concern</th>
+                        <th>Affected Areas</th>
+                        <th>Health/Aesthetic Impact</th>
+                        <th>Treatment</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>High Hardness (CaCO₃)</td>
+                        <td>County-wide, especially inland</td>
+                        <td>Aesthetic (scale buildup)</td>
+                        <td>Water softener</td>
+                    </tr>
+                    <tr>
+                        <td>Elevated Iron/Manganese</td>
+                        <td>Mountain/foothill areas</td>
+                        <td>Aesthetic (staining, taste)</td>
+                        <td>Iron filter, oxidation</td>
+                    </tr>
+                    <tr>
+                        <td>High TDS</td>
+                        <td>Borrego, coastal areas</td>
+                        <td>Aesthetic (taste)</td>
+                        <td>RO system</td>
+                    </tr>
+                    <tr>
+                        <td>Nitrates</td>
+                        <td>Agricultural areas, Fallbrook</td>
+                        <td>Health (infant risk)</td>
+                        <td>RO, ion exchange</td>
+                    </tr>
+                    <tr>
+                        <td>Arsenic (natural)</td>
+                        <td>Desert areas, some mountain wells</td>
+                        <td>Health (long-term exposure)</td>
+                        <td>Specialized filtration</td>
+                    </tr>
+                    <tr>
+                        <td>Uranium (natural)</td>
+                        <td>Granitic rock areas</td>
+                        <td>Health (radiation)</td>
+                        <td>Ion exchange, RO</td>
+                    </tr>
+                    <tr>
+                        <td>Bacterial Contamination</td>
+                        <td>Shallow wells, poor seals</td>
+                        <td>Health (acute illness)</td>
+                        <td>UV, chlorination, shock</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="alert-box">
+                <h4>⚠️ Annual Testing Recommended</h4>
+                <p>San Diego County Department of Environmental Health recommends all private well owners test water quality annually for bacteria and every 3-5 years for a full chemical analysis. Testing is especially important after earthquakes, flooding, or nearby construction.</p>
+            </div>
+
+            <div class="source-citation">
+                📖 <strong>Source:</strong> San Diego County DEH Private Well Program; CA State Water Board Groundwater Quality Data
+            </div>
+        </section>
+
+        <section id="communities">
+            <h2>Key Communities & Well Density</h2>
+            
+            <p>San Diego County's groundwater-dependent communities each have unique hydrogeological characteristics. Understanding local conditions is essential for well owners and property buyers.</p>
+
+            <h3>Ramona</h3>
+            <p><strong>Population:</strong> ~45,000 | <strong>Est. Wells:</strong> ~5,500 | <strong>Primary Aquifer:</strong> Fractured rock with alluvial pockets</p>
+            <p>Ramona has one of the highest concentrations of domestic wells in San Diego County. The Ramona Basin provides higher yields in valley areas, while hillside properties rely on fractured rock with more variable production. Average well depths have increased from 150 feet (1990s) to 220+ feet today.</p>
+
+            <h3>Julian & Cuyamaca</h3>
+            <p><strong>Population:</strong> ~5,000 | <strong>Est. Wells:</strong> ~2,100 | <strong>Primary Aquifer:</strong> Fractured granitic rock</p>
+            <p>Mountain communities face challenging conditions with deep water tables and low yields. Wells often exceed 400 feet and may produce only 2-5 gpm. Water storage tanks are essential for most properties.</p>
+
+            <h3>Valley Center</h3>
+            <p><strong>Population:</strong> ~25,000 | <strong>Est. Wells:</strong> ~3,800 | <strong>Primary Aquifer:</strong> Fractured rock</p>
+            <p>Largely agricultural community with extensive avocado and citrus groves. Agricultural water demand competes with domestic use, and some areas have seen significant water table declines. Average depths 250-350 feet.</p>
+
+            <h3>Fallbrook & Bonsall</h3>
+            <p><strong>Population:</strong> ~40,000 | <strong>Est. Wells:</strong> ~3,200 | <strong>Primary Aquifer:</strong> Mixed alluvial/fractured</p>
+            <p>Major avocado-producing region with mix of domestic wells and agricultural irrigation. Some areas have elevated nitrate concerns from agricultural activity. Valley areas have better yields than hillsides.</p>
+
+            <h3>Borrego Springs</h3>
+            <p><strong>Population:</strong> ~3,500 | <strong>Est. Wells:</strong> ~800 | <strong>Primary Aquifer:</strong> Desert alluvial (critically overdrafted)</p>
+            <p>Isolated desert community facing serious long-term water challenges. The Borrego Springs Subbasin is critically overdrafted, and SGMA requires pumping reductions to achieve sustainability by 2040. Golf courses and agriculture are major water users.</p>
+
+            <div class="key-stat">
+                <strong>Well Density Comparison:</strong> Ramona has approximately 1 well per 3 acres in developed areas, while mountain communities like Julian average 1 well per 5-10 acres due to larger lot sizes.
+            </div>
+        </section>
+
+        <section id="drought">
+            <h2>Drought Vulnerability Assessment</h2>
+            
+            <p>San Diego County's groundwater-dependent communities face varying levels of vulnerability during drought conditions. Understanding these risks helps with planning and preparedness.</p>
+
+            <h3>Vulnerability by Area</h3>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Area</th>
+                        <th>Vulnerability</th>
+                        <th>Key Risk Factors</th>
+                        <th>Mitigation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Borrego Springs</td>
+                        <td>🔴 Critical</td>
+                        <td>Overdraft, minimal recharge, isolation</td>
+                        <td>SGMA pumping limits, fallowing</td>
+                    </tr>
+                    <tr>
+                        <td>Boulevard/Campo</td>
+                        <td>🔴 High</td>
+                        <td>Low yields, deep wells, no alternatives</td>
+                        <td>Storage, efficiency, deepening</td>
+                    </tr>
+                    <tr>
+                        <td>Julian/Cuyamaca</td>
+                        <td>🟠 Moderate-High</td>
+                        <td>Fractured rock, seasonal variation</td>
+                        <td>Storage tanks, conservation</td>
+                    </tr>
+                    <tr>
+                        <td>Valley Center</td>
+                        <td>🟠 Moderate</td>
+                        <td>Agricultural demand, declining tables</td>
+                        <td>Imported water access, efficiency</td>
+                    </tr>
+                    <tr>
+                        <td>Ramona</td>
+                        <td>🟡 Moderate</td>
+                        <td>Mixed geology, high demand</td>
+                        <td>Water district backup, deepening</td>
+                    </tr>
+                    <tr>
+                        <td>Fallbrook</td>
+                        <td>🟡 Low-Moderate</td>
+                        <td>Alluvial areas more resilient</td>
+                        <td>FPUD backup connection</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Drought Preparedness for Well Owners</h3>
+            <ul>
+                <li><strong>Know Your Well:</strong> Document depth, static water level, and typical yield</li>
+                <li><strong>Storage Capacity:</strong> Maintain adequate tank storage (2,500+ gallons recommended)</li>
+                <li><strong>Annual Testing:</strong> Monitor water level trends and quality</li>
+                <li><strong>Conservation:</strong> Reduce discretionary use during drought conditions</li>
+                <li><strong>Contingency Plan:</strong> Know options for hauled water, well deepening, or district connection</li>
+            </ul>
+
+            <div class="source-citation">
+                📖 <strong>Resources:</strong> <a href="https://www.sandiegocounty.gov/content/sdc/sustainability/news/drought-resources.html" target="_blank">San Diego County Drought Resources</a>
+            </div>
+        </section>
+
+        <section id="faq">
+            <h2>Frequently Asked Questions</h2>
+
+            <h3>What percentage of San Diego County relies on groundwater?</h3>
+            <p>Approximately <strong>7% of San Diego County's total water supply</strong> comes from groundwater, according to the San Diego County Water Authority. However, in the eastern two-thirds of the county (unincorporated rural areas), groundwater provides the <strong>only source of water</strong> for most residents—roughly 500,000 people.</p>
+
+            <h3>How many wells are in San Diego County?</h3>
+            <p>San Diego County has approximately <strong>25,000 water wells</strong>, with over <strong>400 wells</strong> in the county's monitoring network. Most wells serve individual households or small water systems in rural areas like Ramona, Julian, Valley Center, and Fallbrook.</p>
+
+            <h3>What groundwater basins in San Diego are regulated under SGMA?</h3>
+            <p>Three San Diego County groundwater basins are regulated under California's Sustainable Groundwater Management Act:</p>
+            <ul>
+                <li><strong>Borrego Valley (Borrego Springs Subbasin)</strong> — Critically overdrafted, high priority</li>
+                <li><strong>San Luis Rey Valley (Upper San Luis Rey Valley Subbasin)</strong> — Medium priority</li>
+                <li><strong>San Pasqual Valley</strong> — Medium priority</li>
+            </ul>
+
+            <h3>Is San Diego County groundwater safe to drink?</h3>
+            <p>Most San Diego County groundwater is safe to drink, though <strong>quality varies by location</strong>. Common concerns include naturally occurring minerals (hardness, iron, manganese), and in some areas, elevated nitrates or arsenic. <strong>Annual water quality testing is recommended</strong> for all private wells, and treatment systems may be needed for specific contaminants.</p>
+
+            <h3>What is the average well depth in San Diego County?</h3>
+            <p>The average residential well depth in San Diego County is <strong>220-250 feet</strong>. Wells in fractured rock areas (foothills and mountains) typically range from <strong>200-400+ feet</strong>, while alluvial valley wells may be shallower at 100-200 feet. Depths have increased significantly over the past two decades.</p>
+
+            <h3>How much does it cost to drill a well in San Diego County?</h3>
+            <p>Well drilling in San Diego County typically costs <strong>$20,000 to $40,000</strong> for a complete residential installation, including permits, drilling, casing, pump, and electrical. Hard rock formations and deeper water tables in mountain areas can push costs to <strong>$45,000-$60,000</strong>.</p>
+
+            <h3>What happens if my well goes dry?</h3>
+            <p>Options for a dry well include: <strong>1)</strong> Deepening the existing well (if feasible), <strong>2)</strong> Drilling a new well at a different location, <strong>3)</strong> Hauled water delivery as temporary solution, <strong>4)</strong> Connection to a water district (where available). San Diego County provides drought resources and assistance for affected residents.</p>
+        </section>
+
+        <div class="cite-section">
+            <h3>📚 Cite This Page</h3>
+            <p>When referencing this data in publications, research, or media, please cite:</p>
+            <div class="cite-box">
+Southern California Well Service. "San Diego County Groundwater Report 2026: Aquifer Levels, Trends & Data." SCWS Resources, February 15, 2026. https://scwellservice.com/blog/san-diego-county-groundwater-report-2026.html
+            </div>
+            <p style="margin-top: 1rem; font-size: 0.95rem;">For data inquiries or corrections, contact: <a href="mailto:info@scwellservice.com">info@scwellservice.com</a></p>
+        </div>
+
+        <div class="cta-box">
+            <h3>Need Well Service in San Diego County?</h3>
+            <p>Southern California Well Service provides professional well drilling, pump installation, repair, and water quality testing throughout San Diego and Riverside Counties. Local expertise for local conditions.</p>
+            <a href="tel:760-440-8520">📞 Call (760) 440-8520</a>
+        </div>
+
+        <section style="margin-top: 3rem; padding: 25px; background: #f8fafc; border-radius: 12px;">
+            <h3>📖 Data Sources & References</h3>
+            <ul style="font-size: 0.95rem;">
+                <li><a href="https://www.sandiegocounty.gov/pds/SGMA.html" target="_blank">San Diego County SGMA Program</a></li>
+                <li><a href="https://www.sandiegocounty.gov/content/sdc/pds/SGMA/san-pasqual-valley.html" target="_blank">San Pasqual Valley GSP & Data Management System</a></li>
+                <li><a href="https://www.sdcwa.org/your-water/local-water-supplies/groundwater/" target="_blank">San Diego County Water Authority - Groundwater</a></li>
+                <li><a href="https://water.ca.gov/Programs/Groundwater-Management/SGMA-Groundwater-Management" target="_blank">CA DWR SGMA Portal</a></li>
+                <li><a href="https://sgma.water.ca.gov/CalGWLive/" target="_blank">California's Groundwater Live</a></li>
+                <li><a href="https://wdl.water.ca.gov/" target="_blank">CA DWR Water Data Library</a></li>
+                <li><a href="https://www.drought.gov/data-maps-tools/sustainable-groundwater-management-sgma-data-viewer" target="_blank">Drought.gov SGMA Data Viewer</a></li>
+                <li>San Diego County Department of Environmental Health Well Permit Records</li>
+            </ul>
+        </section>
+    </article>
+</body>
+</html>
