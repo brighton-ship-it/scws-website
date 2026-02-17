@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Areas | Southern California Well Service</title>
+    <meta name="description" content="Southern California Well Service provides well drilling, pump repair, and water treatment across San Diego, Riverside, Imperial, and San Bernardino counties. Find your city.">
+    <link rel="canonical" href="https://scwellservice.com/locations/">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .city-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 0.5rem; }
+        .city-link { padding: 0.5rem; border-radius: 0.375rem; transition: background 0.2s; }
+        .city-link:hover { background: #f3f4f6; }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-blue-900 text-white py-4">
+        <div class="max-w-7xl mx-auto px-4 flex justify-between items-center">
+            <a href="/" class="text-2xl font-bold">SCWS</a>
+            <a href="tel:7604408520" class="bg-orange-500 px-4 py-2 rounded-lg font-semibold hover:bg-orange-600">(760) 440-8520</a>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 py-12">
+        <h1 class="text-4xl font-bold text-gray-900 mb-4">Areas We Serve</h1>
+        <p class="text-xl text-gray-600 mb-8">Southern California Well Service provides professional well services across four counties. Click your city to see available services.</p>
+
+        <!-- Quick Stats -->
+        <div class="grid md:grid-cols-4 gap-4 mb-12">
+            <div class="bg-white rounded-xl p-6 shadow-sm text-center">
+                <div class="text-3xl font-bold text-blue-600">168+</div>
+                <div class="text-gray-600">Cities Served</div>
+            </div>
+            <div class="bg-white rounded-xl p-6 shadow-sm text-center">
+                <div class="text-3xl font-bold text-blue-600">4</div>
+                <div class="text-gray-600">Counties</div>
+            </div>
+            <div class="bg-white rounded-xl p-6 shadow-sm text-center">
+                <div class="text-3xl font-bold text-blue-600">4.9★</div>
+                <div class="text-gray-600">Google Rating</div>
+            </div>
+            <div class="bg-white rounded-xl p-6 shadow-sm text-center">
+                <div class="text-3xl font-bold text-blue-600">24/7</div>
+                <div class="text-gray-600">Emergency Service</div>
+            </div>
+        </div>
+
+        <!-- San Diego County -->
+        <section class="mb-12" id="san-diego">
+            <h2 class="text-2xl font-bold text-gray-900 mb-2 flex items-center">
+                <span class="w-3 h-3 bg-blue-600 rounded-full mr-3"></span>
+                San Diego County
+            </h2>
+            <p class="text-gray-600 mb-4">Our home base. Same-day service available throughout San Diego County.</p>
+            <div class="bg-white rounded-xl p-6 shadow-sm">
+                <div class="city-grid" id="sd-cities">
+                    <!-- Populated by script -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Riverside County -->
+        <section class="mb-12" id="riverside">
+            <h2 class="text-2xl font-bold text-gray-900 mb-2 flex items-center">
+                <span class="w-3 h-3 bg-green-600 rounded-full mr-3"></span>
+                Riverside County
+            </h2>
+            <p class="text-gray-600 mb-4">Serving Temecula, Hemet, Palm Springs and the entire Coachella Valley.</p>
+            <div class="bg-white rounded-xl p-6 shadow-sm">
+                <div class="city-grid" id="riv-cities">
+                </div>
+            </div>
+        </section>
+
+        <!-- Imperial County -->
+        <section class="mb-12" id="imperial">
+            <h2 class="text-2xl font-bold text-gray-900 mb-2 flex items-center">
+                <span class="w-3 h-3 bg-yellow-600 rounded-full mr-3"></span>
+                Imperial County
+            </h2>
+            <p class="text-gray-600 mb-4">Agricultural well specialists for Imperial Valley farms and ranches.</p>
+            <div class="bg-white rounded-xl p-6 shadow-sm">
+                <div class="city-grid" id="imp-cities">
+                </div>
+            </div>
+        </section>
+
+        <!-- San Bernardino County -->
+        <section class="mb-12" id="san-bernardino">
+            <h2 class="text-2xl font-bold text-gray-900 mb-2 flex items-center">
+                <span class="w-3 h-3 bg-purple-600 rounded-full mr-3"></span>
+                San Bernardino County
+            </h2>
+            <p class="text-gray-600 mb-4">Mountain and high desert communities including Big Bear and Lake Arrowhead.</p>
+            <div class="bg-white rounded-xl p-6 shadow-sm">
+                <div class="city-grid" id="sb-cities">
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="bg-blue-900 text-white rounded-2xl p-8 mb-12">
+            <h2 class="text-2xl font-bold mb-6">Our Services</h2>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div>
+                    <h3 class="font-semibold text-lg mb-2">Well Drilling</h3>
+                    <p class="text-blue-200">New wells, replacement wells, and deepening existing wells.</p>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-lg mb-2">Pump Services</h3>
+                    <p class="text-blue-200">Repair, replacement, and installation of all pump types.</p>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-lg mb-2">Water Treatment</h3>
+                    <p class="text-blue-200">Filtration, softening, and purification systems.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="text-center bg-orange-50 rounded-2xl p-8">
+            <h2 class="text-2xl font-bold text-gray-900 mb-4">Don't See Your City?</h2>
+            <p class="text-gray-600 mb-6">We likely serve your area. Call us to confirm service availability.</p>
+            <a href="tel:7604408520" class="inline-block bg-orange-500 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-orange-600">(760) 440-8520</a>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-8 mt-12">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p>&copy; 2026 Southern California Well Service. License #1098422</p>
+        </div>
+    </footer>
+
+    <script>
+    // City data by county
+    const cities = {
+        sd: [
+            {name: "San Diego", slug: "san-diego"},
+            {name: "La Jolla", slug: "la-jolla"},
+            {name: "Del Mar", slug: "del-mar"},
+            {name: "Solana Beach", slug: "solana-beach"},
+            {name: "Encinitas", slug: "encinitas"},
+            {name: "Carlsbad", slug: "carlsbad"},
+            {name: "Oceanside", slug: "oceanside"},
+            {name: "Vista", slug: "vista"},
+            {name: "San Marcos", slug: "san-marcos"},
+            {name: "Escondido", slug: "escondido"},
+            {name: "Rancho Bernardo", slug: "rancho-bernardo"},
+            {name: "Poway", slug: "poway"},
+            {name: "Santee", slug: "santee"},
+            {name: "El Cajon", slug: "el-cajon"},
+            {name: "La Mesa", slug: "la-mesa"},
+            {name: "Spring Valley", slug: "spring-valley"},
+            {name: "Lemon Grove", slug: "lemon-grove"},
+            {name: "National City", slug: "national-city"},
+            {name: "Chula Vista", slug: "chula-vista"},
+            {name: "Imperial Beach", slug: "imperial-beach"},
+            {name: "Coronado", slug: "coronado"},
+            {name: "Point Loma", slug: "point-loma"},
+            {name: "Mira Mesa", slug: "mira-mesa"},
+            {name: "Scripps Ranch", slug: "scripps-ranch"},
+            {name: "Rancho Peñasquitos", slug: "rancho-penasquitos"},
+            {name: "Carmel Valley", slug: "carmel-valley"},
+            {name: "4S Ranch", slug: "4s-ranch"},
+            {name: "Rancho Santa Fe", slug: "rancho-santa-fe"},
+            {name: "Bonsall", slug: "bonsall"},
+            {name: "Fallbrook", slug: "fallbrook"},
+            {name: "Valley Center", slug: "valley-center"},
+            {name: "Pauma Valley", slug: "pauma-valley"},
+            {name: "Ramona", slug: "ramona"},
+            {name: "Julian", slug: "julian"},
+            {name: "Santa Ysabel", slug: "santa-ysabel"},
+            {name: "Warner Springs", slug: "warner-springs"},
+            {name: "Borrego Springs", slug: "borrego-springs"},
+            {name: "Alpine", slug: "alpine"},
+            {name: "Lakeside", slug: "lakeside"},
+            {name: "Jamul", slug: "jamul"},
+            {name: "Dulzura", slug: "dulzura"},
+            {name: "Potrero", slug: "potrero"},
+            {name: "Campo", slug: "campo"},
+            {name: "Boulevard", slug: "boulevard"},
+            {name: "Pine Valley", slug: "pine-valley"},
+            {name: "Descanso", slug: "descanso"},
+            {name: "Guatay", slug: "guatay"}
+        ],
+        riv: [
+            {name: "Temecula", slug: "temecula"},
+            {name: "Murrieta", slug: "murrieta"},
+            {name: "Menifee", slug: "menifee"},
+            {name: "Hemet", slug: "hemet"},
+            {name: "San Jacinto", slug: "san-jacinto"},
+            {name: "Perris", slug: "perris"},
+            {name: "Lake Elsinore", slug: "lake-elsinore"},
+            {name: "Wildomar", slug: "wildomar"},
+            {name: "Canyon Lake", slug: "canyon-lake"},
+            {name: "Winchester", slug: "winchester"},
+            {name: "French Valley", slug: "french-valley"},
+            {name: "Aguanga", slug: "aguanga"},
+            {name: "Anza", slug: "anza"},
+            {name: "Idyllwild", slug: "idyllwild"},
+            {name: "Banning", slug: "banning"},
+            {name: "Beaumont", slug: "beaumont"},
+            {name: "Calimesa", slug: "calimesa"},
+            {name: "Cherry Valley", slug: "cherry-valley"},
+            {name: "Cabazon", slug: "cabazon"},
+            {name: "Palm Springs", slug: "palm-springs"},
+            {name: "Cathedral City", slug: "cathedral-city"},
+            {name: "Rancho Mirage", slug: "rancho-mirage"},
+            {name: "Palm Desert", slug: "palm-desert"},
+            {name: "Indian Wells", slug: "indian-wells"},
+            {name: "La Quinta", slug: "la-quinta"},
+            {name: "Indio", slug: "indio"},
+            {name: "Coachella", slug: "coachella"},
+            {name: "Desert Hot Springs", slug: "desert-hot-springs"},
+            {name: "Thousand Palms", slug: "thousand-palms"},
+            {name: "Twentynine Palms", slug: "twentynine-palms"}
+        ],
+        imp: [
+            {name: "El Centro", slug: "el-centro"},
+            {name: "Imperial", slug: "imperial"},
+            {name: "Brawley", slug: "brawley"},
+            {name: "Calexico", slug: "calexico"},
+            {name: "Holtville", slug: "holtville"},
+            {name: "Westmorland", slug: "westmorland"},
+            {name: "Calipatria", slug: "calipatria"}
+        ],
+        sb: [
+            {name: "Big Bear Lake", slug: "big-bear-lake"},
+            {name: "Big Bear City", slug: "big-bear-city"},
+            {name: "Lake Arrowhead", slug: "lake-arrowhead"},
+            {name: "Crestline", slug: "crestline"},
+            {name: "Running Springs", slug: "running-springs"},
+            {name: "Twin Peaks", slug: "twin-peaks"},
+            {name: "Oak Glen", slug: "oak-glen"},
+            {name: "Yucaipa", slug: "yucaipa"},
+            {name: "Redlands", slug: "redlands"},
+            {name: "Highland", slug: "highland"},
+            {name: "Mentone", slug: "mentone"},
+            {name: "Victorville", slug: "victorville"},
+            {name: "Hesperia", slug: "hesperia"},
+            {name: "Apple Valley", slug: "apple-valley"},
+            {name: "Adelanto", slug: "adelanto"},
+            {name: "Phelan", slug: "phelan"},
+            {name: "Wrightwood", slug: "wrightwood"}
+        ]
+    };
+
+    function renderCities(containerId, cityList) {
+        const container = document.getElementById(containerId);
+        container.innerHTML = cityList.map(city => 
+            `<a href="/blog/well-service-${city.slug}.html" class="city-link text-blue-600 hover:text-blue-800">${city.name}</a>`
+        ).join('');
+    }
+
+    renderCities('sd-cities', cities.sd);
+    renderCities('riv-cities', cities.riv);
+    renderCities('imp-cities', cities.imp);
+    renderCities('sb-cities', cities.sb);
+    </script>
+</body>
+</html>
