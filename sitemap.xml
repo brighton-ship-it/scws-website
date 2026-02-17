@@ -8638,4 +8638,9 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+    <url>
+        <loc>https://scwellservice.com/pages/services/emergency-well-service.html</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
 </urlset>
