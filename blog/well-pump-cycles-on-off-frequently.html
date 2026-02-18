@@ -1,115 +1,550 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LL1YRWT5T"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-5LL1YRWT5T');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Well Pump Cycles On and Off Frequently: Causes & Fixes | SCWS</title>
-    <meta name="description" content="Is your well pump short cycling—turning on and off every few seconds or minutes? Learn the common causes including pressure tank issues, waterlogged tanks,">
+    <meta name="description" content="Is your well pump short cycling—turning on and off every few seconds or minutes? Learn the common causes including pressure tank issues, waterlogged tanks, and pressure switch problems, plus how to fix them.">
+    <meta name="keywords" content="well pump short cycling, pump cycles frequently, well pump turns on and off, waterlogged pressure tank, pressure switch problems, well pump cycling">
     <link rel="canonical" href="https://scwellservice.com/blog/well-pump-cycles-on-off-frequently.html">
-    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="icon" type="image/png" href="../images/logo.png">
+    <link rel="stylesheet" href="../css/styles.css">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://scwellservice.com/blog/well-pump-cycles-on-off-frequently.html">
+    <meta property="og:title" content="Well Pump Cycles On and Off Frequently: Causes & Fixes">
+    <meta property="og:description" content="Diagnose and fix well pump short cycling. Learn why your pump keeps turning on and off and how to solve pressure tank and switch problems.">
+    <meta property="og:image" content="https://scwellservice.com/images/og-image.jpg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"></noscript>
     
+    <!-- Article Schema -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "Article",
-        "headline": "Well Pump Cycles On and Off Frequently: Causes & Fixes | SCWS",
-        "description": "Is your well pump short cycling—turning on and off every few seconds or minutes? Learn the common causes including pressure tank issues, waterlogged tanks,",
-        "author": {"@type": "Organization", "name": "Southern California Well Service"},
-        "publisher": {"@type": "Organization", "name": "Southern California Well Service"},
-        "datePublished": "2026-02-15",
-        "dateModified": "2026-02-15"
+        "headline": "Well Pump Cycles On and Off Frequently: Causes & Fixes",
+        "author": {
+            "@type": "Organization",
+            "name": "Southern California Well Service"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Southern California Well Service",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://scwellservice.com/images/logo.png"
+            }
+        },
+        "datePublished": "2026-02-17",
+        "dateModified": "2026-02-17",
+        "description": "Is your well pump short cycling—turning on and off every few seconds or minutes? Learn the common causes including pressure tank issues, waterlogged tanks, and pressure switch problems, plus how to fix them.",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://scwellservice.com/blog/well-pump-cycles-on-off-frequently.html"
+        }
     }
     </script>
+    
+    <!-- FAQPage Schema -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "FAQPage",
-        "mainEntity": [{"@type": "Question", "name": "Why does my well pump turn on and off every few seconds?", "acceptedAnswer": {"@type": "Answer", "text": "Rapid cycling every few seconds almost always indicates a waterlogged pressure tank. When the tank's air bladder fails or loses its air charge, there's no cushion to maintain pressure between pump cycles. The pump turns on, pressure rises instantly, pump shuts off, pressure drops immediately, and the cycle repeats. This is hard on your pump motor and can burn it out."}}, {"@type": "Question", "name": "How do I check if my pressure tank is waterlogged?", "acceptedAnswer": {"@type": "Answer", "text": "With the pump off and pressure relieved, push the air valve on top of the tank. If water sprays out, your tank is waterlogged. You can also tap the tank from top to bottom\u2014a good tank sounds hollow at top (air) and solid at bottom (water). A waterlogged tank sounds solid throughout or has the water/air levels reversed."}}, {"@type": "Question", "name": "Can a bad pressure switch cause short cycling?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. A failing pressure switch may read pressure incorrectly, causing erratic on/off behavior. Contacts can become pitted or corroded, creating inconsistent connections. The pressure settings may also have drifted. Try adjusting or replacing the switch\u2014it's a $20-40 part and simple repair before assuming the tank has failed."}}]
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Why does my well pump turn on and off every few seconds?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Rapid cycling every few seconds almost always indicates a waterlogged pressure tank. When the tank's air bladder fails or loses its air charge, there's no cushion to maintain pressure between pump cycles. The pump turns on, pressure rises instantly, pump shuts off, pressure drops immediately, and the cycle repeats. This is hard on your pump motor and can burn it out."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How do I check if my pressure tank is waterlogged?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "With the pump off and pressure relieved, push the air valve on top of the tank. If water sprays out, your tank is waterlogged. You can also tap the tank from top to bottom—a good tank sounds hollow at top (air) and solid at bottom (water). A waterlogged tank sounds solid throughout or has the water/air levels reversed."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can a bad pressure switch cause short cycling?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. A failing pressure switch may read pressure incorrectly, causing erratic on/off behavior. Contacts can become pitted or corroded, creating inconsistent connections. The pressure settings may also have drifted. Try adjusting or replacing the switch—it's a $20-40 part and simple repair before assuming the tank has failed."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How often should a well pump cycle on and off?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "A healthy well system should cycle 1-6 times per hour during normal use, with each cycle running for at least one minute. If your pump cycles more than 6 times per hour or runs for less than 30 seconds per cycle, you have a problem that needs attention. The more frequent the cycling, the faster your pump will wear out."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Will short cycling damage my well pump?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, significantly. Each time your pump starts, the motor draws high inrush current (4-7 times running current), generating heat and stressing electrical components. The pressure switch contacts also wear from repeated arcing. A pump that should last 15-20 years might fail in 3-5 years with severe short cycling. Fixing the cause promptly is essential."
+                }
+            }
+        ]
     }
     </script>
+    
+    <!-- LocalBusiness Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Southern California Well Service",
+        "telephone": "+1-760-440-8520",
+        "url": "https://scwellservice.com",
+        "areaServed": {
+            "@type": "State",
+            "name": "California"
+        }
+    }
+    </script>
+    
+    <!-- BreadcrumbList Schema -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
         "itemListElement": [
-            {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://scwellservice.com/"},
-            {"@type": "ListItem", "position": 2, "name": "Resources", "item": "https://scwellservice.com/blog/"},
-            {"@type": "ListItem", "position": 3, "name": "Well Pump Cycles On and Off Frequently: Causes & F", "item": "https://scwellservice.com/blog/well-pump-cycles-on-off-frequently.html"}
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://scwellservice.com/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Blog",
+                "item": "https://scwellservice.com/blog/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Well Pump Short Cycling"
+            }
         ]
     }
     </script>
-    
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LL1YRWT5T"></script>
-    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-5LL1YRWT5T');</script>
 </head>
-<body>
-    <header class="site-header">
-        <div class="header-content">
-            <a href="/" class="logo">
-                <img src="/images/logo.png" alt="SCWS Logo" width="50" height="50">
-                <span>Southern California Well Service</span>
+<body class="bg-white">
+    <!-- Emergency Banner -->
+    <div class="bg-gradient-to-r from-red-600 to-red-700 text-white py-2.5">
+        <div class="max-w-7xl mx-auto px-4 text-center flex items-center justify-center gap-2 flex-wrap">
+            <span class="font-bold tracking-wide">🚨 No Water?</span>
+            <span class="hidden sm:inline">Same-day emergency service available.</span>
+            <a href="tel:7604408520" class="bg-white text-red-600 font-bold px-4 py-1 rounded-full text-sm hover:bg-red-100 transition ml-1">
+                Call Now →
             </a>
-            <nav class="main-nav">
-                <a href="/">Home</a>
-                <a href="/services/">Services</a>
-                <a href="/blog/">Resources</a>
-                <a href="/contact/">Contact</a>
-                <a href="tel:7604408520" class="cta-phone">(760) 440-8520</a>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="bg-primary text-white sticky top-0 z-50 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <a href="../" class="flex items-center space-x-3 shrink-0">
+                    <img src="../images/logo.png" alt="Southern California Well Service" class="h-10 lg:h-12 w-auto">
+                </a>
+                <nav class="hidden lg:flex space-x-4 items-center">
+                    <a href="../#services" class="text-white hover:text-accent transition whitespace-nowrap">Services</a>
+                    <a href="../#areas" class="text-white hover:text-accent transition whitespace-nowrap">Service Areas</a>
+                    <a href="./" class="text-white hover:text-accent transition whitespace-nowrap">Resources</a>
+                    <a href="../faq.html" class="text-white hover:text-accent transition whitespace-nowrap">FAQ</a>
+                    <a href="../contact.html" class="text-white hover:text-accent transition whitespace-nowrap">Contact</a>
+                    <a href="../cost-calculator.html" class="text-white font-semibold hover:text-accent transition whitespace-nowrap">Free Estimate</a>
+                    <a href="../pages/about.html" class="text-white hover:text-accent transition whitespace-nowrap">About</a>
+                </nav>
+                <div class="flex items-center gap-3">
+                    <button id="mobile-menu-btn" class="lg:hidden p-2 hover:bg-white/10 rounded-lg transition" aria-label="Toggle menu">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                    <a href="tel:7604408520" class="bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-4 lg:px-6 rounded-lg transition whitespace-nowrap text-sm lg:text-base">
+                        (760) 440-8520
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden lg:hidden bg-primary/95 border-t border-white/10">
+            <nav class="max-w-7xl mx-auto px-4 py-4 flex flex-col space-y-3">
+                <a href="../#services" class="hover:text-accent transition py-2">Services</a>
+                <a href="../#areas" class="hover:text-accent transition py-2">Service Areas</a>
+                <a href="./" class="hover:text-accent transition py-2">Resources</a>
+                <a href="../faq.html" class="hover:text-accent transition py-2">FAQ</a>
+                <a href="../contact.html" class="hover:text-accent transition py-2">Contact</a>
+                <a href="../cost-calculator.html" class="text-white font-semibold hover:text-accent transition py-2">Free Estimate</a>
+                <a href="../pages/about.html" class="hover:text-accent transition py-2">About</a>
             </nav>
         </div>
     </header>
+    <script>
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+    </script>
 
-    <main class="blog-post">
-        <article>
-            <h1>Well Pump Cycles On and Off Frequently: Causes & Fixes | SCWS</h1>
-            
-            <p class="lead">Is your well pump short cycling—turning on and off every few seconds or minutes? Learn the common causes including pressure tank issues, waterlogged tanks, and pressure switch problems, plus how to fix them.</p>
-            
-            <div class="cta-box">
-                <p><strong>Need help? Call us:</strong></p>
-                <a href="tel:7604408520" class="cta-button">(760) 440-8520</a>
+    <!-- Breadcrumb -->
+    <div class="bg-gray-50 py-3">
+        <div class="max-w-4xl mx-auto px-4">
+            <nav class="text-sm">
+                <a href="../index.html" class="text-gray-600 hover:text-primary">Home</a>
+                <span class="mx-2 text-gray-400">›</span>
+                <a href="../blog/" class="text-gray-600 hover:text-primary">Blog</a>
+                <span class="mx-2 text-gray-400">›</span>
+                <span class="text-primary">Well Pump Short Cycling</span>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Hero Image Section -->
+    <div class="relative h-48 md:h-64 lg:h-96 bg-gradient-to-r from-red-600 to-red-800 overflow-hidden">
+        <div class="absolute inset-0 bg-black/40"></div>
+        <div class="absolute inset-0 flex items-center justify-center">
+            <div class="text-center text-white px-4">
+                <span class="inline-block bg-red-500 px-4 py-1 rounded-full text-sm font-semibold mb-4">Troubleshooting Guide</span>
+                <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 drop-shadow-lg">Well Pump Cycles On and Off</h1>
+                <p class="text-lg md:text-xl text-gray-100 max-w-2xl mx-auto">Diagnose & Fix Short Cycling Problems</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Article -->
+    <article class="py-12">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="flex items-center gap-4 mb-8 pb-8 border-b border-gray-200">
+                <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-bold text-lg">SC</div>
+                <div>
+                    <p class="font-semibold text-gray-900">By SCWS Team</p>
+                    <p class="text-gray-600 text-sm">Published February 17, 2026 · 10 min read</p>
+                </div>
             </div>
 
-            <h2>Understanding Short Cycling</h2>
-            <p>Short cycling occurs when your pump turns on and off more frequently than normal—sometimes every few seconds or minutes instead of running for several minutes per cycle. A healthy well system should cycle perhaps 1-2 times per hour during normal use, running for several minutes each cycle. Frequent cycling wastes electricity, wears out pump components prematurely, and can burn out your motor. If you notice your pressure gauge rapidly fluctuating or hear the pump constantly clicking on and off, you have a short cycling problem that needs immediate attention.</p>
+            <div class="prose prose-lg max-w-none">
+                <p class="text-xl md:text-2xl text-gray-700 leading-relaxed mb-8 font-light">
+                    <strong class="text-primary">Click-hum-click-hum-click...</strong> If your well pump sounds like it's doing cardio, you've got a problem. Short cycling—when your pump turns on and off every few seconds or minutes—is one of the most damaging conditions for your well system.
+                </p>
 
-            <h2>Pressure Tank Problems</h2>
-            <p>The most common cause of short cycling is a failed or waterlogged pressure tank. Bladder tanks have an air chamber separated from water by a rubber bladder. Over time, bladders can rupture, or air can slowly leak out through the valve. Without that air cushion, there's no reserve to maintain pressure when you open a faucet—pressure drops instantly, triggering the pump. Older galvanized tanks can also become waterlogged when internal corrosion destroys the air/water separation. A tank that feels completely solid when knocked on, or one that sprays water from its air valve, needs replacement.</p>
+                <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                    The good news? The cause is usually straightforward, and the fix often doesn't require replacing the pump itself. Let's diagnose what's happening and get your system running properly again.
+                </p>
 
-            <h2>Pressure Switch Issues</h2>
-            <p>Your pressure switch controls when the pump turns on (usually 30-40 PSI) and off (usually 50-60 PSI). Corroded contacts can cause intermittent connections—the pump starts, contacts bounce, pump stops, contacts reconnect. Debris or insects inside the switch can also interfere. Sometimes the pressure adjustment nuts work loose, narrowing the on/off gap. If your cut-in and cut-out pressures are too close together (less than 15 PSI apart), the pump will cycle frequently. Try cleaning contacts with fine sandpaper or replace the switch entirely.</p>
+                <div class="bg-red-50 border-l-4 border-red-500 p-6 my-8">
+                    <p class="text-gray-700 font-medium">
+                        <strong>⚠️ Why This Matters:</strong> Every pump start draws 4-7 times normal current, generating heat and wear. A pump designed to cycle 6 times per hour running at 60+ cycles per hour can fail in months instead of decades. Address short cycling immediately.
+                    </p>
+                </div>
 
-            <h2>Other Causes and Solutions</h2>
-            <p>Check for leaks anywhere in your system—a running toilet, dripping faucet, or leaky irrigation valve will cause continuous small pressure drops and frequent cycling. A check valve that's stuck partially open lets water flow backward down the well, dropping pressure and triggering the pump. Undersized pressure tanks for your household demand can also cause frequent cycling even when working properly. For homes with high water usage, upgrading to a larger tank (85+ gallons) reduces cycling stress on your pump. If troubleshooting these issues doesn't help, your pump motor itself may be failing.</p>
+                <div class="bg-gray-50 p-6 rounded-lg my-8">
+                    <h3 class="text-xl font-bold text-primary mb-4">Quick Diagnosis Guide</h3>
+                    <ul class="space-y-3 text-gray-700">
+                        <li><strong>Pump cycles every few seconds:</strong> Waterlogged pressure tank (most common)</li>
+                        <li><strong>Pump cycles every 1-2 minutes:</strong> Low tank air charge or small tank</li>
+                        <li><strong>Random erratic cycling:</strong> Pressure switch problems</li>
+                        <li><strong>Cycling during heavy use only:</strong> Undersized tank or high demand</li>
+                        <li><strong>Cycling when nothing is running:</strong> Leak in the system</li>
+                    </ul>
+                </div>
 
-            <h2>Frequently Asked Questions</h2>
-            <div class="faq-section">
-            <div class="faq-item">
-                <h3>Why does my well pump turn on and off every few seconds?</h3>
-                <p>Rapid cycling every few seconds almost always indicates a waterlogged pressure tank. When the tank's air bladder fails or loses its air charge, there's no cushion to maintain pressure between pump cycles. The pump turns on, pressure rises instantly, pump shuts off, pressure drops immediately, and the cycle repeats. This is hard on your pump motor and can burn it out.</p>
-            </div>
-            <div class="faq-item">
-                <h3>How do I check if my pressure tank is waterlogged?</h3>
-                <p>With the pump off and pressure relieved, push the air valve on top of the tank. If water sprays out, your tank is waterlogged. You can also tap the tank from top to bottom—a good tank sounds hollow at top (air) and solid at bottom (water). A waterlogged tank sounds solid throughout or has the water/air levels reversed.</p>
-            </div>
-            <div class="faq-item">
-                <h3>Can a bad pressure switch cause short cycling?</h3>
-                <p>Yes. A failing pressure switch may read pressure incorrectly, causing erratic on/off behavior. Contacts can become pitted or corroded, creating inconsistent connections. The pressure settings may also have drifted. Try adjusting or replacing the switch—it's a $20-40 part and simple repair before assuming the tank has failed.</p>
-            </div>
-            </div>
-            
-            <div class="cta-box">
-                <h3>Get Expert Help</h3>
-                <p>Contact Southern California Well Service for professional assistance.</p>
-                <a href="tel:7604408520" class="cta-button">Call (760) 440-8520</a>
-                <p class="small">Serving San Diego, Riverside & San Bernardino Counties</p>
-            </div>
-        </article>
-    </main>
+                <h2 class="text-3xl font-bold text-primary mt-12 mb-4">Understanding Short Cycling</h2>
 
-    <footer>
-        <p>&copy; 2026 Southern California Well Service. Licensed C-57 Contractor.</p>
-        <p>1077 Main St, Ramona, CA 92065 | <a href="tel:7604408520">(760) 440-8520</a></p>
-    </footer>
-</body>
-</html>
+                <p>
+                    Short cycling occurs when your pump turns on and off more frequently than normal—sometimes every few seconds or minutes instead of running for several minutes per cycle. A healthy well system should cycle perhaps 1-6 times per hour during normal use, running for at least one minute each cycle.
+                </p>
+
+                <p>
+                    The problem is mechanical stress. Every time your pump starts, the motor experiences inrush current (much higher than running current), capacitors fire, windings heat up, and bearings take load. The pressure switch contacts arc slightly with each cycle, gradually wearing the contact surfaces. Even the pipes experience stress from pressure cycling.
+                </p>
+
+                <p>
+                    Frequent cycling wastes electricity, wears out pump components prematurely, stresses your electrical system, and can burn out your motor. A pump that should last 15-20 years might fail in 3-5 years with severe short cycling.
+                </p>
+
+                <h2 class="text-3xl font-bold text-primary mt-12 mb-4">Cause #1: Waterlogged Pressure Tank</h2>
+
+                <p>
+                    The most common cause of short cycling—accounting for probably 70% of cases—is a failed or waterlogged pressure tank. Understanding why requires knowing how pressure tanks work.
+                </p>
+
+                <h3 class="text-2xl font-semibold text-primary mt-8 mb-3">How Pressure Tanks Should Work</h3>
+
+                <p>
+                    Your pressure tank contains a rubber bladder or diaphragm that separates water from compressed air. When the pump runs, water fills the bladder and compresses the air. When you open a faucet, the compressed air pushes water out without the pump running. This "drawdown" capacity is what prevents constant cycling—you can use several gallons before pressure drops enough to trigger the pump.
+                </p>
+
+                <h3 class="text-2xl font-semibold text-primary mt-8 mb-3">What Goes Wrong</h3>
+
+                <p>
+                    Over time, the bladder or diaphragm can fail—developing pinhole leaks, tears, or complete rupture. When this happens, water floods into the air chamber. Without that air cushion, there's no drawdown capacity. Opening a faucet drops pressure immediately, triggering the pump. Closing the faucet lets pressure rise instantly, shutting off the pump. The result: rapid cycling measured in seconds.
+                </p>
+
+                <h3 class="text-2xl font-semibold text-primary mt-8 mb-3">How to Test for Waterlogging</h3>
+
+                <ol class="list-decimal pl-6 mb-6 text-gray-700">
+                    <li><strong>Turn off power to the pump</strong> at the circuit breaker</li>
+                    <li><strong>Open a faucet</strong> to relieve system pressure</li>
+                    <li><strong>Locate the air valve</strong> (Schrader valve, like on a car tire) on top of the tank</li>
+                    <li><strong>Press the valve core</strong> briefly with a small tool</li>
+                    <li><strong>Check what comes out:</strong>
+                        <ul class="list-disc pl-6 mt-2">
+                            <li>Air only = tank may be okay (check pressure)</li>
+                            <li>Water spray = tank is waterlogged (bladder failed)</li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <p>
+                    You can also tap on the tank. A properly working tank sounds hollow at the top (air space) and solid at the bottom (water). A waterlogged tank sounds solid throughout. Some people describe it as knocking on a wall versus knocking on a door.
+                </p>
+
+                <h3 class="text-2xl font-semibold text-primary mt-8 mb-3">The Fix</h3>
+
+                <p>
+                    For bladder tanks, you may be able to replace just the bladder—typically $50-$150 for the part plus labor. For diaphragm tanks or if the bladder isn't replaceable, the entire tank needs replacement. A new 40-80 gallon pressure tank installed typically costs $300-$800. Learn more about your options in our <a href="bladder-tank-vs-diaphragm.html" class="text-accent hover:underline">bladder vs diaphragm tank guide</a>.
+                </p>
+
+                <h2 class="text-3xl font-bold text-primary mt-12 mb-4">Cause #2: Incorrect Air Pressure</h2>
+
+                <p>
+                    Even if the bladder is intact, incorrect air pressure in your tank causes cycling problems. This is often overlooked because people assume a working tank doesn't need attention.
+                </p>
+
+                <h3 class="text-2xl font-semibold text-primary mt-8 mb-3">The Right Air Pressure</h3>
+
+                <p>
+                    Your tank's air pre-charge should be set 2 PSI below your pressure switch's cut-in setting (the low number). Common configurations:
+                </p>
+
+                <ul class="list-disc pl-6 mb-6 text-gray-700">
+                    <li><strong>30/50 pressure switch:</strong> Tank air charge should be 28 PSI</li>
+                    <li><strong>40/60 pressure switch:</strong> Tank air charge should be 38 PSI</li>
+                    <li><strong>50/70 pressure switch:</strong> Tank air charge should be 48 PSI</li>
+                </ul>
+
+                <h3 class="text-2xl font-semibold text-primary mt-8 mb-3">Checking and Adjusting</h3>
+
+                <ol class="list-decimal pl-6 mb-6 text-gray-700">
+                    <li>Turn off the pump and open a faucet to drain pressure</li>
+                    <li>Use a tire pressure gauge on the Schrader valve</li>
+                    <li>Compare to your cut-in pressure minus 2 PSI</li>
+                    <li>Add air with a bicycle pump or compressor if too low</li>
+                    <li>Never add air with water pressure in the tank—you'll damage the bladder</li>
+                </ol>
+
+                <div class="bg-accent/10 border-l-4 border-accent p-6 my-8">
+                    <p class="text-gray-700 font-medium">
+                        <strong>Pro Tip:</strong> Check your tank's air charge annually as part of routine maintenance. Air slowly leaks past valve seals over time. A 5-minute check can prevent cycling problems before they start.
+                    </p>
+                </div>
+
+                <h2 class="text-3xl font-bold text-primary mt-12 mb-4">Cause #3: Pressure Switch Problems</h2>
+
+                <p>
+                    The pressure switch controls when your pump turns on and off based on system pressure. When the switch fails or malfunctions, erratic cycling results.
+                </p>
+
+                <h3 class="text-2xl font-semibold text-primary mt-8 mb-3">Common Pressure Switch Issues</h3>
+
+                <p>
+                    <strong>Pitted or corroded contacts:</strong> The electrical contacts inside the switch arc slightly with every cycle. Over thousands of cycles, this creates pitting and corrosion. Eventually, the contacts don't make solid connections, causing stuttering starts and erratic behavior.
+                </p>
+
+                <p>
+                    <strong>Debris or insects:</strong> The pressure sensing port connects to your plumbing. Sediment, scale, or even insects can block this port, giving false pressure readings. The switch might think pressure is low when it isn't, or vice versa.
+                </p>
+
+                <p>
+                    <strong>Incorrect settings:</strong> If the cut-in and cut-out pressures are too close together (less than 15 PSI apart), the pump cycles frequently even with a working tank. The adjustment nuts can also work loose over time, changing settings gradually.
+                </p>
+
+                <h3 class="text-2xl font-semibold text-primary mt-8 mb-3">Testing and Fixing</h3>
+
+                <p>
+                    With power off, you can open the pressure switch cover and inspect the contacts. Pitted, blackened, or rough contacts indicate wear. Light pitting can be cleaned with fine sandpaper or an electrical contact file. Heavy damage means replacement.
+                </p>
+
+                <p>
+                    Pressure switches are inexpensive ($20-$40) and relatively easy to replace for those comfortable with electrical work. Make sure the replacement matches your desired pressure range. Learn more about <a href="well-pump-control-box-guide.html" class="text-accent hover:underline">control boxes and switches</a>.
+                </p>
+
+                <h2 class="text-3xl font-bold text-primary mt-12 mb-4">Cause #4: System Leaks</h2>
+
+                <p>
+                    If your pump cycles even when no water is being used, you likely have a leak somewhere in the system. The leak causes slow pressure loss, triggering the pump to maintain pressure.
+                </p>
+
+                <h3 class="text-2xl font-semibold text-primary mt-8 mb-3">Finding Leaks</h3>
+
+                <ul class="list-disc pl-6 mb-6 text-gray-700">
+                    <li><strong>Running toilets:</strong> The most common household leak—check all toilets by listening or using dye tablets</li>
+                    <li><strong>Dripping faucets:</strong> Even small drips accumulate</li>
+                    <li><strong>Irrigation system leaks:</strong> Check valve boxes and sprinkler heads</li>
+                    <li><strong>Hot water tank pressure relief valve:</strong> May be dripping into a drain</li>
+                    <li><strong>Underground pipe leaks:</strong> Look for unexplained wet areas in yard</li>
+                    <li><strong>Check valve failure:</strong> Allows water to flow back down the well</li>
+                </ul>
+
+                <h3 class="text-2xl font-semibold text-primary mt-8 mb-3">Leak Test Method</h3>
+
+                <ol class="list-decimal pl-6 mb-6 text-gray-700">
+                    <li>Close the valve between your pressure tank and the house</li>
+                    <li>Watch the pressure gauge on your tank</li>
+                    <li>If pressure drops with the valve closed, the leak is between the well and the valve (check valve, piping, tank fittings)</li>
+                    <li>If pressure holds, the leak is somewhere in your household plumbing</li>
+                </ol>
+
+                <h2 class="text-3xl font-bold text-primary mt-12 mb-4">Cause #5: Check Valve Failure</h2>
+
+                <p>
+                    The check valve prevents water from flowing backward down the well when the pump stops. When it fails, water drains back, pressure drops, and the pump cycles to repressurize—only to have the water drain back again.
+                </p>
+
+                <p>
+                    Symptoms of check valve failure include pressure that drops slowly after the pump stops, air spurts from faucets when first opened (air entering as water drains back), and cycling that occurs most noticeably after the pump has been off for a while.
+                </p>
+
+                <p>
+                    Check valves are typically located at the pitless adapter or in-line near the pressure tank. Replacement is straightforward but may require draining part of the system. For submersible pumps, there's often a check valve at the pump itself that requires pulling the pump to replace.
+                </p>
+
+                <h2 class="text-3xl font-bold text-primary mt-12 mb-4">Cause #6: Undersized Pressure Tank</h2>
+
+                <p>
+                    Some systems were installed with pressure tanks that are simply too small for the household's water demand. This is common in older installations or when homes have been expanded with additional bathrooms.
+                </p>
+
+                <p>
+                    The rule of thumb: provide 1-2 gallons of drawdown for every GPM of pump capacity. A 10 GPM pump needs a 44-62 gallon tank (which provides 14-22 gallons of drawdown). If your tank is undersized, the pump cycles frequently even when everything is working correctly.
+                </p>
+
+                <p>
+                    The solution is upgrading to a larger tank. For high-demand homes, you can also install multiple tanks in parallel to increase total drawdown capacity. See our <a href="pressure-tank-sizing-guide.html" class="text-accent hover:underline">pressure tank sizing guide</a> for details.
+                </p>
+
+                <h2 class="text-3xl font-bold text-primary mt-12 mb-4">Troubleshooting Checklist</h2>
+
+                <div class="bg-gray-50 p-6 rounded-lg my-8">
+                    <h3 class="text-xl font-bold text-primary mb-4">Step-by-Step Diagnosis</h3>
+                    <ol class="list-decimal pl-6 space-y-3 text-gray-700">
+                        <li><strong>Check tank air valve</strong> — Water from valve = waterlogged tank</li>
+                        <li><strong>Check tank air pressure</strong> — Should be 2 PSI below cut-in</li>
+                        <li><strong>Inspect pressure switch</strong> — Look for pitted/corroded contacts</li>
+                        <li><strong>Test for leaks</strong> — Close house valve and watch tank pressure</li>
+                        <li><strong>Check all toilets</strong> — Running toilets are common leak sources</li>
+                        <li><strong>Verify tank size</strong> — May be undersized for current demand</li>
+                        <li><strong>Listen for check valve issues</strong> — Pressure drop when pump stops</li>
+                    </ol>
+                </div>
+
+                <h2 class="text-3xl font-bold text-primary mt-12 mb-4">When to Call a Professional</h2>
+
+                <p>
+                    Some cycling issues are DIY-friendly—replacing a pressure switch or adding air to a tank are straightforward repairs. However, call a professional when:
+                </p>
+
+                <ul class="list-disc pl-6 mb-6 text-gray-700">
+                    <li>You're not comfortable working with electrical components</li>
+                    <li>The tank needs replacement (proper sizing and installation matter)</li>
+                    <li>You suspect the pump itself is failing</li>
+                    <li>The check valve in the well needs replacement (requires pulling equipment)</li>
+                    <li>You've tried basic fixes and cycling continues</li>
+                    <li>There's an underground leak you can't locate</li>
+                </ul>
+
+                <h2 class="text-3xl font-bold text-primary mt-12 mb-4">Frequently Asked Questions</h2>
+
+                <div class="space-y-6 my-8">
+                    <div class="border-b border-gray-200 pb-6">
+                        <h3 class="text-xl font-semibold text-primary mb-2">Why does my well pump turn on and off every few seconds?</h3>
+                        <p class="text-sm md:text-base text-gray-700">Rapid cycling every few seconds almost always indicates a waterlogged pressure tank. When the tank's air bladder fails or loses its air charge, there's no cushion to maintain pressure between pump cycles. The pump turns on, pressure rises instantly, pump shuts off, pressure drops immediately, and the cycle repeats. This is hard on your pump motor and can burn it out.</p>
+                    </div>
+                    
+                    <div class="border-b border-gray-200 pb-6">
+                        <h3 class="text-xl font-semibold text-primary mb-2">How do I check if my pressure tank is waterlogged?</h3>
+                        <p class="text-sm md:text-base text-gray-700">With the pump off and pressure relieved, push the air valve on top of the tank. If water sprays out, your tank is waterlogged. You can also tap the tank from top to bottom—a good tank sounds hollow at top (air) and solid at bottom (water). A waterlogged tank sounds solid throughout or has the water/air levels reversed.</p>
+                    </div>
+                    
+                    <div class="border-b border-gray-200 pb-6">
+                        <h3 class="text-xl font-semibold text-primary mb-2">Can a bad pressure switch cause short cycling?</h3>
+                        <p class="text-sm md:text-base text-gray-700">Yes. A failing pressure switch may read pressure incorrectly, causing erratic on/off behavior. Contacts can become pitted or corroded, creating inconsistent connections. The pressure settings may also have drifted. Try adjusting or replacing the switch—it's a $20-40 part and simple repair before assuming the tank has failed.</p>
+                    </div>
+                    
+                    <div class="border-b border-gray-200 pb-6">
+                        <h3 class="text-xl font-semibold text-primary mb-2">How often should a well pump cycle on and off?</h3>
+                        <p class="text-sm md:text-base text-gray-700">A healthy well system should cycle 1-6 times per hour during normal use, with each cycle running for at least one minute. If your pump cycles more than 6 times per hour or runs for less than 30 seconds per cycle, you have a problem that needs attention. The more frequent the cycling, the faster your pump will wear out.</p>
+                    </div>
+                    
+                    <div class="pb-6">
+                        <h3 class="text-xl font-semibold text-primary mb-2">Will short cycling damage my well pump?</h3>
+                        <p class="text-sm md:text-base text-gray-700">Yes, significantly. Each time your pump starts, the motor draws high inrush current (4-7 times running current), generating heat and stressing electrical components. The pressure switch contacts also wear from repeated arcing. A pump that should last 15-20 years might fail in 3-5 years with severe short cycling. Fixing the cause promptly is essential.</p>
+                    </div>
+                </div>
+
+                <!-- CTA Section -->
+                <div class="bg-primary text-white p-8 rounded-lg my-12 text-center">
+                    <h2 class="text-2xl font-bold mb-4">Pump Cycling Problems?</h2>
+                    <p class="mb-6 text-lg">Don't let short cycling destroy your pump. Our technicians can diagnose the cause and fix it—often the same day. Service throughout San Diego and Riverside Counties.</p>
+                    <a href="tel:7604408520" class="inline-block bg-accent hover:bg-green-700 text-white font-bold py-3 px-8 rounded-lg text-xl transition">
+                        Call (760) 440-8520 for Service
+                    </a>
+                </div>
+
+                <h2 class="text-3xl font-bold text-primary mt-12 mb-4">Related Troubleshooting Guides</h2>
+                
+                <div class="grid md:grid-cols-2 gap-6 my-8">
+                    <a href="bladder-tank-vs-diaphragm.html" class="group bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg hover:border-accent transition-all">
+                        <h3 class="font-semibold text-lg text-primary group-hover:text-accent mb-2">Bladder vs Diaphragm Tanks</h3>
+                        <p class="text-gray-600 text-sm">Choose the right replacement tank type.</p>
+                    </a>
+                    <a href="well-pump-noise-problems.html" class="group bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg hover:border-accent transition-all">
+                        <h3 class="font-semibold text-lg text-primary group-hover:text-accent mb-2">Well Pump Noise Problems</h3>
+                        <p class="text-gray-600 text-sm">What different pump sounds mean.</p>
+                    </a>
+                    <a href="low-water-pressure-second-floor.html" class="group bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg hover:border-accent transition-all">
+                        <h3 class="font-semibold text-lg text-primary group-hover:text-accent mb-2">Low Second Floor Pressure</h3>
+                        <p class="text-gray-600 text-sm">Fix weak pressure upstairs.</p>
+                    </a>
+                    <a href="signs-well-pump-failing.html" class="group bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg hover:border-accent transition-all">
+                        <h3 class="font-semibold text-lg text-primary group-hover:text-accent mb-2">Signs Your Pump Is Failing</h3>
+                        <p class="text-gray-600 text-sm">Know when it's time for replacement.</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white py-12">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Southern California Well Service</h3>
+                    <p class="text-gray-300">Professional well drilling, pump installation, and water system services for San Diego and Riverside Counties.</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Contact</h3>
+                    <p class="text-gray-300">
+                        <a href="tel:7604408520" class="hover:text-accent">(760) 440-8520</a><br>
+                        Available 7 Days a Week<br>
+                        Emergency Service Available

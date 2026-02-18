@@ -1,115 +1,462 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LL1YRWT5T"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-5LL1YRWT5T');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Radon in Well Water: Testing & Removal | SCWS</title>
-    <meta name="description" content="Radon gas dissolved in well water releases into home air during water use. Learn about radon testing, health risks, and removal systems including aeration ">
+    <title>Radon in Well Water: Testing, Health Risks & Treatment</title>
+    <meta name="description" content="Complete guide to radon in well water. Learn how this radioactive gas enters groundwater, health risks from inhalation and ingestion, testing methods, and treatment options.">
+    <meta name="keywords" content="radon in well water, radon water testing, radon water treatment, aeration radon removal, GAC radon filter, radioactive well water">
     <link rel="canonical" href="https://scwellservice.com/blog/radon-in-well-water.html">
-    <link rel="stylesheet" href="/css/styles.css">
-    
+    <link rel="icon" type="image/png" href="../images/logo.png">
+    <link rel="stylesheet" href="../css/styles.css">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://scwellservice.com/blog/radon-in-well-water.html">
+    <meta property="og:title" content="Radon in Well Water: Testing, Health Risks & Treatment">
+    <meta property="og:description" content="Understand radon contamination in well water—the invisible radioactive gas that can enter your home through your water supply.">
+    <meta property="og:image" content="https://scwellservice.com/images/og-image.jpg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"></noscript>
+
+    <!-- Article Schema -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "Article",
-        "headline": "Radon in Well Water: Testing & Removal | SCWS",
-        "description": "Radon gas dissolved in well water releases into home air during water use. Learn about radon testing, health risks, and removal systems including aeration ",
-        "author": {"@type": "Organization", "name": "Southern California Well Service"},
-        "publisher": {"@type": "Organization", "name": "Southern California Well Service"},
-        "datePublished": "2026-02-15",
-        "dateModified": "2026-02-15"
+        "headline": "Radon in Well Water: Testing, Health Risks & Treatment",
+        "author": { "@type": "Organization", "name": "Southern California Well Service" },
+        "publisher": { "@type": "Organization", "name": "Southern California Well Service", "logo": { "@type": "ImageObject", "url": "https://scwellservice.com/images/logo.png" } },
+        "datePublished": "2026-02-17",
+        "dateModified": "2026-02-17",
+        "description": "Complete guide to radon in well water including sources, health risks, testing methods, and treatment options.",
+        "mainEntityOfPage": { "@type": "WebPage", "@id": "https://scwellservice.com/blog/radon-in-well-water.html" }
     }
     </script>
+
+    <!-- FAQPage Schema -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "FAQPage",
-        "mainEntity": [{"@type": "Question", "name": "How does radon get into well water?", "acceptedAnswer": {"@type": "Answer", "text": "Radon is a naturally occurring radioactive gas produced by decaying uranium in rock and soil. It dissolves into groundwater as water moves through radon-containing formations. Granite and certain other rock types produce higher radon levels."}}, {"@type": "Question", "name": "What radon level in water is dangerous?", "acceptedAnswer": {"@type": "Answer", "text": "The EPA recommends action at 4,000 pCi/L in water or higher. Some states have lower guidelines. Testing both water and indoor air is important since radon in water contributes to overall airborne radon exposure in your home."}}, {"@type": "Question", "name": "Which is better: aeration or carbon for radon?", "acceptedAnswer": {"@type": "Answer", "text": "Aeration removes 95-99% of radon and requires no media replacement\u2014preferred for high radon levels. Granular activated carbon removes 95%+ but the carbon must be replaced periodically and becomes radioactive, requiring careful disposal."}}]
-    }
-    </script>
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-            {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://scwellservice.com/"},
-            {"@type": "ListItem", "position": 2, "name": "Resources", "item": "https://scwellservice.com/blog/"},
-            {"@type": "ListItem", "position": 3, "name": "Radon in Well Water: Testing & Removal | SCWS", "item": "https://scwellservice.com/blog/radon-in-well-water.html"}
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "How does radon get into well water?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Radon is a naturally occurring radioactive gas produced by the decay of uranium in soil and rock. When groundwater flows through rock formations containing uranium, radon dissolves into the water. This is particularly common in areas with granite, shale, or phosphate-rich rocks. Unlike radon entering homes through basement cracks, waterborne radon comes directly from the geology surrounding your aquifer. Radon levels in water vary greatly by location—some areas have minimal radon while others have very high concentrations."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is radon in well water dangerous?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, radon in well water poses health risks, though the primary danger is from inhalation rather than drinking. When water containing radon is used for showers, washing, and cooking, radon gas escapes into indoor air where it can be inhaled. Inhalation of radon is the second leading cause of lung cancer after smoking. Drinking radon-containing water also carries some risk, primarily of stomach cancer, though this risk is much lower than inhalation risk. The EPA estimates that 1-2% of radon in water transfers to indoor air."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is a safe level of radon in well water?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The EPA proposed (but never finalized) a Maximum Contaminant Level of 300 pCi/L for public water systems, with an Alternative MCL of 4,000 pCi/L for systems implementing radon mitigation programs. There's no enforceable federal standard for private wells. Many experts recommend treatment when radon exceeds 4,000 pCi/L in water. As a rough guideline, every 10,000 pCi/L of radon in water contributes about 1 pCi/L to indoor air—so high water levels can significantly impact home air quality."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How do I test my well water for radon?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Radon water testing requires special sample collection because radon escapes rapidly from water when exposed to air. Use a certified laboratory and follow their specific instructions carefully. Most labs require samples collected in special containers that minimize radon loss. The water should be run for several minutes before sampling, and samples must be kept cold and delivered to the lab quickly (usually within 24-48 hours). Testing costs $25-100 depending on the lab. Consider testing if you're in a high-radon area or have elevated indoor radon levels."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How do you remove radon from well water?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Two main treatment methods effectively remove radon from water: aeration and granular activated carbon (GAC). Aeration systems bubble air through water, allowing radon to escape, then vent the gas outdoors—they remove 95-99% of radon and are best for high levels. GAC filters adsorb radon onto activated carbon, removing 90-99%, but the carbon becomes radioactive and requires careful disposal. Aeration is preferred for levels above 10,000 pCi/L; GAC works well for moderate levels. Point-of-entry systems treat all water entering the home, which is essential since radon releases during all water use."
+                }
+            }
         ]
     }
     </script>
-    
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LL1YRWT5T"></script>
-    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-5LL1YRWT5T');</script>
+
+    <!-- LocalBusiness Schema -->
+    <script type="application/ld+json">
+    { "@context": "https://schema.org", "@type": "LocalBusiness", "name": "Southern California Well Service", "telephone": "+1-760-440-8520", "url": "https://scwellservice.com", "areaServed": { "@type": "State", "name": "California" } }
+    </script>
 </head>
-<body>
-    <header class="site-header">
-        <div class="header-content">
-            <a href="/" class="logo">
-                <img src="/images/logo.png" alt="SCWS Logo" width="50" height="50">
-                <span>Southern California Well Service</span>
-            </a>
-            <nav class="main-nav">
-                <a href="/">Home</a>
-                <a href="/services/">Services</a>
-                <a href="/blog/">Resources</a>
-                <a href="/contact/">Contact</a>
-                <a href="tel:7604408520" class="cta-phone">(760) 440-8520</a>
+<body class="bg-white">
+    <!-- Emergency Banner -->
+    <div class="bg-gradient-to-r from-red-600 to-red-700 text-white py-2.5">
+        <div class="max-w-7xl mx-auto px-4 text-center flex items-center justify-center gap-2 flex-wrap">
+            <span class="font-bold tracking-wide">🚨 No Water?</span>
+            <span class="hidden sm:inline">Same-day emergency service available.</span>
+            <a href="tel:7604408520" class="bg-white text-red-600 font-bold px-4 py-1 rounded-full text-sm hover:bg-red-100 transition ml-1">Call Now →</a>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="bg-primary text-white sticky top-0 z-50 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <a href="../" class="flex items-center space-x-3 shrink-0">
+                    <img src="../images/logo.png" alt="Southern California Well Service" class="h-10 lg:h-12 w-auto">
+                </a>
+                <nav class="hidden lg:flex space-x-4 items-center">
+                    <a href="../#services" class="text-white hover:text-accent transition whitespace-nowrap">Services</a>
+                    <a href="../#areas" class="text-white hover:text-accent transition whitespace-nowrap">Service Areas</a>
+                    <a href="./" class="text-white hover:text-accent transition whitespace-nowrap">Resources</a>
+                    <a href="../faq.html" class="text-white hover:text-accent transition whitespace-nowrap">FAQ</a>
+                    <a href="../contact.html" class="text-white hover:text-accent transition whitespace-nowrap">Contact</a>
+                    <a href="../cost-calculator.html" class="text-white font-semibold hover:text-accent transition whitespace-nowrap">Free Estimate</a>
+                </nav>
+                <div class="flex items-center gap-3">
+                    <button id="mobile-menu-btn" class="lg:hidden p-2 hover:bg-white/10 rounded-lg transition" aria-label="Toggle menu">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                    </button>
+                    <a href="tel:7604408520" class="bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-4 lg:px-6 rounded-lg transition whitespace-nowrap text-sm lg:text-base">(760) 440-8520</a>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden lg:hidden bg-primary/95 border-t border-white/10">
+            <nav class="max-w-7xl mx-auto px-4 py-4 flex flex-col space-y-3">
+                <a href="../#services" class="hover:text-accent transition py-2">Services</a>
+                <a href="../#areas" class="hover:text-accent transition py-2">Service Areas</a>
+                <a href="./" class="hover:text-accent transition py-2">Resources</a>
+                <a href="../faq.html" class="hover:text-accent transition py-2">FAQ</a>
+                <a href="../contact.html" class="hover:text-accent transition py-2">Contact</a>
             </nav>
         </div>
     </header>
+    <script>document.getElementById('mobile-menu-btn').addEventListener('click', function() { document.getElementById('mobile-menu').classList.toggle('hidden'); });</script>
 
-    <main class="blog-post">
-        <article>
-            <h1>Radon in Well Water: Testing & Removal | SCWS</h1>
-            
-            <p class="lead">Radon gas dissolved in well water releases into home air during water use. Learn about radon testing, health risks, and removal systems including aeration and carbon filtration.</p>
-            
-            <div class="cta-box">
-                <p><strong>Need help? Call us:</strong></p>
-                <a href="tel:7604408520" class="cta-button">(760) 440-8520</a>
+    <!-- Breadcrumb -->
+    <div class="bg-gray-50 py-3">
+        <div class="max-w-4xl mx-auto px-4">
+            <nav class="text-sm">
+                <a href="../index.html" class="text-gray-600 hover:text-primary">Home</a>
+                <span class="mx-2 text-gray-400">›</span>
+                <a href="../blog/" class="text-gray-600 hover:text-primary">Blog</a>
+                <span class="mx-2 text-gray-400">›</span>
+                <span class="text-primary">Radon in Well Water</span>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <div class="relative h-48 md:h-64 lg:h-96 bg-gradient-to-r from-amber-700 to-red-800 overflow-hidden">
+        <div class="absolute inset-0 bg-black/40"></div>
+        <div class="absolute inset-0 flex items-center justify-center">
+            <div class="text-center text-white px-4">
+                <span class="inline-block bg-amber-500 px-4 py-1 rounded-full text-sm font-semibold mb-4">Water Quality</span>
+                <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 drop-shadow-lg">Radon in Well Water</h1>
+                <p class="text-lg md:text-xl text-gray-100 max-w-2xl mx-auto">The Invisible Radioactive Gas in Your Water Supply</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Article -->
+    <article class="py-12">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="flex items-center gap-4 mb-8 pb-8 border-b border-gray-200">
+                <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-bold text-lg">SC</div>
+                <div>
+                    <p class="font-semibold text-gray-900">By SCWS Team</p>
+                    <p class="text-gray-600 text-sm">Published February 17, 2026 · 10 min read</p>
+                </div>
             </div>
 
-            <h2>Understanding Radon Risks</h2>
-            <p>Radon is a colorless, odorless radioactive gas and the second leading cause of lung cancer after smoking. When dissolved in water, radon releases into household air during showering, dishwashing, and other water use. The primary risk is inhalation, not ingestion—though both contribute to exposure. Homes with both private wells and elevated radon should test water specifically.</p>
+            <div class="prose prose-lg max-w-none">
+                <p class="text-xl md:text-2xl text-gray-700 leading-relaxed mb-8 font-light">
+                    <strong class="text-primary">Radon is a colorless, odorless radioactive gas that can dissolve in groundwater and enter your home every time you turn on the tap.</strong> While most people know about radon seeping through basement cracks, fewer realize that well water can be a significant source of indoor radon exposure.
+                </p>
 
-            <h2>Testing Well Water for Radon</h2>
-            <p>Radon water testing requires special collection procedures—samples must be taken to avoid releasing gas. Use a certified lab that provides proper collection containers and instructions. Results are reported in picocuries per liter (pCi/L). Test during normal usage periods for accurate results. If home air radon is elevated, water testing helps determine how much the well contributes to total exposure.</p>
+                <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                    When radon-containing water is used for showers, laundry, and cooking, the gas releases into your home's air where it can be inhaled. Radon is the second leading cause of lung cancer after smoking, making it a serious health concern for well owners in high-radon areas.
+                </p>
 
-            <h2>Aeration Treatment Systems</h2>
-            <p>Aeration systems strip radon from water by spraying it into an air stream that vents outdoors. Point-of-entry systems treat all household water before it reaches taps. Aeration removes 95-99% of radon with no ongoing media costs—just electricity to run the blower. Systems require venting to outside air, away from windows and air intakes. Maintenance involves periodic cleaning and motor service.</p>
+                <h2 class="text-3xl font-bold text-primary mt-12 mb-4">Understanding Radon</h2>
 
-            <h2>Granular Activated Carbon Treatment</h2>
-            <p>GAC systems filter water through activated carbon that adsorbs radon gas. Effective removal (95%+) for moderate radon levels. The carbon eventually becomes radioactive and requires disposal as low-level radioactive waste per local regulations. Carbon typically needs replacement every few years. GAC works well combined with other treatment needs but aeration is generally preferred for high radon levels due to disposal concerns.</p>
+                <p>
+                    Radon (Rn-222) is a naturally occurring radioactive gas produced by the radioactive decay of uranium, which is found in varying amounts in soil and rock worldwide. As uranium breaks down over millions of years, it produces radium, which then decays into radon gas.
+                </p>
 
-            <h2>Frequently Asked Questions</h2>
-            <div class="faq-section">
-            <div class="faq-item">
-                <h3>How does radon get into well water?</h3>
-                <p>Radon is a naturally occurring radioactive gas produced by decaying uranium in rock and soil. It dissolves into groundwater as water moves through radon-containing formations. Granite and certain other rock types produce higher radon levels.</p>
-            </div>
-            <div class="faq-item">
-                <h3>What radon level in water is dangerous?</h3>
-                <p>The EPA recommends action at 4,000 pCi/L in water or higher. Some states have lower guidelines. Testing both water and indoor air is important since radon in water contributes to overall airborne radon exposure in your home.</p>
-            </div>
-            <div class="faq-item">
-                <h3>Which is better: aeration or carbon for radon?</h3>
-                <p>Aeration removes 95-99% of radon and requires no media replacement—preferred for high radon levels. Granular activated carbon removes 95%+ but the carbon must be replaced periodically and becomes radioactive, requiring careful disposal.</p>
-            </div>
-            </div>
-            
-            <div class="cta-box">
-                <h3>Get Expert Help</h3>
-                <p>Contact Southern California Well Service for professional assistance.</p>
-                <a href="tel:7604408520" class="cta-button">Call (760) 440-8520</a>
-                <p class="small">Serving San Diego, Riverside & San Bernardino Counties</p>
-            </div>
-        </article>
-    </main>
+                <h3 class="text-2xl font-semibold text-primary mt-8 mb-3">How Radon Gets Into Groundwater</h3>
 
-    <footer>
-        <p>&copy; 2026 Southern California Well Service. Licensed C-57 Contractor.</p>
-        <p>1077 Main St, Ramona, CA 92065 | <a href="tel:7604408520">(760) 440-8520</a></p>
+                <p>
+                    When groundwater flows through rocks and soil containing uranium or radium, radon dissolves directly into the water. Because radon is a noble gas, it doesn't react chemically with other substances—it simply dissolves and travels with the water until it's released.
+                </p>
+
+                <p>
+                    Radon levels in groundwater vary enormously based on local geology:
+                </p>
+
+                <ul class="list-disc pl-6 mb-6 text-gray-700">
+                    <li><strong>Granite formations:</strong> Often contain elevated uranium; common in mountainous regions</li>
+                    <li><strong>Shale deposits:</strong> Can have significant uranium content</li>
+                    <li><strong>Phosphate-rich areas:</strong> Phosphate rock often contains uranium</li>
+                    <li><strong>Glacial deposits:</strong> Variable, depending on source rock</li>
+                </ul>
+
+                <div class="bg-amber-50 border-l-4 border-amber-500 p-6 my-8 rounded-r-lg">
+                    <h4 class="font-bold text-gray-900 mb-2">California Radon Zones</h4>
+                    <p class="text-gray-700">
+                        While California generally has lower radon levels than the northeastern U.S., significant variations exist. Mountainous areas with granite geology, including parts of the Sierra Nevada foothills and some Southern California mountain communities, can have elevated radon. The EPA's radon zone map provides general guidance, but local conditions vary—testing is the only way to know your specific situation.
+                    </p>
+                </div>
+
+                <h2 class="text-3xl font-bold text-primary mt-12 mb-4">Health Risks of Radon Exposure</h2>
+
+                <h3 class="text-2xl font-semibold text-primary mt-8 mb-3">Inhalation Risk (Primary Concern)</h3>
+
+                <p>
+                    The primary health risk from waterborne radon comes from breathing radon-contaminated air, not from drinking the water. When radon-containing water is used throughout your home, the gas escapes into indoor air:
+                </p>
+
+                <ul class="list-disc pl-6 mb-6 text-gray-700">
+                    <li><strong>Showers and baths:</strong> Hot water and agitation release radon rapidly</li>
+                    <li><strong>Dishwashers and washing machines:</strong> Contribute to indoor radon</li>
+                    <li><strong>Running faucets:</strong> Any water use releases some radon</li>
+                </ul>
+
+                <p>
+                    The EPA estimates that approximately 1-2% of radon in water transfers to indoor air. While this sounds small, high water concentrations can significantly impact indoor air quality. As a rule of thumb, every 10,000 pCi/L (picocuries per liter) of radon in water adds about 1 pCi/L to indoor air radon levels.
+                </p>
+
+                <p>
+                    Inhaled radon decays in the lungs, releasing alpha particles that can damage lung tissue and increase lung cancer risk. The EPA estimates radon causes about 21,000 lung cancer deaths annually in the United States.
+                </p>
+
+                <h3 class="text-2xl font-semibold text-primary mt-8 mb-3">Ingestion Risk (Lower but Present)</h3>
+
+                <p>
+                    Drinking radon-containing water exposes the stomach and digestive tract to radiation. While the risk is lower than inhalation, studies suggest possible associations with stomach cancer. The EPA estimates that drinking water with 4,000 pCi/L of radon over a lifetime could cause 1-2 stomach cancer deaths per 10,000 exposed people.
+                </p>
+
+                <h2 class="text-3xl font-bold text-primary mt-12 mb-4">Testing for Radon in Well Water</h2>
+
+                <p>
+                    Radon testing requires special procedures because the gas escapes quickly from water:
+                </p>
+
+                <h3 class="text-2xl font-semibold text-primary mt-8 mb-3">When to Test</h3>
+
+                <ul class="list-disc pl-6 mb-6 text-gray-700">
+                    <li>If indoor air radon tests show elevated levels (above 4 pCi/L)</li>
+                    <li>If you live in an area with known granite or uranium-bearing geology</li>
+                    <li>If neighbors have found radon in their water</li>
+                    <li>When buying property with a well</li>
+                    <li>If you're concerned about comprehensive water quality</li>
+                </ul>
+
+                <h3 class="text-2xl font-semibold text-primary mt-8 mb-3">Testing Procedure</h3>
+
+                <ol class="list-decimal pl-6 mb-6 text-gray-700">
+                    <li>Use a certified laboratory experienced in radon water testing</li>
+                    <li>Follow lab instructions exactly—sample containers and procedures matter</li>
+                    <li>Run water for several minutes before sampling to clear standing water</li>
+                    <li>Minimize air exposure during sample collection</li>
+                    <li>Keep samples cold and deliver quickly (usually within 24-48 hours)</li>
+                </ol>
+
+                <p>
+                    Testing costs range from $25-100 depending on the laboratory. Some state radon programs offer subsidized testing.
+                </p>
+
+                <h3 class="text-2xl font-semibold text-primary mt-8 mb-3">Interpreting Results</h3>
+
+                <p>
+                    There's no enforceable federal standard for radon in private well water. However, these guidelines help interpret results:
+                </p>
+
+                <div class="overflow-x-auto my-8">
+                    <table class="w-full border-collapse border border-gray-300">
+                        <thead>
+                            <tr class="bg-primary text-white">
+                                <th class="border border-gray-300 px-4 py-3 text-left">Radon Level (pCi/L)</th>
+                                <th class="border border-gray-300 px-4 py-3 text-left">Recommendation</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="border border-gray-300 px-4 py-3">Less than 300</td>
+                                <td class="border border-gray-300 px-4 py-3">Generally considered low; EPA's proposed MCL for public systems</td>
+                            </tr>
+                            <tr class="bg-gray-50">
+                                <td class="border border-gray-300 px-4 py-3">300-4,000</td>
+                                <td class="border border-gray-300 px-4 py-3">Moderate; consider treatment, especially with elevated indoor air radon</td>
+                            </tr>
+                            <tr>
+                                <td class="border border-gray-300 px-4 py-3">4,000-10,000</td>
+                                <td class="border border-gray-300 px-4 py-3">Elevated; treatment recommended</td>
+                            </tr>
+                            <tr class="bg-gray-50">
+                                <td class="border border-gray-300 px-4 py-3">Above 10,000</td>
+                                <td class="border border-gray-300 px-4 py-3">High; treatment strongly recommended</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h2 class="text-3xl font-bold text-primary mt-12 mb-4">Treatment Options</h2>
+
+                <p>
+                    Two main technologies effectively remove radon from water:
+                </p>
+
+                <h3 class="text-2xl font-semibold text-primary mt-8 mb-3">Aeration Systems</h3>
+
+                <p>
+                    Aeration is the most effective treatment for high radon levels:
+                </p>
+
+                <ul class="list-disc pl-6 mb-6 text-gray-700">
+                    <li><strong>How it works:</strong> Air bubbles through the water, allowing radon to escape; the gas is vented safely outdoors</li>
+                    <li><strong>Effectiveness:</strong> 95-99% radon removal</li>
+                    <li><strong>Best for:</strong> High radon levels (above 10,000 pCi/L)</li>
+                    <li><strong>Cost:</strong> $3,000-5,000+ for residential systems</li>
+                    <li><strong>Maintenance:</strong> Regular cleaning; air blower maintenance</li>
+                    <li><strong>Pros:</strong> Very effective; no radioactive waste; works for any concentration</li>
+                    <li><strong>Cons:</strong> Higher cost; needs proper outdoor venting; noise from blowers</li>
+                </ul>
+
+                <h3 class="text-2xl font-semibold text-primary mt-8 mb-3">Granular Activated Carbon (GAC)</h3>
+
+                <p>
+                    GAC filters adsorb radon onto activated carbon:
+                </p>
+
+                <ul class="list-disc pl-6 mb-6 text-gray-700">
+                    <li><strong>How it works:</strong> Water passes through carbon filter; radon adheres to carbon surface</li>
+                    <li><strong>Effectiveness:</strong> 90-99% removal, depending on contact time</li>
+                    <li><strong>Best for:</strong> Moderate radon levels (under 10,000 pCi/L)</li>
+                    <li><strong>Cost:</strong> $1,000-2,500 for residential systems</li>
+                    <li><strong>Maintenance:</strong> Carbon replacement every 3-5 years</li>
+                    <li><strong>Important consideration:</strong> Carbon becomes radioactive over time</li>
+                    <li><strong>Pros:</strong> Lower cost; simpler installation</li>
+                    <li><strong>Cons:</strong> Radioactive waste disposal; radiation buildup near unit</li>
+                </ul>
+
+                <div class="bg-red-50 border-l-4 border-red-500 p-6 my-8">
+                    <h4 class="font-bold text-gray-900 mb-2">Important: Radioactive Carbon</h4>
+                    <p class="text-gray-700">
+                        When GAC filters remove radon, the radon decays on the carbon, leaving behind radioactive decay products. This can create a radiation hazard around the filter unit. GAC systems should be located away from living areas, and spent carbon may require disposal as low-level radioactive waste. For high radon levels, aeration is preferred to avoid this issue.
+                    </p>
+                </div>
+
+                <h3 class="text-2xl font-semibold text-primary mt-8 mb-3">Point-of-Entry vs. Point-of-Use</h3>
+
+                <p>
+                    For radon, point-of-entry (whole house) treatment is essential. Unlike contaminants where you might only treat drinking water, radon releases from all water use throughout the home. A point-of-use system at the kitchen tap wouldn't address radon released during showers, laundry, or dishwashing—which are actually major sources of airborne radon.
+                </p>
+
+                <h2 class="text-3xl font-bold text-primary mt-12 mb-4">Radon in Water vs. Air</h2>
+
+                <p>
+                    If you have elevated indoor radon, it's worth understanding whether your water is contributing:
+                </p>
+
+                <ul class="list-disc pl-6 mb-6 text-gray-700">
+                    <li><strong>Soil is usually the main source:</strong> Most indoor radon comes from soil gas entering through foundations</li>
+                    <li><strong>Water can be significant:</strong> Very high water radon can measurably increase air levels</li>
+                    <li><strong>Test both:</strong> If air radon is elevated, test water to understand the source</li>
+                    <li><strong>Address both if needed:</strong> Water treatment alone won't solve a soil-gas problem</li>
+                </ul>
+
+                <p>
+                    The relationship: approximately 10,000 pCi/L of radon in water contributes about 1 pCi/L to indoor air. If your water contains 20,000 pCi/L and your indoor air reads 6 pCi/L, water is contributing about 2 pCi/L of that total.
+                </p>
+
+                <h2 class="text-3xl font-bold text-primary mt-12 mb-4">Frequently Asked Questions</h2>
+
+                <div class="space-y-6 my-8">
+                    <div class="border-b border-gray-200 pb-6">
+                        <h3 class="text-xl font-semibold text-primary mb-2">How does radon get into well water?</h3>
+                        <p class="text-gray-700">Radon is a naturally occurring radioactive gas produced by the decay of uranium in soil and rock. When groundwater flows through rock formations containing uranium, radon dissolves into the water. This is particularly common in areas with granite, shale, or phosphate-rich rocks. Radon levels in water vary greatly by location—some areas have minimal radon while others have very high concentrations.</p>
+                    </div>
+                    
+                    <div class="border-b border-gray-200 pb-6">
+                        <h3 class="text-xl font-semibold text-primary mb-2">Is radon in well water dangerous?</h3>
+                        <p class="text-gray-700">Yes, radon in well water poses health risks, though the primary danger is from inhalation rather than drinking. When water containing radon is used for showers, washing, and cooking, radon gas escapes into indoor air where it can be inhaled. Inhalation of radon is the second leading cause of lung cancer after smoking. The EPA estimates that 1-2% of radon in water transfers to indoor air.</p>
+                    </div>
+                    
+                    <div class="border-b border-gray-200 pb-6">
+                        <h3 class="text-xl font-semibold text-primary mb-2">What is a safe level of radon in well water?</h3>
+                        <p class="text-gray-700">The EPA proposed a Maximum Contaminant Level of 300 pCi/L for public water systems, with an Alternative MCL of 4,000 pCi/L for systems implementing radon mitigation programs. There's no enforceable federal standard for private wells. Many experts recommend treatment when radon exceeds 4,000 pCi/L in water.</p>
+                    </div>
+                    
+                    <div class="border-b border-gray-200 pb-6">
+                        <h3 class="text-xl font-semibold text-primary mb-2">How do I test my well water for radon?</h3>
+                        <p class="text-gray-700">Radon water testing requires special sample collection because radon escapes rapidly from water when exposed to air. Use a certified laboratory and follow their specific instructions carefully. Samples must be kept cold and delivered to the lab quickly. Testing costs $25-100.</p>
+                    </div>
+                    
+                    <div class="pb-6">
+                        <h3 class="text-xl font-semibold text-primary mb-2">How do you remove radon from well water?</h3>
+                        <p class="text-gray-700">Two main treatment methods effectively remove radon: aeration systems bubble air through water allowing radon to escape (95-99% removal), and granular activated carbon filters adsorb radon (90-99% removal). Aeration is preferred for high levels above 10,000 pCi/L. Both require point-of-entry installation to treat all household water.</p>
+                    </div>
+                </div>
+
+                <!-- CTA Section -->
+                <div class="bg-primary text-white p-8 rounded-lg my-12 text-center">
+                    <h2 class="text-2xl font-bold mb-4">Concerned About Radon in Your Well?</h2>
+                    <p class="mb-6 text-lg">Southern California Well Service can help coordinate water testing and connect you with water quality solutions. Call us for expert guidance.</p>
+                    <a href="tel:7604408520" class="inline-block bg-accent hover:bg-green-700 text-white font-bold py-3 px-8 rounded-lg text-xl transition">Call (760) 440-8520</a>
+                </div>
+
+                <h2 class="text-3xl font-bold text-primary mt-12 mb-4">Related Guides</h2>
+                
+                <div class="grid md:grid-cols-2 gap-6 my-8">
+                    <a href="uranium-in-well-water-california.html" class="group bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg hover:border-accent transition-all">
+                        <h3 class="font-semibold text-lg text-primary group-hover:text-accent mb-2">Uranium in Well Water</h3>
+                        <p class="text-gray-600 text-sm">Another radioactive concern in California groundwater.</p>
+                    </a>
+                    <a href="arsenic-in-well-water-california.html" class="group bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg hover:border-accent transition-all">
+                        <h3 class="font-semibold text-lg text-primary group-hover:text-accent mb-2">Arsenic in Well Water</h3>
+                        <p class="text-gray-600 text-sm">A naturally occurring carcinogen in California wells.</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white py-12">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Southern California Well Service</h3>
+                    <p class="text-gray-300">Professional well drilling, pump installation, and water system services for San Diego and Riverside Counties.</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Contact</h3>
+                    <p class="text-gray-300"><a href="tel:7604408520" class="hover:text-accent">(760) 440-8520</a><br>Available 7 Days a Week<br>Emergency Service Available</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Service Areas</h3>
+                    <p class="text-gray-300">San Diego County • Riverside County • Fallbrook • Temecula • Ramona • Valley Center • Julian • Alpine</p>
+                </div>
+            </div>
+            <div class="border-t border-gray-600 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2026 Southern California Well Service. All rights reserved.</p>
+            </div>
+        </div>
     </footer>
+
+    <div class="blog-cta-section"><div class="blog-cta-box"><h3>Need Help With Your Well?</h3><p>Our expert technicians are ready to help with water quality testing and treatment recommendations.</p><div class="blog-cta-actions"><a href="sms:7604408520" class="blog-cta-phone" style="background:#4e9271;color:white !important;">💬 Text Us</a><a href="tel:7604408520" class="blog-cta-phone">📞 Call (760) 440-8520</a><a href="../contact.html" class="blog-cta-button">Request Free Quote →</a></div></div></div>
+    
+    <style>.blog-cta-section{margin-top:3em;padding-top:2em;border-top:2px solid #e0e0e0}.blog-cta-box{background:linear-gradient(135deg,#1f3b4d 0%,#2d5570 100%);color:#fff;padding:2em;border-radius:12px;text-align:center}.blog-cta-box h3{color:#fff;font-size:1.5em;margin:0 0 .5em}.blog-cta-box p{color:rgba(255,255,255,.9);margin:0 0 1.5em}.blog-cta-actions{display:flex;gap:1em;justify-content:center;flex-wrap:wrap}.blog-cta-phone{background:#fff;color:#1f3b4d!important;padding:12px 24px;border-radius:8px;font-weight:700;text-decoration:none;display:inline-block;transition:all .2s}.blog-cta-phone:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.2)}.blog-cta-button{background:#4e9271;color:#fff!important;padding:12px 24px;border-radius:8px;font-weight:700;text-decoration:none;display:inline-block;transition:all .2s}.blog-cta-button:hover{background:#3d7a5c;transform:translateY(-2px)}@media(max-width:480px){.blog-cta-actions{flex-direction:column}.blog-cta-phone,.blog-cta-button{width:100%;text-align:center}}</style>
+    <script src="/js/chat-widget.js"></script>
 </body>
 </html>
