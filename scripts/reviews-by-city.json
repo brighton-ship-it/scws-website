@@ -1,4 +1,73 @@
 {
   "last_updated": "2026-02-19",
-  "reviews": {}
+  "match_summary": {
+    "total_reviews": 13,
+    "matched": 8,
+    "unmatched": 5
+  },
+  "cities": [
+    "Anza",
+    "Hemet",
+    "Julian",
+    "Lakeside",
+    "Poway",
+    "Ramona",
+    "Valley Center"
+  ],
+  "reviews": {
+    "Lakeside": [
+      {
+        "name": "Kathy Bast",
+        "text": "The technician was very friendly and helpful! I would highly recommend.",
+        "date": "Feb 2026"
+      }
+    ],
+    "Hemet": [
+      {
+        "name": "Steen Jacobsen",
+        "text": "Fast and easy to set up appointment. Super efficient work done by the guys. Well done - no pun intended. Highly recommend.",
+        "date": "Feb 2026"
+      }
+    ],
+    "Poway": [
+      {
+        "name": "Ryan Kirk",
+        "text": "Very responsive and did the work right. I was even traveling and out of town. Best in the county! Highly recommend.",
+        "date": "Feb 2026"
+      }
+    ],
+    "Anza": [
+      {
+        "name": "Nadia S.",
+        "text": "The men that work here are very professional. When I called they got right back to me and squeezed me into their busy schedule. All the gentlemen we dealt with were kind and fast workers. They showed and explained to us where the problem was.",
+        "date": "Jan 2026"
+      }
+    ],
+    "Ramona": [
+      {
+        "name": "Dennis Albert",
+        "text": "I'm an early riser, and one recent morning at 5 a.m., I discovered that my well water had stopped working. Southern California Well Service came out immediately and got us back up and running.",
+        "date": "Aug 2025"
+      },
+      {
+        "name": "Diane P.",
+        "text": "Great service, very knowledgeable. Friendly employees. Dependable and quick.",
+        "date": "Feb 2026"
+      }
+    ],
+    "Julian": [
+      {
+        "name": "Wayne Wilcoxen",
+        "text": "They came out immediately, found the problem and fixed it! Fast, Friendly and professional. I will hire them again when I need well help.",
+        "date": "Feb 2026"
+      }
+    ],
+    "Valley Center": [
+      {
+        "name": "Phoenix",
+        "text": "Always happy to work with this company. Their work is second to none. I had them redo all the pipes on my pumps, replace booster tanks, and many other things. Last time we had a broken pipe, they came and fixed it the next day. It's this kind of company that grows because of their service and workmanship.",
+        "date": "Feb 2026"
+      }
+    ]
+  }
 }
