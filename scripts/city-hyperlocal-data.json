@@ -1,0 +1,2796 @@
+{
+  "_meta": {
+    "description": "Hyper-local data for SEO location pages - housing stock, neighborhoods, directions",
+    "office_ramona": {
+      "address": "1077 Main St, Ramona, CA 92065",
+      "coords": "33.0422,-116.8683"
+    },
+    "office_anza": {
+      "address": "57174 US Highway 79, Anza, CA 92539",
+      "coords": "33.5549,-116.6741"
+    }
+  },
+  "ramona": {
+    "full_name": "Ramona",
+    "county": "San Diego",
+    "nearest_office": "ramona",
+    "drive_time": "Local - our headquarters",
+    "housing": {
+      "median_year": 1985,
+      "era_description": "1970s-2000s ranch homes and rural estates",
+      "common_styles": [
+        "Single-story ranch",
+        "Rural estate homes",
+        "Manufactured homes on acreage"
+      ],
+      "typical_lot_size": "1-10 acres",
+      "well_system_age": "Many original wells from 30-50 years ago now need pump replacement or deepening"
+    },
+    "neighborhoods": [
+      "San Diego Country Estates",
+      "Mt. Woodson Estates",
+      "Barona",
+      "Pamo Valley",
+      "Mussey Grade",
+      "Woods Valley",
+      "Rangeland Road",
+      "Highland Valley",
+      "Dos Picos"
+    ],
+    "common_issues": [
+      "Low yield from fractured rock aquifers",
+      "Aging pump systems from 1980s-90s construction",
+      "Seasonal water table drops",
+      "Iron and manganese staining"
+    ],
+    "local_facts": [
+      "Over 4,000 private wells in Ramona area",
+      "Average well depth 200-400 feet",
+      "Most homes not connected to municipal water"
+    ]
+  },
+  "poway": {
+    "full_name": "Poway",
+    "county": "San Diego",
+    "nearest_office": "ramona",
+    "drive_time": "15 minutes from our Ramona office",
+    "housing": {
+      "median_year": 1988,
+      "era_description": "1970s-1990s suburban development with rural eastern areas",
+      "common_styles": [
+        "Suburban tract homes",
+        "Rural estates in East Poway",
+        "Custom hillside homes"
+      ],
+      "typical_lot_size": "0.25-5 acres (varies by area)",
+      "well_system_age": "East Poway wells typically 25-40 years old, many due for pump replacement"
+    },
+    "neighborhoods": [
+      "Old Poway",
+      "East Poway",
+      "Green Valley",
+      "Heritage Hills",
+      "Stone Canyon",
+      "Poway Valley",
+      "West Poway",
+      "High Valley"
+    ],
+    "common_issues": [
+      "Split community - city water west, wells east",
+      "Hard water from decomposed granite",
+      "Pressure issues on hillside properties"
+    ],
+    "local_facts": [
+      "East Poway remains on well water",
+      "Many 1980s developments now need well rehabilitation",
+      "Popular horse property area"
+    ]
+  },
+  "julian": {
+    "full_name": "Julian",
+    "county": "San Diego",
+    "nearest_office": "ramona",
+    "drive_time": "25 minutes from our Ramona office",
+    "housing": {
+      "median_year": 1975,
+      "era_description": "Mountain cabins, historic homes, and rural retreats from 1940s-2000s",
+      "common_styles": [
+        "Mountain cabins",
+        "A-frame homes",
+        "Historic Victorian-era buildings",
+        "Modern mountain homes"
+      ],
+      "typical_lot_size": "0.5-20 acres",
+      "well_system_age": "Mix of 40+ year old cabin wells and newer systems - many original wells undersized"
+    },
+    "neighborhoods": [
+      "Downtown Julian",
+      "Wynola",
+      "Santa Ysabel",
+      "Banner",
+      "Pine Hills",
+      "Harrison Park",
+      "Kentwood-in-the-Pines",
+      "Engineers Road"
+    ],
+    "common_issues": [
+      "Freeze damage to exposed pipes and pressure tanks",
+      "Lower yield at 4,200+ ft elevation",
+      "Power outages affecting pump systems",
+      "Wildfire risk areas"
+    ],
+    "local_facts": [
+      "Elevation 4,200 feet requires freeze protection",
+      "Winter temps drop below 20\u00b0F",
+      "Many seasonal/vacation homes"
+    ]
+  },
+  "escondido": {
+    "full_name": "Escondido",
+    "county": "San Diego",
+    "nearest_office": "ramona",
+    "drive_time": "20 minutes from our Ramona office",
+    "housing": {
+      "median_year": 1982,
+      "era_description": "Mix of 1960s-2000s suburban and rural agricultural properties",
+      "common_styles": [
+        "Suburban tract homes",
+        "Citrus grove estates",
+        "Rural avocado ranches"
+      ],
+      "typical_lot_size": "0.25-10 acres",
+      "well_system_age": "Rural Escondido wells often 30-50 years old from agricultural era"
+    },
+    "neighborhoods": [
+      "North Broadway",
+      "Hidden Meadows",
+      "Deer Springs",
+      "Valley Center Road corridor",
+      "Lake Wohlford area",
+      "Bear Valley",
+      "Jesmond Dene",
+      "Rincon"
+    ],
+    "common_issues": [
+      "Iron bacteria in older wells",
+      "Agricultural runoff concerns",
+      "Declining water tables in some areas"
+    ],
+    "local_facts": [
+      "Large agricultural community with irrigation wells",
+      "Citrus and avocado groves still active",
+      "Mix of city water and private wells"
+    ]
+  },
+  "valley-center": {
+    "full_name": "Valley Center",
+    "county": "San Diego",
+    "nearest_office": "ramona",
+    "drive_time": "20 minutes from our Ramona office",
+    "housing": {
+      "median_year": 1990,
+      "era_description": "Rural estates and agricultural properties, 1970s-2010s",
+      "common_styles": [
+        "Large estate homes",
+        "Ranch properties",
+        "Agricultural parcels with homes"
+      ],
+      "typical_lot_size": "2.5-40 acres",
+      "well_system_age": "Many wells 20-40 years old serving large properties with high water demand"
+    },
+    "neighborhoods": [
+      "Paradise Mountain",
+      "Woods Valley",
+      "Circle R Ranch",
+      "Lake Wohlford area",
+      "Cole Grade",
+      "Miller Road",
+      "Gopher Canyon",
+      "Lilac"
+    ],
+    "common_issues": [
+      "High water demand for agriculture and horses",
+      "Multiple buildings per property straining single wells",
+      "Seasonal fluctuation in yield"
+    ],
+    "local_facts": [
+      "Primarily agricultural/equestrian community",
+      "Most properties 2.5+ acres on wells",
+      "Avocado and citrus production area"
+    ]
+  },
+  "temecula": {
+    "full_name": "Temecula",
+    "county": "Riverside",
+    "nearest_office": "anza",
+    "drive_time": "35 minutes from our Anza office",
+    "housing": {
+      "median_year": 1998,
+      "era_description": "1990s-2010s wine country and master-planned communities",
+      "common_styles": [
+        "Tract homes in master-planned communities",
+        "Wine country estates",
+        "Horse properties"
+      ],
+      "typical_lot_size": "0.25-5 acres",
+      "well_system_age": "Wine country estates often have wells 15-30 years old for vineyard irrigation"
+    },
+    "neighborhoods": [
+      "Temecula Wine Country",
+      "De Luz",
+      "Redhawk",
+      "Morgan Hill",
+      "Vail Ranch",
+      "Wolf Creek",
+      "Pechanga",
+      "Rancho California"
+    ],
+    "common_issues": [
+      "Heavy irrigation demand from vineyards",
+      "Rapid development pressuring aquifer",
+      "Hard water common"
+    ],
+    "local_facts": [
+      "40+ wineries rely on well water",
+      "Mix of city water and rural wells",
+      "Growing population increasing water demand"
+    ]
+  },
+  "murrieta": {
+    "full_name": "Murrieta",
+    "county": "Riverside",
+    "nearest_office": "anza",
+    "drive_time": "40 minutes from our Anza office",
+    "housing": {
+      "median_year": 2002,
+      "era_description": "Newer master-planned communities with some rural areas",
+      "common_styles": [
+        "Suburban tract homes",
+        "Rural properties on outskirts"
+      ],
+      "typical_lot_size": "0.15-2 acres",
+      "well_system_age": "Rural area wells typically 20-35 years old, some newer agricultural wells"
+    },
+    "neighborhoods": [
+      "Greer Ranch",
+      "Bear Creek",
+      "California Oaks",
+      "French Valley",
+      "Murrieta Hot Springs",
+      "Winchester Road corridor"
+    ],
+    "common_issues": [
+      "Transition area from wells to city water",
+      "Hard water scale buildup",
+      "Development encroaching on well properties"
+    ],
+    "local_facts": [
+      "One of fastest growing cities in CA",
+      "Eastern rural areas still on wells",
+      "Historic hot springs area"
+    ]
+  },
+  "hemet": {
+    "full_name": "Hemet",
+    "county": "Riverside",
+    "nearest_office": "anza",
+    "drive_time": "25 minutes from our Anza office",
+    "housing": {
+      "median_year": 1985,
+      "era_description": "Retirement communities and agricultural properties from 1960s-2000s",
+      "common_styles": [
+        "Manufactured homes",
+        "Senior community homes",
+        "Agricultural estates"
+      ],
+      "typical_lot_size": "0.25-10 acres",
+      "well_system_age": "Many older agricultural wells from 1970s-80s serving rural properties"
+    },
+    "neighborhoods": [
+      "East Hemet",
+      "Winchester area",
+      "Diamond Valley",
+      "Sage",
+      "Florida Avenue corridor",
+      "Valle Vista"
+    ],
+    "common_issues": [
+      "Deeper wells needed due to declining water table",
+      "Iron and mineral content",
+      "Older pump equipment in senior communities"
+    ],
+    "local_facts": [
+      "Large senior population",
+      "San Jacinto River watershed",
+      "Significant agricultural history"
+    ]
+  },
+  "anza": {
+    "full_name": "Anza",
+    "county": "Riverside",
+    "nearest_office": "anza",
+    "drive_time": "Local - our second office is here",
+    "housing": {
+      "median_year": 1978,
+      "era_description": "Rural mountain properties and ranches from 1960s-present",
+      "common_styles": [
+        "Mountain homes",
+        "Ranch properties",
+        "Off-grid homesteads",
+        "Manufactured homes"
+      ],
+      "typical_lot_size": "2.5-100+ acres",
+      "well_system_age": "Wide range - some 50+ year old ranch wells, some newer solar-powered systems"
+    },
+    "neighborhoods": [
+      "Anza Townsite",
+      "Terwilliger",
+      "Burnt Valley",
+      "Table Mountain",
+      "Cahuilla",
+      "Tripp Flats",
+      "Thomas Mountain"
+    ],
+    "common_issues": [
+      "Remote locations complicate service",
+      "Freeze damage at 4,000+ ft elevation",
+      "Power outages common",
+      "Many off-grid properties"
+    ],
+    "local_facts": [
+      "4,000+ ft elevation",
+      "Freezing winters require pipe protection",
+      "Large cattle ranching community"
+    ]
+  },
+  "alpine": {
+    "full_name": "Alpine",
+    "county": "San Diego",
+    "nearest_office": "ramona",
+    "drive_time": "25 minutes from our Ramona office",
+    "housing": {
+      "median_year": 1980,
+      "era_description": "Rural mountain community with 1960s-2000s development",
+      "common_styles": [
+        "Ranch homes",
+        "Mountain retreats",
+        "Horse properties"
+      ],
+      "typical_lot_size": "1-20 acres",
+      "well_system_age": "Many wells 30-50 years old from original development, need rehabilitation"
+    },
+    "neighborhoods": [
+      "Japatul Valley",
+      "Alpine Heights",
+      "Viejas",
+      "Dehesa",
+      "Tavern Road",
+      "Willows Road",
+      "Peutz Valley"
+    ],
+    "common_issues": [
+      "Hard water from granite aquifer",
+      "Wildfire risk area",
+      "Low yield in some areas"
+    ],
+    "local_facts": [
+      "2,000 ft elevation",
+      "Popular horse community",
+      "Many properties on private wells"
+    ]
+  },
+  "el-cajon": {
+    "full_name": "El Cajon",
+    "county": "San Diego",
+    "nearest_office": "ramona",
+    "drive_time": "20 minutes from our Ramona office",
+    "housing": {
+      "median_year": 1972,
+      "era_description": "Mix of 1950s-1990s suburban and rural foothill properties",
+      "common_styles": [
+        "Post-war tract homes",
+        "Hillside custom homes",
+        "Rural foothill properties"
+      ],
+      "typical_lot_size": "0.25-5 acres",
+      "well_system_age": "Foothill properties often have 40-60 year old wells from original development"
+    },
+    "neighborhoods": [
+      "Bostonia",
+      "Crest",
+      "Harbison Canyon",
+      "Granite Hills",
+      "Fletcher Hills",
+      "Rancho San Diego",
+      "Singing Hills"
+    ],
+    "common_issues": [
+      "Older wells in hillside areas",
+      "Iron bacteria in some areas",
+      "Hard water staining"
+    ],
+    "local_facts": [
+      "Valley floor on city water, hills on wells",
+      "Growing interest in well rehabilitation",
+      "Hot summers increase water demand"
+    ]
+  },
+  "lakeside": {
+    "full_name": "Lakeside",
+    "county": "San Diego",
+    "nearest_office": "ramona",
+    "drive_time": "15 minutes from our Ramona office",
+    "housing": {
+      "median_year": 1978,
+      "era_description": "Rural equestrian community with 1960s-2000s development",
+      "common_styles": [
+        "Ranch properties",
+        "Horse estates",
+        "Rural single-family homes"
+      ],
+      "typical_lot_size": "1-10 acres",
+      "well_system_age": "Many 35-50 year old wells serving equestrian properties with high water demand"
+    },
+    "neighborhoods": [
+      "Blossom Valley",
+      "Winter Gardens",
+      "Johnstown",
+      "Moreno Valley",
+      "Wildcat Canyon",
+      "El Monte Valley",
+      "Flinn Springs"
+    ],
+    "common_issues": [
+      "High water demand for horses/livestock",
+      "Seasonal water table changes",
+      "Aging infrastructure from 1970s-80s"
+    ],
+    "local_facts": [
+      "Major equestrian community",
+      "Many properties 2+ acres",
+      "San Diego River watershed"
+    ]
+  },
+  "fallbrook": {
+    "full_name": "Fallbrook",
+    "county": "San Diego",
+    "nearest_office": "ramona",
+    "drive_time": "35 minutes from our Ramona office",
+    "housing": {
+      "median_year": 1988,
+      "era_description": "Avocado country with 1960s-2000s agricultural properties",
+      "common_styles": [
+        "Grove estates",
+        "Ranch homes",
+        "Agricultural parcels"
+      ],
+      "typical_lot_size": "2.5-40 acres",
+      "well_system_age": "Agricultural wells often 30-50 years old, high capacity for grove irrigation"
+    },
+    "neighborhoods": [
+      "De Luz",
+      "Rainbow",
+      "Live Oak Park",
+      "Monserate",
+      "Gird Road",
+      "Stage Coach Lane",
+      "Olive Hill"
+    ],
+    "common_issues": [
+      "Heavy irrigation demand",
+      "Iron bacteria in some wells",
+      "Declining water tables in drought years"
+    ],
+    "local_facts": [
+      "Avocado capital of the world",
+      "Most groves rely on wells",
+      "Agricultural heritage dating to 1900s"
+    ]
+  },
+  "bonsall": {
+    "full_name": "Bonsall",
+    "county": "San Diego",
+    "nearest_office": "ramona",
+    "drive_time": "30 minutes from our Ramona office",
+    "housing": {
+      "median_year": 1990,
+      "era_description": "Rural estates and citrus groves from 1970s-2010s",
+      "common_styles": [
+        "Estate homes",
+        "Citrus ranches",
+        "Horse properties"
+      ],
+      "typical_lot_size": "2.5-20 acres",
+      "well_system_age": "Mix of 25-40 year old wells, many upgraded for larger homes"
+    },
+    "neighborhoods": [
+      "Mount Olympus",
+      "Lake Rancho Viejo",
+      "West Lilac",
+      "Vista Valley",
+      "Pala Mesa",
+      "River Village",
+      "Moosa Canyon"
+    ],
+    "common_issues": [
+      "High water demand for landscaping and orchards",
+      "Hard water scale",
+      "Pump sizing for large estate homes"
+    ],
+    "local_facts": [
+      "Upscale rural community",
+      "Many multi-acre estates",
+      "Popular polo and equestrian area"
+    ]
+  },
+  "san-marcos": {
+    "full_name": "San Marcos",
+    "county": "San Diego",
+    "nearest_office": "ramona",
+    "drive_time": "25 minutes from our Ramona office",
+    "housing": {
+      "median_year": 1992,
+      "era_description": "1970s-2010s development, mix of suburban and rural",
+      "common_styles": [
+        "Suburban tract homes",
+        "Rural properties in hills"
+      ],
+      "typical_lot_size": "0.25-5 acres",
+      "well_system_age": "Hillside and rural properties often have 25-40 year old wells"
+    },
+    "neighborhoods": [
+      "Lake San Marcos",
+      "Twin Oaks Valley",
+      "Richmar",
+      "Barham",
+      "Woodland Park",
+      "Questhaven"
+    ],
+    "common_issues": [
+      "Split between city water and wells",
+      "Hard water in well areas",
+      "Older wells in Lake San Marcos area"
+    ],
+    "local_facts": [
+      "Cal State San Marcos area",
+      "Twin Oaks Valley rural corridor",
+      "Mix of suburban and agricultural"
+    ]
+  },
+  "idyllwild": {
+    "full_name": "Idyllwild",
+    "county": "Riverside",
+    "nearest_office": "anza",
+    "drive_time": "20 minutes from our Anza office",
+    "housing": {
+      "median_year": 1970,
+      "era_description": "Mountain cabins and retreats from 1940s-2000s",
+      "common_styles": [
+        "Mountain cabins",
+        "A-frames",
+        "Log homes",
+        "Artist retreats"
+      ],
+      "typical_lot_size": "0.25-5 acres",
+      "well_system_age": "Many cabin wells 40-60 years old, some still with original equipment"
+    },
+    "neighborhoods": [
+      "Fern Valley",
+      "Pine Cove",
+      "Mountain Center",
+      "Dutch Flat",
+      "Inspiration Point",
+      "Saunders Meadow"
+    ],
+    "common_issues": [
+      "Freeze damage at 5,400 ft elevation",
+      "Seasonal vacation home wells sitting unused",
+      "Limited access roads in winter"
+    ],
+    "local_facts": [
+      "5,400 ft elevation",
+      "Freezing temps November-March",
+      "Popular artist community and vacation destination"
+    ]
+  },
+  "borrego-springs": {
+    "full_name": "Borrego Springs",
+    "county": "San Diego",
+    "nearest_office": "ramona",
+    "drive_time": "45 minutes from our Ramona office",
+    "housing": {
+      "median_year": 1985,
+      "era_description": "Desert resort and retirement community from 1960s-2000s",
+      "common_styles": [
+        "Desert ranch homes",
+        "Golf course properties",
+        "Citrus estates"
+      ],
+      "typical_lot_size": "0.5-10 acres",
+      "well_system_age": "Desert wells often 30-50 years old, some very deep (400-600 ft)"
+    },
+    "neighborhoods": [
+      "The Springs",
+      "Rams Hill",
+      "De Anza Country Club",
+      "Borrego Valley",
+      "Christmas Circle"
+    ],
+    "common_issues": [
+      "Very deep wells (400-600+ ft)",
+      "Groundwater overdraft concerns",
+      "Sand in wells",
+      "Extreme heat affects equipment"
+    ],
+    "local_facts": [
+      "Desert location with hot summers",
+      "Anza-Borrego State Park surrounds town",
+      "Groundwater is only water source"
+    ]
+  },
+  "santee": {
+    "full_name": "Santee",
+    "county": "San Diego",
+    "nearest_office": "ramona",
+    "drive_time": "20 minutes from our Ramona office",
+    "housing": {
+      "median_year": 1978,
+      "era_description": "1960s-2000s suburban development with some rural pockets",
+      "common_styles": [
+        "Suburban tract homes",
+        "Rural properties on outskirts"
+      ],
+      "typical_lot_size": "0.25-2 acres",
+      "well_system_age": "Rural Santee wells typically 35-50 years old"
+    },
+    "neighborhoods": [
+      "Sycamore Canyon",
+      "West Santee",
+      "Fanita Ranch area",
+      "Walker Lane",
+      "Carlton Hills"
+    ],
+    "common_issues": [
+      "Mostly city water with pockets of wells",
+      "Hard water",
+      "Older well infrastructure"
+    ],
+    "local_facts": [
+      "San Diego River corridor",
+      "Growing suburban area",
+      "Limited well properties remaining"
+    ]
+  },
+  "menifee": {
+    "full_name": "Menifee",
+    "county": "Riverside",
+    "nearest_office": "anza",
+    "drive_time": "35 minutes from our Anza office",
+    "housing": {
+      "median_year": 2005,
+      "era_description": "Newer master-planned communities with some older rural areas",
+      "common_styles": [
+        "New tract homes",
+        "Senior communities",
+        "Rural properties"
+      ],
+      "typical_lot_size": "0.15-5 acres",
+      "well_system_age": "Older rural wells 30-40 years, but most new development on city water"
+    },
+    "neighborhoods": [
+      "Sun City",
+      "Quail Valley",
+      "Romoland",
+      "Homeland",
+      "Good Hope",
+      "Paloma Valley"
+    ],
+    "common_issues": [
+      "Transition from rural wells to city water",
+      "Hard water and scale",
+      "Older Sun City wells"
+    ],
+    "local_facts": [
+      "One of CA's newest cities (incorporated 2008)",
+      "Rapid growth area",
+      "Sun City retirement community"
+    ]
+  },
+  "lake-elsinore": {
+    "full_name": "Lake Elsinore",
+    "county": "Riverside",
+    "nearest_office": "anza",
+    "drive_time": "45 minutes from our Anza office",
+    "housing": {
+      "median_year": 1998,
+      "era_description": "Mix of historic lakeside homes and newer development",
+      "common_styles": [
+        "Lakefront properties",
+        "Hillside homes",
+        "Tract developments"
+      ],
+      "typical_lot_size": "0.25-2 acres",
+      "well_system_age": "Hillside properties may have 25-40 year old wells"
+    },
+    "neighborhoods": [
+      "Canyon Hills",
+      "Tuscany Hills",
+      "Lakeside",
+      "Horsethief Canyon",
+      "Temescal Canyon"
+    ],
+    "common_issues": [
+      "Variable water quality",
+      "Hillside properties on wells",
+      "Hot summers increase demand"
+    ],
+    "local_facts": [
+      "Historic resort lake",
+      "Growing suburban area",
+      "Mix of well and city water"
+    ]
+  },
+  "vista": {
+    "full_name": "Vista",
+    "county": "San Diego",
+    "nearest_office": "ramona",
+    "drive_time": "30 minutes from our Ramona office",
+    "housing": {
+      "median_year": 1985,
+      "era_description": "Mix of suburban and agricultural properties from 1960s-2000s",
+      "common_styles": [
+        "Suburban tract homes",
+        "Avocado ranches",
+        "Rural estates"
+      ],
+      "typical_lot_size": "0.25-10 acres",
+      "well_system_age": "Agricultural wells often 30-50 years old, residential wells 25-40 years"
+    },
+    "neighborhoods": [
+      "Shadowridge",
+      "Buena Creek",
+      "Olive Avenue corridor",
+      "East Vista",
+      "Lake View"
+    ],
+    "common_issues": [
+      "Agricultural wells converted to residential use",
+      "Iron bacteria",
+      "Hard water"
+    ],
+    "local_facts": [
+      "Historic flower and avocado growing region",
+      "Mix of urban and rural",
+      "Strong agricultural heritage"
+    ]
+  },
+  "oceanside": {
+    "full_name": "Oceanside",
+    "county": "San Diego",
+    "nearest_office": "ramona",
+    "drive_time": "35 minutes from our Ramona office",
+    "housing": {
+      "median_year": 1985,
+      "era_description": "Coastal city with inland rural pockets from 1950s-2000s",
+      "common_styles": [
+        "Suburban homes",
+        "Beach properties",
+        "Rural inland estates"
+      ],
+      "typical_lot_size": "0.25-5 acres (inland)",
+      "well_system_age": "Inland Oceanside wells typically 30-45 years old"
+    },
+    "neighborhoods": [
+      "Morro Hills",
+      "Ivey Ranch",
+      "Fire Mountain",
+      "Peacock",
+      "Rancho Del Oro"
+    ],
+    "common_issues": [
+      "Mostly city water, some inland wells",
+      "Hard water",
+      "Older agricultural wells"
+    ],
+    "local_facts": [
+      "Camp Pendleton neighbor",
+      "Mix of coastal and inland",
+      "Growing east Oceanside area"
+    ]
+  },
+  "perris": {
+    "full_name": "Perris",
+    "county": "Riverside",
+    "nearest_office": "anza",
+    "drive_time": "40 minutes from our Anza office",
+    "housing": {
+      "median_year": 1995,
+      "era_description": "Mix of agricultural properties and newer tract development",
+      "common_styles": [
+        "Tract homes",
+        "Agricultural estates",
+        "Industrial properties"
+      ],
+      "typical_lot_size": "0.25-10 acres",
+      "well_system_age": "Agricultural wells 30-50 years old, residential wells typically newer"
+    },
+    "neighborhoods": [
+      "Good Hope",
+      "Mead Valley",
+      "Lake Perris area",
+      "Perris Valley",
+      "Ellis Avenue corridor"
+    ],
+    "common_issues": [
+      "Agricultural wells transitioning to residential",
+      "Hard water",
+      "Some areas with poor yield"
+    ],
+    "local_facts": [
+      "Lake Perris State Recreation Area",
+      "Warehouse distribution center growth",
+      "Historic agricultural area"
+    ]
+  },
+  "beaumont": {
+    "full_name": "Beaumont",
+    "county": "Riverside",
+    "nearest_office": "anza",
+    "drive_time": "30 minutes from our Anza office",
+    "housing": {
+      "median_year": 2005,
+      "era_description": "Rapidly growing community with 1990s-2020s development",
+      "common_styles": [
+        "New tract homes",
+        "Senior communities",
+        "Cherry farming properties"
+      ],
+      "typical_lot_size": "0.15-5 acres",
+      "well_system_age": "Older rural wells 30-50 years, most new homes on city water"
+    },
+    "neighborhoods": [
+      "Oak Valley",
+      "Beaumont Towne Center",
+      "Tournament Hills",
+      "Sundance",
+      "Cherry Valley"
+    ],
+    "common_issues": [
+      "Rapid growth stressing water supply",
+      "Cherry Valley still on wells",
+      "Hard water"
+    ],
+    "local_facts": [
+      "Cherry growing heritage",
+      "San Gorgonio Pass location",
+      "Major growth area"
+    ]
+  },
+  "banning": {
+    "full_name": "Banning",
+    "county": "Riverside",
+    "nearest_office": "anza",
+    "drive_time": "35 minutes from our Anza office",
+    "housing": {
+      "median_year": 1980,
+      "era_description": "Historic pass city with 1950s-2000s development",
+      "common_styles": [
+        "Ranch homes",
+        "Mobile homes",
+        "Rural properties"
+      ],
+      "typical_lot_size": "0.25-5 acres",
+      "well_system_age": "Many wells 35-50 years old from earlier development"
+    },
+    "neighborhoods": [
+      "Sun Lakes",
+      "Banning Bench",
+      "Morongo Road corridor",
+      "Highland Springs"
+    ],
+    "common_issues": [
+      "Wind damage to exposed equipment",
+      "Sandy soil affects wells",
+      "Hard water scale"
+    ],
+    "local_facts": [
+      "San Gorgonio Pass - famous for wind",
+      "Historic railroad town",
+      "Gateway to desert"
+    ]
+  },
+  "san-jacinto": {
+    "full_name": "San Jacinto",
+    "county": "Riverside",
+    "nearest_office": "anza",
+    "drive_time": "25 minutes from our Anza office",
+    "housing": {
+      "median_year": 1990,
+      "era_description": "Mix of historic town and newer development from 1970s-2010s",
+      "common_styles": [
+        "Ranch homes",
+        "Tract developments",
+        "Agricultural properties"
+      ],
+      "typical_lot_size": "0.25-10 acres",
+      "well_system_age": "Rural wells typically 30-45 years old"
+    },
+    "neighborhoods": [
+      "Soboba",
+      "Gilman Springs",
+      "Hemet West",
+      "Park Hill",
+      "Downtown San Jacinto"
+    ],
+    "common_issues": [
+      "Hard water prevalent",
+      "Older infrastructure in historic areas",
+      "Agricultural well conversion"
+    ],
+    "local_facts": [
+      "Historic downtown area",
+      "Near San Jacinto Mountains",
+      "Growing community"
+    ]
+  },
+  "winchester": {
+    "full_name": "Winchester",
+    "county": "Riverside",
+    "nearest_office": "anza",
+    "drive_time": "30 minutes from our Anza office",
+    "housing": {
+      "median_year": 2000,
+      "era_description": "Rapidly developing area with older rural properties",
+      "common_styles": [
+        "New tract homes",
+        "Horse properties",
+        "Agricultural estates"
+      ],
+      "typical_lot_size": "0.25-10 acres",
+      "well_system_age": "Rural wells 25-40 years old, many properties transitioning to city water"
+    },
+    "neighborhoods": [
+      "French Valley",
+      "Winchester Road corridor",
+      "Auld Road area",
+      "Cherry Hills"
+    ],
+    "common_issues": [
+      "Transition from wells to city water",
+      "High demand horse properties",
+      "Hard water"
+    ],
+    "local_facts": [
+      "Near French Valley Airport",
+      "Equestrian community",
+      "Rapid growth area"
+    ]
+  },
+  "wildomar": {
+    "full_name": "Wildomar",
+    "county": "Riverside",
+    "nearest_office": "anza",
+    "drive_time": "40 minutes from our Anza office",
+    "housing": {
+      "median_year": 1995,
+      "era_description": "Growing suburban area with rural pockets from 1980s-2010s",
+      "common_styles": [
+        "Tract homes",
+        "Rural estates",
+        "Horse properties"
+      ],
+      "typical_lot_size": "0.25-5 acres",
+      "well_system_age": "Rural wells typically 25-40 years old"
+    },
+    "neighborhoods": [
+      "Palomar",
+      "Grand Avenue area",
+      "Sedco Hills",
+      "Windmill Farms"
+    ],
+    "common_issues": [
+      "Mix of well and city water",
+      "Hard water scale",
+      "Older rural infrastructure"
+    ],
+    "local_facts": [
+      "Incorporated 2008",
+      "Former unincorporated Riverside County",
+      "Growing suburban area"
+    ]
+  },
+  "aguanga": {
+    "full_name": "Aguanga",
+    "county": "Riverside",
+    "nearest_office": "anza",
+    "drive_time": "15 minutes from our Anza office",
+    "housing": {
+      "median_year": 1985,
+      "era_description": "Remote rural area with ranches and homesteads from 1960s-2000s",
+      "common_styles": [
+        "Ranch properties",
+        "Rural homesteads",
+        "Manufactured homes on acreage"
+      ],
+      "typical_lot_size": "5-100+ acres",
+      "well_system_age": "Many wells 35-50 years old, some ranch wells even older"
+    },
+    "neighborhoods": [
+      "Tule Springs",
+      "Oak Cliff",
+      "Sage Road",
+      "Highway 79 corridor",
+      "Cahuilla Road"
+    ],
+    "common_issues": [
+      "Remote location complicates service",
+      "Very deep wells in some areas",
+      "Power reliability issues"
+    ],
+    "local_facts": [
+      "Very rural, unincorporated area",
+      "Cattle ranching community",
+      "Limited services available"
+    ]
+  },
+  "de-luz": {
+    "full_name": "De Luz",
+    "county": "San Diego",
+    "nearest_office": "ramona",
+    "drive_time": "40 minutes from our Ramona office",
+    "housing": {
+      "median_year": 1990,
+      "era_description": "Exclusive rural estates and ranches from 1970s-2010s",
+      "common_styles": [
+        "Luxury estates",
+        "Horse ranches",
+        "Vineyard properties"
+      ],
+      "typical_lot_size": "5-100+ acres",
+      "well_system_age": "Estate wells often custom-designed, 15-35 years old"
+    },
+    "neighborhoods": [
+      "De Luz Road corridor",
+      "Rice Canyon",
+      "Sandia Creek",
+      "De Luz Heights"
+    ],
+    "common_issues": [
+      "High water demand for estates",
+      "Remote access",
+      "Custom systems requiring specialized service"
+    ],
+    "local_facts": [
+      "Ultra-private community",
+      "Many gated estates",
+      "Wine country area"
+    ]
+  },
+  "apple-valley": {
+    "full_name": "Apple Valley",
+    "county": "San Bernardino",
+    "nearest_office": "anza",
+    "drive_time": "90 minutes from our Anza office",
+    "housing": {
+      "median_year": 1988,
+      "era_description": "High desert community with 1960s-2000s development",
+      "common_styles": [
+        "Desert ranch homes",
+        "Retirement homes",
+        "Equestrian properties"
+      ],
+      "typical_lot_size": "0.5-10 acres",
+      "well_system_age": "Many wells 30-50 years old from original development"
+    },
+    "neighborhoods": [
+      "South Apple Valley",
+      "North Apple Valley",
+      "Jess Ranch",
+      "Apple Valley Ranchos"
+    ],
+    "common_issues": [
+      "Deep wells (300-500+ ft)",
+      "Hard water and mineral content",
+      "Desert heat affects equipment"
+    ],
+    "local_facts": [
+      "High desert at 2,900 ft elevation",
+      "Many properties still on wells",
+      "Former ranch community"
+    ]
+  },
+  "victorville": {
+    "full_name": "Victorville",
+    "county": "San Bernardino",
+    "nearest_office": "anza",
+    "drive_time": "85 minutes from our Anza office",
+    "housing": {
+      "median_year": 1990,
+      "era_description": "High desert city with 1950s-2010s development",
+      "common_styles": [
+        "Tract homes",
+        "Desert ranch properties",
+        "Commercial/industrial"
+      ],
+      "typical_lot_size": "0.25-5 acres",
+      "well_system_age": "Rural wells typically 30-50 years old"
+    },
+    "neighborhoods": [
+      "Spring Valley Lake",
+      "Old Town Victorville",
+      "Bear Valley Road corridor",
+      "Mojave Fish Hatchery area"
+    ],
+    "common_issues": [
+      "Deep wells required",
+      "Hard water and scale",
+      "Sand in wells"
+    ],
+    "local_facts": [
+      "Major high desert city",
+      "Historic Route 66 town",
+      "Logistics hub"
+    ]
+  },
+  "hesperia": {
+    "full_name": "Hesperia",
+    "county": "San Bernardino",
+    "nearest_office": "anza",
+    "drive_time": "80 minutes from our Anza office",
+    "housing": {
+      "median_year": 1992,
+      "era_description": "High desert community with 1970s-2010s development",
+      "common_styles": [
+        "Ranch homes",
+        "Desert properties",
+        "Equestrian estates"
+      ],
+      "typical_lot_size": "0.5-5 acres",
+      "well_system_age": "Many wells 25-45 years old"
+    },
+    "neighborhoods": [
+      "Mesa",
+      "Oak Hills",
+      "Phelan",
+      "Summit Valley",
+      "Hesperia Lakes"
+    ],
+    "common_issues": [
+      "Deep desert wells",
+      "Hard water scale",
+      "Dust and sand affecting equipment"
+    ],
+    "local_facts": [
+      "Gateway to mountains",
+      "Strong equestrian community",
+      "Mix of rural and suburban"
+    ]
+  },
+  "yucca-valley": {
+    "full_name": "Yucca Valley",
+    "county": "San Bernardino",
+    "nearest_office": "anza",
+    "drive_time": "70 minutes from our Anza office",
+    "housing": {
+      "median_year": 1985,
+      "era_description": "High desert community near Joshua Tree from 1950s-2000s",
+      "common_styles": [
+        "Desert homes",
+        "Vacation properties",
+        "Ranch homes"
+      ],
+      "typical_lot_size": "0.5-5 acres",
+      "well_system_age": "Many wells 30-50 years old, some vacation homes have older unmaintained wells"
+    },
+    "neighborhoods": [
+      "Joshua Tree",
+      "Yucca Mesa",
+      "Flamingo Heights",
+      "Landers",
+      "Morongo Basin"
+    ],
+    "common_issues": [
+      "Very deep wells required",
+      "Hard water",
+      "Remote vacation homes with neglected wells"
+    ],
+    "local_facts": [
+      "Adjacent to Joshua Tree National Park",
+      "Growing vacation rental market",
+      "Artist community"
+    ]
+  },
+  "adelanto": {
+    "full_name": "Adelanto",
+    "county": "San Bernardino",
+    "nearest_office": "anza",
+    "drive_time": "95 minutes from our Anza office",
+    "housing": {
+      "median_year": 1995,
+      "era_description": "High desert community with 1980s-2010s development",
+      "common_styles": [
+        "Desert tract homes",
+        "Rural properties",
+        "Mobile homes"
+      ],
+      "typical_lot_size": "0.25-5 acres",
+      "well_system_age": "Rural wells typically 25-40 years old"
+    },
+    "neighborhoods": [
+      "El Mirage",
+      "Adelanto Road corridor",
+      "Air Expressway area",
+      "Jonathan Avenue"
+    ],
+    "common_issues": [
+      "Very deep wells needed",
+      "Hard water and minerals",
+      "Desert heat on equipment"
+    ],
+    "local_facts": [
+      "High desert at 2,900 ft elevation",
+      "Former Air Force base area",
+      "Growing logistics hub"
+    ]
+  },
+  "barstow": {
+    "full_name": "Barstow",
+    "county": "San Bernardino",
+    "nearest_office": "anza",
+    "drive_time": "2 hours from our Anza office",
+    "housing": {
+      "median_year": 1975,
+      "era_description": "Historic desert crossroads town from 1940s-2000s",
+      "common_styles": [
+        "Desert ranch homes",
+        "Mobile homes",
+        "Historic downtown buildings"
+      ],
+      "typical_lot_size": "0.25-10 acres",
+      "well_system_age": "Many wells 40-60 years old from railroad and mining era"
+    },
+    "neighborhoods": [
+      "Lenwood",
+      "Yermo",
+      "Newberry Springs",
+      "Daggett",
+      "Hinkley"
+    ],
+    "common_issues": [
+      "Extreme deep wells (500+ ft)",
+      "Hard water and minerals",
+      "Extreme heat 115\u00b0F summers"
+    ],
+    "local_facts": [
+      "Historic Route 66 and railroad town",
+      "Gateway to Death Valley",
+      "Mojave Desert location"
+    ]
+  },
+  "big-bear-lake": {
+    "full_name": "Big Bear Lake",
+    "county": "San Bernardino",
+    "nearest_office": "anza",
+    "drive_time": "75 minutes from our Anza office",
+    "housing": {
+      "median_year": 1975,
+      "era_description": "Mountain resort cabins and vacation homes from 1920s-2000s",
+      "common_styles": [
+        "Mountain cabins",
+        "A-frames",
+        "Ski chalets",
+        "Vacation rentals"
+      ],
+      "typical_lot_size": "0.25-2 acres",
+      "well_system_age": "Many cabin wells 40-70 years old, vacation homes often have neglected systems"
+    },
+    "neighborhoods": [
+      "Big Bear City",
+      "Fawnskin",
+      "Sugarloaf",
+      "Moonridge",
+      "Boulder Bay",
+      "Metcalf Bay"
+    ],
+    "common_issues": [
+      "Freeze damage at 6,700 ft elevation",
+      "Seasonal homes with sitting wells",
+      "Limited winter access"
+    ],
+    "local_facts": [
+      "6,700 ft elevation - freezes October-April",
+      "Major ski resort area",
+      "Vacation rental market"
+    ]
+  },
+  "boulevard": {
+    "full_name": "Boulevard",
+    "county": "San Diego",
+    "nearest_office": "ramona",
+    "drive_time": "50 minutes from our Ramona office",
+    "housing": {
+      "median_year": 1975,
+      "era_description": "Remote rural community with ranches from 1950s-2000s",
+      "common_styles": [
+        "Ranch homes",
+        "Off-grid homesteads",
+        "Mobile homes on acreage"
+      ],
+      "typical_lot_size": "5-100+ acres",
+      "well_system_age": "Many ranch wells 40-60 years old, some off-grid solar systems"
+    },
+    "neighborhoods": [
+      "Manzanita",
+      "Live Oak Springs",
+      "Campo Road corridor",
+      "Tierra del Sol"
+    ],
+    "common_issues": [
+      "Very remote location",
+      "Deep wells needed",
+      "Power outages common"
+    ],
+    "local_facts": [
+      "Backcountry near Mexico border",
+      "Wind farm area",
+      "Extremely rural, limited services"
+    ]
+  },
+  "campo": {
+    "full_name": "Campo",
+    "county": "San Diego",
+    "nearest_office": "ramona",
+    "drive_time": "45 minutes from our Ramona office",
+    "housing": {
+      "median_year": 1970,
+      "era_description": "Historic railroad town with rural ranches from 1900s-2000s",
+      "common_styles": [
+        "Historic buildings",
+        "Ranch properties",
+        "Rural homesteads"
+      ],
+      "typical_lot_size": "5-100+ acres",
+      "well_system_age": "Many wells 40-70 years old from ranching era"
+    },
+    "neighborhoods": [
+      "Campo Valley",
+      "Cameron Corners",
+      "Lake Morena",
+      "Potrero"
+    ],
+    "common_issues": [
+      "Remote backcountry location",
+      "Older well infrastructure",
+      "Fire risk area"
+    ],
+    "local_facts": [
+      "Historic Pacific Southwest Railway",
+      "Lake Morena recreation area",
+      "Near Mexico border"
+    ]
+  },
+  "carlsbad": {
+    "full_name": "Carlsbad",
+    "county": "San Diego",
+    "nearest_office": "ramona",
+    "drive_time": "35 minutes from our Ramona office",
+    "housing": {
+      "median_year": 1988,
+      "era_description": "Coastal city with inland flower fields from 1970s-2010s",
+      "common_styles": [
+        "Suburban homes",
+        "Coastal properties",
+        "Agricultural estates"
+      ],
+      "typical_lot_size": "0.25-5 acres",
+      "well_system_age": "Inland agricultural wells 30-50 years old"
+    },
+    "neighborhoods": [
+      "La Costa",
+      "Aviara",
+      "Carlsbad Village",
+      "Bressi Ranch",
+      "Calavera Hills"
+    ],
+    "common_issues": [
+      "Mostly city water, few inland wells",
+      "Hard water in well areas",
+      "Agricultural well conversion"
+    ],
+    "local_facts": [
+      "Famous flower fields",
+      "LEGOLAND location",
+      "Mix of coastal and agricultural"
+    ]
+  },
+  "cathedral-city": {
+    "full_name": "Cathedral City",
+    "county": "Riverside",
+    "nearest_office": "anza",
+    "drive_time": "50 minutes from our Anza office",
+    "housing": {
+      "median_year": 1990,
+      "era_description": "Desert resort city with 1970s-2010s development",
+      "common_styles": [
+        "Desert homes",
+        "Golf course properties",
+        "Condos"
+      ],
+      "typical_lot_size": "0.25-1 acre",
+      "well_system_age": "Mostly on city water, some older residential wells 30-40 years"
+    },
+    "neighborhoods": [
+      "Dream Homes",
+      "Panorama",
+      "Cathedral Canyon",
+      "Landau"
+    ],
+    "common_issues": [
+      "Desert heat affects equipment",
+      "Hard water",
+      "Limited well properties"
+    ],
+    "local_facts": [
+      "Part of Coachella Valley",
+      "Near Palm Springs",
+      "Desert resort community"
+    ]
+  },
+  "colton": {
+    "full_name": "Colton",
+    "county": "San Bernardino",
+    "nearest_office": "anza",
+    "drive_time": "60 minutes from our Anza office",
+    "housing": {
+      "median_year": 1975,
+      "era_description": "Historic railroad city with 1950s-2000s development",
+      "common_styles": [
+        "Post-war tract homes",
+        "Industrial properties",
+        "Rural outskirts"
+      ],
+      "typical_lot_size": "0.25-2 acres",
+      "well_system_age": "Mostly city water, rural wells 35-50 years old"
+    },
+    "neighborhoods": [
+      "Reche Canyon",
+      "South Colton",
+      "La Loma Hills",
+      "Grand Terrace border"
+    ],
+    "common_issues": [
+      "Hard water scale",
+      "Industrial area contamination concerns",
+      "Older infrastructure"
+    ],
+    "local_facts": [
+      "Historic railroad hub",
+      "Hub City",
+      "Near San Bernardino"
+    ]
+  },
+  "crestline": {
+    "full_name": "Crestline",
+    "county": "San Bernardino",
+    "nearest_office": "anza",
+    "drive_time": "70 minutes from our Anza office",
+    "housing": {
+      "median_year": 1965,
+      "era_description": "Mountain resort community with cabins from 1920s-2000s",
+      "common_styles": [
+        "Mountain cabins",
+        "A-frames",
+        "Vacation homes"
+      ],
+      "typical_lot_size": "0.25-1 acre",
+      "well_system_age": "Many cabin wells 50-70 years old, often neglected"
+    },
+    "neighborhoods": [
+      "Lake Gregory",
+      "Valley of Enchantment",
+      "Blue Jay",
+      "Twin Peaks"
+    ],
+    "common_issues": [
+      "Freeze damage at 4,700 ft",
+      "Seasonal homes with sitting wells",
+      "Fire evacuation zones"
+    ],
+    "local_facts": [
+      "San Bernardino Mountains",
+      "Lake Gregory resort area",
+      "Heavy snow in winter"
+    ]
+  },
+  "cuyamaca": {
+    "full_name": "Cuyamaca",
+    "county": "San Diego",
+    "nearest_office": "ramona",
+    "drive_time": "35 minutes from our Ramona office",
+    "housing": {
+      "median_year": 1970,
+      "era_description": "Remote mountain cabins and ranches from 1940s-2000s",
+      "common_styles": [
+        "Mountain cabins",
+        "Ranch properties",
+        "Vacation retreats"
+      ],
+      "typical_lot_size": "1-40 acres",
+      "well_system_age": "Many wells 40-60 years old, some damaged in 2003 fire"
+    },
+    "neighborhoods": [
+      "Cuyamaca Woods",
+      "Engineer Springs",
+      "State Park area",
+      "Descanso Junction"
+    ],
+    "common_issues": [
+      "Freeze damage at 4,500 ft",
+      "Fire damage to infrastructure",
+      "Remote access"
+    ],
+    "local_facts": [
+      "4,500 ft elevation",
+      "Cuyamaca Rancho State Park",
+      "2003 Cedar Fire devastated area"
+    ]
+  },
+  "descanso": {
+    "full_name": "Descanso",
+    "county": "San Diego",
+    "nearest_office": "ramona",
+    "drive_time": "30 minutes from our Ramona office",
+    "housing": {
+      "median_year": 1975,
+      "era_description": "Mountain valley community with homes from 1950s-2000s",
+      "common_styles": [
+        "Rural homes",
+        "Ranch properties",
+        "Mountain retreats"
+      ],
+      "typical_lot_size": "1-20 acres",
+      "well_system_age": "Many wells 35-50 years old"
+    },
+    "neighborhoods": [
+      "Descanso Valley",
+      "Viejas area",
+      "Alpine border",
+      "Guatay"
+    ],
+    "common_issues": [
+      "Hard water from granite",
+      "Fire risk area",
+      "Seasonal water table changes"
+    ],
+    "local_facts": [
+      "3,400 ft elevation",
+      "Descanso Gardens nearby",
+      "Rural mountain community"
+    ]
+  },
+  "encinitas": {
+    "full_name": "Encinitas",
+    "county": "San Diego",
+    "nearest_office": "ramona",
+    "drive_time": "35 minutes from our Ramona office",
+    "housing": {
+      "median_year": 1985,
+      "era_description": "Coastal city with inland flower farms from 1960s-2010s",
+      "common_styles": [
+        "Beach homes",
+        "Suburban tract homes",
+        "Flower farm estates"
+      ],
+      "typical_lot_size": "0.25-5 acres",
+      "well_system_age": "Inland agricultural wells 30-50 years old"
+    },
+    "neighborhoods": [
+      "Leucadia",
+      "Olivenhain",
+      "Cardiff-by-the-Sea",
+      "New Encinitas",
+      "Old Encinitas"
+    ],
+    "common_issues": [
+      "Mostly city water, few inland wells",
+      "Agricultural well conversion",
+      "Hard water"
+    ],
+    "local_facts": [
+      "Historic flower growing region",
+      "Surfing community",
+      "Mix of beach and rural"
+    ]
+  },
+  "fontana": {
+    "full_name": "Fontana",
+    "county": "San Bernardino",
+    "nearest_office": "anza",
+    "drive_time": "65 minutes from our Anza office",
+    "housing": {
+      "median_year": 1995,
+      "era_description": "Former steel town with 1980s-2010s suburban growth",
+      "common_styles": [
+        "Tract homes",
+        "Industrial properties",
+        "Rural north Fontana"
+      ],
+      "typical_lot_size": "0.25-5 acres",
+      "well_system_age": "North Fontana rural wells 30-50 years old"
+    },
+    "neighborhoods": [
+      "North Fontana",
+      "Sierra Lakes",
+      "Summit Heights",
+      "Southridge"
+    ],
+    "common_issues": [
+      "Mostly city water",
+      "Industrial contamination concerns in some areas",
+      "Hard water"
+    ],
+    "local_facts": [
+      "Former Kaiser Steel town",
+      "Auto Club Speedway",
+      "Rapid suburban growth"
+    ]
+  },
+  "highland": {
+    "full_name": "Highland",
+    "county": "San Bernardino",
+    "nearest_office": "anza",
+    "drive_time": "55 minutes from our Anza office",
+    "housing": {
+      "median_year": 1990,
+      "era_description": "Foothill community with 1970s-2010s development",
+      "common_styles": [
+        "Tract homes",
+        "Foothill estates",
+        "Citrus properties"
+      ],
+      "typical_lot_size": "0.25-5 acres",
+      "well_system_age": "Foothill wells 25-40 years old"
+    },
+    "neighborhoods": [
+      "East Highland",
+      "Del Rosa",
+      "Greenspot",
+      "Mill Creek"
+    ],
+    "common_issues": [
+      "Foothill properties on wells",
+      "Hard water from mountain runoff",
+      "Fire risk"
+    ],
+    "local_facts": [
+      "San Bernardino Mountains foothills",
+      "Historic citrus area",
+      "Near San Manuel Casino"
+    ]
+  },
+  "indio": {
+    "full_name": "Indio",
+    "county": "Riverside",
+    "nearest_office": "anza",
+    "drive_time": "55 minutes from our Anza office",
+    "housing": {
+      "median_year": 1995,
+      "era_description": "Desert agricultural city with 1960s-2010s development",
+      "common_styles": [
+        "Desert homes",
+        "Date farm properties",
+        "Tract developments"
+      ],
+      "typical_lot_size": "0.25-10 acres",
+      "well_system_age": "Agricultural wells 30-60 years old"
+    },
+    "neighborhoods": [
+      "North Indio",
+      "Shadow Hills",
+      "Terra Lago",
+      "Bermuda Dunes border"
+    ],
+    "common_issues": [
+      "Deep wells needed",
+      "Hard water and minerals",
+      "Extreme heat 120\u00b0F summers"
+    ],
+    "local_facts": [
+      "Date palm capital",
+      "Coachella Music Festival location",
+      "Agricultural heritage"
+    ]
+  },
+  "jacumba": {
+    "full_name": "Jacumba Hot Springs",
+    "county": "San Diego",
+    "nearest_office": "ramona",
+    "drive_time": "55 minutes from our Ramona office",
+    "housing": {
+      "median_year": 1965,
+      "era_description": "Historic hot springs resort with homes from 1920s-2000s",
+      "common_styles": [
+        "Desert homes",
+        "Historic spa properties",
+        "Mobile homes"
+      ],
+      "typical_lot_size": "0.5-10 acres",
+      "well_system_age": "Many wells 50-70 years old from resort era"
+    },
+    "neighborhoods": [
+      "Jacumba Hot Springs",
+      "In-Ko-Pah",
+      "Mountain Springs"
+    ],
+    "common_issues": [
+      "Very remote location",
+      "Older infrastructure",
+      "Desert heat"
+    ],
+    "local_facts": [
+      "Historic hot springs resort",
+      "Near Mexico border",
+      "High desert at 2,800 ft"
+    ]
+  },
+  "jamul": {
+    "full_name": "Jamul",
+    "county": "San Diego",
+    "nearest_office": "ramona",
+    "drive_time": "30 minutes from our Ramona office",
+    "housing": {
+      "median_year": 1985,
+      "era_description": "Rural community with ranches from 1960s-2000s",
+      "common_styles": [
+        "Ranch homes",
+        "Rural estates",
+        "Horse properties"
+      ],
+      "typical_lot_size": "2.5-40 acres",
+      "well_system_age": "Many wells 30-50 years old"
+    },
+    "neighborhoods": [
+      "Jamul Highlands",
+      "Deerhorn Valley",
+      "Steel Canyon",
+      "Lyons Valley"
+    ],
+    "common_issues": [
+      "Fire risk area",
+      "Low yield in some areas",
+      "Hard water"
+    ],
+    "local_facts": [
+      "Rural equestrian community",
+      "Near Jamul Casino",
+      "Unincorporated San Diego County"
+    ]
+  },
+  "joshua-tree": {
+    "full_name": "Joshua Tree",
+    "county": "San Bernardino",
+    "nearest_office": "anza",
+    "drive_time": "65 minutes from our Anza office",
+    "housing": {
+      "median_year": 1980,
+      "era_description": "High desert community near national park from 1950s-2000s",
+      "common_styles": [
+        "Desert cabins",
+        "Vacation rentals",
+        "Artist homes"
+      ],
+      "typical_lot_size": "0.5-5 acres",
+      "well_system_age": "Many wells 35-60 years old, vacation homes often neglected"
+    },
+    "neighborhoods": [
+      "Downtown Joshua Tree",
+      "Twentynine Palms Highway",
+      "Sunfair",
+      "Yucca Mesa"
+    ],
+    "common_issues": [
+      "Very deep wells required",
+      "Hard water and minerals",
+      "Vacation home neglect"
+    ],
+    "local_facts": [
+      "Gateway to Joshua Tree National Park",
+      "Artist and music community",
+      "Vacation rental boom"
+    ]
+  },
+  "la-mesa": {
+    "full_name": "La Mesa",
+    "county": "San Diego",
+    "nearest_office": "ramona",
+    "drive_time": "25 minutes from our Ramona office",
+    "housing": {
+      "median_year": 1965,
+      "era_description": "Established suburban city with 1940s-1990s development",
+      "common_styles": [
+        "Post-war tract homes",
+        "Mid-century homes",
+        "Hillside properties"
+      ],
+      "typical_lot_size": "0.25-1 acre",
+      "well_system_age": "Mostly city water, some hillside wells 50-70 years old"
+    },
+    "neighborhoods": [
+      "Mount Helix",
+      "Grossmont",
+      "La Mesa Village",
+      "Spring Valley border"
+    ],
+    "common_issues": [
+      "Limited well properties",
+      "Older hillside infrastructure",
+      "Hard water"
+    ],
+    "local_facts": [
+      "Jewel of the Hills",
+      "Near SDSU",
+      "Established suburban community"
+    ]
+  },
+  "la-quinta": {
+    "full_name": "La Quinta",
+    "county": "Riverside",
+    "nearest_office": "anza",
+    "drive_time": "55 minutes from our Anza office",
+    "housing": {
+      "median_year": 2000,
+      "era_description": "Desert resort city with 1980s-2010s development",
+      "common_styles": [
+        "Golf course homes",
+        "Desert estates",
+        "Resort properties"
+      ],
+      "typical_lot_size": "0.25-2 acres",
+      "well_system_age": "Mostly city water, some estate wells 20-35 years old"
+    },
+    "neighborhoods": [
+      "La Quinta Cove",
+      "PGA West",
+      "Tradition",
+      "The Citrus"
+    ],
+    "common_issues": [
+      "Desert heat on equipment",
+      "Hard water scale",
+      "Limited well properties"
+    ],
+    "local_facts": [
+      "Famous golf resort area",
+      "Near Indian Wells",
+      "Desert luxury community"
+    ]
+  },
+  "lake-arrowhead": {
+    "full_name": "Lake Arrowhead",
+    "county": "San Bernardino",
+    "nearest_office": "anza",
+    "drive_time": "75 minutes from our Anza office",
+    "housing": {
+      "median_year": 1970,
+      "era_description": "Mountain resort community with cabins from 1920s-2000s",
+      "common_styles": [
+        "Mountain cabins",
+        "Lakefront homes",
+        "A-frames",
+        "Vacation rentals"
+      ],
+      "typical_lot_size": "0.25-2 acres",
+      "well_system_age": "Many cabin wells 40-70 years old"
+    },
+    "neighborhoods": [
+      "Lake Arrowhead Village",
+      "Blue Jay",
+      "Rim of the World",
+      "Cedar Glen",
+      "Skyforest"
+    ],
+    "common_issues": [
+      "Freeze damage at 5,100 ft",
+      "Seasonal homes with sitting wells",
+      "Fire evacuation zones"
+    ],
+    "local_facts": [
+      "5,100 ft elevation",
+      "Private lake community",
+      "Popular vacation destination"
+    ]
+  },
+  "landers": {
+    "full_name": "Landers",
+    "county": "San Bernardino",
+    "nearest_office": "anza",
+    "drive_time": "75 minutes from our Anza office",
+    "housing": {
+      "median_year": 1975,
+      "era_description": "Remote high desert with 1950s-2000s homesteads",
+      "common_styles": [
+        "Desert homesteads",
+        "Off-grid properties",
+        "Mobile homes"
+      ],
+      "typical_lot_size": "2.5-20 acres",
+      "well_system_age": "Many wells 40-60 years old, some solar-powered"
+    },
+    "neighborhoods": [
+      "Giant Rock",
+      "Integratron area",
+      "Landers Road",
+      "Pipes Canyon"
+    ],
+    "common_issues": [
+      "Very deep wells needed",
+      "Remote location",
+      "Off-grid power systems"
+    ],
+    "local_facts": [
+      "Home of the Integratron",
+      "Very remote desert area",
+      "Artist and spiritual community"
+    ]
+  },
+  "loma-linda": {
+    "full_name": "Loma Linda",
+    "county": "San Bernardino",
+    "nearest_office": "anza",
+    "drive_time": "55 minutes from our Anza office",
+    "housing": {
+      "median_year": 1970,
+      "era_description": "Medical center city with 1950s-2000s development",
+      "common_styles": [
+        "Suburban homes",
+        "Medical district housing",
+        "Foothill properties"
+      ],
+      "typical_lot_size": "0.25-2 acres",
+      "well_system_age": "Mostly city water, foothill wells 40-60 years old"
+    },
+    "neighborhoods": [
+      "South Hills",
+      "Barton Road area",
+      "University area",
+      "Reche Canyon border"
+    ],
+    "common_issues": [
+      "Limited well properties",
+      "Hard water",
+      "Foothill access issues"
+    ],
+    "local_facts": [
+      "Loma Linda University Medical Center",
+      "Blue Zone longevity community",
+      "Seventh-day Adventist heritage"
+    ]
+  },
+  "lucerne-valley": {
+    "full_name": "Lucerne Valley",
+    "county": "San Bernardino",
+    "nearest_office": "anza",
+    "drive_time": "90 minutes from our Anza office",
+    "housing": {
+      "median_year": 1980,
+      "era_description": "Remote high desert valley with 1950s-2000s ranches",
+      "common_styles": [
+        "Desert ranch homes",
+        "Off-grid homesteads",
+        "Mobile homes"
+      ],
+      "typical_lot_size": "2.5-40 acres",
+      "well_system_age": "Many wells 35-60 years old, ranch wells may be deeper"
+    },
+    "neighborhoods": [
+      "Lucerne Valley townsite",
+      "Rabbit Springs",
+      "Camp Rock",
+      "Johnson Valley border"
+    ],
+    "common_issues": [
+      "Very deep wells required",
+      "Remote location",
+      "Extreme temperature swings"
+    ],
+    "local_facts": [
+      "Remote high desert valley",
+      "Mining and ranching heritage",
+      "Near Johnson Valley OHV area"
+    ]
+  },
+  "morongo-valley": {
+    "full_name": "Morongo Valley",
+    "county": "San Bernardino",
+    "nearest_office": "anza",
+    "drive_time": "60 minutes from our Anza office",
+    "housing": {
+      "median_year": 1980,
+      "era_description": "High desert community with 1960s-2000s development",
+      "common_styles": [
+        "Desert homes",
+        "Ranch properties",
+        "Artist retreats"
+      ],
+      "typical_lot_size": "1-10 acres",
+      "well_system_age": "Many wells 35-50 years old"
+    },
+    "neighborhoods": [
+      "Morongo Valley center",
+      "Covington Park",
+      "Pipes Canyon",
+      "Big Morongo Canyon"
+    ],
+    "common_issues": [
+      "Deep wells needed",
+      "Hard water",
+      "Desert heat on equipment"
+    ],
+    "local_facts": [
+      "Big Morongo Canyon Preserve",
+      "Gateway to Joshua Tree",
+      "Desert wildlife corridor"
+    ]
+  },
+  "oak-hills": {
+    "full_name": "Oak Hills",
+    "county": "San Bernardino",
+    "nearest_office": "anza",
+    "drive_time": "80 minutes from our Anza office",
+    "housing": {
+      "median_year": 1990,
+      "era_description": "High desert community with 1970s-2010s development",
+      "common_styles": [
+        "Desert ranch homes",
+        "Equestrian properties",
+        "Custom homes"
+      ],
+      "typical_lot_size": "0.5-5 acres",
+      "well_system_age": "Many wells 25-45 years old"
+    },
+    "neighborhoods": [
+      "Oak Hills townsite",
+      "Baldy Mesa",
+      "Pinon Hills",
+      "Phelan border"
+    ],
+    "common_issues": [
+      "Deep wells needed",
+      "Hard water and minerals",
+      "Wind exposure"
+    ],
+    "local_facts": [
+      "High desert equestrian area",
+      "Between Hesperia and Phelan",
+      "Strong horse community"
+    ]
+  },
+  "ontario": {
+    "full_name": "Ontario",
+    "county": "San Bernardino",
+    "nearest_office": "anza",
+    "drive_time": "70 minutes from our Anza office",
+    "housing": {
+      "median_year": 1985,
+      "era_description": "Growing city with 1950s-2010s development",
+      "common_styles": [
+        "Suburban tract homes",
+        "Industrial properties",
+        "North Ontario estates"
+      ],
+      "typical_lot_size": "0.25-5 acres",
+      "well_system_age": "North Ontario rural wells 30-50 years old"
+    },
+    "neighborhoods": [
+      "North Ontario",
+      "Ontario Ranch",
+      "Mountain Village",
+      "Colony"
+    ],
+    "common_issues": [
+      "Mostly city water",
+      "North Ontario wells on foothills",
+      "Hard water"
+    ],
+    "local_facts": [
+      "Ontario International Airport",
+      "Major logistics center",
+      "Growing suburban area"
+    ]
+  },
+  "palm-desert": {
+    "full_name": "Palm Desert",
+    "county": "Riverside",
+    "nearest_office": "anza",
+    "drive_time": "50 minutes from our Anza office",
+    "housing": {
+      "median_year": 1990,
+      "era_description": "Desert resort city with 1970s-2010s development",
+      "common_styles": [
+        "Golf course homes",
+        "Desert estates",
+        "Condo communities"
+      ],
+      "typical_lot_size": "0.25-2 acres",
+      "well_system_age": "Mostly city water, estate wells 20-40 years old"
+    },
+    "neighborhoods": [
+      "Indian Wells border",
+      "El Paseo",
+      "Desert Willow",
+      "Palm Desert Greens"
+    ],
+    "common_issues": [
+      "Desert heat affects equipment",
+      "Hard water scale",
+      "Limited well properties"
+    ],
+    "local_facts": [
+      "Famous El Paseo shopping district",
+      "Living Desert Zoo",
+      "Desert resort community"
+    ]
+  },
+  "palm-springs": {
+    "full_name": "Palm Springs",
+    "county": "Riverside",
+    "nearest_office": "anza",
+    "drive_time": "45 minutes from our Anza office",
+    "housing": {
+      "median_year": 1975,
+      "era_description": "Historic desert resort with mid-century homes from 1940s-2010s",
+      "common_styles": [
+        "Mid-century modern",
+        "Desert estates",
+        "Golf course homes"
+      ],
+      "typical_lot_size": "0.25-2 acres",
+      "well_system_age": "Mostly city water, some estate wells 40-60 years old"
+    },
+    "neighborhoods": [
+      "Movie Colony",
+      "Tahquitz River Estates",
+      "Andreas Hills",
+      "Vista Las Palmas",
+      "Old Las Palmas"
+    ],
+    "common_issues": [
+      "Desert heat 120\u00b0F summers",
+      "Hard water scale",
+      "Limited well properties"
+    ],
+    "local_facts": [
+      "Famous mid-century architecture",
+      "Historic celebrity retreat",
+      "Coachella Valley hub"
+    ]
+  },
+  "pauma-valley": {
+    "full_name": "Pauma Valley",
+    "county": "San Diego",
+    "nearest_office": "ramona",
+    "drive_time": "30 minutes from our Ramona office",
+    "housing": {
+      "median_year": 1985,
+      "era_description": "Agricultural valley with citrus and avocado from 1960s-2000s",
+      "common_styles": [
+        "Citrus estates",
+        "Ranch homes",
+        "Agricultural properties"
+      ],
+      "typical_lot_size": "2.5-40 acres",
+      "well_system_age": "Agricultural wells 30-50 years old, high capacity for irrigation"
+    },
+    "neighborhoods": [
+      "Pauma Valley Country Club",
+      "Cole Grade Road",
+      "Pauma Reservation border",
+      "Valley Center border"
+    ],
+    "common_issues": [
+      "Heavy irrigation demand",
+      "Agricultural well maintenance",
+      "Hard water"
+    ],
+    "local_facts": [
+      "Major citrus growing area",
+      "Pauma Valley Country Club",
+      "Tribal lands nearby"
+    ]
+  },
+  "pine-valley": {
+    "full_name": "Pine Valley",
+    "county": "San Diego",
+    "nearest_office": "ramona",
+    "drive_time": "40 minutes from our Ramona office",
+    "housing": {
+      "median_year": 1975,
+      "era_description": "Mountain community with cabins from 1940s-2000s",
+      "common_styles": [
+        "Mountain cabins",
+        "Ranch homes",
+        "Vacation retreats"
+      ],
+      "typical_lot_size": "1-20 acres",
+      "well_system_age": "Many wells 40-60 years old"
+    },
+    "neighborhoods": [
+      "Pine Valley center",
+      "Guatay",
+      "Buckman Springs",
+      "Corte Madera"
+    ],
+    "common_issues": [
+      "Freeze damage at 3,700 ft",
+      "Fire risk area",
+      "Seasonal water table"
+    ],
+    "local_facts": [
+      "3,700 ft elevation",
+      "On I-8 corridor",
+      "Mountain resort community"
+    ]
+  },
+  "rainbow": {
+    "full_name": "Rainbow",
+    "county": "San Diego",
+    "nearest_office": "ramona",
+    "drive_time": "40 minutes from our Ramona office",
+    "housing": {
+      "median_year": 1985,
+      "era_description": "Rural community with horse properties from 1970s-2000s",
+      "common_styles": [
+        "Ranch homes",
+        "Horse properties",
+        "Citrus groves"
+      ],
+      "typical_lot_size": "2.5-20 acres",
+      "well_system_age": "Many wells 30-45 years old"
+    },
+    "neighborhoods": [
+      "Rainbow Valley",
+      "Rainbow Hills",
+      "Rice Canyon",
+      "Mission Road area"
+    ],
+    "common_issues": [
+      "High water demand for horses",
+      "Agricultural irrigation needs",
+      "Hard water"
+    ],
+    "local_facts": [
+      "Equestrian community",
+      "Near Fallbrook",
+      "Agricultural heritage"
+    ]
+  },
+  "ranchita": {
+    "full_name": "Ranchita",
+    "county": "San Diego",
+    "nearest_office": "ramona",
+    "drive_time": "35 minutes from our Ramona office",
+    "housing": {
+      "median_year": 1975,
+      "era_description": "Remote mountain community with 1950s-2000s homesteads",
+      "common_styles": [
+        "Rural homesteads",
+        "Ranch properties",
+        "Off-grid homes"
+      ],
+      "typical_lot_size": "5-100+ acres",
+      "well_system_age": "Many wells 40-60 years old"
+    },
+    "neighborhoods": [
+      "Ranchita townsite",
+      "Montezuma Valley Road",
+      "San Felipe Road"
+    ],
+    "common_issues": [
+      "Very remote location",
+      "Deep wells needed",
+      "Power outages"
+    ],
+    "local_facts": [
+      "Remote mountain community",
+      "Near Anza-Borrego",
+      "Limited services"
+    ]
+  },
+  "rancho-cucamonga": {
+    "full_name": "Rancho Cucamonga",
+    "county": "San Bernardino",
+    "nearest_office": "anza",
+    "drive_time": "70 minutes from our Anza office",
+    "housing": {
+      "median_year": 1990,
+      "era_description": "Suburban city with 1970s-2010s development",
+      "common_styles": [
+        "Suburban tract homes",
+        "Foothill estates",
+        "Wine country properties"
+      ],
+      "typical_lot_size": "0.25-5 acres",
+      "well_system_age": "Foothill wells 25-45 years old"
+    },
+    "neighborhoods": [
+      "Etiwanda",
+      "Alta Loma",
+      "North Cucamonga",
+      "Terra Vista"
+    ],
+    "common_issues": [
+      "Mostly city water",
+      "Foothill properties on wells",
+      "Hard water"
+    ],
+    "local_facts": [
+      "Wine country heritage",
+      "Near Ontario airport",
+      "San Gabriel Mountains foothills"
+    ]
+  },
+  "rancho-mirage": {
+    "full_name": "Rancho Mirage",
+    "county": "Riverside",
+    "nearest_office": "anza",
+    "drive_time": "50 minutes from our Anza office",
+    "housing": {
+      "median_year": 1988,
+      "era_description": "Luxury desert resort city with 1970s-2010s development",
+      "common_styles": [
+        "Golf course estates",
+        "Desert luxury homes",
+        "Gated communities"
+      ],
+      "typical_lot_size": "0.5-2 acres",
+      "well_system_age": "Mostly city water, estate wells 25-40 years old"
+    },
+    "neighborhoods": [
+      "Thunderbird",
+      "Tamarisk",
+      "The Springs",
+      "Rancho Las Palmas"
+    ],
+    "common_issues": [
+      "Desert heat on equipment",
+      "Hard water scale",
+      "Limited well properties"
+    ],
+    "local_facts": [
+      "Eisenhower Medical Center",
+      "Celebrity enclave",
+      "Luxury desert living"
+    ]
+  },
+  "rancho-santa-fe": {
+    "full_name": "Rancho Santa Fe",
+    "county": "San Diego",
+    "nearest_office": "ramona",
+    "drive_time": "30 minutes from our Ramona office",
+    "housing": {
+      "median_year": 1985,
+      "era_description": "Exclusive estates from 1920s-2010s",
+      "common_styles": [
+        "Luxury estates",
+        "Horse ranches",
+        "Citrus groves"
+      ],
+      "typical_lot_size": "2-100+ acres",
+      "well_system_age": "Estate wells often 25-50 years old, many high-capacity custom systems"
+    },
+    "neighborhoods": [
+      "The Covenant",
+      "Fairbanks Ranch",
+      "Morgan Run",
+      "The Crosby",
+      "Cielo"
+    ],
+    "common_issues": [
+      "High water demand for estates",
+      "Landscaping irrigation needs",
+      "Custom systems"
+    ],
+    "local_facts": [
+      "One of wealthiest communities in US",
+      "Famous for horses and polo",
+      "Historic eucalyptus trees"
+    ]
+  },
+  "redlands": {
+    "full_name": "Redlands",
+    "county": "San Bernardino",
+    "nearest_office": "anza",
+    "drive_time": "50 minutes from our Anza office",
+    "housing": {
+      "median_year": 1975,
+      "era_description": "Historic citrus city with 1880s-2000s development",
+      "common_styles": [
+        "Historic Victorian homes",
+        "Citrus estates",
+        "Tract developments"
+      ],
+      "typical_lot_size": "0.25-10 acres",
+      "well_system_age": "Foothill and citrus wells 40-80 years old"
+    },
+    "neighborhoods": [
+      "North Redlands",
+      "Sunset Drive",
+      "Mentone",
+      "Live Oak Canyon",
+      "University District"
+    ],
+    "common_issues": [
+      "Older historic wells",
+      "Citrus irrigation needs",
+      "Hard water"
+    ],
+    "local_facts": [
+      "Historic citrus heritage",
+      "University of Redlands",
+      "Victorian architecture"
+    ]
+  },
+  "rialto": {
+    "full_name": "Rialto",
+    "county": "San Bernardino",
+    "nearest_office": "anza",
+    "drive_time": "60 minutes from our Anza office",
+    "housing": {
+      "median_year": 1985,
+      "era_description": "Growing city with 1950s-2010s development",
+      "common_styles": [
+        "Tract homes",
+        "Foothill properties",
+        "Industrial areas"
+      ],
+      "typical_lot_size": "0.25-2 acres",
+      "well_system_age": "North Rialto foothill wells 30-50 years old"
+    },
+    "neighborhoods": [
+      "North Rialto",
+      "Lytle Creek",
+      "Foothill Freeway area"
+    ],
+    "common_issues": [
+      "Mostly city water",
+      "Foothill properties on wells",
+      "Hard water"
+    ],
+    "local_facts": [
+      "Rialto Airport",
+      "Lytle Creek recreation",
+      "Growing logistics area"
+    ]
+  },
+  "running-springs": {
+    "full_name": "Running Springs",
+    "county": "San Bernardino",
+    "nearest_office": "anza",
+    "drive_time": "70 minutes from our Anza office",
+    "housing": {
+      "median_year": 1970,
+      "era_description": "Mountain resort community with 1940s-2000s cabins",
+      "common_styles": [
+        "Mountain cabins",
+        "A-frames",
+        "Vacation homes"
+      ],
+      "typical_lot_size": "0.25-2 acres",
+      "well_system_age": "Many cabin wells 45-70 years old"
+    },
+    "neighborhoods": [
+      "Running Springs center",
+      "Arrowbear",
+      "Green Valley Lake",
+      "Arrow Bear Lake"
+    ],
+    "common_issues": [
+      "Freeze damage at 6,000 ft",
+      "Seasonal homes with sitting wells",
+      "Fire evacuation"
+    ],
+    "local_facts": [
+      "6,000 ft elevation",
+      "Near Snow Valley ski resort",
+      "Mountain resort community"
+    ]
+  },
+  "san-bernardino": {
+    "full_name": "San Bernardino",
+    "county": "San Bernardino",
+    "nearest_office": "anza",
+    "drive_time": "55 minutes from our Anza office",
+    "housing": {
+      "median_year": 1970,
+      "era_description": "County seat with 1940s-2000s development",
+      "common_styles": [
+        "Post-war tract homes",
+        "Foothill estates",
+        "Historic downtown"
+      ],
+      "typical_lot_size": "0.25-5 acres",
+      "well_system_age": "Foothill and rural wells 40-60 years old"
+    },
+    "neighborhoods": [
+      "North San Bernardino",
+      "Verdemont",
+      "Little Mountain",
+      "Del Rosa",
+      "Muscoy"
+    ],
+    "common_issues": [
+      "Mostly city water",
+      "Foothill properties on wells",
+      "Hard water"
+    ],
+    "local_facts": [
+      "San Bernardino County seat",
+      "Historic Route 66",
+      "CSU San Bernardino"
+    ]
+  },
+  "santa-ysabel": {
+    "full_name": "Santa Ysabel",
+    "county": "San Diego",
+    "nearest_office": "ramona",
+    "drive_time": "20 minutes from our Ramona office",
+    "housing": {
+      "median_year": 1975,
+      "era_description": "Historic mountain valley with ranches from 1900s-2000s",
+      "common_styles": [
+        "Ranch properties",
+        "Historic buildings",
+        "Rural homesteads"
+      ],
+      "typical_lot_size": "5-100+ acres",
+      "well_system_age": "Many ranch wells 40-80 years old"
+    },
+    "neighborhoods": [
+      "Santa Ysabel townsite",
+      "Mesa Grande",
+      "Wynola border",
+      "Julian border"
+    ],
+    "common_issues": [
+      "Older ranch infrastructure",
+      "High elevation at 3,000 ft",
+      "Seasonal water table"
+    ],
+    "local_facts": [
+      "Historic Mission Santa Ysabel",
+      "Famous bread bakery",
+      "Santa Ysabel Open Space Preserve"
+    ]
+  },
+  "spring-valley": {
+    "full_name": "Spring Valley",
+    "county": "San Diego",
+    "nearest_office": "ramona",
+    "drive_time": "25 minutes from our Ramona office",
+    "housing": {
+      "median_year": 1975,
+      "era_description": "Suburban community with 1950s-2000s development",
+      "common_styles": [
+        "Tract homes",
+        "Hillside properties",
+        "Rural pockets"
+      ],
+      "typical_lot_size": "0.25-2 acres",
+      "well_system_age": "Mostly city water, hillside wells 40-60 years old"
+    },
+    "neighborhoods": [
+      "Casa de Oro",
+      "Mount Miguel",
+      "Dictionary Hill",
+      "Bancroft",
+      "La Presa"
+    ],
+    "common_issues": [
+      "Limited well properties",
+      "Older hillside infrastructure",
+      "Hard water"
+    ],
+    "local_facts": [
+      "Unincorporated San Diego County",
+      "Near Sweetwater Reservoir",
+      "Suburban community"
+    ]
+  },
+  "sun-city": {
+    "full_name": "Sun City",
+    "county": "Riverside",
+    "nearest_office": "anza",
+    "drive_time": "40 minutes from our Anza office",
+    "housing": {
+      "median_year": 1985,
+      "era_description": "55+ retirement community from 1960s-2000s",
+      "common_styles": [
+        "Senior community homes",
+        "Golf course properties",
+        "Manufactured homes"
+      ],
+      "typical_lot_size": "0.25-0.5 acres",
+      "well_system_age": "Mostly on Menifee water, some older community wells 35-50 years"
+    },
+    "neighborhoods": [
+      "Sun City center",
+      "Menifee border",
+      "Quail Valley border"
+    ],
+    "common_issues": [
+      "Aging infrastructure",
+      "Hard water scale",
+      "Limited well properties"
+    ],
+    "local_facts": [
+      "Original Sun City retirement community",
+      "Now part of Menifee",
+      "Active 55+ lifestyle"
+    ]
+  },
+  "twentynine-palms": {
+    "full_name": "Twentynine Palms",
+    "county": "San Bernardino",
+    "nearest_office": "anza",
+    "drive_time": "80 minutes from our Anza office",
+    "housing": {
+      "median_year": 1985,
+      "era_description": "Desert military town with 1950s-2000s development",
+      "common_styles": [
+        "Desert homes",
+        "Military housing",
+        "Ranch properties"
+      ],
+      "typical_lot_size": "0.5-5 acres",
+      "well_system_age": "Many wells 30-50 years old"
+    },
+    "neighborhoods": [
+      "Downtown 29 Palms",
+      "Wonder Valley",
+      "Sunfair Heights",
+      "Joshua Tree border"
+    ],
+    "common_issues": [
+      "Very deep wells required",
+      "Hard water and minerals",
+      "Extreme desert heat"
+    ],
+    "local_facts": [
+      "Marine Corps base",
+      "Gateway to Joshua Tree",
+      "Oasis in the desert"
+    ]
+  },
+  "upland": {
+    "full_name": "Upland",
+    "county": "San Bernardino",
+    "nearest_office": "anza",
+    "drive_time": "70 minutes from our Anza office",
+    "housing": {
+      "median_year": 1975,
+      "era_description": "Foothill city with 1900s-2000s development",
+      "common_styles": [
+        "Historic homes",
+        "Foothill estates",
+        "Suburban tract homes"
+      ],
+      "typical_lot_size": "0.25-5 acres",
+      "well_system_age": "Foothill wells 40-70 years old"
+    },
+    "neighborhoods": [
+      "North Upland",
+      "San Antonio Heights",
+      "Cable Airport area",
+      "Colonies"
+    ],
+    "common_issues": [
+      "Foothill properties on wells",
+      "Historic well infrastructure",
+      "Hard water"
+    ],
+    "local_facts": [
+      "Historic Euclid Avenue",
+      "San Antonio Heights equestrian",
+      "Foothill community"
+    ]
+  },
+  "warner-springs": {
+    "full_name": "Warner Springs",
+    "county": "San Diego",
+    "nearest_office": "ramona",
+    "drive_time": "35 minutes from our Ramona office",
+    "housing": {
+      "median_year": 1975,
+      "era_description": "Remote mountain valley with ranches from 1800s-2000s",
+      "common_styles": [
+        "Ranch properties",
+        "Rural homesteads",
+        "Historic buildings"
+      ],
+      "typical_lot_size": "20-1000+ acres",
+      "well_system_age": "Many ranch wells 50-100+ years old, some very deep"
+    },
+    "neighborhoods": [
+      "Warner Springs Ranch",
+      "Highway 79 corridor",
+      "Oak Grove",
+      "Sunshine Summit"
+    ],
+    "common_issues": [
+      "Very remote location",
+      "Historic well infrastructure",
+      "Limited services"
+    ],
+    "local_facts": [
+      "Historic Warner Springs Ranch",
+      "Pacific Crest Trail",
+      "Rural ranching community"
+    ]
+  },
+  "wrightwood": {
+    "full_name": "Wrightwood",
+    "county": "San Bernardino",
+    "nearest_office": "anza",
+    "drive_time": "85 minutes from our Anza office",
+    "housing": {
+      "median_year": 1970,
+      "era_description": "Mountain ski community with 1940s-2000s cabins",
+      "common_styles": [
+        "Mountain cabins",
+        "A-frames",
+        "Ski chalets"
+      ],
+      "typical_lot_size": "0.25-2 acres",
+      "well_system_age": "Many cabin wells 45-70 years old"
+    },
+    "neighborhoods": [
+      "Wrightwood center",
+      "Big Pines",
+      "Lone Pine Canyon",
+      "Sheep Creek"
+    ],
+    "common_issues": [
+      "Freeze damage at 5,900 ft",
+      "Seasonal vacation homes",
+      "Fire evacuation zone"
+    ],
+    "local_facts": [
+      "5,900 ft elevation",
+      "Near Mountain High ski resort",
+      "Pacific Crest Trail town"
+    ]
+  },
+  "yucaipa": {
+    "full_name": "Yucaipa",
+    "county": "San Bernardino",
+    "nearest_office": "anza",
+    "drive_time": "45 minutes from our Anza office",
+    "housing": {
+      "median_year": 1990,
+      "era_description": "Foothill community with 1960s-2010s development",
+      "common_styles": [
+        "Ranch homes",
+        "Apple orchard properties",
+        "Suburban tract homes"
+      ],
+      "typical_lot_size": "0.25-10 acres",
+      "well_system_age": "Rural and foothill wells 25-50 years old"
+    },
+    "neighborhoods": [
+      "Oak Glen",
+      "Crafton Hills",
+      "Wildwood Canyon",
+      "Chapman Heights"
+    ],
+    "common_issues": [
+      "Foothill properties on wells",
+      "Apple orchard irrigation",
+      "Hard water"
+    ],
+    "local_facts": [
+      "Famous Oak Glen apple country",
+      "Yucaipa Valley",
+      "Near Redlands"
+    ]
+  }
+}
