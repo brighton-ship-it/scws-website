@@ -1,10 +1,11 @@
 {
-  "last_updated": "2026-02-20",
-  "last_verified": "2026-02-20",
+  "last_updated": "2026-02-21",
+  "last_verified": "2026-02-21",
   "match_summary": {
     "total_reviews": 13,
     "matched": 8,
-    "unmatched": 5
+    "unmatched": 5,
+    "verification_note": "Browser automation unavailable for fresh Google review scraping - existing matches verified against Jobber client data"
   },
   "cities": [
     "Anza",
@@ -79,7 +80,17 @@
       }
     ]
   },
+  "service_coverage": {
+    "note": "Top cities in Jobber client base for future review targeting",
+    "top_cities": ["Aguanga", "San Diego", "Escondido", "Jamul", "Julian", "Poway", "Temecula", "Fallbrook", "Ramona", "Riverside"]
+  },
   "notes": {
-    "unmatched_reviews": "5 reviews couldn't be matched - reviewers either used nicknames, weren't in Jobber, or had partial names (e.g., 'Nadia S.', 'Diane P.') that required manual matching"
+    "unmatched_reviews": "5 reviews couldn't be matched - reviewers either used nicknames, weren't in Jobber, or had partial names (e.g., 'Nadia S.', 'Diane P.') that required manual matching",
+    "automation_blockers": [
+      "Browser automation service not running (required for Google Maps review scraping)",
+      "No Google Places API key configured",
+      "Jobber GraphQL API 2025-04-16 removed searchTerm filter for client lookup"
+    ],
+    "next_steps": "To get fresh reviews, either start OpenClaw browser service or configure Google Places API key in google-reviews.js"
   }
 }
