@@ -1,378 +1,291 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LL1YRWT5T"></script>
-    <script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-5LL1YRWT5T');</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Well Pump Control Box Guide: What It Does & Troubleshooting</title>
-    <meta name="description" content="Your well pump control box contains critical starting components. Learn what's inside, how to diagnose problems, when to replace capacitors, and control box troubleshooting tips.">
-    <meta name="keywords" content="well pump control box, submersible pump control box, well pump capacitor, Franklin control box, pump control box troubleshooting, 3-wire pump control box">
-    <link rel="canonical" href="https://scwellservice.com/blog/well-pump-control-box-guide.html">
-    <link rel="icon" type="image/png" href="../images/logo.png">
-    <link rel="stylesheet" href="../css/styles.css">
+    <title>Well Pump Control Box: What It Does & Signs of Failure (2026)</title>
+    <meta name="description" content="Learn about well pump control boxes: what's inside, how they work, signs of failure, and replacement costs. Troubleshooting submersible pump electrical issues.">
+    <link rel="canonical" href="https://www.scwellservice.com/blog/well-pump-control-box-guide.html">
+    <meta property="og:title" content="Well Pump Control Box Guide">
+    <meta property="og:description" content="Understanding the control box—components, problems, replacement.">
     <meta property="og:type" content="article">
-    <meta property="og:url" content="https://scwellservice.com/blog/well-pump-control-box-guide.html">
-    <meta property="og:title" content="Well Pump Control Box Guide: What It Does & Troubleshooting">
-    <meta property="og:description" content="Learn what's inside your well pump control box and how to troubleshoot common problems.">
-    <meta property="og:image" content="https://scwellservice.com/images/og-image.jpg">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Article",
-        "headline": "Well Pump Control Box Guide: What It Does & Troubleshooting",
-        "author": { "@type": "Organization", "name": "Southern California Well Service" },
-        "publisher": { "@type": "Organization", "name": "Southern California Well Service", "logo": { "@type": "ImageObject", "url": "https://scwellservice.com/images/logo.png" } },
-        "datePublished": "2026-02-17",
-        "dateModified": "2026-02-17"
-    }
-    </script>
-    
+    <meta property="og:image" content="https://www.scwellservice.com/assets/images/blog-categories/equipment.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="/assets/css/style.css">
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "FAQPage",
         "mainEntity": [
-            { "@type": "Question", "name": "What does a well pump control box do?", "acceptedAnswer": { "@type": "Answer", "text": "The control box contains starting components for 3-wire submersible pump motors. Inside are start capacitors (provide the burst of power to start motor rotation), run capacitors (on some models, for running efficiency), a relay (switches from start to run mode), and overload protection (thermal switch to prevent burnout). When the pressure switch calls for water, the control box energizes the motor properly." } },
-            { "@type": "Question", "name": "Do all well pumps need a control box?", "acceptedAnswer": { "@type": "Answer", "text": "No. Only 3-wire submersible motors require an external control box. 2-wire motors have starting components built into the motor housing down in the well. Jet pumps have their starting components integrated. If you have a 3-wire submersible (three conductors plus ground going down the well), you need a control box." } },
-            { "@type": "Question", "name": "How do I know if my control box capacitor is bad?", "acceptedAnswer": { "@type": "Answer", "text": "Signs of a failed capacitor include: pump hums but won't start, pump starts slowly or weakly, visible bulging or leaking on the capacitor, burn marks inside the control box, or motor trips overload repeatedly. Test with a multimeter set to capacitance—compare reading to the microfarad rating printed on the capacitor. More than 10% deviation means replacement is needed." } },
-            { "@type": "Question", "name": "Can I replace a control box capacitor myself?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, if you're comfortable with electrical work. Turn off power at the breaker and verify with a tester. Capacitors store charge—discharge by shorting terminals with an insulated screwdriver. Note wire positions before disconnecting. Match the new capacitor's microfarad and voltage ratings exactly. Capacitors cost $15-50 and take about 15 minutes to replace." } },
-            { "@type": "Question", "name": "How much does a new control box cost?", "acceptedAnswer": { "@type": "Answer", "text": "Control boxes range from $50-$200 depending on motor horsepower and features. A standard Franklin QD-style box for a 1 HP motor costs about $80-$120. Labor for professional replacement adds $75-$150. Total installed: $125-$350. Often more economical than replacing individual components if multiple parts have failed." } }
+            {
+                "@type": "Question",
+                "name": "What does a well pump control box do?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The control box houses the electrical components that start and run your submersible well pump. It contains capacitors that provide starting power, a relay that switches the motor on/off, and may include overload protection. Located above ground (usually near the pressure tank), it's the 'brain' of your pump system."
+                }
+            }
         ]
     }
     </script>
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@scwellservice">
 </head>
-<body class="bg-white">
-    <div class="bg-gradient-to-r from-red-600 to-red-700 text-white py-2.5">
-        <div class="max-w-7xl mx-auto px-4 text-center flex items-center justify-center gap-2 flex-wrap">
-            <span class="font-bold tracking-wide">🚨 No Water?</span>
-            <span class="hidden sm:inline">Same-day emergency service available.</span>
-            <a href="tel:7604630493" class="bg-white text-red-600 font-bold px-4 py-1 rounded-full text-sm hover:bg-red-100 transition ml-1">Call Now →</a>
-        </div>
-    </div>
-
-    <header class="bg-primary text-white sticky top-0 z-50 shadow-lg">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center py-4">
-                <a href="../" class="flex items-center space-x-3 shrink-0">
-                    <img loading="lazy" src="../images/logo.png" alt="Southern California Well Service" class="h-10 lg:h-12 w-auto">
-                </a>
-                <nav class="hidden lg:flex space-x-4 items-center">
-                    <a href="../#services" class="text-white hover:text-accent transition">Services</a>
-                    <a href="../#areas" class="text-white hover:text-accent transition">Service Areas</a>
-                    <a href="./" class="text-white hover:text-accent transition">Resources</a>
-                    <a href="../faq.html" class="text-white hover:text-accent transition">FAQ</a>
-                    <a href="../contact.html" class="text-white hover:text-accent transition">Contact</a>
-                </nav>
-                <div class="flex items-center gap-3">
-                    <button id="mobile-menu-btn" class="lg:hidden p-2 hover:bg-white/10 rounded-lg transition" aria-label="Toggle menu">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
-                    </button>
-                    <a href="tel:7604630493" class="bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-4 lg:px-6 rounded-lg transition whitespace-nowrap">(760) 463-0493</a>
-                </div>
-            </div>
-        </div>
-        <div id="mobile-menu" class="hidden lg:hidden bg-primary/95 border-t border-white/10">
-            <nav class="max-w-7xl mx-auto px-4 py-4 flex flex-col space-y-3">
-                <a href="../#services" class="hover:text-accent transition py-2">Services</a>
-                <a href="./" class="hover:text-accent transition py-2">Resources</a>
-                <a href="../contact.html" class="hover:text-accent transition py-2">Contact</a>
-            </nav>
-        </div>
+<body>
+    <header>
+        <nav>
+            <a href="/" class="logo">Southern California Well Service</a>
+            <a href="/services.html">Services</a>
+            <a href="/blog/">Blog</a>
+            <a href="/contact.html">Contact</a>
+            <a href="tel:+17604408520" class="cta-phone">(760) 440-8520</a>
+        </nav>
     </header>
-    <script>document.getElementById('mobile-menu-btn').addEventListener('click', function() { document.getElementById('mobile-menu').classList.toggle('hidden'); });</script>
 
-    <div class="bg-gray-50 py-3">
-        <div class="max-w-4xl mx-auto px-4">
-            <nav class="text-sm">
-                <a href="../index.html" class="text-gray-600 hover:text-primary">Home</a>
-                <span class="mx-2 text-gray-400">›</span>
-                <a href="../blog/" class="text-gray-600 hover:text-primary">Blog</a>
-                <span class="mx-2 text-gray-400">›</span>
-                <span class="text-primary">Well Pump Control Box Guide</span>
+    <main class="blog-post">
+        <article>
+            <div class="hero-image">
+                <img src="/assets/images/blog-categories/equipment.png" alt="Well pump control box" loading="lazy">
+            </div>
+
+            <h1>Well Pump Control Box: What It Does & Signs of Failure</h1>
+            
+            <p class="meta">Updated February 2026 | By Southern California Well Service</p>
+
+            <div class="quick-answer">
+                <strong>Quick Answer:</strong> The control box contains capacitors, relay, and overload protection for your submersible pump. Signs of failure: pump won't start (but hums), clicking sounds from box, burning smell, or visible damage. Control boxes cost $100-$350 and are accessible above ground—no pump pulling needed for replacement.
+            </div>
+
+            <nav class="toc">
+                <h2>Table of Contents</h2>
+                <ul>
+                    <li><a href="#what">What Is a Control Box?</a></li>
+                    <li><a href="#components">Components Inside</a></li>
+                    <li><a href="#signs">Signs of Failure</a></li>
+                    <li><a href="#troubleshoot">Troubleshooting</a></li>
+                    <li><a href="#replacement">Replacement</a></li>
+                    <li><a href="#faq">FAQs</a></li>
+                </ul>
             </nav>
-        </div>
-    </div>
 
-    <div class="relative h-48 md:h-64 lg:h-96 bg-gradient-to-r from-primary to-blue-800 overflow-hidden">
-        <div class="absolute inset-0 bg-black/40"></div>
-        <div class="absolute inset-0 flex items-center justify-center">
-            <div class="text-center text-white px-4">
-                <span class="inline-block bg-accent px-4 py-1 rounded-full text-sm font-semibold mb-4">Equipment Guide</span>
-                <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 drop-shadow-lg">Well Pump Control Box Guide</h1>
+            <section id="what">
+                <h2>What Is a Control Box?</h2>
 
-            <figure class="blog-hero-image">
-                <img src="/assets/images/blog-images/well-service-3.png" alt="Well Pump Control Box Guide" loading="lazy" width="800" height="450">
-            </figure>
-                <p class="text-lg md:text-xl text-gray-100 max-w-2xl mx-auto">The Brain of Your Well System</p>
-            </div>
-        </div>
-    </div>
+                <h3>Purpose</h3>
+                <p>The control box provides the electrical components needed to start and run a submersible well pump. Because the pump motor is down in the well (under water), the starting components are kept above ground where they can be serviced.</p>
 
-    <article class="py-12">
-        <div class="max-w-4xl mx-auto px-4">
-            <div class="flex items-center gap-4 mb-8 pb-8 border-b border-gray-200">
-                <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-bold text-lg">SC</div>
-                <div>
-                    <p class="font-semibold text-gray-900">By SCWS Team</p>
-                    <p class="text-gray-600 text-sm">Published February 17, 2026 · 9 min read</p>
-                </div>
-            </div>
-
-            <div class="prose prose-lg max-w-none">
-                <p class="text-xl md:text-2xl text-gray-700 leading-relaxed mb-8 font-light">
-                    <strong class="text-primary">That gray metal box near your pressure tank isn't just decoration.</strong> Your well pump control box contains the critical components that start your submersible pump motor properly—and when it fails, you're without water until it's fixed.
-                </p>
-
-                <p class="text-lg text-gray-700 leading-relaxed mb-6">
-                    The good news: control box problems are often cheaper and faster to fix than pump problems. Understanding what's inside and how it works can help you diagnose issues and potentially save hundreds on unnecessary pump pulls.
-                </p>
-
-                <div class="bg-gray-50 p-6 rounded-lg my-8">
-                    <h3 class="text-xl font-bold text-primary mb-4">Control Box Basics</h3>
-                    <ul class="space-y-3 text-gray-700">
-                        <li><strong>Purpose:</strong> Houses starting components for 3-wire submersible motors</li>
-                        <li><strong>Location:</strong> Usually mounted near pressure tank or in pump house</li>
-                        <li><strong>Key components:</strong> Start capacitor, run capacitor (some), relay, overload protection</li>
-                        <li><strong>Not needed for:</strong> 2-wire motors, jet pumps</li>
-                        <li><strong>Cost to replace:</strong> $50-$200 for box; $125-$350 installed</li>
-                    </ul>
-                </div>
-
-                <h2 class="text-3xl font-bold text-primary mt-12 mb-4">What's Inside the Control Box</h2>
-
-                <p>
-                    The control box contains components that the pump motor needs to start and run properly but that would be inaccessible if located in the well with the pump. By placing them above ground, troubleshooting and replacement are much easier.
-                </p>
-
-                <h3 class="text-2xl font-semibold text-primary mt-8 mb-3">Start Capacitor</h3>
-
-                <p>
-                    Single-phase motors (what most residential submersible pumps use) need a "boost" to begin rotating. The start capacitor provides this boost by creating a phase shift in the electrical supply that generates starting torque. Without it, the motor receives power but just sits and hums—it can't start turning.
-                </p>
-
-                <p>
-                    Start capacitors are electrolytic (aluminum or electrolytic style) with typical ratings of 150-400 microfarads. They're designed for brief duty—just seconds during startup. Running a start capacitor continuously would cause it to overheat and fail rapidly.
-                </p>
-
-                <h3 class="text-2xl font-semibold text-primary mt-8 mb-3">Run Capacitor</h3>
-
-                <p>
-                    Some control boxes include a run capacitor in addition to the start capacitor. Run capacitors are oil-filled and designed for continuous operation, improving motor efficiency and power factor during normal running. Not all systems have them—their presence depends on motor design and manufacturer.
-                </p>
-
-                <h3 class="text-2xl font-semibold text-primary mt-8 mb-3">Relay</h3>
-
-                <p>
-                    The relay is an electromechanical switch that disconnects the start capacitor once the motor reaches running speed. When you first energize the pump, both start and run circuits are active. As the motor accelerates and current drops, the relay senses this change and opens the start circuit, leaving only the run circuit active.
-                </p>
-
-                <p>
-                    Two main relay types exist: potential (voltage-sensing) relays are most common in well pumps, while current (amperage-sensing) relays are used in some applications. The relay must match your motor's characteristics—using the wrong relay causes starting problems or relay burnout.
-                </p>
-
-                <h3 class="text-2xl font-semibold text-primary mt-8 mb-3">Overload Protection</h3>
-
-                <p>
-                    Thermal overload protection prevents motor damage from overheating. If the motor draws excessive current (from a stuck pump, low voltage, or other problem), the overload heats up and opens the circuit. After cooling, it resets automatically. This protection saves motors from burnout but also trips during legitimate problems—repeated tripping indicates an underlying issue.
-                </p>
-
-                <div class="bg-red-50 border-l-4 border-red-500 p-6 my-8">
-                    <p class="text-gray-700 font-medium">
-                        <strong>⚠️ Warning:</strong> Never bypass overload protection. If the overload keeps tripping, there's a reason. Find and fix the cause rather than removing the protection—you'll end up with a burned-out motor in the well, costing $2,000+ to replace.
-                    </p>
-                </div>
-
-                <h2 class="text-3xl font-bold text-primary mt-12 mb-4">2-Wire vs 3-Wire: Do You Need a Control Box?</h2>
-
-                <p>
-                    Whether your system has a control box depends on your motor type:
-                </p>
-
-                <h3 class="text-2xl font-semibold text-primary mt-8 mb-3">3-Wire Motors (Need Control Box)</h3>
-
-                <p>
-                    Three-wire motors have three conductors plus ground running down the well. The starting components live in the above-ground control box. Advantages: easier troubleshooting and component replacement without pulling the pump. Disadvantages: more connections that can fail, additional box to maintain.
-                </p>
-
-                <h3 class="text-2xl font-semibold text-primary mt-8 mb-3">2-Wire Motors (No Control Box Needed)</h3>
-
-                <p>
-                    Two-wire motors have two conductors plus ground. All starting components are sealed inside the motor housing at the bottom of the well. Advantages: fewer above-ground components, fewer connections. Disadvantages: when starting components fail, you must pull the pump to access them—a major service call.
-                </p>
-
-                <p>
-                    Neither type is inherently better—it's a trade-off between accessibility and simplicity. Many installers prefer 3-wire for deeper wells where pulling the pump is expensive, and 2-wire for shallow installations where access is easier.
-                </p>
-
-                <h2 class="text-3xl font-bold text-primary mt-12 mb-4">Troubleshooting Control Box Problems</h2>
-
-                <h3 class="text-2xl font-semibold text-primary mt-8 mb-3">Pump Hums But Won't Start</h3>
-
-                <p>
-                    This is the classic symptom of a failed start capacitor. The motor is getting power but can't generate starting torque. <strong>Turn off power immediately</strong>—a motor that hums but doesn't turn draws locked-rotor current and can burn out in minutes.
-                </p>
-
-                <p>
-                    To test the capacitor: turn off power, open the control box, locate the capacitor (cylindrical component, usually black or brown). Look for visible damage—bulging, leaking, burn marks. If it looks okay, test with a multimeter capable of measuring capacitance. The reading should be within 10% of the microfarad rating printed on the capacitor.
-                </p>
-
-                <h3 class="text-2xl font-semibold text-primary mt-8 mb-3">Pump Trips Repeatedly</h3>
-
-                <p>
-                    If the overload trips during normal operation, possible causes include:
-                </p>
-
-                <ul class="list-disc pl-6 mb-6 text-gray-700">
-                    <li><strong>Low voltage:</strong> Check voltage at the control box while pump runs—should be within 10% of rated voltage</li>
-                    <li><strong>Failing capacitor:</strong> Weak capacitors cause high starting current</li>
-                    <li><strong>Pump problem:</strong> Stuck pump, worn bearings, or seized impeller draw excess current</li>
-                    <li><strong>Incorrect overload:</strong> Overload rating must match motor amp draw</li>
-                    <li><strong>Ambient heat:</strong> Hot location can cause nuisance tripping</li>
+                <h3>Location</h3>
+                <ul>
+                    <li>Wall-mounted near pressure tank</li>
+                    <li>Connected to pump by wires running down well</li>
+                    <li>May be gray/green metal box or plastic enclosure</li>
+                    <li>Size varies by pump horsepower</li>
                 </ul>
 
-                <h3 class="text-2xl font-semibold text-primary mt-8 mb-3">Intermittent Starting</h3>
+                <h3>Not All Pumps Have One</h3>
+                <ul>
+                    <li><strong>2-wire pumps:</strong> No control box (electronics in motor)</li>
+                    <li><strong>3-wire pumps:</strong> Require control box (most common for larger pumps)</li>
+                </ul>
+            </section>
 
-                <p>
-                    If the pump sometimes starts and sometimes doesn't, suspect relay problems. Relays have contacts that can become pitted or corroded, causing inconsistent connections. Listen for clicking when the pump tries to start—no click may indicate relay failure. Testing relays requires a multimeter and knowledge of the specific relay type.
-                </p>
+            <section id="components">
+                <h2>Components Inside</h2>
 
-                <h3 class="text-2xl font-semibold text-primary mt-8 mb-3">Burn Marks or Smell</h3>
+                <h3>Start Capacitor</h3>
+                <ul>
+                    <li>Provides extra power for motor startup</li>
+                    <li>Black cylindrical component</li>
+                    <li>Most common failure point</li>
+                </ul>
 
-                <p>
-                    Any visible burning, melting, or burnt smell in the control box indicates a serious problem. Possible causes: loose wire connections generating heat, component failure, or water intrusion. Don't operate the pump until the damage is assessed and repaired.
-                </p>
+                <h3>Run Capacitor</h3>
+                <ul>
+                    <li>Keeps motor running efficiently</li>
+                    <li>May be silver/gray metal can</li>
+                    <li>Not present in all systems</li>
+                </ul>
 
-                <h2 class="text-3xl font-bold text-primary mt-12 mb-4">Replacing Control Box Components</h2>
+                <h3>Relay (Contactor)</h3>
+                <ul>
+                    <li>Switches power to pump motor</li>
+                    <li>Controlled by pressure switch signal</li>
+                    <li>May click when engaging</li>
+                </ul>
 
-                <h3 class="text-2xl font-semibold text-primary mt-8 mb-3">Capacitor Replacement</h3>
+                <h3>Overload Protection</h3>
+                <ul>
+                    <li>Thermal or electronic overload</li>
+                    <li>Protects motor from burnout</li>
+                    <li>May need reset after tripping</li>
+                </ul>
 
-                <p>
-                    Replacing a capacitor is often a DIY job for those comfortable with electrical work:
-                </p>
+                <h3>Terminal Block</h3>
+                <ul>
+                    <li>Wire connections to pump</li>
+                    <li>Labeled for proper wiring</li>
+                </ul>
+            </section>
 
-                <ol class="list-decimal pl-6 mb-6 text-gray-700">
-                    <li>Turn off power at the circuit breaker</li>
-                    <li>Verify power is off with a voltage tester</li>
-                    <li>Discharge the capacitor by shorting terminals with an insulated screwdriver</li>
-                    <li>Note or photograph wire connections</li>
-                    <li>Disconnect wires from old capacitor</li>
-                    <li>Install new capacitor with matching ratings (microfarads and voltage)</li>
-                    <li>Reconnect wires exactly as they were</li>
-                    <li>Close box and restore power</li>
+            <section id="signs">
+                <h2>Signs of Control Box Failure</h2>
+
+                <h3>Pump Won't Start</h3>
+                <ul>
+                    <li>Pressure switch clicks but no pump action</li>
+                    <li>Humming sound but motor doesn't run</li>
+                    <li>Often capacitor failure</li>
+                </ul>
+
+                <h3>Clicking from Box</h3>
+                <ul>
+                    <li>Relay clicking repeatedly</li>
+                    <li>Trying to start but failing</li>
+                    <li>May cycle rapidly</li>
+                </ul>
+
+                <h3>Burning Smell</h3>
+                <ul>
+                    <li>Overheated component</li>
+                    <li>Burned wiring</li>
+                    <li><strong>Turn off power immediately</strong></li>
+                </ul>
+
+                <h3>Visible Damage</h3>
+                <ul>
+                    <li>Bulging or leaking capacitor</li>
+                    <li>Burn marks on components</li>
+                    <li>Melted plastic</li>
+                    <li>Corroded terminals</li>
+                </ul>
+
+                <h3>Breaker Trips</h3>
+                <ul>
+                    <li>Immediately when pump tries to start</li>
+                    <li>Could be control box or motor</li>
+                    <li>Requires diagnosis</li>
+                </ul>
+
+                <h3>Intermittent Operation</h3>
+                <ul>
+                    <li>Sometimes works, sometimes doesn't</li>
+                    <li>Loose connection</li>
+                    <li>Failing component</li>
+                </ul>
+            </section>
+
+            <section id="troubleshoot">
+                <h2>Troubleshooting</h2>
+
+                <div class="warning">
+                    <strong>⚠️ Safety First:</strong> Control boxes contain capacitors that can store dangerous charge even with power off. If not experienced with electrical work, call a professional.
+                </div>
+
+                <h3>Basic Checks</h3>
+                <ol>
+                    <li>Check breaker (is power getting to box?)</li>
+                    <li>Listen for relay click when pressure switch activates</li>
+                    <li>Look for obvious damage (burns, swelling)</li>
                 </ol>
 
-                <p>
-                    Capacitors cost $15-$50 at electrical supply houses. Match the microfarad rating exactly—using the wrong value causes starting problems or capacitor failure.
-                </p>
+                <h3>Capacitor Test</h3>
+                <ol>
+                    <li>Turn off power</li>
+                    <li>Discharge capacitor (carefully)</li>
+                    <li>Remove and test with multimeter</li>
+                    <li>Compare reading to label value</li>
+                </ol>
 
-                <h3 class="text-2xl font-semibold text-primary mt-8 mb-3">Whole Control Box Replacement</h3>
+                <h3>When to Call Professional</h3>
+                <ul>
+                    <li>Not comfortable with electrical</li>
+                    <li>Breaker trips repeatedly</li>
+                    <li>Burning smell or smoke</li>
+                    <li>Basic checks don't find problem</li>
+                </ul>
+            </section>
 
-                <p>
-                    Sometimes replacing the entire control box is more practical than replacing individual components—especially if multiple parts have failed or the box is old and corroded. Replacement boxes cost $50-$200 depending on HP rating. Make sure to match:
-                </p>
+            <section id="replacement">
+                <h2>Replacement</h2>
 
-                <ul class="list-disc pl-6 mb-6 text-gray-700">
-                    <li>Motor horsepower</li>
-                    <li>Voltage (typically 230V for residential)</li>
-                    <li>Motor type (PSC, capacitor-start, etc.)</li>
+                <h3>Control Box Costs</h3>
+                <table class="cost-table">
+                    <thead>
+                        <tr>
+                            <th>Pump HP</th>
+                            <th>Control Box Cost</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1/2 - 3/4 HP</td>
+                            <td>$80-$150</td>
+                        </tr>
+                        <tr>
+                            <td>1 HP</td>
+                            <td>$100-$200</td>
+                        </tr>
+                        <tr>
+                            <td>1.5 HP</td>
+                            <td>$150-$250</td>
+                        </tr>
+                        <tr>
+                            <td>2-3 HP</td>
+                            <td>$200-$350</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Component Costs (If Replacing Just One)</h3>
+                <ul>
+                    <li>Start capacitor: $20-$50</li>
+                    <li>Run capacitor: $20-$40</li>
+                    <li>Relay: $30-$80</li>
                 </ul>
 
-                <p>
-                    Franklin Electric is the most common brand, with standardized QD (Quick Disconnect) and CRC control box styles. When ordering, specify your motor HP and the existing box model if visible.
-                </p>
+                <h3>Labor</h3>
+                <ul>
+                    <li>Diagnosis: $75-$150</li>
+                    <li>Replacement: $50-$150</li>
+                    <li>Total with parts: $150-$400</li>
+                </ul>
 
-                <h2 class="text-3xl font-bold text-primary mt-12 mb-4">Advanced Controllers and Protection</h2>
+                <h3>Match to Your Pump</h3>
+                <p>Control boxes are matched to pump HP and motor type. Bring old box or pump specs when ordering replacement.</p>
+            </section>
 
-                <p>
-                    Beyond basic control boxes, several advanced options protect your pump investment:
-                </p>
+            <section id="faq">
+                <h2>Frequently Asked Questions</h2>
 
-                <h3 class="text-2xl font-semibold text-primary mt-8 mb-3">Pump Protection Devices</h3>
+                <h3>What does a well pump control box do?</h3>
+                <p>Houses capacitors and relay needed to start and run a 3-wire submersible pump. Located above ground for easy service access.</p>
 
-                <p>
-                    <strong>Cycle sensors</strong> count pump starts and shut down the system if cycling becomes excessive—protecting against running with a failed pressure tank or major leak.
-                </p>
+                <h3>Where is my well pump control box?</h3>
+                <p>Usually mounted on wall near pressure tank. Metal or plastic box, typically gray or green. May be labeled with pump specs.</p>
 
-                <p>
-                    <strong>Undervoltage protection</strong> prevents the pump from starting if voltage is too low, which would cause high current and overheating.
-                </p>
+                <h3>How long does a control box last?</h3>
+                <p>10-20 years typically. Capacitors often fail first. Heat and power surges shorten life.</p>
 
-                <p>
-                    <strong>Low-water cutoffs</strong> (like Pumptec or Symcom) detect when the pump is drawing air instead of water and shut it down before damage occurs—essential for wells with limited yield.
-                </p>
+                <h3>Can I replace just the capacitor?</h3>
+                <p>Yes—often more economical than replacing entire box. Make sure to match specs exactly.</p>
 
-                <h3 class="text-2xl font-semibold text-primary mt-8 mb-3">Constant Pressure Controllers</h3>
+                <h3>Does a 2-wire pump have a control box?</h3>
+                <p>No—2-wire pumps have starting components built into the motor. Only 3-wire pumps use external control boxes.</p>
+            </section>
 
-                <p>
-                    Variable frequency drives (VFDs) like the Franklin SubDrive replace standard control boxes with sophisticated electronics that adjust motor speed for constant pressure operation. These provide all the basic control functions plus soft-start, variable speed, and pressure regulation. Learn more in our <a href="constant-pressure-well-system.html" class="text-accent hover:underline">constant pressure guide</a>.
-                </p>
-
-                <h2 class="text-3xl font-bold text-primary mt-12 mb-4">Frequently Asked Questions</h2>
-
-                <div class="space-y-6 my-8">
-                    <div class="border-b border-gray-200 pb-6">
-                        <h3 class="text-xl font-semibold text-primary mb-2">What does a well pump control box do?</h3>
-                        <p class="text-gray-700">The control box contains starting components for 3-wire submersible pump motors. Inside are start capacitors (provide the burst of power to start motor rotation), run capacitors (on some models, for running efficiency), a relay (switches from start to run mode), and overload protection (thermal switch to prevent burnout). When the pressure switch calls for water, the control box energizes the motor properly.</p>
-                    </div>
-                    
-                    <div class="border-b border-gray-200 pb-6">
-                        <h3 class="text-xl font-semibold text-primary mb-2">Do all well pumps need a control box?</h3>
-                        <p class="text-gray-700">No. Only 3-wire submersible motors require an external control box. 2-wire motors have starting components built into the motor housing down in the well. Jet pumps have their starting components integrated. If you have a 3-wire submersible (three conductors plus ground going down the well), you need a control box.</p>
-                    </div>
-                    
-                    <div class="border-b border-gray-200 pb-6">
-                        <h3 class="text-xl font-semibold text-primary mb-2">How do I know if my control box capacitor is bad?</h3>
-                        <p class="text-gray-700">Signs of a failed capacitor include: pump hums but won't start, pump starts slowly or weakly, visible bulging or leaking on the capacitor, burn marks inside the control box, or motor trips overload repeatedly. Test with a multimeter set to capacitance—compare reading to the microfarad rating printed on the capacitor. More than 10% deviation means replacement is needed.</p>
-                    </div>
-                    
-                    <div class="border-b border-gray-200 pb-6">
-                        <h3 class="text-xl font-semibold text-primary mb-2">Can I replace a control box capacitor myself?</h3>
-                        <p class="text-gray-700">Yes, if you're comfortable with electrical work. Turn off power at the breaker and verify with a tester. Capacitors store charge—discharge by shorting terminals with an insulated screwdriver. Note wire positions before disconnecting. Match the new capacitor's microfarad and voltage ratings exactly. Capacitors cost $15-50 and take about 15 minutes to replace.</p>
-                    </div>
-                    
-                    <div class="pb-6">
-                        <h3 class="text-xl font-semibold text-primary mb-2">How much does a new control box cost?</h3>
-                        <p class="text-gray-700">Control boxes range from $50-$200 depending on motor horsepower and features. A standard Franklin QD-style box for a 1 HP motor costs about $80-$120. Labor for professional replacement adds $75-$150. Total installed: $125-$350. Often more economical than replacing individual components if multiple parts have failed.</p>
-                    </div>
+            <section class="cta-section">
+                <h2>Control Box Problems?</h2>
+                <p>We can diagnose and repair or replace your pump control box quickly.</p>
+                
+                <div class="cta-buttons">
+                    <a href="tel:+17604408520" class="cta-button">(760) 440-8520</a>
+                    <a href="/contact.html" class="cta-button secondary">Schedule Service</a>
                 </div>
+            </section>
+        </article>
+    </main>
 
-                <div class="bg-primary text-white p-8 rounded-lg my-12 text-center">
-                    <h2 class="text-2xl font-bold mb-4">Control Box Problems?</h2>
-                    <p class="mb-6 text-lg">Our technicians can quickly diagnose whether the issue is in your control box or pump—potentially saving you thousands on unnecessary pump replacement. Same-day service available.</p>
-                    <a href="tel:7604630493" class="inline-block bg-accent hover:bg-green-700 text-white font-bold py-3 px-8 rounded-lg text-xl transition">Call (760) 463-0493</a>
-                </div>
-
-                <div class="grid md:grid-cols-2 gap-6 my-8">
-                    <a href="well-pump-noise-problems.html" class="group bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg hover:border-accent transition-all">
-                        <h3 class="font-semibold text-lg text-primary group-hover:text-accent mb-2">Pump Noise Problems</h3>
-                        <p class="text-gray-600 text-sm">Diagnose humming and clicking sounds.</p>
-                    </a>
-                    <a href="constant-pressure-well-system.html" class="group bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg hover:border-accent transition-all">
-                        <h3 class="font-semibold text-lg text-primary group-hover:text-accent mb-2">Constant Pressure Systems</h3>
-                        <p class="text-gray-600 text-sm">Advanced VFD controllers explained.</p>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </article>
-
-    <footer class="bg-primary text-white py-12">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="grid md:grid-cols-3 gap-8">
-                <div><h3 class="text-xl font-bold mb-4">Southern California Well Service</h3><p class="text-gray-300">Professional well drilling, pump installation, and water system services.</p></div>
-                <div><h3 class="text-xl font-bold mb-4">Contact</h3><p class="text-gray-300"><a href="tel:7604630493" class="hover:text-accent">(760) 463-0493</a><br>Available 7 Days a Week</p></div>
-                <div><h3 class="text-xl font-bold mb-4">Service Areas</h3><p class="text-gray-300">San Diego County • Riverside County • Fallbrook • Temecula • Ramona • Valley Center</p></div>
-            </div>
-            <div class="border-t border-gray-600 mt-8 pt-8 text-center text-gray-400"><p>&copy; 2026 Southern California Well Service. All rights reserved.</p></div>
-        </div>
+    <footer>
+        <p>&copy; 2026 Southern California Well Service. Licensed C-57 Contractor.</p>
+        <p><a href="tel:+17604408520">(760) 440-8520</a></p>
     </footer>
-
-    <div class="blog-cta-section"><div class="blog-cta-box"><h3>Need Help With Your Well?</h3><p>Our expert technicians are ready to help with any well drilling, pump repair, or maintenance needs.</p><div class="blog-cta-actions"><a href="sms:7604630493" class="blog-cta-phone" style="background:#4e9271;color:white !important;">💬 Text Us</a><a href="tel:7604630493" class="blog-cta-phone">📞 Call (760) 463-0493</a><a href="../contact.html" class="blog-cta-button">Request Free Quote →</a></div></div></div>
-    <style>.blog-cta-section{margin-top:3em;padding-top:2em;border-top:2px solid #e0e0e0}.blog-cta-box{background:linear-gradient(135deg,#1f3b4d 0%,#2d5570 100%);color:white;padding:2em;border-radius:12px;text-align:center}.blog-cta-box h3{color:white;font-size:1.5em;margin:0 0 .5em}.blog-cta-box p{color:rgba(255,255,255,0.9);margin:0 0 1.5em}.blog-cta-actions{display:flex;gap:1em;justify-content:center;flex-wrap:wrap}.blog-cta-phone{background:white;color:#1f3b4d !important;padding:12px 24px;border-radius:8px;font-weight:700;text-decoration:none;display:inline-block}.blog-cta-button{background:#4e9271;color:white !important;padding:12px 24px;border-radius:8px;font-weight:700;text-decoration:none;display:inline-block}</style>
 </body>
 </html>
