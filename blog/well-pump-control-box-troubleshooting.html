@@ -3,96 +3,306 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Well Pump Control Box: Function, Testing & Replacement</title>
-    <meta name="description" content="Control box basics for 3-wire pumps. Testing procedures, common failures, and replacement.">
-    <link rel="canonical" href="https://scwellservice.com/blog/well-pump-control-box-troubleshooting.html">
-    <link rel="stylesheet" href="/css/styles.css">
-    
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Article",
-        "headline": "Well Pump Control Box: Function, Testing & Replacement",
-        "description": "Control box basics for 3-wire pumps. Testing procedures, common failures, and replacement.",
-        "author": {"@type": "Organization", "name": "Southern California Well Service"},
-        "publisher": {"@type": "Organization", "name": "Southern California Well Service"},
-        "datePublished": "2026-02-16",
-        "dateModified": "2026-02-16"
-    }
-    </script>
+    <title>Well Pump Control Box Troubleshooting Guide (2026)</title>
+    <meta name="description" content="Diagnose well pump control box problems: no power, humming, rapid cycling. Learn what components fail and when to replace vs repair.">
+    <link rel="canonical" href="https://www.scwellservice.com/blog/well-pump-control-box-troubleshooting.html">
+    <meta property="og:title" content="Control Box Troubleshooting">
+    <meta property="og:description" content="Diagnose 3-wire pump control box issues.">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://www.scwellservice.com/assets/images/blog-categories/troubleshooting.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="/assets/css/style.css">
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "FAQPage",
-        "mainEntity": []
-    }
-    </script>
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-            {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://scwellservice.com/"},
-            {"@type": "ListItem", "position": 2, "name": "Resources", "item": "https://scwellservice.com/blog/"},
-            {"@type": "ListItem", "position": 3, "name": "Well Pump Control Box: Function, Testing & Replace", "item": "https://scwellservice.com/blog/well-pump-control-box-troubleshooting.html"}
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What does a well pump control box do?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The control box (for 3-wire submersible pumps) contains the start capacitor, run capacitor, and relay. It provides the extra power needed to start the motor and manages the electrical supply. 2-wire pumps have these components in the motor itself (no control box)."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How do I know if my well pump control box is bad?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Symptoms: pump won't start, pump hums but doesn't run, breaker trips immediately, or rapid cycling. Open the box (power OFF) and check for burned components, bulging capacitors, or burnt smell. Testing with a meter confirms capacitor and relay function."
+                }
+            }
         ]
     }
     </script>
-    
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LL1YRWT5T"></script>
-    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-5LL1YRWT5T');</script>
-    <meta property="og:image" content="https://scwellservice.com/images/og-default.jpg">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@scwellservice">
 </head>
 <body>
-    <header class="site-header">
-        <div class="header-content">
-            <a href="/" class="logo">
-                <img loading="lazy" src="/images/logo.png" alt="SCWS Logo" width="50" height="50">
-                <span>Southern California Well Service</span>
-            </a>
-            <nav class="main-nav">
-                <a href="/">Home</a>
-                <a href="/services/">Services</a>
-                <a href="/blog/">Resources</a>
-                <a href="/contact/">Contact</a>
-                <a href="tel:7604630493" class="cta-phone">(760) 463-0493</a>
-            </nav>
-        </div>
+    <header>
+        <nav>
+            <a href="/" class="logo">Southern California Well Service</a>
+            <a href="/services.html">Services</a>
+            <a href="/blog/">Blog</a>
+            <a href="/contact.html">Contact</a>
+            <a href="tel:+17604408520" class="cta-phone">(760) 440-8520</a>
+        </nav>
     </header>
 
     <main class="blog-post">
         <article>
-            <h1>Well Pump Control Box: Function, Testing & Replacement</h1>
-            
-
-            <figure class="blog-hero-image">
-                <img src="/assets/images/blog-images/well-service-3.png" alt="Well Pump Control Box: Function, Testing & Replacement" loading="lazy" width="800" height="450">
-            </figure>
-            <p class="lead">Control box basics for 3-wire pumps. Testing procedures, common failures, and replacement.</p>
-            
-            <div class="cta-box">
-                <p><strong>Need help? Call us:</strong></p>
-                <a href="tel:7604630493" class="cta-button">(760) 463-0493</a>
+            <div class="hero-image">
+                <img src="/assets/images/blog-categories/troubleshooting.png" alt="Well pump control box" loading="lazy">
             </div>
 
-            <h2>Frequently Asked Questions</h2>
-            <div class="faq-section">
-            </div>
+            <h1>Well Pump Control Box Troubleshooting Guide</h1>
             
-            <div class="cta-box">
-                <h3>Get Expert Help</h3>
-                <p>Contact Southern California Well Service for professional assistance.</p>
-                <a href="tel:7604630493" class="cta-button">Call (760) 463-0493</a>
-                <p class="small">Serving San Diego, Riverside & San Bernardino Counties</p>
+            <p class="meta">Updated February 2026 | By Southern California Well Service</p>
+
+            <div class="quick-answer">
+                <strong>Quick Answer:</strong> Control box (3-wire systems only) contains capacitors and relay. Symptoms of failure: won't start, hums, trips breaker, or cycles rapidly. Check for burned components, bulging capacitors. Often fixable by replacing capacitor or relay. Whole box replacement: $150-$350.
             </div>
+
+            <nav class="toc">
+                <h2>Table of Contents</h2>
+                <ul>
+                    <li><a href="#what">What's Inside</a></li>
+                    <li><a href="#symptoms">Failure Symptoms</a></li>
+                    <li><a href="#diagnosis">Diagnosis</a></li>
+                    <li><a href="#repairs">Repairs</a></li>
+                    <li><a href="#replacement">Replacement</a></li>
+                    <li><a href="#faq">FAQs</a></li>
+                </ul>
+            </nav>
+
+            <section id="what">
+                <h2>What's Inside a Control Box</h2>
+
+                <h3>3-Wire vs 2-Wire Systems</h3>
+                <ul>
+                    <li><strong>3-Wire:</strong> Has control box above ground</li>
+                    <li><strong>2-Wire:</strong> All components in motor (underwater)</li>
+                    <li>This guide is for 3-wire systems only</li>
+                </ul>
+
+                <h3>Components</h3>
+                <ul>
+                    <li><strong>Start capacitor:</strong> Provides boost to start motor</li>
+                    <li><strong>Run capacitor:</strong> Keeps motor running efficiently</li>
+                    <li><strong>Relay:</strong> Switches start capacitor in/out of circuit</li>
+                    <li><strong>Overload protector:</strong> May be included (trips on overcurrent)</li>
+                    <li><strong>Terminal connections:</strong> Wire connections to pump</li>
+                </ul>
+
+                <h3>How It Works</h3>
+                <ol>
+                    <li>Power comes from pressure switch</li>
+                    <li>Relay energizes start capacitor</li>
+                    <li>Motor starts with extra boost</li>
+                    <li>Relay disconnects start capacitor</li>
+                    <li>Motor runs on run capacitor (if equipped)</li>
+                </ol>
+            </section>
+
+            <section id="symptoms">
+                <h2>Failure Symptoms</h2>
+
+                <h3>Pump Won't Start at All</h3>
+                <ul>
+                    <li>No sound, no response</li>
+                    <li>Check power to box first</li>
+                    <li>May be relay or capacitor</li>
+                    <li>Or wiring connection</li>
+                </ul>
+
+                <h3>Pump Hums But Won't Run</h3>
+                <ul>
+                    <li>Motor trying but can't start</li>
+                    <li>Usually start capacitor</li>
+                    <li>Could be relay not engaging</li>
+                </ul>
+
+                <h3>Breaker Trips Immediately</h3>
+                <ul>
+                    <li>Short circuit in box</li>
+                    <li>Or motor problem (not box)</li>
+                    <li>Check for burned wires</li>
+                </ul>
+
+                <h3>Pump Starts Then Stops</h3>
+                <ul>
+                    <li>Overload tripping</li>
+                    <li>Run capacitor issue</li>
+                    <li>Or motor overheating</li>
+                </ul>
+
+                <h3>Rapid Cycling</h3>
+                <ul>
+                    <li>Usually pressure tank issue</li>
+                    <li>But relay could be sticking</li>
+                </ul>
+
+                <h3>Burning Smell</h3>
+                <ul>
+                    <li>Something has failed/burned</li>
+                    <li>Stop using immediately</li>
+                    <li>Inspect before powering on again</li>
+                </ul>
+            </section>
+
+            <section id="diagnosis">
+                <h2>Diagnosis Steps</h2>
+
+                <div class="warning-box">
+                    <h3>⚠️ Safety Warning</h3>
+                    <p>Control boxes contain capacitors that store charge. Turn off power AND discharge capacitors before touching anything inside. 240V is dangerous.</p>
+                </div>
+
+                <h3>Visual Inspection</h3>
+                <ol>
+                    <li>Power OFF at breaker</li>
+                    <li>Remove box cover</li>
+                    <li>Look for:
+                        <ul>
+                            <li>Burned or melted components</li>
+                            <li>Bulging or leaking capacitors</li>
+                            <li>Burned smell</li>
+                            <li>Loose or corroded connections</li>
+                            <li>Water intrusion</li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <h3>Capacitor Check</h3>
+                <ul>
+                    <li>Visual: bulging, leaking, or cracked = bad</li>
+                    <li>Meter test: check microfarads (µF)</li>
+                    <li>Should be within 10% of rated value</li>
+                    <li>Reading 0 or very low = failed</li>
+                </ul>
+
+                <h3>Relay Check</h3>
+                <ul>
+                    <li>Look for burned contacts</li>
+                    <li>Should click when energized</li>
+                    <li>Test continuity through contacts</li>
+                </ul>
+
+                <h3>Wiring Check</h3>
+                <ul>
+                    <li>All connections tight?</li>
+                    <li>Any corrosion?</li>
+                    <li>Wire insulation intact?</li>
+                </ul>
+            </section>
+
+            <section id="repairs">
+                <h2>Repairs</h2>
+
+                <h3>Replacing Capacitors</h3>
+                <ul>
+                    <li>Match µF rating exactly</li>
+                    <li>Match or exceed voltage rating</li>
+                    <li>Note wire positions before removing</li>
+                    <li>Discharge old capacitor first</li>
+                    <li>Cost: $20-$60 per capacitor</li>
+                </ul>
+
+                <h3>Replacing Relay</h3>
+                <ul>
+                    <li>Match to pump HP</li>
+                    <li>Get same type (potential relay, etc.)</li>
+                    <li>Note wire connections</li>
+                    <li>Cost: $30-$80</li>
+                </ul>
+
+                <h3>Tightening Connections</h3>
+                <ul>
+                    <li>Loose connections cause heat buildup</li>
+                    <li>Clean corrosion with contact cleaner</li>
+                    <li>Ensure tight connection</li>
+                </ul>
+
+                <h3>DIY vs Professional</h3>
+                <ul>
+                    <li>Comfortable with electrical: DIY possible</li>
+                    <li>Not sure: call a professional</li>
+                    <li>If multiple components failed: consider replacing entire box</li>
+                </ul>
+            </section>
+
+            <section id="replacement">
+                <h2>Whole Box Replacement</h2>
+
+                <h3>When to Replace Whole Box</h3>
+                <ul>
+                    <li>Multiple failed components</li>
+                    <li>Extensive damage or burning</li>
+                    <li>Water intrusion damage</li>
+                    <li>Very old box</li>
+                    <li>Can't identify problem</li>
+                </ul>
+
+                <h3>Matching the Box</h3>
+                <ul>
+                    <li>Must match pump HP</li>
+                    <li>Must match voltage (usually 230V)</li>
+                    <li>Match wire count/connections</li>
+                    <li>Bring old box to supplier if unsure</li>
+                </ul>
+
+                <h3>Cost</h3>
+                <ul>
+                    <li>Control box: $100-$250</li>
+                    <li>Professional installation: $50-$150</li>
+                    <li>Total: $150-$400</li>
+                </ul>
+
+                <h3>Installation</h3>
+                <ol>
+                    <li>Power OFF</li>
+                    <li>Label all wires</li>
+                    <li>Remove old box</li>
+                    <li>Mount new box</li>
+                    <li>Connect wires to matching terminals</li>
+                    <li>Close box, restore power</li>
+                    <li>Test operation</li>
+                </ol>
+            </section>
+
+            <section id="faq">
+                <h2>Frequently Asked Questions</h2>
+
+                <h3>What does a well pump control box do?</h3>
+                <p>Contains capacitors and relay for 3-wire submersible pumps. Provides starting power boost and manages electrical supply to motor.</p>
+
+                <h3>How do I know if my control box is bad?</h3>
+                <p>Pump won't start, hums, trips breaker, or cycles rapidly. Open box (power off) and check for burned components, bulging capacitors, or burnt smell.</p>
+
+                <h3>Can I replace just the capacitor?</h3>
+                <p>Yes—often the capacitor is the only failed component. Match µF and voltage ratings. Cost: $20-$60.</p>
+
+                <h3>Do 2-wire pumps have a control box?</h3>
+                <p>No—2-wire pumps have the starting components inside the motor (underwater). If a 2-wire pump fails, the pump usually needs replacement.</p>
+
+                <h3>How long does a control box last?</h3>
+                <p>Typically 10-20+ years. Capacitors often fail first. Lightning strikes can damage boxes prematurely.</p>
+            </section>
+
+            <section class="cta-section">
+                <h2>Control Box Problems?</h2>
+                <p>We diagnose and repair well pump electrical systems including control boxes.</p>
+                
+                <div class="cta-buttons">
+                    <a href="tel:+17604408520" class="cta-button">(760) 440-8520</a>
+                    <a href="/contact.html" class="cta-button secondary">Get Service</a>
+                </div>
+            </section>
         </article>
     </main>
 
     <footer>
         <p>&copy; 2026 Southern California Well Service. Licensed C-57 Contractor.</p>
-        <p>1077 Main St, Ramona, CA 92065 | <a href="tel:7604630493">(760) 463-0493</a></p>
+        <p><a href="tel:+17604408520">(760) 440-8520</a></p>
     </footer>
 </body>
 </html>
