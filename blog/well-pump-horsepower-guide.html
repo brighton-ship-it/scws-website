@@ -3,120 +3,291 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Well Pump Horsepower Guide: How to Size Your Pump Correctly</title>
-    <meta name="description" content="Learn how to determine the right horsepower for your well pump. Covers depth calculations, GPM requirements, and sizing charts for residential well pumps.">
-    <link rel="canonical" href="https://scwellservice.com/blog/well-pump-horsepower-guide.html">
-    <link rel="stylesheet" href="/css/styles.css">
-    
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Article",
-        "headline": "Well Pump Horsepower Guide: How to Size Your Pump Correctly",
-        "description": "Learn how to determine the right horsepower for your well pump. Covers depth calculations, GPM requirements, and sizing charts for residential well pumps.",
-        "author": {"@type": "Organization", "name": "Southern California Well Service"},
-        "publisher": {"@type": "Organization", "name": "Southern California Well Service"},
-        "datePublished": "2026-02-15",
-        "dateModified": "2026-02-15"
-    }
-    </script>
+    <title>Well Pump Horsepower: What Size Do You Need? (2026 Guide)</title>
+    <meta name="description" content="How to choose the right horsepower for your well pump. Calculator for HP based on well depth, GPM needed, and pressure requirements. 1/2 HP to 3 HP guide.">
+    <link rel="canonical" href="https://www.scwellservice.com/blog/well-pump-horsepower-guide.html">
+    <meta property="og:title" content="Well Pump Horsepower Guide">
+    <meta property="og:description" content="Choose the right HP for your well pump based on depth and flow needs.">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://www.scwellservice.com/assets/images/blog-categories/equipment.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="/assets/css/style.css">
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "FAQPage",
-        "mainEntity": [{"@type": "Question", "name": "What happens if my well pump is too small?", "acceptedAnswer": {"@type": "Answer", "text": "An undersized pump runs continuously during peak demand but can't keep up, causing low pressure and flow. Constant running overheats the motor, leading to premature failure\u2014sometimes within 2-3 years instead of 15-20. You'll also notice pressure drops when running multiple fixtures. If your pump runs more than 10 minutes continuously during normal use, it may be undersized."}}, {"@type": "Question", "name": "Can I upgrade to a higher HP pump without changing my electrical?", "acceptedAnswer": {"@type": "Answer", "text": "It depends on your current wiring. Going from 1/2 HP to 3/4 HP usually works on existing 10-gauge wire. Jumping to 1 HP or higher may require heavier wire (8 or 6 gauge) to handle increased amperage over the distance to your well. The control box also needs to match the new motor. Have an electrician verify wire capacity before upgrading\u2014undersized wiring causes voltage drop, poor performance, and potential fire hazards."}}, {"@type": "Question", "name": "How do I calculate total dynamic head for pump sizing?", "acceptedAnswer": {"@type": "Answer", "text": "Add these components: Static water level (depth to water when pump is off), pumping level drawdown (additional drop during pumping\u2014check your well log), vertical distance from well to pressure tank, operating pressure (add 2.31 feet per PSI\u2014for 50 PSI, add 115 feet), and friction losses (typically 2-5 feet per 100 feet of pipe). Example: 100-foot static level + 20-foot drawdown + 30-foot elevation + 115 feet pressure + 10 feet friction = 275 feet TDH."}}]
-    }
-    </script>
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-            {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://scwellservice.com/"},
-            {"@type": "ListItem", "position": 2, "name": "Resources", "item": "https://scwellservice.com/blog/"},
-            {"@type": "ListItem", "position": 3, "name": "Well Pump Horsepower Guide: How to Size Your Pump ", "item": "https://scwellservice.com/blog/well-pump-horsepower-guide.html"}
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What size well pump do I need?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Pump size depends on well depth and water needs. General guidelines: 0-100 feet = 1/2 to 3/4 HP, 100-200 feet = 3/4 to 1 HP, 200-300 feet = 1 to 1.5 HP, 300-400 feet = 1.5 to 2 HP, 400+ feet = 2 to 3+ HP. Higher GPM requirements or higher pressure needs may require larger HP."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I put a bigger pump in my well?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, but bigger isn't always better. A pump too large for your well's yield will just pump it dry faster. The right pump matches your well's production capacity and your household's peak demand. Oversized pumps waste energy and may cause pump cycling problems."
+                }
+            }
         ]
     }
     </script>
-    
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LL1YRWT5T"></script>
-    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-5LL1YRWT5T');</script>
-    <meta property="og:image" content="https://scwellservice.com/images/og-default.jpg">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@scwellservice">
 </head>
 <body>
-    <header class="site-header">
-        <div class="header-content">
-            <a href="/" class="logo">
-                <img loading="lazy" src="/images/logo.png" alt="SCWS Logo" width="50" height="50">
-                <span>Southern California Well Service</span>
-            </a>
-            <nav class="main-nav">
-                <a href="/">Home</a>
-                <a href="/services/">Services</a>
-                <a href="/blog/">Resources</a>
-                <a href="/contact/">Contact</a>
-                <a href="tel:7604630493" class="cta-phone">(760) 463-0493</a>
-            </nav>
-        </div>
+    <header>
+        <nav>
+            <a href="/" class="logo">Southern California Well Service</a>
+            <a href="/services.html">Services</a>
+            <a href="/blog/">Blog</a>
+            <a href="/contact.html">Contact</a>
+            <a href="tel:+17604408520" class="cta-phone">(760) 440-8520</a>
+        </nav>
     </header>
 
     <main class="blog-post">
         <article>
-            <h1>Well Pump Horsepower Guide: How to Size Your Pump Correctly</h1>
+            <div class="hero-image">
+                <img src="/assets/images/blog-categories/equipment.png" alt="Well pump horsepower selection" loading="lazy">
+            </div>
+
+            <h1>Well Pump Horsepower: What Size Do You Need?</h1>
             
+            <p class="meta">Updated February 2026 | By Southern California Well Service</p>
 
-            <figure class="blog-hero-image">
-                <img src="/assets/images/blog-images/well-service-5.png" alt="Well Pump Horsepower Guide: How to Size Your Pump Correctly" loading="lazy" width="800" height="450">
-            </figure>
-            <p class="lead">Learn how to determine the right horsepower for your well pump. Covers depth calculations, GPM requirements, and sizing charts for residential well pumps.</p>
-            
-            <div class="cta-box">
-                <p><strong>Need help? Call us:</strong></p>
-                <a href="tel:7604630493" class="cta-button">(760) 463-0493</a>
+            <div class="quick-answer">
+                <strong>Quick Answer:</strong> Pump HP depends primarily on well depth and GPM needs. For a typical home with a 150-foot well needing 10 GPM at 50 PSI, a 3/4 to 1 HP pump works well. Deeper wells and higher flow/pressure requirements need more HP. The key is matching pump capacity to your well's production and your household's peak demand.
             </div>
 
-            <h2>Understanding Pump Horsepower</h2>
-            <p>Horsepower (HP) in a well pump determines how much water it can lift and how fast. Higher HP means more lifting power (head) and higher flow rates (GPM). Residential submersible pumps typically range from 1/2 HP (light duty, shallow wells) to 2 HP (deep wells, high demand). A 1/2 HP pump might lift water 150 feet at 10 GPM, while a 1.5 HP pump can reach 400+ feet at similar flow rates. The relationship isn't linear—doubling HP doesn't double performance, but it significantly increases capability for deeper or higher-demand applications.</p>
+            <nav class="toc">
+                <h2>Table of Contents</h2>
+                <ul>
+                    <li><a href="#factors">Factors That Determine HP</a></li>
+                    <li><a href="#chart">HP Selection Chart</a></li>
+                    <li><a href="#calculate">How to Calculate</a></li>
+                    <li><a href="#types">Pump Types by HP</a></li>
+                    <li><a href="#mistakes">Common Mistakes</a></li>
+                    <li><a href="#faq">FAQs</a></li>
+                </ul>
+            </nav>
 
-            <h2>Factors That Determine HP Needs</h2>
-            <p>Three main factors determine required horsepower: Total Dynamic Head (TDH) combines static water level, pumping drawdown, elevation from well to pressure tank, and pipe friction losses. A 300-foot well with 50 feet of elevation and friction losses might have 380 feet TDH. GPM requirements depend on household size—rule of thumb is peak demand of 3-5 GPM per bathroom. A 3-bathroom home needs 10-15 GPM. Well yield limits how much water is available; your pump should never exceed well capacity. Your well log provides static level and yield data essential for proper sizing.</p>
+            <section id="factors">
+                <h2>Factors That Determine HP Needs</h2>
 
-            <h2>Sizing Charts and Guidelines</h2>
-            <p>General sizing guidelines: 1/2 HP works for wells under 150 feet TDH with modest 5-8 GPM demand—small homes or cabins. 3/4 HP handles 150-250 feet TDH at 8-12 GPM—average 2-3 bathroom homes. 1 HP covers 250-350 feet TDH at 10-15 GPM—larger homes with 3-4 bathrooms. 1.5 HP reaches 350-450 feet TDH at 12-18 GPM—high-demand homes or light irrigation. 2 HP tackles 450+ feet TDH or higher GPM needs. Always size with 10-15% safety margin. If calculations suggest 0.9 HP, go with 1 HP.</p>
+                <h3>1. Well Depth (Vertical Lift)</h3>
+                <p>The most important factor. Pump must lift water from the pumping level to the surface. Deeper wells require more power.</p>
+                <ul>
+                    <li><strong>Static water level:</strong> Where water sits at rest</li>
+                    <li><strong>Drawdown:</strong> How far it drops during pumping</li>
+                    <li><strong>Pumping level:</strong> Static level + drawdown = total lift needed</li>
+                </ul>
 
-            <h2>Common Sizing Mistakes</h2>
-            <p>Oversizing wastes energy and causes problems. A 2 HP pump on a 150-foot well cycles rapidly because it fills the pressure tank too quickly, reducing pump and tank life. It also costs more upfront and uses more electricity. Undersizing is worse—the pump runs continuously, overheats, and burns out prematurely. Match pump capacity to well yield: if your well produces only 5 GPM, a 15 GPM pump will outpace the well, causing air ingestion and potential damage. The right size pump runs 1-2 minutes per cycle and never exceeds the well's recovery rate.</p>
+                <h3>2. Flow Rate (GPM)</h3>
+                <p>Higher GPM requires more HP. Peak household demand determines minimum GPM.</p>
+                <ul>
+                    <li>1-2 people: 5-8 GPM</li>
+                    <li>3-4 people: 8-12 GPM</li>
+                    <li>5+ people: 12-20 GPM</li>
+                    <li>Add for irrigation, livestock, etc.</li>
+                </ul>
 
-            <h2>Frequently Asked Questions</h2>
-            <div class="faq-section">
-            <div class="faq-item">
-                <h3>What happens if my well pump is too small?</h3>
-                <p>An undersized pump runs continuously during peak demand but can't keep up, causing low pressure and flow. Constant running overheats the motor, leading to premature failure—sometimes within 2-3 years instead of 15-20. You'll also notice pressure drops when running multiple fixtures. If your pump runs more than 10 minutes continuously during normal use, it may be undersized.</p>
-            </div>
-            <div class="faq-item">
-                <h3>Can I upgrade to a higher HP pump without changing my electrical?</h3>
-                <p>It depends on your current wiring. Going from 1/2 HP to 3/4 HP usually works on existing 10-gauge wire. Jumping to 1 HP or higher may require heavier wire (8 or 6 gauge) to handle increased amperage over the distance to your well. The control box also needs to match the new motor. Have an electrician verify wire capacity before upgrading—undersized wiring causes voltage drop, poor performance, and potential fire hazards.</p>
-            </div>
-            <div class="faq-item">
-                <h3>How do I calculate total dynamic head for pump sizing?</h3>
-                <p>Add these components: Static water level (depth to water when pump is off), pumping level drawdown (additional drop during pumping—check your well log), vertical distance from well to pressure tank, operating pressure (add 2.31 feet per PSI—for 50 PSI, add 115 feet), and friction losses (typically 2-5 feet per 100 feet of pipe). Example: 100-foot static level + 20-foot drawdown + 30-foot elevation + 115 feet pressure + 10 feet friction = 275 feet TDH.</p>
-            </div>
-            </div>
-            
-            <div class="cta-box">
-                <h3>Get Expert Help</h3>
-                <p>Contact Southern California Well Service for professional assistance.</p>
-                <a href="tel:7604630493" class="cta-button">Call (760) 463-0493</a>
-                <p class="small">Serving San Diego, Riverside & San Bernardino Counties</p>
-            </div>
+                <h3>3. Pressure Requirements</h3>
+                <p>Higher pressure needs (40/60 or 50/70 settings) require more HP than standard 30/50.</p>
+
+                <h3>4. Horizontal Distance</h3>
+                <p>Long runs from well to house add friction loss. Every 100 feet horizontal ≈ 1 foot of head.</p>
+            </section>
+
+            <section id="chart">
+                <h2>HP Selection Chart</h2>
+
+                <h3>Based on Depth and Flow</h3>
+                <table class="hp-table">
+                    <thead>
+                        <tr>
+                            <th>Well Depth</th>
+                            <th>5-8 GPM</th>
+                            <th>8-12 GPM</th>
+                            <th>12-20 GPM</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>50-100 ft</td>
+                            <td>1/2 HP</td>
+                            <td>1/2-3/4 HP</td>
+                            <td>3/4-1 HP</td>
+                        </tr>
+                        <tr>
+                            <td>100-150 ft</td>
+                            <td>1/2-3/4 HP</td>
+                            <td>3/4-1 HP</td>
+                            <td>1-1.5 HP</td>
+                        </tr>
+                        <tr>
+                            <td>150-200 ft</td>
+                            <td>3/4 HP</td>
+                            <td>1 HP</td>
+                            <td>1.5 HP</td>
+                        </tr>
+                        <tr>
+                            <td>200-300 ft</td>
+                            <td>1 HP</td>
+                            <td>1-1.5 HP</td>
+                            <td>1.5-2 HP</td>
+                        </tr>
+                        <tr>
+                            <td>300-400 ft</td>
+                            <td>1.5 HP</td>
+                            <td>1.5-2 HP</td>
+                            <td>2-3 HP</td>
+                        </tr>
+                        <tr>
+                            <td>400-500 ft</td>
+                            <td>2 HP</td>
+                            <td>2-3 HP</td>
+                            <td>3+ HP</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p><em>Note: This is a general guide. Actual sizing should consider specific well characteristics and pump curves.</em></p>
+            </section>
+
+            <section id="calculate">
+                <h2>How to Calculate Pump Size</h2>
+
+                <h3>Step 1: Determine Total Dynamic Head (TDH)</h3>
+                <p>TDH = Pumping Level + Pressure + Friction Losses</p>
+                <ul>
+                    <li><strong>Example:</strong></li>
+                    <li>Pumping level: 180 feet</li>
+                    <li>Pressure needed: 50 PSI = 115 feet equivalent</li>
+                    <li>Friction losses: ~15 feet</li>
+                    <li><strong>TDH = 180 + 115 + 15 = 310 feet</strong></li>
+                </ul>
+
+                <h3>Step 2: Determine GPM Needed</h3>
+                <ul>
+                    <li>Count fixtures × 1 GPM (rough estimate)</li>
+                    <li>Or calculate peak demand scenarios</li>
+                    <li>Don't forget irrigation if applicable</li>
+                </ul>
+
+                <h3>Step 3: Use Pump Performance Curves</h3>
+                <p>Every pump has a performance curve showing GPM at various TDH values. Select a pump that delivers your GPM at your TDH within its efficiency range.</p>
+
+                <h3>Let Professionals Size It</h3>
+                <p>Proper pump sizing requires knowing your specific well characteristics. A professional can test your well and size the pump correctly.</p>
+            </section>
+
+            <section id="types">
+                <h2>Pump Types by HP Range</h2>
+
+                <h3>1/2 HP Pumps</h3>
+                <ul>
+                    <li>Shallow wells (under 100 feet)</li>
+                    <li>Low demand applications</li>
+                    <li>Small cabins or supplemental use</li>
+                    <li><strong>Cost:</strong> $200-$400</li>
+                </ul>
+
+                <h3>3/4 HP Pumps</h3>
+                <ul>
+                    <li>Medium depth wells (100-200 feet)</li>
+                    <li>Most common residential size</li>
+                    <li>Average household demand</li>
+                    <li><strong>Cost:</strong> $300-$500</li>
+                </ul>
+
+                <h3>1 HP Pumps</h3>
+                <ul>
+                    <li>Deeper wells (150-250 feet)</li>
+                    <li>Higher flow requirements</li>
+                    <li>Larger homes</li>
+                    <li><strong>Cost:</strong> $400-$700</li>
+                </ul>
+
+                <h3>1.5-2 HP Pumps</h3>
+                <ul>
+                    <li>Deep wells (250-400 feet)</li>
+                    <li>High demand or irrigation</li>
+                    <li>Multi-family or commercial</li>
+                    <li><strong>Cost:</strong> $600-$1,200</li>
+                </ul>
+
+                <h3>3+ HP Pumps</h3>
+                <ul>
+                    <li>Very deep wells (400+ feet)</li>
+                    <li>Agricultural applications</li>
+                    <li>High volume needs</li>
+                    <li><strong>Cost:</strong> $1,000-$2,500+</li>
+                </ul>
+            </section>
+
+            <section id="mistakes">
+                <h2>Common Sizing Mistakes</h2>
+
+                <h3>Oversizing</h3>
+                <ul>
+                    <li>Wastes electricity</li>
+                    <li>May outrun well's production</li>
+                    <li>Causes rapid cycling</li>
+                    <li>Shortens pump life</li>
+                </ul>
+
+                <h3>Undersizing</h3>
+                <ul>
+                    <li>Can't meet peak demand</li>
+                    <li>Runs continuously</li>
+                    <li>Overheats and fails early</li>
+                    <li>Poor pressure upstairs</li>
+                </ul>
+
+                <h3>Ignoring Well Yield</h3>
+                <p>A 20 GPM pump in a 5 GPM well will just pump it dry. The pump must be matched to what the well can produce, not just what you want.</p>
+
+                <h3>Forgetting About Drawdown</h3>
+                <p>Static water level isn't enough—you need to know pumping level after sustained pumping.</p>
+            </section>
+
+            <section id="faq">
+                <h2>Frequently Asked Questions</h2>
+
+                <h3>What size well pump do I need?</h3>
+                <p>Depends on depth and flow needs. For a typical 150-foot well serving an average home, 3/4 to 1 HP works well. Use the chart above as a guide.</p>
+
+                <h3>Can I put a bigger pump in my well?</h3>
+                <p>You can, but bigger isn't always better. Match the pump to your well's yield and your needs. Oversized pumps waste energy and may cause problems.</p>
+
+                <h3>How do I know my current pump's HP?</h3>
+                <p>Check the nameplate on the pump motor (if visible), the breaker size (gives clue), or the pump documentation. A professional can identify it during service.</p>
+
+                <h3>Does a bigger pump mean more water?</h3>
+                <p>No—the well produces what it produces. A bigger pump just extracts it faster. If you have low yield, you need storage, not a bigger pump.</p>
+
+                <h3>What's the most common residential pump size?</h3>
+                <p>3/4 HP is most common, followed by 1 HP. These handle most typical residential situations.</p>
+            </section>
+
+            <section class="cta-section">
+                <h2>Need Help Sizing Your Pump?</h2>
+                <p>We can test your well and specify the right pump for your situation.</p>
+                
+                <div class="cta-buttons">
+                    <a href="tel:+17604408520" class="cta-button">(760) 440-8520</a>
+                    <a href="/contact.html" class="cta-button secondary">Get Assessment</a>
+                </div>
+            </section>
         </article>
     </main>
 
     <footer>
         <p>&copy; 2026 Southern California Well Service. Licensed C-57 Contractor.</p>
-        <p>1077 Main St, Ramona, CA 92065 | <a href="tel:7604630493">(760) 463-0493</a></p>
+        <p><a href="tel:+17604408520">(760) 440-8520</a></p>
     </footer>
 </body>
 </html>
