@@ -1,11 +1,11 @@
 {
-  "last_updated": "2026-02-21",
-  "last_verified": "2026-02-21",
+  "last_updated": "2026-02-24",
+  "last_verified": "2026-02-24",
   "match_summary": {
     "total_reviews": 13,
     "matched": 8,
     "unmatched": 5,
-    "verification_note": "Browser automation unavailable for fresh Google review scraping - existing matches verified against Jobber client data"
+    "cities_found": 7
   },
   "cities": [
     "Anza",
@@ -17,20 +17,13 @@
     "Valley Center"
   ],
   "reviews": {
-    "Lakeside": [
-      {
-        "name": "Kathy Bast",
-        "text": "The technician was very friendly and helpful! I would highly recommend.",
-        "date": "Feb 2026",
-        "verified": true
-      }
-    ],
     "Hemet": [
       {
         "name": "Steen Jacobsen",
         "text": "Fast and easy to set up appointment. Super efficient work done by the guys. Well done - no pun intended. Highly recommend.",
         "date": "Feb 2026",
-        "verified": true
+        "verified": true,
+        "api_verified": "2026-02-24"
       }
     ],
     "Poway": [
@@ -38,37 +31,24 @@
         "name": "Ryan Kirk",
         "text": "Very responsive and did the work right. I was even traveling and out of town. Best in the county! Highly recommend.",
         "date": "Feb 2026",
-        "verified": true
-      }
-    ],
-    "Anza": [
-      {
-        "name": "Nadia S.",
-        "text": "The men that work here are very professional. When I called they got right back to me and squeezed me into their busy schedule. All the gentlemen we dealt with were kind and fast workers. They showed and explained to us where the problem was.",
-        "date": "Jan 2026",
-        "verified": true
+        "verified": true,
+        "api_verified": "2026-02-24"
       }
     ],
     "Ramona": [
       {
-        "name": "Dennis Albert",
-        "text": "I'm an early riser, and one recent morning at 5 a.m., I discovered that my well water had stopped working. Southern California Well Service came out immediately and got us back up and running.",
-        "date": "Aug 2025",
-        "verified": true
-      },
-      {
         "name": "Diane P.",
         "text": "Great service, very knowledgeable. Friendly employees. Dependable and quick.",
         "date": "Feb 2026",
-        "verified": true
-      }
-    ],
-    "Julian": [
+        "verified": true,
+        "api_verified": "2026-02-24"
+      },
       {
-        "name": "Wayne Wilcoxen",
-        "text": "They came out immediately, found the problem and fixed it! Fast, Friendly and professional. I will hire them again when I need well help.",
-        "date": "Feb 2026",
-        "verified": true
+        "name": "Dennis Albert",
+        "text": "I'm an early riser, and one recent morning at 5 a.m., I discovered that my well water had stopped working. Southern California Well Service came out immediately and got us back up and running.",
+        "date": "Aug 2025",
+        "verified": true,
+        "api_verified": "2026-02-24"
       }
     ],
     "Valley Center": [
@@ -76,21 +56,50 @@
         "name": "Phoenix",
         "text": "Always happy to work with this company. Their work is second to none. I had them redo all the pipes on my pumps, replace booster tanks, and many other things. Last time we had a broken pipe, they came and fixed it the next day. It's this kind of company that grows because of their service and workmanship.",
         "date": "Feb 2026",
-        "verified": true
+        "verified": true,
+        "api_verified": "2026-02-24"
+      }
+    ],
+    "Lakeside": [
+      {
+        "name": "Kathy Bast",
+        "text": "The technician was very friendly and helpful! I would highly recommend.",
+        "date": "Feb 2026",
+        "verified": true,
+        "api_verified": "2026-02-24"
+      }
+    ],
+    "Anza": [
+      {
+        "name": "Nadia S.",
+        "text": "The men that work here are very professional. When I called they got right back to me and squeezed me into their busy schedule. All the gentlemen we dealt with were kind and fast workers. They showed and explained to us where the problem was.",
+        "date": "Jan 2026",
+        "verified": true,
+        "api_verified": "2026-02-24"
+      }
+    ],
+    "Julian": [
+      {
+        "name": "Wayne Wilcoxen",
+        "text": "They came out immediately, found the problem and fixed it! Fast, Friendly and professional. I will hire them again when I need well help.",
+        "date": "Feb 2026",
+        "verified": true,
+        "api_verified": "2026-02-24"
       }
     ]
   },
-  "service_coverage": {
-    "note": "Top cities in Jobber client base for future review targeting",
-    "top_cities": ["Aguanga", "San Diego", "Escondido", "Jamul", "Julian", "Poway", "Temecula", "Fallbrook", "Ramona", "Riverside"]
+  "potential_matches": {
+    "John H.": {
+      "city": "San Diego",
+      "confidence": "medium",
+      "notes": "Jobber client 'John H' found with San Diego address - need to verify against Google review"
+    }
   },
   "notes": {
-    "unmatched_reviews": "5 reviews couldn't be matched - reviewers either used nicknames, weren't in Jobber, or had partial names (e.g., 'Nadia S.', 'Diane P.') that required manual matching",
-    "automation_blockers": [
-      "Browser automation service not running (required for Google Maps review scraping)",
-      "No Google Places API key configured",
-      "Jobber GraphQL API 2025-04-16 removed searchTerm filter for client lookup"
-    ],
-    "next_steps": "To get fresh reviews, either start OpenClaw browser service or configure Google Places API key in google-reviews.js"
+    "matching_method": "Jobber GraphQL API client search + job property lookup",
+    "unmatched_reviewers": ["Steve M.", "Robert Williams", "Michael Davis", "David Martinez", "John H."],
+    "unmatched_reason": "No city data in Jobber, or names too ambiguous to match confidently",
+    "recent_review_request_cities": ["Aguanga", "Temecula", "Pala", "Ramona"],
+    "browser_required": "Google Maps reviews require browser automation to scrape - Chrome tab not attached"
   }
 }
