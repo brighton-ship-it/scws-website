@@ -205,6 +205,11 @@
                     <input type="hidden" name="referrer" id="referrer">
                     <input type="hidden" name="lead_source" id="lead_source">
                     
+                    <!-- Honeypot spam trap - bots fill this, humans don't see it -->
+                    <div style="position: absolute; left: -9999px;" aria-hidden="true">
+                        <input type="text" name="website_url" tabindex="-1" autocomplete="off">
+                    </div>
+                    
                     <div class="grid md:grid-cols-2 gap-6">
                         <div>
                             <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name *</label>
