@@ -1,73 +1,46 @@
-#!/usr/bin/env python3
-"""Add logo image to all pages missing it."""
-
 import os
 import re
-from pathlib import Path
 
-# Old header pattern (text-only logo)
-OLD_HEADER = '''<header>
-        <nav>
-            <a href="/" class="logo">Southern California Well Service</a>
-            <a href="/services/">Services</a>
-            <a href="/blog/">Resources</a>
-            <a href="/contact/">Contact</a>
-            <a href="tel:7604408520" class="cta-phone">(760) 440-8520</a>
-        </nav>
-    </header>'''
+# Fix services pages - replace text logo with image logo
+services_count = 0
+for root, dirs, files in os.walk('services'):
+    for f in files:
+        if f.endswith('.html'):
+            path = os.path.join(root, f)
+            with open(path, 'r') as file:
+                content = file.read()
+            
+            # Replace text logo with image logo
+            old_pattern = r'<a href="/" class="logo">Southern California Well Service</a>'
+            new_logo = '<a href="/" class="logo"><img src="/images/logo.png" alt="Southern California Well Service" style="height: 40px;"></a>'
+            
+            if old_pattern in content or re.search(old_pattern, content):
+                new_content = re.sub(old_pattern, new_logo, content)
+                with open(path, 'w') as file:
+                    file.write(new_content)
+                services_count += 1
 
-# New header with logo image
-NEW_HEADER = '''<header class="site-header">
-        <div class="header-content">
-            <a href="/" class="logo">
-                <img src="/images/logo.png" alt="SCWS Logo" width="50" height="50">
-                <span>Southern California Well Service</span>
-            </a>
-            <nav class="main-nav">
-                <a href="/">Home</a>
-                <a href="/services/">Services</a>
-                <a href="/blog/">Resources</a>
-                <a href="/contact/">Contact</a>
-                <a href="tel:7604408520" class="cta-phone">(760) 440-8520</a>
-            </nav>
-        </div>
-    </header>'''
+print(f"Fixed {services_count} service pages")
 
-def fix_file(filepath):
-    """Fix a single file."""
-    with open(filepath, 'r', encoding='utf-8') as f:
-        content = f.read()
-    
-    # Skip if already has logo.png
-    if 'logo.png' in content:
-        return False
-    
-    # Replace old header with new
-    if OLD_HEADER in content:
-        new_content = content.replace(OLD_HEADER, NEW_HEADER)
-        with open(filepath, 'w', encoding='utf-8') as f:
-            f.write(new_content)
-        return True
-    
-    return False
-
-def main():
-    website_dir = Path('/Users/jarvis/clawd/scws-website')
-    fixed = 0
-    checked = 0
-    
-    # Process all HTML files
-    for html_file in website_dir.rglob('*.html'):
-        # Skip node_modules and .git
-        if 'node_modules' in str(html_file) or '.git' in str(html_file):
-            continue
+# Fix blog pages - replace text logo with image logo
+blog_count = 0
+for f in os.listdir('blog'):
+    if f.endswith('.html'):
+        path = os.path.join('blog', f)
+        with open(path, 'r') as file:
+            content = file.read()
         
-        checked += 1
-        if fix_file(html_file):
-            fixed += 1
-            print(f"Fixed: {html_file.relative_to(website_dir)}")
-    
-    print(f"\nDone! Fixed {fixed} of {checked} files checked.")
+        # Check if missing logo.png
+        if 'logo.png' not in content:
+            # Replace text logo with image logo
+            old_pattern = r'<a href="/" class="logo">Southern California Well Service</a>'
+            new_logo = '<a href="/" class="logo"><img src="/images/logo.png" alt="Southern California Well Service" style="height: 40px;"></a>'
+            
+            if re.search(old_pattern, content):
+                new_content = re.sub(old_pattern, new_logo, content)
+                with open(path, 'w') as file:
+                    file.write(new_content)
+                blog_count += 1
 
-if __name__ == '__main__':
-    main()
+print(f"Fixed {blog_count} blog pages")
+print(f"Total: {services_count + blog_count} pages fixed")
