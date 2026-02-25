@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-02-24",
-  "last_verified": "2026-02-24",
+  "last_updated": "2026-02-25",
+  "last_verified": "2026-02-25T06:00:00-08:00",
   "match_summary": {
     "total_reviews": 13,
     "matched": 8,
@@ -23,7 +23,8 @@
         "text": "Fast and easy to set up appointment. Super efficient work done by the guys. Well done - no pun intended. Highly recommend.",
         "date": "Feb 2026",
         "verified": true,
-        "api_verified": "2026-02-24"
+        "jobber_match": "Steen Jacobsen - Hemet",
+        "api_verified": "2026-02-25"
       }
     ],
     "Poway": [
@@ -32,7 +33,8 @@
         "text": "Very responsive and did the work right. I was even traveling and out of town. Best in the county! Highly recommend.",
         "date": "Feb 2026",
         "verified": true,
-        "api_verified": "2026-02-24"
+        "jobber_match": "Ryan Kirk - Poway",
+        "api_verified": "2026-02-25"
       }
     ],
     "Ramona": [
@@ -41,14 +43,16 @@
         "text": "Great service, very knowledgeable. Friendly employees. Dependable and quick.",
         "date": "Feb 2026",
         "verified": true,
-        "api_verified": "2026-02-24"
+        "jobber_match": "Diane Peters - Ramona",
+        "api_verified": "2026-02-25"
       },
       {
         "name": "Dennis Albert",
         "text": "I'm an early riser, and one recent morning at 5 a.m., I discovered that my well water had stopped working. Southern California Well Service came out immediately and got us back up and running.",
         "date": "Aug 2025",
         "verified": true,
-        "api_verified": "2026-02-24"
+        "jobber_match": "Dennis Albert - Ramona",
+        "api_verified": "2026-02-25"
       }
     ],
     "Valley Center": [
@@ -57,7 +61,8 @@
         "text": "Always happy to work with this company. Their work is second to none. I had them redo all the pipes on my pumps, replace booster tanks, and many other things. Last time we had a broken pipe, they came and fixed it the next day. It's this kind of company that grows because of their service and workmanship.",
         "date": "Feb 2026",
         "verified": true,
-        "api_verified": "2026-02-24"
+        "jobber_match": "Jess&Carlos Phoenix - Valley Center",
+        "api_verified": "2026-02-25"
       }
     ],
     "Lakeside": [
@@ -66,7 +71,8 @@
         "text": "The technician was very friendly and helpful! I would highly recommend.",
         "date": "Feb 2026",
         "verified": true,
-        "api_verified": "2026-02-24"
+        "jobber_match": "Kathy Bast - Lakeside",
+        "api_verified": "2026-02-25"
       }
     ],
     "Anza": [
@@ -75,7 +81,8 @@
         "text": "The men that work here are very professional. When I called they got right back to me and squeezed me into their busy schedule. All the gentlemen we dealt with were kind and fast workers. They showed and explained to us where the problem was.",
         "date": "Jan 2026",
         "verified": true,
-        "api_verified": "2026-02-24"
+        "jobber_match": "Nadia Shihadeh - Anza",
+        "api_verified": "2026-02-25"
       }
     ],
     "Julian": [
@@ -84,7 +91,8 @@
         "text": "They came out immediately, found the problem and fixed it! Fast, Friendly and professional. I will hire them again when I need well help.",
         "date": "Feb 2026",
         "verified": true,
-        "api_verified": "2026-02-24"
+        "jobber_match": "Wayne Wilcoxen - Julian",
+        "api_verified": "2026-02-25"
       }
     ]
   },
@@ -92,14 +100,15 @@
     "John H.": {
       "city": "San Diego",
       "confidence": "medium",
-      "notes": "Jobber client 'John H' found with San Diego address - need to verify against Google review"
+      "jobber_match": "John H - San Diego",
+      "notes": "Google review name too short for high confidence match"
     }
   },
   "notes": {
     "matching_method": "Jobber GraphQL API client search + job property lookup",
     "unmatched_reviewers": ["Steve M.", "Robert Williams", "Michael Davis", "David Martinez", "John H."],
-    "unmatched_reason": "No city data in Jobber, or names too ambiguous to match confidently",
-    "recent_review_request_cities": ["Aguanga", "Temecula", "Pala", "Ramona"],
-    "browser_required": "Google Maps reviews require browser automation to scrape - Chrome tab not attached"
+    "unmatched_reason": "Names not found in Jobber or too common/ambiguous to match confidently",
+    "browser_required": "Google Maps reviews require browser automation to scrape - Chrome tab not attached during this run",
+    "next_steps": "Attach Chrome tab to pull fresh reviews from both GMB locations"
   }
 }
