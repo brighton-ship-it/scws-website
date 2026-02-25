@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 60" width="400" height="60">
+  <!-- Water drop with wrench icon -->
+  <g transform="translate(5, 5)">
+    <!-- Water drop outline -->
+    <path d="M25 0 C25 0 45 20 45 32 C45 44 36 50 25 50 C14 50 5 44 5 32 C5 20 25 0 25 0Z" 
+          fill="#0EA5E9" stroke="#1E3A5F" stroke-width="2"/>
+    <!-- Wrench inside -->
+    <g transform="translate(12, 18) scale(0.5)">
+      <path d="M20 8h-2.81c-.45-2.38-2.24-4.17-4.62-4.62V0h-5.14v3.38C5.05 3.83 3.26 5.62 2.81 8H0v5.14h2.81c.45 2.38 2.24 4.17 4.62 4.62V21h5.14v-3.24c2.38-.45 4.17-2.24 4.62-4.62H20V8zm-10 6c-1.93 0-3.5-1.57-3.5-3.5S8.07 7 10 7s3.5 1.57 3.5 3.5S11.93 14 10 14z" 
+            fill="#1E3A5F"/>
+    </g>
+  </g>
+  
+  <!-- Company name text -->
+  <text x="60" y="28" font-family="Arial, sans-serif" font-weight="bold" font-size="14" fill="#FFFFFF">SOUTHERN CALIFORNIA</text>
+  <text x="60" y="46" font-family="Arial, sans-serif" font-weight="bold" font-size="16" fill="#0EA5E9">WELL SERVICE</text>
+</svg>
