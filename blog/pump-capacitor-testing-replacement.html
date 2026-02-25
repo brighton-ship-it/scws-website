@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Well Pump Capacitor: Testing & Replacement Guide</title>
-    <meta name="description" content="Start and run capacitors explained. Testing with a multimeter and safe replacement.">
+    <title>Well Pump Capacitor Testing & Replacement Guide | 2026</title>
+    <meta name="description" content="How to test and replace well pump capacitors. Learn the difference between start and run capacitors, testing with a multimeter, and safe replacement procedures.">
     <link rel="canonical" href="https://scwellservice.com/blog/pump-capacitor-testing-replacement.html">
     <link rel="stylesheet" href="/css/styles.css">
     
@@ -12,19 +12,44 @@
     {
         "@context": "https://schema.org",
         "@type": "Article",
-        "headline": "Well Pump Capacitor: Testing & Replacement Guide",
-        "description": "Start and run capacitors explained. Testing with a multimeter and safe replacement.",
+        "headline": "Well Pump Capacitor Testing & Replacement Guide",
+        "description": "How to test and replace well pump capacitors.",
         "author": {"@type": "Organization", "name": "Southern California Well Service"},
         "publisher": {"@type": "Organization", "name": "Southern California Well Service"},
         "datePublished": "2026-02-16",
-        "dateModified": "2026-02-16"
+        "dateModified": "2026-02-25"
     }
     </script>
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "FAQPage",
-        "mainEntity": []
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "How do I know if my well pump capacitor is bad?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Signs of a bad capacitor: pump won't start but hums, pump starts slowly or struggles, pump trips the breaker, motor runs hot, or capacitor appears bulged, leaking, or burned. You can test capacitance with a multimeter—a reading significantly below the rated value (usually more than 10% low) indicates a failed capacitor."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What's the difference between start and run capacitors?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Start capacitors provide a brief burst of starting torque and disconnect once the motor reaches speed. Run capacitors stay in the circuit continuously to improve efficiency. Start capacitors are typically larger (88-400+ microfarads) while run capacitors are smaller (5-50 microfarads). Many 3-wire pump systems use both."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I replace a well pump capacitor myself?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Capacitor replacement is possible for someone comfortable with electrical work, but CAUTION: capacitors store electrical charge even after power is off and can deliver a dangerous shock. You must safely discharge the capacitor before handling it. If you're not comfortable with this, call a professional. Also, a failed capacitor often indicates other problems that need diagnosis."
+                }
+            }
+        ]
     }
     </script>
     <script type="application/ld+json">
@@ -34,7 +59,7 @@
         "itemListElement": [
             {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://scwellservice.com/"},
             {"@type": "ListItem", "position": 2, "name": "Resources", "item": "https://scwellservice.com/blog/"},
-            {"@type": "ListItem", "position": 3, "name": "Well Pump Capacitor: Testing & Replacement Guide", "item": "https://scwellservice.com/blog/pump-capacitor-testing-replacement.html"}
+            {"@type": "ListItem", "position": 3, "name": "Pump Capacitor Guide", "item": "https://scwellservice.com/blog/pump-capacitor-testing-replacement.html"}
         ]
     }
     </script>
@@ -64,28 +89,262 @@
 
     <main class="blog-post">
         <article>
-            <h1>Well Pump Capacitor: Testing & Replacement Guide</h1>
-            
+            <h1>Well Pump Capacitor Testing & Replacement Guide</h1>
 
             <figure class="blog-hero-image">
-                <img src="/assets/images/blog-images/well-service-2.png" alt="Well Pump Capacitor: Testing & Replacement Guide" loading="lazy" width="800" height="450">
+                <img src="/assets/images/blog-images/well-service-2.png" alt="Pump Capacitor Testing" loading="lazy" width="800" height="450">
             </figure>
-            <p class="lead">Start and run capacitors explained. Testing with a multimeter and safe replacement.</p>
             
-            <div class="cta-box">
-                <p><strong>Need help? Call us:</strong></p>
-                <a href="tel:7604630493" class="cta-button">(760) 463-0493</a>
+            <p class="lead">When your well pump won't start or struggles to run, a failed capacitor is often the culprit. Capacitors are relatively inexpensive parts that commonly fail—but they can also store dangerous electrical charge. Here's what you need to know about testing and replacing pump capacitors safely.</p>
+
+            <div class="warning-box" style="background: #fff3cd; border: 1px solid #ffc107; padding: 1rem; margin: 1rem 0; border-radius: 4px;">
+                <strong>⚠️ ELECTRICAL SAFETY WARNING:</strong> Capacitors store electrical charge even after power is disconnected. They can deliver a dangerous shock. Always discharge capacitors before testing or replacing them. If you're not comfortable working with electrical systems, call a professional.
             </div>
+
+            <div class="cta-box">
+                <p><strong>Pump Not Starting?</strong></p>
+                <a href="tel:7604630493" class="cta-button">(760) 463-0493</a>
+                <p class="small">We can diagnose and repair capacitor issues</p>
+            </div>
+
+            <h2>Understanding Pump Capacitors</h2>
+
+            <h3>What Capacitors Do</h3>
+            <p>Single-phase motors (like most residential well pumps) need help starting and running efficiently. Capacitors provide:</p>
+            <ul>
+                <li><strong>Starting torque</strong> — Extra power to get the motor spinning</li>
+                <li><strong>Phase shift</strong> — Creates the rotating magnetic field needed for operation</li>
+                <li><strong>Efficiency</strong> — Improves running power factor</li>
+            </ul>
+
+            <h3>Start Capacitors vs. Run Capacitors</h3>
+            <table>
+                <tr>
+                    <th>Feature</th>
+                    <th>Start Capacitor</th>
+                    <th>Run Capacitor</th>
+                </tr>
+                <tr>
+                    <td>Purpose</td>
+                    <td>Provides starting torque</td>
+                    <td>Improves running efficiency</td>
+                </tr>
+                <tr>
+                    <td>Active time</td>
+                    <td>Only during startup (1-3 seconds)</td>
+                    <td>Continuously while running</td>
+                </tr>
+                <tr>
+                    <td>Typical size</td>
+                    <td>88-400+ microfarads (µF)</td>
+                    <td>5-50 microfarads (µF)</td>
+                </tr>
+                <tr>
+                    <td>Shape</td>
+                    <td>Usually cylindrical, black plastic</td>
+                    <td>Often oval, metal case</td>
+                </tr>
+                <tr>
+                    <td>Failure effect</td>
+                    <td>Motor won't start or starts slowly</td>
+                    <td>Motor runs inefficiently, may overheat</td>
+                </tr>
+            </table>
+
+            <h3>2-Wire vs. 3-Wire Pump Systems</h3>
+            <ul>
+                <li><strong>2-Wire pumps:</strong> Capacitors are in the motor (down the well). No accessible capacitors. Motor replacement required if capacitor fails.</li>
+                <li><strong>3-Wire pumps:</strong> Capacitors are in a control box at the surface. Accessible for testing and replacement.</li>
+            </ul>
+
+            <h2>Signs of a Bad Capacitor</h2>
+
+            <h3>Symptoms</h3>
+            <ul>
+                <li><strong>Motor hums but won't start</strong> — Classic start capacitor failure</li>
+                <li><strong>Motor starts slowly</strong> — Capacitor weak but not dead</li>
+                <li><strong>Motor trips breaker</strong> — Drawing excess current trying to start</li>
+                <li><strong>Motor runs hot</strong> — Run capacitor failure</li>
+                <li><strong>Intermittent starting problems</strong> — Capacitor failing under load</li>
+                <li><strong>Pump short cycles</strong> — May indicate electrical issues including capacitor</li>
+            </ul>
+
+            <h3>Visual Signs</h3>
+            <ul>
+                <li><strong>Bulging top or sides</strong> — Capacitor has failed internally</li>
+                <li><strong>Leaking fluid</strong> — Dielectric oil leaking out</li>
+                <li><strong>Burn marks</strong> — Overheating or short circuit</li>
+                <li><strong>Cracked case</strong> — Physical damage</li>
+            </ul>
+
+            <h2>How to Safely Test a Capacitor</h2>
+
+            <h3>Equipment Needed</h3>
+            <ul>
+                <li>Digital multimeter with capacitance setting (µF)</li>
+                <li>Insulated screwdriver (for discharging)</li>
+                <li>Safety glasses</li>
+                <li>Insulated gloves recommended</li>
+            </ul>
+
+            <h3>Step 1: Turn Off Power</h3>
+            <ol>
+                <li>Turn off the circuit breaker for the well pump</li>
+                <li>Verify power is off with a voltage tester</li>
+                <li>Wait 5 minutes for any residual discharge</li>
+            </ol>
+
+            <h3>Step 2: Access the Capacitor</h3>
+            <ol>
+                <li>Open the pump control box (3-wire systems)</li>
+                <li>Locate the capacitor(s)</li>
+                <li>Note wire positions before disconnecting (take a photo)</li>
+            </ol>
+
+            <h3>Step 3: Discharge the Capacitor</h3>
+            <p><strong>CRITICAL SAFETY STEP:</strong></p>
+            <ol>
+                <li>Using an insulated screwdriver, carefully short across the capacitor terminals</li>
+                <li>You may see/hear a small spark—this is normal</li>
+                <li>Hold for several seconds</li>
+                <li>Repeat to ensure full discharge</li>
+            </ol>
+
+            <h3>Step 4: Test Capacitance</h3>
+            <ol>
+                <li>Disconnect wires from capacitor terminals</li>
+                <li>Set multimeter to capacitance (µF) setting</li>
+                <li>Touch probes to capacitor terminals</li>
+                <li>Read the capacitance value</li>
+                <li>Compare to the rating printed on the capacitor</li>
+            </ol>
+
+            <h3>Interpreting Results</h3>
+            <table>
+                <tr>
+                    <th>Reading</th>
+                    <th>Meaning</th>
+                </tr>
+                <tr>
+                    <td>Within 10% of rated value</td>
+                    <td>Capacitor is good</td>
+                </tr>
+                <tr>
+                    <td>10-20% below rated</td>
+                    <td>Capacitor is weak, replace soon</td>
+                </tr>
+                <tr>
+                    <td>More than 20% below</td>
+                    <td>Capacitor has failed, replace now</td>
+                </tr>
+                <tr>
+                    <td>Zero or "OL"</td>
+                    <td>Capacitor is dead or shorted</td>
+                </tr>
+            </table>
+
+            <h2>Capacitor Replacement</h2>
+
+            <h3>Finding the Right Replacement</h3>
+            <p>Match these specifications exactly:</p>
+            <ul>
+                <li><strong>Microfarads (µF):</strong> Must match—this is the capacitance</li>
+                <li><strong>Voltage rating:</strong> Must be equal or higher than original</li>
+                <li><strong>Type:</strong> Start vs. run capacitor</li>
+            </ul>
+
+            <p><strong>Example label:</strong> "88-106 MFD 250VAC" means 88-106 microfarads, 250 volt rating</p>
+
+            <h3>Installation Steps</h3>
+            <ol>
+                <li>Confirm power is OFF</li>
+                <li>Discharge the new capacitor (some come pre-charged)</li>
+                <li>Remove the old capacitor</li>
+                <li>Note terminal positions</li>
+                <li>Install new capacitor in same orientation</li>
+                <li>Reconnect wires to correct terminals</li>
+                <li>Secure capacitor in mounting bracket</li>
+                <li>Close control box</li>
+                <li>Restore power</li>
+                <li>Test pump operation</li>
+            </ol>
+
+            <h2>Capacitor Costs</h2>
+            <table>
+                <tr>
+                    <th>Capacitor Type</th>
+                    <th>Cost Range</th>
+                </tr>
+                <tr>
+                    <td>Start capacitor (standard)</td>
+                    <td>$15-$40</td>
+                </tr>
+                <tr>
+                    <td>Run capacitor (standard)</td>
+                    <td>$10-$30</td>
+                </tr>
+                <tr>
+                    <td>High-capacity start</td>
+                    <td>$30-$60</td>
+                </tr>
+                <tr>
+                    <td>Professional replacement (labor)</td>
+                    <td>$75-$200</td>
+                </tr>
+            </table>
+
+            <h2>When to Call a Professional</h2>
+
+            <h3>DIY May Not Be Appropriate If:</h3>
+            <ul>
+                <li>You're not comfortable with electrical work</li>
+                <li>You don't have proper testing equipment</li>
+                <li>The pump has a 2-wire system (capacitor is in the motor)</li>
+                <li>Capacitor replacement doesn't fix the problem</li>
+                <li>There are signs of other electrical damage</li>
+                <li>The control box shows burn marks or other damage</li>
+            </ul>
+
+            <h3>What a Professional Checks</h3>
+            <p>A failed capacitor is sometimes a symptom of other problems:</p>
+            <ul>
+                <li><strong>Voltage issues</strong> — Low voltage can kill capacitors</li>
+                <li><strong>Motor problems</strong> — Failing motor draws excess current</li>
+                <li><strong>Relay issues</strong> — Start relay affects capacitor circuit</li>
+                <li><strong>Wiring problems</strong> — Bad connections or damaged wire</li>
+                <li><strong>Pump issues</strong> — Mechanical problems increase electrical load</li>
+            </ul>
 
             <h2>Frequently Asked Questions</h2>
             <div class="faq-section">
+                <h3>How do I know if my well pump capacitor is bad?</h3>
+                <p>Common signs include: pump won't start but hums or buzzes, pump starts slowly or struggles to get going, pump trips the circuit breaker when trying to start, motor runs hot, or the capacitor itself appears bulged, leaking, or burned. You can test capacitance with a digital multimeter that has a capacitance (µF) setting—a reading significantly below the rated value (usually more than 10% low) indicates a failed or failing capacitor that should be replaced.</p>
+
+                <h3>What's the difference between start and run capacitors?</h3>
+                <p>Start capacitors provide a brief burst of starting torque and disconnect from the circuit once the motor reaches running speed (typically 1-3 seconds). Run capacitors stay in the circuit continuously while the motor runs to improve efficiency and power factor. Start capacitors are typically larger (88-400+ microfarads) while run capacitors are smaller (5-50 microfarads). Many 3-wire submersible pump systems use both types.</p>
+
+                <h3>Can I replace a well pump capacitor myself?</h3>
+                <p>Capacitor replacement is possible for someone comfortable with basic electrical work, but CAUTION: capacitors store electrical charge even after power is turned off and can deliver a dangerous, potentially fatal shock. You must safely discharge the capacitor before handling it. If you're not comfortable with electrical safety procedures, call a professional. Also note that a failed capacitor often indicates other underlying problems that need proper diagnosis.</p>
+
+                <h3>Why does my well pump capacitor keep failing?</h3>
+                <p>Repeated capacitor failure usually indicates another problem: low voltage supply (brownouts or undersized wire), a failing motor drawing excess current, frequent short cycling that stresses components, overheating due to poor ventilation, power surges or lightning damage, or using the wrong capacitor rating. If capacitors fail repeatedly, have the entire system professionally evaluated.</p>
             </div>
-            
+
+            <h2>Our Pump Repair Services</h2>
+            <p>Southern California Well Service diagnoses and repairs pump electrical problems:</p>
+            <ul>
+                <li><strong>Capacitor testing</strong> — Proper diagnosis</li>
+                <li><strong>Capacitor replacement</strong> — Quality parts</li>
+                <li><strong>Control box repair</strong> — Complete electrical service</li>
+                <li><strong>Full system diagnosis</strong> — Find underlying problems</li>
+            </ul>
+
             <div class="cta-box">
-                <h3>Get Expert Help</h3>
-                <p>See our <a href="../pages/services/pump-repair.html" class="text-accent hover:underline">pump repair services</a>.</p>
+                <h3>Pump Electrical Problems?</h3>
+                <p>We diagnose and repair pump capacitors, control boxes, and electrical systems.</p>
                 <a href="tel:7604630493" class="cta-button">Call (760) 463-0493</a>
-                <p class="small">Serving San Diego, Riverside & San Bernardino Counties</p>
+                <p class="small">Fast diagnosis | Quality parts | San Diego County</p>
+                <p class="small">Related: <a href="/services/pump-repair/">Pump Repair Services</a> | <a href="/blog/well-pump-wont-start.html">Pump Won't Start</a> | <a href="/blog/signs-well-pump-failing.html">Pump Failure Signs</a></p>
             </div>
         </article>
     </main>
