@@ -288,10 +288,11 @@
         aiMsg.textContent = data.response;
         messages.appendChild(aiMsg);
       } catch (error) {
+        console.error('SCWS Chat Error:', error);
         typing.remove();
         const errorMsg = document.createElement('div');
         errorMsg.className = 'scws-message assistant';
-        errorMsg.textContent = "Sorry, I'm having trouble connecting. Please call us at (760) 440-8520.";
+        errorMsg.textContent = "Sorry, I'm having trouble connecting. Please call us at (760) 440-8520. (Error: " + error.message + ")";
         messages.appendChild(errorMsg);
       }
 
