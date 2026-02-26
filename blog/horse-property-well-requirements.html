@@ -1,98 +1,532 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LL1YRWT5T"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-5LL1YRWT5T');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Horse Property Well Systems: Flow Rates & Requirements</title>
-    <meta name="description" content="Well specifications for equestrian properties. GPM needs, storage, and backup systems.">
+    <title>Horse Property Well Requirements: GPM, Storage & System Sizing (2026)</title>
+    <meta name="description" content="Technical requirements for horse property wells. Calculate GPM needs, storage tank sizing, and backup systems for equestrian properties in San Diego County.">
+    <meta name="keywords" content="horse property well requirements, equestrian well GPM, horse water well sizing, barn well system, horse property water supply">
     <link rel="canonical" href="https://scwellservice.com/blog/horse-property-well-requirements.html">
-    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="icon" type="image/png" href="../images/logo-text-only-3x.png">
+    <link rel="stylesheet" href="../css/styles.css">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://scwellservice.com/blog/horse-property-well-requirements.html">
+    <meta property="og:title" content="Horse Property Well Requirements">
+    <meta property="og:description" content="Technical requirements for horse property wells including GPM calculations and system sizing.">
+    <meta property="og:image" content="https://scwellservice.com/images/og-image.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"></noscript>
     
+    <!-- Article Schema -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "Article",
-        "headline": "Horse Property Well Systems: Flow Rates & Requirements",
-        "description": "Well specifications for equestrian properties. GPM needs, storage, and backup systems.",
+        "headline": "Horse Property Well Requirements: GPM, Storage & System Sizing",
         "author": {"@type": "Organization", "name": "Southern California Well Service"},
-        "publisher": {"@type": "Organization", "name": "Southern California Well Service"},
+        "publisher": {"@type": "Organization", "name": "Southern California Well Service", "logo": {"@type": "ImageObject", "url": "https://scwellservice.com/images/logo-text-only-3x.png"}},
         "datePublished": "2026-02-16",
-        "dateModified": "2026-02-16"
+        "dateModified": "2026-02-25",
+        "description": "Technical requirements for horse property wells.",
+        "mainEntityOfPage": {"@type": "WebPage", "@id": "https://scwellservice.com/blog/horse-property-well-requirements.html"}
     }
     </script>
+    
+    <!-- FAQPage Schema -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "FAQPage",
-        "mainEntity": []
-    }
-    </script>
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-            {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://scwellservice.com/"},
-            {"@type": "ListItem", "position": 2, "name": "Resources", "item": "https://scwellservice.com/blog/"},
-            {"@type": "ListItem", "position": 3, "name": "Horse Property Well Systems: Flow Rates & Requirem", "item": "https://scwellservice.com/blog/horse-property-well-requirements.html"}
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What GPM well do I need for horses?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "A property with 2-4 horses plus household needs typically requires 5-10 GPM minimum. With adequate storage (1,500+ gallons), even lower-yield wells can work. Properties with 10+ horses, arenas to water, or significant irrigation needs should target 15-25+ GPM."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How much water storage do horse properties need?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Minimum 1-2 days supply is recommended. Calculate daily usage (household + horses + other animals + irrigation), multiply by 2, and that's your storage target. A property using 500 gallons/day should have at least 1,000 gallons storage, preferably 1,500-2,500 gallons."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Do horse properties need backup water systems?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Highly recommended. Horses need water daily without exception. Options include emergency water delivery contacts, generator backup for the pump, a secondary well, or enough storage to survive several days of pump downtime. At minimum, keep a water delivery company's number posted."
+                }
+            }
         ]
     }
     </script>
-    
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LL1YRWT5T"></script>
-    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-5LL1YRWT5T');</script>
-    <meta property="og:image" content="https://scwellservice.com/images/og-default.jpg">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@scwellservice">
 </head>
 <body>
-    <header class="site-header">
-        <div class="header-content">
-            <a href="/" class="logo">
-                <img loading="lazy" src="/images/logo-text-only-3x.png" alt="SCWS Logo" width="50" height="50">
-                <span>Southern California Well Service</span>
-            </a>
-            <nav class="main-nav">
-                <a href="/">Home</a>
-                <a href="/services/">Services</a>
-                <a href="/blog/">Resources</a>
-                <a href="/contact/">Contact</a>
-                <a href="tel:7604630493" class="cta-phone">(760) 463-0493</a>
-            </nav>
-        </div>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="../index.html" class="logo">
+                    <img src="../images/logo-text-only-3x.png" alt="Southern California Well Service" width="280" height="50" loading="eager">
+                </a>
+                <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                    <span></span><span></span><span></span>
+                </button>
+                <ul class="nav-menu">
+                    <li><a href="../well-drilling.html">Well Drilling</a></li>
+                    <li><a href="../pump-repair.html">Pump Repair</a></li>
+                    <li><a href="../water-testing.html">Water Testing</a></li>
+                    <li><a href="../blog.html">Resources</a></li>
+                    <li><a href="../contact.html" class="btn btn-primary">Free Estimate</a></li>
+                </ul>
+            </div>
+        </nav>
     </header>
-
+    
     <main class="blog-post">
         <article>
-            <h1>Horse Property Well Systems: Flow Rates & Requirements</h1>
-            
-
-            <figure class="blog-hero-image">
-                <img src="/assets/images/blog-images/well-service-5.png" alt="Horse Property Well Systems: Flow Rates & Requirements" loading="lazy" width="800" height="450">
-            </figure>
-            <p class="lead">Well specifications for equestrian properties. GPM needs, storage, and backup systems.</p>
-            
-            <div class="cta-box">
-                <p>See our <a href="../pages/services/well-drilling.html" class="text-accent">equestrian well services</a>.</p>
-                <a href="tel:7604630493" class="cta-button">(760) 463-0493</a>
-            </div>
-
-            <h2>Frequently Asked Questions</h2>
-            <div class="faq-section">
+            <div class="post-header">
+                <div class="container">
+                    <nav class="breadcrumb" aria-label="Breadcrumb">
+                        <a href="../index.html">Home</a> &rsaquo;
+                        <a href="../blog.html">Resources</a> &rsaquo;
+                        <span>Horse Property Well Requirements</span>
+                    </nav>
+                    <h1>Horse Property Well Requirements: GPM, Storage & System Sizing</h1>
+                    <p class="post-meta">Updated February 2026 • 9 min read</p>
+                </div>
             </div>
             
-            <div class="cta-box">
-                <h3>Get Expert Help</h3>
-                <p>Contact Southern California Well Service for professional assistance.</p>
-                <a href="tel:7604630493" class="cta-button">Call (760) 463-0493</a>
-                <p class="small">Serving San Diego, Riverside & San Bernardino Counties</p>
+            <div class="container">
+                <div class="post-content">
+                    
+                    <p class="lead">Buying or developing a horse property requires careful attention to water supply. Horses are <strong>large animals with non-negotiable daily water needs</strong> — a situation that demands reliable well systems properly sized for the operation. This guide covers the technical requirements for equestrian property wells.</p>
+                    
+                    <div class="cta-box">
+                        <h3>Horse Property Well Experts</h3>
+                        <p>We specialize in equestrian properties throughout San Diego and Riverside Counties. Let us assess your water needs.</p>
+                        <p><strong>📞 Call (760) 463-0493</strong></p>
+                        <a href="../contact.html" class="btn btn-primary">Request Assessment</a>
+                    </div>
+                    
+                    <h2>Horse Water Consumption Rates</h2>
+                    
+                    <p>Start with understanding how much water horses actually need:</p>
+                    
+                    <h3>Daily Water Per Horse</h3>
+                    
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Condition</th>
+                                <th>Daily Gallons</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>At rest, mild weather</td>
+                                <td>5-10 gallons</td>
+                            </tr>
+                            <tr>
+                                <td>Normal activity</td>
+                                <td>10-12 gallons</td>
+                            </tr>
+                            <tr>
+                                <td>Hot weather (90°F+)</td>
+                                <td>15-20 gallons</td>
+                            </tr>
+                            <tr>
+                                <td>Heavy work/exercise</td>
+                                <td>15-25 gallons</td>
+                            </tr>
+                            <tr>
+                                <td>Lactating mares</td>
+                                <td>15-25 gallons</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <p><strong>Planning number:</strong> Use 15 gallons per horse per day for system sizing. This accounts for hot days and ensures adequate capacity.</p>
+                    
+                    <h3>Additional Water Uses</h3>
+                    
+                    <ul>
+                        <li><strong>Household:</strong> 150-300 gallons/day</li>
+                        <li><strong>Barn cleaning:</strong> 20-50 gallons per cleaning</li>
+                        <li><strong>Horse bathing:</strong> 25-50 gallons per bath</li>
+                        <li><strong>Arena watering:</strong> 500-2,000+ gallons per application</li>
+                        <li><strong>Pasture irrigation:</strong> Variable, can be substantial</li>
+                        <li><strong>Other livestock:</strong> Add per animal (goats 3 gal, dogs 1 gal, etc.)</li>
+                    </ul>
+                    
+                    <h2>GPM Requirements by Property Size</h2>
+                    
+                    <p>GPM (gallons per minute) determines how fast your well can deliver water. Here's what you need:</p>
+                    
+                    <h3>Small Properties (1-4 horses)</h3>
+                    
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Setup</th>
+                                <th>Daily Use</th>
+                                <th>Minimum GPM</th>
+                                <th>With Storage</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>House + 2 horses</td>
+                                <td>~280 gal</td>
+                                <td>5 GPM</td>
+                                <td>3 GPM + 1,500 gal tank</td>
+                            </tr>
+                            <tr>
+                                <td>House + 4 horses</td>
+                                <td>~340 gal</td>
+                                <td>7 GPM</td>
+                                <td>4 GPM + 2,000 gal tank</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <h3>Medium Properties (5-10 horses)</h3>
+                    
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Setup</th>
+                                <th>Daily Use</th>
+                                <th>Minimum GPM</th>
+                                <th>Recommended</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>House + 6 horses</td>
+                                <td>~400 gal</td>
+                                <td>10 GPM</td>
+                                <td>15 GPM</td>
+                            </tr>
+                            <tr>
+                                <td>House + 10 horses</td>
+                                <td>~500 gal</td>
+                                <td>12 GPM</td>
+                                <td>20 GPM</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <h3>Large Equestrian Facilities (10+ horses)</h3>
+                    
+                    <p>Training facilities, boarding operations, and breeding farms need substantial water:</p>
+                    
+                    <ul>
+                        <li><strong>10-20 horses:</strong> 20-35 GPM recommended</li>
+                        <li><strong>20-50 horses:</strong> 35-75 GPM recommended</li>
+                        <li><strong>50+ horses:</strong> 75+ GPM, often multiple wells</li>
+                    </ul>
+                    
+                    <p>Add significant capacity if watering riding arenas or irrigating pastures.</p>
+                    
+                    <h2>Storage Tank Requirements</h2>
+                    
+                    <p>Storage tanks are <strong>essential for horse properties</strong>. They provide buffer capacity during peak demand and security during pump repairs.</p>
+                    
+                    <h3>Sizing Your Storage</h3>
+                    
+                    <p>Calculate minimum storage as:</p>
+                    
+                    <ol>
+                        <li>Total daily water use × 2 days = absolute minimum</li>
+                        <li>Total daily water use × 3 days = recommended</li>
+                    </ol>
+                    
+                    <p><strong>Example:</strong> Property using 400 gallons/day needs 800-1,200 gallon minimum storage.</p>
+                    
+                    <h3>Storage Tank Options</h3>
+                    
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Type</th>
+                                <th>Cost Range</th>
+                                <th>Pros</th>
+                                <th>Cons</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Poly above-ground</td>
+                                <td>$1-3 per gallon</td>
+                                <td>Affordable, easy to install</td>
+                                <td>UV exposure, visible</td>
+                            </tr>
+                            <tr>
+                                <td>Steel above-ground</td>
+                                <td>$2-5 per gallon</td>
+                                <td>Durable, long-lasting</td>
+                                <td>Corrosion potential</td>
+                            </tr>
+                            <tr>
+                                <td>Concrete underground</td>
+                                <td>$5-15 per gallon</td>
+                                <td>Hidden, protected</td>
+                                <td>Expensive, permanent</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <p>Learn more: <a href="well-storage-tank-guide.html">Complete Storage Tank Guide</a></p>
+                    
+                    <h2>Pressure System Requirements</h2>
+                    
+                    <h3>Minimum Pressure Standards</h3>
+                    
+                    <ul>
+                        <li><strong>Household fixtures:</strong> 40-60 PSI normal operating range</li>
+                        <li><strong>Automatic waterers:</strong> 15-30 PSI minimum (check manufacturer specs)</li>
+                        <li><strong>Barn hydrants:</strong> 30-50 PSI for good hose flow</li>
+                        <li><strong>Arena sprinklers:</strong> Varies by system (typically 40-80 PSI)</li>
+                    </ul>
+                    
+                    <h3>Pressure Tank Sizing</h3>
+                    
+                    <p>Horse properties benefit from larger pressure tanks to reduce pump cycling:</p>
+                    
+                    <ul>
+                        <li><strong>Small property:</strong> 40-60 gallon pressure tank</li>
+                        <li><strong>Medium property:</strong> 60-85 gallon pressure tank</li>
+                        <li><strong>Large property:</strong> 85-120 gallon or multiple tanks</li>
+                    </ul>
+                    
+                    <h3>Constant Pressure Systems</h3>
+                    
+                    <p>For properties with variable demand (multiple hydrants, arena watering, etc.), <a href="constant-pressure-system-guide.html">constant pressure systems</a> with VFDs provide:</p>
+                    
+                    <ul>
+                        <li>Steady pressure regardless of usage</li>
+                        <li>Reduced pump cycling and wear</li>
+                        <li>Energy savings</li>
+                        <li>Better performance for sprinkler systems</li>
+                    </ul>
+                    
+                    <h2>Water Distribution Requirements</h2>
+                    
+                    <h3>Piping Specifications</h3>
+                    
+                    <ul>
+                        <li><strong>Main lines:</strong> 1" minimum, 1.5" for long runs or high demand</li>
+                        <li><strong>Barn feeds:</strong> 3/4" to 1" typical</li>
+                        <li><strong>Individual waterer lines:</strong> 1/2" to 3/4"</li>
+                        <li><strong>Material:</strong> Schedule 40 PVC or polyethylene for underground; copper or PEX in buildings</li>
+                    </ul>
+                    
+                    <h3>Freeze Protection</h3>
+                    
+                    <p>In San Diego mountain areas (Julian, Ramona backcountry, Palomar), freeze protection is essential:</p>
+                    
+                    <ul>
+                        <li><strong>Bury pipes:</strong> Below frost line (12-18" in most areas)</li>
+                        <li><strong>Frost-free hydrants:</strong> Essential for outdoor water points</li>
+                        <li><strong>Insulated waterers:</strong> Many automatic waterers have heating options</li>
+                        <li><strong>Heat tape:</strong> For exposed pipes that can't be buried</li>
+                    </ul>
+                    
+                    <h3>Automatic Waterers</h3>
+                    
+                    <p>Float-valve automatic waterers are standard for horse properties:</p>
+                    
+                    <ul>
+                        <li><strong>Per stall:</strong> One waterer per 1-2 stalls</li>
+                        <li><strong>Pastures:</strong> One waterer per 3-5 horses</li>
+                        <li><strong>Flow rate:</strong> Ensure system can refill faster than horses drink</li>
+                        <li><strong>Backup:</strong> Have manual watering capability if waterers fail</li>
+                    </ul>
+                    
+                    <h2>Water Quality Requirements</h2>
+                    
+                    <p>Horses are generally tolerant of water quality variations, but some issues matter:</p>
+                    
+                    <h3>Parameters That Affect Horses</h3>
+                    
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Parameter</th>
+                                <th>Acceptable Range</th>
+                                <th>Concern Level</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>TDS</td>
+                                <td>&lt;3,000 ppm</td>
+                                <td>&gt;5,000 ppm may reduce intake</td>
+                            </tr>
+                            <tr>
+                                <td>Sulfate</td>
+                                <td>&lt;1,000 ppm</td>
+                                <td>High levels cause diarrhea</td>
+                            </tr>
+                            <tr>
+                                <td>Nitrate</td>
+                                <td>&lt;100 ppm</td>
+                                <td>&gt;300 ppm toxic</td>
+                            </tr>
+                            <tr>
+                                <td>Iron</td>
+                                <td>&lt;0.3 ppm ideal</td>
+                                <td>High iron reduces palatability</td>
+                            </tr>
+                            <tr>
+                                <td>Bacteria</td>
+                                <td>Absent</td>
+                                <td>Any coliform is concern</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <p><strong>Testing:</strong> Test annually for bacteria and basic chemistry. Full panel every 3-5 years.</p>
+                    
+                    <p>Learn more: <a href="well-water-testing-guide.html">Water Testing Guide</a></p>
+                    
+                    <h2>Backup System Requirements</h2>
+                    
+                    <p>Horses need water every day. A well failure in summer without backup is an emergency. Options include:</p>
+                    
+                    <h3>Generator Backup</h3>
+                    
+                    <p>A properly sized generator can keep your pump running during power outages:</p>
+                    
+                    <ul>
+                        <li><strong>Pump sizing:</strong> A 1 HP pump needs ~3 kW generator capacity; 2 HP needs ~5-6 kW</li>
+                        <li><strong>Transfer switch:</strong> Required for safe generator connection</li>
+                        <li><strong>Fuel storage:</strong> Keep enough fuel for several days of operation</li>
+                    </ul>
+                    
+                    <p>See: <a href="backup-generator-for-well-pump.html">Generator Sizing for Well Pumps</a></p>
+                    
+                    <h3>Secondary Well</h3>
+                    
+                    <p>Larger properties benefit from a second well for redundancy. Even a lower-yield backup well provides security.</p>
+                    
+                    <h3>Emergency Water Delivery</h3>
+                    
+                    <p>Know your options before you need them:</p>
+                    
+                    <ul>
+                        <li>Keep water delivery company numbers posted</li>
+                        <li>Know if your property is accessible to tanker trucks</li>
+                        <li>Have portable tanks/troughs that can be truck-filled</li>
+                    </ul>
+                    
+                    <h3>Adequate Storage</h3>
+                    
+                    <p>As discussed above, proper storage provides buffer time during emergencies. 3+ days of storage means you have time to arrange repairs or delivery.</p>
+                    
+                    <h2>Property Purchase Checklist</h2>
+                    
+                    <p>Before buying a horse property with a well:</p>
+                    
+                    <h3>Essential Information</h3>
+                    
+                    <ul>
+                        <li>☐ Well depth and diameter</li>
+                        <li>☐ Current GPM (get a pump test)</li>
+                        <li>☐ Static and pumping water levels</li>
+                        <li>☐ Age of pump and equipment</li>
+                        <li>☐ Recent water quality test results</li>
+                        <li>☐ Storage tank capacity</li>
+                        <li>☐ Well permit/completion report</li>
+                    </ul>
+                    
+                    <h3>Red Flags</h3>
+                    
+                    <ul>
+                        <li>⚠️ No pump test available or seller refuses</li>
+                        <li>⚠️ GPM insufficient for planned use</li>
+                        <li>⚠️ Old equipment (15+ year pump)</li>
+                        <li>⚠️ History of well problems</li>
+                        <li>⚠️ No storage tank on low-yield well</li>
+                        <li>⚠️ Water quality issues (high salts, bacteria)</li>
+                    </ul>
+                    
+                    <div class="cta-box">
+                        <h3>Horse Property Well Assessment</h3>
+                        <p>Southern California Well Service specializes in equestrian properties. We can:</p>
+                        <ul>
+                            <li>✅ Perform pre-purchase well inspections</li>
+                            <li>✅ Test well yield and water quality</li>
+                            <li>✅ Assess system capacity vs. your needs</li>
+                            <li>✅ Recommend upgrades or improvements</li>
+                            <li>✅ Provide ongoing maintenance</li>
+                        </ul>
+                        <p><strong>📞 Call (760) 463-0493</strong></p>
+                        <a href="../contact.html" class="btn btn-primary">Request Assessment</a>
+                    </div>
+                    
+                    <h2>Related Resources</h2>
+                    
+                    <ul>
+                        <li><a href="horse-property-well-service.html">Horse Property Well Service Guide</a></li>
+                        <li><a href="horse-property-well-needs.html">Complete Horse Property Water Needs</a></li>
+                        <li><a href="well-storage-tank-guide.html">Storage Tank Systems</a></li>
+                        <li><a href="backup-generator-for-well-pump.html">Generator Backup Systems</a></li>
+                        <li><a href="constant-pressure-system-guide.html">Constant Pressure Systems</a></li>
+                    </ul>
+                    
+                </div>
             </div>
         </article>
     </main>
 
     <footer>
-        <p>&copy; 2026 Southern California Well Service. Licensed C-57 Contractor.</p>
-        <p>1077 Main St, Ramona, CA 92065 | <a href="tel:7604630493">(760) 463-0493</a></p>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="../well-drilling.html">Well Drilling</a></li>
+                        <li><a href="../pump-repair.html">Pump Repair</a></li>
+                        <li><a href="../water-testing.html">Water Testing</a></li>
+                        <li><a href="../maintenance.html">Maintenance</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Service Areas</h4>
+                    <ul>
+                        <li><a href="../locations/san-diego-county.html">San Diego County</a></li>
+                        <li><a href="../locations/riverside-county.html">Riverside County</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <p>📞 <a href="tel:+17604630493">(760) 463-0493</a></p>
+                    <p>📧 brighton@scwellservice.com</p>
+                    <p>Ramona, CA 92065</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Southern California Well Service. <a href="../licenses.html">License #1129130</a></p>
+            </div>
+        </div>
     </footer>
+
+    <script src="../js/main.js" defer></script>
 </body>
 </html>
