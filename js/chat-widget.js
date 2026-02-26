@@ -272,7 +272,7 @@
             message: text,
             sessionId,
             visitorInfo: {
-              pageUrl: window.location.href,
+              pageUrl: (typeof window !== 'undefined' && window.location) ? window.location.href : '',
             },
           }),
         });
