@@ -1,71 +1,558 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Well Water Has Bitter Taste</title>
-    <link rel="canonical" href="https://scwellservice.com/blog/well-water-bitter-taste.html">
-    <meta name="description" content="Bitterness from high sulfates, iron, or TDS levels.">
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LL1YRWT5T"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-5LL1YRWT5T');
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-5LL1YRWT5T');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Why does my well water taste bitter? Expert guide to diagnosing bitter well water causes including high sulfates, TDS, magnesium, and iron. Treatment solutions for San Diego County wells.">
+    <title>Bitter Tasting Well Water: Causes, Testing & Treatment Solutions | SCWS</title>
+    <link rel="canonical" href="https://scwellservice.com/blog/well-water-bitter-taste.html">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Bitter Tasting Well Water: Complete Diagnosis & Treatment Guide",
+        "description": "Expert guide to diagnosing and treating bitter well water. Learn about sulfates, TDS, magnesium, and other causes of bitter taste in San Diego County wells.",
+        "author": {"@type": "Organization", "name": "Southern California Well Service"},
+        "publisher": {"@type": "Organization", "name": "Southern California Well Service"},
+        "datePublished": "2026-02-16",
+        "dateModified": "2026-02-27"
+    }
     </script>
     <script type="application/ld+json">
-      {
+    {
         "@context": "https://schema.org",
-        "@type": "BlogPosting",
-        "headline": "Well Water Has Bitter Taste",
-        "image": "/images/logo-text-only-3x.png",
-        "author": "SCWS",
-        "publisher": {
-          "@type": "Organization",
-          "name": "SCWS",
-          "logo": {
-            "@type": "ImageObject",
-            "url": "/images/logo-text-only-3x.png"
-          }
-        },
-        "datePublished": "2026-02-16",
-        "description": "Bitterness from high sulfates, iron, or TDS levels."
-      }
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Why does my well water taste bitter?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Bitter well water is typically caused by high levels of sulfates (above 250 mg/L), magnesium, total dissolved solids (TDS), or certain metals like zinc and copper. The most common cause in San Diego County is elevated sulfate levels from gypsum-bearing rock formations."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is bitter well water safe to drink?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Bitter water from sulfates is generally not harmful at typical levels but may cause temporary digestive upset at very high concentrations (above 500 mg/L). However, bitterness can also indicate contamination that IS dangerous, so testing is essential before assuming safety."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How do I fix bitter tasting well water?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Treatment depends on the cause. Reverse osmosis systems remove 95-99% of sulfates and TDS. Ion exchange systems target specific minerals. Water softeners help with magnesium-related bitterness. A water test is needed first to identify the specific cause."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What level of sulfates causes bitter taste?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Most people detect bitterness when sulfate levels exceed 250 mg/L (the EPA's secondary standard). The taste becomes more pronounced above 400 mg/L and is very noticeable above 600 mg/L. Some sensitive individuals taste sulfates as low as 200 mg/L."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can a water softener fix bitter water?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Traditional water softeners remove calcium and magnesium (hardness) but NOT sulfates. If magnesium is causing the bitter taste, a softener helps. If sulfates are the cause, you'll need reverse osmosis, anion exchange, or distillation instead."
+                }
+            }
+        ]
+    }
     </script>
     <meta property="og:image" content="https://scwellservice.com/images/og-default.jpg">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@scwellservice">
+
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; line-height: 1.7; color: #333; max-width: 800px; margin: 0 auto; padding: 20px; }
+        h1 { color: #1a365d; font-size: 2rem; margin-bottom: 1rem; }
+        h2 { color: #2c5282; font-size: 1.5rem; margin: 2rem 0 1rem; border-bottom: 2px solid #e2e8f0; padding-bottom: 0.5rem; }
+        h3 { color: #2d3748; font-size: 1.2rem; margin: 1.5rem 0 0.75rem; }
+        p { margin-bottom: 1rem; }
+        ul, ol { margin: 1rem 0 1rem 2rem; }
+        li { margin-bottom: 0.5rem; }
+        table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; }
+        th, td { border: 1px solid #e2e8f0; padding: 12px; text-align: left; }
+        th { background: #f7fafc; font-weight: 600; }
+        tr:nth-child(even) { background: #f8fafc; }
+        .callout { background: linear-gradient(135deg, #ebf8ff 0%, #e6fffa 100%); border-left: 4px solid #3182ce; padding: 1.5rem; margin: 1.5rem 0; border-radius: 0 8px 8px 0; }
+        .warning { background: linear-gradient(135deg, #fffaf0 0%, #fef5e7 100%); border-left: 4px solid #dd6b20; padding: 1.5rem; margin: 1.5rem 0; border-radius: 0 8px 8px 0; }
+        .emergency-cta { background: linear-gradient(135deg, #1a365d 0%, #2c5282 100%); color: white; padding: 2rem; border-radius: 12px; margin: 2rem 0; text-align: center; }
+        .emergency-cta h2 { color: white; border: none; margin-top: 0; }
+        .emergency-cta a { color: #90cdf4; font-size: 1.5rem; font-weight: bold; text-decoration: none; }
+        .faq-section { background: #f8fafc; padding: 2rem; border-radius: 12px; margin: 2rem 0; }
+        .faq-item { margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid #e2e8f0; }
+        .faq-item:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+        .faq-question { font-weight: 600; color: #2c5282; margin-bottom: 0.5rem; }
+        a { color: #3182ce; }
+        .internal-links { background: #edf2f7; padding: 1.5rem; border-radius: 8px; margin: 2rem 0; }
+        .internal-links h3 { margin-top: 0; }
+        .breadcrumb { font-size: 0.9rem; color: #718096; margin-bottom: 1rem; }
+        .breadcrumb a { color: #4a5568; }
+        @media (max-width: 600px) { body { padding: 15px; } h1 { font-size: 1.6rem; } table { font-size: 0.9rem; } }
+    </style>
 </head>
 <body>
-    <header>
-        <img loading="lazy" src="/images/logo-text-only-3x.png" alt="SCWS Logo" width="50" height="50">
-        <h1>Well Water Has Bitter Taste</h1>
+    <nav class="breadcrumb">
+        <a href="/">Home</a> &gt; <a href="/blog">Blog</a> &gt; Water Quality
+    </nav>
 
-            <figure class="blog-hero-image">
-                <img src="/assets/images/blog-images/emergency-well-repair-2.png" alt="Well Water Has Bitter Taste" loading="lazy" width="800" height="450">
-            </figure>
-    </header>
-    <main>
-        <section>
-            <p>Does your well water leave a bitter taste in your mouth? This unpleasant sensation is often due to high levels of sulfates, iron, or total dissolved solids (TDS).</p>
-            <h2>Causes and Solutions</h2>
-            <p>Sulfate minerals or high TDS levels can alter the taste of water, making it bitter. Testing and treatment plans can help bring water back to a pleasant taste.</p>
-            <blockquote>"Struggling with bitter water? Reach out to SCWS at <strong>(760) 463-0493</strong> for a complete water analysis and treatment options."</blockquote>
-            <div class="emergency-cta">
-                <h2>Emergency Call to Action</h2>
-                <p>If the bitterness persists, it's important to address it through professional treatment. Contact our team at <strong>(760) 463-0493</strong>.</p>
+    <article>
+        <header>
+            <h1>Bitter Tasting Well Water: Causes, Testing & Treatment Solutions</h1>
+            <p><em>Expert guide to diagnosing and fixing bitter well water in San Diego County</em></p>
+        </header>
+
+        <figure style="margin: 1.5rem 0;">
+            <img src="/assets/images/blog-images/emergency-well-repair-2.png" alt="Well water testing for bitter taste diagnosis" loading="lazy" width="800" height="450" style="width: 100%; border-radius: 12px;">
+        </figure>
+
+        <p>When you take a drink of well water and notice an unpleasant bitter or metallic aftertaste, it's natural to wonder if something's wrong with your water supply. <strong>Bitter-tasting well water is one of the most common water quality complaints in San Diego County</strong>, and the good news is that it's usually treatable once you identify the cause.</p>
+
+        <p>Unlike chlorine taste from city water, bitter well water typically comes from naturally occurring minerals dissolved from underground rock formations. But before you assume it's harmless, you need to understand what's causing the bitterness and whether it poses any health risks.</p>
+
+        <div class="callout">
+            <strong>Quick Tip:</strong> The #1 cause of bitter well water in San Diego County is elevated sulfate levels from gypsum and gypsiferous shale formations common in the backcountry. A simple water test ($75-150) can identify exactly what's causing your bitter taste.
+        </div>
+
+        <h2>What Causes Bitter Tasting Well Water?</h2>
+
+        <p>Several minerals and compounds can create a bitter taste in well water. Identifying the specific cause is essential because each requires a different treatment approach.</p>
+
+        <h3>1. High Sulfate Levels</h3>
+        <p><strong>The most common cause of bitter well water</strong>, sulfates occur naturally in many rock formations, particularly:</p>
+        <ul>
+            <li>Gypsum and gypsum-bearing rock (common in east San Diego County)</li>
+            <li>Shale formations</li>
+            <li>Areas with past volcanic activity</li>
+            <li>Regions near old mining operations</li>
+        </ul>
+
+        <p>The EPA's secondary (aesthetic) standard for sulfates is 250 mg/L, but many people detect bitterness at this level. Taste becomes pronounced above 400 mg/L and objectionable above 600 mg/L. Some sensitive individuals notice sulfates as low as 200 mg/L.</p>
+
+        <h3>2. Elevated Total Dissolved Solids (TDS)</h3>
+        <p>TDS represents all the dissolved minerals in your water. High TDS doesn't always taste bitter, but when the mix includes certain minerals, bitterness results. The EPA's secondary standard is 500 mg/L TDS, though many wells in San Diego County exceed 1,000 mg/L.</p>
+
+        <p>TDS includes:</p>
+        <ul>
+            <li>Calcium and magnesium (hardness)</li>
+            <li>Sodium and potassium</li>
+            <li>Sulfates and chlorides</li>
+            <li>Carbonates and bicarbonates</li>
+        </ul>
+
+        <h3>3. Magnesium</h3>
+        <p>Magnesium specifically creates a bitter taste, even more so than calcium. Hard water with a high magnesium-to-calcium ratio tends to taste more bitter than water with the same hardness but more calcium. Magnesium levels above 125 mg/L often produce noticeable bitterness.</p>
+
+        <h3>4. Metals (Zinc, Copper, Iron)</h3>
+        <p>Certain metals create bitter or metallic tastes:</p>
+        <ul>
+            <li><strong>Zinc:</strong> Creates a distinctly bitter taste above 5 mg/L. Can leach from galvanized pipes or brass fittings.</li>
+            <li><strong>Copper:</strong> Produces a bitter-metallic taste above 1 mg/L. Often indicates corrosive water attacking copper plumbing.</li>
+            <li><strong>Iron:</strong> More metallic than bitter, but high iron can contribute to off-tastes. See our <a href="/blog/iron-bacteria-well-water.html">iron bacteria guide</a>.</li>
+        </ul>
+
+        <h3>5. Nitrates</h3>
+        <p>High nitrates (above 10 mg/L) can create a slightly bitter taste, though the health concern outweighs the taste issue. Nitrates often indicate contamination from agriculture, septic systems, or fertilizers. <strong>If nitrates are the cause, this is a health emergency</strong> — particularly for infants.</p>
+
+        <h3>6. Algae and Organic Matter</h3>
+        <p>Certain algae and decaying organic matter can produce bitter compounds called geosmin. This is more common in shallow wells or wells near surface water. The taste often has an earthy or musty component alongside the bitterness.</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Contaminant</th>
+                    <th>Taste Threshold</th>
+                    <th>EPA Limit</th>
+                    <th>Health Risk</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Sulfates</td>
+                    <td>200-250 mg/L</td>
+                    <td>250 mg/L (secondary)</td>
+                    <td>Low (laxative effect at high levels)</td>
+                </tr>
+                <tr>
+                    <td>TDS</td>
+                    <td>Varies</td>
+                    <td>500 mg/L (secondary)</td>
+                    <td>Low (aesthetic)</td>
+                </tr>
+                <tr>
+                    <td>Magnesium</td>
+                    <td>~125 mg/L</td>
+                    <td>None</td>
+                    <td>Low</td>
+                </tr>
+                <tr>
+                    <td>Zinc</td>
+                    <td>5 mg/L</td>
+                    <td>5 mg/L (secondary)</td>
+                    <td>Low</td>
+                </tr>
+                <tr>
+                    <td>Copper</td>
+                    <td>1 mg/L</td>
+                    <td>1.3 mg/L</td>
+                    <td>Moderate at high levels</td>
+                </tr>
+                <tr>
+                    <td>Nitrates</td>
+                    <td>~10 mg/L</td>
+                    <td>10 mg/L (primary)</td>
+                    <td><strong>HIGH</strong> (blue baby syndrome)</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>Is Bitter Well Water Safe to Drink?</h2>
+
+        <p>The answer depends entirely on what's causing the bitterness:</p>
+
+        <div class="warning">
+            <strong>⚠️ Important:</strong> Never assume bitter water is safe. Get a water test to identify the cause before continuing to drink it, especially if the bitterness appeared suddenly or changed recently.
+        </div>
+
+        <h3>Generally Safe (Aesthetic Issues)</h3>
+        <ul>
+            <li><strong>Sulfates under 500 mg/L:</strong> May cause temporary digestive upset in some people but not considered a health hazard. Higher levels (above 1,000 mg/L) can have a laxative effect.</li>
+            <li><strong>High TDS:</strong> Primarily an aesthetic concern unless specific contaminants are elevated.</li>
+            <li><strong>Magnesium:</strong> Not a health risk — actually beneficial in moderate amounts.</li>
+            <li><strong>Low-level zinc:</strong> Not harmful and may even be beneficial.</li>
+        </ul>
+
+        <h3>Potentially Dangerous</h3>
+        <ul>
+            <li><strong>Nitrates above 10 mg/L:</strong> Dangerous, especially for infants, pregnant women, and those with certain health conditions.</li>
+            <li><strong>High copper:</strong> Can cause liver and kidney damage with prolonged exposure above 1.3 mg/L.</li>
+            <li><strong>Unknown contaminants:</strong> If you haven't tested, you don't know what you're drinking.</li>
+        </ul>
+
+        <h3>Health Effects of High Sulfates</h3>
+        <p>While sulfates are the most common cause of bitter taste, they're also one of the least concerning from a health standpoint:</p>
+        <ul>
+            <li><strong>250-500 mg/L:</strong> Noticeable taste, no health effects for most people</li>
+            <li><strong>500-1,000 mg/L:</strong> Temporary laxative effect possible, especially for visitors not used to the water</li>
+            <li><strong>Above 1,000 mg/L:</strong> More pronounced digestive effects, not recommended for infant formula</li>
+        </ul>
+
+        <p>People who've lived with high-sulfate water often develop a tolerance and notice no digestive effects. Visitors, however, may experience temporary issues.</p>
+
+        <h2>Testing Your Well Water</h2>
+
+        <p>To treat bitter water effectively, you first need to know exactly what's in it. Here's what to test for:</p>
+
+        <h3>Recommended Test Panel</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Test</th>
+                    <th>Why It Matters</th>
+                    <th>Typical Cost</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Sulfates</td>
+                    <td>#1 cause of bitter taste</td>
+                    <td>$20-35</td>
+                </tr>
+                <tr>
+                    <td>Total Dissolved Solids</td>
+                    <td>Overall mineral load</td>
+                    <td>$15-25</td>
+                </tr>
+                <tr>
+                    <td>Hardness (Ca/Mg)</td>
+                    <td>Identifies magnesium contribution</td>
+                    <td>$15-25</td>
+                </tr>
+                <tr>
+                    <td>Copper</td>
+                    <td>Plumbing corrosion indicator</td>
+                    <td>$20-30</td>
+                </tr>
+                <tr>
+                    <td>Zinc</td>
+                    <td>Galvanized pipe indicator</td>
+                    <td>$20-30</td>
+                </tr>
+                <tr>
+                    <td>Nitrates</td>
+                    <td>Health screening (always test this)</td>
+                    <td>$20-35</td>
+                </tr>
+                <tr>
+                    <td>pH</td>
+                    <td>Corrosivity indicator</td>
+                    <td>$10-20</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p>A comprehensive panel covering all these parameters typically costs $75-150 at a certified lab. See our <a href="/water-testing.html">water testing services</a> for options.</p>
+
+        <h3>DIY vs. Lab Testing</h3>
+        <p><strong>Home test strips</strong> can give you a rough idea of TDS and hardness but won't accurately measure sulfates or metals. For bitter water issues, <strong>lab testing is essential</strong> to get accurate numbers and determine the right treatment.</p>
+
+        <h2>Treatment Options for Bitter Well Water</h2>
+
+        <p>Once you know what's causing the bitterness, you can select the appropriate treatment system:</p>
+
+        <h3>1. Reverse Osmosis (RO) — Best Overall Solution</h3>
+        <p>Reverse osmosis removes 95-99% of dissolved minerals, including sulfates, TDS, magnesium, and metals. It's the most effective single solution for bitter water.</p>
+
+        <p><strong>Pros:</strong></p>
+        <ul>
+            <li>Removes virtually everything causing bitter taste</li>
+            <li>Also removes potential contaminants you may not know about</li>
+            <li>Point-of-use systems cost $200-500 installed</li>
+            <li>Whole-house systems available for $2,500-6,000</li>
+        </ul>
+
+        <p><strong>Cons:</strong></p>
+        <ul>
+            <li>Wastes 2-4 gallons of water for every gallon produced</li>
+            <li>Removes beneficial minerals along with problematic ones</li>
+            <li>Requires filter and membrane replacement ($50-150/year)</li>
+            <li>Low flow rate for point-of-use systems</li>
+        </ul>
+
+        <p><strong>Best for:</strong> High TDS, high sulfates, multiple water quality issues</p>
+
+        <h3>2. Anion Exchange Systems</h3>
+        <p>Specifically targets sulfates and nitrates by exchanging them for chloride ions. Similar to a water softener but treats different contaminants.</p>
+
+        <p><strong>Pros:</strong></p>
+        <ul>
+            <li>Very effective for sulfates specifically</li>
+            <li>Whole-house treatment</li>
+            <li>Lower water waste than RO</li>
+        </ul>
+
+        <p><strong>Cons:</strong></p>
+        <ul>
+            <li>Increases sodium/chloride in water</li>
+            <li>Requires salt regeneration</li>
+            <li>Initial cost $1,500-3,500</li>
+            <li>Not as broad-spectrum as RO</li>
+        </ul>
+
+        <p><strong>Best for:</strong> High sulfates when you want whole-house treatment</p>
+
+        <h3>3. Water Softener</h3>
+        <p>Traditional ion exchange softeners remove calcium and magnesium (hardness) but NOT sulfates.</p>
+
+        <p><strong>Effective for:</strong> Bitterness caused primarily by magnesium</p>
+        <p><strong>NOT effective for:</strong> Sulfate-related bitterness</p>
+
+        <p>Cost: $800-2,500 installed. See our <a href="/blog/water-softener-installation-well-systems.html">water softener installation guide</a>.</p>
+
+        <h3>4. Distillation</h3>
+        <p>Removes virtually all dissolved minerals by boiling water and collecting the steam.</p>
+
+        <p><strong>Pros:</strong></p>
+        <ul>
+            <li>Nearly 100% removal of minerals</li>
+            <li>No ongoing filter costs</li>
+        </ul>
+
+        <p><strong>Cons:</strong></p>
+        <ul>
+            <li>Very slow (1-6 gallons per day for countertop units)</li>
+            <li>High energy use</li>
+            <li>Only practical for drinking water</li>
+        </ul>
+
+        <p><strong>Best for:</strong> Small households wanting pure drinking water only</p>
+
+        <h3>5. Blending with Rainwater or Delivered Water</h3>
+        <p>If treatment costs are prohibitive, some homeowners blend their well water with lower-mineral water to dilute the bitter taste.</p>
+
+        <h3>Treatment Comparison Chart</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>System</th>
+                    <th>Removes Sulfates?</th>
+                    <th>Removes Hardness?</th>
+                    <th>Cost</th>
+                    <th>Coverage</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>RO (point-of-use)</td>
+                    <td>✓ (95-99%)</td>
+                    <td>✓</td>
+                    <td>$200-500</td>
+                    <td>Drinking water</td>
+                </tr>
+                <tr>
+                    <td>RO (whole-house)</td>
+                    <td>✓ (95-99%)</td>
+                    <td>✓</td>
+                    <td>$2,500-6,000</td>
+                    <td>Whole house</td>
+                </tr>
+                <tr>
+                    <td>Anion Exchange</td>
+                    <td>✓ (90-95%)</td>
+                    <td>✗</td>
+                    <td>$1,500-3,500</td>
+                    <td>Whole house</td>
+                </tr>
+                <tr>
+                    <td>Water Softener</td>
+                    <td>✗</td>
+                    <td>✓</td>
+                    <td>$800-2,500</td>
+                    <td>Whole house</td>
+                </tr>
+                <tr>
+                    <td>Distillation</td>
+                    <td>✓ (99%)</td>
+                    <td>✓</td>
+                    <td>$100-500</td>
+                    <td>Drinking water</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>San Diego County Bitter Water Zones</h2>
+
+        <p>Certain areas of San Diego County are more prone to bitter well water due to local geology:</p>
+
+        <h3>High-Sulfate Areas</h3>
+        <ul>
+            <li><strong>East County mountains:</strong> Julian, Cuyamaca, Pine Valley — gypsum formations</li>
+            <li><strong>North County inland:</strong> Valley Center, Pauma Valley — mixed geology</li>
+            <li><strong>Anza-Borrego fringe:</strong> Borrego Springs area — desert mineral deposits</li>
+        </ul>
+
+        <h3>High-TDS Areas</h3>
+        <ul>
+            <li><strong>Coastal zones:</strong> Saltwater intrusion can raise TDS (see our <a href="/blog/chloride-well-water-saltwater-intrusion.html">saltwater intrusion guide</a>)</li>
+            <li><strong>Deep valley wells:</strong> Older water with more dissolved minerals</li>
+            <li><strong>Agricultural areas:</strong> Fertilizer and irrigation runoff</li>
+        </ul>
+
+        <h2>When Bitter Water Appears Suddenly</h2>
+
+        <p>If your water has always been fine and suddenly tastes bitter, this is more concerning than chronic bitter taste. Possible causes include:</p>
+
+        <ul>
+            <li><strong>Well deterioration:</strong> Casing corrosion allowing different aquifer water to enter</li>
+            <li><strong>Aquifer changes:</strong> Drought conditions concentrating minerals</li>
+            <li><strong>Nearby activity:</strong> Construction, drilling, or mining disturbing groundwater</li>
+            <li><strong>Contamination event:</strong> Spill or leak affecting groundwater</li>
+            <li><strong>Plumbing issues:</strong> Corrosion of galvanized or brass components</li>
+        </ul>
+
+        <div class="warning">
+            <strong>⚠️ Action Required:</strong> If bitter taste appeared suddenly, stop drinking the water until you can get it tested. Sudden changes can indicate contamination or well problems requiring professional evaluation.
+        </div>
+
+        <h2>DIY Fixes That Don't Work</h2>
+
+        <p>We often see homeowners try these approaches, which don't effectively address bitter well water:</p>
+
+        <ul>
+            <li><strong>Sediment filters:</strong> Only remove particles, not dissolved minerals causing taste</li>
+            <li><strong>Carbon filters:</strong> Excellent for chlorine and organics, but don't remove sulfates or TDS</li>
+            <li><strong>Boiling:</strong> Actually concentrates minerals, making taste worse</li>
+            <li><strong>Adding pH adjusters:</strong> Doesn't address sulfates or TDS</li>
+        </ul>
+
+        <h2>Working with Well Water Professionals</h2>
+
+        <p>A professional water quality assessment can help you:</p>
+
+        <ul>
+            <li>Identify exactly what's causing the bitter taste</li>
+            <li>Determine if there are any health concerns</li>
+            <li>Select the most cost-effective treatment solution</li>
+            <li>Properly size equipment for your household's needs</li>
+            <li>Install and maintain treatment systems correctly</li>
+        </ul>
+
+        <div class="emergency-cta">
+            <h2>Get Your Water Tested</h2>
+            <p>Don't guess what's causing your bitter water — get answers with professional testing.</p>
+            <p style="margin-top: 1rem;">Call SCWS: <a href="tel:+17604630493">(760) 463-0493</a></p>
+            <p style="font-size: 0.9rem; margin-top: 0.5rem;">Water quality testing • Treatment system installation • San Diego County</p>
+        </div>
+
+        <section class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+
+            <div class="faq-item">
+                <p class="faq-question">Why does my well water taste bitter?</p>
+                <p>Bitter well water is typically caused by high levels of sulfates (above 250 mg/L), magnesium, total dissolved solids (TDS), or certain metals like zinc and copper. The most common cause in San Diego County is elevated sulfate levels from gypsum-bearing rock formations. A water test is needed to identify the specific cause.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-question">Is bitter well water safe to drink?</p>
+                <p>It depends on the cause. Bitter water from sulfates is generally not harmful at typical levels but may cause temporary digestive upset at very high concentrations. However, bitterness can also indicate contamination that IS dangerous (like nitrates), so testing is essential before assuming safety.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-question">How do I fix bitter tasting well water?</p>
+                <p>Treatment depends on the cause. Reverse osmosis systems remove 95-99% of sulfates and TDS. Ion exchange systems target specific minerals. Water softeners help with magnesium-related bitterness but won't remove sulfates. A water test is needed first to identify the specific cause and select the right treatment.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-question">What level of sulfates causes bitter taste?</p>
+                <p>Most people detect bitterness when sulfate levels exceed 250 mg/L (the EPA's secondary standard). The taste becomes more pronounced above 400 mg/L and is very noticeable above 600 mg/L. Some sensitive individuals taste sulfates as low as 200 mg/L.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-question">Can a water softener fix bitter water?</p>
+                <p>Traditional water softeners remove calcium and magnesium (hardness) but NOT sulfates. If magnesium is causing the bitter taste, a softener helps. If sulfates are the cause, you'll need reverse osmosis, anion exchange, or distillation instead.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-question">Why did my water suddenly turn bitter?</p>
+                <p>Sudden changes in taste can indicate well problems (casing corrosion, aquifer changes), drought concentrating minerals, contamination events, or plumbing issues. Sudden taste changes warrant immediate testing before continuing to drink the water.</p>
+            </div>
+
+            <div class="faq-item">
+                <p class="faq-question">Does reverse osmosis remove bitter taste?</p>
+                <p>Yes, reverse osmosis is the most effective single solution for bitter well water, removing 95-99% of sulfates, TDS, and other minerals causing bitterness. Point-of-use systems treat drinking water for $200-500 installed; whole-house systems cost $2,500-6,000.</p>
             </div>
         </section>
-        <section>
-            <h2>FAQs</h2>
-            <dl>
-                <dt>Why is my water bitter?</dt>
-                <dd>Bitter taste can occur due to sulfates or dissolved solids.</dd>
-                <dt>Is bitter water safe to drink?</dt>
-                <dd>It's best to have your water tested to confirm safety and quality.</dd>
-            </dl>
-        </section>
-        <section>
-            <h2>When to Call a Professional</h2>
-            <p>Persistent taste issues should be addressed with a professional evaluation. SCWS provides expert assessments and solutions.</p>
-        </section>
-    </main>
+
+        <div class="internal-links">
+            <h3>Related Well Water Resources</h3>
+            <ul>
+                <li><a href="/water-testing.html">Well Water Testing Services</a></li>
+                <li><a href="/blog/hard-water-well-problems.html">Hard Water Problems & Solutions</a></li>
+                <li><a href="/blog/tannins-in-well-water.html">Tannins in Well Water</a></li>
+                <li><a href="/blog/well-water-smells-bad.html">Well Water Odor Diagnosis Guide</a></li>
+                <li><a href="/blog/iron-bacteria-well-water.html">Iron Bacteria Treatment</a></li>
+                <li><a href="/blog/well-water-discoloration-causes.html">Water Discoloration Causes</a></li>
+                <li><a href="/well-water-treatment.html">Water Treatment Services</a></li>
+            </ul>
+        </div>
+    </article>
 </body>
 </html>
