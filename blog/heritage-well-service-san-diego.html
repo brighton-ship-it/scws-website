@@ -12,9 +12,11 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Heritage Well Service is Now Southern California Well Service</title>
     <meta name="description" content="Heritage Well Service has joined Southern California Well Service. Same quality well drilling and pump repair you trusted, now with expanded capabilities. Call (760) 440-8520.">
+    <title>Heritage Well Service is Now Southern California Well Service</title>
     <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"></noscript>
     <link rel="canonical" href="https://scwellservice.com/blog/heritage-well-service-san-diego.html">
     
     <meta property="og:title" content="Heritage Well Service is Now Southern California Well Service">
@@ -35,21 +37,56 @@
         "dateModified": "2026-03-02"
     }
     </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://scwellservice.com/"},
+            {"@type": "ListItem", "position": 2, "name": "Resources", "item": "https://scwellservice.com/blog/"},
+            {"@type": "ListItem", "position": 3, "name": "Heritage Well Service", "item": "https://scwellservice.com/blog/heritage-well-service-san-diego.html"}
+        ]
+    }
+    </script>
 </head>
 <body class="bg-white">
-    <!-- Header -->
-    <header class="bg-[#1a1a2e] text-white py-2">
-        <div class="container mx-auto px-4 flex items-center justify-between">
-            <a href="/" class="flex items-center">
-                <img src="/images/logo-text-only-3x.png" alt="Southern California Well Service" class="h-12">
+    <!-- Top Banner -->
+    <div class="bg-gradient-to-r from-blue-600 to-blue-700 text-white py-2.5">
+        <div class="max-w-7xl mx-auto px-4 text-center flex items-center justify-center gap-2 flex-wrap">
+            <span class="font-bold tracking-wide">👋 Heritage Customer?</span>
+            <span class="hidden sm:inline">We're honored to continue serving you.</span>
+            <a href="tel:7604408520" class="bg-white text-blue-600 font-bold px-4 py-1 rounded-full text-sm hover:bg-blue-100 transition ml-1">
+                Call Now →
             </a>
-            <nav class="hidden md:flex items-center space-x-6">
-                <a href="/" class="hover:text-blue-400">Home</a>
-                <a href="/services.html" class="hover:text-blue-400">Services</a>
-                <a href="/blog/" class="hover:text-blue-400">Resources</a>
-                <a href="/contact.html" class="hover:text-blue-400">Contact</a>
-                <a href="tel:+17604408520" class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg font-semibold">(760) 440-8520</a>
-            </nav>
+        </div>
+    </div>
+
+    <!-- Header (sticky) -->
+    <header class="bg-primary text-white sticky top-0 z-50 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-2">
+                <a href="../" class="flex items-center space-x-3 shrink-0">
+                    <img loading="lazy" src="../images/logo-text-only-3x.png" alt="Southern California Well Service" class="h-10 lg:h-12 w-auto">
+                </a>
+                <nav class="hidden lg:flex space-x-4 items-center">
+                    <a href="../#services" class="text-white hover:text-accent transition whitespace-nowrap">Services</a>
+                    <a href="../#areas" class="text-white hover:text-accent transition whitespace-nowrap">Service Areas</a>
+                    <a href="./" class="text-white hover:text-accent transition whitespace-nowrap">Resources</a>
+                    <a href="../faq.html" class="text-white hover:text-accent transition whitespace-nowrap">FAQ</a>
+                    <a href="../contact.html" class="text-white hover:text-accent transition whitespace-nowrap">Contact</a>
+                    <a href="../cost-calculator.html" class="text-white font-semibold hover:text-accent transition whitespace-nowrap">Free Estimate</a>
+                </nav>
+                <div class="flex items-center gap-3">
+                    <a href="tel:+17604408520" class="hidden sm:flex items-center gap-2 bg-accent hover:bg-accent/90 text-white font-bold py-2 px-4 rounded-lg transition">
+                        <span>(760) 440-8520</span>
+                    </a>
+                    <button id="mobile-menu-btn" class="lg:hidden p-2 hover:bg-white/10 rounded-lg transition" aria-label="Toggle menu">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
         </div>
     </header>
 
@@ -59,10 +96,10 @@
             
             <p class="text-xl text-gray-600 mb-8">If you're a former Heritage Well Service customer, welcome to SCWS. We're honored to continue serving you.</p>
 
-            <div class="bg-blue-50 border-l-4 border-blue-600 p-6 mb-8">
+            <div class="bg-blue-50 border-l-4 border-blue-600 p-6 mb-8 rounded-r-lg">
                 <h2 class="text-xl font-semibold text-blue-900 mb-2">Looking for Heritage Well Service?</h2>
                 <p class="text-blue-800 mb-4">Heritage Well Service has joined Southern California Well Service. Your service records, warranty information, and account history have been preserved. We're ready to help you with any well or pump needs.</p>
-                <a href="tel:+17604408520" class="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700">Call Us: (760) 440-8520</a>
+                <a href="tel:+17604408520" class="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition">Call Us: (760) 440-8520</a>
             </div>
 
             <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">What This Means for Heritage Customers</h2>
@@ -121,29 +158,39 @@
             
             <p class="text-gray-700 mb-6">Whether you need routine maintenance, emergency repair, or a new well, we're here to help. As a Heritage customer, you're already part of the SCWS family.</p>
 
-            <div class="bg-gray-100 p-6 rounded-lg">
-                <h3 class="text-xl font-semibold mb-4">Southern California Well Service</h3>
-                <p class="mb-2"><strong>Phone:</strong> <a href="tel:+17604408520" class="text-blue-600 hover:underline">(760) 440-8520</a></p>
-                <p class="mb-2"><strong>Address:</strong> 1077 Main St, Ramona, CA 92065</p>
-                <p class="mb-2"><strong>Hours:</strong> 24/7 Emergency Service Available</p>
-                <p class="mb-4"><strong>License:</strong> C-57 #1013597</p>
-                <a href="/contact.html" class="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700">Request Service</a>
+            <div class="grid md:grid-cols-2 gap-6 mb-8">
+                <div class="bg-gray-50 p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-3">📍 Ramona Office</h3>
+                    <p class="mb-2"><strong>Address:</strong><br>1077 Main St<br>Ramona, CA 92065</p>
+                    <p class="mb-2"><strong>Phone:</strong> <a href="tel:+17604408520" class="text-blue-600 hover:underline">(760) 440-8520</a></p>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-3">📍 Anza Office</h3>
+                    <p class="mb-2"><strong>Address:</strong><br>57174 US Highway 79<br>Anza, CA 92539</p>
+                    <p class="mb-2"><strong>Phone:</strong> <a href="tel:+17604408520" class="text-blue-600 hover:underline">(760) 440-8520</a></p>
+                </div>
+            </div>
+
+            <div class="bg-blue-600 text-white p-6 rounded-lg text-center">
+                <p class="text-lg mb-2"><strong>License:</strong> C-57 #1013597</p>
+                <p class="mb-4">24/7 Emergency Service Available</p>
+                <a href="/contact.html" class="inline-block bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-blue-50 transition">Request Service</a>
             </div>
 
             <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">Frequently Asked Questions</h2>
 
             <div class="space-y-6">
-                <div>
+                <div class="border-b pb-4">
                     <h3 class="font-semibold text-gray-900 mb-2">What happened to Heritage Well Service?</h3>
                     <p class="text-gray-700">Heritage Well Service has joined Southern California Well Service. All customer records and service history have been transferred, and we continue to serve all Heritage customers with the same commitment to quality.</p>
                 </div>
                 
-                <div>
+                <div class="border-b pb-4">
                     <h3 class="font-semibold text-gray-900 mb-2">Is my warranty still valid?</h3>
                     <p class="text-gray-700">Yes. All warranties from Heritage Well Service are honored by SCWS. If you have questions about specific warranty coverage, give us a call.</p>
                 </div>
                 
-                <div>
+                <div class="border-b pb-4">
                     <h3 class="font-semibold text-gray-900 mb-2">Do you have my service records?</h3>
                     <p class="text-gray-700">Yes, we have preserved Heritage's customer records. When you call, we can look up your well's service history.</p>
                 </div>
@@ -157,13 +204,34 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-[#1a1a2e] text-white py-8">
-        <div class="container mx-auto px-4 text-center">
-            <p class="mb-2">Southern California Well Service</p>
-            <p class="mb-2">1077 Main St, Ramona, CA 92065</p>
-            <p class="mb-4"><a href="tel:+17604408520" class="hover:underline">(760) 440-8520</a></p>
-            <p class="text-gray-400 text-sm">License #1013597 | © 2026 All Rights Reserved</p>
+    <footer class="bg-primary text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <img src="../images/logo-text-only-3x.png" alt="Southern California Well Service" class="h-12 mb-4">
+                    <p class="text-gray-300">San Diego's trusted well drilling and pump service company for over 30 years.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Ramona Office</h4>
+                    <p class="text-gray-300">1077 Main St<br>Ramona, CA 92065</p>
+                    <p class="mt-2"><a href="tel:+17604408520" class="text-accent hover:underline">(760) 440-8520</a></p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Anza Office</h4>
+                    <p class="text-gray-300">57174 US Highway 79<br>Anza, CA 92539</p>
+                    <p class="mt-2"><a href="tel:+17604408520" class="text-accent hover:underline">(760) 440-8520</a></p>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 pt-8 text-center text-gray-400">
+                <p>License #1013597 | © 2026 Southern California Well Service. All Rights Reserved.</p>
+            </div>
         </div>
     </footer>
+
+    <script>
+        document.getElementById('mobile-menu-btn')?.addEventListener('click', function() {
+            // Mobile menu toggle logic
+        });
+    </script>
 </body>
 </html>

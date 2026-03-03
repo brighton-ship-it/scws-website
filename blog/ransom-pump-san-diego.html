@@ -12,9 +12,11 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Ransom Pump (Ransom Brothers) is Now Southern California Well Service</title>
     <meta name="description" content="Ransom Pump and Ransom Brothers has joined Southern California Well Service. Same trusted well pump service, now with expanded capabilities. Call (760) 440-8520.">
+    <title>Ransom Pump (Ransom Brothers) is Now Southern California Well Service</title>
     <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"></noscript>
     <link rel="canonical" href="https://scwellservice.com/blog/ransom-pump-san-diego.html">
     
     <meta property="og:title" content="Ransom Pump is Now Southern California Well Service">
@@ -35,21 +37,56 @@
         "dateModified": "2026-03-02"
     }
     </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://scwellservice.com/"},
+            {"@type": "ListItem", "position": 2, "name": "Resources", "item": "https://scwellservice.com/blog/"},
+            {"@type": "ListItem", "position": 3, "name": "Ransom Pump", "item": "https://scwellservice.com/blog/ransom-pump-san-diego.html"}
+        ]
+    }
+    </script>
 </head>
 <body class="bg-white">
-    <!-- Header -->
-    <header class="bg-[#1a1a2e] text-white py-2">
-        <div class="container mx-auto px-4 flex items-center justify-between">
-            <a href="/" class="flex items-center">
-                <img src="/images/logo-text-only-3x.png" alt="Southern California Well Service" class="h-12">
+    <!-- Top Banner -->
+    <div class="bg-gradient-to-r from-green-600 to-green-700 text-white py-2.5">
+        <div class="max-w-7xl mx-auto px-4 text-center flex items-center justify-center gap-2 flex-wrap">
+            <span class="font-bold tracking-wide">👋 Ransom Pump Customer?</span>
+            <span class="hidden sm:inline">We're honored to continue serving you.</span>
+            <a href="tel:7604408520" class="bg-white text-green-600 font-bold px-4 py-1 rounded-full text-sm hover:bg-green-100 transition ml-1">
+                Call Now →
             </a>
-            <nav class="hidden md:flex items-center space-x-6">
-                <a href="/" class="hover:text-blue-400">Home</a>
-                <a href="/services.html" class="hover:text-blue-400">Services</a>
-                <a href="/blog/" class="hover:text-blue-400">Resources</a>
-                <a href="/contact.html" class="hover:text-blue-400">Contact</a>
-                <a href="tel:+17604408520" class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg font-semibold">(760) 440-8520</a>
-            </nav>
+        </div>
+    </div>
+
+    <!-- Header (sticky) -->
+    <header class="bg-primary text-white sticky top-0 z-50 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-2">
+                <a href="../" class="flex items-center space-x-3 shrink-0">
+                    <img loading="lazy" src="../images/logo-text-only-3x.png" alt="Southern California Well Service" class="h-10 lg:h-12 w-auto">
+                </a>
+                <nav class="hidden lg:flex space-x-4 items-center">
+                    <a href="../#services" class="text-white hover:text-accent transition whitespace-nowrap">Services</a>
+                    <a href="../#areas" class="text-white hover:text-accent transition whitespace-nowrap">Service Areas</a>
+                    <a href="./" class="text-white hover:text-accent transition whitespace-nowrap">Resources</a>
+                    <a href="../faq.html" class="text-white hover:text-accent transition whitespace-nowrap">FAQ</a>
+                    <a href="../contact.html" class="text-white hover:text-accent transition whitespace-nowrap">Contact</a>
+                    <a href="../cost-calculator.html" class="text-white font-semibold hover:text-accent transition whitespace-nowrap">Free Estimate</a>
+                </nav>
+                <div class="flex items-center gap-3">
+                    <a href="tel:+17604408520" class="hidden sm:flex items-center gap-2 bg-accent hover:bg-accent/90 text-white font-bold py-2 px-4 rounded-lg transition">
+                        <span>(760) 440-8520</span>
+                    </a>
+                    <button id="mobile-menu-btn" class="lg:hidden p-2 hover:bg-white/10 rounded-lg transition" aria-label="Toggle menu">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
         </div>
     </header>
 
@@ -59,10 +96,13 @@
             
             <p class="text-xl text-gray-600 mb-8">Looking for Ransom Pump or Ransom Brothers? You've found us. We're honored to continue serving Ransom's customers.</p>
 
-            <div class="bg-blue-50 border-l-4 border-blue-600 p-6 mb-8">
-                <h2 class="text-xl font-semibold text-blue-900 mb-2">Former Ransom Pump Customer?</h2>
-                <p class="text-blue-800 mb-4">Ransom Pump (Ransom Brothers) has joined Southern California Well Service. Your service history and any warranties are preserved. We're ready to help with any well or pump needs.</p>
-                <a href="tel:+17604408520" class="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700">Call Us: (760) 440-8520</a>
+            <div class="bg-green-50 border-l-4 border-green-600 p-6 mb-8 rounded-r-lg">
+                <h2 class="text-xl font-semibold text-green-900 mb-2">Former Ransom Pump Customer?</h2>
+                <p class="text-green-800 mb-4">Ransom Pump (Ransom Brothers) has joined Southern California Well Service. Your service history and any warranties are preserved. We're ready to help with any well or pump needs.</p>
+                <div class="flex flex-wrap gap-3">
+                    <a href="tel:+17604408520" class="inline-block bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition">Call: (760) 440-8520</a>
+                    <a href="tel:+17607895955" class="inline-block bg-gray-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-gray-700 transition">Old Ransom Line: (760) 789-5955</a>
+                </div>
             </div>
 
             <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">What This Means for Ransom Pump Customers</h2>
@@ -78,8 +118,8 @@
                 <li><strong>Same commitment</strong> – The quality service Ransom was known for continues with SCWS</li>
             </ul>
 
-            <div class="bg-gray-100 p-6 rounded-lg mb-8">
-                <p class="text-gray-700"><strong>Note:</strong> The Ransom Pump phone line <a href="tel:+17607895955" class="text-blue-600 hover:underline">(760) 789-5955</a> now forwards directly to SCWS. You can also reach us at our main number: <a href="tel:+17604408520" class="text-blue-600 hover:underline">(760) 440-8520</a>.</p>
+            <div class="bg-blue-50 p-6 rounded-lg mb-8">
+                <p class="text-gray-700"><strong>📞 Note:</strong> The Ransom Pump phone line <a href="tel:+17607895955" class="text-blue-600 hover:underline font-semibold">(760) 789-5955</a> now forwards directly to SCWS. You can also reach us at our main number: <a href="tel:+17604408520" class="text-blue-600 hover:underline font-semibold">(760) 440-8520</a>.</p>
             </div>
 
             <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">About Southern California Well Service</h2>
@@ -130,39 +170,46 @@
 
             <p class="text-gray-700 mb-8">We also serve Riverside County including Anza, Aguanga, Temecula, Murrieta, and the mountain communities.</p>
 
-            <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">Contact Us Today</h2>
-            
-            <p class="text-gray-700 mb-6">Whether you need a quick repair, routine maintenance, or a major project, we're here to help. As a Ransom Pump customer, you're already part of the SCWS family.</p>
+            <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">Our Locations</h2>
 
-            <div class="bg-gray-100 p-6 rounded-lg">
-                <h3 class="text-xl font-semibold mb-4">Southern California Well Service</h3>
-                <p class="mb-2"><strong>Main Phone:</strong> <a href="tel:+17604408520" class="text-blue-600 hover:underline">(760) 440-8520</a></p>
-                <p class="mb-2"><strong>Ransom Line:</strong> <a href="tel:+17607895955" class="text-blue-600 hover:underline">(760) 789-5955</a> (forwards to SCWS)</p>
-                <p class="mb-2"><strong>Address:</strong> 1077 Main St, Ramona, CA 92065</p>
-                <p class="mb-2"><strong>Hours:</strong> 24/7 Emergency Service Available</p>
-                <p class="mb-4"><strong>License:</strong> C-57 #1013597</p>
-                <a href="/contact.html" class="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700">Request Service</a>
+            <div class="grid md:grid-cols-2 gap-6 mb-8">
+                <div class="bg-gray-50 p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-3">📍 Ramona Office</h3>
+                    <p class="mb-2"><strong>Address:</strong><br>1077 Main St<br>Ramona, CA 92065</p>
+                    <p class="mb-2"><strong>Phone:</strong> <a href="tel:+17604408520" class="text-blue-600 hover:underline">(760) 440-8520</a></p>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-3">📍 Anza Office</h3>
+                    <p class="mb-2"><strong>Address:</strong><br>57174 US Highway 79<br>Anza, CA 92539</p>
+                    <p class="mb-2"><strong>Phone:</strong> <a href="tel:+17604408520" class="text-blue-600 hover:underline">(760) 440-8520</a></p>
+                </div>
+            </div>
+
+            <div class="bg-green-600 text-white p-6 rounded-lg text-center">
+                <p class="text-lg mb-2"><strong>License:</strong> C-57 #1013597 | <strong>Rating:</strong> 4.9 ★ on Google</p>
+                <p class="mb-4">24/7 Emergency Service Available</p>
+                <a href="/contact.html" class="inline-block bg-white text-green-600 px-6 py-3 rounded-lg font-semibold hover:bg-green-50 transition">Request Service</a>
             </div>
 
             <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">Frequently Asked Questions</h2>
 
             <div class="space-y-6">
-                <div>
+                <div class="border-b pb-4">
                     <h3 class="font-semibold text-gray-900 mb-2">What happened to Ransom Pump?</h3>
                     <p class="text-gray-700">Ransom Pump (also known as Ransom Brothers) has joined Southern California Well Service. All customer relationships and service records have been transferred, and we continue to serve all Ransom customers.</p>
                 </div>
                 
-                <div>
+                <div class="border-b pb-4">
                     <h3 class="font-semibold text-gray-900 mb-2">Is my warranty from Ransom Pump still valid?</h3>
                     <p class="text-gray-700">Yes. All warranties from Ransom Pump are honored by SCWS. Call us if you have questions about specific warranty coverage.</p>
                 </div>
                 
-                <div>
+                <div class="border-b pb-4">
                     <h3 class="font-semibold text-gray-900 mb-2">Can I still call the old Ransom Pump number?</h3>
                     <p class="text-gray-700">Yes! The Ransom Pump line at (760) 789-5955 now forwards directly to SCWS. You can also reach us at (760) 440-8520.</p>
                 </div>
                 
-                <div>
+                <div class="border-b pb-4">
                     <h3 class="font-semibold text-gray-900 mb-2">Do you have my service history?</h3>
                     <p class="text-gray-700">Yes, we have Ransom Pump's customer records. When you call, we can look up your well's service history.</p>
                 </div>
@@ -176,13 +223,34 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-[#1a1a2e] text-white py-8">
-        <div class="container mx-auto px-4 text-center">
-            <p class="mb-2">Southern California Well Service</p>
-            <p class="mb-2">1077 Main St, Ramona, CA 92065</p>
-            <p class="mb-4"><a href="tel:+17604408520" class="hover:underline">(760) 440-8520</a></p>
-            <p class="text-gray-400 text-sm">License #1013597 | © 2026 All Rights Reserved</p>
+    <footer class="bg-primary text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <img src="../images/logo-text-only-3x.png" alt="Southern California Well Service" class="h-12 mb-4">
+                    <p class="text-gray-300">San Diego's trusted well drilling and pump service company for over 30 years.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Ramona Office</h4>
+                    <p class="text-gray-300">1077 Main St<br>Ramona, CA 92065</p>
+                    <p class="mt-2"><a href="tel:+17604408520" class="text-accent hover:underline">(760) 440-8520</a></p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Anza Office</h4>
+                    <p class="text-gray-300">57174 US Highway 79<br>Anza, CA 92539</p>
+                    <p class="mt-2"><a href="tel:+17604408520" class="text-accent hover:underline">(760) 440-8520</a></p>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 pt-8 text-center text-gray-400">
+                <p>License #1013597 | © 2026 Southern California Well Service. All Rights Reserved.</p>
+            </div>
         </div>
     </footer>
+
+    <script>
+        document.getElementById('mobile-menu-btn')?.addEventListener('click', function() {
+            // Mobile menu toggle logic
+        });
+    </script>
 </body>
 </html>
