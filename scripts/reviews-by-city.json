@@ -1,5 +1,10 @@
 {
-  "Ramona": [
+  "ramona": [
+    {
+      "name": "Joyce Boysel (Joyful#1)",
+      "text": "Very timely and diagnosed and fixed the problem right away!",
+      "date": "2025-07-29"
+    },
     {
       "name": "Dennis Albert",
       "text": "I’m an early riser, and one recent morning at 5 a.m., I discovered that my well water had stopped working. The local company I’d used in the past was no longer in business. After searching online for a new service, I found Southern California Well Service—which, as it turns out, had actually acquired the old company.\nI noted their phone number and email address, and since it was too early to call, I sent an email, planning to follow up after 8 a.m. To my surprise, I received a call from Southern California Well Service at 5:30 a.m.! We quickly scheduled an appointment.\nBrian, the technician, kept me updated on his arrival time as he was delayed by issues at a prior job. Once he arrived, he quickly diagnosed the problem: a faulty capacitor. He had the replacement part on his truck, and within 20 minutes, the repair was complete. Power was restored, the pump was running properly, and water pressure returned to normal.\nSouthern California Well Service—and Brian in particular—exceeded my expectations. They were prompt, professional, and efficient. I highly recommend them!",
@@ -21,11 +26,6 @@
       "date": "2025-07-01"
     },
     {
-      "name": "Paul Truffa",
-      "text": "",
-      "date": "2025-06-25"
-    },
-    {
       "name": "Peter Thomas",
       "text": "Great work, great people. Responsive and professional.",
       "date": "2025-06-23"
@@ -39,11 +39,6 @@
       "name": "Lorena Marodi",
       "text": "Brian was great! Took care of the problem quickly. I highly recommend Southern California Well System.",
       "date": "2026-02-26"
-    },
-    {
-      "name": "Nancy",
-      "text": "Kept us informed of the entire process and showed up on time and completed the work with no problems. Great company.",
-      "date": "2026-02-08"
     },
     {
       "name": "Jan Karlseder",
@@ -64,14 +59,33 @@
       "name": "elizabeth kilmer",
       "text": "Fantastic in every way!",
       "date": "2025-09-23"
-    },
-    {
-      "name": "Patricia Hinchliff",
-      "text": "Fast service. I am very pleased with my well repair",
-      "date": "2025-09-05"
     }
   ],
-  "Poway": [
+  "aguanga": [
+    {
+      "name": "rick tiedeman",
+      "text": "Two professional men came out right away and started trouble shooting. They were able to answer questions that I kept asking.",
+      "date": "2025-07-25"
+    },
+    {
+      "name": "Cathy Lynch",
+      "text": "They were able to come out and repair our well the same day we called!  Great service:)",
+      "date": "2025-10-15"
+    }
+  ],
+  "julian": [
+    {
+      "name": "Richard Loomis",
+      "text": "Brian showed up on time and figured out the issue really quickly. He was super helpful and offered good suggestions on how to fix it the right way. Definitely appreciated his knowledge and advice. Highly recommend Southern California Well Service.",
+      "date": "2025-07-19"
+    },
+    {
+      "name": "Brianna McCormick",
+      "text": "Thank you SC Well Service for being so fast and responding to my needs. My client has a property in Julian and was without water, you were there in less than 24 hours and fixed the problem. Thank you very much!",
+      "date": "2025-10-13"
+    }
+  ],
+  "poway": [
     {
       "name": "Robert Behic",
       "text": "Very helpful! They did what they said  they would do",
@@ -83,44 +97,12 @@
       "date": "2026-02-16"
     },
     {
-      "name": "Teresa Kassen",
-      "text": "We got a fault on our booster pump system leaving us without water essentially.  We are retired and cost matters to us.  We were having trouble finding a local business to work with on this repair but we found Southern California Well Services and I am so glad we did.  They keep you informed (without overkill).  They were absolutely fantastic to work with.  They were efficient, expedient, and very professional!  Pricing was very fair.  In less than 24 hrs of first contact, we had water again.  I am sure some issues may cause a longer turn around time but I wouldn’t use anyone else!",
-      "date": "2026-01-16"
-    },
-    {
       "name": "Mark Stidham",
       "text": "I had an emergency ‘no water in the house’, our setting being 200’ above street level. Water pressure comes from a 7,000 gallon tank that had run dry. A short time after logging my request for service, I got a call back and a promise to be on site in 30 minutes! I also got 2 separate follow-up calls to make sure.",
       "date": "2025-09-29"
-    },
-    {
-      "name": "Doug Wagenbach",
-      "text": "",
-      "date": "2025-08-23"
     }
   ],
-  "Aguanga": [
-    {
-      "name": "rick tiedeman",
-      "text": "Two professional men came out right away and started trouble shooting. They were able to answer questions that I kept asking.",
-      "date": "2025-07-25"
-    },
-    {
-      "name": "Ricardo",
-      "text": "",
-      "date": "2025-07-15"
-    },
-    {
-      "name": "Tim Turpin",
-      "text": "",
-      "date": "2026-01-09"
-    },
-    {
-      "name": "Cathy Lynch",
-      "text": "They were able to come out and repair our well the same day we called!  Great service:)",
-      "date": "2025-10-15"
-    }
-  ],
-  "El cajon": [
+  "el-cajon": [
     {
       "name": "David Lorenz",
       "text": "Brian and Shaze did excellent work and they were very friendly. I was very satisfied. David Lorenz",
@@ -130,14 +112,40 @@
       "name": "Maria M",
       "text": "The young men who repaired our tanks were excellent!  Very courteous and professional! I highly recommend this company for your well service. We used Herritage Well and these are the new owners. They came out quickly and the price was quite reasonable too.",
       "date": "2025-04-18"
-    },
-    {
-      "name": "Jarrod P",
-      "text": "",
-      "date": "2025-09-22"
     }
   ],
-  "Hemet": [
+  "anza": [
+    {
+      "name": "Kevin Wilkes",
+      "text": "Saving thousand dollars over another estimate. Quick response. Extremely satisfied",
+      "date": "2025-06-10"
+    },
+    {
+      "name": "Nadia S",
+      "text": "The man that work here, they are very professional. When I called they got right back to me. Squeeze me in they're busy schedule. All the gentlemen we dealt with were kind and fast workers. They showed and explained to us, where the problem is. Exactly what they needed to get done.  Like I said very professional , you don't find that these days. Two thumbs up 👍👍 I highly recommend them to family and friends. I will be using this company again. Thanks guys  great   job.",
+      "date": "2026-02-01"
+    }
+  ],
+  "menifee": [
+    {
+      "name": "Angela Johnson",
+      "text": "Highly recommend!",
+      "date": "2025-06-05"
+    },
+    {
+      "name": "Kathleen Hefley",
+      "text": "They are Life savers, super knowledgeable, and professional and they get the job done!!!! I recommend them to everyone. We woke up to problem at the well and no running water. I reached out to them before sunrise hoping they would get a message first thing. Then Wow, they reached out right away! We Got scheduled and a couple hours later they had identified the problem and were making repairs. I am so grateful to them for taking great care of me and my family. We appreciate them so much! If you have a well issue, you can definitely count on them.",
+      "date": "2025-12-24"
+    }
+  ],
+  "san-diego": [
+    {
+      "name": "Hortensia Badeanlou",
+      "text": "5 Stars\nI had a wonderful experience with Southern Water Well Company. The young men who came were very professional, respectful, and considerate throughout the whole process. They did their work with care and kindness, and I truly appreciated their attitude and service. Thank you very much! I highly recommend them.",
+      "date": "2025-05-20"
+    }
+  ],
+  "hemet": [
     {
       "name": "Maggie",
       "text": "Great company to work with. They acted fast and got the job done. I highly recommend this company",
@@ -154,136 +162,53 @@
       "date": "2025-10-17"
     }
   ],
-  "Julian": [
-    {
-      "name": "Richard Loomis",
-      "text": "Brian showed up on time and figured out the issue really quickly. He was super helpful and offered good suggestions on how to fix it the right way. Definitely appreciated his knowledge and advice. Highly recommend Southern California Well Service.",
-      "date": "2025-07-19"
-    },
-    {
-      "name": "Brianna McCormick",
-      "text": "Thank you SC Well Service for being so fast and responding to my needs. My client has a property in Julian and was without water, you were there in less than 24 hours and fixed the problem. Thank you very much!",
-      "date": "2025-10-13"
-    }
-  ],
-  "San diego": [
-    {
-      "name": "Jorge Mejia",
-      "text": "",
-      "date": "2025-07-02"
-    },
-    {
-      "name": "Hortensia Badeanlou",
-      "text": "5 Stars\nI had a wonderful experience with Southern Water Well Company. The young men who came were very professional, respectful, and considerate throughout the whole process. They did their work with care and kindness, and I truly appreciated their attitude and service. Thank you very much! I highly recommend them.",
-      "date": "2025-05-20"
-    }
-  ],
-  "Anza": [
-    {
-      "name": "Kevin Wilkes",
-      "text": "Saving thousand dollars over another estimate. Quick response. Extremely satisfied",
-      "date": "2025-06-10"
-    },
-    {
-      "name": "Nadia S",
-      "text": "The man that work here, they are very professional. When I called they got right back to me. Squeeze me in they're busy schedule. All the gentlemen we dealt with were kind and fast workers. They showed and explained to us, where the problem is. Exactly what they needed to get done.  Like I said very professional , you don't find that these days. Two thumbs up 👍👍 I highly recommend them to family and friends. I will be using this company again. Thanks guys  great   job.",
-      "date": "2026-02-01"
-    }
-  ],
-  "Menifee": [
-    {
-      "name": "Angela Johnson",
-      "text": "Highly recommend!",
-      "date": "2025-06-05"
-    },
-    {
-      "name": "Kathleen Hefley",
-      "text": "They are Life savers, super knowledgeable, and professional and they get the job done!!!! I recommend them to everyone. We woke up to problem at the well and no running water. I reached out to them before sunrise hoping they would get a message first thing. Then Wow, they reached out right away! We Got scheduled and a couple hours later they had identified the problem and were making repairs. I am so grateful to them for taking great care of me and my family. We appreciate them so much! If you have a well issue, you can definitely count on them.",
-      "date": "2025-12-24"
-    }
-  ],
-  "Twentynine palms": [
-    {
-      "name": "Louisa Mauk",
-      "text": "Very prompt and knowledgeable.  Got us up and running. Would highly recommend their company.",
-      "date": "2025-06-28"
-    }
-  ],
-  "Valley center": [
-    {
-      "name": "Sabrina N",
-      "text": "",
-      "date": "2025-06-23"
-    }
-  ],
-  "Santa ysabel": [
+  "santa-ysabel": [
     {
       "name": "Ryan Cauzza",
       "text": "The service went very well!",
       "date": "2026-02-21"
     }
   ],
-  "Lakeside": [
+  "lakeside": [
     {
       "name": "Kathy Bast",
       "text": "The technician was very friendly and helpful! I would highly recommend.",
       "date": "2026-02-17"
     }
   ],
-  "Costa mesa": [
+  "trubuco-canyon": [
     {
-      "name": "Margaret Long",
-      "text": "Southern California Well Service was extremely competent and professional. They took care of business in a friendly manner  were very knowledgeable.",
-      "date": "2026-01-23"
+      "name": "Nancy",
+      "text": "Kept us informed of the entire process and showed up on time and completed the work with no problems. Great company.",
+      "date": "2026-02-08"
     }
   ],
-  "Winchester": [
+  "winchester": [
     {
       "name": "Larry Donald",
       "text": "Great company quick very competent and knowledgeable. I wouldn't use any one else.",
       "date": "2026-01-12"
     }
   ],
-  "Alpine": [
+  "alpine": [
     {
       "name": "Darlene Jean",
       "text": "Answered my call quickly, tech sent out within 1 1/2 hours. Determined what problem was and was very thorough when fixing it.  Looked over my entire well to ensure that all was working well. Would highly recommend this well service!!  Tech Brian was great.",
       "date": "2025-11-23"
     }
   ],
-  "Dulzura": [
+  "dulzura": [
     {
       "name": "Barbara Franke",
       "text": "Quick and efficient service- Thankyou!",
       "date": "2025-10-12"
     }
   ],
-  "Temecula": [
+  "temecula": [
     {
       "name": "Marilyn Horton",
       "text": "Honest quote and actual bill came in lower as labor was done quickly and efficiently. We are exceptionally pleased with all aspects of the job and equipment selected.  We had a booster pump installed to increase water pressure in our residence. Would highly recommend Southern California Well Service !",
       "date": "2025-09-17"
-    }
-  ],
-  "Borrego springs": [
-    {
-      "name": "Loreto Molina",
-      "text": "",
-      "date": "2025-09-09"
-    }
-  ],
-  "Escondido": [
-    {
-      "name": "john baldwin",
-      "text": "This has been my go to well service for over 10 years. You will be most impressed by their constant contact and prompt service. They explain things clearly and honor all warranties with no run around. My well had to be pulled after a motor failure and the entire process took less than 3 days with warranty coverage, and small charge to me. The owner, Brighton, even got involved and replaced some items free of charge to assure constant service.\nThank you to all involved.",
-      "date": "2025-09-02"
-    }
-  ],
-  "Pine valley": [
-    {
-      "name": "Tammy Packard",
-      "text": "",
-      "date": "2025-08-27"
     }
   ]
 }

@@ -1,22 +1,16 @@
 #!/usr/bin/env node
 /**
- * Match Google Reviews to Jobber Clients by City
- * Searches Jobber for reviewer names to extract their city
+ * Match Google Reviews to Jobber Clients to get city data
  */
 
 const fs = require('fs');
 const path = require('path');
 
-// Paths
-const REVIEWS_PATH = path.join(__dirname, '../../scws-gmb/reviews.json');
-const CREDENTIALS_PATH = path.join(__dirname, '../../jobber_credentials.json');
+const JOBBER_CREDS = JSON.parse(fs.readFileSync('/Users/jarvis/clawd/jobber_credentials.json'));
+const REVIEWS_PATH = '/Users/jarvis/clawd/scws-gmb/reviews.json';
 const OUTPUT_PATH = path.join(__dirname, 'reviews-by-city.json');
 
-// Load credentials
-const creds = JSON.parse(fs.readFileSync(CREDENTIALS_PATH, 'utf8'));
-
-// GraphQL query to search clients by name
-async function searchJobberClient(name) {
+async function searchJobberClients(searchTerm) {
   const query = `
     query SearchClients($searchTerm: String!) {
       clients(searchTerm: $searchTerm, first: 5) {
@@ -27,6 +21,8 @@ async function searchJobberClient(name) {
           lastName
           billingAddress {
             city
+            street
+            postalCode
           }
         }
       }
@@ -34,69 +30,96 @@ async function searchJobberClient(name) {
   `;
 
   try {
-    const response = await fetch(creds.api_endpoint, {
+    const response = await fetch('https://api.getjobber.com/api/graphql', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${creds.access_token}`,
-        'X-JOBBER-GRAPHQL-VERSION': creds.graphql_version
+        'Authorization': `Bearer ${JOBBER_CREDS.access_token}`,
+        'X-JOBBER-GRAPHQL-VERSION': '2023-11-15'
       },
-      body: JSON.stringify({
-        query,
-        variables: { searchTerm: name }
-      })
+      body: JSON.stringify({ query, variables: { searchTerm } })
     });
 
     const data = await response.json();
+    
     if (data.errors) {
-      console.error(`  Error searching for "${name}":`, data.errors[0].message);
+      console.error(`  Error searching for "${searchTerm}":`, data.errors[0]?.message);
       return null;
     }
+    
+    if (data.message) {
+      console.error(`  API error: ${data.message}`);
+      return null;
+    }
+
     return data.data?.clients?.nodes || [];
   } catch (err) {
-    console.error(`  Fetch error for "${name}":`, err.message);
+    console.error(`  Network error searching for "${searchTerm}":`, err.message);
     return null;
   }
 }
 
-// Extract city from client data
-function getCityFromClient(client) {
-  if (client.billingAddress?.city) {
-    return { city: client.billingAddress.city };
+function extractCity(client) {
+  // Try billing address city
+  if (client.billingAddress?.city && client.billingAddress.city.trim()) {
+    return client.billingAddress.city.trim();
   }
-  return null;
-}
-
-// Normalize name for comparison
-function normalizeName(name) {
-  return name.toLowerCase()
-    .replace(/[^a-z\s]/g, '')
-    .replace(/\s+/g, ' ')
-    .trim();
-}
-
-// Check if names match
-function namesMatch(reviewerName, clientName) {
-  const rNorm = normalizeName(reviewerName);
-  const cNorm = normalizeName(clientName);
   
-  // Direct match
-  if (rNorm === cNorm) return true;
-  
-  // Partial match (first + last name)
-  const rParts = rNorm.split(' ');
-  const cParts = cNorm.split(' ');
-  
-  // Match first and last name
-  if (rParts.length >= 2 && cParts.length >= 2) {
-    if (rParts[0] === cParts[0] && rParts[rParts.length-1] === cParts[cParts.length-1]) {
-      return true;
+  // Try to parse city from street address (format: "Street, City, State ZIP")
+  const street = client.billingAddress?.street || '';
+  const parts = street.split(',');
+  if (parts.length >= 3) {
+    // Format: "123 Main St, City, CA 92xxx"
+    const cityPart = parts[parts.length - 2]?.trim();
+    if (cityPart && !cityPart.match(/^\d/)) {
+      return cityPart;
     }
   }
   
-  // Match if reviewer first name matches client first name and client has matching last initial
-  if (rParts.length >= 1 && cParts.length >= 1) {
-    if (rParts[0] === cParts[0]) return true;
+  return null;
+}
+
+function normalizeNameForSearch(displayName) {
+  // Remove common suffixes/patterns that won't match
+  return displayName
+    .replace(/\s*\(.*?\)\s*/g, '') // Remove parenthetical text
+    .replace(/#\d+/g, '')          // Remove # followed by numbers
+    .replace(/['']s?\s*$/i, '')    // Remove possessives
+    .trim();
+}
+
+function namesMatch(reviewerName, clientName) {
+  const normalize = (s) => s.toLowerCase().replace(/[^a-z\s]/g, '').trim();
+  const reviewer = normalize(reviewerName);
+  const client = normalize(clientName);
+  
+  // Direct match
+  if (reviewer === client) return true;
+  
+  // Check if last names match
+  const reviewerParts = reviewer.split(/\s+/);
+  const clientParts = client.split(/\s+/);
+  
+  if (reviewerParts.length >= 2 && clientParts.length >= 1) {
+    const reviewerLast = reviewerParts[reviewerParts.length - 1];
+    const clientLast = clientParts[clientParts.length - 1];
+    
+    // Last name must match
+    if (reviewerLast === clientLast) {
+      // If we have first names, check first 3 chars
+      if (reviewerParts.length >= 1 && clientParts.length >= 1) {
+        const reviewerFirst = reviewerParts[0].slice(0, 3);
+        const clientFirst = clientParts[0].slice(0, 3);
+        if (reviewerFirst === clientFirst) {
+          return true;
+        }
+      }
+    }
+  }
+  
+  // Check if reviewer name contains client name or vice versa
+  if (reviewer.includes(client) || client.includes(reviewer)) {
+    return true;
   }
   
   return false;
@@ -104,102 +127,100 @@ function namesMatch(reviewerName, clientName) {
 
 async function main() {
   console.log('Loading reviews...');
-  const reviews = JSON.parse(fs.readFileSync(REVIEWS_PATH, 'utf8'));
+  const reviewsData = JSON.parse(fs.readFileSync(REVIEWS_PATH));
   
-  // Collect all 5-star reviews
+  // Extract all 5-star reviews with text
   const fiveStarReviews = [];
-  for (const location of reviews) {
-    for (const review of location.reviews || []) {
-      if (review.starRating === 'FIVE' && review.reviewer?.displayName) {
+  for (const location of reviewsData) {
+    for (const review of location.reviews) {
+      if (review.starRating === 'FIVE' && review.comment) {
         fiveStarReviews.push({
           name: review.reviewer.displayName,
-          text: review.comment || '',
-          date: review.createTime?.split('T')[0] || '',
-          location: location.address?.locality || ''
+          text: review.comment,
+          date: review.createTime.split('T')[0],
+          location: location.address.locality
         });
       }
     }
   }
   
-  console.log(`Found ${fiveStarReviews.length} 5-star reviews to match\n`);
+  console.log(`Found ${fiveStarReviews.length} 5-star reviews with text`);
   
-  // Match reviews to cities
+  // Match reviews to clients
   const reviewsByCity = {};
   const matched = [];
   const unmatched = [];
   
-  for (let i = 0; i < fiveStarReviews.length; i++) {
-    const review = fiveStarReviews[i];
+  for (const review of fiveStarReviews) {
+    const searchName = normalizeNameForSearch(review.name);
     
-    // Skip reviews with obvious non-real names
-    if (review.name.includes('#') || review.name.length < 3) {
-      unmatched.push(review);
+    // Skip single-word names or usernames
+    if (!searchName.includes(' ') || searchName.length < 5) {
+      console.log(`Skipping: ${review.name} (single word/short)`);
+      unmatched.push(review.name);
       continue;
     }
     
-    process.stdout.write(`[${i+1}/${fiveStarReviews.length}] Searching: ${review.name}...`);
+    console.log(`Searching: ${searchName}`);
     
-    const clients = await searchJobberClient(review.name);
+    const clients = await searchJobberClients(searchName);
     
-    if (!clients || clients.length === 0) {
-      process.stdout.write(' no match\n');
-      unmatched.push(review);
-      continue;
-    }
-    
-    // Find best matching client
-    let matchedClient = null;
-    for (const client of clients) {
-      const fullName = `${client.firstName || ''} ${client.lastName || ''}`.trim() || client.name;
-      if (namesMatch(review.name, fullName)) {
-        const cityData = getCityFromClient(client);
-        if (cityData?.city) {
-          matchedClient = { ...client, cityData };
-          break;
+    if (clients && clients.length > 0) {
+      // Find best matching client
+      let bestMatch = null;
+      
+      for (const client of clients) {
+        const fullName = client.name || `${client.firstName} ${client.lastName}`.trim();
+        if (namesMatch(searchName, fullName)) {
+          const city = extractCity(client);
+          if (city) {
+            bestMatch = { client, city };
+            break;
+          }
         }
       }
-    }
-    
-    if (matchedClient) {
-      const city = matchedClient.cityData.city;
-      process.stdout.write(` → ${city}\n`);
       
-      if (!reviewsByCity[city]) {
-        reviewsByCity[city] = [];
+      if (bestMatch) {
+        const city = bestMatch.city;
+        console.log(`  ✓ Matched to ${city}`);
+        
+        if (!reviewsByCity[city]) {
+          reviewsByCity[city] = [];
+        }
+        
+        reviewsByCity[city].push({
+          name: review.name,
+          text: review.text,
+          date: review.date
+        });
+        
+        matched.push(review.name);
+      } else {
+        console.log('  ✗ No matching client with city');
+        unmatched.push(review.name);
       }
-      
-      reviewsByCity[city].push({
-        name: review.name,
-        text: review.text,
-        date: review.date
-      });
-      matched.push(review);
     } else {
-      process.stdout.write(' no city found\n');
-      unmatched.push(review);
+      console.log('  ✗ No clients found');
+      unmatched.push(review.name);
     }
     
-    // Rate limit
-    await new Promise(r => setTimeout(r, 200));
+    // Rate limiting - wait 150ms between requests
+    await new Promise(r => setTimeout(r, 150));
   }
   
   // Save results
-  console.log(`\nSaving to ${OUTPUT_PATH}...`);
   fs.writeFileSync(OUTPUT_PATH, JSON.stringify(reviewsByCity, null, 2));
   
-  // Summary
-  console.log('\n=== SUMMARY ===');
-  console.log(`Total 5-star reviews: ${fiveStarReviews.length}`);
+  console.log('\n=== RESULTS ===');
+  console.log(`Total 5-star reviews with text: ${fiveStarReviews.length}`);
   console.log(`Matched to cities: ${matched.length}`);
   console.log(`Unmatched: ${unmatched.length}`);
-  console.log(`\nCities with testimonials:`);
-  
-  const sortedCities = Object.entries(reviewsByCity)
-    .sort((a, b) => b[1].length - a[1].length);
-  
-  for (const [city, reviews] of sortedCities) {
+  console.log('\nCities with testimonials:');
+  for (const [city, reviews] of Object.entries(reviewsByCity).sort((a, b) => b[1].length - a[1].length)) {
     console.log(`  ${city}: ${reviews.length} review(s)`);
   }
+  
+  console.log(`\nSaved to: ${OUTPUT_PATH}`);
 }
 
 main().catch(console.error);
