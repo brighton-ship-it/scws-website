@@ -1,226 +1,228 @@
 #!/usr/bin/env node
 /**
- * Match Google Reviews to Jobber Clients to get city data
+ * Match Google Reviews to Jobber clients to get cities
  */
 
 const fs = require('fs');
+const https = require('https');
 const path = require('path');
 
-const JOBBER_CREDS = JSON.parse(fs.readFileSync('/Users/jarvis/clawd/jobber_credentials.json'));
 const REVIEWS_PATH = '/Users/jarvis/clawd/scws-gmb/reviews.json';
-const OUTPUT_PATH = path.join(__dirname, 'reviews-by-city.json');
+const CREDS_PATH = '/Users/jarvis/clawd/jobber_credentials.json';
+const OUTPUT_PATH = '/Users/jarvis/clawd/scws-website/scripts/reviews-by-city.json';
 
-async function searchJobberClients(searchTerm) {
-  const query = `
-    query SearchClients($searchTerm: String!) {
-      clients(searchTerm: $searchTerm, first: 5) {
-        nodes {
-          id
-          name
-          firstName
-          lastName
-          billingAddress {
-            city
-            street
-            postalCode
-          }
-        }
-      }
+// Load reviews
+const allReviews = JSON.parse(fs.readFileSync(REVIEWS_PATH, 'utf8'));
+const creds = JSON.parse(fs.readFileSync(CREDS_PATH, 'utf8'));
+
+// Extract 5-star reviews with reviewer names
+const fiveStarReviews = [];
+for (const location of allReviews) {
+  const locationName = location.address?.locality || 'Unknown';
+  for (const review of location.reviews || []) {
+    if (review.starRating === 'FIVE' && review.reviewer?.displayName) {
+      fiveStarReviews.push({
+        name: review.reviewer.displayName,
+        text: review.comment || '',
+        date: review.createTime?.split('T')[0] || '',
+        locationName
+      });
     }
-  `;
-
-  try {
-    const response = await fetch('https://api.getjobber.com/api/graphql', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${JOBBER_CREDS.access_token}`,
-        'X-JOBBER-GRAPHQL-VERSION': '2023-11-15'
-      },
-      body: JSON.stringify({ query, variables: { searchTerm } })
-    });
-
-    const data = await response.json();
-    
-    if (data.errors) {
-      console.error(`  Error searching for "${searchTerm}":`, data.errors[0]?.message);
-      return null;
-    }
-    
-    if (data.message) {
-      console.error(`  API error: ${data.message}`);
-      return null;
-    }
-
-    return data.data?.clients?.nodes || [];
-  } catch (err) {
-    console.error(`  Network error searching for "${searchTerm}":`, err.message);
-    return null;
   }
 }
 
-function extractCity(client) {
-  // Try billing address city
-  if (client.billingAddress?.city && client.billingAddress.city.trim()) {
+console.log(`Found ${fiveStarReviews.length} 5-star reviews to match\n`);
+
+// Search for client in Jobber
+function searchClient(name) {
+  return new Promise((resolve, reject) => {
+    const query = JSON.stringify({
+      query: `query SearchClients($searchTerm: String!) {
+        clients(searchTerm: $searchTerm, first: 5) {
+          nodes {
+            id
+            name
+            billingAddress { city street postalCode }
+            clientProperties { nodes { address { city street } } }
+          }
+        }
+      }`,
+      variables: { searchTerm: name }
+    });
+
+    const options = {
+      hostname: 'api.getjobber.com',
+      path: '/api/graphql',
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${creds.access_token}`,
+        'X-JOBBER-GRAPHQL-VERSION': creds.graphql_version
+      }
+    };
+
+    const req = https.request(options, (res) => {
+      let body = '';
+      res.on('data', chunk => body += chunk);
+      res.on('end', () => {
+        try {
+          const result = JSON.parse(body);
+          resolve(result.data?.clients?.nodes || []);
+        } catch (e) {
+          resolve([]);
+        }
+      });
+    });
+
+    req.on('error', () => resolve([]));
+    req.write(query);
+    req.end();
+  });
+}
+
+// Normalize name for matching
+function normalizeName(name) {
+  return name.toLowerCase().replace(/[^a-z ]/g, '').trim();
+}
+
+// Extract city from full address string (e.g., "123 Main St, City, CA 92123")
+function extractCityFromStreet(street) {
+  if (!street) return null;
+  
+  // Pattern: street, city, state zip
+  const match = street.match(/,\s*([A-Za-z\s]+),\s*(?:California|CA)\s*\d{5}/i);
+  if (match) {
+    return match[1].trim();
+  }
+  return null;
+}
+
+// Get best city from client data
+function getCityFromClient(client) {
+  // Try billing address city first
+  if (client.billingAddress?.city?.trim()) {
     return client.billingAddress.city.trim();
   }
   
-  // Try to parse city from street address (format: "Street, City, State ZIP")
-  const street = client.billingAddress?.street || '';
-  const parts = street.split(',');
-  if (parts.length >= 3) {
-    // Format: "123 Main St, City, CA 92xxx"
-    const cityPart = parts[parts.length - 2]?.trim();
-    if (cityPart && !cityPart.match(/^\d/)) {
-      return cityPart;
-    }
+  // Try property address
+  const prop = client.clientProperties?.nodes?.[0];
+  if (prop?.address?.city?.trim()) {
+    return prop.address.city.trim();
+  }
+  
+  // Try extracting from billing street
+  if (client.billingAddress?.street) {
+    const city = extractCityFromStreet(client.billingAddress.street);
+    if (city) return city;
+  }
+  
+  // Try extracting from property street
+  if (prop?.address?.street) {
+    const city = extractCityFromStreet(prop.address.street);
+    if (city) return city;
   }
   
   return null;
 }
 
-function normalizeNameForSearch(displayName) {
-  // Remove common suffixes/patterns that won't match
-  return displayName
-    .replace(/\s*\(.*?\)\s*/g, '') // Remove parenthetical text
-    .replace(/#\d+/g, '')          // Remove # followed by numbers
-    .replace(/['']s?\s*$/i, '')    // Remove possessives
-    .trim();
-}
-
-function namesMatch(reviewerName, clientName) {
-  const normalize = (s) => s.toLowerCase().replace(/[^a-z\s]/g, '').trim();
-  const reviewer = normalize(reviewerName);
-  const client = normalize(clientName);
-  
-  // Direct match
-  if (reviewer === client) return true;
-  
-  // Check if last names match
-  const reviewerParts = reviewer.split(/\s+/);
-  const clientParts = client.split(/\s+/);
-  
-  if (reviewerParts.length >= 2 && clientParts.length >= 1) {
-    const reviewerLast = reviewerParts[reviewerParts.length - 1];
-    const clientLast = clientParts[clientParts.length - 1];
-    
-    // Last name must match
-    if (reviewerLast === clientLast) {
-      // If we have first names, check first 3 chars
-      if (reviewerParts.length >= 1 && clientParts.length >= 1) {
-        const reviewerFirst = reviewerParts[0].slice(0, 3);
-        const clientFirst = clientParts[0].slice(0, 3);
-        if (reviewerFirst === clientFirst) {
-          return true;
-        }
-      }
-    }
-  }
-  
-  // Check if reviewer name contains client name or vice versa
-  if (reviewer.includes(client) || client.includes(reviewer)) {
-    return true;
-  }
-  
-  return false;
-}
-
-async function main() {
-  console.log('Loading reviews...');
-  const reviewsData = JSON.parse(fs.readFileSync(REVIEWS_PATH));
-  
-  // Extract all 5-star reviews with text
-  const fiveStarReviews = [];
-  for (const location of reviewsData) {
-    for (const review of location.reviews) {
-      if (review.starRating === 'FIVE' && review.comment) {
-        fiveStarReviews.push({
-          name: review.reviewer.displayName,
-          text: review.comment,
-          date: review.createTime.split('T')[0],
-          location: location.address.locality
-        });
-      }
-    }
-  }
-  
-  console.log(`Found ${fiveStarReviews.length} 5-star reviews with text`);
-  
-  // Match reviews to clients
+// Main matching logic
+async function matchReviews() {
   const reviewsByCity = {};
-  const matched = [];
-  const unmatched = [];
-  
+  let matched = 0;
+  let unmatched = 0;
+
   for (const review of fiveStarReviews) {
-    const searchName = normalizeNameForSearch(review.name);
+    // Clean up display name (remove emojis, extra chars)
+    const cleanName = review.name.replace(/[^\w\s'-]/g, '').trim();
     
-    // Skip single-word names or usernames
-    if (!searchName.includes(' ') || searchName.length < 5) {
-      console.log(`Skipping: ${review.name} (single word/short)`);
-      unmatched.push(review.name);
+    // Skip generic/business names
+    if (!cleanName || cleanName.length < 3) {
+      unmatched++;
       continue;
     }
+
+    // Try searching with full name first
+    let clients = await searchClient(cleanName);
     
-    console.log(`Searching: ${searchName}`);
-    
-    const clients = await searchJobberClients(searchName);
-    
-    if (clients && clients.length > 0) {
-      // Find best matching client
-      let bestMatch = null;
-      
-      for (const client of clients) {
-        const fullName = client.name || `${client.firstName} ${client.lastName}`.trim();
-        if (namesMatch(searchName, fullName)) {
-          const city = extractCity(client);
-          if (city) {
-            bestMatch = { client, city };
-            break;
-          }
-        }
+    // If no results, try first name only
+    if (clients.length === 0) {
+      const firstName = cleanName.split(' ')[0];
+      if (firstName.length >= 3) {
+        clients = await searchClient(firstName);
       }
-      
-      if (bestMatch) {
-        const city = bestMatch.city;
-        console.log(`  ✓ Matched to ${city}`);
-        
-        if (!reviewsByCity[city]) {
-          reviewsByCity[city] = [];
-        }
-        
-        reviewsByCity[city].push({
-          name: review.name,
-          text: review.text,
-          date: review.date
-        });
-        
-        matched.push(review.name);
-      } else {
-        console.log('  ✗ No matching client with city');
-        unmatched.push(review.name);
-      }
-    } else {
-      console.log('  ✗ No clients found');
-      unmatched.push(review.name);
     }
     
-    // Rate limiting - wait 150ms between requests
-    await new Promise(r => setTimeout(r, 150));
+    // Look for a matching name
+    let matchedCity = null;
+    const normalizedReviewName = normalizeName(cleanName);
+    
+    for (const client of clients) {
+      const normalizedClientName = normalizeName(client.name);
+      
+      // Check if names match (either exact or first+last in either order)
+      const reviewParts = normalizedReviewName.split(' ').filter(p => p.length > 1);
+      const clientParts = normalizedClientName.split(' ').filter(p => p.length > 1);
+      
+      // Must share at least 2 name parts for multi-word names, or 1 for single names
+      const sharedParts = reviewParts.filter(p => clientParts.includes(p));
+      
+      const isMatch = sharedParts.length >= 2 || 
+          (reviewParts.length === 1 && clientParts.includes(reviewParts[0])) ||
+          normalizedClientName.includes(normalizedReviewName) ||
+          normalizedReviewName.includes(normalizedClientName);
+      
+      if (isMatch) {
+        matchedCity = getCityFromClient(client);
+        if (matchedCity) {
+          break;
+        }
+      }
+    }
+
+    if (matchedCity) {
+      // Normalize city name (title case)
+      matchedCity = matchedCity.split(' ')
+        .map(w => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase())
+        .join(' ');
+
+      if (!reviewsByCity[matchedCity]) {
+        reviewsByCity[matchedCity] = [];
+      }
+
+      reviewsByCity[matchedCity].push({
+        name: review.name,
+        text: review.text,
+        date: review.date
+      });
+
+      console.log(`✅ ${review.name} → ${matchedCity}`);
+      matched++;
+    } else {
+      console.log(`❌ ${review.name} (no match)`);
+      unmatched++;
+    }
+
+    // Small delay to avoid rate limiting
+    await new Promise(r => setTimeout(r, 100));
   }
-  
+
   // Save results
   fs.writeFileSync(OUTPUT_PATH, JSON.stringify(reviewsByCity, null, 2));
   
-  console.log('\n=== RESULTS ===');
-  console.log(`Total 5-star reviews with text: ${fiveStarReviews.length}`);
-  console.log(`Matched to cities: ${matched.length}`);
-  console.log(`Unmatched: ${unmatched.length}`);
-  console.log('\nCities with testimonials:');
-  for (const [city, reviews] of Object.entries(reviewsByCity).sort((a, b) => b[1].length - a[1].length)) {
-    console.log(`  ${city}: ${reviews.length} review(s)`);
-  }
-  
+  console.log(`\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`);
+  console.log(`Matched: ${matched}`);
+  console.log(`Unmatched: ${unmatched}`);
+  console.log(`Cities found: ${Object.keys(reviewsByCity).length}`);
   console.log(`\nSaved to: ${OUTPUT_PATH}`);
+  console.log(`━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n`);
+
+  // Print summary by city
+  console.log('Reviews by City:');
+  for (const [city, reviews] of Object.entries(reviewsByCity).sort((a, b) => b[1].length - a[1].length)) {
+    console.log(`  ${city}: ${reviews.length} reviews`);
+  }
+
+  return { matched, unmatched, cities: Object.keys(reviewsByCity).length };
 }
 
-main().catch(console.error);
+matchReviews().catch(console.error);
