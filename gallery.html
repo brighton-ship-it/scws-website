@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recent Projects | Southern California Well Service</title>
+    <meta name="description" content="See our recent well drilling, pump repair, and maintenance projects across San Diego, Riverside, and San Bernardino Counties. Real photos from real jobs.">
+    <link rel="canonical" href="https://scwellservice.com/gallery.html">
+    <meta property="og:title" content="Recent Projects | Southern California Well Service">
+    <meta property="og:description" content="Real photos from real well service jobs across Southern California.">
+    <meta property="og:image" content="https://scwellservice.com/images/gbp-photos/gbp-01.jpg">
+    <link rel="icon" type="image/png" href="images/logo-text-only-3x.png">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; }
+        .gallery-item { position: relative; overflow: hidden; border-radius: 12px; aspect-ratio: 4/3; cursor: pointer; }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; }
+        .gallery-item:hover img { transform: scale(1.05); }
+        .gallery-item .overlay { position: absolute; bottom: 0; left: 0; right: 0; padding: 16px; background: linear-gradient(transparent, rgba(0,0,0,0.7)); color: #fff; }
+        #lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.9); z-index: 100; align-items: center; justify-content: center; }
+        #lightbox.active { display: flex; }
+        #lightbox img { max-width: 90vw; max-height: 90vh; border-radius: 8px; }
+        #lightbox .close { position: absolute; top: 20px; right: 20px; color: #fff; font-size: 32px; cursor: pointer; background: none; border: none; }
+    </style>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ImageGallery",
+        "name": "Southern California Well Service - Recent Projects",
+        "description": "Photos from recent well drilling, pump repair, and maintenance jobs",
+        "url": "https://scwellservice.com/gallery.html",
+        "publisher": {
+            "@type": "Organization",
+            "name": "Southern California Well Service"
+        }
+    }
+    </script>
+</head>
+<body style="padding-bottom:80px">
+    <!-- Emergency Banner -->
+    <div class="bg-gradient-to-r from-red-600 to-red-700 text-white py-2.5">
+        <div class="max-w-7xl mx-auto px-4 text-center flex items-center justify-center gap-2 flex-wrap">
+            <span class="font-bold tracking-wide">🚨 No Water?</span>
+            <span class="hidden sm:inline">Same-day emergency service available.</span>
+            <a href="tel:7604408520" class="bg-white text-red-600 font-bold px-4 py-1 rounded-full text-sm hover:bg-red-100 transition ml-1">Call Now →</a>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="bg-primary text-white sticky top-0 z-50 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-2">
+                <a href="/" class="shrink-0">
+                    <img src="images/logo-text-only-3x.png" alt="Southern California Well Service" class="h-10 lg:h-12 w-auto">
+                </a>
+                <nav class="hidden lg:flex space-x-4 items-center">
+                    <a href="/#services" class="text-white hover:text-accent transition">Services</a>
+                    <a href="/#areas" class="text-white hover:text-accent transition">Service Areas</a>
+                    <a href="blog/" class="text-white hover:text-accent transition">Resources</a>
+                    <a href="faq.html" class="text-white hover:text-accent transition">FAQ</a>
+                    <a href="contact.html" class="text-white hover:text-accent transition">Contact</a>
+                    <a href="cost-calculator.html" class="text-white font-semibold hover:text-accent transition">Free Estimate</a>
+                    <a href="pages/about.html" class="text-white hover:text-accent transition">About</a>
+                </nav>
+                <a href="tel:7604408520" class="bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-4 lg:px-6 rounded-lg transition text-sm lg:text-base">(760) 440-8520</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Breadcrumbs -->
+    <div class="bg-gray-50 border-b">
+        <div class="max-w-7xl mx-auto px-4 py-3 text-sm text-gray-500">
+            <a href="/" class="hover:text-accent">Home</a> › <span class="text-gray-700">Recent Projects</span>
+        </div>
+    </div>
+
+    <!-- Gallery -->
+    <section class="py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h1 class="text-4xl font-bold text-primary mb-4">Recent Projects</h1>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Real photos from real jobs across San Diego, Riverside, and San Bernardino Counties.</p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img loading="lazy" src="images/gbp-photos/gbp-01.jpg" alt="Well drilling rig operating on hillside job site in San Diego County">
+                    <div class="overlay">
+                        <p class="font-bold">Well Drilling</p>
+                        <p class="text-sm text-gray-300">Residential well, San Diego County</p>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img loading="lazy" src="images/gbp-photos/gbp-02.jpg" alt="SCWS service truck on well pump repair call">
+                    <div class="overlay">
+                        <p class="font-bold">Pump Repair</p>
+                        <p class="text-sm text-gray-300">Emergency service call</p>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img loading="lazy" src="images/gbp-photos/gbp-03.jpg" alt="Well pump installation in progress">
+                    <div class="overlay">
+                        <p class="font-bold">Pump Installation</p>
+                        <p class="text-sm text-gray-300">New submersible pump setup</p>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img loading="lazy" src="images/gbp-photos/gbp-04.jpg" alt="Well maintenance inspection by SCWS technician">
+                    <div class="overlay">
+                        <p class="font-bold">Well Maintenance</p>
+                        <p class="text-sm text-gray-300">Annual inspection</p>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img loading="lazy" src="images/gbp-photos/gbp-05.jpg" alt="SCWS branded service truck with well service crane">
+                    <div class="overlay">
+                        <p class="font-bold">Service Fleet</p>
+                        <p class="text-sm text-gray-300">Equipped for any job</p>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img loading="lazy" src="images/gbp-photos/gbp-06.jpg" alt="Water well drilling operation in rural Southern California">
+                    <div class="overlay">
+                        <p class="font-bold">Drilling Operation</p>
+                        <p class="text-sm text-gray-300">Rural property well</p>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img loading="lazy" src="images/gbp-photos/gbp-07.jpg" alt="Well pump pull and replacement">
+                    <div class="overlay">
+                        <p class="font-bold">Pump Replacement</p>
+                        <p class="text-sm text-gray-300">Pulling old pump</p>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img loading="lazy" src="images/gbp-photos/gbp-08.jpg" alt="Completed water well installation">
+                    <div class="overlay">
+                        <p class="font-bold">Completed Well</p>
+                        <p class="text-sm text-gray-300">New well installation</p>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img loading="lazy" src="images/gbp-photos/gbp-09.jpg" alt="SCWS technician working on well pump with PVC pipe">
+                    <div class="overlay">
+                        <p class="font-bold">Pump Service</p>
+                        <p class="text-sm text-gray-300">Drop pipe installation</p>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img loading="lazy" src="images/gbp-photos/gbp-10.jpg" alt="Water well service equipment">
+                    <div class="overlay">
+                        <p class="font-bold">Equipment</p>
+                        <p class="text-sm text-gray-300">Professional tools for the job</p>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img loading="lazy" src="images/gbp-photos/gbp-11.jpg" alt="Well drilling rig at residential property">
+                    <div class="overlay">
+                        <p class="font-bold">Residential Drilling</p>
+                        <p class="text-sm text-gray-300">New home well</p>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img loading="lazy" src="images/gbp-photos/gbp-12.jpg" alt="SCWS crew on well service job">
+                    <div class="overlay">
+                        <p class="font-bold">Our Team</p>
+                        <p class="text-sm text-gray-300">Experienced professionals</p>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img loading="lazy" src="images/gbp-photos/gbp-13.jpg" alt="Water well pump system components">
+                    <div class="overlay">
+                        <p class="font-bold">Pump System</p>
+                        <p class="text-sm text-gray-300">Quality components</p>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img loading="lazy" src="images/gbp-photos/gbp-14.jpg" alt="Well drilling in San Diego County hillside">
+                    <div class="overlay">
+                        <p class="font-bold">Hillside Drilling</p>
+                        <p class="text-sm text-gray-300">Challenging terrain</p>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img loading="lazy" src="images/gbp-photos/gbp-15.jpg" alt="Well service truck and equipment at job site">
+                    <div class="overlay">
+                        <p class="font-bold">Job Site</p>
+                        <p class="text-sm text-gray-300">Ready to work</p>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img loading="lazy" src="images/gbp-photos/gbp-16.jpg" alt="Water pressure tank installation">
+                    <div class="overlay">
+                        <p class="font-bold">Pressure Tank</p>
+                        <p class="text-sm text-gray-300">Tank installation</p>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img loading="lazy" src="images/gbp-photos/gbp-17.jpg" alt="Well water system maintenance">
+                    <div class="overlay">
+                        <p class="font-bold">System Maintenance</p>
+                        <p class="text-sm text-gray-300">Keeping wells healthy</p>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img loading="lazy" src="images/gbp-photos/gbp-18.jpg" alt="Drilling rig at new construction site">
+                    <div class="overlay">
+                        <p class="font-bold">New Construction</p>
+                        <p class="text-sm text-gray-300">Well for new build</p>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img loading="lazy" src="images/gbp-photos/gbp-19.jpg" alt="Well water quality testing">
+                    <div class="overlay">
+                        <p class="font-bold">Water Testing</p>
+                        <p class="text-sm text-gray-300">Quality assurance</p>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img loading="lazy" src="images/gbp-photos/gbp-20.jpg" alt="SCWS well service completed project">
+                    <div class="overlay">
+                        <p class="font-bold">Completed Project</p>
+                        <p class="text-sm text-gray-300">Another happy customer</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA -->
+            <div class="mt-16 text-center bg-primary rounded-2xl p-12">
+                <h2 class="text-3xl font-bold text-white mb-4">Ready to Start Your Project?</h2>
+                <p class="text-gray-300 text-lg mb-8">We bring this same quality and professionalism to every job. Get your free estimate today.</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="tel:7604408520" class="bg-red-600 hover:bg-red-700 text-white font-bold py-4 px-8 rounded-lg text-lg transition">📞 (760) 440-8520</a>
+                    <a href="contact.html" class="border-2 border-white hover:bg-white hover:text-primary text-white font-semibold py-4 px-8 rounded-lg text-lg transition">Get Free Estimate</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p>© 2026 Southern California Well Service. Expert well services throughout Southern California.</p>
+            <p class="mt-2"><a href="pages/about.html" class="hover:text-accent">About Us</a> | <a href="contact.html" class="hover:text-accent">Get Estimate</a> | <a href="/" class="hover:text-accent">Home</a></p>
+        </div>
+    </footer>
+
+    <!-- Lightbox -->
+    <div id="lightbox" onclick="closeLightbox()">
+        <button class="close" aria-label="Close">&times;</button>
+        <img src="" alt="">
+    </div>
+    <script>
+    function openLightbox(el) {
+        var img = el.querySelector('img');
+        var lb = document.getElementById('lightbox');
+        lb.querySelector('img').src = img.src;
+        lb.querySelector('img').alt = img.alt;
+        lb.classList.add('active');
+    }
+    function closeLightbox() {
+        document.getElementById('lightbox').classList.remove('active');
+    }
+    document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeLightbox(); });
+    </script>
+
+    <!-- Sticky Mobile CTA -->
+    <style>#sticky-cta{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:2px solid #e5e7eb;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px;z-index:50;box-shadow:0 -4px 12px rgba(0,0,0,0.1)}#sticky-cta a{flex:1;font-weight:700;padding:12px 16px;border-radius:8px;text-align:center;color:#fff;font-size:14px;text-decoration:none}#sticky-cta .cta-call{background:#dc2626}#sticky-cta .cta-call:hover{background:#b91c1c}#sticky-cta .cta-est{background:#4e9271}#sticky-cta .cta-est:hover{background:#3d7a5c}@media(min-width:1024px){#sticky-cta{display:none}}</style>
+    <div id="sticky-cta">
+        <a href="tel:7604408520" class="cta-call">📞 Call Now</a>
+        <a href="/contact.html" class="cta-est">Free Estimate</a>
+    </div>
+</body>
+</html>
