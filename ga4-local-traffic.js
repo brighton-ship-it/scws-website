@@ -7,17 +7,33 @@ const path = require('path');
 const PROPERTY_ID = '396700369';
 const KEY_FILE = path.join(process.env.HOME, 'clawd/credentials/google-analytics-service-account.json');
 
-// San Diego County cities to track
-const SD_COUNTY_CITIES = [
+// Local cities to track (SD + Riverside + San Bernardino counties)
+const LOCAL_CITIES = [
+  // San Diego County
   'san diego', 'escondido', 'oceanside', 'carlsbad', 'vista', 'el cajon',
   'encinitas', 'chula vista', 'san marcos', 'poway', 'la mesa', 'santee',
   'ramona', 'julian', 'alpine', 'lakeside', 'fallbrook', 'valley center',
-  'temecula', 'murrieta', 'bonsall', 'pauma valley', 'palomar mountain',
+  'bonsall', 'pauma valley', 'palomar mountain',
   'borrego springs', 'warner springs', 'descanso', 'pine valley', 'campo',
   'potrero', 'jamul', 'spring valley', 'lemon grove', 'national city',
   'imperial beach', 'coronado', 'la jolla', 'del mar', 'solana beach',
   'rancho santa fe', 'rancho bernardo', 'scripps ranch', 'mira mesa',
-  'clairemont', 'university city', 'kearny mesa', 'mission valley'
+  'clairemont', 'university city', 'kearny mesa', 'mission valley',
+  // Riverside County
+  'temecula', 'murrieta', 'hemet', 'san jacinto', 'menifee', 'wildomar',
+  'lake elsinore', 'perris', 'riverside', 'corona', 'moreno valley',
+  'beaumont', 'banning', 'palm springs', 'palm desert', 'indio', 'coachella',
+  'la quinta', 'cathedral city', 'desert hot springs', 'idyllwild', 'anza',
+  'aguanga', 'sage', 'winchester', 'french valley', 'sun city', 'nuevo',
+  'homeland', 'east hemet', 'valle vista', 'green acres', 'rancho mirage',
+  // San Bernardino County
+  'san bernardino', 'ontario', 'rancho cucamonga', 'fontana', 'rialto',
+  'redlands', 'highland', 'upland', 'apple valley', 'victorville', 'hesperia',
+  'big bear lake', 'big bear city', 'lake arrowhead', 'running springs',
+  'crestline', 'twin peaks', 'blue jay', 'cedar glen', 'skyforest',
+  'rimforest', 'green valley lake', 'yucaipa', 'calimesa', 'loma linda',
+  'colton', 'grand terrace', 'barstow', 'twentynine palms', 'yucca valley',
+  'joshua tree', 'lucerne valley', 'wrightwood', 'phelan', 'pinon hills'
 ];
 
 async function runReport() {
@@ -55,7 +71,7 @@ async function runReport() {
     totalSessions += sessions;
     cities.push({ city, sessions });
     
-    if (SD_COUNTY_CITIES.some(sd => city.toLowerCase().includes(sd))) {
+    if (LOCAL_CITIES.some(sd => city.toLowerCase().includes(sd))) {
       localSessions += sessions;
       localCities.push({ city, sessions });
     }
@@ -63,7 +79,7 @@ async function runReport() {
 
   console.log(`\n=== GA4 ORGANIC TRAFFIC (${startDate}) ===\n`);
   console.log(`Total organic sessions: ${totalSessions}`);
-  console.log(`SD County sessions: ${localSessions} (${((localSessions/totalSessions)*100).toFixed(1)}%)\n`);
+  console.log(`Local sessions (SD+Riverside+SB): ${localSessions} (${((localSessions/totalSessions)*100).toFixed(1)}%)\n`);
   
   if (localCities.length > 0) {
     console.log('Local Cities:');
