@@ -97,27 +97,25 @@
     <section class="bg-primary text-white py-10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h1 class="text-3xl lg:text-4xl font-bold mb-3">Well Water Resources & Guides</h1>
-            <p class="text-lg text-gray-300 max-w-2xl mx-auto mb-6">
+            <p class="text-lg text-gray-300 max-w-2xl mx-auto">
                 Expert advice on well maintenance, water quality, costs, and more.
             </p>
-            
-            <!-- Search Bar -->
-            <div class="max-w-xl mx-auto">
+        </div>
+    </section>
+
+    <!-- Search + Category Filter -->
+    <section class="bg-gray-100 py-4 sticky top-[72px] z-40 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="max-w-md mx-auto mb-3">
                 <div class="relative">
                     <input type="text" id="searchInput" placeholder="Search articles..." 
-                        class="w-full px-6 py-4 rounded-full text-gray-800 text-lg focus:outline-none focus:ring-4 focus:ring-accent/50 shadow-lg"
+                        class="w-full px-5 py-2.5 rounded-full text-gray-800 text-sm border border-gray-300 focus:outline-none focus:ring-2 focus:ring-accent/50"
                         onkeyup="filterArticles()">
-                    <svg class="w-6 h-6 text-gray-400 absolute right-6 top-1/2 transform -translate-y-1/2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg class="w-5 h-5 text-gray-400 absolute right-4 top-1/2 transform -translate-y-1/2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                     </svg>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Category Filter -->
-    <section class="bg-gray-100 py-4 sticky top-[72px] z-40 shadow-sm">
-        <div class="max-w-7xl mx-auto px-4">
             <div class="flex flex-wrap justify-center gap-2">
                 <button onclick="filterCategory('all')" class="category-btn active px-4 py-2 rounded-full text-sm font-semibold bg-gray-200 text-gray-700 hover:bg-accent hover:text-white transition" data-category="all">
                     All Articles
