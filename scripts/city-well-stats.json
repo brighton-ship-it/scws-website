@@ -1,0 +1,8210 @@
+{
+  "Rancho Santa Fe": {
+    "county": "San Diego",
+    "count": 206,
+    "avgDepth": 544,
+    "minDepth": 5,
+    "maxDepth": 2010,
+    "medianDepth": 431,
+    "avgYield": 116.3,
+    "medianYield": 43,
+    "avgStaticLevel": 100,
+    "medianStaticLevel": 53,
+    "wellsByDecade": {
+      "2020s": 33,
+      "1960s": 1,
+      "1970s": 2,
+      "1980s": 9,
+      "1990s": 64,
+      "2000s": 36,
+      "2010s": 61
+    },
+    "wellsByUse": {
+      "Irrigation - Agriculture": 106,
+      "Unknown Irrigation - Agriculture": 3,
+      "Irrigation - Landscape": 38,
+      "Domestic": 14,
+      "Other": 6,
+      "Unknown": 4,
+      "Test Well": 8,
+      "Monitoring": 25,
+      "Remediation": 1,
+      "Destruction": 1
+    }
+  },
+  "San Diego": {
+    "county": "San Diego",
+    "count": 3281,
+    "avgDepth": 92,
+    "minDepth": 1,
+    "maxDepth": 1613,
+    "medianDepth": 37,
+    "avgYield": 133.9,
+    "medianYield": 45,
+    "avgStaticLevel": 45,
+    "medianStaticLevel": 25,
+    "wellsByDecade": {
+      "2020s": 1040,
+      "1910s": 1,
+      "1940s": 1,
+      "1950s": 6,
+      "1960s": 3,
+      "1970s": 13,
+      "1980s": 75,
+      "1990s": 494,
+      "2000s": 858,
+      "2010s": 774
+    },
+    "wellsByUse": {
+      "Cathodic Protection": 487,
+      "Other": 227,
+      "Monitoring": 1896,
+      "Unknown": 197,
+      "Domestic": 33,
+      "Irrigation - Agriculture": 101,
+      "Industrial": 9,
+      "Test Well": 55,
+      "Public": 6,
+      "Vapor Extraction": 107,
+      "Remediation": 8,
+      "Sparging": 83,
+      "Injection": 38,
+      "Irrigation - Landscape": 22,
+      "Unknown Domestic": 5,
+      "Unknown Irrigation - Landscape": 1,
+      "Destruction": 6
+    }
+  },
+  "El Cajon": {
+    "county": "San Diego",
+    "count": 1133,
+    "avgDepth": 261,
+    "minDepth": 3,
+    "maxDepth": 1740,
+    "medianDepth": 70,
+    "avgYield": 48.7,
+    "medianYield": 20,
+    "avgStaticLevel": 97,
+    "medianStaticLevel": 40,
+    "wellsByDecade": {
+      "2020s": 199,
+      "1910s": 1,
+      "1930s": 2,
+      "1940s": 30,
+      "1950s": 17,
+      "1960s": 6,
+      "1970s": 95,
+      "1980s": 80,
+      "1990s": 228,
+      "2000s": 281,
+      "2010s": 192
+    },
+    "wellsByUse": {
+      "Other": 51,
+      "Domestic": 360,
+      "Public": 6,
+      "Unknown": 93,
+      "Irrigation - Agriculture": 105,
+      "Cathodic Protection": 46,
+      "Irrigation - Landscape": 19,
+      "Monitoring": 404,
+      "Remediation": 2,
+      "Test Well": 6,
+      "Vapor Extraction": 32,
+      "Sparging": 5,
+      "Injection": 3,
+      "Industrial": 1
+    }
+  },
+  "Jamul": {
+    "county": "San Diego",
+    "count": 759,
+    "avgDepth": 536,
+    "minDepth": 9,
+    "maxDepth": 2290,
+    "medianDepth": 500,
+    "avgYield": 31.6,
+    "medianYield": 15,
+    "avgStaticLevel": 123,
+    "medianStaticLevel": 75,
+    "wellsByDecade": {
+      "1960s": 11,
+      "1970s": 169,
+      "1980s": 193,
+      "1990s": 158,
+      "2000s": 183,
+      "2010s": 16,
+      "2020s": 28
+    },
+    "wellsByUse": {
+      "Domestic": 643,
+      "Unknown": 12,
+      "Irrigation - Agriculture": 56,
+      "Other": 5,
+      "Public": 10,
+      "Industrial": 6,
+      "Test Well": 2,
+      "Monitoring": 22,
+      "Vapor Extraction": 1,
+      "Irrigation - Landscape": 2
+    }
+  },
+  "Santee": {
+    "county": "San Diego",
+    "count": 238,
+    "avgDepth": 68,
+    "minDepth": 5,
+    "maxDepth": 1315,
+    "medianDepth": 25,
+    "avgYield": 122.8,
+    "medianYield": 120,
+    "avgStaticLevel": 34,
+    "medianStaticLevel": 20,
+    "wellsByDecade": {
+      "1940s": 7,
+      "1950s": 3,
+      "1970s": 2,
+      "1980s": 1,
+      "1990s": 45,
+      "2000s": 75,
+      "2010s": 27,
+      "2020s": 75
+    },
+    "wellsByUse": {
+      "Other": 11,
+      "Unknown": 19,
+      "Industrial": 2,
+      "Irrigation - Agriculture": 7,
+      "Domestic": 2,
+      "Test Well": 1,
+      "Monitoring": 135,
+      "Cathodic Protection": 25,
+      "Vapor Extraction": 17,
+      "Sparging": 16,
+      "Irrigation - Landscape": 3
+    }
+  },
+  "Ramona": {
+    "county": "San Diego",
+    "count": 1675,
+    "avgDepth": 416,
+    "minDepth": 12,
+    "maxDepth": 2080,
+    "medianDepth": 320,
+    "avgYield": 43.8,
+    "medianYield": 25,
+    "avgStaticLevel": 87,
+    "medianStaticLevel": 40,
+    "wellsByDecade": {
+      "1940s": 8,
+      "1950s": 9,
+      "1960s": 7,
+      "1970s": 323,
+      "1980s": 395,
+      "1990s": 481,
+      "2000s": 289,
+      "2010s": 114,
+      "2020s": 47
+    },
+    "wellsByUse": {
+      "Other": 14,
+      "Unknown": 47,
+      "Domestic": 1151,
+      "Public": 22,
+      "Irrigation - Agriculture": 349,
+      "Industrial": 3,
+      "Monitoring": 35,
+      "Test Well": 10,
+      "Sparging": 13,
+      "Vapor Extraction": 19,
+      "Irrigation - Landscape": 11,
+      "Stock or Animal Watering": 1
+    }
+  },
+  "Poway": {
+    "county": "San Diego",
+    "count": 575,
+    "avgDepth": 526,
+    "minDepth": 4,
+    "maxDepth": 2005,
+    "medianDepth": 500,
+    "avgYield": 45.5,
+    "medianYield": 25,
+    "avgStaticLevel": 140,
+    "medianStaticLevel": 80,
+    "wellsByDecade": {
+      "1950s": 1,
+      "1960s": 2,
+      "1970s": 78,
+      "1980s": 51,
+      "1990s": 140,
+      "2000s": 189,
+      "2010s": 70,
+      "2020s": 43
+    },
+    "wellsByUse": {
+      "Domestic": 206,
+      "Test Well": 9,
+      "Irrigation - Agriculture": 204,
+      "Unknown": 13,
+      "Public": 14,
+      "Other": 2,
+      "Monitoring": 69,
+      "Industrial": 1,
+      "Cathodic Protection": 19,
+      "Vapor Extraction": 11,
+      "Irrigation - Landscape": 27
+    }
+  },
+  "Oceanside": {
+    "county": "San Diego",
+    "count": 546,
+    "avgDepth": 148,
+    "minDepth": 3,
+    "maxDepth": 1517,
+    "medianDepth": 45,
+    "avgYield": 459,
+    "medianYield": 200,
+    "avgStaticLevel": 39,
+    "medianStaticLevel": 18,
+    "wellsByDecade": {
+      "1920s": 15,
+      "1930s": 4,
+      "1940s": 2,
+      "1970s": 20,
+      "1980s": 22,
+      "1990s": 76,
+      "2000s": 148,
+      "2010s": 138,
+      "2020s": 118
+    },
+    "wellsByUse": {
+      "Cathodic Protection": 32,
+      "Monitoring": 299,
+      "Unknown": 41,
+      "Test Well": 23,
+      "Other": 48,
+      "Domestic": 8,
+      "Irrigation - Agriculture": 60,
+      "Industrial": 2,
+      "Public": 9,
+      "Sparging": 11,
+      "Irrigation - Landscape": 3,
+      "Injection": 3,
+      "Vapor Extraction": 4,
+      "Destruction": 3
+    }
+  },
+  "La Mesa": {
+    "county": "San Diego",
+    "count": 186,
+    "avgDepth": 134,
+    "minDepth": 3,
+    "maxDepth": 1810,
+    "medianDepth": 46,
+    "avgYield": 30,
+    "medianYield": 17,
+    "avgStaticLevel": 55,
+    "medianStaticLevel": 47,
+    "wellsByDecade": {
+      "1970s": 3,
+      "1980s": 9,
+      "1990s": 37,
+      "2000s": 40,
+      "2010s": 38,
+      "2020s": 58
+    },
+    "wellsByUse": {
+      "Cathodic Protection": 43,
+      "Domestic": 13,
+      "Irrigation - Agriculture": 8,
+      "Monitoring": 87,
+      "Test Well": 1,
+      "Other": 5,
+      "Industrial": 1,
+      "Irrigation - Landscape": 3,
+      "Unknown": 25
+    }
+  },
+  "Lemon Grove": {
+    "county": "San Diego",
+    "count": 135,
+    "avgDepth": 66,
+    "minDepth": 4,
+    "maxDepth": 1204,
+    "medianDepth": 24,
+    "avgYield": 5,
+    "medianYield": 5,
+    "avgStaticLevel": 18,
+    "medianStaticLevel": 22,
+    "wellsByDecade": {
+      "1980s": 1,
+      "1990s": 21,
+      "2000s": 19,
+      "2010s": 77,
+      "2020s": 15
+    },
+    "wellsByUse": {
+      "Other": 7,
+      "Cathodic Protection": 21,
+      "Monitoring": 87,
+      "Irrigation - Agriculture": 2,
+      "Domestic": 1,
+      "Test Well": 2,
+      "Sparging": 5,
+      "Unknown": 10
+    }
+  },
+  "Fallbrook": {
+    "county": "San Diego",
+    "count": 969,
+    "avgDepth": 628,
+    "minDepth": 5,
+    "maxDepth": 2110,
+    "medianDepth": 600,
+    "avgYield": 77.8,
+    "medianYield": 40,
+    "avgStaticLevel": 123,
+    "medianStaticLevel": 66,
+    "wellsByDecade": {
+      "1940s": 1,
+      "1960s": 5,
+      "1970s": 49,
+      "1980s": 78,
+      "1990s": 337,
+      "2000s": 226,
+      "2010s": 209,
+      "2020s": 63
+    },
+    "wellsByUse": {
+      "Monitoring": 51,
+      "Unknown": 29,
+      "Domestic": 188,
+      "Irrigation - Agriculture": 628,
+      "Public": 4,
+      "Test Well": 7,
+      "Other": 3,
+      "Industrial": 2,
+      "Cathodic Protection": 16,
+      "Vapor Extraction": 3,
+      "Sparging": 1,
+      "Irrigation - Landscape": 36,
+      "Stock or Animal Watering": 1
+    }
+  },
+  "Sunshine Summit": {
+    "county": "San Diego",
+    "count": 35,
+    "avgDepth": 281,
+    "minDepth": 100,
+    "maxDepth": 500,
+    "medianDepth": 275,
+    "avgYield": 33.1,
+    "medianYield": 12,
+    "avgStaticLevel": 14,
+    "medianStaticLevel": 14,
+    "wellsByDecade": {
+      "1960s": 2,
+      "1970s": 8,
+      "1980s": 10,
+      "1990s": 5,
+      "2000s": 9
+    },
+    "wellsByUse": {
+      "Domestic": 32,
+      "Public": 1,
+      "Irrigation - Agriculture": 2
+    }
+  },
+  "Escondido": {
+    "county": "San Diego",
+    "count": 1331,
+    "avgDepth": 344,
+    "minDepth": 5,
+    "maxDepth": 2010,
+    "medianDepth": 94,
+    "avgYield": 99.6,
+    "medianYield": 40,
+    "avgStaticLevel": 88,
+    "medianStaticLevel": 35,
+    "wellsByDecade": {
+      "1950s": 2,
+      "1960s": 4,
+      "1970s": 37,
+      "1980s": 121,
+      "1990s": 293,
+      "2000s": 328,
+      "2010s": 361,
+      "2020s": 184
+    },
+    "wellsByUse": {
+      "Domestic": 201,
+      "Unknown": 46,
+      "Irrigation - Agriculture": 365,
+      "Test Well": 19,
+      "Public": 17,
+      "Other": 21,
+      "Monitoring": 520,
+      "Remediation": 1,
+      "Cathodic Protection": 49,
+      "Industrial": 5,
+      "Sparging": 5,
+      "Vapor Extraction": 9,
+      "Irrigation - Landscape": 47,
+      "Injection": 22,
+      "Unknown Irrigation - Agriculture": 3,
+      "Unknown Domestic": 1
+    }
+  },
+  "Julian": {
+    "county": "San Diego",
+    "count": 722,
+    "avgDepth": 357,
+    "minDepth": 10,
+    "maxDepth": 1218,
+    "medianDepth": 310,
+    "avgYield": 44.6,
+    "medianYield": 25,
+    "avgStaticLevel": 124,
+    "medianStaticLevel": 95,
+    "wellsByDecade": {
+      "1940s": 1,
+      "1950s": 1,
+      "1960s": 14,
+      "1970s": 138,
+      "1980s": 180,
+      "1990s": 126,
+      "2000s": 152,
+      "2010s": 45,
+      "2020s": 64
+    },
+    "wellsByUse": {
+      "Unknown": 12,
+      "Domestic": 557,
+      "Test Well": 3,
+      "Irrigation - Agriculture": 47,
+      "Public": 49,
+      "Other": 5,
+      "Industrial": 4,
+      "Stock or Animal Watering": 1,
+      "Monitoring": 38,
+      "Irrigation - Landscape": 6
+    }
+  },
+  "Borrego Springs": {
+    "county": "San Diego",
+    "count": 207,
+    "avgDepth": 484,
+    "minDepth": 100,
+    "maxDepth": 1206,
+    "medianDepth": 436,
+    "avgYield": 556.7,
+    "medianYield": 150,
+    "avgStaticLevel": 191,
+    "medianStaticLevel": 179,
+    "wellsByDecade": {
+      "1930s": 2,
+      "1940s": 4,
+      "1950s": 5,
+      "1960s": 3,
+      "1970s": 16,
+      "1980s": 32,
+      "1990s": 42,
+      "2000s": 55,
+      "2010s": 23,
+      "2020s": 17
+    },
+    "wellsByUse": {
+      "Irrigation - Agriculture": 56,
+      "Unknown": 18,
+      "Domestic": 89,
+      "Test Well": 7,
+      "Public": 16,
+      "Other": 4,
+      "Monitoring": 12,
+      "Industrial": 1,
+      "Cathodic Protection": 1,
+      "Irrigation - Landscape": 3
+    }
+  },
+  "Pala": {
+    "county": "San Diego",
+    "count": 155,
+    "avgDepth": 390,
+    "minDepth": 20,
+    "maxDepth": 2774,
+    "medianDepth": 271,
+    "avgYield": 117.8,
+    "medianYield": 40,
+    "avgStaticLevel": 96,
+    "medianStaticLevel": 65,
+    "wellsByDecade": {
+      "1960s": 4,
+      "1970s": 25,
+      "1980s": 26,
+      "1990s": 21,
+      "2000s": 39,
+      "2010s": 26,
+      "2020s": 12,
+      "1920s": 1
+    },
+    "wellsByUse": {
+      "Domestic": 58,
+      "Irrigation - Agriculture": 60,
+      "Other": 1,
+      "Public": 6,
+      "Test Well": 7,
+      "Industrial": 3,
+      "Monitoring": 10,
+      "Cathodic Protection": 4,
+      "Irrigation - Landscape": 4,
+      "Unknown": 2
+    }
+  },
+  "Campo": {
+    "county": "San Diego",
+    "count": 315,
+    "avgDepth": 356,
+    "minDepth": 11,
+    "maxDepth": 1350,
+    "medianDepth": 300,
+    "avgYield": 31.9,
+    "medianYield": 15,
+    "avgStaticLevel": 45,
+    "medianStaticLevel": 35,
+    "wellsByDecade": {
+      "1960s": 3,
+      "1970s": 68,
+      "1980s": 83,
+      "1990s": 56,
+      "2000s": 61,
+      "2010s": 17,
+      "2020s": 25
+    },
+    "wellsByUse": {
+      "Unknown": 7,
+      "Domestic": 243,
+      "Public": 19,
+      "Irrigation - Agriculture": 10,
+      "Industrial": 3,
+      "Other": 6,
+      "Monitoring": 26,
+      "Test Well": 1
+    }
+  },
+  "Descanso": {
+    "county": "San Diego",
+    "count": 264,
+    "avgDepth": 413,
+    "minDepth": 12,
+    "maxDepth": 1830,
+    "medianDepth": 331,
+    "avgYield": 49.7,
+    "medianYield": 25,
+    "avgStaticLevel": 88,
+    "medianStaticLevel": 50,
+    "wellsByDecade": {
+      "1950s": 1,
+      "1960s": 8,
+      "1970s": 100,
+      "1980s": 64,
+      "1990s": 51,
+      "2000s": 26,
+      "2010s": 3,
+      "2020s": 5
+    },
+    "wellsByUse": {
+      "Unknown": 8,
+      "Public": 11,
+      "Domestic": 235,
+      "Irrigation - Agriculture": 7,
+      "Other": 2,
+      "Test Well": 1
+    }
+  },
+  "Santa Ysabel": {
+    "county": "San Diego",
+    "count": 123,
+    "avgDepth": 496,
+    "minDepth": 20,
+    "maxDepth": 1520,
+    "medianDepth": 412,
+    "avgYield": 36.5,
+    "medianYield": 20,
+    "avgStaticLevel": 126,
+    "medianStaticLevel": 80,
+    "wellsByDecade": {
+      "1960s": 1,
+      "1970s": 8,
+      "1980s": 16,
+      "1990s": 31,
+      "2000s": 44,
+      "2010s": 16,
+      "2020s": 6
+    },
+    "wellsByUse": {
+      "Domestic": 93,
+      "Industrial": 2,
+      "Irrigation - Agriculture": 12,
+      "Other": 1,
+      "Unknown": 2,
+      "Stock or Animal Watering": 1,
+      "Public": 9,
+      "Irrigation - Landscape": 3
+    }
+  },
+  "Guatay": {
+    "county": "San Diego",
+    "count": 55,
+    "avgDepth": 397,
+    "minDepth": 45,
+    "maxDepth": 1000,
+    "medianDepth": 360,
+    "avgYield": 58.7,
+    "medianYield": 30,
+    "avgStaticLevel": 94,
+    "medianStaticLevel": 80,
+    "wellsByDecade": {
+      "1960s": 13,
+      "1970s": 10,
+      "1980s": 14,
+      "1990s": 13,
+      "2000s": 2,
+      "2020s": 2
+    },
+    "wellsByUse": {
+      "Domestic": 39,
+      "Irrigation - Agriculture": 5,
+      "Other": 4,
+      "Public": 7
+    }
+  },
+  "Dehesa": {
+    "county": "San Diego",
+    "count": 15,
+    "avgDepth": 364,
+    "minDepth": 51,
+    "maxDepth": 875,
+    "medianDepth": 299,
+    "avgYield": 19.1,
+    "medianYield": 11,
+    "avgStaticLevel": 153,
+    "medianStaticLevel": 70,
+    "wellsByDecade": {
+      "1950s": 2,
+      "1970s": 2,
+      "1980s": 7,
+      "1990s": 1,
+      "2000s": 2
+    },
+    "wellsByUse": {
+      "Irrigation - Agriculture": 2,
+      "Other": 1,
+      "Public": 1,
+      "Domestic": 11
+    }
+  },
+  "Bonsall": {
+    "county": "San Diego",
+    "count": 220,
+    "avgDepth": 636,
+    "minDepth": 10,
+    "maxDepth": 1885,
+    "medianDepth": 608,
+    "avgYield": 117.9,
+    "medianYield": 40,
+    "avgStaticLevel": 110,
+    "medianStaticLevel": 68,
+    "wellsByDecade": {
+      "1900s": 1,
+      "1930s": 2,
+      "1940s": 1,
+      "1960s": 2,
+      "1970s": 8,
+      "1980s": 21,
+      "1990s": 65,
+      "2000s": 43,
+      "2010s": 39,
+      "2020s": 38
+    },
+    "wellsByUse": {
+      "Irrigation - Agriculture": 137,
+      "Unknown": 7,
+      "Domestic": 36,
+      "Public": 4,
+      "Industrial": 2,
+      "Test Well": 1,
+      "Monitoring": 8,
+      "Irrigation - Landscape": 19,
+      "Cathodic Protection": 3,
+      "Destruction": 3
+    }
+  },
+  "Lakeside": {
+    "county": "San Diego",
+    "count": 377,
+    "avgDepth": 414,
+    "minDepth": 9,
+    "maxDepth": 2010,
+    "medianDepth": 300,
+    "avgYield": 69.5,
+    "medianYield": 20,
+    "avgStaticLevel": 133,
+    "medianStaticLevel": 57,
+    "wellsByDecade": {
+      "1920s": 7,
+      "1940s": 1,
+      "1950s": 2,
+      "1960s": 3,
+      "1970s": 68,
+      "1980s": 49,
+      "1990s": 100,
+      "2000s": 86,
+      "2010s": 26,
+      "2020s": 35
+    },
+    "wellsByUse": {
+      "Unknown": 26,
+      "Domestic": 211,
+      "Other": 4,
+      "Irrigation - Agriculture": 50,
+      "Public": 19,
+      "Industrial": 5,
+      "Test Well": 2,
+      "Monitoring": 29,
+      "Cathodic Protection": 24,
+      "Irrigation - Landscape": 7
+    }
+  },
+  "Alpine": {
+    "county": "San Diego",
+    "count": 710,
+    "avgDepth": 517,
+    "minDepth": 20,
+    "maxDepth": 1610,
+    "medianDepth": 485,
+    "avgYield": 37.3,
+    "medianYield": 15,
+    "avgStaticLevel": 133,
+    "medianStaticLevel": 81,
+    "wellsByDecade": {
+      "1930s": 1,
+      "1940s": 1,
+      "1950s": 1,
+      "1960s": 12,
+      "1970s": 138,
+      "1980s": 190,
+      "1990s": 192,
+      "2000s": 119,
+      "2010s": 25,
+      "2020s": 31
+    },
+    "wellsByUse": {
+      "Domestic": 608,
+      "Irrigation - Agriculture": 59,
+      "Unknown": 4,
+      "Industrial": 1,
+      "Public": 7,
+      "Other": 5,
+      "Test Well": 1,
+      "Monitoring": 18,
+      "Irrigation - Landscape": 4,
+      "Cathodic Protection": 3
+    }
+  },
+  "Palomar Mountain": {
+    "county": "San Diego",
+    "count": 119,
+    "avgDepth": 386,
+    "minDepth": 20,
+    "maxDepth": 1055,
+    "medianDepth": 365,
+    "avgYield": 46.8,
+    "medianYield": 25,
+    "avgStaticLevel": 133,
+    "medianStaticLevel": 80,
+    "wellsByDecade": {
+      "1930s": 1,
+      "1960s": 2,
+      "1970s": 14,
+      "1980s": 13,
+      "1990s": 46,
+      "2000s": 32,
+      "2010s": 11
+    },
+    "wellsByUse": {
+      "Domestic": 71,
+      "Other": 5,
+      "Test Well": 8,
+      "Public": 28,
+      "Irrigation - Agriculture": 7
+    }
+  },
+  "Valley Center": {
+    "county": "San Diego",
+    "count": 1021,
+    "avgDepth": 574,
+    "minDepth": 17,
+    "maxDepth": 2130,
+    "medianDepth": 500,
+    "avgYield": 49.9,
+    "medianYield": 22,
+    "avgStaticLevel": 86,
+    "medianStaticLevel": 40,
+    "wellsByDecade": {
+      "1930s": 5,
+      "1950s": 1,
+      "1960s": 9,
+      "1970s": 116,
+      "1980s": 188,
+      "1990s": 329,
+      "2000s": 198,
+      "2010s": 134,
+      "2020s": 41
+    },
+    "wellsByUse": {
+      "Unknown": 27,
+      "Domestic": 317,
+      "Irrigation - Agriculture": 580,
+      "Test Well": 22,
+      "Other": 2,
+      "Public": 9,
+      "Monitoring": 34,
+      "Industrial": 2,
+      "Cathodic Protection": 6,
+      "Irrigation - Landscape": 19,
+      "Stock or Animal Watering": 3
+    }
+  },
+  "Dodge Valley": {
+    "county": "San Diego",
+    "count": 9,
+    "avgDepth": 82,
+    "minDepth": 35,
+    "maxDepth": 300,
+    "medianDepth": 50,
+    "avgYield": 42.5,
+    "medianYield": 42.5,
+    "avgStaticLevel": 22,
+    "medianStaticLevel": 22,
+    "wellsByDecade": {
+      "1930s": 1,
+      "1940s": 3,
+      "1950s": 4,
+      "2000s": 1
+    },
+    "wellsByUse": {
+      "Unknown": 8,
+      "Domestic": 1
+    }
+  },
+  "Pauma Valley": {
+    "county": "San Diego",
+    "count": 240,
+    "avgDepth": 454,
+    "minDepth": 50,
+    "maxDepth": 2192,
+    "medianDepth": 312,
+    "avgYield": 323.8,
+    "medianYield": 152.5,
+    "avgStaticLevel": 134,
+    "medianStaticLevel": 110,
+    "wellsByDecade": {
+      "1940s": 1,
+      "1950s": 10,
+      "1960s": 6,
+      "1970s": 27,
+      "1980s": 36,
+      "1990s": 44,
+      "2000s": 57,
+      "2010s": 44,
+      "2020s": 15
+    },
+    "wellsByUse": {
+      "Domestic": 54,
+      "Irrigation - Agriculture": 128,
+      "Public": 39,
+      "Other": 6,
+      "Test Well": 3,
+      "Unknown": 3,
+      "Monitoring": 4,
+      "Irrigation - Landscape": 2,
+      "Unknown Public": 1
+    }
+  },
+  "Oak Grove": {
+    "county": "San Diego",
+    "count": 11,
+    "avgDepth": 168,
+    "minDepth": 61,
+    "maxDepth": 309,
+    "medianDepth": 153,
+    "avgYield": 198.7,
+    "medianYield": 185,
+    "avgStaticLevel": 68,
+    "medianStaticLevel": 68,
+    "wellsByDecade": {
+      "1940s": 2,
+      "1950s": 1,
+      "1960s": 1,
+      "1980s": 6,
+      "1990s": 1
+    },
+    "wellsByUse": {
+      "Unknown": 3,
+      "Irrigation - Agriculture": 4,
+      "Public": 2,
+      "Domestic": 2
+    }
+  },
+  "Warner Springs": {
+    "county": "San Diego",
+    "count": 153,
+    "avgDepth": 349,
+    "minDepth": 20,
+    "maxDepth": 1217,
+    "medianDepth": 300,
+    "avgYield": 85.9,
+    "medianYield": 30,
+    "avgStaticLevel": 73,
+    "medianStaticLevel": 59,
+    "wellsByDecade": {
+      "1940s": 1,
+      "1960s": 2,
+      "1970s": 6,
+      "1980s": 18,
+      "1990s": 21,
+      "2000s": 71,
+      "2010s": 22,
+      "2020s": 12
+    },
+    "wellsByUse": {
+      "Domestic": 106,
+      "Public": 19,
+      "Irrigation - Agriculture": 17,
+      "Other": 2,
+      "Monitoring": 6,
+      "Irrigation - Landscape": 3
+    }
+  },
+  "Jacumba": {
+    "county": "San Diego",
+    "count": 46,
+    "avgDepth": 246,
+    "minDepth": 32,
+    "maxDepth": 900,
+    "medianDepth": 152,
+    "avgYield": 285.8,
+    "medianYield": 20,
+    "avgStaticLevel": 46,
+    "medianStaticLevel": 40,
+    "wellsByDecade": {
+      "1940s": 1,
+      "1950s": 3,
+      "1970s": 3,
+      "1980s": 8,
+      "1990s": 8,
+      "2000s": 19,
+      "2010s": 3,
+      "2020s": 1
+    },
+    "wellsByUse": {
+      "Domestic": 20,
+      "Unknown": 1,
+      "Irrigation - Agriculture": 6,
+      "Other": 1,
+      "Industrial": 1,
+      "Monitoring": 12,
+      "Public": 3,
+      "Test Well": 1,
+      "Unknown Domestic": 1
+    }
+  },
+  "Otay": {
+    "county": "San Diego",
+    "count": 7,
+    "avgDepth": 633,
+    "minDepth": 15,
+    "maxDepth": 1370,
+    "medianDepth": 620,
+    "avgYield": 175,
+    "medianYield": 100,
+    "avgStaticLevel": null,
+    "medianStaticLevel": null,
+    "wellsByDecade": {
+      "1940s": 1,
+      "1950s": 4,
+      "1990s": 2
+    },
+    "wellsByUse": {
+      "Unknown": 1,
+      "Irrigation - Agriculture": 5,
+      "Industrial": 1
+    }
+  },
+  "Chula Vista": {
+    "county": "San Diego",
+    "count": 823,
+    "avgDepth": 106,
+    "minDepth": 5,
+    "maxDepth": 2620,
+    "medianDepth": 50,
+    "avgYield": 555.5,
+    "medianYield": 170,
+    "avgStaticLevel": 60,
+    "medianStaticLevel": 40,
+    "wellsByDecade": {
+      "1950s": 16,
+      "1970s": 2,
+      "1980s": 25,
+      "1990s": 98,
+      "2000s": 139,
+      "2010s": 301,
+      "2020s": 242
+    },
+    "wellsByUse": {
+      "Domestic": 5,
+      "Irrigation - Agriculture": 21,
+      "Unknown": 69,
+      "Public": 11,
+      "Other": 60,
+      "Industrial": 3,
+      "Cathodic Protection": 74,
+      "Monitoring": 474,
+      "Test Well": 16,
+      "Sparging": 22,
+      "Vapor Extraction": 40,
+      "Remediation": 11,
+      "Injection": 17
+    }
+  },
+  "Pine Valley": {
+    "county": "San Diego",
+    "count": 72,
+    "avgDepth": 379,
+    "minDepth": 40,
+    "maxDepth": 1345,
+    "medianDepth": 300,
+    "avgYield": 59.6,
+    "medianYield": 31,
+    "avgStaticLevel": 48,
+    "medianStaticLevel": 33,
+    "wellsByDecade": {
+      "1950s": 3,
+      "1960s": 2,
+      "1970s": 14,
+      "1980s": 16,
+      "1990s": 18,
+      "2000s": 14,
+      "2010s": 1,
+      "2020s": 4
+    },
+    "wellsByUse": {
+      "Public": 11,
+      "Irrigation - Agriculture": 5,
+      "Domestic": 48,
+      "Unknown": 1,
+      "Other": 6,
+      "Industrial": 1
+    }
+  },
+  "Chihuahua Valley": {
+    "county": "San Diego",
+    "count": 6,
+    "avgDepth": 226,
+    "minDepth": 27,
+    "maxDepth": 350,
+    "medianDepth": 250,
+    "avgYield": 57.6,
+    "medianYield": 10,
+    "avgStaticLevel": null,
+    "medianStaticLevel": null,
+    "wellsByDecade": {
+      "1950s": 1,
+      "1970s": 3,
+      "1980s": 1,
+      "2000s": 1
+    },
+    "wellsByUse": {
+      "Unknown": 1,
+      "Domestic": 5
+    }
+  },
+  "Palm City": {
+    "county": "San Diego",
+    "count": 9,
+    "avgDepth": 321,
+    "minDepth": 102,
+    "maxDepth": 871,
+    "medianDepth": 190,
+    "avgYield": 150,
+    "medianYield": 150,
+    "avgStaticLevel": null,
+    "medianStaticLevel": null,
+    "wellsByDecade": {
+      "1950s": 9
+    },
+    "wellsByUse": {
+      "Irrigation - Agriculture": 4,
+      "Public": 2,
+      "Domestic": 2,
+      "Other": 1
+    }
+  },
+  "National City": {
+    "county": "San Diego",
+    "count": 375,
+    "avgDepth": 80,
+    "minDepth": 5,
+    "maxDepth": 1480,
+    "medianDepth": 35,
+    "avgYield": 610,
+    "medianYield": 700,
+    "avgStaticLevel": 42,
+    "medianStaticLevel": 45,
+    "wellsByDecade": {
+      "1950s": 2,
+      "1980s": 2,
+      "1990s": 49,
+      "2000s": 84,
+      "2010s": 113,
+      "2020s": 125
+    },
+    "wellsByUse": {
+      "Irrigation - Agriculture": 1,
+      "Public": 8,
+      "Cathodic Protection": 45,
+      "Monitoring": 261,
+      "Industrial": 1,
+      "Other": 17,
+      "Vapor Extraction": 11,
+      "Unknown": 13,
+      "Sparging": 18
+    }
+  },
+  "Bonita": {
+    "county": "San Diego",
+    "count": 33,
+    "avgDepth": 175,
+    "minDepth": 14,
+    "maxDepth": 800,
+    "medianDepth": 145,
+    "avgYield": 111.7,
+    "medianYield": 70,
+    "avgStaticLevel": 59,
+    "medianStaticLevel": 25,
+    "wellsByDecade": {
+      "1950s": 2,
+      "1970s": 1,
+      "1980s": 2,
+      "1990s": 8,
+      "2000s": 14,
+      "2010s": 2,
+      "2020s": 4
+    },
+    "wellsByUse": {
+      "Irrigation - Agriculture": 7,
+      "Unknown": 2,
+      "Domestic": 4,
+      "Monitoring": 11,
+      "Cathodic Protection": 6,
+      "Irrigation - Landscape": 3
+    }
+  },
+  "Nestor": {
+    "county": "San Diego",
+    "count": 10,
+    "avgDepth": 373,
+    "minDepth": 56,
+    "maxDepth": 1735,
+    "medianDepth": 158,
+    "avgYield": 666.7,
+    "medianYield": 600,
+    "avgStaticLevel": 41,
+    "medianStaticLevel": 41,
+    "wellsByDecade": {
+      "1950s": 9,
+      "1960s": 1
+    },
+    "wellsByUse": {
+      "Irrigation - Agriculture": 9,
+      "Domestic": 1
+    }
+  },
+  "San Marcos": {
+    "county": "San Diego",
+    "count": 471,
+    "avgDepth": 324,
+    "minDepth": 5,
+    "maxDepth": 2000,
+    "medianDepth": 105,
+    "avgYield": 103.4,
+    "medianYield": 50,
+    "avgStaticLevel": 66,
+    "medianStaticLevel": 40,
+    "wellsByDecade": {
+      "1950s": 2,
+      "1970s": 9,
+      "1980s": 29,
+      "1990s": 69,
+      "2000s": 127,
+      "2010s": 178,
+      "2020s": 57
+    },
+    "wellsByUse": {
+      "Domestic": 44,
+      "Irrigation - Agriculture": 156,
+      "Public": 4,
+      "Test Well": 5,
+      "Industrial": 2,
+      "Unknown": 20,
+      "Monitoring": 176,
+      "Cathodic Protection": 9,
+      "Vapor Extraction": 9,
+      "Remediation": 8,
+      "Injection": 4,
+      "Irrigation - Landscape": 20,
+      "Other": 8,
+      "Unknown Domestic": 1,
+      "Destruction": 5
+    }
+  },
+  "San Ysidro": {
+    "county": "San Diego",
+    "count": 31,
+    "avgDepth": 70,
+    "minDepth": 5,
+    "maxDepth": 247,
+    "medianDepth": 50,
+    "avgYield": 248.4,
+    "medianYield": 75,
+    "avgStaticLevel": 23,
+    "medianStaticLevel": 24,
+    "wellsByDecade": {
+      "1950s": 9,
+      "1970s": 3,
+      "1990s": 3,
+      "2000s": 2,
+      "2010s": 14
+    },
+    "wellsByUse": {
+      "Irrigation - Agriculture": 7,
+      "Public": 4,
+      "Domestic": 2,
+      "Cathodic Protection": 3,
+      "Monitoring": 15
+    }
+  },
+  "Imperial Beach": {
+    "county": "San Diego",
+    "count": 38,
+    "avgDepth": 93,
+    "minDepth": 10,
+    "maxDepth": 400,
+    "medianDepth": 35,
+    "avgYield": 125,
+    "medianYield": 125,
+    "avgStaticLevel": 40,
+    "medianStaticLevel": 25,
+    "wellsByDecade": {
+      "1950s": 3,
+      "1970s": 1,
+      "1990s": 5,
+      "2000s": 14,
+      "2010s": 8,
+      "2020s": 7
+    },
+    "wellsByUse": {
+      "Irrigation - Agriculture": 2,
+      "Domestic": 2,
+      "Monitoring": 23,
+      "Cathodic Protection": 9,
+      "Unknown": 2
+    }
+  },
+  "Tecate": {
+    "county": "San Diego",
+    "count": 20,
+    "avgDepth": 356,
+    "minDepth": 134,
+    "maxDepth": 800,
+    "medianDepth": 280,
+    "avgYield": 39.5,
+    "medianYield": 12,
+    "avgStaticLevel": 48,
+    "medianStaticLevel": 55,
+    "wellsByDecade": {
+      "1950s": 1,
+      "1970s": 6,
+      "1980s": 10,
+      "1990s": 2,
+      "2010s": 1
+    },
+    "wellsByUse": {
+      "Domestic": 15,
+      "Public": 4,
+      "Other": 1
+    }
+  },
+  "Mesa Grande": {
+    "county": "San Diego",
+    "count": 21,
+    "avgDepth": 296,
+    "minDepth": 20,
+    "maxDepth": 780,
+    "medianDepth": 270,
+    "avgYield": 27,
+    "medianYield": 20,
+    "avgStaticLevel": 171,
+    "medianStaticLevel": 49,
+    "wellsByDecade": {
+      "1950s": 1,
+      "1970s": 12,
+      "1980s": 2,
+      "1990s": 3,
+      "2000s": 3
+    },
+    "wellsByUse": {
+      "Domestic": 20,
+      "Irrigation - Agriculture": 1
+    }
+  },
+  "Wynola": {
+    "county": "San Diego",
+    "count": 8,
+    "avgDepth": 290,
+    "minDepth": 76,
+    "maxDepth": 605,
+    "medianDepth": 301,
+    "avgYield": 17,
+    "medianYield": 15,
+    "avgStaticLevel": 45,
+    "medianStaticLevel": 44,
+    "wellsByDecade": {
+      "1960s": 3,
+      "1970s": 1,
+      "1980s": 2,
+      "1990s": 1,
+      "2000s": 1
+    },
+    "wellsByUse": {
+      "Domestic": 8
+    }
+  },
+  "Dulzura": {
+    "county": "San Diego",
+    "count": 101,
+    "avgDepth": 513,
+    "minDepth": 52,
+    "maxDepth": 1300,
+    "medianDepth": 470,
+    "avgYield": 25.1,
+    "medianYield": 13,
+    "avgStaticLevel": 119,
+    "medianStaticLevel": 70,
+    "wellsByDecade": {
+      "1960s": 3,
+      "1970s": 32,
+      "1980s": 28,
+      "1990s": 17,
+      "2000s": 11,
+      "2010s": 3,
+      "2020s": 7
+    },
+    "wellsByUse": {
+      "Domestic": 87,
+      "Other": 3,
+      "Public": 5,
+      "Industrial": 1,
+      "Irrigation - Agriculture": 3,
+      "Unknown": 1,
+      "Monitoring": 1
+    }
+  },
+  "San Bernardino": {
+    "county": "San Diego",
+    "count": 1110,
+    "avgDepth": 233,
+    "minDepth": 8,
+    "maxDepth": 1390,
+    "medianDepth": 120,
+    "avgYield": 954.4,
+    "medianYield": 77.5,
+    "avgStaticLevel": 114,
+    "medianStaticLevel": 86,
+    "wellsByDecade": {
+      "1960s": 31,
+      "1950s": 81,
+      "1990s": 301,
+      "1900s": 20,
+      "1910s": 33,
+      "1920s": 20,
+      "1930s": 7,
+      "1940s": 2,
+      "1970s": 15,
+      "1980s": 102,
+      "2000s": 228,
+      "2010s": 136,
+      "2020s": 98
+    },
+    "wellsByUse": {
+      "Domestic": 172,
+      "Monitoring": 513,
+      "Unknown": 158,
+      "Other": 73,
+      "Irrigation - Agriculture": 28,
+      "Test Well": 16,
+      "Public": 87,
+      "Industrial": 5,
+      "Stock or Animal Watering": 1,
+      "Cathodic Protection": 9,
+      "Sparging": 22,
+      "Remediation": 2,
+      "Vapor Extraction": 21,
+      "Irrigation - Landscape": 1,
+      "Destruction": 2
+    }
+  },
+  "Boulevard": {
+    "county": "San Diego",
+    "count": 250,
+    "avgDepth": 362,
+    "minDepth": 10,
+    "maxDepth": 1810,
+    "medianDepth": 300,
+    "avgYield": 22.3,
+    "medianYield": 12,
+    "avgStaticLevel": 51,
+    "medianStaticLevel": 40,
+    "wellsByDecade": {
+      "1960s": 2,
+      "1970s": 53,
+      "1980s": 84,
+      "1990s": 44,
+      "2000s": 48,
+      "2010s": 4,
+      "2020s": 15
+    },
+    "wellsByUse": {
+      "Domestic": 206,
+      "Public": 13,
+      "Irrigation - Agriculture": 13,
+      "Unknown": 3,
+      "Monitoring": 4,
+      "Test Well": 1,
+      "Unknown Public": 1,
+      "Destruction": 9
+    }
+  },
+  "Ocotillo Wells": {
+    "county": "San Diego",
+    "count": 68,
+    "avgDepth": 312,
+    "minDepth": 150,
+    "maxDepth": 813,
+    "medianDepth": 280,
+    "avgYield": 62.5,
+    "medianYield": 50,
+    "avgStaticLevel": 138,
+    "medianStaticLevel": 126,
+    "wellsByDecade": {
+      "1960s": 1,
+      "1970s": 8,
+      "1980s": 15,
+      "1990s": 12,
+      "2000s": 24,
+      "2010s": 1,
+      "2020s": 7
+    },
+    "wellsByUse": {
+      "Domestic": 62,
+      "Public": 3,
+      "Irrigation - Agriculture": 2,
+      "Other": 1
+    }
+  },
+  "San Luis Rey": {
+    "county": "San Diego",
+    "count": 11,
+    "avgDepth": 262,
+    "minDepth": 20,
+    "maxDepth": 905,
+    "medianDepth": 134,
+    "avgYield": 1180,
+    "medianYield": 650,
+    "avgStaticLevel": 20,
+    "medianStaticLevel": 11,
+    "wellsByDecade": {
+      "1960s": 3,
+      "1980s": 5,
+      "1990s": 3
+    },
+    "wellsByUse": {
+      "Irrigation - Agriculture": 5,
+      "Domestic": 1,
+      "Other": 1,
+      "Monitoring": 3,
+      "Test Well": 1
+    }
+  },
+  "Potrero": {
+    "county": "San Diego",
+    "count": 105,
+    "avgDepth": 511,
+    "minDepth": 20,
+    "maxDepth": 1600,
+    "medianDepth": 480,
+    "avgYield": 21.1,
+    "medianYield": 10,
+    "avgStaticLevel": 65,
+    "medianStaticLevel": 40,
+    "wellsByDecade": {
+      "1960s": 4,
+      "1970s": 28,
+      "1980s": 32,
+      "1990s": 13,
+      "2000s": 20,
+      "2010s": 1,
+      "2020s": 7
+    },
+    "wellsByUse": {
+      "Domestic": 95,
+      "Public": 5,
+      "Industrial": 1,
+      "Monitoring": 3,
+      "Unknown Domestic": 1
+    }
+  },
+  "San Pasqual Valley": {
+    "county": "San Diego",
+    "count": 11,
+    "avgDepth": 136,
+    "minDepth": 54,
+    "maxDepth": 300,
+    "medianDepth": 125,
+    "avgYield": 495.4,
+    "medianYield": 375,
+    "avgStaticLevel": 24,
+    "medianStaticLevel": 17,
+    "wellsByDecade": {
+      "1960s": 1,
+      "1970s": 7,
+      "1980s": 2,
+      "1990s": 1
+    },
+    "wellsByUse": {
+      "Irrigation - Agriculture": 7,
+      "Domestic": 1,
+      "Test Well": 3
+    }
+  },
+  "San Pasqual": {
+    "county": "San Diego",
+    "count": 18,
+    "avgDepth": 336,
+    "minDepth": 109,
+    "maxDepth": 1210,
+    "medianDepth": 201,
+    "avgYield": 309.3,
+    "medianYield": 75,
+    "avgStaticLevel": 78,
+    "medianStaticLevel": 54,
+    "wellsByDecade": {
+      "1960s": 1,
+      "1970s": 2,
+      "1980s": 7,
+      "1990s": 2,
+      "2010s": 6
+    },
+    "wellsByUse": {
+      "Irrigation - Agriculture": 6,
+      "Domestic": 5,
+      "Other": 1,
+      "Unknown": 2,
+      "Monitoring": 3,
+      "Irrigation - Landscape": 1
+    }
+  },
+  "Borrego Valley": {
+    "county": "San Diego",
+    "count": 5,
+    "avgDepth": 526,
+    "minDepth": 315,
+    "maxDepth": 768,
+    "medianDepth": 550,
+    "avgYield": 250,
+    "medianYield": 240,
+    "avgStaticLevel": 78,
+    "medianStaticLevel": 75,
+    "wellsByDecade": {
+      "1960s": 1,
+      "1970s": 2,
+      "1980s": 1,
+      "1990s": 1
+    },
+    "wellsByUse": {
+      "Test Well": 1,
+      "Public": 1,
+      "Irrigation - Agriculture": 2,
+      "Domestic": 1
+    }
+  },
+  "Camp Pendleton": {
+    "county": "San Diego",
+    "count": 405,
+    "avgDepth": 118,
+    "minDepth": 5,
+    "maxDepth": 1900,
+    "medianDepth": 55,
+    "avgYield": 816.1,
+    "medianYield": 900,
+    "avgStaticLevel": 33,
+    "medianStaticLevel": 21,
+    "wellsByDecade": {
+      "1960s": 1,
+      "1970s": 2,
+      "1990s": 74,
+      "2000s": 99,
+      "2010s": 171,
+      "2020s": 58
+    },
+    "wellsByUse": {
+      "Domestic": 2,
+      "Stock or Animal Watering": 2,
+      "Monitoring": 286,
+      "Cathodic Protection": 1,
+      "Public": 16,
+      "Irrigation - Agriculture": 2,
+      "Test Well": 4,
+      "Other": 67,
+      "Injection": 20,
+      "Irrigation - Landscape": 1,
+      "Unknown": 4
+    }
+  },
+  "Rainbow": {
+    "county": "San Diego",
+    "count": 47,
+    "avgDepth": 638,
+    "minDepth": 157,
+    "maxDepth": 1900,
+    "medianDepth": 652,
+    "avgYield": 34.9,
+    "medianYield": 12,
+    "avgStaticLevel": 128,
+    "medianStaticLevel": 40,
+    "wellsByDecade": {
+      "1970s": 13,
+      "1980s": 2,
+      "1990s": 18,
+      "2000s": 7,
+      "2010s": 7
+    },
+    "wellsByUse": {
+      "Domestic": 19,
+      "Irrigation - Agriculture": 22,
+      "Test Well": 3,
+      "Unknown": 2,
+      "Other": 1
+    }
+  },
+  "Deerhorn Valley": {
+    "county": "San Diego",
+    "count": 21,
+    "avgDepth": 282,
+    "minDepth": 122,
+    "maxDepth": 410,
+    "medianDepth": 305,
+    "avgYield": 15.4,
+    "medianYield": 10,
+    "avgStaticLevel": null,
+    "medianStaticLevel": null,
+    "wellsByDecade": {
+      "1970s": 21
+    },
+    "wellsByUse": {
+      "Domestic": 20,
+      "Unknown": 1
+    }
+  },
+  "Lake Henshaw": {
+    "county": "San Diego",
+    "count": 10,
+    "avgDepth": 295,
+    "minDepth": 83,
+    "maxDepth": 610,
+    "medianDepth": 233,
+    "avgYield": 158.1,
+    "medianYield": 28.5,
+    "avgStaticLevel": 54,
+    "medianStaticLevel": 32,
+    "wellsByDecade": {
+      "1970s": 4,
+      "1980s": 4,
+      "1990s": 1,
+      "2010s": 1
+    },
+    "wellsByUse": {
+      "Test Well": 2,
+      "Public": 1,
+      "Domestic": 7
+    }
+  },
+  "Lake Morena": {
+    "county": "San Diego",
+    "count": 13,
+    "avgDepth": 384,
+    "minDepth": 155,
+    "maxDepth": 870,
+    "medianDepth": 302,
+    "avgYield": 13.3,
+    "medianYield": 8,
+    "avgStaticLevel": 53,
+    "medianStaticLevel": 46,
+    "wellsByDecade": {
+      "1970s": 4,
+      "1980s": 7,
+      "2000s": 2
+    },
+    "wellsByUse": {
+      "Domestic": 13
+    }
+  },
+  "Rancho Bernardo": {
+    "county": "San Diego",
+    "count": 19,
+    "avgDepth": 252,
+    "minDepth": 20,
+    "maxDepth": 890,
+    "medianDepth": 48,
+    "avgYield": 45.1,
+    "medianYield": 15,
+    "avgStaticLevel": 48,
+    "medianStaticLevel": 48,
+    "wellsByDecade": {
+      "1970s": 2,
+      "1980s": 1,
+      "1990s": 10,
+      "2000s": 6
+    },
+    "wellsByUse": {
+      "Domestic": 6,
+      "Irrigation - Agriculture": 2,
+      "Industrial": 1,
+      "Monitoring": 7,
+      "Other": 3
+    }
+  },
+  "Ranchita": {
+    "county": "San Diego",
+    "count": 80,
+    "avgDepth": 319,
+    "minDepth": 100,
+    "maxDepth": 1010,
+    "medianDepth": 264,
+    "avgYield": 27.8,
+    "medianYield": 15,
+    "avgStaticLevel": 95,
+    "medianStaticLevel": 80,
+    "wellsByDecade": {
+      "1970s": 19,
+      "1980s": 18,
+      "1990s": 14,
+      "2000s": 22,
+      "2020s": 7
+    },
+    "wellsByUse": {
+      "Domestic": 76,
+      "Irrigation - Agriculture": 4
+    }
+  },
+  "Lawson Valley": {
+    "county": "San Diego",
+    "count": 10,
+    "avgDepth": 316,
+    "minDepth": 50,
+    "maxDepth": 685,
+    "medianDepth": 293,
+    "avgYield": 37.8,
+    "medianYield": 50,
+    "avgStaticLevel": null,
+    "medianStaticLevel": null,
+    "wellsByDecade": {
+      "1970s": 9,
+      "1980s": 1
+    },
+    "wellsByUse": {
+      "Domestic": 10
+    }
+  },
+  "San Felipe": {
+    "county": "San Diego",
+    "count": 6,
+    "avgDepth": 365,
+    "minDepth": 145,
+    "maxDepth": 1250,
+    "medianDepth": 205,
+    "avgYield": 21.3,
+    "medianYield": 13.5,
+    "avgStaticLevel": 204,
+    "medianStaticLevel": 132,
+    "wellsByDecade": {
+      "1970s": 3,
+      "1980s": 1,
+      "2000s": 2
+    },
+    "wellsByUse": {
+      "Domestic": 5,
+      "Irrigation - Agriculture": 1
+    }
+  },
+  "Carlsbad": {
+    "county": "San Diego",
+    "count": 191,
+    "avgDepth": 101,
+    "minDepth": 2,
+    "maxDepth": 1305,
+    "medianDepth": 40,
+    "avgYield": 241,
+    "medianYield": 200,
+    "avgStaticLevel": 56,
+    "medianStaticLevel": 36,
+    "wellsByDecade": {
+      "1970s": 1,
+      "1980s": 3,
+      "1990s": 37,
+      "2000s": 64,
+      "2010s": 38,
+      "2020s": 48
+    },
+    "wellsByUse": {
+      "Irrigation - Agriculture": 8,
+      "Test Well": 2,
+      "Monitoring": 139,
+      "Cathodic Protection": 26,
+      "Other": 9,
+      "Domestic": 1,
+      "Public": 4,
+      "Unknown": 1,
+      "Irrigation - Landscape": 1
+    }
+  },
+  "Tierra Del Sol": {
+    "county": "San Diego",
+    "count": 11,
+    "avgDepth": 422,
+    "minDepth": 50,
+    "maxDepth": 1310,
+    "medianDepth": 300,
+    "avgYield": 24.7,
+    "medianYield": 10,
+    "avgStaticLevel": 75,
+    "medianStaticLevel": 53,
+    "wellsByDecade": {
+      "1970s": 2,
+      "1980s": 7,
+      "2010s": 2
+    },
+    "wellsByUse": {
+      "Domestic": 7,
+      "Public": 2,
+      "Irrigation - Agriculture": 2
+    }
+  },
+  "Olivenhain": {
+    "county": "San Diego",
+    "count": 10,
+    "avgDepth": 466,
+    "minDepth": 60,
+    "maxDepth": 760,
+    "medianDepth": 600,
+    "avgYield": 71.1,
+    "medianYield": 40,
+    "avgStaticLevel": 66,
+    "medianStaticLevel": 75,
+    "wellsByDecade": {
+      "1970s": 1,
+      "1980s": 2,
+      "1990s": 5,
+      "2000s": 2
+    },
+    "wellsByUse": {
+      "Domestic": 6,
+      "Irrigation - Agriculture": 4
+    }
+  },
+  "La Cresta": {
+    "county": "San Diego",
+    "count": 8,
+    "avgDepth": 424,
+    "minDepth": 220,
+    "maxDepth": 1200,
+    "medianDepth": 290,
+    "avgYield": 88.7,
+    "medianYield": 42.5,
+    "avgStaticLevel": 25,
+    "medianStaticLevel": 25,
+    "wellsByDecade": {
+      "1970s": 2,
+      "1980s": 1,
+      "1990s": 3,
+      "2000s": 2
+    },
+    "wellsByUse": {
+      "Domestic": 8
+    }
+  },
+  "Mount Laguna": {
+    "county": "San Diego",
+    "count": 13,
+    "avgDepth": 262,
+    "minDepth": 20,
+    "maxDepth": 710,
+    "medianDepth": 200,
+    "avgYield": 40.2,
+    "medianYield": 20,
+    "avgStaticLevel": 157,
+    "medianStaticLevel": 159,
+    "wellsByDecade": {
+      "1970s": 1,
+      "1980s": 4,
+      "1990s": 3,
+      "2000s": 5
+    },
+    "wellsByUse": {
+      "Domestic": 11,
+      "Public": 2
+    }
+  },
+  "Del Mar": {
+    "county": "San Diego",
+    "count": 50,
+    "avgDepth": 140,
+    "minDepth": 18,
+    "maxDepth": 400,
+    "medianDepth": 110,
+    "avgYield": 55.5,
+    "medianYield": 60,
+    "avgStaticLevel": 36,
+    "medianStaticLevel": 18,
+    "wellsByDecade": {
+      "1970s": 5,
+      "1980s": 3,
+      "1990s": 15,
+      "2000s": 9,
+      "2010s": 10,
+      "2020s": 8
+    },
+    "wellsByUse": {
+      "Domestic": 6,
+      "Public": 4,
+      "Other": 2,
+      "Monitoring": 20,
+      "Cathodic Protection": 13,
+      "Test Well": 1,
+      "Irrigation - Agriculture": 1,
+      "Unknown": 2,
+      "Irrigation - Landscape": 1
+    }
+  },
+  "Vista": {
+    "county": "San Diego",
+    "count": 298,
+    "avgDepth": 380,
+    "minDepth": 3,
+    "maxDepth": 1575,
+    "medianDepth": 253,
+    "avgYield": 80.6,
+    "medianYield": 40,
+    "avgStaticLevel": 72,
+    "medianStaticLevel": 51,
+    "wellsByDecade": {
+      "1970s": 4,
+      "1980s": 13,
+      "1990s": 69,
+      "2000s": 85,
+      "2010s": 77,
+      "2020s": 50
+    },
+    "wellsByUse": {
+      "Irrigation - Agriculture": 131,
+      "Domestic": 27,
+      "Monitoring": 63,
+      "Unknown": 18,
+      "Cathodic Protection": 23,
+      "Other": 16,
+      "Test Well": 1,
+      "Irrigation - Landscape": 19
+    }
+  },
+  "Shelter Valley": {
+    "county": "San Diego",
+    "count": 36,
+    "avgDepth": 268,
+    "minDepth": 121,
+    "maxDepth": 525,
+    "medianDepth": 268,
+    "avgYield": 44.9,
+    "medianYield": 40,
+    "avgStaticLevel": 111,
+    "medianStaticLevel": 125,
+    "wellsByDecade": {
+      "1970s": 2,
+      "1980s": 19,
+      "1990s": 6,
+      "2000s": 9
+    },
+    "wellsByUse": {
+      "Domestic": 36
+    }
+  },
+  "Bonall": {
+    "county": "San Diego",
+    "count": 5,
+    "avgDepth": 465,
+    "minDepth": 70,
+    "maxDepth": 810,
+    "medianDepth": 560,
+    "avgYield": 295,
+    "medianYield": 150,
+    "avgStaticLevel": 16,
+    "medianStaticLevel": 9,
+    "wellsByDecade": {
+      "1970s": 1,
+      "2000s": 1,
+      "2010s": 3
+    },
+    "wellsByUse": {
+      "Irrigation - Agriculture": 4,
+      "Domestic": 1
+    }
+  },
+  "Cuyamaca": {
+    "county": "San Diego",
+    "count": 11,
+    "avgDepth": 289,
+    "minDepth": 67,
+    "maxDepth": 880,
+    "medianDepth": 250,
+    "avgYield": 22.5,
+    "medianYield": 16,
+    "avgStaticLevel": 22,
+    "medianStaticLevel": 20,
+    "wellsByDecade": {
+      "1970s": 2,
+      "1980s": 3,
+      "1990s": 2,
+      "2000s": 4
+    },
+    "wellsByUse": {
+      "Domestic": 10,
+      "Public": 1
+    }
+  },
+  "Encinitas": {
+    "county": "San Diego",
+    "count": 108,
+    "avgDepth": 178,
+    "minDepth": 16,
+    "maxDepth": 1260,
+    "medianDepth": 46,
+    "avgYield": 63.4,
+    "medianYield": 38.5,
+    "avgStaticLevel": 44,
+    "medianStaticLevel": 16,
+    "wellsByDecade": {
+      "1970s": 1,
+      "1980s": 5,
+      "1990s": 17,
+      "2000s": 26,
+      "2010s": 30,
+      "2020s": 29
+    },
+    "wellsByUse": {
+      "Cathodic Protection": 30,
+      "Irrigation - Agriculture": 11,
+      "Monitoring": 50,
+      "Irrigation - Landscape": 8,
+      "Vapor Extraction": 4,
+      "Unknown": 2,
+      "Other": 3
+    }
+  },
+  "Moreno": {
+    "county": "San Diego",
+    "count": 16,
+    "avgDepth": 435,
+    "minDepth": 99,
+    "maxDepth": 852,
+    "medianDepth": 445,
+    "avgYield": 445.8,
+    "medianYield": 13.5,
+    "avgStaticLevel": 74,
+    "medianStaticLevel": 74,
+    "wellsByDecade": {
+      "1970s": 1,
+      "1950s": 2,
+      "1960s": 1,
+      "1980s": 9,
+      "2010s": 1
+    },
+    "wellsByUse": {
+      "Domestic": 4,
+      "Unknown": 2,
+      "Irrigation - Agriculture": 5,
+      "Monitoring": 5
+    }
+  },
+  "Spring Valley": {
+    "county": "San Diego",
+    "count": 182,
+    "avgDepth": 70,
+    "minDepth": 5,
+    "maxDepth": 1200,
+    "medianDepth": 25,
+    "avgYield": 20.5,
+    "medianYield": 25,
+    "avgStaticLevel": 48,
+    "medianStaticLevel": 19,
+    "wellsByDecade": {
+      "1970s": 1,
+      "1980s": 4,
+      "1990s": 46,
+      "2000s": 53,
+      "2010s": 42,
+      "2020s": 36
+    },
+    "wellsByUse": {
+      "Domestic": 10,
+      "Irrigation - Agriculture": 1,
+      "Remediation": 3,
+      "Unknown": 8,
+      "Monitoring": 105,
+      "Cathodic Protection": 25,
+      "Vapor Extraction": 13,
+      "Other": 17
+    }
+  },
+  "Aguanga": {
+    "county": "San Diego",
+    "count": 946,
+    "avgDepth": 411,
+    "minDepth": 20,
+    "maxDepth": 1710,
+    "medianDepth": 360,
+    "avgYield": 42,
+    "medianYield": 22,
+    "avgStaticLevel": 139,
+    "medianStaticLevel": 120,
+    "wellsByDecade": {
+      "1980s": 133,
+      "1990s": 127,
+      "2000s": 370,
+      "2010s": 126,
+      "1950s": 2,
+      "1960s": 3,
+      "1970s": 19,
+      "2020s": 165
+    },
+    "wellsByUse": {
+      "Domestic": 872,
+      "Other": 1,
+      "Irrigation - Landscape": 13,
+      "Unknown": 12,
+      "Irrigation - Agriculture": 30,
+      "Test Well": 2,
+      "Public": 11,
+      "Monitoring": 4,
+      "Industrial": 1
+    }
+  },
+  "La Jolla": {
+    "county": "San Diego",
+    "count": 54,
+    "avgDepth": 120,
+    "minDepth": 5,
+    "maxDepth": 500,
+    "medianDepth": 49,
+    "avgYield": 100,
+    "medianYield": 100,
+    "avgStaticLevel": 18,
+    "medianStaticLevel": 18,
+    "wellsByDecade": {
+      "1980s": 2,
+      "1990s": 16,
+      "2000s": 14,
+      "2010s": 14,
+      "2020s": 8
+    },
+    "wellsByUse": {
+      "Domestic": 2,
+      "Other": 2,
+      "Unknown": 1,
+      "Monitoring": 25,
+      "Test Well": 1,
+      "Cathodic Protection": 23
+    }
+  },
+  "Palomar": {
+    "county": "San Diego",
+    "count": 8,
+    "avgDepth": 326,
+    "minDepth": 69,
+    "maxDepth": 910,
+    "medianDepth": 257,
+    "avgYield": 36.6,
+    "medianYield": 25,
+    "avgStaticLevel": 536,
+    "medianStaticLevel": 536,
+    "wellsByDecade": {
+      "1980s": 4,
+      "1990s": 3,
+      "2010s": 1
+    },
+    "wellsByUse": {
+      "Domestic": 5,
+      "Other": 2,
+      "Public": 1
+    }
+  },
+  "Leucadia": {
+    "county": "San Diego",
+    "count": 5,
+    "avgDepth": 71,
+    "minDepth": 25,
+    "maxDepth": 100,
+    "medianDepth": 80,
+    "avgYield": null,
+    "medianYield": null,
+    "avgStaticLevel": null,
+    "medianStaticLevel": null,
+    "wellsByDecade": {
+      "1980s": 1,
+      "1990s": 4
+    },
+    "wellsByUse": {
+      "Irrigation - Agriculture": 1,
+      "Monitoring": 4
+    }
+  },
+  "Thermal": {
+    "county": "San Diego",
+    "count": 320,
+    "avgDepth": 490,
+    "minDepth": 12,
+    "maxDepth": 1315,
+    "medianDepth": 520,
+    "avgYield": 691.5,
+    "medianYield": 200,
+    "avgStaticLevel": 75,
+    "medianStaticLevel": 60,
+    "wellsByDecade": {
+      "1990s": 102,
+      "2020s": 48,
+      "1940s": 1,
+      "1950s": 19,
+      "1960s": 4,
+      "1970s": 18,
+      "1980s": 31,
+      "2000s": 67,
+      "2010s": 30
+    },
+    "wellsByUse": {
+      "Irrigation - Agriculture": 95,
+      "Monitoring": 46,
+      "Unknown": 4,
+      "Domestic": 147,
+      "Industrial": 3,
+      "Public": 18,
+      "Other": 5,
+      "Cathodic Protection": 2
+    }
+  },
+  "Coronado": {
+    "county": "San Diego",
+    "count": 57,
+    "avgDepth": 50,
+    "minDepth": 13,
+    "maxDepth": 300,
+    "medianDepth": 28,
+    "avgYield": 280,
+    "medianYield": 280,
+    "avgStaticLevel": 18,
+    "medianStaticLevel": 21,
+    "wellsByDecade": {
+      "1990s": 5,
+      "2000s": 15,
+      "2010s": 3,
+      "2020s": 34
+    },
+    "wellsByUse": {
+      "Irrigation - Agriculture": 1,
+      "Monitoring": 50,
+      "Domestic": 1,
+      "Cathodic Protection": 4,
+      "Irrigation - Landscape": 1
+    }
+  },
+  "Solana Beach": {
+    "county": "San Diego",
+    "count": 21,
+    "avgDepth": 126,
+    "minDepth": 15,
+    "maxDepth": 400,
+    "medianDepth": 119,
+    "avgYield": null,
+    "medianYield": null,
+    "avgStaticLevel": 17,
+    "medianStaticLevel": 17,
+    "wellsByDecade": {
+      "1990s": 8,
+      "2000s": 3,
+      "2010s": 3,
+      "2020s": 7
+    },
+    "wellsByUse": {
+      "Cathodic Protection": 9,
+      "Monitoring": 12
+    }
+  },
+  "San Onofre": {
+    "county": "San Diego",
+    "count": 9,
+    "avgDepth": 128,
+    "minDepth": 32,
+    "maxDepth": 500,
+    "medianDepth": 52,
+    "avgYield": 675,
+    "medianYield": 675,
+    "avgStaticLevel": 48,
+    "medianStaticLevel": 29,
+    "wellsByDecade": {
+      "1990s": 1,
+      "2000s": 7,
+      "2010s": 1
+    },
+    "wellsByUse": {
+      "Irrigation - Agriculture": 1,
+      "Monitoring": 7,
+      "Cathodic Protection": 1
+    }
+  },
+  "Cardiff By The Sea": {
+    "county": "San Diego",
+    "count": 13,
+    "avgDepth": 42,
+    "minDepth": 25,
+    "maxDepth": 150,
+    "medianDepth": 30,
+    "avgYield": null,
+    "medianYield": null,
+    "avgStaticLevel": 23,
+    "medianStaticLevel": 18,
+    "wellsByDecade": {
+      "1990s": 6,
+      "2020s": 7
+    },
+    "wellsByUse": {
+      "Monitoring": 8,
+      "Cathodic Protection": 1,
+      "Unknown": 4
+    }
+  },
+  "Miramar": {
+    "county": "San Diego",
+    "count": 14,
+    "avgDepth": 192,
+    "minDepth": 20,
+    "maxDepth": 227,
+    "medianDepth": 212,
+    "avgYield": null,
+    "medianYield": null,
+    "avgStaticLevel": 185,
+    "medianStaticLevel": 188,
+    "wellsByDecade": {
+      "1990s": 1,
+      "2020s": 13
+    },
+    "wellsByUse": {
+      "Monitoring": 14
+    }
+  },
+  "San Juan Capistrano": {
+    "county": "San Diego",
+    "count": 10,
+    "avgDepth": 705,
+    "minDepth": 300,
+    "maxDepth": 1500,
+    "medianDepth": 543,
+    "avgYield": 16.8,
+    "medianYield": 8,
+    "avgStaticLevel": 210,
+    "medianStaticLevel": 110,
+    "wellsByDecade": {
+      "1990s": 1,
+      "1970s": 1,
+      "1980s": 3,
+      "2000s": 4,
+      "2020s": 1
+    },
+    "wellsByUse": {
+      "Irrigation - Agriculture": 1,
+      "Other": 1,
+      "Domestic": 8
+    }
+  },
+  "Rancho San Diego": {
+    "county": "San Diego",
+    "count": 9,
+    "avgDepth": 139,
+    "minDepth": 60,
+    "maxDepth": 170,
+    "medianDepth": 155,
+    "avgYield": null,
+    "medianYield": null,
+    "avgStaticLevel": 12,
+    "medianStaticLevel": 12,
+    "wellsByDecade": {
+      "1990s": 1,
+      "2000s": 8
+    },
+    "wellsByUse": {
+      "Monitoring": 9
+    }
+  },
+  "Cardiff": {
+    "county": "San Diego",
+    "count": 13,
+    "avgDepth": 74,
+    "minDepth": 15,
+    "maxDepth": 300,
+    "medianDepth": 20,
+    "avgYield": null,
+    "medianYield": null,
+    "avgStaticLevel": 8,
+    "medianStaticLevel": 8,
+    "wellsByDecade": {
+      "2000s": 6,
+      "2010s": 4,
+      "2020s": 3
+    },
+    "wellsByUse": {
+      "Monitoring": 6,
+      "Cathodic Protection": 2,
+      "Irrigation - Agriculture": 1,
+      "Unknown": 4
+    }
+  },
+  "Pinyon Pines": {
+    "county": "San Diego",
+    "count": 40,
+    "avgDepth": 519,
+    "minDepth": 20,
+    "maxDepth": 1400,
+    "medianDepth": 430,
+    "avgYield": 21.8,
+    "medianYield": 10,
+    "avgStaticLevel": 146,
+    "medianStaticLevel": 90,
+    "wellsByDecade": {
+      "2000s": 26,
+      "1970s": 1,
+      "1980s": 5,
+      "1990s": 4,
+      "2010s": 2,
+      "2020s": 2
+    },
+    "wellsByUse": {
+      "Public": 4,
+      "Domestic": 35,
+      "Unknown": 1
+    }
+  },
+  "Fallbrock": {
+    "county": "San Diego",
+    "count": 5,
+    "avgDepth": 445,
+    "minDepth": 36,
+    "maxDepth": 860,
+    "medianDepth": 412,
+    "avgYield": 18,
+    "medianYield": 18.5,
+    "avgStaticLevel": 67,
+    "medianStaticLevel": 67,
+    "wellsByDecade": {
+      "2000s": 5
+    },
+    "wellsByUse": {
+      "Monitoring": 1,
+      "Irrigation - Agriculture": 2,
+      "Domestic": 2
+    }
+  },
+  "San Clemente": {
+    "county": "San Diego",
+    "count": 55,
+    "avgDepth": 85,
+    "minDepth": 23,
+    "maxDepth": 210,
+    "medianDepth": 91,
+    "avgYield": null,
+    "medianYield": null,
+    "avgStaticLevel": 87,
+    "medianStaticLevel": 88,
+    "wellsByDecade": {
+      "2000s": 7,
+      "2010s": 28,
+      "2020s": 20
+    },
+    "wellsByUse": {
+      "Cathodic Protection": 7,
+      "Unknown": 8,
+      "Monitoring": 40
+    }
+  },
+  "Lakeview": {
+    "county": "San Diego",
+    "count": 67,
+    "avgDepth": 373,
+    "minDepth": 5,
+    "maxDepth": 907,
+    "medianDepth": 350,
+    "avgYield": 578.9,
+    "medianYield": 150,
+    "avgStaticLevel": 178,
+    "medianStaticLevel": 194,
+    "wellsByDecade": {
+      "2000s": 7,
+      "1940s": 1,
+      "1950s": 8,
+      "1960s": 7,
+      "1970s": 10,
+      "1980s": 10,
+      "1990s": 13,
+      "2010s": 2
+    },
+    "wellsByUse": {
+      "Public": 2,
+      "Domestic": 21,
+      "Unknown": 5,
+      "Other": 15,
+      "Irrigation - Agriculture": 21,
+      "Monitoring": 2,
+      "Cathodic Protection": 1
+    }
+  },
+  "Otay Mesa": {
+    "county": "San Diego",
+    "count": 22,
+    "avgDepth": 101,
+    "minDepth": 25,
+    "maxDepth": 150,
+    "medianDepth": 120,
+    "avgYield": null,
+    "medianYield": null,
+    "avgStaticLevel": 38,
+    "medianStaticLevel": 38,
+    "wellsByDecade": {
+      "2000s": 3,
+      "2010s": 19
+    },
+    "wellsByUse": {
+      "Cathodic Protection": 2,
+      "Other": 2,
+      "Unknown": 17,
+      "Monitoring": 1
+    }
+  },
+  "Camp Pendelton": {
+    "county": "San Diego",
+    "count": 8,
+    "avgDepth": 46,
+    "minDepth": 25,
+    "maxDepth": 107,
+    "medianDepth": 28,
+    "avgYield": null,
+    "medianYield": null,
+    "avgStaticLevel": 32,
+    "medianStaticLevel": 13,
+    "wellsByDecade": {
+      "2000s": 6,
+      "2020s": 2
+    },
+    "wellsByUse": {
+      "Monitoring": 8
+    }
+  },
+  "Kearny Mesa": {
+    "county": "San Diego",
+    "count": 7,
+    "avgDepth": 42,
+    "minDepth": 40,
+    "maxDepth": 50,
+    "medianDepth": 40,
+    "avgYield": null,
+    "medianYield": null,
+    "avgStaticLevel": 24,
+    "medianStaticLevel": 24,
+    "wellsByDecade": {
+      "2000s": 7
+    },
+    "wellsByUse": {
+      "Monitoring": 7
+    }
+  },
+  "Jamul Amul": {
+    "county": "San Diego",
+    "count": 5,
+    "avgDepth": 1032,
+    "minDepth": 880,
+    "maxDepth": 1200,
+    "medianDepth": 1000,
+    "avgYield": 15.8,
+    "medianYield": 15,
+    "avgStaticLevel": 256,
+    "medianStaticLevel": 175,
+    "wellsByDecade": {
+      "2000s": 5
+    },
+    "wellsByUse": {
+      "Domestic": 5
+    }
+  },
+  "Temecula": {
+    "county": "San Diego",
+    "count": 984,
+    "avgDepth": 495,
+    "minDepth": 6,
+    "maxDepth": 2010,
+    "medianDepth": 427,
+    "avgYield": 86,
+    "medianYield": 25,
+    "avgStaticLevel": 111,
+    "medianStaticLevel": 62,
+    "wellsByDecade": {
+      "2010s": 145,
+      "1950s": 1,
+      "1960s": 11,
+      "1970s": 25,
+      "1980s": 31,
+      "1990s": 220,
+      "2000s": 392,
+      "2020s": 158
+    },
+    "wellsByUse": {
+      "Monitoring": 150,
+      "Irrigation - Agriculture": 260,
+      "Domestic": 428,
+      "Unknown": 54,
+      "Industrial": 4,
+      "Public": 23,
+      "Other": 3,
+      "Test Well": 10,
+      "Injection": 6,
+      "Vapor Extraction": 2,
+      "Remediation": 2,
+      "Sparging": 15,
+      "Irrigation - Landscape": 23,
+      "Unknown Domestic": 2,
+      "Cathodic Protection": 2
+    }
+  },
+  "Rancho California": {
+    "county": "San Diego",
+    "count": 29,
+    "avgDepth": 334,
+    "minDepth": 8,
+    "maxDepth": 1118,
+    "medianDepth": 320,
+    "avgYield": 41.3,
+    "medianYield": 21.5,
+    "avgStaticLevel": 169,
+    "medianStaticLevel": 130,
+    "wellsByDecade": {
+      "2010s": 1,
+      "1980s": 3,
+      "1990s": 19,
+      "2000s": 6
+    },
+    "wellsByUse": {
+      "Irrigation - Agriculture": 4,
+      "Domestic": 8,
+      "Unknown": 1,
+      "Monitoring": 11,
+      "Other": 3,
+      "Test Well": 2
+    }
+  },
+  "Adelanto": {
+    "county": "San Diego",
+    "count": 302,
+    "avgDepth": 240,
+    "minDepth": 25,
+    "maxDepth": 1970,
+    "medianDepth": 200,
+    "avgYield": 190.5,
+    "medianYield": 25,
+    "avgStaticLevel": 148,
+    "medianStaticLevel": 130,
+    "wellsByDecade": {
+      "2010s": 63,
+      "1950s": 11,
+      "1960s": 6,
+      "1970s": 21,
+      "1980s": 47,
+      "1990s": 67,
+      "2000s": 54,
+      "2020s": 33
+    },
+    "wellsByUse": {
+      "Cathodic Protection": 15,
+      "Domestic": 126,
+      "Irrigation - Agriculture": 9,
+      "Public": 26,
+      "Industrial": 3,
+      "Unknown": 30,
+      "Stock or Animal Watering": 1,
+      "Test Well": 10,
+      "Monitoring": 61,
+      "Other": 21
+    }
+  },
+  "Murrieta": {
+    "county": "San Diego",
+    "count": 1081,
+    "avgDepth": 390,
+    "minDepth": 20,
+    "maxDepth": 1417,
+    "medianDepth": 360,
+    "avgYield": 75.8,
+    "medianYield": 40,
+    "avgStaticLevel": 94,
+    "medianStaticLevel": 67,
+    "wellsByDecade": {
+      "2010s": 169,
+      "1920s": 2,
+      "1930s": 1,
+      "1940s": 5,
+      "1950s": 22,
+      "1960s": 32,
+      "1970s": 83,
+      "1980s": 76,
+      "1990s": 191,
+      "2000s": 382,
+      "2020s": 108
+    },
+    "wellsByUse": {
+      "Domestic": 602,
+      "Unknown": 27,
+      "Irrigation - Agriculture": 331,
+      "Other": 5,
+      "Industrial": 2,
+      "Test Well": 1,
+      "Public": 14,
+      "Monitoring": 46,
+      "Irrigation - Landscape": 52,
+      "Stock or Animal Watering": 1
+    }
+  },
+  "El Cajo": {
+    "county": "San Diego",
+    "count": 6,
+    "avgDepth": 36,
+    "minDepth": 5,
+    "maxDepth": 50,
+    "medianDepth": 50,
+    "avgYield": null,
+    "medianYield": null,
+    "avgStaticLevel": 36,
+    "medianStaticLevel": 50,
+    "wellsByDecade": {
+      "2020s": 6
+    },
+    "wellsByUse": {
+      "Other": 6
+    }
+  },
+  "San Diegoc": {
+    "county": "San Diego",
+    "count": 9,
+    "avgDepth": 10,
+    "minDepth": 10,
+    "maxDepth": 10,
+    "medianDepth": 10,
+    "avgYield": null,
+    "medianYield": null,
+    "avgStaticLevel": null,
+    "medianStaticLevel": null,
+    "wellsByDecade": {
+      "2020s": 9
+    },
+    "wellsByUse": {
+      "Unknown": 9
+    }
+  },
+  "Desert Hot Springs": {
+    "county": "Riverside",
+    "count": 356,
+    "avgDepth": 352,
+    "minDepth": 12,
+    "maxDepth": 1170,
+    "medianDepth": 300,
+    "avgYield": 152.8,
+    "medianYield": 40,
+    "avgStaticLevel": 169,
+    "medianStaticLevel": 150,
+    "wellsByDecade": {
+      "2020s": 40,
+      "1950s": 52,
+      "1960s": 39,
+      "1970s": 12,
+      "1980s": 37,
+      "1990s": 59,
+      "2000s": 74,
+      "2010s": 35
+    },
+    "wellsByUse": {
+      "Irrigation - Agriculture": 29,
+      "Domestic": 223,
+      "Cathodic Protection": 7,
+      "Test Well": 14,
+      "Public": 34,
+      "Other": 16,
+      "Unknown": 6,
+      "Monitoring": 21,
+      "Industrial": 3,
+      "Irrigation - Landscape": 3
+    }
+  },
+  "Perris": {
+    "county": "Riverside",
+    "count": 1152,
+    "avgDepth": 311,
+    "minDepth": 10,
+    "maxDepth": 1400,
+    "medianDepth": 211,
+    "avgYield": 57.5,
+    "medianYield": 10,
+    "avgStaticLevel": 73,
+    "medianStaticLevel": 40,
+    "wellsByDecade": {
+      "2020s": 98,
+      "1920s": 2,
+      "1940s": 27,
+      "1950s": 71,
+      "1960s": 11,
+      "1970s": 40,
+      "1980s": 104,
+      "1990s": 196,
+      "2000s": 343,
+      "2010s": 244
+    },
+    "wellsByUse": {
+      "Domestic": 690,
+      "Unknown": 28,
+      "Public": 23,
+      "Irrigation - Agriculture": 187,
+      "Test Well": 5,
+      "Industrial": 2,
+      "Other": 62,
+      "Monitoring": 136,
+      "Cathodic Protection": 1,
+      "Sparging": 7,
+      "Vapor Extraction": 1,
+      "Irrigation - Landscape": 10
+    }
+  },
+  "Moreno Valley": {
+    "county": "Riverside",
+    "count": 332,
+    "avgDepth": 182,
+    "minDepth": 19,
+    "maxDepth": 1500,
+    "medianDepth": 80,
+    "avgYield": 94.8,
+    "medianYield": 15,
+    "avgStaticLevel": 90,
+    "medianStaticLevel": 61,
+    "wellsByDecade": {
+      "2020s": 41,
+      "1980s": 5,
+      "1990s": 43,
+      "2000s": 146,
+      "2010s": 93
+    },
+    "wellsByUse": {
+      "Monitoring": 171,
+      "Domestic": 52,
+      "Irrigation - Agriculture": 20,
+      "Public": 8,
+      "Other": 16,
+      "Unknown": 7,
+      "Vapor Extraction": 8,
+      "Cathodic Protection": 8,
+      "Sparging": 17,
+      "Remediation": 19,
+      "Irrigation - Landscape": 5,
+      "Industrial": 1
+    }
+  },
+  "Indio": {
+    "county": "Riverside",
+    "count": 308,
+    "avgDepth": 341,
+    "minDepth": 5,
+    "maxDepth": 1350,
+    "medianDepth": 300,
+    "avgYield": 1141.3,
+    "medianYield": 650,
+    "avgStaticLevel": 101,
+    "medianStaticLevel": 95,
+    "wellsByDecade": {
+      "2020s": 48,
+      "1910s": 1,
+      "1930s": 1,
+      "1940s": 4,
+      "1950s": 25,
+      "1960s": 3,
+      "1970s": 26,
+      "1980s": 26,
+      "1990s": 61,
+      "2000s": 89,
+      "2010s": 18
+    },
+    "wellsByUse": {
+      "Public": 19,
+      "Domestic": 61,
+      "Unknown": 25,
+      "Irrigation - Agriculture": 48,
+      "Other": 10,
+      "Industrial": 5,
+      "Test Well": 2,
+      "Monitoring": 100,
+      "Cathodic Protection": 19,
+      "Vapor Extraction": 14,
+      "Irrigation - Landscape": 4,
+      "Sparging": 1
+    }
+  },
+  "Corona": {
+    "county": "Riverside",
+    "count": 631,
+    "avgDepth": 194,
+    "minDepth": 6,
+    "maxDepth": 1090,
+    "medianDepth": 140,
+    "avgYield": 309,
+    "medianYield": 50,
+    "avgStaticLevel": 74,
+    "medianStaticLevel": 50,
+    "wellsByDecade": {
+      "2020s": 90,
+      "1920s": 4,
+      "1930s": 2,
+      "1950s": 47,
+      "1960s": 37,
+      "1970s": 25,
+      "1980s": 66,
+      "1990s": 100,
+      "2000s": 163,
+      "2010s": 78
+    },
+    "wellsByUse": {
+      "Other": 40,
+      "Domestic": 189,
+      "Unknown": 40,
+      "Irrigation - Agriculture": 56,
+      "Monitoring": 226,
+      "Industrial": 16,
+      "Public": 31,
+      "Test Well": 5,
+      "Cathodic Protection": 13,
+      "Vapor Extraction": 8,
+      "Irrigation - Landscape": 5,
+      "Sparging": 2
+    }
+  },
+  "Menifee": {
+    "county": "Riverside",
+    "count": 307,
+    "avgDepth": 439,
+    "minDepth": 20,
+    "maxDepth": 1800,
+    "medianDepth": 365,
+    "avgYield": 40.2,
+    "medianYield": 10,
+    "avgStaticLevel": 85,
+    "medianStaticLevel": 56,
+    "wellsByDecade": {
+      "1960s": 1,
+      "1970s": 2,
+      "1980s": 13,
+      "1990s": 90,
+      "2000s": 110,
+      "2010s": 47,
+      "2020s": 41
+    },
+    "wellsByUse": {
+      "Domestic": 242,
+      "Irrigation - Agriculture": 33,
+      "Test Well": 2,
+      "Monitoring": 11,
+      "Public": 4,
+      "Unknown": 6,
+      "Cathodic Protection": 2,
+      "Irrigation - Landscape": 5,
+      "Other": 2
+    }
+  },
+  "Hemet": {
+    "county": "Riverside",
+    "count": 927,
+    "avgDepth": 516,
+    "minDepth": 20,
+    "maxDepth": 1780,
+    "medianDepth": 498,
+    "avgYield": 106.5,
+    "medianYield": 20,
+    "avgStaticLevel": 140,
+    "medianStaticLevel": 100,
+    "wellsByDecade": {
+      "1940s": 7,
+      "1950s": 27,
+      "1960s": 7,
+      "1970s": 47,
+      "1980s": 36,
+      "1990s": 180,
+      "2000s": 318,
+      "2010s": 168,
+      "2020s": 103
+    },
+    "wellsByUse": {
+      "Irrigation - Agriculture": 199,
+      "Other": 9,
+      "Domestic": 621,
+      "Unknown": 23,
+      "Industrial": 3,
+      "Test Well": 2,
+      "Public": 21,
+      "Cathodic Protection": 15,
+      "Monitoring": 18,
+      "Vapor Extraction": 6,
+      "Irrigation - Landscape": 10
+    }
+  },
+  "Mira Loma": {
+    "county": "Riverside",
+    "count": 68,
+    "avgDepth": 258,
+    "minDepth": 72,
+    "maxDepth": 540,
+    "medianDepth": 253,
+    "avgYield": 883.2,
+    "medianYield": 200,
+    "avgStaticLevel": 82,
+    "medianStaticLevel": 76,
+    "wellsByDecade": {
+      "1940s": 1,
+      "1950s": 10,
+      "1960s": 5,
+      "1970s": 2,
+      "1980s": 9,
+      "1990s": 7,
+      "2000s": 23,
+      "2010s": 8
+    },
+    "wellsByUse": {
+      "Domestic": 25,
+      "Unknown": 1,
+      "Irrigation - Agriculture": 14,
+      "Monitoring": 9,
+      "Public": 13,
+      "Cathodic Protection": 4,
+      "Test Well": 1,
+      "Other": 1
+    }
+  },
+  "Anza": {
+    "county": "Riverside",
+    "count": 1584,
+    "avgDepth": 348,
+    "minDepth": 1,
+    "maxDepth": 1370,
+    "medianDepth": 310,
+    "avgYield": 40.3,
+    "medianYield": 20,
+    "avgStaticLevel": 133,
+    "medianStaticLevel": 118,
+    "wellsByDecade": {
+      "1920s": 1,
+      "1930s": 1,
+      "1940s": 5,
+      "1950s": 54,
+      "1960s": 62,
+      "1970s": 268,
+      "1980s": 250,
+      "1990s": 164,
+      "2000s": 374,
+      "2010s": 272,
+      "2020s": 129
+    },
+    "wellsByUse": {
+      "Domestic": 1417,
+      "Irrigation - Agriculture": 74,
+      "Unknown": 34,
+      "Test Well": 4,
+      "Industrial": 2,
+      "Public": 15,
+      "Other": 2,
+      "Monitoring": 15,
+      "Irrigation - Landscape": 21
+    }
+  },
+  "Winchester": {
+    "county": "Riverside",
+    "count": 349,
+    "avgDepth": 379,
+    "minDepth": 30,
+    "maxDepth": 1565,
+    "medianDepth": 300,
+    "avgYield": 63.9,
+    "medianYield": 20,
+    "avgStaticLevel": 97,
+    "medianStaticLevel": 60,
+    "wellsByDecade": {
+      "1950s": 8,
+      "1960s": 6,
+      "1970s": 34,
+      "1980s": 42,
+      "1990s": 87,
+      "2000s": 80,
+      "2010s": 31,
+      "2020s": 41
+    },
+    "wellsByUse": {
+      "Domestic": 242,
+      "Unknown": 8,
+      "Irrigation - Agriculture": 81,
+      "Monitoring": 12,
+      "Public": 1,
+      "Irrigation - Landscape": 5
+    }
+  },
+  "Sage": {
+    "county": "Riverside",
+    "count": 84,
+    "avgDepth": 353,
+    "minDepth": 40,
+    "maxDepth": 1200,
+    "medianDepth": 280,
+    "avgYield": 33.5,
+    "medianYield": 15,
+    "avgStaticLevel": 153,
+    "medianStaticLevel": 100,
+    "wellsByDecade": {
+      "1950s": 9,
+      "1960s": 3,
+      "1970s": 5,
+      "1980s": 25,
+      "1990s": 21,
+      "2000s": 14,
+      "2010s": 1,
+      "2020s": 1
+    },
+    "wellsByUse": {
+      "Domestic": 71,
+      "Unknown": 3,
+      "Irrigation - Agriculture": 10
+    }
+  },
+  "Cherry Valley": {
+    "county": "Riverside",
+    "count": 56,
+    "avgDepth": 468,
+    "minDepth": 152,
+    "maxDepth": 1030,
+    "medianDepth": 500,
+    "avgYield": 42.9,
+    "medianYield": 22.5,
+    "avgStaticLevel": 243,
+    "medianStaticLevel": 233,
+    "wellsByDecade": {
+      "1940s": 1,
+      "1950s": 4,
+      "1960s": 6,
+      "1970s": 9,
+      "1980s": 15,
+      "1990s": 5,
+      "2000s": 5,
+      "2010s": 3,
+      "2020s": 6
+    },
+    "wellsByUse": {
+      "Domestic": 37,
+      "Test Well": 11,
+      "Unknown": 5,
+      "Irrigation - Agriculture": 2,
+      "Public": 1
+    }
+  },
+  "Riverside": {
+    "county": "Riverside",
+    "count": 1640,
+    "avgDepth": 128,
+    "minDepth": 10,
+    "maxDepth": 1475,
+    "medianDepth": 67,
+    "avgYield": 256.6,
+    "medianYield": 19,
+    "avgStaticLevel": 56,
+    "medianStaticLevel": 38,
+    "wellsByDecade": {
+      "1920s": 3,
+      "1930s": 4,
+      "1940s": 19,
+      "1950s": 112,
+      "1960s": 17,
+      "1970s": 18,
+      "1980s": 30,
+      "1990s": 202,
+      "2000s": 644,
+      "2010s": 304,
+      "2020s": 280
+    },
+    "wellsByUse": {
+      "Domestic": 256,
+      "Public": 30,
+      "Irrigation - Agriculture": 149,
+      "Unknown": 38,
+      "Other": 42,
+      "Industrial": 9,
+      "Irrigation - Landscape": 16,
+      "Test Well": 16,
+      "Monitoring": 910,
+      "Cathodic Protection": 32,
+      "Sparging": 86,
+      "Vapor Extraction": 43,
+      "Remediation": 11,
+      "Injection": 2
+    }
+  },
+  "Beaumont": {
+    "county": "Riverside",
+    "count": 158,
+    "avgDepth": 394,
+    "minDepth": 10,
+    "maxDepth": 2236,
+    "medianDepth": 300,
+    "avgYield": 387.9,
+    "medianYield": 80,
+    "avgStaticLevel": 150,
+    "medianStaticLevel": 100,
+    "wellsByDecade": {
+      "1900s": 1,
+      "1920s": 9,
+      "1930s": 2,
+      "1940s": 6,
+      "1950s": 13,
+      "1960s": 8,
+      "1970s": 13,
+      "1980s": 7,
+      "1990s": 15,
+      "2000s": 44,
+      "2010s": 18,
+      "2020s": 17
+    },
+    "wellsByUse": {
+      "Domestic": 53,
+      "Irrigation - Agriculture": 17,
+      "Unknown": 21,
+      "Test Well": 13,
+      "Public": 11,
+      "Monitoring": 35,
+      "Cathodic Protection": 3,
+      "Irrigation - Landscape": 5
+    }
+  },
+  "Sun City": {
+    "county": "Riverside",
+    "count": 241,
+    "avgDepth": 222,
+    "minDepth": 30,
+    "maxDepth": 906,
+    "medianDepth": 200,
+    "avgYield": 50.5,
+    "medianYield": 15,
+    "avgStaticLevel": 71,
+    "medianStaticLevel": 40,
+    "wellsByDecade": {
+      "1970s": 16,
+      "1980s": 55,
+      "1990s": 76,
+      "2000s": 69,
+      "2010s": 20
+    },
+    "wellsByUse": {
+      "Domestic": 147,
+      "Irrigation - Agriculture": 13,
+      "Unknown": 3,
+      "Monitoring": 63,
+      "Cathodic Protection": 9,
+      "Other": 2,
+      "Public": 2,
+      "Sparging": 1,
+      "Test Well": 1
+    }
+  },
+  "Sunnymead": {
+    "county": "Riverside",
+    "count": 43,
+    "avgDepth": 280,
+    "minDepth": 67,
+    "maxDepth": 1080,
+    "medianDepth": 240,
+    "avgYield": 84.8,
+    "medianYield": 11,
+    "avgStaticLevel": 67,
+    "medianStaticLevel": 50,
+    "wellsByDecade": {
+      "1950s": 3,
+      "1970s": 19,
+      "1980s": 16,
+      "1990s": 3
+    },
+    "wellsByUse": {
+      "Domestic": 36,
+      "Irrigation - Agriculture": 2,
+      "Stock or Animal Watering": 1,
+      "Test Well": 1,
+      "Public": 1,
+      "Monitoring": 2
+    }
+  },
+  "Nuevo": {
+    "county": "Riverside",
+    "count": 138,
+    "avgDepth": 414,
+    "minDepth": 100,
+    "maxDepth": 1560,
+    "medianDepth": 334,
+    "avgYield": 175.9,
+    "medianYield": 10,
+    "avgStaticLevel": 122,
+    "medianStaticLevel": 94,
+    "wellsByDecade": {
+      "1950s": 4,
+      "1960s": 6,
+      "1970s": 22,
+      "1980s": 13,
+      "1990s": 23,
+      "2000s": 29,
+      "2010s": 23,
+      "2020s": 16
+    },
+    "wellsByUse": {
+      "Domestic": 111,
+      "Irrigation - Agriculture": 12,
+      "Industrial": 2,
+      "Unknown": 1,
+      "Test Well": 1,
+      "Other": 2,
+      "Public": 4,
+      "Cathodic Protection": 2,
+      "Monitoring": 2,
+      "Injection": 1
+    }
+  },
+  "Blythe": {
+    "county": "Riverside",
+    "count": 618,
+    "avgDepth": 135,
+    "minDepth": 5,
+    "maxDepth": 1830,
+    "medianDepth": 35,
+    "avgYield": 423.4,
+    "medianYield": 60,
+    "avgStaticLevel": 50,
+    "medianStaticLevel": 12,
+    "wellsByDecade": {
+      "1940s": 6,
+      "1950s": 9,
+      "1960s": 12,
+      "1970s": 14,
+      "1980s": 22,
+      "1990s": 154,
+      "2000s": 216,
+      "2010s": 67,
+      "2020s": 113
+    },
+    "wellsByUse": {
+      "Unknown": 57,
+      "Irrigation - Agriculture": 39,
+      "Domestic": 137,
+      "Other": 15,
+      "Public": 25,
+      "Test Well": 6,
+      "Industrial": 17,
+      "Cathodic Protection": 11,
+      "Monitoring": 283,
+      "Sparging": 7,
+      "Remediation": 14,
+      "Vapor Extraction": 3,
+      "Irrigation - Landscape": 1,
+      "Destruction": 3
+    }
+  },
+  "Arlington": {
+    "county": "Riverside",
+    "count": 53,
+    "avgDepth": 114,
+    "minDepth": 23,
+    "maxDepth": 421,
+    "medianDepth": 103,
+    "avgYield": 6,
+    "medianYield": 6,
+    "avgStaticLevel": 27,
+    "medianStaticLevel": 29,
+    "wellsByDecade": {
+      "1910s": 5,
+      "1900s": 1,
+      "1920s": 4,
+      "1930s": 8,
+      "1940s": 3,
+      "1950s": 18,
+      "1960s": 7
+    },
+    "wellsByUse": {
+      "Irrigation - Agriculture": 8,
+      "Unknown": 27,
+      "Domestic": 15,
+      "Test Well": 2,
+      "Industrial": 1
+    }
+  },
+  "Bermuda Dunes": {
+    "county": "Riverside",
+    "count": 49,
+    "avgDepth": 558,
+    "minDepth": 220,
+    "maxDepth": 960,
+    "medianDepth": 500,
+    "avgYield": 645.2,
+    "medianYield": 65,
+    "avgStaticLevel": 151,
+    "medianStaticLevel": 160,
+    "wellsByDecade": {
+      "1980s": 3,
+      "1990s": 29,
+      "2000s": 7,
+      "2010s": 6,
+      "2020s": 3
+    },
+    "wellsByUse": {
+      "Domestic": 28,
+      "Irrigation - Agriculture": 10,
+      "Public": 8,
+      "Cathodic Protection": 1,
+      "Irrigation - Landscape": 2
+    }
+  },
+  "Santa Ana": {
+    "county": "Riverside",
+    "count": 11,
+    "avgDepth": 222,
+    "minDepth": 132,
+    "maxDepth": 466,
+    "medianDepth": 176,
+    "avgYield": null,
+    "medianYield": null,
+    "avgStaticLevel": null,
+    "medianStaticLevel": null,
+    "wellsByDecade": {
+      "1950s": 6,
+      "1960s": 4
+    },
+    "wellsByUse": {
+      "Irrigation - Agriculture": 3,
+      "Domestic": 8
+    }
+  },
+  "Elsinore": {
+    "county": "Riverside",
+    "count": 77,
+    "avgDepth": 237,
+    "minDepth": 17,
+    "maxDepth": 980,
+    "medianDepth": 200,
+    "avgYield": 126.5,
+    "medianYield": 30,
+    "avgStaticLevel": 54,
+    "medianStaticLevel": 51,
+    "wellsByDecade": {
+      "1930s": 4,
+      "1940s": 8,
+      "1950s": 18,
+      "1960s": 4,
+      "1970s": 12,
+      "1980s": 13,
+      "1990s": 5,
+      "2000s": 4
+    },
+    "wellsByUse": {
+      "Domestic": 40,
+      "Unknown": 17,
+      "Irrigation - Agriculture": 12,
+      "Other": 2,
+      "Public": 2,
+      "Monitoring": 4
+    }
+  },
+  "Lake Elsinore": {
+    "county": "Riverside",
+    "count": 494,
+    "avgDepth": 231,
+    "minDepth": 5,
+    "maxDepth": 2002,
+    "medianDepth": 85,
+    "avgYield": 126.9,
+    "medianYield": 18,
+    "avgStaticLevel": 83,
+    "medianStaticLevel": 59,
+    "wellsByDecade": {
+      "1950s": 2,
+      "1960s": 1,
+      "1970s": 21,
+      "1980s": 29,
+      "1990s": 86,
+      "2000s": 175,
+      "2010s": 40,
+      "2020s": 137
+    },
+    "wellsByUse": {
+      "Domestic": 185,
+      "Public": 17,
+      "Other": 13,
+      "Irrigation - Agriculture": 25,
+      "Test Well": 1,
+      "Monitoring": 170,
+      "Unknown": 48,
+      "Remediation": 6,
+      "Cathodic Protection": 1,
+      "Vapor Extraction": 10,
+      "Sparging": 14,
+      "Irrigation - Landscape": 4
+    }
+  },
+  "Needles": {
+    "county": "Riverside",
+    "count": 292,
+    "avgDepth": 152,
+    "minDepth": 16,
+    "maxDepth": 900,
+    "medianDepth": 108,
+    "avgYield": 337.2,
+    "medianYield": 35,
+    "avgStaticLevel": 61,
+    "medianStaticLevel": 51,
+    "wellsByDecade": {
+      "1930s": 1,
+      "1960s": 3,
+      "1970s": 19,
+      "1980s": 40,
+      "1990s": 42,
+      "2000s": 98,
+      "2010s": 55,
+      "2020s": 32
+    },
+    "wellsByUse": {
+      "Domestic": 82,
+      "Unknown": 12,
+      "Public": 18,
+      "Test Well": 1,
+      "Cathodic Protection": 39,
+      "Irrigation - Agriculture": 6,
+      "Industrial": 4,
+      "Monitoring": 117,
+      "Other": 9,
+      "Vapor Extraction": 4
+    }
+  },
+  "Rancho": {
+    "county": "Riverside",
+    "count": 17,
+    "avgDepth": 344,
+    "minDepth": 160,
+    "maxDepth": 760,
+    "medianDepth": 315,
+    "avgYield": 32.3,
+    "medianYield": 25,
+    "avgStaticLevel": 101,
+    "medianStaticLevel": 88,
+    "wellsByDecade": {
+      "1980s": 12,
+      "1990s": 4
+    },
+    "wellsByUse": {
+      "Domestic": 14,
+      "Public": 1,
+      "Irrigation - Agriculture": 2
+    }
+  },
+  "Norco": {
+    "county": "Riverside",
+    "count": 264,
+    "avgDepth": 87,
+    "minDepth": 10,
+    "maxDepth": 917,
+    "medianDepth": 50,
+    "avgYield": 642.5,
+    "medianYield": 80,
+    "avgStaticLevel": 36,
+    "medianStaticLevel": 25,
+    "wellsByDecade": {
+      "1920s": 3,
+      "1930s": 2,
+      "1940s": 4,
+      "1950s": 41,
+      "1960s": 4,
+      "1970s": 7,
+      "1980s": 7,
+      "1990s": 18,
+      "2000s": 114,
+      "2010s": 28,
+      "2020s": 35
+    },
+    "wellsByUse": {
+      "Unknown": 43,
+      "Domestic": 38,
+      "Irrigation - Agriculture": 21,
+      "Industrial": 2,
+      "Public": 4,
+      "Test Well": 2,
+      "Monitoring": 142,
+      "Cathodic Protection": 2,
+      "Injection": 10
+    }
+  },
+  "Redlands": {
+    "county": "Riverside",
+    "count": 325,
+    "avgDepth": 358,
+    "minDepth": 24,
+    "maxDepth": 1250,
+    "medianDepth": 382,
+    "avgYield": 380.7,
+    "medianYield": 50,
+    "avgStaticLevel": 143,
+    "medianStaticLevel": 131,
+    "wellsByDecade": {
+      "1950s": 23,
+      "1960s": 9,
+      "1980s": 14,
+      "1990s": 45,
+      "2000s": 113,
+      "2010s": 45,
+      "2020s": 36,
+      "1910s": 9,
+      "1900s": 2,
+      "1920s": 12,
+      "1930s": 5,
+      "1970s": 1
+    },
+    "wellsByUse": {
+      "Unknown": 73,
+      "Irrigation - Agriculture": 21,
+      "Public": 21,
+      "Domestic": 116,
+      "Test Well": 5,
+      "Other": 15,
+      "Vapor Extraction": 12,
+      "Cathodic Protection": 4,
+      "Monitoring": 52,
+      "Industrial": 3,
+      "Irrigation - Landscape": 1,
+      "Water Supply": 1,
+      "Unknown Irrigation - Agriculture": 1
+    }
+  },
+  "Glen Avon": {
+    "county": "Riverside",
+    "count": 65,
+    "avgDepth": 101,
+    "minDepth": 46,
+    "maxDepth": 500,
+    "medianDepth": 65,
+    "avgYield": 237.9,
+    "medianYield": 40,
+    "avgStaticLevel": 49,
+    "medianStaticLevel": 41,
+    "wellsByDecade": {
+      "1910s": 4,
+      "1900s": 1,
+      "1950s": 8,
+      "1970s": 1,
+      "1980s": 5,
+      "1990s": 6,
+      "2000s": 21,
+      "2010s": 10
+    },
+    "wellsByUse": {
+      "Unknown": 14,
+      "Domestic": 11,
+      "Public": 3,
+      "Irrigation - Agriculture": 1,
+      "Monitoring": 24,
+      "Other": 11,
+      "Cathodic Protection": 1
+    }
+  },
+  "Chino": {
+    "county": "Riverside",
+    "count": 671,
+    "avgDepth": 242,
+    "minDepth": 7,
+    "maxDepth": 1559,
+    "medianDepth": 215,
+    "avgYield": 731.2,
+    "medianYield": 500,
+    "avgStaticLevel": 78,
+    "medianStaticLevel": 68,
+    "wellsByDecade": {
+      "1950s": 91,
+      "1960s": 125,
+      "1970s": 15,
+      "1990s": 58,
+      "2000s": 140,
+      "2010s": 133,
+      "2020s": 48,
+      "1920s": 7,
+      "1930s": 2,
+      "1940s": 7,
+      "1980s": 17
+    },
+    "wellsByUse": {
+      "Domestic": 182,
+      "Irrigation - Agriculture": 97,
+      "Other": 48,
+      "Test Well": 18,
+      "Monitoring": 213,
+      "Public": 29,
+      "Unknown": 55,
+      "Industrial": 5,
+      "Stock or Animal Watering": 2,
+      "Cathodic Protection": 4,
+      "Vapor Extraction": 13,
+      "Irrigation - Landscape": 5
+    }
+  },
+  "Crestmore": {
+    "county": "Riverside",
+    "count": 7,
+    "avgDepth": 363,
+    "minDepth": 168,
+    "maxDepth": 802,
+    "medianDepth": 350,
+    "avgYield": null,
+    "medianYield": null,
+    "avgStaticLevel": null,
+    "medianStaticLevel": null,
+    "wellsByDecade": {
+      "1920s": 1,
+      "1940s": 1,
+      "1950s": 1,
+      "1990s": 1
+    },
+    "wellsByUse": {
+      "Unknown": 6,
+      "Monitoring": 1
+    }
+  },
+  "San Jacinto": {
+    "county": "Riverside",
+    "count": 184,
+    "avgDepth": 564,
+    "minDepth": 24,
+    "maxDepth": 1810,
+    "medianDepth": 433,
+    "avgYield": 940.7,
+    "medianYield": 475,
+    "avgStaticLevel": 190,
+    "medianStaticLevel": 150,
+    "wellsByDecade": {
+      "1930s": 1,
+      "1940s": 3,
+      "1950s": 33,
+      "1960s": 26,
+      "1970s": 10,
+      "1980s": 13,
+      "1990s": 29,
+      "2000s": 25,
+      "2010s": 18,
+      "2020s": 20
+    },
+    "wellsByUse": {
+      "Unknown": 12,
+      "Domestic": 53,
+      "Irrigation - Agriculture": 69,
+      "Other": 7,
+      "Public": 22,
+      "Stock or Animal Watering": 2,
+      "Cathodic Protection": 3,
+      "Monitoring": 13,
+      "Unknown Public": 2,
+      "Irrigation - Landscape": 1
+    }
+  },
+  "Lucerne Valley": {
+    "county": "Riverside",
+    "count": 1455,
+    "avgDepth": 286,
+    "minDepth": 20,
+    "maxDepth": 1268,
+    "medianDepth": 280,
+    "avgYield": 70.3,
+    "medianYield": 25,
+    "avgStaticLevel": 149,
+    "medianStaticLevel": 140,
+    "wellsByDecade": {
+      "1920s": 11,
+      "1930s": 6,
+      "1940s": 11,
+      "1950s": 70,
+      "1960s": 54,
+      "1970s": 163,
+      "1980s": 387,
+      "1990s": 230,
+      "2000s": 262,
+      "2010s": 94,
+      "2020s": 155
+    },
+    "wellsByUse": {
+      "Unknown": 66,
+      "Domestic": 1096,
+      "Public": 160,
+      "Monitoring": 11,
+      "Other": 17,
+      "Irrigation - Agriculture": 67,
+      "Stock or Animal Watering": 1,
+      "Industrial": 21,
+      "Test Well": 3,
+      "Cathodic Protection": 13
+    }
+  },
+  "Homeland": {
+    "county": "Riverside",
+    "count": 82,
+    "avgDepth": 337,
+    "minDepth": 2,
+    "maxDepth": 1325,
+    "medianDepth": 215,
+    "avgYield": 14.6,
+    "medianYield": 6,
+    "avgStaticLevel": 100,
+    "medianStaticLevel": 50,
+    "wellsByDecade": {
+      "1940s": 6,
+      "1950s": 3,
+      "1970s": 13,
+      "1980s": 10,
+      "1990s": 9,
+      "2000s": 23,
+      "2010s": 12,
+      "2020s": 5
+    },
+    "wellsByUse": {
+      "Domestic": 74,
+      "Irrigation - Agriculture": 5,
+      "Monitoring": 1,
+      "Irrigation - Landscape": 2
+    }
+  },
+  "Mecca": {
+    "county": "Riverside",
+    "count": 168,
+    "avgDepth": 273,
+    "minDepth": 6,
+    "maxDepth": 1510,
+    "medianDepth": 27,
+    "avgYield": 997.4,
+    "medianYield": 350,
+    "avgStaticLevel": 54,
+    "medianStaticLevel": 18,
+    "wellsByDecade": {
+      "1950s": 6,
+      "1970s": 2,
+      "1980s": 12,
+      "1990s": 53,
+      "2000s": 19,
+      "2010s": 8,
+      "2020s": 66
+    },
+    "wellsByUse": {
+      "Irrigation - Agriculture": 28,
+      "Domestic": 21,
+      "Public": 6,
+      "Industrial": 2,
+      "Monitoring": 75,
+      "Unknown": 2,
+      "Other": 1,
+      "Irrigation - Landscape": 2,
+      "Sparging": 27,
+      "Vapor Extraction": 4
+    }
+  },
+  "Woodcrest": {
+    "county": "Riverside",
+    "count": 30,
+    "avgDepth": 107,
+    "minDepth": 12,
+    "maxDepth": 555,
+    "medianDepth": 61,
+    "avgYield": 18.4,
+    "medianYield": 15,
+    "avgStaticLevel": 23,
+    "medianStaticLevel": 23,
+    "wellsByDecade": {
+      "1900s": 1,
+      "1950s": 8,
+      "1970s": 1,
+      "1980s": 5,
+      "1990s": 3,
+      "2000s": 11
+    },
+    "wellsByUse": {
+      "Domestic": 13,
+      "Irrigation - Agriculture": 8,
+      "Unknown": 1,
+      "Vapor Extraction": 1,
+      "Monitoring": 3,
+      "Sparging": 4
+    }
+  },
+  "Romoland": {
+    "county": "Riverside",
+    "count": 75,
+    "avgDepth": 331,
+    "minDepth": 34,
+    "maxDepth": 905,
+    "medianDepth": 300,
+    "avgYield": 83.8,
+    "medianYield": 12,
+    "avgStaticLevel": 74,
+    "medianStaticLevel": 65,
+    "wellsByDecade": {
+      "1940s": 2,
+      "1950s": 10,
+      "1970s": 5,
+      "1980s": 10,
+      "1990s": 17,
+      "2000s": 20,
+      "2010s": 5
+    },
+    "wellsByUse": {
+      "Unknown": 7,
+      "Irrigation - Agriculture": 14,
+      "Test Well": 1,
+      "Domestic": 44,
+      "Monitoring": 7,
+      "Cathodic Protection": 1,
+      "Public": 1
+    }
+  },
+  "Coachella": {
+    "county": "Riverside",
+    "count": 284,
+    "avgDepth": 240,
+    "minDepth": 12,
+    "maxDepth": 1360,
+    "medianDepth": 40,
+    "avgYield": 911.8,
+    "medianYield": 270,
+    "avgStaticLevel": 89,
+    "medianStaticLevel": 51,
+    "wellsByDecade": {
+      "1940s": 2,
+      "1950s": 3,
+      "1960s": 1,
+      "1970s": 4,
+      "1980s": 12,
+      "1990s": 105,
+      "2000s": 66,
+      "2010s": 44,
+      "2020s": 46
+    },
+    "wellsByUse": {
+      "Public": 16,
+      "Unknown": 6,
+      "Domestic": 26,
+      "Irrigation - Agriculture": 19,
+      "Monitoring": 148,
+      "Test Well": 12,
+      "Other": 2,
+      "Industrial": 2,
+      "Cathodic Protection": 7,
+      "Sparging": 34,
+      "Vapor Extraction": 12
+    }
+  },
+  "Wildomar": {
+    "county": "Riverside",
+    "count": 222,
+    "avgDepth": 286,
+    "minDepth": 15,
+    "maxDepth": 950,
+    "medianDepth": 245,
+    "avgYield": 39.2,
+    "medianYield": 25,
+    "avgStaticLevel": 93,
+    "medianStaticLevel": 71,
+    "wellsByDecade": {
+      "1920s": 1,
+      "1940s": 1,
+      "1950s": 7,
+      "1970s": 49,
+      "1980s": 12,
+      "1990s": 27,
+      "2000s": 59,
+      "2010s": 33,
+      "2020s": 31
+    },
+    "wellsByUse": {
+      "Unknown": 9,
+      "Irrigation - Agriculture": 25,
+      "Domestic": 177,
+      "Public": 3,
+      "Monitoring": 2,
+      "Irrigation - Landscape": 6
+    }
+  },
+  "Idyllwild": {
+    "county": "Riverside",
+    "count": 116,
+    "avgDepth": 389,
+    "minDepth": 21,
+    "maxDepth": 950,
+    "medianDepth": 400,
+    "avgYield": 30.3,
+    "medianYield": 20,
+    "avgStaticLevel": 76,
+    "medianStaticLevel": 40,
+    "wellsByDecade": {
+      "1950s": 11,
+      "1960s": 2,
+      "1970s": 31,
+      "1980s": 23,
+      "1990s": 18,
+      "2000s": 18,
+      "2010s": 9,
+      "2020s": 2
+    },
+    "wellsByUse": {
+      "Public": 49,
+      "Domestic": 39,
+      "Unknown": 4,
+      "Irrigation - Agriculture": 6,
+      "Other": 8,
+      "Industrial": 2,
+      "Test Well": 2,
+      "Monitoring": 6
+    }
+  },
+  "Terwilliger": {
+    "county": "Riverside",
+    "count": 11,
+    "avgDepth": 328,
+    "minDepth": 101,
+    "maxDepth": 565,
+    "medianDepth": 336,
+    "avgYield": 36.3,
+    "medianYield": 28.5,
+    "avgStaticLevel": 148,
+    "medianStaticLevel": 125,
+    "wellsByDecade": {
+      "1970s": 1,
+      "1980s": 8,
+      "1990s": 1
+    },
+    "wellsByUse": {
+      "Domestic": 11
+    }
+  },
+  "Indian Wells": {
+    "county": "Riverside",
+    "count": 16,
+    "avgDepth": 503,
+    "minDepth": 300,
+    "maxDepth": 788,
+    "medianDepth": 506,
+    "avgYield": 1677.7,
+    "medianYield": 1725,
+    "avgStaticLevel": 184,
+    "medianStaticLevel": 193,
+    "wellsByDecade": {
+      "1940s": 1,
+      "1970s": 1,
+      "1980s": 1,
+      "1990s": 1,
+      "2000s": 8,
+      "2010s": 1,
+      "2020s": 2
+    },
+    "wellsByUse": {
+      "Cathodic Protection": 4,
+      "Unknown": 1,
+      "Public": 1,
+      "Industrial": 1,
+      "Irrigation - Agriculture": 7,
+      "Irrigation - Landscape": 2
+    }
+  },
+  "Banning": {
+    "county": "Riverside",
+    "count": 112,
+    "avgDepth": 405,
+    "minDepth": 15,
+    "maxDepth": 1152,
+    "medianDepth": 378,
+    "avgYield": 326.7,
+    "medianYield": 20,
+    "avgStaticLevel": 160,
+    "medianStaticLevel": 114,
+    "wellsByDecade": {
+      "1940s": 1,
+      "1950s": 2,
+      "1960s": 4,
+      "1970s": 12,
+      "1980s": 5,
+      "1990s": 20,
+      "2000s": 23,
+      "2010s": 9,
+      "2020s": 35
+    },
+    "wellsByUse": {
+      "Unknown": 1,
+      "Domestic": 46,
+      "Irrigation - Agriculture": 8,
+      "Industrial": 3,
+      "Public": 22,
+      "Monitoring": 10,
+      "Vapor Extraction": 15,
+      "Injection": 6,
+      "Destruction": 1
+    }
+  },
+  "Colton": {
+    "county": "Riverside",
+    "count": 498,
+    "avgDepth": 226,
+    "minDepth": 7,
+    "maxDepth": 1300,
+    "medianDepth": 153,
+    "avgYield": 496.2,
+    "medianYield": 20,
+    "avgStaticLevel": 114,
+    "medianStaticLevel": 93,
+    "wellsByDecade": {
+      "1920s": 17,
+      "1950s": 27,
+      "1960s": 21,
+      "1970s": 21,
+      "1980s": 21,
+      "1990s": 104,
+      "2000s": 138,
+      "2010s": 107,
+      "2020s": 20,
+      "1910s": 8,
+      "1930s": 2,
+      "1940s": 5
+    },
+    "wellsByUse": {
+      "Unknown": 68,
+      "Domestic": 177,
+      "Irrigation - Agriculture": 18,
+      "Industrial": 10,
+      "Public": 13,
+      "Monitoring": 137,
+      "Test Well": 16,
+      "Other": 46,
+      "Cathodic Protection": 6,
+      "Vapor Extraction": 6,
+      "Unknown Public": 1
+    }
+  },
+  "West Riverside": {
+    "county": "Riverside",
+    "count": 7,
+    "avgDepth": 102,
+    "minDepth": 50,
+    "maxDepth": 172,
+    "medianDepth": 100,
+    "avgYield": 1200,
+    "medianYield": 1200,
+    "avgStaticLevel": null,
+    "medianStaticLevel": null,
+    "wellsByDecade": {
+      "1900s": 1,
+      "1940s": 1,
+      "1950s": 5
+    },
+    "wellsByUse": {
+      "Unknown": 2,
+      "Irrigation - Agriculture": 2,
+      "Domestic": 2,
+      "Other": 1
+    }
+  },
+  "Yucaipa": {
+    "county": "Riverside",
+    "count": 277,
+    "avgDepth": 354,
+    "minDepth": 14,
+    "maxDepth": 1710,
+    "medianDepth": 298,
+    "avgYield": 263.4,
+    "medianYield": 41,
+    "avgStaticLevel": 160,
+    "medianStaticLevel": 142,
+    "wellsByDecade": {
+      "1910s": 6,
+      "1920s": 15,
+      "1930s": 2,
+      "1950s": 1,
+      "1960s": 14,
+      "1970s": 11,
+      "1980s": 32,
+      "1990s": 44,
+      "2000s": 74,
+      "2010s": 55,
+      "2020s": 14
+    },
+    "wellsByUse": {
+      "Unknown": 30,
+      "Domestic": 97,
+      "Irrigation - Agriculture": 4,
+      "Industrial": 2,
+      "Public": 28,
+      "Other": 9,
+      "Cathodic Protection": 4,
+      "Monitoring": 76,
+      "Test Well": 4,
+      "Vapor Extraction": 22,
+      "Irrigation - Landscape": 1
+    }
+  },
+  "Grand Terrace": {
+    "county": "Riverside",
+    "count": 26,
+    "avgDepth": 232,
+    "minDepth": 104,
+    "maxDepth": 610,
+    "medianDepth": 174,
+    "avgYield": 4000,
+    "medianYield": 4000,
+    "avgStaticLevel": 135,
+    "medianStaticLevel": 140,
+    "wellsByDecade": {
+      "1920s": 5,
+      "1950s": 4,
+      "2000s": 13,
+      "2020s": 3
+    },
+    "wellsByUse": {
+      "Unknown": 6,
+      "Domestic": 4,
+      "Public": 1,
+      "Monitoring": 12,
+      "Cathodic Protection": 2,
+      "Irrigation - Landscape": 1
+    }
+  },
+  "Pedley": {
+    "county": "Riverside",
+    "count": 21,
+    "avgDepth": 110,
+    "minDepth": 33,
+    "maxDepth": 375,
+    "medianDepth": 89,
+    "avgYield": 103.3,
+    "medianYield": 60,
+    "avgStaticLevel": 42,
+    "medianStaticLevel": 34,
+    "wellsByDecade": {
+      "1920s": 1,
+      "1950s": 7,
+      "1960s": 1,
+      "1970s": 2,
+      "1980s": 2,
+      "1990s": 4,
+      "2010s": 4
+    },
+    "wellsByUse": {
+      "Unknown": 1,
+      "Irrigation - Agriculture": 4,
+      "Domestic": 10,
+      "Monitoring": 6
+    }
+  },
+  "Highgrove": {
+    "county": "Riverside",
+    "count": 19,
+    "avgDepth": 209,
+    "minDepth": 50,
+    "maxDepth": 494,
+    "medianDepth": 122,
+    "avgYield": 2262.5,
+    "medianYield": 2200,
+    "avgStaticLevel": 93,
+    "medianStaticLevel": 83,
+    "wellsByDecade": {
+      "1920s": 2,
+      "1930s": 3,
+      "1950s": 2,
+      "1960s": 2,
+      "2000s": 9,
+      "2020s": 1
+    },
+    "wellsByUse": {
+      "Public": 1,
+      "Unknown": 4,
+      "Industrial": 2,
+      "Other": 8,
+      "Domestic": 1,
+      "Monitoring": 3
+    }
+  },
+  "Desert Center": {
+    "county": "Riverside",
+    "count": 71,
+    "avgDepth": 540,
+    "minDepth": 19,
+    "maxDepth": 1545,
+    "medianDepth": 500,
+    "avgYield": 492.3,
+    "medianYield": 150,
+    "avgStaticLevel": 209,
+    "medianStaticLevel": 180,
+    "wellsByDecade": {
+      "1930s": 1,
+      "1970s": 4,
+      "1980s": 5,
+      "1990s": 25,
+      "2000s": 11,
+      "2010s": 16,
+      "2020s": 9
+    },
+    "wellsByUse": {
+      "Unknown": 2,
+      "Domestic": 9,
+      "Irrigation - Agriculture": 17,
+      "Cathodic Protection": 15,
+      "Monitoring": 18,
+      "Test Well": 3,
+      "Public": 3,
+      "Other": 2,
+      "Industrial": 2
+    }
+  },
+  "Cathedral City": {
+    "county": "Riverside",
+    "count": 52,
+    "avgDepth": 465,
+    "minDepth": 25,
+    "maxDepth": 1290,
+    "medianDepth": 258,
+    "avgYield": 1679.3,
+    "medianYield": 1550,
+    "avgStaticLevel": 214,
+    "medianStaticLevel": 206,
+    "wellsByDecade": {
+      "1940s": 2,
+      "1950s": 7,
+      "1980s": 2,
+      "1990s": 15,
+      "2000s": 20,
+      "2010s": 2,
+      "2020s": 4
+    },
+    "wellsByUse": {
+      "Unknown": 2,
+      "Domestic": 10,
+      "Irrigation - Agriculture": 5,
+      "Public": 14,
+      "Cathodic Protection": 1,
+      "Monitoring": 10,
+      "Vapor Extraction": 10
+    }
+  },
+  "Palm Springs": {
+    "county": "Riverside",
+    "count": 78,
+    "avgDepth": 412,
+    "minDepth": 44,
+    "maxDepth": 1100,
+    "medianDepth": 289,
+    "avgYield": 1844.2,
+    "medianYield": 1821,
+    "avgStaticLevel": 226,
+    "medianStaticLevel": 224,
+    "wellsByDecade": {
+      "1940s": 1,
+      "1950s": 2,
+      "1960s": 3,
+      "1970s": 3,
+      "1980s": 5,
+      "1990s": 6,
+      "2000s": 44,
+      "2010s": 7,
+      "2020s": 7
+    },
+    "wellsByUse": {
+      "Unknown": 1,
+      "Other": 4,
+      "Domestic": 3,
+      "Irrigation - Agriculture": 11,
+      "Public": 10,
+      "Monitoring": 37,
+      "Cathodic Protection": 9,
+      "Vapor Extraction": 1,
+      "Sparging": 2
+    }
+  },
+  "Thousand Palms": {
+    "county": "Riverside",
+    "count": 43,
+    "avgDepth": 531,
+    "minDepth": 100,
+    "maxDepth": 1310,
+    "medianDepth": 500,
+    "avgYield": 481.3,
+    "medianYield": 50,
+    "avgStaticLevel": 264,
+    "medianStaticLevel": 246,
+    "wellsByDecade": {
+      "1940s": 1,
+      "1960s": 1,
+      "1970s": 1,
+      "1980s": 5,
+      "1990s": 7,
+      "2000s": 16,
+      "2010s": 9,
+      "2020s": 3
+    },
+    "wellsByUse": {
+      "Unknown": 1,
+      "Irrigation - Agriculture": 7,
+      "Domestic": 20,
+      "Public": 4,
+      "Industrial": 4,
+      "Cathodic Protection": 4,
+      "Monitoring": 3
+    }
+  },
+  "Mountain Center": {
+    "county": "Riverside",
+    "count": 201,
+    "avgDepth": 489,
+    "minDepth": 83,
+    "maxDepth": 1500,
+    "medianDepth": 449,
+    "avgYield": 19.8,
+    "medianYield": 6,
+    "avgStaticLevel": 172,
+    "medianStaticLevel": 132,
+    "wellsByDecade": {
+      "1940s": 1,
+      "1950s": 2,
+      "1960s": 5,
+      "1970s": 27,
+      "1980s": 29,
+      "1990s": 23,
+      "2000s": 58,
+      "2010s": 24,
+      "2020s": 32
+    },
+    "wellsByUse": {
+      "Unknown": 3,
+      "Domestic": 163,
+      "Irrigation - Agriculture": 17,
+      "Other": 1,
+      "Test Well": 3,
+      "Public": 13,
+      "Irrigation - Landscape": 1
+    }
+  },
+  "North Palm Springs": {
+    "county": "Riverside",
+    "count": 13,
+    "avgDepth": 819,
+    "minDepth": 300,
+    "maxDepth": 1200,
+    "medianDepth": 970,
+    "avgYield": 1753,
+    "medianYield": 1850,
+    "avgStaticLevel": 221,
+    "medianStaticLevel": 241,
+    "wellsByDecade": {
+      "1940s": 1,
+      "1980s": 1,
+      "1990s": 7,
+      "2000s": 4
+    },
+    "wellsByUse": {
+      "Domestic": 4,
+      "Public": 6,
+      "Monitoring": 1,
+      "Unknown": 1,
+      "Industrial": 1
+    }
+  },
+  "La Quinta": {
+    "county": "Riverside",
+    "count": 85,
+    "avgDepth": 728,
+    "minDepth": 140,
+    "maxDepth": 1500,
+    "medianDepth": 700,
+    "avgYield": 1838.6,
+    "medianYield": 2000,
+    "avgStaticLevel": 126,
+    "medianStaticLevel": 129,
+    "wellsByDecade": {
+      "1950s": 2,
+      "1960s": 1,
+      "1970s": 4,
+      "1980s": 12,
+      "1990s": 25,
+      "2000s": 34,
+      "2010s": 1,
+      "2020s": 6
+    },
+    "wellsByUse": {
+      "Domestic": 20,
+      "Irrigation - Agriculture": 30,
+      "Irrigation - Landscape": 3,
+      "Public": 23,
+      "Unknown": 5,
+      "Cathodic Protection": 2,
+      "Monitoring": 2
+    }
+  },
+  "Palm Desert": {
+    "county": "Riverside",
+    "count": 128,
+    "avgDepth": 724,
+    "minDepth": 25,
+    "maxDepth": 1420,
+    "medianDepth": 718,
+    "avgYield": 1988.6,
+    "medianYield": 2100,
+    "avgStaticLevel": 219,
+    "medianStaticLevel": 200,
+    "wellsByDecade": {
+      "1940s": 1,
+      "1950s": 5,
+      "1960s": 2,
+      "1970s": 13,
+      "1980s": 17,
+      "1990s": 38,
+      "2000s": 38,
+      "2010s": 9,
+      "2020s": 5
+    },
+    "wellsByUse": {
+      "Domestic": 12,
+      "Irrigation - Agriculture": 35,
+      "Public": 41,
+      "Unknown": 2,
+      "Cathodic Protection": 10,
+      "Other": 1,
+      "Monitoring": 16,
+      "Vapor Extraction": 3,
+      "Industrial": 2,
+      "Remediation": 1,
+      "Irrigation - Landscape": 4,
+      "Unknown Irrigation - Landscape": 1
+    }
+  },
+  "Oasis": {
+    "county": "Riverside",
+    "count": 36,
+    "avgDepth": 538,
+    "minDepth": 29,
+    "maxDepth": 1380,
+    "medianDepth": 500,
+    "avgYield": 659.8,
+    "medianYield": 200,
+    "avgStaticLevel": 123,
+    "medianStaticLevel": 120,
+    "wellsByDecade": {
+      "1950s": 1,
+      "1970s": 1,
+      "1990s": 17,
+      "2000s": 16,
+      "2010s": 1
+    },
+    "wellsByUse": {
+      "Domestic": 7,
+      "Irrigation - Agriculture": 11,
+      "Industrial": 1,
+      "Public": 2,
+      "Monitoring": 14,
+      "Unknown": 1
+    }
+  },
+  "Cucamonga": {
+    "county": "Riverside",
+    "count": 7,
+    "avgDepth": 1207,
+    "minDepth": 890,
+    "maxDepth": 1320,
+    "medianDepth": 1246,
+    "avgYield": 3335.7,
+    "medianYield": 2975,
+    "avgStaticLevel": null,
+    "medianStaticLevel": null,
+    "wellsByDecade": {
+      "1950s": 4,
+      "1960s": 1,
+      "1980s": 2
+    },
+    "wellsByUse": {
+      "Other": 5,
+      "Public": 2
+    }
+  },
+  "Whitewater": {
+    "county": "Riverside",
+    "count": 11,
+    "avgDepth": 363,
+    "minDepth": 35,
+    "maxDepth": 909,
+    "medianDepth": 156,
+    "avgYield": 561.4,
+    "medianYield": 45,
+    "avgStaticLevel": 158,
+    "medianStaticLevel": 148,
+    "wellsByDecade": {
+      "1950s": 1,
+      "1960s": 1,
+      "1970s": 4,
+      "2000s": 3,
+      "2020s": 2
+    },
+    "wellsByUse": {
+      "Public": 1,
+      "Domestic": 7,
+      "Stock or Animal Watering": 2,
+      "Unknown": 1
+    }
+  },
+  "Rubidoux": {
+    "county": "Riverside",
+    "count": 47,
+    "avgDepth": 119,
+    "minDepth": 40,
+    "maxDepth": 711,
+    "medianDepth": 95,
+    "avgYield": 866.3,
+    "medianYield": 200,
+    "avgStaticLevel": 72,
+    "medianStaticLevel": 90,
+    "wellsByDecade": {
+      "1950s": 3,
+      "1960s": 3,
+      "1970s": 2,
+      "1990s": 11,
+      "2000s": 28
+    },
+    "wellsByUse": {
+      "Domestic": 10,
+      "Industrial": 2,
+      "Monitoring": 27,
+      "Irrigation - Agriculture": 1,
+      "Public": 4,
+      "Cathodic Protection": 2,
+      "Test Well": 1
+    }
+  },
+  "Sky Valley": {
+    "county": "Riverside",
+    "count": 8,
+    "avgDepth": 486,
+    "minDepth": 332,
+    "maxDepth": 600,
+    "medianDepth": 500,
+    "avgYield": 30.8,
+    "medianYield": 22.5,
+    "avgStaticLevel": 354,
+    "medianStaticLevel": 390,
+    "wellsByDecade": {
+      "1950s": 1,
+      "1990s": 2,
+      "2000s": 3,
+      "2010s": 2
+    },
+    "wellsByUse": {
+      "Domestic": 6,
+      "Irrigation - Agriculture": 2
+    }
+  },
+  "Rancho Mirage": {
+    "county": "Riverside",
+    "count": 48,
+    "avgDepth": 716,
+    "minDepth": 300,
+    "maxDepth": 1360,
+    "medianDepth": 606,
+    "avgYield": 1527.6,
+    "medianYield": 1650,
+    "avgStaticLevel": 225,
+    "medianStaticLevel": 234,
+    "wellsByDecade": {
+      "1950s": 1,
+      "1960s": 1,
+      "1970s": 3,
+      "1980s": 3,
+      "1990s": 16,
+      "2000s": 12,
+      "2010s": 6,
+      "2020s": 6
+    },
+    "wellsByUse": {
+      "Domestic": 11,
+      "Unknown": 1,
+      "Irrigation - Agriculture": 18,
+      "Other": 2,
+      "Public": 7,
+      "Cathodic Protection": 2,
+      "Industrial": 2,
+      "Monitoring": 1,
+      "Irrigation - Landscape": 4
+    }
+  },
+  "Cabazon": {
+    "county": "Riverside",
+    "count": 24,
+    "avgDepth": 348,
+    "minDepth": 10,
+    "maxDepth": 1300,
+    "medianDepth": 183,
+    "avgYield": 1064.2,
+    "medianYield": 913.5,
+    "avgStaticLevel": 239,
+    "medianStaticLevel": 66,
+    "wellsByDecade": {
+      "1960s": 1,
+      "1990s": 10,
+      "2000s": 10,
+      "2020s": 3
+    },
+    "wellsByUse": {
+      "Domestic": 3,
+      "Unknown": 1,
+      "Other": 7,
+      "Public": 4,
+      "Industrial": 1,
+      "Monitoring": 5,
+      "Destruction": 3
+    }
+  },
+  "Calimesa": {
+    "county": "Riverside",
+    "count": 27,
+    "avgDepth": 279,
+    "minDepth": 15,
+    "maxDepth": 800,
+    "medianDepth": 250,
+    "avgYield": 488.3,
+    "medianYield": 120,
+    "avgStaticLevel": 122,
+    "medianStaticLevel": 96,
+    "wellsByDecade": {
+      "1960s": 1,
+      "1970s": 2,
+      "1980s": 5,
+      "1990s": 4,
+      "2000s": 10,
+      "2010s": 4,
+      "2020s": 1
+    },
+    "wellsByUse": {
+      "Domestic": 10,
+      "Irrigation - Agriculture": 4,
+      "Public": 3,
+      "Other": 2,
+      "Vapor Extraction": 4,
+      "Monitoring": 4
+    }
+  },
+  "Joshua Tree": {
+    "county": "Riverside",
+    "count": 98,
+    "avgDepth": 483,
+    "minDepth": 32,
+    "maxDepth": 860,
+    "medianDepth": 465,
+    "avgYield": 132.5,
+    "medianYield": 10,
+    "avgStaticLevel": 331,
+    "medianStaticLevel": 293,
+    "wellsByDecade": {
+      "1970s": 9,
+      "1950s": 3,
+      "1980s": 7,
+      "1990s": 9,
+      "2000s": 22,
+      "2010s": 11,
+      "2020s": 34
+    },
+    "wellsByUse": {
+      "Domestic": 83,
+      "Unknown": 3,
+      "Irrigation - Agriculture": 2,
+      "Public": 9,
+      "Monitoring": 1
+    }
+  },
+  "Pine Cove": {
+    "county": "Riverside",
+    "count": 17,
+    "avgDepth": 406,
+    "minDepth": 155,
+    "maxDepth": 800,
+    "medianDepth": 345,
+    "avgYield": 42,
+    "medianYield": 10,
+    "avgStaticLevel": null,
+    "medianStaticLevel": null,
+    "wellsByDecade": {
+      "1970s": 8,
+      "1980s": 8,
+      "1990s": 1
+    },
+    "wellsByUse": {
+      "Public": 3,
+      "Domestic": 11,
+      "Irrigation - Agriculture": 3
+    }
+  },
+  "El Cerrito": {
+    "county": "Riverside",
+    "count": 8,
+    "avgDepth": 161,
+    "minDepth": 35,
+    "maxDepth": 340,
+    "medianDepth": 138,
+    "avgYield": 16.7,
+    "medianYield": 5,
+    "avgStaticLevel": null,
+    "medianStaticLevel": null,
+    "wellsByDecade": {
+      "1970s": 2,
+      "1980s": 4,
+      "1990s": 1,
+      "2020s": 1
+    },
+    "wellsByUse": {
+      "Domestic": 7,
+      "Unknown": 1
+    }
+  },
+  "Pinyon Crest": {
+    "county": "Riverside",
+    "count": 5,
+    "avgDepth": 428,
+    "minDepth": 50,
+    "maxDepth": 950,
+    "medianDepth": 300,
+    "avgYield": 8.2,
+    "medianYield": 4,
+    "avgStaticLevel": 100,
+    "medianStaticLevel": 90,
+    "wellsByDecade": {
+      "1970s": 1,
+      "2000s": 4
+    },
+    "wellsByUse": {
+      "Domestic": 5
+    }
+  },
+  "Oak Hills": {
+    "county": "Riverside",
+    "count": 8,
+    "avgDepth": 604,
+    "minDepth": 173,
+    "maxDepth": 1000,
+    "medianDepth": 656,
+    "avgYield": 4.8,
+    "medianYield": 3,
+    "avgStaticLevel": 630,
+    "medianStaticLevel": 630,
+    "wellsByDecade": {
+      "1970s": 3,
+      "1990s": 1,
+      "2000s": 2,
+      "2010s": 1,
+      "2020s": 1
+    },
+    "wellsByUse": {
+      "Domestic": 8
+    }
+  },
+  "Mead Valley": {
+    "county": "Riverside",
+    "count": 14,
+    "avgDepth": 248,
+    "minDepth": 100,
+    "maxDepth": 800,
+    "medianDepth": 193,
+    "avgYield": 15.1,
+    "medianYield": 8,
+    "avgStaticLevel": 42,
+    "medianStaticLevel": 24,
+    "wellsByDecade": {
+      "1970s": 1,
+      "1990s": 7,
+      "2000s": 4,
+      "2020s": 2
+    },
+    "wellsByUse": {
+      "Domestic": 12,
+      "Irrigation - Agriculture": 2
+    }
+  },
+  "Eagle Mountain": {
+    "county": "Riverside",
+    "count": 18,
+    "avgDepth": 935,
+    "minDepth": 500,
+    "maxDepth": 1480,
+    "medianDepth": 943,
+    "avgYield": 320.6,
+    "medianYield": 3,
+    "avgStaticLevel": 238,
+    "medianStaticLevel": 238,
+    "wellsByDecade": {
+      "1970s": 1,
+      "1990s": 17
+    },
+    "wellsByUse": {
+      "Industrial": 1,
+      "Monitoring": 16,
+      "Public": 1
+    }
+  },
+  "Gavilan Hills": {
+    "county": "Riverside",
+    "count": 25,
+    "avgDepth": 344,
+    "minDepth": 100,
+    "maxDepth": 1100,
+    "medianDepth": 300,
+    "avgYield": 22.2,
+    "medianYield": 14,
+    "avgStaticLevel": 30,
+    "medianStaticLevel": 20,
+    "wellsByDecade": {
+      "1970s": 1,
+      "1980s": 2,
+      "1990s": 7,
+      "2000s": 15
+    },
+    "wellsByUse": {
+      "Domestic": 14,
+      "Irrigation - Agriculture": 10,
+      "Unknown": 1
+    }
+  },
+  "Lake Riverside": {
+    "county": "Riverside",
+    "count": 5,
+    "avgDepth": 340,
+    "minDepth": 95,
+    "maxDepth": 600,
+    "medianDepth": 300,
+    "avgYield": 24.2,
+    "medianYield": 20,
+    "avgStaticLevel": 200,
+    "medianStaticLevel": 200,
+    "wellsByDecade": {
+      "1970s": 2,
+      "1980s": 2,
+      "1990s": 1
+    },
+    "wellsByUse": {
+      "Domestic": 5
+    }
+  },
+  "Garner Valley": {
+    "county": "Riverside",
+    "count": 7,
+    "avgDepth": 376,
+    "minDepth": 185,
+    "maxDepth": 500,
+    "medianDepth": 350,
+    "avgYield": 51.7,
+    "medianYield": 50,
+    "avgStaticLevel": 40,
+    "medianStaticLevel": 40,
+    "wellsByDecade": {
+      "1980s": 3,
+      "1990s": 2,
+      "2000s": 2
+    },
+    "wellsByUse": {
+      "Domestic": 7
+    }
+  },
+  "Juniper Flats": {
+    "county": "Riverside",
+    "count": 6,
+    "avgDepth": 382,
+    "minDepth": 129,
+    "maxDepth": 950,
+    "medianDepth": 340,
+    "avgYield": 9,
+    "medianYield": 8,
+    "avgStaticLevel": 112,
+    "medianStaticLevel": 110,
+    "wellsByDecade": {
+      "1980s": 3,
+      "2000s": 3
+    },
+    "wellsByUse": {
+      "Domestic": 6
+    }
+  },
+  "Daggett": {
+    "county": "Riverside",
+    "count": 144,
+    "avgDepth": 269,
+    "minDepth": 66,
+    "maxDepth": 580,
+    "medianDepth": 250,
+    "avgYield": 438.1,
+    "medianYield": 90,
+    "avgStaticLevel": 131,
+    "medianStaticLevel": 130,
+    "wellsByDecade": {
+      "1980s": 38,
+      "1930s": 2,
+      "1940s": 7,
+      "1950s": 11,
+      "1960s": 4,
+      "1970s": 20,
+      "1990s": 20,
+      "2000s": 21,
+      "2010s": 17,
+      "2020s": 3
+    },
+    "wellsByUse": {
+      "Domestic": 44,
+      "Unknown": 17,
+      "Irrigation - Agriculture": 13,
+      "Industrial": 14,
+      "Public": 20,
+      "Other": 2,
+      "Test Well": 5,
+      "Monitoring": 20,
+      "Cathodic Protection": 1,
+      "Sparging": 8
+    }
+  },
+  "Alpine Village": {
+    "county": "Riverside",
+    "count": 5,
+    "avgDepth": 356,
+    "minDepth": 130,
+    "maxDepth": 850,
+    "medianDepth": 250,
+    "avgYield": 11.8,
+    "medianYield": 12,
+    "avgStaticLevel": 240,
+    "medianStaticLevel": 50,
+    "wellsByDecade": {
+      "1980s": 3,
+      "1990s": 1,
+      "2000s": 1
+    },
+    "wellsByUse": {
+      "Domestic": 5
+    }
+  },
+  "Wilson Valley": {
+    "county": "Riverside",
+    "count": 8,
+    "avgDepth": 374,
+    "minDepth": 180,
+    "maxDepth": 700,
+    "medianDepth": 393,
+    "avgYield": 11.3,
+    "medianYield": 8,
+    "avgStaticLevel": 512,
+    "medianStaticLevel": 512,
+    "wellsByDecade": {
+      "1980s": 5,
+      "1990s": 2,
+      "2000s": 1
+    },
+    "wellsByUse": {
+      "Domestic": 8
+    }
+  },
+  "March Afb": {
+    "county": "Riverside",
+    "count": 8,
+    "avgDepth": 46,
+    "minDepth": 19,
+    "maxDepth": 120,
+    "medianDepth": 31,
+    "avgYield": null,
+    "medianYield": null,
+    "avgStaticLevel": 17,
+    "medianStaticLevel": 15,
+    "wellsByDecade": {
+      "1980s": 1,
+      "1990s": 2,
+      "2010s": 4,
+      "2020s": 1
+    },
+    "wellsByUse": {
+      "Other": 1,
+      "Monitoring": 7
+    }
+  },
+  "Pinyon": {
+    "county": "Riverside",
+    "count": 15,
+    "avgDepth": 507,
+    "minDepth": 220,
+    "maxDepth": 800,
+    "medianDepth": 500,
+    "avgYield": 7.9,
+    "medianYield": 9,
+    "avgStaticLevel": 126,
+    "medianStaticLevel": 130,
+    "wellsByDecade": {
+      "1980s": 2,
+      "1990s": 4,
+      "2000s": 8,
+      "2020s": 1
+    },
+    "wellsByUse": {
+      "Domestic": 14,
+      "Other": 1
+    }
+  },
+  "Crestline": {
+    "county": "Riverside",
+    "count": 65,
+    "avgDepth": 280,
+    "minDepth": 11,
+    "maxDepth": 1000,
+    "medianDepth": 280,
+    "avgYield": 15.2,
+    "medianYield": 5,
+    "avgStaticLevel": 81,
+    "medianStaticLevel": 39,
+    "wellsByDecade": {
+      "1980s": 2,
+      "1970s": 2,
+      "1990s": 21,
+      "2000s": 25,
+      "2010s": 11,
+      "2020s": 4
+    },
+    "wellsByUse": {
+      "Domestic": 28,
+      "Test Well": 1,
+      "Monitoring": 12,
+      "Other": 3,
+      "Public": 11,
+      "Industrial": 2,
+      "Sparging": 2,
+      "Injection": 2,
+      "Unknown": 4
+    }
+  },
+  "Lake Mathews": {
+    "county": "Riverside",
+    "count": 14,
+    "avgDepth": 382,
+    "minDepth": 100,
+    "maxDepth": 805,
+    "medianDepth": 330,
+    "avgYield": 14.4,
+    "medianYield": 9.5,
+    "avgStaticLevel": 52,
+    "medianStaticLevel": 49,
+    "wellsByDecade": {
+      "1980s": 1,
+      "1990s": 5,
+      "2000s": 7,
+      "2020s": 1
+    },
+    "wellsByUse": {
+      "Domestic": 12,
+      "Irrigation - Agriculture": 2
+    }
+  },
+  "North Shore": {
+    "county": "Riverside",
+    "count": 10,
+    "avgDepth": 379,
+    "minDepth": 95,
+    "maxDepth": 600,
+    "medianDepth": 400,
+    "avgYield": 175.8,
+    "medianYield": 100,
+    "avgStaticLevel": 129,
+    "medianStaticLevel": 145,
+    "wellsByDecade": {
+      "1990s": 4,
+      "2000s": 4,
+      "2010s": 1,
+      "2020s": 1
+    },
+    "wellsByUse": {
+      "Irrigation - Agriculture": 6,
+      "Domestic": 4
+    }
+  },
+  "Bloomington": {
+    "county": "Riverside",
+    "count": 95,
+    "avgDepth": 212,
+    "minDepth": 80,
+    "maxDepth": 750,
+    "medianDepth": 154,
+    "avgYield": 733,
+    "medianYield": 415,
+    "avgStaticLevel": 164,
+    "medianStaticLevel": 102,
+    "wellsByDecade": {
+      "1990s": 8,
+      "2000s": 32,
+      "1950s": 2,
+      "1960s": 3,
+      "1980s": 4,
+      "2010s": 26,
+      "2020s": 20
+    },
+    "wellsByUse": {
+      "Domestic": 7,
+      "Test Well": 4,
+      "Irrigation - Agriculture": 5,
+      "Other": 2,
+      "Monitoring": 62,
+      "Public": 2,
+      "Industrial": 1,
+      "Vapor Extraction": 4,
+      "Cathodic Protection": 5,
+      "Unknown": 3
+    }
+  },
+  "Fontana": {
+    "county": "Riverside",
+    "count": 132,
+    "avgDepth": 449,
+    "minDepth": 15,
+    "maxDepth": 1225,
+    "medianDepth": 398,
+    "avgYield": 1783.2,
+    "medianYield": 2050,
+    "avgStaticLevel": 394,
+    "medianStaticLevel": 391,
+    "wellsByDecade": {
+      "1990s": 20,
+      "2000s": 50,
+      "1920s": 1,
+      "1930s": 1,
+      "1950s": 3,
+      "1960s": 1,
+      "1970s": 3,
+      "1980s": 11,
+      "2010s": 16,
+      "2020s": 25
+    },
+    "wellsByUse": {
+      "Industrial": 4,
+      "Irrigation - Agriculture": 7,
+      "Monitoring": 38,
+      "Domestic": 8,
+      "Other": 9,
+      "Unknown": 12,
+      "Test Well": 4,
+      "Public": 28,
+      "Cathodic Protection": 4,
+      "Vapor Extraction": 15,
+      "Destruction": 3
+    }
+  },
+  "Amboy": {
+    "county": "Riverside",
+    "count": 27,
+    "avgDepth": 390,
+    "minDepth": 57,
+    "maxDepth": 1385,
+    "medianDepth": 340,
+    "avgYield": 99.7,
+    "medianYield": 24,
+    "avgStaticLevel": 73,
+    "medianStaticLevel": 51,
+    "wellsByDecade": {
+      "1990s": 2,
+      "1960s": 1,
+      "1970s": 4,
+      "1980s": 1,
+      "2000s": 11,
+      "2010s": 8
+    },
+    "wellsByUse": {
+      "Cathodic Protection": 6,
+      "Industrial": 4,
+      "Domestic": 3,
+      "Monitoring": 11,
+      "Test Well": 1,
+      "Unknown": 1,
+      "Other": 1
+    }
+  },
+  "Rancho Cucamonga": {
+    "county": "Riverside",
+    "count": 47,
+    "avgDepth": 342,
+    "minDepth": 15,
+    "maxDepth": 1190,
+    "medianDepth": 200,
+    "avgYield": 1589.9,
+    "medianYield": 1715,
+    "avgStaticLevel": 351,
+    "medianStaticLevel": 439,
+    "wellsByDecade": {
+      "2000s": 18,
+      "2020s": 22,
+      "1980s": 2,
+      "2010s": 5
+    },
+    "wellsByUse": {
+      "Cathodic Protection": 6,
+      "Domestic": 3,
+      "Public": 6,
+      "Test Well": 1,
+      "Monitoring": 10,
+      "Vapor Extraction": 12,
+      "Industrial": 1,
+      "Irrigation - Agriculture": 1,
+      "Other": 2,
+      "Unknown": 5
+    }
+  },
+  "Landers": {
+    "county": "Riverside",
+    "count": 89,
+    "avgDepth": 385,
+    "minDepth": 50,
+    "maxDepth": 785,
+    "medianDepth": 390,
+    "avgYield": 108.7,
+    "medianYield": 10,
+    "avgStaticLevel": 289,
+    "medianStaticLevel": 265,
+    "wellsByDecade": {
+      "2000s": 17,
+      "1950s": 2,
+      "1960s": 5,
+      "1970s": 14,
+      "1980s": 11,
+      "1990s": 23,
+      "2010s": 5,
+      "2020s": 12
+    },
+    "wellsByUse": {
+      "Domestic": 57,
+      "Public": 10,
+      "Test Well": 3,
+      "Monitoring": 18,
+      "Unknown": 1
+    }
+  },
+  "Baldwin": {
+    "county": "Riverside",
+    "count": 18,
+    "avgDepth": 190,
+    "minDepth": 150,
+    "maxDepth": 300,
+    "medianDepth": 150,
+    "avgYield": 18.6,
+    "medianYield": 15,
+    "avgStaticLevel": 52,
+    "medianStaticLevel": 30,
+    "wellsByDecade": {
+      "2000s": 17,
+      "1990s": 1
+    },
+    "wellsByUse": {
+      "Domestic": 18
+    }
+  },
+  "Chuckwalla Valley": {
+    "county": "Riverside",
+    "count": 8,
+    "avgDepth": 440,
+    "minDepth": 370,
+    "maxDepth": 602,
+    "medianDepth": 424,
+    "avgYield": null,
+    "medianYield": null,
+    "avgStaticLevel": 271,
+    "medianStaticLevel": 271,
+    "wellsByDecade": {
+      "2000s": 8
+    },
+    "wellsByUse": {
+      "Monitoring": 8
+    }
+  },
+  "Ripley": {
+    "county": "Riverside",
+    "count": 5,
+    "avgDepth": 78,
+    "minDepth": 19,
+    "maxDepth": 316,
+    "medianDepth": 19,
+    "avgYield": null,
+    "medianYield": null,
+    "avgStaticLevel": null,
+    "medianStaticLevel": null,
+    "wellsByDecade": {
+      "2000s": 4,
+      "2020s": 1
+    },
+    "wellsByUse": {
+      "Monitoring": 4,
+      "Unknown": 1
+    }
+  },
+  "Loma Linda": {
+    "county": "Riverside",
+    "count": 66,
+    "avgDepth": 475,
+    "minDepth": 38,
+    "maxDepth": 1590,
+    "medianDepth": 400,
+    "avgYield": 1784.8,
+    "medianYield": 2000,
+    "avgStaticLevel": 172,
+    "medianStaticLevel": 126,
+    "wellsByDecade": {
+      "2000s": 10,
+      "1910s": 2,
+      "1920s": 2,
+      "1950s": 3,
+      "1960s": 3,
+      "1980s": 3,
+      "1990s": 23,
+      "2010s": 9,
+      "2020s": 5
+    },
+    "wellsByUse": {
+      "Public": 10,
+      "Unknown": 16,
+      "Irrigation - Agriculture": 7,
+      "Domestic": 7,
+      "Monitoring": 21,
+      "Other": 1,
+      "Cathodic Protection": 3,
+      "Industrial": 1
+    }
+  },
+  "Coachellla": {
+    "county": "Riverside",
+    "count": 9,
+    "avgDepth": 35,
+    "minDepth": 32,
+    "maxDepth": 38,
+    "medianDepth": 35,
+    "avgYield": null,
+    "medianYield": null,
+    "avgStaticLevel": null,
+    "medianStaticLevel": null,
+    "wellsByDecade": {
+      "2000s": 9
+    },
+    "wellsByUse": {
+      "Vapor Extraction": 9
+    }
+  },
+  "Hayfield": {
+    "county": "Riverside",
+    "count": 11,
+    "avgDepth": 1122,
+    "minDepth": 660,
+    "maxDepth": 1460,
+    "medianDepth": 1200,
+    "avgYield": 211.8,
+    "medianYield": 255,
+    "avgStaticLevel": 585,
+    "medianStaticLevel": 556,
+    "wellsByDecade": {
+      "2000s": 11
+    },
+    "wellsByUse": {
+      "Test Well": 11
+    }
+  },
+  "Baldwin Lake": {
+    "county": "Riverside",
+    "count": 157,
+    "avgDepth": 204,
+    "minDepth": 20,
+    "maxDepth": 500,
+    "medianDepth": 200,
+    "avgYield": 22.6,
+    "medianYield": 20,
+    "avgStaticLevel": 54,
+    "medianStaticLevel": 40,
+    "wellsByDecade": {
+      "2000s": 113,
+      "1980s": 4,
+      "1990s": 22,
+      "2010s": 10,
+      "2020s": 8
+    },
+    "wellsByUse": {
+      "Domestic": 149,
+      "Irrigation - Agriculture": 1,
+      "Unknown": 1,
+      "Public": 6
+    }
+  },
+  "Redland": {
+    "county": "Riverside",
+    "count": 7,
+    "avgDepth": 628,
+    "minDepth": 230,
+    "maxDepth": 980,
+    "medianDepth": 500,
+    "avgYield": 2070,
+    "medianYield": 2070,
+    "avgStaticLevel": 268,
+    "medianStaticLevel": 268,
+    "wellsByDecade": {
+      "2000s": 1,
+      "2010s": 2,
+      "1950s": 1,
+      "2020s": 3
+    },
+    "wellsByUse": {
+      "Domestic": 2,
+      "Cathodic Protection": 1,
+      "Public": 1,
+      "Monitoring": 3
+    }
+  },
+  "Chino Hills": {
+    "county": "Riverside",
+    "count": 98,
+    "avgDepth": 88,
+    "minDepth": 17,
+    "maxDepth": 1080,
+    "medianDepth": 33,
+    "avgYield": 267.3,
+    "medianYield": 109.5,
+    "avgStaticLevel": 24,
+    "medianStaticLevel": 22,
+    "wellsByDecade": {
+      "2000s": 50,
+      "1950s": 1,
+      "1990s": 14,
+      "2010s": 26,
+      "2020s": 7
+    },
+    "wellsByUse": {
+      "Irrigation - Agriculture": 2,
+      "Domestic": 4,
+      "Monitoring": 83,
+      "Unknown": 2,
+      "Vapor Extraction": 1,
+      "Public": 1,
+      "Cathodic Protection": 5
+    }
+  },
+  "Canyon Lake": {
+    "county": "Riverside",
+    "count": 6,
+    "avgDepth": 30,
+    "minDepth": 28,
+    "maxDepth": 30,
+    "medianDepth": 30,
+    "avgYield": null,
+    "medianYield": null,
+    "avgStaticLevel": null,
+    "medianStaticLevel": null,
+    "wellsByDecade": {
+      "2000s": 2,
+      "2020s": 4
+    },
+    "wellsByUse": {
+      "Monitoring": 6
+    }
+  },
+  "Murrieta Murrieta": {
+    "county": "Riverside",
+    "count": 6,
+    "avgDepth": 368,
+    "minDepth": 200,
+    "maxDepth": 495,
+    "medianDepth": 363,
+    "avgYield": 55,
+    "medianYield": 50,
+    "avgStaticLevel": 125,
+    "medianStaticLevel": 105,
+    "wellsByDecade": {
+      "2000s": 6
+    },
+    "wellsByUse": {
+      "Irrigation - Agriculture": 4,
+      "Domestic": 2
+    }
+  },
+  "Lake Perris": {
+    "county": "Riverside",
+    "count": 7,
+    "avgDepth": 41,
+    "minDepth": 35,
+    "maxDepth": 55,
+    "medianDepth": 35,
+    "avgYield": null,
+    "medianYield": null,
+    "avgStaticLevel": null,
+    "medianStaticLevel": null,
+    "wellsByDecade": {
+      "2010s": 7
+    },
+    "wellsByUse": {
+      "Vapor Extraction": 5,
+      "Monitoring": 2
+    }
+  },
+  "Eastvale": {
+    "county": "Riverside",
+    "count": 29,
+    "avgDepth": 145,
+    "minDepth": 45,
+    "maxDepth": 341,
+    "medianDepth": 150,
+    "avgYield": 100,
+    "medianYield": 100,
+    "avgStaticLevel": 100,
+    "medianStaticLevel": 100,
+    "wellsByDecade": {
+      "2010s": 14,
+      "2020s": 15
+    },
+    "wellsByUse": {
+      "Monitoring": 11,
+      "Other": 10,
+      "Irrigation - Agriculture": 8
+    }
+  },
+  "March Air Force Base": {
+    "county": "Riverside",
+    "count": 11,
+    "avgDepth": 107,
+    "minDepth": 34,
+    "maxDepth": 260,
+    "medianDepth": 75,
+    "avgYield": null,
+    "medianYield": null,
+    "avgStaticLevel": 43,
+    "medianStaticLevel": 42,
+    "wellsByDecade": {
+      "2010s": 4,
+      "2020s": 7
+    },
+    "wellsByUse": {
+      "Monitoring": 11
+    }
+  },
+  "Jurupa Valley": {
+    "county": "Riverside",
+    "count": 83,
+    "avgDepth": 93,
+    "minDepth": 31,
+    "maxDepth": 500,
+    "medianDepth": 61,
+    "avgYield": 2000,
+    "medianYield": 2000,
+    "avgStaticLevel": 38,
+    "medianStaticLevel": 31,
+    "wellsByDecade": {
+      "2010s": 59,
+      "2020s": 24
+    },
+    "wellsByUse": {
+      "Monitoring": 74,
+      "Irrigation - Agriculture": 7,
+      "Irrigation - Landscape": 1,
+      "Public": 1
+    }
+  },
+  "Oak Glen": {
+    "county": "Riverside",
+    "count": 49,
+    "avgDepth": 290,
+    "minDepth": 18,
+    "maxDepth": 800,
+    "medianDepth": 260,
+    "avgYield": 37.5,
+    "medianYield": 30,
+    "avgStaticLevel": 138,
+    "medianStaticLevel": 99,
+    "wellsByDecade": {
+      "2020s": 4,
+      "1930s": 1,
+      "1970s": 10,
+      "1980s": 12,
+      "1990s": 11,
+      "2000s": 6,
+      "2010s": 5
+    },
+    "wellsByUse": {
+      "Domestic": 32,
+      "Other": 2,
+      "Test Well": 9,
+      "Public": 4,
+      "Industrial": 1,
+      "Irrigation - Agriculture": 1
+    }
+  },
+  "Big Bear Lake": {
+    "county": "Riverside",
+    "count": 166,
+    "avgDepth": 166,
+    "minDepth": 8,
+    "maxDepth": 910,
+    "medianDepth": 144,
+    "avgYield": 53.9,
+    "medianYield": 30,
+    "avgStaticLevel": 52,
+    "medianStaticLevel": 33,
+    "wellsByDecade": {
+      "2020s": 13,
+      "1950s": 1,
+      "1970s": 10,
+      "1980s": 6,
+      "1990s": 37,
+      "2000s": 77,
+      "2010s": 20
+    },
+    "wellsByUse": {
+      "Domestic": 60,
+      "Public": 19,
+      "Irrigation - Agriculture": 16,
+      "Other": 3,
+      "Remediation": 2,
+      "Monitoring": 52,
+      "Vapor Extraction": 4,
+      "Irrigation - Landscape": 1,
+      "Unknown": 7,
+      "Destruction": 2
+    }
+  },
+  "Pioneertown": {
+    "county": "Riverside",
+    "count": 334,
+    "avgDepth": 336,
+    "minDepth": 72,
+    "maxDepth": 720,
+    "medianDepth": 307,
+    "avgYield": 10.2,
+    "medianYield": 7,
+    "avgStaticLevel": 113,
+    "medianStaticLevel": 89,
+    "wellsByDecade": {
+      "2020s": 100,
+      "1960s": 2,
+      "1970s": 11,
+      "1980s": 24,
+      "1990s": 58,
+      "2000s": 81,
+      "2010s": 50
+    },
+    "wellsByUse": {
+      "Domestic": 325,
+      "Industrial": 2,
+      "Test Well": 1,
+      "Unknown": 1,
+      "Public": 4,
+      "Irrigation - Agriculture": 1
+    }
+  },
+  "Riverside County": {
+    "county": "Riverside",
+    "count": 7,
+    "avgDepth": 20,
+    "minDepth": 12,
+    "maxDepth": 29,
+    "medianDepth": 18,
+    "avgYield": null,
+    "medianYield": null,
+    "avgStaticLevel": null,
+    "medianStaticLevel": null,
+    "wellsByDecade": {
+      "2020s": 7
+    },
+    "wellsByUse": {
+      "Monitoring": 7
+    }
+  },
+  "Apple Valley": {
+    "county": "San Bernardino",
+    "count": 1833,
+    "avgDepth": 335,
+    "minDepth": 20,
+    "maxDepth": 1073,
+    "medianDepth": 320,
+    "avgYield": 147.3,
+    "medianYield": 25,
+    "avgStaticLevel": 193,
+    "medianStaticLevel": 180,
+    "wellsByDecade": {
+      "2020s": 185,
+      "1950s": 67,
+      "1960s": 45,
+      "1970s": 145,
+      "1980s": 362,
+      "1990s": 248,
+      "2000s": 619,
+      "2010s": 159
+    },
+    "wellsByUse": {
+      "Domestic": 1498,
+      "Public": 155,
+      "Irrigation - Agriculture": 54,
+      "Industrial": 17,
+      "Unknown": 29,
+      "Test Well": 4,
+      "Monitoring": 47,
+      "Other": 8,
+      "Cathodic Protection": 10,
+      "Vapor Extraction": 8,
+      "Unknown Domestic": 2,
+      "Irrigation - Landscape": 1
+    }
+  },
+  "Baker": {
+    "county": "San Bernardino",
+    "count": 199,
+    "avgDepth": 101,
+    "minDepth": 10,
+    "maxDepth": 1970,
+    "medianDepth": 58,
+    "avgYield": 292.8,
+    "medianYield": 250,
+    "avgStaticLevel": 123,
+    "medianStaticLevel": 108,
+    "wellsByDecade": {
+      "2020s": 28,
+      "1940s": 1,
+      "1950s": 1,
+      "1960s": 6,
+      "1970s": 2,
+      "1980s": 2,
+      "1990s": 40,
+      "2000s": 65,
+      "2010s": 54
+    },
+    "wellsByUse": {
+      "Cathodic Protection": 13,
+      "Unknown": 22,
+      "Domestic": 7,
+      "Public": 7,
+      "Monitoring": 140,
+      "Industrial": 4,
+      "Irrigation - Agriculture": 1,
+      "Test Well": 1,
+      "Other": 4
+    }
+  },
+  "Hinkley": {
+    "county": "San Bernardino",
+    "count": 1627,
+    "avgDepth": 160,
+    "minDepth": 3,
+    "maxDepth": 820,
+    "medianDepth": 142,
+    "avgYield": 259.5,
+    "medianYield": 30,
+    "avgStaticLevel": 85,
+    "medianStaticLevel": 83,
+    "wellsByDecade": {
+      "2020s": 232,
+      "1940s": 3,
+      "1950s": 57,
+      "1960s": 79,
+      "1970s": 155,
+      "1980s": 224,
+      "1990s": 195,
+      "2000s": 216,
+      "2010s": 463
+    },
+    "wellsByUse": {
+      "Monitoring": 593,
+      "Domestic": 523,
+      "Test Well": 48,
+      "Unknown": 24,
+      "Irrigation - Agriculture": 149,
+      "Industrial": 16,
+      "Other": 109,
+      "Public": 42,
+      "Water Supply": 1,
+      "Stock or Animal Watering": 1,
+      "Cathodic Protection": 1,
+      "Remediation": 95,
+      "Injection": 24,
+      "Unknown Irrigation - Agriculture": 1
+    }
+  },
+  "Hinkle": {
+    "county": "San Bernardino",
+    "count": 5,
+    "avgDepth": 135,
+    "minDepth": 80,
+    "maxDepth": 175,
+    "medianDepth": 129,
+    "avgYield": null,
+    "medianYield": null,
+    "avgStaticLevel": null,
+    "medianStaticLevel": null,
+    "wellsByDecade": {
+      "2020s": 5
+    },
+    "wellsByUse": {
+      "Monitoring": 5
+    }
+  },
+  "Big Bear City": {
+    "county": "San Bernardino",
+    "count": 160,
+    "avgDepth": 200,
+    "minDepth": 18,
+    "maxDepth": 810,
+    "medianDepth": 200,
+    "avgYield": 50.4,
+    "medianYield": 20,
+    "avgStaticLevel": 68,
+    "medianStaticLevel": 48,
+    "wellsByDecade": {
+      "2020s": 16,
+      "1950s": 2,
+      "1970s": 2,
+      "1980s": 3,
+      "1990s": 25,
+      "2000s": 92,
+      "2010s": 20
+    },
+    "wellsByUse": {
+      "Sparging": 9,
+      "Test Well": 2,
+      "Public": 17,
+      "Domestic": 108,
+      "Irrigation - Agriculture": 3,
+      "Monitoring": 17,
+      "Vapor Extraction": 2,
+      "Irrigation - Landscape": 2
+    }
+  },
+  "Newberry Springs": {
+    "county": "San Bernardino",
+    "count": 1343,
+    "avgDepth": 213,
+    "minDepth": 18,
+    "maxDepth": 1142,
+    "medianDepth": 200,
+    "avgYield": 309.5,
+    "medianYield": 100,
+    "avgStaticLevel": 88,
+    "medianStaticLevel": 86,
+    "wellsByDecade": {
+      "1910s": 1,
+      "1920s": 1,
+      "1950s": 11,
+      "1960s": 97,
+      "1970s": 287,
+      "1980s": 427,
+      "1990s": 153,
+      "2000s": 185,
+      "2010s": 94,
+      "2020s": 64
+    },
+    "wellsByUse": {
+      "Domestic": 1039,
+      "Public": 63,
+      "Unknown": 41,
+      "Irrigation - Agriculture": 115,
+      "Other": 9,
+      "Test Well": 8,
+      "Industrial": 7,
+      "Monitoring": 39,
+      "Cathodic Protection": 21,
+      "Irrigation - Landscape": 1
+    }
+  },
+  "Helendale": {
+    "county": "San Bernardino",
+    "count": 337,
+    "avgDepth": 229,
+    "minDepth": 15,
+    "maxDepth": 650,
+    "medianDepth": 200,
+    "avgYield": 364.5,
+    "medianYield": 50,
+    "avgStaticLevel": 99,
+    "medianStaticLevel": 71,
+    "wellsByDecade": {
+      "1950s": 11,
+      "1960s": 12,
+      "1970s": 23,
+      "1980s": 84,
+      "1990s": 64,
+      "2000s": 84,
+      "2010s": 22,
+      "2020s": 32
+    },
+    "wellsByUse": {
+      "Domestic": 199,
+      "Irrigation - Agriculture": 51,
+      "Other": 6,
+      "Test Well": 4,
+      "Public": 33,
+      "Unknown": 11,
+      "Industrial": 10,
+      "Monitoring": 20,
+      "Cathodic Protection": 3
+    }
+  },
+  "Ontario": {
+    "county": "San Bernardino",
+    "count": 376,
+    "avgDepth": 330,
+    "minDepth": 3,
+    "maxDepth": 1260,
+    "medianDepth": 300,
+    "avgYield": 1247.3,
+    "medianYield": 800,
+    "avgStaticLevel": 239,
+    "medianStaticLevel": 223,
+    "wellsByDecade": {
+      "1930s": 4,
+      "1940s": 1,
+      "1950s": 15,
+      "1960s": 35,
+      "1970s": 19,
+      "1980s": 24,
+      "1990s": 53,
+      "2000s": 60,
+      "2010s": 71,
+      "2020s": 91
+    },
+    "wellsByUse": {
+      "Industrial": 6,
+      "Public": 38,
+      "Monitoring": 111,
+      "Unknown": 18,
+      "Domestic": 42,
+      "Irrigation - Agriculture": 49,
+      "Other": 39,
+      "Test Well": 6,
+      "Cathodic Protection": 11,
+      "Vapor Extraction": 44,
+      "Remediation": 6,
+      "Injection": 5,
+      "Irrigation - Landscape": 1
+    }
+  },
+  "Guasti": {
+    "county": "San Bernardino",
+    "count": 9,
+    "avgDepth": 741,
+    "minDepth": 410,
+    "maxDepth": 1312,
+    "medianDepth": 596,
+    "avgYield": null,
+    "medianYield": null,
+    "avgStaticLevel": null,
+    "medianStaticLevel": null,
+    "wellsByDecade": {
+      "1910s": 3,
+      "1920s": 4
+    },
+    "wellsByUse": {
+      "Unknown": 9
+    }
+  },
+  "Morongo Valley": {
+    "county": "San Bernardino",
+    "count": 322,
+    "avgDepth": 287,
+    "minDepth": 80,
+    "maxDepth": 700,
+    "medianDepth": 270,
+    "avgYield": 36.4,
+    "medianYield": 12,
+    "avgStaticLevel": 158,
+    "medianStaticLevel": 150,
+    "wellsByDecade": {
+      "1950s": 6,
+      "1960s": 8,
+      "1970s": 41,
+      "1980s": 66,
+      "1990s": 83,
+      "2000s": 53,
+      "2010s": 19,
+      "2020s": 37
+    },
+    "wellsByUse": {
+      "Domestic": 301,
+      "Public": 13,
+      "Unknown": 1,
+      "Test Well": 2,
+      "Cathodic Protection": 4,
+      "Industrial": 1
+    }
+  },
+  "Yucca Valley": {
+    "county": "San Bernardino",
+    "count": 104,
+    "avgDepth": 383,
+    "minDepth": 12,
+    "maxDepth": 1000,
+    "medianDepth": 355,
+    "avgYield": 103.6,
+    "medianYield": 7.5,
+    "avgStaticLevel": 190,
+    "medianStaticLevel": 190,
+    "wellsByDecade": {
+      "1930s": 1,
+      "1970s": 18,
+      "1980s": 11,
+      "1990s": 21,
+      "2000s": 16,
+      "2010s": 10,
+      "2020s": 25
+    },
+    "wellsByUse": {
+      "Domestic": 83,
+      "Unknown": 1,
+      "Public": 8,
+      "Test Well": 4,
+      "Irrigation - Agriculture": 1,
+      "Monitoring": 5,
+      "Cathodic Protection": 2
+    }
+  },
+  "Alta Loma": {
+    "county": "San Bernardino",
+    "count": 10,
+    "avgDepth": 695,
+    "minDepth": 203,
+    "maxDepth": 1002,
+    "medianDepth": 720,
+    "avgYield": 712.5,
+    "medianYield": 712.5,
+    "avgStaticLevel": 327,
+    "medianStaticLevel": 345,
+    "wellsByDecade": {
+      "1900s": 1,
+      "1950s": 1,
+      "1990s": 5,
+      "2010s": 2
+    },
+    "wellsByUse": {
+      "Other": 5,
+      "Unknown": 1,
+      "Irrigation - Agriculture": 2,
+      "Domestic": 1,
+      "Irrigation - Landscape": 1
+    }
+  },
+  "Lucene Valley": {
+    "county": "San Bernardino",
+    "count": 33,
+    "avgDepth": 197,
+    "minDepth": 60,
+    "maxDepth": 770,
+    "medianDepth": 150,
+    "avgYield": 674.9,
+    "medianYield": 484.5,
+    "avgStaticLevel": 62,
+    "medianStaticLevel": 47,
+    "wellsByDecade": {
+      "1950s": 9,
+      "1960s": 4,
+      "1970s": 7,
+      "1980s": 8,
+      "1990s": 4
+    },
+    "wellsByUse": {
+      "Irrigation - Agriculture": 5,
+      "Unknown": 2,
+      "Domestic": 20,
+      "Other": 1,
+      "Public": 5
+    }
+  },
+  "West Cajon Valley": {
+    "county": "San Bernardino",
+    "count": 67,
+    "avgDepth": 397,
+    "minDepth": 150,
+    "maxDepth": 685,
+    "medianDepth": 425,
+    "avgYield": 61.5,
+    "medianYield": 14.5,
+    "avgStaticLevel": 197,
+    "medianStaticLevel": 200,
+    "wellsByDecade": {
+      "1960s": 5,
+      "1970s": 6,
+      "1980s": 20,
+      "1990s": 17,
+      "2000s": 15,
+      "2020s": 2
+    },
+    "wellsByUse": {
+      "Unknown": 2,
+      "Domestic": 52,
+      "Irrigation - Agriculture": 3,
+      "Public": 8,
+      "Test Well": 1,
+      "Industrial": 1
+    }
+  },
+  "Barstow": {
+    "county": "San Bernardino",
+    "count": 887,
+    "avgDepth": 159,
+    "minDepth": 5,
+    "maxDepth": 838,
+    "medianDepth": 127,
+    "avgYield": 364.9,
+    "medianYield": 50,
+    "avgStaticLevel": 82,
+    "medianStaticLevel": 65,
+    "wellsByDecade": {
+      "1940s": 1,
+      "1950s": 47,
+      "1960s": 53,
+      "1970s": 104,
+      "1980s": 81,
+      "1990s": 210,
+      "2000s": 224,
+      "2010s": 91,
+      "2020s": 72
+    },
+    "wellsByUse": {
+      "Irrigation - Agriculture": 39,
+      "Domestic": 354,
+      "Other": 28,
+      "Test Well": 13,
+      "Unknown": 20,
+      "Industrial": 19,
+      "Public": 58,
+      "Monitoring": 306,
+      "Stock or Animal Watering": 2,
+      "Cathodic Protection": 12,
+      "Vapor Extraction": 10,
+      "Remediation": 8,
+      "Sparging": 16,
+      "Injection": 1,
+      "Unknown Domestic": 1
+    }
+  },
+  "Highland": {
+    "county": "San Bernardino",
+    "count": 87,
+    "avgDepth": 359,
+    "minDepth": 40,
+    "maxDepth": 1000,
+    "medianDepth": 350,
+    "avgYield": 889.2,
+    "medianYield": 484,
+    "avgStaticLevel": 185,
+    "medianStaticLevel": 192,
+    "wellsByDecade": {
+      "1900s": 1,
+      "1920s": 7,
+      "1930s": 3,
+      "1940s": 2,
+      "1950s": 20,
+      "1960s": 3,
+      "1980s": 7,
+      "1990s": 19,
+      "2000s": 17,
+      "2010s": 2,
+      "2020s": 5
+    },
+    "wellsByUse": {
+      "Other": 14,
+      "Unknown": 8,
+      "Domestic": 18,
+      "Industrial": 1,
+      "Irrigation - Agriculture": 5,
+      "Public": 16,
+      "Cathodic Protection": 2,
+      "Monitoring": 20,
+      "Vapor Extraction": 3
+    }
+  },
+  "Big Bear": {
+    "county": "San Bernardino",
+    "count": 221,
+    "avgDepth": 175,
+    "minDepth": 5,
+    "maxDepth": 825,
+    "medianDepth": 160,
+    "avgYield": 33.5,
+    "medianYield": 15,
+    "avgStaticLevel": 55,
+    "medianStaticLevel": 40,
+    "wellsByDecade": {
+      "1960s": 6,
+      "1970s": 12,
+      "1980s": 25,
+      "1990s": 42,
+      "2000s": 102,
+      "2010s": 6,
+      "2020s": 26
+    },
+    "wellsByUse": {
+      "Unknown": 4,
+      "Domestic": 130,
+      "Public": 20,
+      "Test Well": 1,
+      "Industrial": 2,
+      "Irrigation - Agriculture": 12,
+      "Other": 5,
+      "Monitoring": 47
+    }
+  },
+  "Twentynine Palms": {
+    "county": "San Bernardino",
+    "count": 536,
+    "avgDepth": 308,
+    "minDepth": 3,
+    "maxDepth": 1010,
+    "medianDepth": 291,
+    "avgYield": 88.6,
+    "medianYield": 15,
+    "avgStaticLevel": 192,
+    "medianStaticLevel": 180,
+    "wellsByDecade": {
+      "1930s": 1,
+      "1940s": 3,
+      "1950s": 13,
+      "1960s": 29,
+      "1970s": 38,
+      "1980s": 102,
+      "1990s": 109,
+      "2000s": 69,
+      "2010s": 32,
+      "2020s": 129
+    },
+    "wellsByUse": {
+      "Unknown": 16,
+      "Monitoring": 91,
+      "Domestic": 361,
+      "Public": 17,
+      "Other": 6,
+      "Irrigation - Agriculture": 18,
+      "Industrial": 5,
+      "Cathodic Protection": 17,
+      "Test Well": 2,
+      "Irrigation - Landscape": 3
+    }
+  },
+  "Yermo": {
+    "county": "San Bernardino",
+    "count": 451,
+    "avgDepth": 245,
+    "minDepth": 3,
+    "maxDepth": 800,
+    "medianDepth": 240,
+    "avgYield": 216.6,
+    "medianYield": 40,
+    "avgStaticLevel": 143,
+    "medianStaticLevel": 140,
+    "wellsByDecade": {
+      "1900s": 1,
+      "1920s": 1,
+      "1930s": 2,
+      "1950s": 12,
+      "1960s": 27,
+      "1970s": 40,
+      "1980s": 201,
+      "1990s": 68,
+      "2000s": 47,
+      "2010s": 16,
+      "2020s": 32
+    },
+    "wellsByUse": {
+      "Domestic": 256,
+      "Unknown": 18,
+      "Irrigation - Agriculture": 25,
+      "Test Well": 4,
+      "Public": 31,
+      "Industrial": 13,
+      "Other": 5,
+      "Cathodic Protection": 64,
+      "Monitoring": 28,
+      "Destruction": 7
+    }
+  },
+  "Danby": {
+    "county": "San Bernardino",
+    "count": 8,
+    "avgDepth": 868,
+    "minDepth": 500,
+    "maxDepth": 985,
+    "medianDepth": 941,
+    "avgYield": 140.7,
+    "medianYield": 199,
+    "avgStaticLevel": 325,
+    "medianStaticLevel": 325,
+    "wellsByDecade": {
+      "1920s": 4,
+      "1980s": 1,
+      "1990s": 1,
+      "2000s": 1
+    },
+    "wellsByUse": {
+      "Unknown": 6,
+      "Industrial": 1,
+      "Cathodic Protection": 1
+    }
+  },
+  "Victorville": {
+    "county": "San Bernardino",
+    "count": 505,
+    "avgDepth": 240,
+    "minDepth": 5,
+    "maxDepth": 1620,
+    "medianDepth": 148,
+    "avgYield": 883.3,
+    "medianYield": 500,
+    "avgStaticLevel": 133,
+    "medianStaticLevel": 90,
+    "wellsByDecade": {
+      "1950s": 23,
+      "1960s": 14,
+      "1970s": 30,
+      "1980s": 68,
+      "1990s": 115,
+      "2000s": 132,
+      "2010s": 70,
+      "2020s": 52
+    },
+    "wellsByUse": {
+      "Irrigation - Agriculture": 39,
+      "Domestic": 79,
+      "Industrial": 16,
+      "Public": 48,
+      "Test Well": 34,
+      "Unknown": 15,
+      "Cathodic Protection": 13,
+      "Monitoring": 228,
+      "Vapor Extraction": 12,
+      "Other": 17,
+      "Irrigation - Landscape": 4
+    }
+  },
+  "Summit Valley": {
+    "county": "San Bernardino",
+    "count": 84,
+    "avgDepth": 280,
+    "minDepth": 51,
+    "maxDepth": 750,
+    "medianDepth": 250,
+    "avgYield": 66,
+    "medianYield": 60,
+    "avgStaticLevel": 75,
+    "medianStaticLevel": 38,
+    "wellsByDecade": {
+      "1970s": 7,
+      "1980s": 36,
+      "1990s": 14,
+      "2000s": 25
+    },
+    "wellsByUse": {
+      "Irrigation - Agriculture": 7,
+      "Domestic": 63,
+      "Public": 11,
+      "Monitoring": 2,
+      "Unknown": 1
+    }
+  },
+  "Ludlow": {
+    "county": "San Bernardino",
+    "count": 31,
+    "avgDepth": 453,
+    "minDepth": 100,
+    "maxDepth": 1600,
+    "medianDepth": 400,
+    "avgYield": 3,
+    "medianYield": 3,
+    "avgStaticLevel": 607,
+    "medianStaticLevel": 607,
+    "wellsByDecade": {
+      "1970s": 1,
+      "1980s": 2,
+      "1990s": 16,
+      "2000s": 4,
+      "2010s": 2,
+      "2020s": 5
+    },
+    "wellsByUse": {
+      "Unknown": 1,
+      "Cathodic Protection": 16,
+      "Monitoring": 12,
+      "Public": 1,
+      "Industrial": 1
+    }
+  },
+  "Del Rosa": {
+    "county": "San Bernardino",
+    "count": 10,
+    "avgDepth": 274,
+    "minDepth": 175,
+    "maxDepth": 551,
+    "medianDepth": 225,
+    "avgYield": null,
+    "medianYield": null,
+    "avgStaticLevel": 91,
+    "medianStaticLevel": 84,
+    "wellsByDecade": {
+      "1920s": 4,
+      "1930s": 3,
+      "1950s": 2,
+      "2010s": 1
+    },
+    "wellsByUse": {
+      "Other": 5,
+      "Unknown": 2,
+      "Domestic": 3
+    }
+  },
+  "Goffs": {
+    "county": "San Bernardino",
+    "count": 10,
+    "avgDepth": 666,
+    "minDepth": 123,
+    "maxDepth": 1156,
+    "medianDepth": 820,
+    "avgYield": 49.3,
+    "medianYield": 48,
+    "avgStaticLevel": 580,
+    "medianStaticLevel": 580,
+    "wellsByDecade": {
+      "1910s": 2,
+      "1920s": 4,
+      "2000s": 4
+    },
+    "wellsByUse": {
+      "Unknown": 6,
+      "Domestic": 3,
+      "Public": 1
+    }
+  },
+  "Cadiz": {
+    "county": "San Bernardino",
+    "count": 56,
+    "avgDepth": 496,
+    "minDepth": 200,
+    "maxDepth": 1120,
+    "medianDepth": 411,
+    "avgYield": 738.5,
+    "medianYield": 57.5,
+    "avgStaticLevel": 215,
+    "medianStaticLevel": 211,
+    "wellsByDecade": {
+      "1910s": 1,
+      "1930s": 1,
+      "1960s": 2,
+      "1970s": 3,
+      "1980s": 9,
+      "1990s": 22,
+      "2000s": 7,
+      "2010s": 5,
+      "2020s": 6
+    },
+    "wellsByUse": {
+      "Unknown": 2,
+      "Domestic": 10,
+      "Irrigation - Agriculture": 8,
+      "Cathodic Protection": 6,
+      "Public": 4,
+      "Monitoring": 13,
+      "Test Well": 1,
+      "Industrial": 7,
+      "Other": 5
+    }
+  },
+  "Rialto": {
+    "county": "San Bernardino",
+    "count": 166,
+    "avgDepth": 312,
+    "minDepth": 34,
+    "maxDepth": 1300,
+    "medianDepth": 166,
+    "avgYield": 1646,
+    "medianYield": 1500,
+    "avgStaticLevel": 263,
+    "medianStaticLevel": 299,
+    "wellsByDecade": {
+      "1910s": 1,
+      "1930s": 1,
+      "1950s": 5,
+      "1960s": 1,
+      "1980s": 8,
+      "1990s": 73,
+      "2000s": 18,
+      "2010s": 14,
+      "2020s": 45
+    },
+    "wellsByUse": {
+      "Unknown": 22,
+      "Public": 22,
+      "Industrial": 2,
+      "Cathodic Protection": 6,
+      "Monitoring": 65,
+      "Domestic": 2,
+      "Other": 38,
+      "Vapor Extraction": 4,
+      "Test Well": 1,
+      "Irrigation - Agriculture": 4
+    }
+  },
+  "Mentone": {
+    "county": "San Bernardino",
+    "count": 61,
+    "avgDepth": 313,
+    "minDepth": 50,
+    "maxDepth": 658,
+    "medianDepth": 300,
+    "avgYield": 162.2,
+    "medianYield": 40,
+    "avgStaticLevel": 124,
+    "medianStaticLevel": 115,
+    "wellsByDecade": {
+      "1920s": 8,
+      "1940s": 3,
+      "1960s": 2,
+      "1970s": 2,
+      "1980s": 3,
+      "1990s": 4,
+      "2000s": 16,
+      "2010s": 10,
+      "2020s": 13
+    },
+    "wellsByUse": {
+      "Other": 7,
+      "Unknown": 3,
+      "Irrigation - Agriculture": 7,
+      "Domestic": 28,
+      "Public": 1,
+      "Cathodic Protection": 1,
+      "Monitoring": 14
+    }
+  },
+  "East Highland": {
+    "county": "San Bernardino",
+    "count": 6,
+    "avgDepth": 366,
+    "minDepth": 150,
+    "maxDepth": 575,
+    "medianDepth": 360,
+    "avgYield": null,
+    "medianYield": null,
+    "avgStaticLevel": null,
+    "medianStaticLevel": null,
+    "wellsByDecade": {
+      "1920s": 1,
+      "1930s": 2,
+      "1950s": 2,
+      "1970s": 1
+    },
+    "wellsByUse": {
+      "Unknown": 2,
+      "Other": 3,
+      "Domestic": 1
+    }
+  },
+  "Upland": {
+    "county": "San Bernardino",
+    "count": 49,
+    "avgDepth": 277,
+    "minDepth": 5,
+    "maxDepth": 1040,
+    "medianDepth": 82,
+    "avgYield": 973,
+    "medianYield": 1125,
+    "avgStaticLevel": 549,
+    "medianStaticLevel": 476,
+    "wellsByDecade": {
+      "1920s": 2,
+      "1930s": 2,
+      "1980s": 2,
+      "1990s": 3,
+      "2000s": 24,
+      "2010s": 16
+    },
+    "wellsByUse": {
+      "Unknown": 5,
+      "Domestic": 4,
+      "Public": 4,
+      "Vapor Extraction": 13,
+      "Other": 12,
+      "Cathodic Protection": 1,
+      "Test Well": 8,
+      "Monitoring": 2
+    }
+  },
+  "Etiwanda": {
+    "county": "San Bernardino",
+    "count": 8,
+    "avgDepth": 707,
+    "minDepth": 500,
+    "maxDepth": 820,
+    "medianDepth": 764,
+    "avgYield": 930,
+    "medianYield": 1075,
+    "avgStaticLevel": 503,
+    "medianStaticLevel": 590,
+    "wellsByDecade": {
+      "1920s": 1,
+      "1950s": 2,
+      "1970s": 2,
+      "2000s": 2,
+      "2010s": 1
+    },
+    "wellsByUse": {
+      "Unknown": 1,
+      "Irrigation - Agriculture": 3,
+      "Industrial": 1,
+      "Cathodic Protection": 2,
+      "Monitoring": 1
+    }
+  },
+  "Vidal": {
+    "county": "San Bernardino",
+    "count": 12,
+    "avgDepth": 543,
+    "minDepth": 202,
+    "maxDepth": 785,
+    "medianDepth": 657,
+    "avgYield": 215.3,
+    "medianYield": 47.5,
+    "avgStaticLevel": 297,
+    "medianStaticLevel": 240,
+    "wellsByDecade": {
+      "1920s": 2,
+      "1930s": 2,
+      "1960s": 2,
+      "1970s": 1,
+      "1980s": 1,
+      "2000s": 3,
+      "2010s": 1
+    },
+    "wellsByUse": {
+      "Unknown": 4,
+      "Public": 1,
+      "Domestic": 5,
+      "Irrigation - Agriculture": 1,
+      "Cathodic Protection": 1
+    }
+  },
+  "Devore": {
+    "county": "San Bernardino",
+    "count": 58,
+    "avgDepth": 235,
+    "minDepth": 40,
+    "maxDepth": 560,
+    "medianDepth": 220,
+    "avgYield": 130,
+    "medianYield": 30,
+    "avgStaticLevel": 75,
+    "medianStaticLevel": 40,
+    "wellsByDecade": {
+      "1940s": 2,
+      "1950s": 2,
+      "1970s": 21,
+      "1980s": 5,
+      "1990s": 13,
+      "2000s": 12,
+      "2010s": 2,
+      "2020s": 1
+    },
+    "wellsByUse": {
+      "Unknown": 3,
+      "Domestic": 40,
+      "Public": 12,
+      "Test Well": 2,
+      "Industrial": 1
+    }
+  },
+  "Claremont": {
+    "county": "San Bernardino",
+    "count": 5,
+    "avgDepth": 560,
+    "minDepth": 345,
+    "maxDepth": 734,
+    "medianDepth": 664,
+    "avgYield": null,
+    "medianYield": null,
+    "avgStaticLevel": 201,
+    "medianStaticLevel": 201,
+    "wellsByDecade": {
+      "1930s": 2,
+      "2010s": 3
+    },
+    "wellsByUse": {
+      "Unknown": 2,
+      "Other": 3
+    }
+  },
+  "Lenwood": {
+    "county": "San Bernardino",
+    "count": 84,
+    "avgDepth": 243,
+    "minDepth": 45,
+    "maxDepth": 600,
+    "medianDepth": 231,
+    "avgYield": 872,
+    "medianYield": 400,
+    "avgStaticLevel": 119,
+    "medianStaticLevel": 113,
+    "wellsByDecade": {
+      "1950s": 4,
+      "1960s": 3,
+      "1970s": 22,
+      "1980s": 41,
+      "1990s": 12,
+      "2000s": 2
+    },
+    "wellsByUse": {
+      "Domestic": 44,
+      "Irrigation - Agriculture": 8,
+      "Public": 17,
+      "Test Well": 2,
+      "Industrial": 4,
+      "Monitoring": 6,
+      "Unknown": 1,
+      "Cathodic Protection": 2
+    }
+  },
+  "Oro Grande": {
+    "county": "San Bernardino",
+    "count": 284,
+    "avgDepth": 200,
+    "minDepth": 22,
+    "maxDepth": 800,
+    "medianDepth": 200,
+    "avgYield": 422.5,
+    "medianYield": 90,
+    "avgStaticLevel": 64,
+    "medianStaticLevel": 46,
+    "wellsByDecade": {
+      "1950s": 19,
+      "1960s": 18,
+      "1970s": 35,
+      "1980s": 59,
+      "1990s": 34,
+      "2000s": 76,
+      "2010s": 24,
+      "2020s": 19
+    },
+    "wellsByUse": {
+      "Domestic": 184,
+      "Industrial": 19,
+      "Irrigation - Agriculture": 33,
+      "Public": 11,
+      "Other": 4,
+      "Unknown": 1,
+      "Test Well": 1,
+      "Monitoring": 31
+    }
+  },
+  "Johnson Valley": {
+    "county": "San Bernardino",
+    "count": 138,
+    "avgDepth": 406,
+    "minDepth": 91,
+    "maxDepth": 840,
+    "medianDepth": 400,
+    "avgYield": 17.7,
+    "medianYield": 10,
+    "avgStaticLevel": 258,
+    "medianStaticLevel": 240,
+    "wellsByDecade": {
+      "1950s": 5,
+      "1960s": 2,
+      "1970s": 10,
+      "1980s": 32,
+      "1990s": 33,
+      "2000s": 22,
+      "2010s": 15,
+      "2020s": 19
+    },
+    "wellsByUse": {
+      "Domestic": 118,
+      "Unknown": 5,
+      "Irrigation - Agriculture": 1,
+      "Test Well": 8,
+      "Public": 5,
+      "Unknown Public": 1
+    }
+  },
+  "Hesperia": {
+    "county": "San Bernardino",
+    "count": 195,
+    "avgDepth": 436,
+    "minDepth": 42,
+    "maxDepth": 1241,
+    "medianDepth": 397,
+    "avgYield": 744.8,
+    "medianYield": 42.5,
+    "avgStaticLevel": 196,
+    "medianStaticLevel": 118,
+    "wellsByDecade": {
+      "1950s": 5,
+      "1960s": 2,
+      "1970s": 16,
+      "1980s": 57,
+      "1990s": 25,
+      "2000s": 43,
+      "2010s": 23,
+      "2020s": 24
+    },
+    "wellsByUse": {
+      "Irrigation - Agriculture": 8,
+      "Domestic": 112,
+      "Unknown": 5,
+      "Monitoring": 12,
+      "Other": 1,
+      "Public": 43,
+      "Test Well": 7,
+      "Industrial": 4,
+      "Vapor Extraction": 3
+    }
+  },
+  "Norton Afb": {
+    "county": "San Bernardino",
+    "count": 9,
+    "avgDepth": 374,
+    "minDepth": 280,
+    "maxDepth": 1124,
+    "medianDepth": 280,
+    "avgYield": 562.5,
+    "medianYield": 500,
+    "avgStaticLevel": null,
+    "medianStaticLevel": null,
+    "wellsByDecade": {
+      "1950s": 1,
+      "1990s": 8
+    },
+    "wellsByUse": {
+      "Unknown": 1,
+      "Other": 8
+    }
+  },
+  "Fort Irwin": {
+    "county": "San Bernardino",
+    "count": 89,
+    "avgDepth": 382,
+    "minDepth": 20,
+    "maxDepth": 1260,
+    "medianDepth": 330,
+    "avgYield": 481.5,
+    "medianYield": 350,
+    "avgStaticLevel": 181,
+    "medianStaticLevel": 150,
+    "wellsByDecade": {
+      "1950s": 3,
+      "1980s": 29,
+      "1990s": 4,
+      "2000s": 25,
+      "2010s": 26,
+      "2020s": 2
+    },
+    "wellsByUse": {
+      "Unknown": 4,
+      "Other": 7,
+      "Public": 11,
+      "Monitoring": 55,
+      "Test Well": 11,
+      "Domestic": 1
+    }
+  },
+  "El Mirage": {
+    "county": "San Bernardino",
+    "count": 241,
+    "avgDepth": 207,
+    "minDepth": 52,
+    "maxDepth": 700,
+    "medianDepth": 150,
+    "avgYield": 172.5,
+    "medianYield": 16,
+    "avgStaticLevel": 89,
+    "medianStaticLevel": 77,
+    "wellsByDecade": {
+      "1950s": 1,
+      "1960s": 24,
+      "1970s": 28,
+      "1980s": 86,
+      "1990s": 46,
+      "2000s": 28,
+      "2010s": 1,
+      "2020s": 27
+    },
+    "wellsByUse": {
+      "Domestic": 180,
+      "Irrigation - Agriculture": 15,
+      "Industrial": 1,
+      "Public": 10,
+      "Other": 1,
+      "Unknown": 7,
+      "Test Well": 3,
+      "Monitoring": 23,
+      "Cathodic Protection": 1
+    }
+  },
+  "Mesquite Valley": {
+    "county": "San Bernardino",
+    "count": 9,
+    "avgDepth": 335,
+    "minDepth": 75,
+    "maxDepth": 618,
+    "medianDepth": 400,
+    "avgYield": 162.5,
+    "medianYield": 200,
+    "avgStaticLevel": 82,
+    "medianStaticLevel": 81,
+    "wellsByDecade": {
+      "1950s": 3,
+      "1990s": 1,
+      "2000s": 5
+    },
+    "wellsByUse": {
+      "Domestic": 2,
+      "Unknown": 1,
+      "Irrigation - Agriculture": 2,
+      "Public": 4
+    }
+  },
+  "Cushenbury": {
+    "county": "San Bernardino",
+    "count": 12,
+    "avgDepth": 416,
+    "minDepth": 20,
+    "maxDepth": 600,
+    "medianDepth": 490,
+    "avgYield": 208.4,
+    "medianYield": 205,
+    "avgStaticLevel": 17,
+    "medianStaticLevel": 17,
+    "wellsByDecade": {
+      "1950s": 9,
+      "2000s": 3
+    },
+    "wellsByUse": {
+      "Unknown": 7,
+      "Domestic": 1,
+      "Other": 1,
+      "Monitoring": 3
+    }
+  },
+  "Boron": {
+    "county": "San Bernardino",
+    "count": 20,
+    "avgDepth": 389,
+    "minDepth": 190,
+    "maxDepth": 815,
+    "medianDepth": 340,
+    "avgYield": 64.5,
+    "medianYield": 35,
+    "avgStaticLevel": 210,
+    "medianStaticLevel": 200,
+    "wellsByDecade": {
+      "1950s": 1,
+      "1990s": 5,
+      "2000s": 1,
+      "2010s": 3,
+      "2020s": 10
+    },
+    "wellsByUse": {
+      "Domestic": 9,
+      "Public": 2,
+      "Industrial": 1,
+      "Monitoring": 8
+    }
+  },
+  "Essex": {
+    "county": "San Bernardino",
+    "count": 30,
+    "avgDepth": 338,
+    "minDepth": 58,
+    "maxDepth": 855,
+    "medianDepth": 371,
+    "avgYield": 30.8,
+    "medianYield": 20,
+    "avgStaticLevel": 390,
+    "medianStaticLevel": 350,
+    "wellsByDecade": {
+      "1950s": 1,
+      "1990s": 5,
+      "2000s": 1,
+      "2010s": 8,
+      "2020s": 15
+    },
+    "wellsByUse": {
+      "Domestic": 4,
+      "Public": 2,
+      "Cathodic Protection": 12,
+      "Irrigation - Agriculture": 1,
+      "Unknown": 11
+    }
+  },
+  "Fawnskin": {
+    "county": "San Bernardino",
+    "count": 90,
+    "avgDepth": 240,
+    "minDepth": 29,
+    "maxDepth": 640,
+    "medianDepth": 200,
+    "avgYield": 34.1,
+    "medianYield": 25,
+    "avgStaticLevel": 57,
+    "medianStaticLevel": 35,
+    "wellsByDecade": {
+      "1950s": 2,
+      "1960s": 9,
+      "1970s": 11,
+      "1980s": 17,
+      "1990s": 12,
+      "2000s": 28,
+      "2010s": 4,
+      "2020s": 7
+    },
+    "wellsByUse": {
+      "Domestic": 65,
+      "Unknown": 3,
+      "Public": 18,
+      "Test Well": 4
+    }
+  },
+  "Rimforest": {
+    "county": "San Bernardino",
+    "count": 19,
+    "avgDepth": 191,
+    "minDepth": 14,
+    "maxDepth": 420,
+    "medianDepth": 203,
+    "avgYield": 53.5,
+    "medianYield": 45,
+    "avgStaticLevel": null,
+    "medianStaticLevel": null,
+    "wellsByDecade": {
+      "1950s": 1,
+      "1960s": 2,
+      "1970s": 2,
+      "1990s": 8,
+      "2020s": 6
+    },
+    "wellsByUse": {
+      "Public": 11,
+      "Test Well": 2,
+      "Unknown": 6
+    }
+  },
+  "Lytle Creek": {
+    "county": "San Bernardino",
+    "count": 89,
+    "avgDepth": 119,
+    "minDepth": 39,
+    "maxDepth": 500,
+    "medianDepth": 118,
+    "avgYield": 40.8,
+    "medianYield": 25,
+    "avgStaticLevel": 35,
+    "medianStaticLevel": 24,
+    "wellsByDecade": {
+      "1960s": 1,
+      "1990s": 33,
+      "2000s": 35,
+      "2010s": 16,
+      "2020s": 4
+    },
+    "wellsByUse": {
+      "Domestic": 85,
+      "Public": 3,
+      "Unknown": 1
+    }
+  },
+  "Twin Peaks": {
+    "county": "San Bernardino",
+    "count": 23,
+    "avgDepth": 267,
+    "minDepth": 75,
+    "maxDepth": 407,
+    "medianDepth": 250,
+    "avgYield": 25.3,
+    "medianYield": 17.5,
+    "avgStaticLevel": 88,
+    "medianStaticLevel": 75,
+    "wellsByDecade": {
+      "1960s": 3,
+      "1980s": 2,
+      "1990s": 4,
+      "2000s": 11,
+      "2010s": 2,
+      "2020s": 1
+    },
+    "wellsByUse": {
+      "Unknown": 1,
+      "Domestic": 17,
+      "Industrial": 1,
+      "Public": 2,
+      "Irrigation - Agriculture": 2
+    }
+  },
+  "Havasu Lake": {
+    "county": "San Bernardino",
+    "count": 10,
+    "avgDepth": 255,
+    "minDepth": 70,
+    "maxDepth": 792,
+    "medianDepth": 214,
+    "avgYield": 27.9,
+    "medianYield": 25,
+    "avgStaticLevel": 113,
+    "medianStaticLevel": 113,
+    "wellsByDecade": {
+      "1960s": 2,
+      "1980s": 1,
+      "1990s": 3,
+      "2000s": 4
+    },
+    "wellsByUse": {
+      "Unknown": 1,
+      "Domestic": 8,
+      "Public": 1
+    }
+  },
+  "Atolia": {
+    "county": "San Bernardino",
+    "count": 5,
+    "avgDepth": 390,
+    "minDepth": 222,
+    "maxDepth": 598,
+    "medianDepth": 310,
+    "avgYield": null,
+    "medianYield": null,
+    "avgStaticLevel": 360,
+    "medianStaticLevel": 360,
+    "wellsByDecade": {
+      "1960s": 5
+    },
+    "wellsByUse": {
+      "Industrial": 3,
+      "Other": 2
+    }
+  },
+  "Green Valley Lake": {
+    "county": "San Bernardino",
+    "count": 13,
+    "avgDepth": 384,
+    "minDepth": 270,
+    "maxDepth": 460,
+    "medianDepth": 400,
+    "avgYield": 25.9,
+    "medianYield": 21,
+    "avgStaticLevel": 112,
+    "medianStaticLevel": 107,
+    "wellsByDecade": {
+      "1960s": 1,
+      "1990s": 2,
+      "2000s": 6,
+      "2010s": 3,
+      "2020s": 1
+    },
+    "wellsByUse": {
+      "Domestic": 8,
+      "Public": 5
+    }
+  },
+  "Earp": {
+    "county": "San Bernardino",
+    "count": 69,
+    "avgDepth": 36,
+    "minDepth": 15,
+    "maxDepth": 220,
+    "medianDepth": 24,
+    "avgYield": 54,
+    "medianYield": 54,
+    "avgStaticLevel": 18,
+    "medianStaticLevel": 18,
+    "wellsByDecade": {
+      "1960s": 1,
+      "2010s": 7,
+      "2020s": 61
+    },
+    "wellsByUse": {
+      "Domestic": 1,
+      "Public": 2,
+      "Monitoring": 66
+    }
+  },
+  "Parker Dam": {
+    "county": "San Bernardino",
+    "count": 26,
+    "avgDepth": 43,
+    "minDepth": 15,
+    "maxDepth": 144,
+    "medianDepth": 30,
+    "avgYield": 147.1,
+    "medianYield": 185,
+    "avgStaticLevel": null,
+    "medianStaticLevel": null,
+    "wellsByDecade": {
+      "1960s": 1,
+      "1990s": 7,
+      "2000s": 1,
+      "2010s": 2,
+      "2020s": 15
+    },
+    "wellsByUse": {
+      "Domestic": 1,
+      "Public": 6,
+      "Industrial": 1,
+      "Monitoring": 16,
+      "Injection": 2
+    }
+  },
+  "Wonder Valley": {
+    "county": "San Bernardino",
+    "count": 19,
+    "avgDepth": 302,
+    "minDepth": 130,
+    "maxDepth": 500,
+    "medianDepth": 301,
+    "avgYield": 11.1,
+    "medianYield": 10,
+    "avgStaticLevel": 189,
+    "medianStaticLevel": 183,
+    "wellsByDecade": {
+      "1970s": 2,
+      "1980s": 2,
+      "1990s": 2,
+      "2010s": 4,
+      "2020s": 9
+    },
+    "wellsByUse": {
+      "Domestic": 18,
+      "Cathodic Protection": 1
+    }
+  },
+  "Wrightwood": {
+    "county": "San Bernardino",
+    "count": 44,
+    "avgDepth": 262,
+    "minDepth": 40,
+    "maxDepth": 1081,
+    "medianDepth": 275,
+    "avgYield": 210.2,
+    "medianYield": 25,
+    "avgStaticLevel": 96,
+    "medianStaticLevel": 50,
+    "wellsByDecade": {
+      "1970s": 1,
+      "1980s": 10,
+      "1990s": 11,
+      "2000s": 13,
+      "2010s": 7,
+      "2020s": 2
+    },
+    "wellsByUse": {
+      "Domestic": 17,
+      "Monitoring": 8,
+      "Other": 1,
+      "Public": 5,
+      "Test Well": 6,
+      "Vapor Extraction": 4,
+      "Cathodic Protection": 1,
+      "Unknown": 2
+    }
+  },
+  "Nipton": {
+    "county": "San Bernardino",
+    "count": 31,
+    "avgDepth": 643,
+    "minDepth": 132,
+    "maxDepth": 1485,
+    "medianDepth": 690,
+    "avgYield": 191.3,
+    "medianYield": 60,
+    "avgStaticLevel": 345,
+    "medianStaticLevel": 380,
+    "wellsByDecade": {
+      "1970s": 2,
+      "1980s": 5,
+      "2000s": 1,
+      "2010s": 17,
+      "2020s": 6
+    },
+    "wellsByUse": {
+      "Industrial": 7,
+      "Domestic": 4,
+      "Other": 3,
+      "Unknown": 1,
+      "Public": 4,
+      "Remediation": 1,
+      "Monitoring": 11
+    }
+  },
+  "Kramer Junction": {
+    "county": "San Bernardino",
+    "count": 20,
+    "avgDepth": 190,
+    "minDepth": 27,
+    "maxDepth": 683,
+    "medianDepth": 119,
+    "avgYield": 15,
+    "medianYield": 15,
+    "avgStaticLevel": 113,
+    "medianStaticLevel": 113,
+    "wellsByDecade": {
+      "1970s": 2,
+      "1990s": 7,
+      "2000s": 5,
+      "2010s": 3,
+      "2020s": 3
+    },
+    "wellsByUse": {
+      "Domestic": 1,
+      "Test Well": 1,
+      "Monitoring": 8,
+      "Public": 1,
+      "Cathodic Protection": 6,
+      "Unknown": 3
+    }
+  },
+  "Phelan": {
+    "county": "San Bernardino",
+    "count": 128,
+    "avgDepth": 532,
+    "minDepth": 3,
+    "maxDepth": 1915,
+    "medianDepth": 500,
+    "avgYield": 165.9,
+    "medianYield": 20,
+    "avgStaticLevel": 328,
+    "medianStaticLevel": 298,
+    "wellsByDecade": {
+      "1970s": 5,
+      "1980s": 10,
+      "1990s": 19,
+      "2000s": 41,
+      "2010s": 16,
+      "2020s": 37
+    },
+    "wellsByUse": {
+      "Test Well": 1,
+      "Domestic": 86,
+      "Public": 21,
+      "Irrigation - Agriculture": 3,
+      "Monitoring": 8,
+      "Vapor Extraction": 1,
+      "Cathodic Protection": 1,
+      "Unknown": 6,
+      "Unknown Public": 1
+    }
+  },
+  "Arrowhead": {
+    "county": "San Bernardino",
+    "count": 7,
+    "avgDepth": 233,
+    "minDepth": 85,
+    "maxDepth": 400,
+    "medianDepth": 200,
+    "avgYield": 3,
+    "medianYield": 3,
+    "avgStaticLevel": 20,
+    "medianStaticLevel": 20,
+    "wellsByDecade": {
+      "1970s": 1,
+      "1980s": 4,
+      "1990s": 1,
+      "2020s": 1
+    },
+    "wellsByUse": {
+      "Unknown": 1,
+      "Domestic": 4,
+      "Public": 1,
+      "Other": 1
+    }
+  },
+  "Trona": {
+    "county": "San Bernardino",
+    "count": 21,
+    "avgDepth": 253,
+    "minDepth": 7,
+    "maxDepth": 701,
+    "medianDepth": 80,
+    "avgYield": 650.3,
+    "medianYield": 600,
+    "avgStaticLevel": 297,
+    "medianStaticLevel": 315,
+    "wellsByDecade": {
+      "1970s": 4,
+      "1990s": 11,
+      "2000s": 2,
+      "2010s": 2,
+      "2020s": 2
+    },
+    "wellsByUse": {
+      "Industrial": 7,
+      "Other": 3,
+      "Cathodic Protection": 3,
+      "Test Well": 8
+    }
+  },
+  "Hickley": {
+    "county": "San Bernardino",
+    "count": 13,
+    "avgDepth": 179,
+    "minDepth": 128,
+    "maxDepth": 300,
+    "medianDepth": 155,
+    "avgYield": 1336.3,
+    "medianYield": 912.5,
+    "avgStaticLevel": 85,
+    "medianStaticLevel": 89,
+    "wellsByDecade": {
+      "1970s": 5,
+      "1980s": 7,
+      "1990s": 1
+    },
+    "wellsByUse": {
+      "Domestic": 8,
+      "Irrigation - Agriculture": 3,
+      "Monitoring": 2
+    }
+  },
+  "Paradise Valley": {
+    "county": "San Bernardino",
+    "count": 7,
+    "avgDepth": 269,
+    "minDepth": 150,
+    "maxDepth": 520,
+    "medianDepth": 246,
+    "avgYield": 57.5,
+    "medianYield": 57.5,
+    "avgStaticLevel": 109,
+    "medianStaticLevel": 84,
+    "wellsByDecade": {
+      "1970s": 2,
+      "1980s": 2,
+      "1990s": 2,
+      "2020s": 1
+    },
+    "wellsByUse": {
+      "Domestic": 7
+    }
+  },
+  "Sandy Valley": {
+    "county": "San Bernardino",
+    "count": 24,
+    "avgDepth": 395,
+    "minDepth": 65,
+    "maxDepth": 900,
+    "medianDepth": 400,
+    "avgYield": 314.1,
+    "medianYield": 250,
+    "avgStaticLevel": 78,
+    "medianStaticLevel": 82,
+    "wellsByDecade": {
+      "1970s": 1,
+      "1980s": 4,
+      "1990s": 1,
+      "2000s": 16,
+      "2010s": 2
+    },
+    "wellsByUse": {
+      "Irrigation - Agriculture": 10,
+      "Public": 7,
+      "Domestic": 7
+    }
+  },
+  "Montclair": {
+    "county": "San Bernardino",
+    "count": 58,
+    "avgDepth": 289,
+    "minDepth": 25,
+    "maxDepth": 1430,
+    "medianDepth": 90,
+    "avgYield": 2141.6,
+    "medianYield": 2000,
+    "avgStaticLevel": 510,
+    "medianStaticLevel": 528,
+    "wellsByDecade": {
+      "1970s": 1,
+      "1990s": 2,
+      "2000s": 15,
+      "2010s": 7,
+      "2020s": 33
+    },
+    "wellsByUse": {
+      "Public": 5,
+      "Domestic": 3,
+      "Vapor Extraction": 28,
+      "Monitoring": 11,
+      "Other": 11
+    }
+  },
+  "Orange": {
+    "county": "San Bernardino",
+    "count": 5,
+    "avgDepth": 261,
+    "minDepth": 180,
+    "maxDepth": 375,
+    "medianDepth": 250,
+    "avgYield": null,
+    "medianYield": null,
+    "avgStaticLevel": 1,
+    "medianStaticLevel": 1,
+    "wellsByDecade": {
+      "1970s": 1,
+      "2000s": 4
+    },
+    "wellsByUse": {
+      "Industrial": 1,
+      "Other": 4
+    }
+  },
+  "Angeles Oaks": {
+    "county": "San Bernardino",
+    "count": 9,
+    "avgDepth": 230,
+    "minDepth": 140,
+    "maxDepth": 360,
+    "medianDepth": 200,
+    "avgYield": 40.6,
+    "medianYield": 35,
+    "avgStaticLevel": 43,
+    "medianStaticLevel": 32,
+    "wellsByDecade": {
+      "1980s": 3,
+      "1990s": 1,
+      "2000s": 2,
+      "2010s": 3
+    },
+    "wellsByUse": {
+      "Domestic": 5,
+      "Unknown": 2,
+      "Public": 2
+    }
+  },
+  "Running Springs": {
+    "county": "San Bernardino",
+    "count": 99,
+    "avgDepth": 276,
+    "minDepth": 32,
+    "maxDepth": 700,
+    "medianDepth": 289,
+    "avgYield": 34.6,
+    "medianYield": 20,
+    "avgStaticLevel": 60,
+    "medianStaticLevel": 43,
+    "wellsByDecade": {
+      "1980s": 15,
+      "1990s": 49,
+      "2000s": 17,
+      "2010s": 5,
+      "2020s": 13
+    },
+    "wellsByUse": {
+      "Public": 30,
+      "Domestic": 38,
+      "Industrial": 3,
+      "Monitoring": 24,
+      "Unknown": 2,
+      "Irrigation - Agriculture": 2
+    }
+  },
+  "Rimrock": {
+    "county": "San Bernardino",
+    "count": 6,
+    "avgDepth": 329,
+    "minDepth": 165,
+    "maxDepth": 680,
+    "medianDepth": 293,
+    "avgYield": 7,
+    "medianYield": 8.5,
+    "avgStaticLevel": 248,
+    "medianStaticLevel": 142,
+    "wellsByDecade": {
+      "1980s": 2,
+      "1990s": 1,
+      "2000s": 1,
+      "2010s": 1,
+      "2020s": 1
+    },
+    "wellsByUse": {
+      "Domestic": 6
+    }
+  },
+  "Pinon Hills": {
+    "county": "San Bernardino",
+    "count": 15,
+    "avgDepth": 631,
+    "minDepth": 290,
+    "maxDepth": 1000,
+    "medianDepth": 595,
+    "avgYield": 137.3,
+    "medianYield": 19,
+    "avgStaticLevel": 405,
+    "medianStaticLevel": 400,
+    "wellsByDecade": {
+      "1980s": 2,
+      "1990s": 2,
+      "2000s": 5,
+      "2020s": 6
+    },
+    "wellsByUse": {
+      "Domestic": 12,
+      "Public": 1,
+      "Monitoring": 2
+    }
+  },
+  "Mountain Pass": {
+    "county": "San Bernardino",
+    "count": 59,
+    "avgDepth": 208,
+    "minDepth": 29,
+    "maxDepth": 800,
+    "medianDepth": 150,
+    "avgYield": 51.3,
+    "medianYield": 16,
+    "avgStaticLevel": 78,
+    "medianStaticLevel": 75,
+    "wellsByDecade": {
+      "1980s": 2,
+      "1990s": 34,
+      "2000s": 7,
+      "2010s": 11,
+      "2020s": 5
+    },
+    "wellsByUse": {
+      "Industrial": 2,
+      "Test Well": 1,
+      "Monitoring": 55,
+      "Other": 1
+    }
+  },
+  "Kelso": {
+    "county": "San Bernardino",
+    "count": 6,
+    "avgDepth": 725,
+    "minDepth": 500,
+    "maxDepth": 1415,
+    "medianDepth": 516,
+    "avgYield": 640,
+    "medianYield": 640,
+    "avgStaticLevel": 362,
+    "medianStaticLevel": 362,
+    "wellsByDecade": {
+      "1980s": 1,
+      "1990s": 2,
+      "2000s": 1,
+      "2010s": 2
+    },
+    "wellsByUse": {
+      "Irrigation - Agriculture": 3,
+      "Cathodic Protection": 1,
+      "Other": 2
+    }
+  },
+  "Angelus Oaks": {
+    "county": "San Bernardino",
+    "count": 16,
+    "avgDepth": 350,
+    "minDepth": 110,
+    "maxDepth": 1000,
+    "medianDepth": 300,
+    "avgYield": 24.4,
+    "medianYield": 22.5,
+    "avgStaticLevel": 78,
+    "medianStaticLevel": 45,
+    "wellsByDecade": {
+      "1980s": 1,
+      "1990s": 5,
+      "2000s": 3,
+      "2010s": 2,
+      "2020s": 5
+    },
+    "wellsByUse": {
+      "Domestic": 8,
+      "Unknown": 1,
+      "Public": 7
+    }
+  },
+  "Stateline": {
+    "county": "San Bernardino",
+    "count": 6,
+    "avgDepth": 559,
+    "minDepth": 231,
+    "maxDepth": 696,
+    "medianDepth": 635,
+    "avgYield": 750,
+    "medianYield": 750,
+    "avgStaticLevel": 286,
+    "medianStaticLevel": 286,
+    "wellsByDecade": {
+      "1980s": 1,
+      "1990s": 5
+    },
+    "wellsByUse": {
+      "Public": 4,
+      "Monitoring": 1,
+      "Industrial": 1
+    }
+  },
+  "Lanfair Valley": {
+    "county": "San Bernardino",
+    "count": 7,
+    "avgDepth": 872,
+    "minDepth": 632,
+    "maxDepth": 1100,
+    "medianDepth": 800,
+    "avgYield": 13.3,
+    "medianYield": 15,
+    "avgStaticLevel": 487,
+    "medianStaticLevel": 616,
+    "wellsByDecade": {
+      "1990s": 6,
+      "2000s": 1
+    },
+    "wellsByUse": {
+      "Monitoring": 3,
+      "Other": 1,
+      "Industrial": 1,
+      "Domestic": 1,
+      "Public": 1
+    }
+  },
+  "Mt Baldy": {
+    "county": "San Bernardino",
+    "count": 5,
+    "avgDepth": 224,
+    "minDepth": 100,
+    "maxDepth": 400,
+    "medianDepth": 140,
+    "avgYield": 91.3,
+    "medianYield": 25,
+    "avgStaticLevel": 30,
+    "medianStaticLevel": 30,
+    "wellsByDecade": {
+      "1990s": 3,
+      "2000s": 2
+    },
+    "wellsByUse": {
+      "Public": 3,
+      "Irrigation - Agriculture": 2
+    }
+  },
+  "Lake Arrowhead": {
+    "county": "San Bernardino",
+    "count": 71,
+    "avgDepth": 432,
+    "minDepth": 23,
+    "maxDepth": 900,
+    "medianDepth": 400,
+    "avgYield": 29.2,
+    "medianYield": 20,
+    "avgStaticLevel": 72,
+    "medianStaticLevel": 60,
+    "wellsByDecade": {
+      "1990s": 3,
+      "2000s": 40,
+      "2010s": 21,
+      "2020s": 7
+    },
+    "wellsByUse": {
+      "Other": 1,
+      "Irrigation - Agriculture": 2,
+      "Public": 11,
+      "Domestic": 50,
+      "Monitoring": 5,
+      "Unknown": 1,
+      "Irrigation - Landscape": 1
+    }
+  },
+  "George Afb": {
+    "county": "San Bernardino",
+    "count": 33,
+    "avgDepth": 133,
+    "minDepth": 105,
+    "maxDepth": 256,
+    "medianDepth": 120,
+    "avgYield": 5,
+    "medianYield": 5,
+    "avgStaticLevel": 124,
+    "medianStaticLevel": 127,
+    "wellsByDecade": {
+      "1990s": 11,
+      "2000s": 22
+    },
+    "wellsByUse": {
+      "Monitoring": 12,
+      "Remediation": 2,
+      "Other": 16,
+      "Vapor Extraction": 3
+    }
+  },
+  "China Lake": {
+    "county": "San Bernardino",
+    "count": 12,
+    "avgDepth": 211,
+    "minDepth": 40,
+    "maxDepth": 800,
+    "medianDepth": 55,
+    "avgYield": 250,
+    "medianYield": 250,
+    "avgStaticLevel": 251,
+    "medianStaticLevel": 251,
+    "wellsByDecade": {
+      "1990s": 8,
+      "2000s": 4
+    },
+    "wellsByUse": {
+      "Monitoring": 9,
+      "Other": 2,
+      "Public": 1
+    }
+  },
+  "Erwin Lake": {
+    "county": "San Bernardino",
+    "count": 28,
+    "avgDepth": 200,
+    "minDepth": 105,
+    "maxDepth": 330,
+    "medianDepth": 200,
+    "avgYield": 31.1,
+    "medianYield": 25,
+    "avgStaticLevel": 47,
+    "medianStaticLevel": 44,
+    "wellsByDecade": {
+      "1990s": 7,
+      "2000s": 17,
+      "2010s": 3,
+      "2020s": 1
+    },
+    "wellsByUse": {
+      "Domestic": 27,
+      "Other": 1
+    }
+  },
+  "Pinion Hills": {
+    "county": "San Bernardino",
+    "count": 6,
+    "avgDepth": 619,
+    "minDepth": 423,
+    "maxDepth": 970,
+    "medianDepth": 560,
+    "avgYield": 432.5,
+    "medianYield": 12.5,
+    "avgStaticLevel": 367,
+    "medianStaticLevel": 450,
+    "wellsByDecade": {
+      "1990s": 1,
+      "2000s": 2,
+      "2010s": 3
+    },
+    "wellsByUse": {
+      "Public": 1,
+      "Domestic": 5
+    }
+  },
+  "Runnung Springs": {
+    "county": "San Bernardino",
+    "count": 5,
+    "avgDepth": 44,
+    "minDepth": 39,
+    "maxDepth": 50,
+    "medianDepth": 45,
+    "avgYield": null,
+    "medianYield": null,
+    "avgStaticLevel": null,
+    "medianStaticLevel": null,
+    "wellsByDecade": {
+      "1990s": 5
+    },
+    "wellsByUse": {
+      "Monitoring": 5
+    }
+  },
+  "Near Parker Az": {
+    "county": "San Bernardino",
+    "count": 9,
+    "avgDepth": 24,
+    "minDepth": 24,
+    "maxDepth": 24,
+    "medianDepth": 24,
+    "avgYield": null,
+    "medianYield": null,
+    "avgStaticLevel": null,
+    "medianStaticLevel": null,
+    "wellsByDecade": {
+      "2000s": 9
+    },
+    "wellsByUse": {
+      "Remediation": 9
+    }
+  },
+  "Cedar Glen": {
+    "county": "San Bernardino",
+    "count": 12,
+    "avgDepth": 214,
+    "minDepth": 30,
+    "maxDepth": 505,
+    "medianDepth": 223,
+    "avgYield": 9.7,
+    "medianYield": 10,
+    "avgStaticLevel": 42,
+    "medianStaticLevel": 50,
+    "wellsByDecade": {
+      "2000s": 9,
+      "2010s": 3
+    },
+    "wellsByUse": {
+      "Domestic": 7,
+      "Monitoring": 4,
+      "Public": 1
+    }
+  },
+  "Lake Williams": {
+    "county": "San Bernardino",
+    "count": 5,
+    "avgDepth": 213,
+    "minDepth": 150,
+    "maxDepth": 260,
+    "medianDepth": 200,
+    "avgYield": 50.4,
+    "medianYield": 60,
+    "avgStaticLevel": 57,
+    "medianStaticLevel": 50,
+    "wellsByDecade": {
+      "2000s": 2,
+      "2010s": 1,
+      "2020s": 2
+    },
+    "wellsByUse": {
+      "Domestic": 5
+    }
+  },
+  "Topock": {
+    "county": "San Bernardino",
+    "count": 14,
+    "avgDepth": 155,
+    "minDepth": 55,
+    "maxDepth": 366,
+    "medianDepth": 135,
+    "avgYield": null,
+    "medianYield": null,
+    "avgStaticLevel": 30,
+    "medianStaticLevel": 30,
+    "wellsByDecade": {
+      "2000s": 14
+    },
+    "wellsByUse": {
+      "Monitoring": 14
+    }
+  },
+  "Cedarpines Park": {
+    "county": "San Bernardino",
+    "count": 5,
+    "avgDepth": 445,
+    "minDepth": 75,
+    "maxDepth": 700,
+    "medianDepth": 600,
+    "avgYield": 24.8,
+    "medianYield": 25,
+    "avgStaticLevel": 109,
+    "medianStaticLevel": 75,
+    "wellsByDecade": {
+      "2010s": 4,
+      "2020s": 1
+    },
+    "wellsByUse": {
+      "Domestic": 4,
+      "Public": 1
+    }
+  },
+  "Yucipa": {
+    "county": "San Bernardino",
+    "count": 26,
+    "avgDepth": 173,
+    "minDepth": 145,
+    "maxDepth": 290,
+    "medianDepth": 170,
+    "avgYield": null,
+    "medianYield": null,
+    "avgStaticLevel": null,
+    "medianStaticLevel": null,
+    "wellsByDecade": {
+      "2010s": 26
+    },
+    "wellsByUse": {
+      "Monitoring": 26
+    }
+  },
+  "Victoprvile": {
+    "county": "San Bernardino",
+    "count": 6,
+    "avgDepth": 26,
+    "minDepth": 25,
+    "maxDepth": 27,
+    "medianDepth": 25,
+    "avgYield": null,
+    "medianYield": null,
+    "avgStaticLevel": null,
+    "medianStaticLevel": null,
+    "wellsByDecade": {
+      "2010s": 6
+    },
+    "wellsByUse": {
+      "Other": 2,
+      "Monitoring": 4
+    }
+  },
+  "(near) Baker": {
+    "county": "San Bernardino",
+    "count": 11,
+    "avgDepth": 19,
+    "minDepth": 16,
+    "maxDepth": 20,
+    "medianDepth": 19,
+    "avgYield": null,
+    "medianYield": null,
+    "avgStaticLevel": null,
+    "medianStaticLevel": null,
+    "wellsByDecade": {
+      "2020s": 11
+    },
+    "wellsByUse": {
+      "Unknown": 11
+    }
+  }
+}

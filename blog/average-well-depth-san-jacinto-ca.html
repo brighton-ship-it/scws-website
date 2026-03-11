@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google Analytics -->
+    <script src="/js/ga4-filter.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LL1YRWT5T"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-5LL1YRWT5T');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Average Well Depth in San Jacinto, CA | SCWS</title>
+    <meta name="description" content="Average well depth in San Jacinto, California is 564 feet based on 184 wells on record. 24-1810 ft typical range. Riverside County well drilling data.">
+    <link rel="canonical" href="https://scwellservice.com/blog/average-well-depth-san-jacinto-ca.html">
+    <meta property="og:title" content="Average Well Depth in San Jacinto, CA">
+    <meta property="og:description" content="564 feet average depth, 184 wells on record in Riverside County.">
+    <meta property="og:type" content="article">
+    <link rel="stylesheet" href="../css/styles.css">
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "How deep are wells in San Jacinto, CA?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The average well depth in San Jacinto, California is 564 feet, based on 184 wells on record. Well depths in the area range from 24-1810 feet depending on geology and location. Riverside County wells typically require deeper drilling into bedrock."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How much does it cost to drill a well in San Jacinto, CA?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Well drilling costs in San Jacinto typically range from $25380-$42300 for a complete installation, based on the 564-foot average depth. Cost factors include depth, geology, casing requirements, and pump size. Call Southern California Well Service at (760) 440-8520 for a free estimate specific to your property."
+                }
+            }
+        ]
+    }
+    </script>
+    
+    <style>
+        .stats-box {
+            background: #f0f9ff;
+            border: 2px solid #0ea5e9;
+            border-radius: 12px;
+            padding: 24px;
+            margin: 24px 0;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-top: 16px;
+        }
+        .stat-item {
+            text-align: center;
+        }
+        .stat-value {
+            font-size: 2em;
+            font-weight: bold;
+            color: #0c4a6e;
+        }
+        .stat-label {
+            color: #64748b;
+            font-size: 0.9em;
+        }
+        .depth-chart {
+            margin: 24px 0;
+            padding: 20px;
+            background: #f8fafc;
+            border-radius: 8px;
+        }
+        .depth-scale {
+            position: relative;
+            height: 60px;
+            margin-bottom: 12px;
+        }
+        .depth-min, .depth-max, .depth-avg {
+            position: absolute;
+            font-weight: bold;
+            color: #0c4a6e;
+        }
+        .depth-min { left: 0; }
+        .depth-max { right: 0; }
+        .depth-avg {
+            transform: translateX(-50%);
+            text-align: center;
+        }
+        .depth-bar {
+            position: relative;
+            height: 40px;
+            background: #e2e8f0;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+        .depth-range {
+            height: 100%;
+            background: linear-gradient(90deg, #3b82f6 0%, #0ea5e9 50%, #06b6d4 100%);
+        }
+        .depth-marker {
+            position: absolute;
+            top: 0;
+            width: 4px;
+            height: 100%;
+            background: #dc2626;
+            transform: translateX(-2px);
+        }
+        .decade-chart, .use-breakdown {
+            margin: 24px 0;
+        }
+        .decade-row, .use-row {
+            display: flex;
+            align-items: center;
+            margin: 8px 0;
+            gap: 12px;
+        }
+        .decade-label, .use-label {
+            min-width: 80px;
+            font-weight: 600;
+            color: #334155;
+        }
+        .bar-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .bar {
+            height: 24px;
+            background: #4e9271;
+            border-radius: 4px;
+            transition: width 0.3s;
+        }
+        .bar-count, .use-count {
+            color: #64748b;
+            font-size: 0.9em;
+            white-space: nowrap;
+        }
+        .use-count {
+            margin-left: auto;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body class="pb-20 lg:pb-0 bg-white">
+    <header>
+        <nav>
+            <a href="/" class="logo"><img loading="lazy" src="/images/logo-text-only-3x.png" alt="Southern California Well Service" style="height: 40px;"></a>
+            <a href="/services.html">Services</a>
+            <a href="/blog/">Blog</a>
+            <a href="/contact.html">Contact</a>
+            <a href="tel:+17604408520" class="cta-phone">(760) 440-8520</a>
+        </nav>
+    </header>
+
+    <main class="blog-post">
+        <article>
+            <h1>Average Well Depth in San Jacinto, California</h1>
+            
+            <p class="meta">Based on 184 wells on record | Riverside County, CA</p>
+
+            <div class="stats-box">
+                <h3>Well Statistics for San Jacinto</h3>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-value">564ft</div>
+                        <div class="stat-label">Average Depth</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">184</div>
+                        <div class="stat-label">Wells on Record</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">24-1810ft</div>
+                        <div class="stat-label">Depth Range</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">940.7</div>
+                        <div class="stat-label">Avg Yield (GPM)</div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="blog-cta" class="bg-primary text-white rounded-xl p-6 my-8">
+                <h3 class="font-bold text-lg mb-2">Need a Well Drilled in San Jacinto?</h3>
+                <p class="text-gray-300 text-sm mb-4">Expert well drilling, pump installation, and repair service in Riverside County.</p>
+                <a href="tel:7604408520" class="block bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-lg text-center transition mb-2">📞 (760) 440-8520</a>
+                <a href="/contact.html" class="block bg-accent hover:bg-green-600 text-white font-bold py-3 px-4 rounded-lg text-center transition text-sm">Get Free Estimate →</a>
+            </div>
+
+            <section>
+                <h2>Well Depth Distribution in San Jacinto</h2>
+                <p>Based on 184 wells drilled in San Jacinto, California, the average depth is <strong>564 feet</strong>. The median depth is 433 feet, which represents the typical well depth in the area.</p>
+                
+                <div class="depth-chart">
+  <div class="depth-scale">
+    <span class="depth-min">24ft<br><small>Shallowest</small></span>
+    <span class="depth-avg" style="left: 30.23516237402016%">564ft<br><small>Average</small></span>
+    <span class="depth-max">1810ft<br><small>Deepest</small></span>
+  </div>
+  <div class="depth-bar">
+    <div class="depth-range" style="width: 100%"></div>
+    <div class="depth-marker" style="left: 30.23516237402016%"></div>
+  </div>
+</div>
+                
+                <ul>
+                    <li><strong>Shallowest well:</strong> 24 feet</li>
+                    <li><strong>Deepest well:</strong> 1810 feet</li>
+                    <li><strong>Average depth:</strong> 564 feet</li>
+                    <li><strong>Median depth:</strong> 433 feet</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Geology and Groundwater in San Jacinto</h2>
+                <p>San Jacinto sits in an area with deep bedrock, typically requiring wells to penetrate granite or metamorphic formations. The average depth of 564 feet reflects the need to drill through hard rock layers to reach productive aquifers. These deeper wells often require air rotary or DTH (down-the-hole) hammer drilling methods and tend to have lower yields but more stable water quality. Well depths in the area vary significantly—from 24 to 1810 feet—reflecting diverse geological conditions across the region. Shallower wells often indicate alluvial areas, while deeper wells suggest locations over bedrock or in zones with lower water tables.</p>
+                <p>The average static water level (depth to water when the pump is off) in San Jacinto wells is approximately 190 feet below ground surface. This indicates the natural resting level of the water table in the area.</p>
+            </section>
+
+            <section>
+                <h2>Wells by Decade</h2>
+                <p>This chart shows when wells were drilled in San Jacinto, based on well completion reports:</p>
+                <div class="decade-chart">
+  <div class="decade-row">
+    <span class="decade-label">1930s</span>
+    <div class="bar-container">
+      <div class="bar" style="width: 3.0303030303030303%"></div>
+      <span class="bar-count">1 wells</span>
+    </div>
+  </div>
+  <div class="decade-row">
+    <span class="decade-label">1940s</span>
+    <div class="bar-container">
+      <div class="bar" style="width: 9.090909090909092%"></div>
+      <span class="bar-count">3 wells</span>
+    </div>
+  </div>
+  <div class="decade-row">
+    <span class="decade-label">1950s</span>
+    <div class="bar-container">
+      <div class="bar" style="width: 100%"></div>
+      <span class="bar-count">33 wells</span>
+    </div>
+  </div>
+  <div class="decade-row">
+    <span class="decade-label">1960s</span>
+    <div class="bar-container">
+      <div class="bar" style="width: 78.78787878787878%"></div>
+      <span class="bar-count">26 wells</span>
+    </div>
+  </div>
+  <div class="decade-row">
+    <span class="decade-label">1970s</span>
+    <div class="bar-container">
+      <div class="bar" style="width: 30.303030303030305%"></div>
+      <span class="bar-count">10 wells</span>
+    </div>
+  </div>
+  <div class="decade-row">
+    <span class="decade-label">1980s</span>
+    <div class="bar-container">
+      <div class="bar" style="width: 39.39393939393939%"></div>
+      <span class="bar-count">13 wells</span>
+    </div>
+  </div>
+  <div class="decade-row">
+    <span class="decade-label">1990s</span>
+    <div class="bar-container">
+      <div class="bar" style="width: 87.87878787878788%"></div>
+      <span class="bar-count">29 wells</span>
+    </div>
+  </div>
+  <div class="decade-row">
+    <span class="decade-label">2000s</span>
+    <div class="bar-container">
+      <div class="bar" style="width: 75.75757575757575%"></div>
+      <span class="bar-count">25 wells</span>
+    </div>
+  </div>
+  <div class="decade-row">
+    <span class="decade-label">2010s</span>
+    <div class="bar-container">
+      <div class="bar" style="width: 54.54545454545454%"></div>
+      <span class="bar-count">18 wells</span>
+    </div>
+  </div>
+  <div class="decade-row">
+    <span class="decade-label">2020s</span>
+    <div class="bar-container">
+      <div class="bar" style="width: 60.60606060606061%"></div>
+      <span class="bar-count">20 wells</span>
+    </div>
+  </div>
+</div>
+                <p>Drilling activity patterns often reflect local development trends, water availability, and economic growth periods.</p>
+            </section>
+
+            <section>
+                <h2>Well Use Types in San Jacinto</h2>
+                <p>Wells in San Jacinto serve various purposes. Here's the breakdown:</p>
+                <div class="use-breakdown">
+  <div class="use-row">
+    <span class="use-label">Irrigation - Agriculture</span>
+    <span class="use-count">69 wells</span>
+  </div>
+  <div class="use-row">
+    <span class="use-label">Domestic</span>
+    <span class="use-count">53 wells</span>
+  </div>
+  <div class="use-row">
+    <span class="use-label">Public</span>
+    <span class="use-count">22 wells</span>
+  </div>
+  <div class="use-row">
+    <span class="use-label">Monitoring</span>
+    <span class="use-count">13 wells</span>
+  </div>
+  <div class="use-row">
+    <span class="use-label">Unknown</span>
+    <span class="use-count">12 wells</span>
+  </div>
+  <div class="use-row">
+    <span class="use-label">Other</span>
+    <span class="use-count">7 wells</span>
+  </div>
+  <div class="use-row">
+    <span class="use-label">Cathodic Protection</span>
+    <span class="use-count">3 wells</span>
+  </div>
+  <div class="use-row">
+    <span class="use-label">Stock or Animal Watering</span>
+    <span class="use-count">2 wells</span>
+  </div>
+  <div class="use-row">
+    <span class="use-label">Unknown Public</span>
+    <span class="use-count">2 wells</span>
+  </div>
+  <div class="use-row">
+    <span class="use-label">Irrigation - Landscape</span>
+    <span class="use-count">1 wells</span>
+  </div>
+</div>
+            </section>
+
+            <section>
+                <h2>What This Means for Your Property</h2>
+                <p>If you're planning to drill a well in San Jacinto, you can expect:</p>
+                <ul>
+                    <li><strong>Depth:</strong> A deeper well requiring rotary drilling methods</li>
+                    <li><strong>Cost:</strong> Approximately $25380-$42300 for complete installation (depth, pump, pressure tank, electrical)</li>
+                    <li><strong>Drilling time:</strong> 2-5 days depending on rock hardness</li>
+                    <li><strong>Yield:</strong> Average 940.7 GPM (gallons per minute)</li>
+                    <li><strong>Water level:</strong> Expect water at approximately 190 feet depth</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Well Drilling in San Jacinto</h2>
+                <p>Southern California Well Service has drilled hundreds of wells across Riverside County, including San Jacinto. We understand the local geology and can provide accurate estimates based on your property's location.</p>
+                
+                <h3>Our San Jacinto Well Services:</h3>
+                <ul>
+                    <li>New well drilling and installation</li>
+                    <li>Well pump replacement and repair</li>
+                    <li>Well inspection and testing</li>
+                    <li>Water quality testing</li>
+                    <li>Pressure tank installation</li>
+                    <li>24/7 emergency service</li>
+                </ul>
+
+                <p><strong>Call <a href="tel:+17604408520">(760) 440-8520</a></strong> for a free site evaluation and accurate quote for your San Jacinto property.</p>
+            </section>
+
+            <section>
+                <h2>Free Well Depth Lookup Tool</h2>
+                <p>Want to know the exact depth of an existing well? Use our <a href="/app/well-depth.html"><strong>free Well Depth Lookup Tool</strong></a> to search California well completion reports by address or APN.</p>
+            </section>
+
+            <section>
+                <h2>Nearby Communities</h2>
+                <p>Also serving well drilling and pump service in these nearby Riverside County areas:</p>
+                <ul>
+                    <li><a href="/blog/average-well-depth-mecca-ca.html">Mecca Well Depth Data</a></li>
+                    <li><a href="/blog/average-well-depth-mountain-center-ca.html">Mountain Center Well Depth Data</a></li>
+                    <li><a href="/blog/average-well-depth-big-bear-lake-ca.html">Big Bear Lake Well Depth Data</a></li>
+                    <li><a href="/blog/average-well-depth-beaumont-ca.html">Beaumont Well Depth Data</a></li>
+                    <li><a href="/blog/average-well-depth-baldwin-lake-ca.html">Baldwin Lake Well Depth Data</a></li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Frequently Asked Questions</h2>
+                
+                <h3>How deep are wells in San Jacinto, CA?</h3>
+                <p>The average well depth in San Jacinto, California is 564 feet, based on 184 wells on record. Well depths range from 24-1810 feet depending on your specific location and the depth to productive water-bearing formations.</p>
+
+                <h3>How much does it cost to drill a well in San Jacinto?</h3>
+                <p>Well drilling costs in San Jacinto typically range from $25380-$42300 for a complete system, based on the 564-foot average depth. The final cost depends on actual depth required, rock hardness, pump size, and site accessibility. Call us at <a href="tel:+17604408520">(760) 440-8520</a> for a free on-site estimate.</p>
+
+                <h3>How long does it take to drill a well in San Jacinto?</h3>
+                <p>Most wells in San Jacinto take 2-5 days to drill and complete, depending on depth and geology. Harder rock formations may require additional time.</p>
+
+                <h3>Do I need a permit to drill a well in Riverside County?</h3>
+                <p>Yes, Riverside County requires a well permit before drilling. We handle all permit applications as part of our service. Permits typically take 2-4 weeks to obtain.</p>
+            </section>
+
+            <section class="cta-section">
+                <h2>Ready to Drill a Well in San Jacinto?</h2>
+                <p>Southern California Well Service has over 40 years of experience drilling wells in Riverside County. We provide honest estimates, quality workmanship, and reliable service.</p>
+                <p><strong>Call <a href="tel:+17604408520">(760) 440-8520</a></strong> for your free consultation.</p>
+            </section>
+
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Southern California Well Service. Licensed C-57 Contractor.</p>
+        <p>Emergency Service: <a href="tel:+17604408520">(760) 440-8520</a></p>
+    </footer>
+
+<!-- Sticky Mobile CTA Bar -->
+<style>#sticky-cta{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:2px solid #e5e7eb;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px;z-index:50;box-shadow:0 -4px 12px rgba(0,0,0,0.1)}#sticky-cta a{flex:1;font-weight:700;padding:12px 16px;border-radius:8px;text-align:center;color:#fff;font-size:14px;text-decoration:none}#sticky-cta .cta-call{background:#dc2626}#sticky-cta .cta-call:hover{background:#b91c1c}#sticky-cta .cta-est{background:#4e9271}#sticky-cta .cta-est:hover{background:#3d7a5c}@media(min-width:1024px){#sticky-cta{display:none}}</style>
+<div id="sticky-cta">
+    <a href="tel:7604408520" class="cta-call">📞 Call Now</a>
+    <a href="/contact.html" class="cta-est">Free Estimate</a>
+</div>
+</body>
+</html>
