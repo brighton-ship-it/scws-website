@@ -1,33 +1,22 @@
 #!/usr/bin/env node
-// Match Google Reviews to Jobber clients to get city info
+/**
+ * Match Google Reviews to Cities via Jobber
+ * Searches Jobber for reviewer names and extracts their city
+ */
 
 const fs = require('fs');
 const path = require('path');
 
-const REVIEWS_FILE = '/Users/jarvis/clawd/scws-gmb/reviews.json';
-const CREDS_FILE = '/Users/jarvis/clawd/jobber_credentials.json';
-const OUTPUT_FILE = '/Users/jarvis/clawd/scws-website/scripts/reviews-by-city.json';
+// Load credentials
+const creds = JSON.parse(fs.readFileSync('/Users/jarvis/clawd/jobber_credentials.json', 'utf8'));
 
-async function queryJobber(accessToken, query) {
-  const response = await fetch('https://api.getjobber.com/api/graphql', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${accessToken}`,
-      'X-JOBBER-GRAPHQL-VERSION': '2024-12-11'
-    },
-    body: JSON.stringify({ query })
-  });
-  return response.json();
-}
+// Load reviews
+const reviews = JSON.parse(fs.readFileSync('/Users/jarvis/clawd/scws-gmb/reviews.json', 'utf8'));
 
-async function searchClient(accessToken, name) {
-  // Clean up the name - remove nicknames in parentheses
-  const cleanName = name.replace(/\s*\([^)]*\)\s*/g, '').trim();
-  
+async function searchJobberClient(name) {
   const query = `
-    query {
-      clients(searchTerm: "${cleanName}", first: 5) {
+    query SearchClients($searchTerm: String!) {
+      clients(searchTerm: $searchTerm, first: 5) {
         nodes {
           id
           name
@@ -35,122 +24,172 @@ async function searchClient(accessToken, name) {
           lastName
           billingAddress {
             city
-            state
-          }
-          properties {
-            nodes {
-              address {
-                city
-                state
-              }
-            }
+            street
+            postalCode
           }
         }
       }
     }
   `;
+
+  try {
+    const response = await fetch(creds.api_endpoint, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${creds.access_token}`,
+        'X-JOBBER-GRAPHQL-VERSION': creds.graphql_version
+      },
+      body: JSON.stringify({
+        query,
+        variables: { searchTerm: name }
+      })
+    });
+
+    const data = await response.json();
+    if (data.errors) {
+      console.error(`Error searching for ${name}:`, data.errors[0].message);
+      return null;
+    }
+    return data.data?.clients?.nodes || [];
+  } catch (err) {
+    console.error(`Failed to search for ${name}:`, err.message);
+    return null;
+  }
+}
+
+function extractCity(client) {
+  if (client.billingAddress?.city) {
+    return client.billingAddress.city;
+  }
+  return null;
+}
+
+function cleanName(displayName) {
+  // Remove nicknames in parentheses, emojis, etc.
+  return displayName
+    .replace(/\(.*?\)/g, '')
+    .replace(/[^\w\s'-]/g, '')
+    .trim();
+}
+
+function nameMatch(reviewerName, clientName) {
+  const rn = reviewerName.toLowerCase().trim();
+  const cn = clientName.toLowerCase().trim();
   
-  return queryJobber(accessToken, query);
+  // Exact match
+  if (rn === cn) return true;
+  
+  // Check if reviewer name parts are in client name
+  const rParts = rn.split(/\s+/);
+  const cParts = cn.split(/\s+/);
+  
+  // At least first and last name match
+  if (rParts.length >= 2 && cParts.length >= 2) {
+    const firstMatch = rParts[0] === cParts[0];
+    const lastMatch = rParts[rParts.length - 1] === cParts[cParts.length - 1];
+    if (firstMatch && lastMatch) return true;
+  }
+  
+  // First name match for single names
+  if (rParts.length === 1 && rParts[0] === cParts[0]) return true;
+  
+  return false;
 }
 
 async function main() {
-  // Load reviews
-  const reviews = JSON.parse(fs.readFileSync(REVIEWS_FILE, 'utf8'));
-  const creds = JSON.parse(fs.readFileSync(CREDS_FILE, 'utf8'));
+  console.log('Matching Google Reviews to Cities via Jobber\n');
   
-  // Extract 5-star reviews with text from both locations
+  // Collect all 5-star reviews with comments
   const fiveStarReviews = [];
-  
   for (const location of reviews) {
-    const locationName = location.address?.locality || 'Unknown';
-    
     for (const review of location.reviews) {
       if (review.starRating === 'FIVE' && review.comment) {
         fiveStarReviews.push({
           name: review.reviewer.displayName,
           text: review.comment,
-          date: review.createTime?.split('T')[0],
-          locationGMB: locationName
+          date: review.createTime.split('T')[0],
+          location: location.address.locality
         });
       }
     }
   }
   
-  console.log(`Found ${fiveStarReviews.length} 5-star reviews with text`);
+  console.log(`Found ${fiveStarReviews.length} 5-star reviews with comments\n`);
   
-  // Try to match each reviewer to Jobber
   const reviewsByCity = {};
-  let matched = 0;
-  let unmatched = 0;
-  const matchDetails = [];
+  const matched = [];
+  const unmatched = [];
   
+  // Process each review
   for (const review of fiveStarReviews) {
-    try {
-      const result = await searchClient(creds.access_token, review.name);
-      
-      if (result.data?.clients?.nodes?.length > 0) {
-        const client = result.data.clients.nodes[0];
-        
-        // Try to get city from property first, then billing address
-        let city = null;
-        if (client.properties?.nodes?.[0]?.address?.city) {
-          city = client.properties.nodes[0].address.city;
-        } else if (client.billingAddress?.city) {
-          city = client.billingAddress.city;
+    const cleanedName = cleanName(review.name);
+    console.log(`Searching for: ${cleanedName}`);
+    
+    const clients = await searchJobberClient(cleanedName);
+    
+    if (clients && clients.length > 0) {
+      // Find best match
+      let bestMatch = null;
+      for (const client of clients) {
+        if (nameMatch(cleanedName, client.name)) {
+          bestMatch = client;
+          break;
         }
-        
+      }
+      
+      if (bestMatch) {
+        const city = extractCity(bestMatch);
         if (city) {
-          // Normalize city name
-          city = city.charAt(0).toUpperCase() + city.slice(1).toLowerCase();
+          const normalizedCity = city.trim();
+          console.log(`  ✓ Matched to ${bestMatch.name} in ${normalizedCity}`);
           
-          if (!reviewsByCity[city]) {
-            reviewsByCity[city] = [];
+          if (!reviewsByCity[normalizedCity]) {
+            reviewsByCity[normalizedCity] = [];
           }
           
-          reviewsByCity[city].push({
+          reviewsByCity[normalizedCity].push({
             name: review.name,
             text: review.text,
             date: review.date
           });
           
-          matched++;
-          matchDetails.push({ reviewer: review.name, city, jobberName: client.name });
-          console.log(`✓ Matched: ${review.name} → ${city}`);
+          matched.push({ reviewer: review.name, client: bestMatch.name, city: normalizedCity });
         } else {
-          unmatched++;
-          console.log(`✗ No city for: ${review.name}`);
+          console.log(`  ~ Matched ${bestMatch.name} but no city found`);
+          unmatched.push(review.name);
         }
       } else {
-        unmatched++;
-        console.log(`✗ No match: ${review.name}`);
+        console.log(`  ✗ No name match in results`);
+        unmatched.push(review.name);
       }
-      
-      // Rate limit
-      await new Promise(r => setTimeout(r, 200));
-      
-    } catch (err) {
-      console.error(`Error searching for ${review.name}:`, err.message);
-      unmatched++;
+    } else {
+      console.log(`  ✗ No results`);
+      unmatched.push(review.name);
     }
+    
+    // Rate limiting
+    await new Promise(r => setTimeout(r, 200));
   }
   
   // Save results
-  fs.writeFileSync(OUTPUT_FILE, JSON.stringify(reviewsByCity, null, 2));
+  const outputPath = '/Users/jarvis/clawd/scws-website/scripts/reviews-by-city.json';
+  fs.writeFileSync(outputPath, JSON.stringify(reviewsByCity, null, 2));
   
-  console.log('\n=== SUMMARY ===');
-  console.log(`Total 5-star reviews with text: ${fiveStarReviews.length}`);
-  console.log(`Matched to cities: ${matched}`);
-  console.log(`Unmatched: ${unmatched}`);
-  console.log(`\nCities with testimonials:`);
+  console.log('\n' + '='.repeat(50));
+  console.log(`\n✅ RESULTS:`);
+  console.log(`   Matched: ${matched.length} reviews`);
+  console.log(`   Unmatched: ${unmatched.length} reviews`);
+  console.log(`\n📍 Cities with testimonials:`);
   
   const sortedCities = Object.entries(reviewsByCity)
     .sort((a, b) => b[1].length - a[1].length);
   
   for (const [city, cityReviews] of sortedCities) {
-    console.log(`  ${city}: ${cityReviews.length} reviews`);
+    console.log(`   ${city}: ${cityReviews.length} reviews`);
   }
   
-  console.log(`\nSaved to: ${OUTPUT_FILE}`);
+  console.log(`\n💾 Saved to: ${outputPath}`);
 }
 
 main().catch(console.error);
