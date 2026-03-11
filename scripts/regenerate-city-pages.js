@@ -204,7 +204,7 @@ function generatePage(city, data, allStats) {
     </script>
 
     <main>
-        <section class="bg-gradient-to-br from-primary to-primary/90 text-white py-10 px-4">
+        <section class="bg-primary text-white py-10 px-4">
             <div class="max-w-4xl mx-auto">
                 <nav class="text-sm text-white/70 mb-3" aria-label="Breadcrumb">
                     <a href="/" class="hover:text-white">Home</a> &rsaquo;
