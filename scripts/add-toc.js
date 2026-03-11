@@ -1,100 +1,80 @@
 #!/usr/bin/env node
-
 const fs = require('fs');
 const path = require('path');
-const { JSDOM } = require('jsdom');
 
-// Get all HTML files in blog directory, sorted by file size (largest first)
-const blogDir = path.join(__dirname, '../blog');
+const blogDir = path.join(__dirname, '..', 'blog');
+
+function slugify(text) {
+  return text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+}
+
 const files = fs.readdirSync(blogDir)
-    .filter(f => f.endsWith('.html'))
-    .map(f => ({
-        name: f,
-        path: path.join(blogDir, f),
-        size: fs.statSync(path.join(blogDir, f)).size
-    }))
-    .sort((a, b) => b.size - a.size)
-    .slice(0, 20); // Top 20 by size
+  .filter(f => f.endsWith('.html') && f !== 'index.html');
 
-console.log(`Processing ${files.length} blog posts for TOC...`);
+let modified = 0, skipped = 0;
 
-let processed = 0;
-let skipped = 0;
+for (const file of files) {
+  const filePath = path.join(blogDir, file);
+  let html = fs.readFileSync(filePath, 'utf8');
 
-files.forEach(file => {
-    const html = fs.readFileSync(file.path, 'utf8');
-    const dom = new JSDOM(html);
-    const document = dom.window.document;
+  if (html.includes('id="table-of-contents"')) { skipped++; continue; }
 
-    // Skip if TOC already exists
-    if (document.getElementById('table-of-contents')) {
-        console.log(`⏭️  Skipping ${file.name} - TOC already exists`);
-        skipped++;
-        return;
+  const h2Regex = /<h2[^>]*>(.*?)<\/h2>/gi;
+  const h2s = [];
+  const seenSlugs = new Set();
+  let match;
+  while ((match = h2Regex.exec(html)) !== null) {
+    const text = match[1].replace(/<[^>]+>/g, '').trim();
+    if (!text) continue;
+    let slug = slugify(text);
+    // Dedupe slugs
+    if (seenSlugs.has(slug)) {
+      let i = 2;
+      while (seenSlugs.has(slug + '-' + i)) i++;
+      slug = slug + '-' + i;
     }
+    seenSlugs.add(slug);
+    h2s.push({ text, slug, fullMatch: match[0], index: match.index });
+  }
 
-    // Find all h2 tags in the main content
-    const h2s = Array.from(document.querySelectorAll('h2'));
-    
-    if (h2s.length < 3) {
-        console.log(`⏭️  Skipping ${file.name} - only ${h2s.length} h2 tags`);
-        skipped++;
-        return;
+  if (h2s.length < 3) continue;
+
+  // Dedupe: skip if multiple h2s have exact same text (like "Related Articles")
+  const uniqueTexts = [...new Set(h2s.map(h => h.text))];
+  const tocItems = [];
+  const addedTexts = new Set();
+  for (const h2 of h2s) {
+    if (addedTexts.has(h2.text)) continue; // skip duplicate text entries in TOC
+    addedTexts.add(h2.text);
+    tocItems.push(h2);
+  }
+
+  if (tocItems.length < 3) continue;
+
+  // Add ids to h2 tags
+  for (const h2 of h2s) {
+    if (!h2.fullMatch.includes('id=')) {
+      const newH2 = h2.fullMatch.replace('<h2', '<h2 id="' + h2.slug + '"');
+      html = html.replace(h2.fullMatch, newH2);
     }
+  }
 
-    // Create slugified IDs for each h2
-    const tocItems = h2s.map(h2 => {
-        const text = h2.textContent.trim();
-        const id = text
-            .toLowerCase()
-            .replace(/[^a-z0-9]+/g, '-')
-            .replace(/^-|-$/g, '');
-        
-        // Set the ID on the h2
-        h2.id = id;
-        
-        return { text, id };
-    });
+  const tocHtml = '\n<div id="table-of-contents" class="bg-gray-50 rounded-xl p-6 my-8 border border-gray-200">\n    <h3 class="font-bold text-primary text-lg mb-3">📋 In This Guide</h3>\n    <ul class="space-y-2">\n' +
+    tocItems.map(h => '        <li><a href="#' + h.slug + '" class="text-accent hover:text-green-700 font-medium">' + h.text + '</a></li>').join('\n') +
+    '\n    </ul>\n</div>';
 
-    // Build TOC HTML
-    const tocHTML = `
-<div id="table-of-contents" class="bg-gray-50 rounded-xl p-6 my-8 border border-gray-200">
-    <h3 class="font-bold text-primary text-lg mb-3">📋 In This Guide</h3>
-    <ul class="space-y-2">
-        ${tocItems.map(item => 
-            `<li><a href="#${item.id}" class="text-accent hover:text-green-700 font-medium">${item.text}</a></li>`
-        ).join('\n        ')}
-    </ul>
-</div>`;
-
-    // Find the first <p> tag after the first <h1>
-    const h1 = document.querySelector('h1');
-    if (!h1) {
-        console.log(`⚠️  No h1 found in ${file.name}`);
-        skipped++;
-        return;
+  const h1Match = html.match(/<h1[^>]*>.*?<\/h1>/is);
+  if (h1Match) {
+    const afterH1 = h1Match.index + h1Match[0].length;
+    const firstPEnd = html.indexOf('</p>', afterH1);
+    if (firstPEnd !== -1) {
+      const insertAt = firstPEnd + 4;
+      html = html.slice(0, insertAt) + tocHtml + html.slice(insertAt);
+      fs.writeFileSync(filePath, html);
+      modified++;
+      if (modified % 500 === 0) console.log('  ...' + modified + ' files');
     }
+  }
+}
 
-    // Find first <p> after h1
-    let insertPoint = h1.nextElementSibling;
-    while (insertPoint && insertPoint.tagName !== 'P') {
-        insertPoint = insertPoint.nextElementSibling;
-    }
-
-    if (!insertPoint) {
-        console.log(`⚠️  No <p> found after h1 in ${file.name}`);
-        skipped++;
-        return;
-    }
-
-    // Insert TOC after the first paragraph
-    const tocElement = JSDOM.fragment(tocHTML).firstChild;
-    insertPoint.parentNode.insertBefore(tocElement, insertPoint.nextSibling);
-
-    // Write the modified HTML back
-    fs.writeFileSync(file.path, dom.serialize(), 'utf8');
-    console.log(`✅ Added TOC to ${file.name} (${tocItems.length} sections)`);
-    processed++;
-});
-
-console.log(`\n✨ Done! Processed: ${processed}, Skipped: ${skipped}`);
+console.log('TOC: ' + modified + ' added, ' + skipped + ' already had one');
