@@ -204,15 +204,15 @@ function generatePage(city, data, allStats) {
     </script>
 
     <main>
-        <section class="bg-primary text-white py-10 px-4">
+        <section class="bg-gray-100 border-b border-gray-200 py-10 px-4">
             <div class="max-w-4xl mx-auto">
-                <nav class="text-sm text-white/70 mb-3" aria-label="Breadcrumb">
-                    <a href="/" class="hover:text-white">Home</a> &rsaquo;
-                    <a href="/blog/" class="hover:text-white">Resources</a> &rsaquo;
-                    <span class="text-white">Well Depth in ${city}</span>
+                <nav class="text-sm text-gray-500 mb-3" aria-label="Breadcrumb">
+                    <a href="/" class="hover:text-primary">Home</a> &rsaquo;
+                    <a href="/blog/" class="hover:text-primary">Resources</a> &rsaquo;
+                    <span class="text-gray-700">Well Depth in ${city}</span>
                 </nav>
-                <h1 class="text-3xl sm:text-4xl font-bold mb-2">Average Well Depth in ${city}, California</h1>
-                <p class="text-white/80 text-lg">Based on ${data.count} wells on record | ${data.county} County, CA</p>
+                <h1 class="text-3xl sm:text-4xl font-bold text-primary mb-2">Average Well Depth in ${city}, California</h1>
+                <p class="text-gray-600 text-lg">Based on ${data.count} wells on record | ${data.county} County, CA</p>
             </div>
         </section>
 
