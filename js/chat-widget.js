@@ -26,7 +26,7 @@
         #scws-chat-widget {
           font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
           position: fixed;
-          bottom: 20px;
+          bottom: 80px;
           right: 20px;
           z-index: 99999;
         }
