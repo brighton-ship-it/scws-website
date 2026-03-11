@@ -2,6 +2,7 @@
 
 /**
  * Generate average well depth city pages for SCWS
+ * Updated to match correct site template structure
  */
 
 const fs = require('fs');
@@ -44,22 +45,22 @@ function getGeologyContext(avgDepth, medianDepth, minDepth, maxDepth, city, coun
   return context;
 }
 
-// Helper: generate decade chart HTML
+// Helper: generate decade chart HTML (using Tailwind + inline styles with muted green)
 function generateDecadeChart(wellsByDecade) {
   const decades = Object.keys(wellsByDecade).sort();
   if (decades.length === 0) return '<p>Decade data not available for this area.</p>';
   
   const maxCount = Math.max(...Object.values(wellsByDecade));
   
-  let html = '<div class="decade-chart">\n';
+  let html = '<div class="my-6">\n';
   decades.forEach(decade => {
     const count = wellsByDecade[decade];
     const percentage = (count / maxCount) * 100;
-    html += `  <div class="decade-row">
-    <span class="decade-label">${decade}</span>
-    <div class="bar-container">
-      <div class="bar" style="width: ${percentage}%"></div>
-      <span class="bar-count">${count} wells</span>
+    html += `  <div class="flex items-center my-2 gap-3">
+    <span class="min-w-[80px] font-semibold text-gray-700">${decade}</span>
+    <div class="flex-1 flex items-center gap-2">
+      <div style="width: ${percentage}%; height: 24px; background: #4e9271; border-radius: 4px;"></div>
+      <span class="text-gray-500 text-sm whitespace-nowrap">${count} wells</span>
     </div>
   </div>\n`;
   });
@@ -68,7 +69,7 @@ function generateDecadeChart(wellsByDecade) {
   return html;
 }
 
-// Helper: generate use type breakdown
+// Helper: generate use type breakdown (using Tailwind)
 function generateUseBreakdown(wellsByUse) {
   const uses = Object.entries(wellsByUse)
     .sort((a, b) => b[1] - a[1])
@@ -76,11 +77,11 @@ function generateUseBreakdown(wellsByUse) {
   
   if (uses.length === 0) return '<p>Use type data not available.</p>';
   
-  let html = '<div class="use-breakdown">\n';
+  let html = '<div class="my-6">\n';
   uses.forEach(([use, count]) => {
-    html += `  <div class="use-row">
-    <span class="use-label">${use}</span>
-    <span class="use-count">${count} wells</span>
+    html += `  <div class="flex items-center my-2 gap-3">
+    <span class="font-semibold text-gray-700">${use}</span>
+    <span class="ml-auto font-semibold text-gray-500">${count} wells</span>
   </div>\n`;
   });
   html += '</div>';
@@ -88,7 +89,7 @@ function generateUseBreakdown(wellsByUse) {
   return html;
 }
 
-// Helper: generate depth distribution chart (CSS only)
+// Helper: generate depth distribution chart (inline styles with muted green)
 function generateDepthChart(minDepth, avgDepth, maxDepth) {
   if (!minDepth || !avgDepth || !maxDepth) {
     return '<p>Depth distribution data not available.</p>';
@@ -97,15 +98,15 @@ function generateDepthChart(minDepth, avgDepth, maxDepth) {
   const range = maxDepth - minDepth;
   const avgPosition = ((avgDepth - minDepth) / range) * 100;
   
-  return `<div class="depth-chart">
-  <div class="depth-scale">
-    <span class="depth-min">${minDepth}ft<br><small>Shallowest</small></span>
-    <span class="depth-avg" style="left: ${avgPosition}%">${avgDepth}ft<br><small>Average</small></span>
-    <span class="depth-max">${maxDepth}ft<br><small>Deepest</small></span>
+  return `<div style="margin: 24px 0; padding: 20px; background: #f8fafc; border-radius: 8px;">
+  <div style="position: relative; height: 60px; margin-bottom: 12px;">
+    <span style="position: absolute; left: 0; font-weight: bold; color: #4e9271;">${minDepth}ft<br><small>Shallowest</small></span>
+    <span style="position: absolute; left: ${avgPosition}%; transform: translateX(-50%); font-weight: bold; color: #4e9271; text-align: center;">${avgDepth}ft<br><small>Average</small></span>
+    <span style="position: absolute; right: 0; font-weight: bold; color: #4e9271;">${maxDepth}ft<br><small>Deepest</small></span>
   </div>
-  <div class="depth-bar">
-    <div class="depth-range" style="width: 100%"></div>
-    <div class="depth-marker" style="left: ${avgPosition}%"></div>
+  <div style="position: relative; height: 40px; background: #e2e8f0; border-radius: 20px; overflow: hidden;">
+    <div style="height: 100%; background: linear-gradient(90deg, #4e9271 0%, #5ca880 50%, #6ab88f 100%);"></div>
+    <div style="position: absolute; top: 0; left: ${avgPosition}%; width: 4px; height: 100%; background: #dc2626; transform: translateX(-2px);"></div>
   </div>
 </div>`;
 }
@@ -159,26 +160,25 @@ cities.forEach(city => {
   const html = `<!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google Analytics -->
-    <script src="/js/ga4-filter.js"></script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LL1YRWT5T"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-5LL1YRWT5T');
-    </script>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Average Well Depth in ${city}, CA | SCWS</title>
     <meta name="description" content="Average well depth in ${city}, California is ${avgDepth} feet based on ${count} wells on record. ${depthRange} ft typical range. ${county} County well drilling data.">
     <link rel="canonical" href="https://scwellservice.com/blog/${filename}">
-    <meta property="og:title" content="Average Well Depth in ${city}, CA">
-    <meta property="og:description" content="${avgDepth} feet average depth, ${count} wells on record in ${county} County.">
-    <meta property="og:type" content="article">
     <link rel="stylesheet" href="../css/styles.css">
     
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Average Well Depth in ${city}, California",
+        "description": "Average well depth data for ${city}, CA based on ${count} wells on record in ${county} County.",
+        "author": {"@type": "Organization", "name": "Southern California Well Service"},
+        "publisher": {"@type": "Organization", "name": "Southern California Well Service"},
+        "datePublished": "2026-03-11",
+        "dateModified": "2026-03-11"
+    }
+    </script>
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -203,120 +203,40 @@ cities.forEach(city => {
         ]
     }
     </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://scwellservice.com/"},
+            {"@type": "ListItem", "position": 2, "name": "Resources", "item": "https://scwellservice.com/blog/"},
+            {"@type": "ListItem", "position": 3, "name": "Average Well Depth in ${city}, CA", "item": "https://scwellservice.com/blog/${filename}"}
+        ]
+    }
+    </script>
     
-    <style>
-        .stats-box {
-            background: #f0f9ff;
-            border: 2px solid #0ea5e9;
-            border-radius: 12px;
-            padding: 24px;
-            margin: 24px 0;
-        }
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 16px;
-            margin-top: 16px;
-        }
-        .stat-item {
-            text-align: center;
-        }
-        .stat-value {
-            font-size: 2em;
-            font-weight: bold;
-            color: #0c4a6e;
-        }
-        .stat-label {
-            color: #64748b;
-            font-size: 0.9em;
-        }
-        .depth-chart {
-            margin: 24px 0;
-            padding: 20px;
-            background: #f8fafc;
-            border-radius: 8px;
-        }
-        .depth-scale {
-            position: relative;
-            height: 60px;
-            margin-bottom: 12px;
-        }
-        .depth-min, .depth-max, .depth-avg {
-            position: absolute;
-            font-weight: bold;
-            color: #0c4a6e;
-        }
-        .depth-min { left: 0; }
-        .depth-max { right: 0; }
-        .depth-avg {
-            transform: translateX(-50%);
-            text-align: center;
-        }
-        .depth-bar {
-            position: relative;
-            height: 40px;
-            background: #e2e8f0;
-            border-radius: 20px;
-            overflow: hidden;
-        }
-        .depth-range {
-            height: 100%;
-            background: linear-gradient(90deg, #3b82f6 0%, #0ea5e9 50%, #06b6d4 100%);
-        }
-        .depth-marker {
-            position: absolute;
-            top: 0;
-            width: 4px;
-            height: 100%;
-            background: #dc2626;
-            transform: translateX(-2px);
-        }
-        .decade-chart, .use-breakdown {
-            margin: 24px 0;
-        }
-        .decade-row, .use-row {
-            display: flex;
-            align-items: center;
-            margin: 8px 0;
-            gap: 12px;
-        }
-        .decade-label, .use-label {
-            min-width: 80px;
-            font-weight: 600;
-            color: #334155;
-        }
-        .bar-container {
-            flex: 1;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .bar {
-            height: 24px;
-            background: #4e9271;
-            border-radius: 4px;
-            transition: width 0.3s;
-        }
-        .bar-count, .use-count {
-            color: #64748b;
-            font-size: 0.9em;
-            white-space: nowrap;
-        }
-        .use-count {
-            margin-left: auto;
-            font-weight: 600;
-        }
-    </style>
+    <script src="/js/ga4-filter.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LL1YRWT5T"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-5LL1YRWT5T');</script>
+    <meta property="og:image" content="https://scwellservice.com/images/og-default.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@scwellservice">
 </head>
 <body class="pb-20 lg:pb-0 bg-white">
-    <header>
-        <nav>
-            <a href="/" class="logo"><img loading="lazy" src="/images/logo-text-only-3x.png" alt="Southern California Well Service" style="height: 40px;"></a>
-            <a href="/services.html">Services</a>
-            <a href="/blog/">Blog</a>
-            <a href="/contact.html">Contact</a>
-            <a href="tel:+17604408520" class="cta-phone">(760) 440-8520</a>
-        </nav>
+    <header class="site-header">
+        <div class="header-content">
+            <a href="/" class="logo">
+                <img loading="lazy" src="/images/logo-text-only-3x.png" alt="SCWS Logo" width="50" height="50">
+                <span>Southern California Well Service</span>
+            </a>
+            <nav class="main-nav">
+                <a href="/">Home</a>
+                <a href="/services/">Services</a>
+                <a href="/blog/">Resources</a>
+                <a href="/contact/">Contact</a>
+                <a href="tel:7604408520" class="cta-phone">(760) 440-8520</a>
+            </nav>
+        </div>
     </header>
 
     <main class="blog-post">
@@ -325,24 +245,24 @@ cities.forEach(city => {
             
             <p class="meta">Based on ${count} wells on record | ${county} County, CA</p>
 
-            <div class="stats-box">
-                <h3>Well Statistics for ${city}</h3>
-                <div class="stats-grid">
-                    <div class="stat-item">
-                        <div class="stat-value">${avgDepth}ft</div>
-                        <div class="stat-label">Average Depth</div>
+            <div class="bg-gray-50 rounded-xl p-6 my-8 border border-gray-200">
+                <h3 class="font-bold text-primary text-lg mb-3">Well Statistics for ${city}</h3>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-primary">${avgDepth}ft</div>
+                        <div class="text-gray-600 text-sm mt-1">Average Depth</div>
                     </div>
-                    <div class="stat-item">
-                        <div class="stat-value">${count}</div>
-                        <div class="stat-label">Wells on Record</div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-primary">${count}</div>
+                        <div class="text-gray-600 text-sm mt-1">Wells on Record</div>
                     </div>
-                    <div class="stat-item">
-                        <div class="stat-value">${depthRange}ft</div>
-                        <div class="stat-label">Depth Range</div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-primary">${depthRange}ft</div>
+                        <div class="text-gray-600 text-sm mt-1">Depth Range</div>
                     </div>
-                    ${avgYield ? `<div class="stat-item">
-                        <div class="stat-value">${avgYield}</div>
-                        <div class="stat-label">Avg Yield (GPM)</div>
+                    ${avgYield ? `<div class="text-center">
+                        <div class="text-3xl font-bold text-primary">${avgYield}</div>
+                        <div class="text-gray-600 text-sm mt-1">Avg Yield (GPM)</div>
                     </div>` : ''}
                 </div>
             </div>
@@ -445,18 +365,19 @@ cities.forEach(city => {
                 <p>Yes, ${county} County requires a well permit before drilling. We handle all permit applications as part of our service. Permits typically take 2-4 weeks to obtain.</p>
             </section>
 
-            <section class="cta-section">
-                <h2>Ready to Drill a Well in ${city}?</h2>
-                <p>Southern California Well Service has over 40 years of experience drilling wells in ${county} County. We provide honest estimates, quality workmanship, and reliable service.</p>
-                <p><strong>Call <a href="tel:+17604408520">(760) 440-8520</a></strong> for your free consultation.</p>
-            </section>
+            <div class="bg-primary text-white rounded-xl p-6 my-8">
+                <h2 class="text-xl font-bold mb-2">Ready to Drill a Well in ${city}?</h2>
+                <p class="text-gray-200 mb-4">Southern California Well Service has over 40 years of experience drilling wells in ${county} County. We provide honest estimates, quality workmanship, and reliable service.</p>
+                <a href="tel:7604408520" class="inline-block bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-lg text-center transition">📞 (760) 440-8520</a>
+                <p class="text-gray-300 text-sm mt-4">Licensed C-57 Contractor | San Diego, Riverside & San Bernardino Counties</p>
+            </div>
 
         </article>
     </main>
 
     <footer>
         <p>&copy; 2026 Southern California Well Service. Licensed C-57 Contractor.</p>
-        <p>Emergency Service: <a href="tel:+17604408520">(760) 440-8520</a></p>
+        <p>1077 Main St, Ramona, CA 92065 | <a href="tel:7604408520">(760) 440-8520</a></p>
     </footer>
 
 <!-- Sticky Mobile CTA Bar -->
