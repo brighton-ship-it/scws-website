@@ -817,56 +817,139 @@
                         <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
                     </div>
                     <span class="text-xl font-semibold text-gray-700">4.9 out of 5</span>
-                    <span class="text-gray-500">on Google</span>
+                    <span class="text-gray-500">on Google (100+ reviews)</span>
                 </div>
             </div>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-white rounded-xl shadow-lg p-8">
-                    <div class="flex text-yellow-400 mb-4">
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+            <!-- Review Carousel -->
+            <div id="review-carousel" style="position:relative;overflow:hidden">
+                <div id="review-track" style="display:flex;transition:transform 0.5s ease;gap:24px">
+                    <div style="min-width:calc(33.333% - 16px);flex-shrink:0" class="bg-white rounded-xl shadow-lg p-8">
+                        <div class="flex text-yellow-400 mb-4">★★★★★</div>
+                        <p class="text-gray-600 mb-4">"I discovered that my well water had stopped working at 5 a.m. After searching online, I found Southern California Well Service. They responded immediately and had everything up and running the same day."</p>
+                        <p class="font-semibold text-primary">— Dennis Albert</p>
+                        <p class="text-sm text-gray-400">Ramona, CA</p>
                     </div>
-                    <p class="text-gray-600 mb-4">"Answered my call quickly, tech sent out within 1 1/2 hours. Determined what problem was and was very thorough when fixing it. Looked over my entire well to ensure that all was working well. Would highly recommend!"</p>
-                    <p class="font-semibold text-primary">— Darlene Jean</p>
-                    <p class="text-sm text-gray-400">Valley Center, CA</p>
+                    <div style="min-width:calc(33.333% - 16px);flex-shrink:0" class="bg-white rounded-xl shadow-lg p-8">
+                        <div class="flex text-yellow-400 mb-4">★★★★★</div>
+                        <p class="text-gray-600 mb-4">"They were able to fit us in on a same day appointment. Came in and got our well back up and running in no time. Very professional service."</p>
+                        <p class="font-semibold text-primary">— Robert Gonzalez</p>
+                        <p class="text-sm text-gray-400">Ramona, CA</p>
+                    </div>
+                    <div style="min-width:calc(33.333% - 16px);flex-shrink:0" class="bg-white rounded-xl shadow-lg p-8">
+                        <div class="flex text-yellow-400 mb-4">★★★★★</div>
+                        <p class="text-gray-600 mb-4">"Very responsive and quickly solved the problem. Staff who know their way around a well. I highly recommend."</p>
+                        <p class="font-semibold text-primary">— Sophie Duck</p>
+                        <p class="text-sm text-gray-400">Ramona, CA</p>
+                    </div>
+                    <div style="min-width:calc(33.333% - 16px);flex-shrink:0" class="bg-white rounded-xl shadow-lg p-8">
+                        <div class="flex text-yellow-400 mb-4">★★★★★</div>
+                        <p class="text-gray-600 mb-4">"We had a water emergency over the weekend. They came on Sunday! Found a way for the well to work well enough for us to have water and then came back Monday to complete the job."</p>
+                        <p class="font-semibold text-primary">— Dan Blosch</p>
+                        <p class="text-sm text-gray-400">Ramona, CA</p>
+                    </div>
+                    <div style="min-width:calc(33.333% - 16px);flex-shrink:0" class="bg-white rounded-xl shadow-lg p-8">
+                        <div class="flex text-yellow-400 mb-4">★★★★★</div>
+                        <p class="text-gray-600 mb-4">"Service was the same day of my call. The technician was friendly and knowledgeable. He quickly diagnosed the problem and had me up and running that day."</p>
+                        <p class="font-semibold text-primary">— Jerry Sanders</p>
+                        <p class="text-sm text-gray-400">Ramona, CA</p>
+                    </div>
+                    <div style="min-width:calc(33.333% - 16px);flex-shrink:0" class="bg-white rounded-xl shadow-lg p-8">
+                        <div class="flex text-yellow-400 mb-4">★★★★★</div>
+                        <p class="text-gray-600 mb-4">"Service was fast and friendly. They were able to come out the same day to inspect my well and the prices are fair. Highly recommend!"</p>
+                        <p class="font-semibold text-primary">— John Reveles</p>
+                        <p class="text-sm text-gray-400">Anza, CA</p>
+                    </div>
+                    <div style="min-width:calc(33.333% - 16px);flex-shrink:0" class="bg-white rounded-xl shadow-lg p-8">
+                        <div class="flex text-yellow-400 mb-4">★★★★★</div>
+                        <p class="text-gray-600 mb-4">"I am completely satisfied with the work they did. They were professional, quick and inexpensive. Came out right away when I needed them."</p>
+                        <p class="font-semibold text-primary">— Jenise Mastro</p>
+                        <p class="text-sm text-gray-400">Anza, CA</p>
+                    </div>
+                    <div style="min-width:calc(33.333% - 16px);flex-shrink:0" class="bg-white rounded-xl shadow-lg p-8">
+                        <div class="flex text-yellow-400 mb-4">★★★★★</div>
+                        <p class="text-gray-600 mb-4">"No sooner were we able to get in touch than in a short space of time you were up here and the well was up and running again. When you live in the back country, a working well is essential."</p>
+                        <p class="font-semibold text-primary">— Rosalind Brooks</p>
+                        <p class="text-sm text-gray-400">Ramona, CA</p>
+                    </div>
+                    <div style="min-width:calc(33.333% - 16px);flex-shrink:0" class="bg-white rounded-xl shadow-lg p-8">
+                        <div class="flex text-yellow-400 mb-4">★★★★★</div>
+                        <p class="text-gray-600 mb-4">"They are life savers! Super knowledgeable and professional. We woke up to no running water. They reached out right away and a couple hours later had the problem fixed. So grateful!"</p>
+                        <p class="font-semibold text-primary">— Kathleen Hefley</p>
+                        <p class="text-sm text-gray-400">Ramona, CA</p>
+                    </div>
                 </div>
-                <div class="bg-white rounded-xl shadow-lg p-8">
-                    <div class="flex text-yellow-400 mb-4">
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                    </div>
-                    <p class="text-gray-600 mb-4">"They are life savers! Super knowledgeable and professional. We woke up to no running water. They reached out right away and a couple hours later had the problem fixed. So grateful!"</p>
-                    <p class="font-semibold text-primary">— Kathleen Hefley</p>
-                    <p class="text-sm text-gray-400">Ramona, CA</p>
-                </div>
-                <div class="bg-white rounded-xl shadow-lg p-8">
-                    <div class="flex text-yellow-400 mb-4">
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                    </div>
-                    <p class="text-gray-600 mb-4">"Same day service! It was pouring rain but they didn't hesitate to jump out and take a look at our pump anyway. Prompt, friendly and affordable service! They will be the first one we call."</p>
-                    <p class="font-semibold text-primary">— fromelkriver</p>
-                    <p class="text-sm text-gray-400">Escondido, CA</p>
+                <!-- Carousel Controls -->
+                <div class="flex justify-center items-center gap-4 mt-8">
+                    <button onclick="moveCarousel(-1)" class="w-10 h-10 rounded-full bg-gray-200 hover:bg-gray-300 flex items-center justify-center transition" aria-label="Previous reviews">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+                    </button>
+                    <div id="carousel-dots" class="flex gap-2"></div>
+                    <button onclick="moveCarousel(1)" class="w-10 h-10 rounded-full bg-gray-200 hover:bg-gray-300 flex items-center justify-center transition" aria-label="Next reviews">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                    </button>
                 </div>
             </div>
+            <script>
+            (function(){
+                var track = document.getElementById('review-track');
+                var cards = track.children;
+                var pos = 0;
+                var perView = window.innerWidth < 768 ? 1 : 3;
+                var maxPos = Math.ceil(cards.length / perView) - 1;
+                
+                // Set card width for mobile
+                if (perView === 1) {
+                    for (var i = 0; i < cards.length; i++) {
+                        cards[i].style.minWidth = 'calc(100% - 0px)';
+                    }
+                }
+                
+                // Build dots
+                var dots = document.getElementById('carousel-dots');
+                for (var i = 0; i <= maxPos; i++) {
+                    var dot = document.createElement('button');
+                    dot.className = 'w-3 h-3 rounded-full ' + (i === 0 ? 'bg-accent' : 'bg-gray-300');
+                    dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+                    dot.onclick = (function(idx) { return function() { goTo(idx); }; })(i);
+                    dots.appendChild(dot);
+                }
+                
+                function goTo(idx) {
+                    pos = Math.max(0, Math.min(idx, maxPos));
+                    var shift = pos * (perView === 1 ? 100 : 33.333 * perView);
+                    track.style.transform = 'translateX(-' + shift + '%)';
+                    var allDots = dots.children;
+                    for (var i = 0; i < allDots.length; i++) {
+                        allDots[i].className = 'w-3 h-3 rounded-full ' + (i === pos ? 'bg-accent' : 'bg-gray-300');
+                    }
+                }
+                
+                window.moveCarousel = function(dir) { goTo(pos + dir); };
+                
+                // Auto-advance every 5s
+                setInterval(function() { goTo(pos >= maxPos ? 0 : pos + 1); }, 5000);
+                
+                // Responsive
+                window.addEventListener('resize', function() {
+                    perView = window.innerWidth < 768 ? 1 : 3;
+                    maxPos = Math.ceil(cards.length / perView) - 1;
+                    for (var i = 0; i < cards.length; i++) {
+                        cards[i].style.minWidth = perView === 1 ? '100%' : 'calc(33.333% - 16px)';
+                    }
+                    goTo(0);
+                });
+            })();
+            </script>
             <!-- Google Reviews CTA -->
             <div class="mt-12 text-center">
                 <a href="https://www.google.com/maps/place/Southern+California+Well+Service/@33.0414646,-116.8702167,17z" target="_blank" class="inline-flex items-center gap-2 bg-white border-2 border-gray-200 hover:border-accent px-6 py-3 rounded-full transition">
                     <svg class="w-5 h-5" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
-                    <span class="font-semibold text-gray-700">Read More Reviews on Google</span>
+                    <span class="font-semibold text-gray-700">Read All Reviews on Google</span>
                 </a>
             </div>
         </div>
     </section>
+
 
     <!-- About Section -->
     <section id="about" class="bg-primary text-white py-20">
