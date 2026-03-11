@@ -1,4 +1,10 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://scwellservice.com/sitemap-index.xml
+# Block internal tools and app pages
+Disallow: /public/app/
+Disallow: /public/fuel-tracker.html
+Disallow: /tools/inventory/
+Disallow: /assets/images/blog-categories/
+
+Sitemap: https://scwellservice.com/sitemap.xml
