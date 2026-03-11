@@ -141,7 +141,7 @@
     <!-- Preload hero image for faster LCP -->
     <link rel="preload" as="image" href="images/drilling-rig.jpg" fetchpriority="high">
     
-    <title>SC Well Service | San Diego Well Drilling & Pump Repair | 4.9★</title>
+    <title>Southern California Well Service | San Diego Well Drilling & Pump Repair | 4.9★</title>
     
     <!-- HTTPS Redirect for non-secure requests -->
     <script>
@@ -428,7 +428,7 @@
             "areaServed": ["San Diego County", "Riverside County", "San Bernardino County"]
         },
         "founder": [
-            {"@type": "Person", "name": "Brighton Sego"},
+            {"@type": "Person", "name": "Brighton Scala"},
             {"@type": "Person", "name": "Travis Sego"}
         ],
         "foundingDate": "2020",
@@ -436,7 +436,7 @@
     }
     </script>
 </head>
-<body class="bg-white">
+<body class="bg-white pb-20 lg:pb-0">
     <!-- Emergency Banner -->
     <div class="bg-gradient-to-r from-red-600 to-red-700 text-white py-2.5">
         <div class="max-w-7xl mx-auto px-4 text-center flex items-center justify-center gap-2 flex-wrap">
@@ -1135,7 +1135,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid md:grid-cols-4 gap-8">
                 <div>
-                    <img src="images/logo-text-only-3x.png" alt="Southern California Well Service" class="h-12 w-auto mb-4">
+                    <img src="images/logo-text-only-3x.png" alt="Southern California Well Service" class="h-12 w-auto mb-4" loading="lazy">
                     <p class="text-gray-400">Expert water well drilling, pump repair, and maintenance serving Southern California.</p>
                     <p class="text-gray-500 text-sm mt-3">🏠 Family-owned & operated. Owner Brighton Scala is a Valley Center resident proudly serving his neighbors throughout San Diego County.</p>
                 </div>
@@ -1286,6 +1286,15 @@
     <script src="js/chat-widget.js?v=2"></script>
     <!-- Lead Capture (Sticky Phone Bar + Exit Intent) -->
     <script src="js/lead-capture.js"></script>
+    <!-- Sticky Mobile CTA Bar -->
+    <div class="fixed bottom-0 left-0 right-0 bg-white border-t-2 border-gray-200 py-3 px-4 flex items-center justify-between gap-3 lg:hidden z-50 shadow-[0_-4px_12px_rgba(0,0,0,0.1)]" id="sticky-cta">
+        <a href="tel:7604408520" onclick="trackPhoneClick()" class="flex-1 bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-4 rounded-lg text-center transition text-sm">
+            📞 Call Now
+        </a>
+        <a href="#contact" class="flex-1 bg-accent hover:bg-green-600 text-white font-bold py-3 px-4 rounded-lg text-center transition text-sm">
+            Free Estimate
+        </a>
+    </div>
 </body>
 </html>
 <!-- cache bust 1771707162 -->
