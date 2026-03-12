@@ -48,6 +48,14 @@
         .footer a { color: #ed8936; }
         @media (max-width: 768px) { .comparison { grid-template-columns: 1fr; } .comparison-label { grid-column: span 1; } }
     </style>
+    <style>
+        /* Force edge-to-edge layout on mobile Safari */
+        html, body {
+            margin: 0 !important;
+            padding: 0 !important;
+            overflow-x: hidden;
+        }
+    </style>
 </head>
 <body style="padding-bottom:80px">
     <header class="header">

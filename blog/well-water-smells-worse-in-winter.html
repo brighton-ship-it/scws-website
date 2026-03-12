@@ -110,6 +110,14 @@
         @media (max-width: 600px) { body { padding: 15px; } h1 { font-size: 1.6rem; } table { font-size: 0.9rem; } }
     </style>
     <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        /* Force edge-to-edge layout on mobile Safari */
+        html, body {
+            margin: 0 !important;
+            padding: 0 !important;
+            overflow-x: hidden;
+        }
+    </style>
 </head>
 <body class="pb-20 lg:pb-0 bg-white">
     <nav class="breadcrumb">

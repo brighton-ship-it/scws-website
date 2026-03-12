@@ -283,6 +283,14 @@
             .truck-select-grid { grid-template-columns: 1fr; }
         }
     </style>
+    <style>
+        /* Force edge-to-edge layout on mobile Safari */
+        html, body {
+            margin: 0 !important;
+            padding: 0 !important;
+            overflow-x: hidden;
+        }
+    </style>
 </head>
 <body style="padding-bottom:80px">
     <!-- PIN Login Screen -->
