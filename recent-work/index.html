@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="/js/ga4-filter.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LL1YRWT5T"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-5LL1YRWT5T');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Recent Work & Projects | Southern California Well Service</title>
+    <meta name="description" content="See our latest well service projects across San Diego, Riverside, and San Bernardino counties. Real photos from real jobs — pump replacements, well drilling, water treatment, and more.">
+    <link rel="canonical" href="https://scwellservice.com/recent-work/">
+    
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://scwellservice.com/recent-work/">
+    <meta property="og:title" content="Recent Work & Projects | Southern California Well Service">
+    <meta property="og:description" content="See our latest well service projects across Southern California. Real photos from real jobs.">
+    
+    <link rel="icon" type="image/png" href="../images/logo-text-only-3x.png">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"></noscript>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "Recent Work & Projects",
+        "description": "Latest well service projects by Southern California Well Service across San Diego, Riverside, and San Bernardino counties.",
+        "url": "https://scwellservice.com/recent-work/",
+        "publisher": {
+            "@type": "Organization",
+            "name": "Southern California Well Service",
+            "logo": "https://scwellservice.com/images/logo-text-only-3x.png",
+            "telephone": "(760) 440-8520"
+        }
+    }
+    </script>
+
+    <style>
+        .project-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .project-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        .project-photos {
+            display: grid;
+            gap: 4px;
+            aspect-ratio: 16/9;
+            overflow: hidden;
+        }
+        .project-photos.single { grid-template-columns: 1fr; }
+        .project-photos.double { grid-template-columns: 1fr 1fr; }
+        .project-photos.triple { grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; }
+        .project-photos.triple img:first-child { grid-row: 1 / -1; }
+        .project-photos img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .service-badge {
+            display: inline-block;
+            background: #e8f4fd;
+            color: #1a73a7;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 2px 10px;
+            border-radius: 9999px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .filter-btn {
+            padding: 6px 16px;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            border: 1px solid #ddd;
+            background: white;
+            color: #555;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .filter-btn:hover { border-color: #1a73a7; color: #1a73a7; }
+        .filter-btn.active { background: #1a73a7; color: white; border-color: #1a73a7; }
+        .lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.9);
+            z-index: 9999;
+            cursor: pointer;
+            justify-content: center;
+            align-items: center;
+        }
+        .lightbox.active { display: flex; }
+        .lightbox img {
+            max-width: 90vw;
+            max-height: 90vh;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Emergency Banner -->
+    <div class="bg-gradient-to-r from-red-600 to-red-700 text-white py-2.5">
+        <div class="max-w-7xl mx-auto px-4 text-center flex items-center justify-center gap-2 flex-wrap">
+            <span class="font-bold tracking-wide">🚨 No Water?</span>
+            <span class="hidden sm:inline">Same-day emergency service available.</span>
+            <a href="tel:7604408520" class="bg-white text-red-600 font-bold px-4 py-1 rounded-full text-sm hover:bg-red-100 transition ml-1">Call Now →</a>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="bg-primary text-white sticky top-0 z-50 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <a href="../" class="flex items-center space-x-3 shrink-0">
+                    <img src="../images/logo-text-only-3x.png" alt="Southern California Well Service" class="h-10 lg:h-12 w-auto" loading="lazy">
+                </a>
+                <nav class="hidden lg:flex space-x-4 items-center">
+                    <a href="../#services" class="text-white hover:text-accent transition whitespace-nowrap">Services</a>
+                    <a href="../#areas" class="text-white hover:text-accent transition whitespace-nowrap">Service Areas</a>
+                    <a href="../blog/" class="text-white hover:text-accent transition whitespace-nowrap">Resources</a>
+                    <a href="./" class="text-white font-semibold whitespace-nowrap">Recent Work</a>
+                    <a href="../faq.html" class="text-white hover:text-accent transition whitespace-nowrap">FAQ</a>
+                    <a href="../contact.html" class="text-white hover:text-accent transition whitespace-nowrap">Contact</a>
+                    <a href="../cost-calculator.html" class="text-white font-semibold hover:text-accent transition whitespace-nowrap">Free Estimate</a>
+                </nav>
+                <button onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="lg:hidden text-white">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                </button>
+            </div>
+            <div id="mobile-menu" class="hidden lg:hidden pb-4 space-y-2">
+                <a href="../#services" class="block text-white py-2">Services</a>
+                <a href="../#areas" class="block text-white py-2">Service Areas</a>
+                <a href="../blog/" class="block text-white py-2">Resources</a>
+                <a href="./" class="block text-white font-semibold py-2">Recent Work</a>
+                <a href="../contact.html" class="block text-white py-2">Contact</a>
+                <a href="../cost-calculator.html" class="block text-accent font-semibold py-2">Free Estimate</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-white border-b">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 text-center">
+            <h1 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Recent Work</h1>
+            <p class="text-lg text-gray-600 max-w-2xl mx-auto">Real projects from our team across San Diego, Riverside, and San Bernardino counties. See the quality of work we deliver every day.</p>
+        </div>
+    </section>
+
+    <!-- Filters -->
+    <section class="sticky top-[72px] z-40 bg-white border-b shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex gap-2 overflow-x-auto" id="filters">
+            <button class="filter-btn active" data-filter="all">All Projects</button>
+            <button class="filter-btn" data-filter="pump">Pump Service</button>
+            <button class="filter-btn" data-filter="drilling">Well Drilling</button>
+            <button class="filter-btn" data-filter="tank">Pressure Tanks</button>
+            <button class="filter-btn" data-filter="water-quality">Water Quality</button>
+            <button class="filter-btn" data-filter="maintenance">Maintenance</button>
+        </div>
+    </section>
+
+    <!-- Projects Grid -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="projects-grid">
+            <!-- Projects loaded dynamically -->
+        </div>
+        <div id="loading" class="text-center py-12 text-gray-500">
+            <div class="animate-spin inline-block w-8 h-8 border-4 border-gray-300 border-t-blue-600 rounded-full mb-4"></div>
+            <p>Loading recent projects...</p>
+        </div>
+        <div id="no-results" class="hidden text-center py-12 text-gray-500">
+            <p class="text-lg">No projects found for this filter.</p>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="bg-primary text-white py-16">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-4">Need Well Service?</h2>
+            <p class="text-lg opacity-90 mb-8">From emergency repairs to new well drilling, our team is ready to help.</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="tel:7604408520" class="bg-white text-primary font-bold px-8 py-3 rounded-full hover:bg-gray-100 transition text-lg">📞 (760) 440-8520</a>
+                <a href="sms:6192590410" class="bg-accent text-white font-bold px-8 py-3 rounded-full hover:bg-accent/90 transition text-lg">💬 Text Us</a>
+                <a href="../cost-calculator.html" class="border-2 border-white text-white font-bold px-8 py-3 rounded-full hover:bg-white hover:text-primary transition text-lg">Free Estimate</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-white font-bold text-lg mb-4">Southern California Well Service</h3>
+                    <p class="text-sm">Licensed well drilling and pump service for San Diego, Riverside, and San Bernardino counties.</p>
+                    <p class="text-sm mt-2">CA License #1057049</p>
+                </div>
+                <div>
+                    <h3 class="text-white font-bold mb-4">Ramona Office</h3>
+                    <p class="text-sm">1077 Main St, Ramona, CA 92065</p>
+                    <p class="text-sm mt-1"><a href="tel:7604408520" class="hover:text-white">(760) 440-8520</a></p>
+                </div>
+                <div>
+                    <h3 class="text-white font-bold mb-4">Anza Office</h3>
+                    <p class="text-sm">57174 US Highway 79, Anza, CA 92539</p>
+                    <p class="text-sm mt-1"><a href="tel:7604408520" class="hover:text-white">(760) 440-8520</a></p>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-sm">
+                <p>&copy; 2026 Southern California Well Service LLC. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" onclick="this.classList.remove('active')">
+        <img id="lightbox-img" src="" alt="Project photo">
+    </div>
+
+    <!-- Sticky CTA Bar (Mobile) -->
+    <div class="fixed bottom-0 left-0 right-0 bg-white border-t shadow-lg py-2 px-4 flex justify-center gap-2 z-50 lg:hidden">
+        <a href="tel:7604408520" class="flex-1 bg-primary text-white text-center py-2.5 rounded-full font-bold text-sm">📞 Call</a>
+        <a href="sms:6192590410" class="flex-1 bg-blue-500 text-white text-center py-2.5 rounded-full font-bold text-sm">💬 Text Us</a>
+        <a href="../cost-calculator.html" onclick="trackFormClick()" class="flex-1 bg-accent text-white text-center py-2.5 rounded-full font-bold text-sm">Free Estimate</a>
+    </div>
+
+    <script>
+    const SUPABASE_URL = 'https://htzsnpqrrrdfleldgybn.supabase.co';
+    const SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imh0enNucHFycnJkZmxlbGRneWJuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njk5MTQ0NDgsImV4cCI6MjA4NTQ5MDQ0OH0.-jZ7sUn7Q_U8OwsBEk2O_czrA4_eOYIZqKMU5M4i2Oo';
+
+    function categorizeJob(title) {
+        const t = (title || '').toLowerCase();
+        if (t.includes('drill')) return 'drilling';
+        if (t.includes('pump') || t.includes('pull') || t.includes('motor')) return 'pump';
+        if (t.includes('tank') || t.includes('pressure')) return 'tank';
+        if (t.includes('filter') || t.includes('treatment') || t.includes('water quality') || t.includes('softener')) return 'water-quality';
+        if (t.includes('maintenance') || t.includes('inspect') || t.includes('chlorin')) return 'maintenance';
+        return 'pump'; // default - most jobs are pump service
+    }
+
+    function formatDate(dateStr) {
+        const d = new Date(dateStr);
+        return d.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+    }
+
+    function openLightbox(src) {
+        document.getElementById('lightbox-img').src = src;
+        document.getElementById('lightbox').classList.add('active');
+    }
+
+    async function loadProjects() {
+        try {
+            // Fetch completed jobs with photos
+            const jobsRes = await fetch(
+                `${SUPABASE_URL}/rest/v1/jobs?select=id,title,job_type,completed_at,description,job_number,property_id&status=eq.completed&completed_at=not.is.null&order=completed_at.desc&limit=60`,
+                { headers: { apikey: SUPABASE_ANON } }
+            );
+            const jobs = await jobsRes.json();
+
+            // Get property info for cities
+            const propIds = [...new Set(jobs.map(j => j.property_id).filter(Boolean))];
+            let properties = {};
+            if (propIds.length > 0) {
+                const propRes = await fetch(
+                    `${SUPABASE_URL}/rest/v1/properties?select=id,city&id=in.(${propIds.join(',')})`,
+                    { headers: { apikey: SUPABASE_ANON } }
+                );
+                const propArr = await propRes.json();
+                propArr.forEach(p => properties[p.id] = p);
+            }
+
+            // Get photos for these jobs
+            const jobIds = jobs.map(j => j.id);
+            const photosRes = await fetch(
+                `${SUPABASE_URL}/rest/v1/job_attachments?select=job_id,public_url,filename&job_id=in.(${jobIds.join(',')})&category=eq.photo&order=uploaded_at.asc`,
+                { headers: { apikey: SUPABASE_ANON } }
+            );
+            const allPhotos = await photosRes.json();
+            
+            // Group photos by job
+            const photoMap = {};
+            allPhotos.forEach(p => {
+                if (!photoMap[p.job_id]) photoMap[p.job_id] = [];
+                photoMap[p.job_id].push(p);
+            });
+
+            // Only show jobs that have photos
+            const projectsWithPhotos = jobs.filter(j => photoMap[j.id]?.length > 0);
+
+            const grid = document.getElementById('projects-grid');
+            document.getElementById('loading').style.display = 'none';
+
+            if (projectsWithPhotos.length === 0) {
+                document.getElementById('no-results').classList.remove('hidden');
+                return;
+            }
+
+            projectsWithPhotos.forEach(job => {
+                const photos = photoMap[job.id] || [];
+                const city = properties[job.property_id]?.city || 'Southern California';
+                const category = categorizeJob(job.title || job.job_type);
+                const photoCount = Math.min(photos.length, 3);
+                const gridClass = photoCount === 1 ? 'single' : photoCount === 2 ? 'double' : 'triple';
+
+                const card = document.createElement('div');
+                card.className = 'project-card';
+                card.dataset.category = category;
+
+                card.innerHTML = `
+                    <div class="project-photos ${gridClass}">
+                        ${photos.slice(0, 3).map(p => 
+                            `<img src="${p.public_url}" alt="${job.title || 'Well service project'} photo" loading="lazy" onclick="openLightbox('${p.public_url}')" style="cursor:pointer">`
+                        ).join('')}
+                    </div>
+                    <div class="p-4">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="service-badge">${category.replace('-', ' ')}</span>
+                            <span class="text-xs text-gray-400">${formatDate(job.completed_at)}</span>
+                        </div>
+                        <h3 class="font-semibold text-gray-900 mb-1">${job.title || job.job_type || 'Service Call'}</h3>
+                        <p class="text-sm text-gray-500">📍 ${city}</p>
+                        ${photos.length > 3 ? `<p class="text-xs text-gray-400 mt-2">+${photos.length - 3} more photos</p>` : ''}
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+
+            // Set up filters
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    const filter = btn.dataset.filter;
+                    let visible = 0;
+                    document.querySelectorAll('.project-card').forEach(card => {
+                        const show = filter === 'all' || card.dataset.category === filter;
+                        card.style.display = show ? '' : 'none';
+                        if (show) visible++;
+                    });
+                    document.getElementById('no-results').classList.toggle('hidden', visible > 0);
+                });
+            });
+
+        } catch (err) {
+            console.error('Failed to load projects:', err);
+            document.getElementById('loading').innerHTML = '<p class="text-red-500">Failed to load projects. Please try again later.</p>';
+        }
+    }
+
+    loadProjects();
+    </script>
+</body>
+</html>
