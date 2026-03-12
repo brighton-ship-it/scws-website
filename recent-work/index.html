@@ -287,14 +287,25 @@
             // Get photos for these jobs
             const jobIds = jobs.map(j => j.id);
             const photosRes = await fetch(
-                `${SUPABASE_URL}/rest/v1/job_attachments?select=job_id,public_url,filename&job_id=in.(${jobIds.join(',')})&category=eq.photo&order=uploaded_at.asc`,
+                `${SUPABASE_URL}/rest/v1/job_attachments?select=job_id,public_url,filename,file_type&job_id=in.(${jobIds.join(',')})&category=eq.photo&file_type=neq.application/pdf&order=uploaded_at.asc`,
                 { headers: { apikey: SUPABASE_ANON } }
             );
             const allPhotos = await photosRes.json();
             
+            // Filter out contracts, documents, and paperwork
+            const docPatterns = /contract|docusign|agreement|invoice|estimate|permit|proposal|receipt|signature|sign|pdf|document|envelope|lien|notice|cancellation|attachment.*\d/i;
+            const filteredPhotos = allPhotos.filter(p => {
+                const fn = (p.filename || '').toLowerCase();
+                // Skip PDFs
+                if (fn.endsWith('.pdf')) return false;
+                // Skip known document patterns
+                if (docPatterns.test(fn)) return false;
+                return true;
+            });
+
             // Group photos by job
             const photoMap = {};
-            allPhotos.forEach(p => {
+            filteredPhotos.forEach(p => {
                 if (!photoMap[p.job_id]) photoMap[p.job_id] = [];
                 photoMap[p.job_id].push(p);
             });
