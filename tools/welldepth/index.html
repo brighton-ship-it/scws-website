@@ -1,20 +1,21 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Free well depth lookup tool for San Diego County. Search official well records by address to find depths, yields, and drilling data for your property.">
-    <title>Well Depth Lookup</title>
-    <!-- Google Analytics -->
-    <script src="/js/ga4-filter.js"></script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LL1YRWT5T"></script>
-    <script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Free well depth lookup tool for San Diego County. Search official well records by address to find depths, yields, and drilling data for your property." name="description"/><meta content="https://www.scwellservice.com/images/logo-text-only-3x.png" property="og:image"/><meta content="1200" property="og:image:width"/><meta content="630" property="og:image:height"/><meta content="Well Depth Lookup" property="og:title"/><meta content="Free well depth lookup tool for San Diego County. Search official well records by address to find depths, yields, and drilling data for your property." property="og:description"/>
+<title>Well Depth Lookup</title>
+<!-- Google Analytics -->
+<script src="/js/ga4-filter.js"></script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-5LL1YRWT5T"></script>
+<script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
         gtag('config', 'G-5LL1YRWT5T');
     </script>
-    <style>
+<style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -103,7 +104,7 @@
             .stats-grid { grid-template-columns: 1fr 1fr; }
         }
     </style>
-    <style>
+<style>
         /* Force edge-to-edge layout on mobile Safari */
         html, body {
             margin: 0 !important;
@@ -113,36 +114,33 @@
     </style>
 </head>
 <body style="padding-bottom:80px">
-    <div class="container">
-        <header>
-            <h1>⛏️ Well Depth Lookup</h1>
-            <p>Southern California Well Service</p>
-            <div class="data-badge" id="dataBadge">Loading data...</div>
-        </header>
-        
-        <div class="search-box">
-            <label for="address">Enter Property Address</label>
-            <div class="search-row">
-                <input type="text" id="address" placeholder="123 Main St, Ramona, CA 92065" autocomplete="off">
-                <button id="searchBtn" onclick="search()" disabled>Loading...</button>
-            </div>
-            <p style="margin-top: 10px; font-size: 0.85rem; color: #666;">💡 <strong>Tip:</strong> Include your <strong>zip code</strong> for best results. Well depths can vary significantly even within a few miles.</p>
-            <div class="options">
-                <label>Radius: <select id="radius">
-                    <option value="0.5" selected>0.5 miles</option>
-                    <option value="1">1 mile</option>
-                    <option value="2">2 miles</option>
-                    <option value="5">5 miles</option>
-                </select></label>
-            </div>
-        </div>
-        
-        <div id="loading" class="loading" style="display: none;">Searching wells...</div>
-        <div id="error" class="error" style="display: none;"></div>
-        <div id="results" style="display: none;"></div>
-    </div>
-
-    <script>
+<div class="container">
+<header>
+<h1>⛏️ Well Depth Lookup</h1>
+<p>Southern California Well Service</p>
+<div class="data-badge" id="dataBadge">Loading data...</div>
+</header>
+<div class="search-box">
+<label for="address">Enter Property Address</label>
+<div class="search-row">
+<input autocomplete="off" id="address" placeholder="123 Main St, Ramona, CA 92065" type="text"/>
+<button disabled="" id="searchBtn" onclick="search()">Loading...</button>
+</div>
+<p style="margin-top: 10px; font-size: 0.85rem; color: #666;">💡 <strong>Tip:</strong> Include your <strong>zip code</strong> for best results. Well depths can vary significantly even within a few miles.</p>
+<div class="options">
+<label>Radius: <select id="radius">
+<option selected="" value="0.5">0.5 miles</option>
+<option value="1">1 mile</option>
+<option value="2">2 miles</option>
+<option value="5">5 miles</option>
+</select></label>
+</div>
+</div>
+<div class="loading" id="loading" style="display: none;">Searching wells...</div>
+<div class="error" id="error" style="display: none;"></div>
+<div id="results" style="display: none;"></div>
+</div>
+<script>
         const NOMINATIM_API = 'https://nominatim.openstreetmap.org/search';
         let LOCAL_WELLS = null;
         
@@ -417,14 +415,13 @@
         function hideError() { document.getElementById('error').style.display = 'none'; }
         function hideResults() { document.getElementById('results').style.display = 'none'; }
     </script>
-    <!-- Lead Generation Components (Sticky Header + Exit Popup) -->
-    <script src="/js/lead-gen.js"></script>
-
+<!-- Lead Generation Components (Sticky Header + Exit Popup) -->
+<script src="/js/lead-gen.js"></script>
 <style>#sticky-cta{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:2px solid #e5e7eb;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px;z-index:50;box-shadow:0 -4px 12px rgba(0,0,0,0.1)}#sticky-cta a{flex:1;font-weight:700;padding:12px 16px;border-radius:8px;text-align:center;color:#fff;font-size:14px;text-decoration:none}#sticky-cta .cta-call{background:#dc2626}#sticky-cta .cta-call:hover{background:#b91c1c}#sticky-cta .cta-text{background:#2563eb}#sticky-cta .cta-text:hover{background:#1d4ed8}#sticky-cta .cta-est{background:#4e9271}#sticky-cta .cta-est:hover{background:#3d7a5c}@media(min-width:1024px){#sticky-cta{display:none}}</style>
 <div id="sticky-cta">
-    <a href="tel:7604408520" class="cta-call">📞 Call Now</a>
-    <a href="sms:6192590410" class="cta-text">💬 Text Us</a>
-    <a href="/contact.html" class="cta-est">Free Estimate</a>
+<a class="cta-call" href="tel:7604408520">📞 Call Now</a>
+<a class="cta-text" href="sms:6192590410">💬 Text Us</a>
+<a class="cta-est" href="/contact.html">Free Estimate</a>
 </div>
 </body>
 </html>

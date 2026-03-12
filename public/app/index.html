@@ -1,25 +1,26 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="theme-color" content="#1a5276">
-    <meta name="description" content="SCWS field tools app for well service technicians. Access pump sizing calculators, well depth lookup, fuel tracking, and inventory management.">
-    <title>SCWS Tools</title>
-    <!-- Google Analytics -->
-    <script src="/js/ga4-filter.js"></script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LL1YRWT5T"></script>
-    <script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
+<meta content="#1a5276" name="theme-color"/>
+<meta content="SCWS field tools app for well service technicians. Access pump sizing calculators, well depth lookup, fuel tracking, and inventory management." name="description"/><meta content="https://www.scwellservice.com/images/logo-text-only-3x.png" property="og:image"/><meta content="1200" property="og:image:width"/><meta content="630" property="og:image:height"/><meta content="SCWS Tools" property="og:title"/><meta content="SCWS field tools app for well service technicians. Access pump sizing calculators, well depth lookup, fuel tracking, and inventory management." property="og:description"/>
+<title>SCWS Tools</title>
+<!-- Google Analytics -->
+<script src="/js/ga4-filter.js"></script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-5LL1YRWT5T"></script>
+<script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
         gtag('config', 'G-5LL1YRWT5T');
     </script>
-    <link rel="manifest" href="manifest.json">
-    <link rel="apple-touch-icon" href="icons/icon-192.png">
-    <style>
+<link href="manifest.json" rel="manifest"/>
+<link href="icons/icon-192.png" rel="apple-touch-icon"/>
+<style>
         :root {
             --primary: #1a5276;
             --secondary: #2980b9;
@@ -215,7 +216,7 @@
             color: #888;
         }
     </style>
-    <style>
+<style>
         /* Force edge-to-edge layout on mobile Safari */
         html, body {
             margin: 0 !important;
@@ -225,103 +226,92 @@
     </style>
 </head>
 <body style="padding-bottom:80px">
-    <header class="app-header">
-        <h1 id="pageTitle">SCWS Tools</h1>
-    </header>
-    
-    <main class="app-content">
-        <!-- Home Page -->
-        <div id="page-home" class="page active">
-            <div class="home-container">
-                <div class="logo-area">
-                    <div class="logo">🔧</div>
-                    <h2>Southern California<br>Well Service</h2>
-                    <p>Field Tools & Utilities</p>
-                </div>
-                
-                <div class="tool-card tool-fuel" onclick="navigateTo('fuel')">
-                    <div class="icon">⛽</div>
-                    <div class="info">
-                        <h3>Fuel Tracker</h3>
-                        <p>Log fuel fills for company trucks at the Anza shop</p>
-                    </div>
-                    <div class="arrow">›</div>
-                </div>
-                
-                <div class="tool-card tool-pump" onclick="navigateTo('pump')">
-                    <div class="icon">💧</div>
-                    <div class="info">
-                        <h3>Pump Sizing Calculator</h3>
-                        <p>Size pumps with Goulds, Grundfos & Franklin specs</p>
-                    </div>
-                    <div class="arrow">›</div>
-                </div>
-                
-                <div class="tool-card tool-depth" onclick="navigateTo('depth')">
-                    <div class="icon">📏</div>
-                    <div class="info">
-                        <h3>Well Depth Lookup</h3>
-                        <p>Search drilling logs for San Diego County wells</p>
-                    </div>
-                    <div class="arrow">›</div>
-                </div>
-                
-                <div class="tool-card tool-inventory" onclick="navigateTo('inventory')">
-                    <div class="icon">📦</div>
-                    <div class="info">
-                        <h3>Inventory Tracker</h3>
-                        <p>Track parts on truck, Ramona shop & Anza shop</p>
-                    </div>
-                    <div class="arrow">›</div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Fuel Tracker Page -->
-        <div id="page-fuel" class="page">
-            <iframe id="frame-fuel" class="tool-frame" src="about:blank"></iframe>
-        </div>
-        
-        <!-- Pump Sizing Page -->
-        <div id="page-pump" class="page">
-            <iframe id="frame-pump" class="tool-frame" src="about:blank"></iframe>
-        </div>
-        
-        <!-- Well Depth Page -->
-        <div id="page-depth" class="page">
-            <iframe id="frame-depth" class="tool-frame" src="about:blank"></iframe>
-        </div>
-        
-        <!-- Inventory Page -->
-        <div id="page-inventory" class="page">
-            <iframe id="frame-inventory" class="tool-frame" src="about:blank"></iframe>
-        </div>
-    </main>
-    
-    <nav class="tab-bar">
-        <div class="tab active" onclick="navigateTo('home')" id="tab-home">
-            <div class="icon">🏠</div>
-            <div class="label">Home</div>
-        </div>
-        <div class="tab" onclick="navigateTo('fuel')" id="tab-fuel">
-            <div class="icon">⛽</div>
-            <div class="label">Fuel</div>
-        </div>
-        <div class="tab" onclick="navigateTo('pump')" id="tab-pump">
-            <div class="icon">💧</div>
-            <div class="label">Pump</div>
-        </div>
-        <div class="tab" onclick="navigateTo('depth')" id="tab-depth">
-            <div class="icon">📏</div>
-            <div class="label">Depth</div>
-        </div>
-        <div class="tab" onclick="navigateTo('inventory')" id="tab-inventory">
-            <div class="icon">📦</div>
-            <div class="label">Inventory</div>
-        </div>
-    </nav>
-    
-    <script>
+<header class="app-header">
+<h1 id="pageTitle">SCWS Tools</h1>
+</header>
+<main class="app-content">
+<!-- Home Page -->
+<div class="page active" id="page-home">
+<div class="home-container">
+<div class="logo-area">
+<div class="logo">🔧</div>
+<h2>Southern California<br/>Well Service</h2>
+<p>Field Tools &amp; Utilities</p>
+</div>
+<div class="tool-card tool-fuel" onclick="navigateTo('fuel')">
+<div class="icon">⛽</div>
+<div class="info">
+<h3>Fuel Tracker</h3>
+<p>Log fuel fills for company trucks at the Anza shop</p>
+</div>
+<div class="arrow">›</div>
+</div>
+<div class="tool-card tool-pump" onclick="navigateTo('pump')">
+<div class="icon">💧</div>
+<div class="info">
+<h3>Pump Sizing Calculator</h3>
+<p>Size pumps with Goulds, Grundfos &amp; Franklin specs</p>
+</div>
+<div class="arrow">›</div>
+</div>
+<div class="tool-card tool-depth" onclick="navigateTo('depth')">
+<div class="icon">📏</div>
+<div class="info">
+<h3>Well Depth Lookup</h3>
+<p>Search drilling logs for San Diego County wells</p>
+</div>
+<div class="arrow">›</div>
+</div>
+<div class="tool-card tool-inventory" onclick="navigateTo('inventory')">
+<div class="icon">📦</div>
+<div class="info">
+<h3>Inventory Tracker</h3>
+<p>Track parts on truck, Ramona shop &amp; Anza shop</p>
+</div>
+<div class="arrow">›</div>
+</div>
+</div>
+</div>
+<!-- Fuel Tracker Page -->
+<div class="page" id="page-fuel">
+<iframe class="tool-frame" id="frame-fuel" src="about:blank"></iframe>
+</div>
+<!-- Pump Sizing Page -->
+<div class="page" id="page-pump">
+<iframe class="tool-frame" id="frame-pump" src="about:blank"></iframe>
+</div>
+<!-- Well Depth Page -->
+<div class="page" id="page-depth">
+<iframe class="tool-frame" id="frame-depth" src="about:blank"></iframe>
+</div>
+<!-- Inventory Page -->
+<div class="page" id="page-inventory">
+<iframe class="tool-frame" id="frame-inventory" src="about:blank"></iframe>
+</div>
+</main>
+<nav class="tab-bar">
+<div class="tab active" id="tab-home" onclick="navigateTo('home')">
+<div class="icon">🏠</div>
+<div class="label">Home</div>
+</div>
+<div class="tab" id="tab-fuel" onclick="navigateTo('fuel')">
+<div class="icon">⛽</div>
+<div class="label">Fuel</div>
+</div>
+<div class="tab" id="tab-pump" onclick="navigateTo('pump')">
+<div class="icon">💧</div>
+<div class="label">Pump</div>
+</div>
+<div class="tab" id="tab-depth" onclick="navigateTo('depth')">
+<div class="icon">📏</div>
+<div class="label">Depth</div>
+</div>
+<div class="tab" id="tab-inventory" onclick="navigateTo('inventory')">
+<div class="icon">📦</div>
+<div class="label">Inventory</div>
+</div>
+</nav>
+<script>
         const titles = {
             home: 'SCWS Tools',
             fuel: 'Fuel Tracker',
@@ -372,12 +362,11 @@
                 .catch(err => console.log('SW registration failed:', err));
         }
     </script>
-
 <style>#sticky-cta{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:2px solid #e5e7eb;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px;z-index:50;box-shadow:0 -4px 12px rgba(0,0,0,0.1)}#sticky-cta a{flex:1;font-weight:700;padding:12px 16px;border-radius:8px;text-align:center;color:#fff;font-size:14px;text-decoration:none}#sticky-cta .cta-call{background:#dc2626}#sticky-cta .cta-call:hover{background:#b91c1c}#sticky-cta .cta-text{background:#2563eb}#sticky-cta .cta-text:hover{background:#1d4ed8}#sticky-cta .cta-est{background:#4e9271}#sticky-cta .cta-est:hover{background:#3d7a5c}@media(min-width:1024px){#sticky-cta{display:none}}</style>
 <div id="sticky-cta">
-    <a href="tel:7604408520" class="cta-call">📞 Call Now</a>
-    <a href="sms:6192590410" class="cta-text">💬 Text Us</a>
-    <a href="/contact.html" class="cta-est">Free Estimate</a>
+<a class="cta-call" href="tel:7604408520">📞 Call Now</a>
+<a class="cta-text" href="sms:6192590410">💬 Text Us</a>
+<a class="cta-est" href="/contact.html">Free Estimate</a>
 </div>
 </body>
 </html>

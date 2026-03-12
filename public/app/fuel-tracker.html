@@ -1,23 +1,24 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <!-- Google Analytics -->
-    <script src="/js/ga4-filter.js"></script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LL1YRWT5T"></script>
-    <script>
+<!-- Google Analytics -->
+<script src="/js/ga4-filter.js"></script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-5LL1YRWT5T"></script>
+<script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
         gtag('config', 'G-5LL1YRWT5T');
     </script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <meta name="description" content="SCWS fuel tracking app for fleet vehicles. Log fuel purchases, track mileage, and monitor fuel costs for well service trucks and equipment.">
-    <title>Fuel Tracker</title>
-    <meta name="theme-color" content="#1a5276">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, user-scalable=no" name="viewport"/>
+<meta content="SCWS fuel tracking app for fleet vehicles. Log fuel purchases, track mileage, and monitor fuel costs for well service trucks and equipment." name="description"/>
+<title>Fuel Tracker</title>
+<meta content="#1a5276" name="theme-color"/>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/><meta content="https://www.scwellservice.com/images/logo-text-only-3x.png" property="og:image"/><meta content="1200" property="og:image:width"/><meta content="630" property="og:image:height"/><meta content="Fuel Tracker" property="og:title"/><meta content="SCWS fuel tracking app for fleet vehicles. Log fuel purchases, track mileage, and monitor fuel costs for well service trucks and equipment." property="og:description"/>
+<style>
         :root {
             --primary: #1a5276;
             --secondary: #2980b9;
@@ -283,7 +284,7 @@
             .truck-select-grid { grid-template-columns: 1fr; }
         }
     </style>
-    <style>
+<style>
         /* Force edge-to-edge layout on mobile Safari */
         html, body {
             margin: 0 !important;
@@ -293,21 +294,20 @@
     </style>
 </head>
 <body style="padding-bottom:80px">
-    <!-- PIN Login Screen -->
-    <div id="loginScreen" style="position:fixed; top:0; left:0; right:0; bottom:0; background:linear-gradient(135deg, #1a5276 0%, #2980b9 100%); z-index:9999; display:flex; flex-direction:column; align-items:center; justify-content:center; color:white;">
-        <div style="font-size:64px; margin-bottom:20px;">⛽</div>
-        <h1 style="font-size:24px; margin-bottom:8px;">SCWS Fuel Tracker</h1>
-        <p style="opacity:0.8; margin-bottom:30px;">Enter PIN to continue</p>
-        <div style="display:flex; gap:10px; margin-bottom:20px;">
-            <input type="password" id="pin1" maxlength="1" style="width:50px; height:60px; text-align:center; font-size:24px; border:none; border-radius:10px;" oninput="pinInput(1)" autofocus>
-            <input type="password" id="pin2" maxlength="1" style="width:50px; height:60px; text-align:center; font-size:24px; border:none; border-radius:10px;" oninput="pinInput(2)">
-            <input type="password" id="pin3" maxlength="1" style="width:50px; height:60px; text-align:center; font-size:24px; border:none; border-radius:10px;" oninput="pinInput(3)">
-            <input type="password" id="pin4" maxlength="1" style="width:50px; height:60px; text-align:center; font-size:24px; border:none; border-radius:10px;" oninput="pinInput(4)">
-        </div>
-        <p id="pinError" style="color:#ff6b6b; display:none;">Incorrect PIN</p>
-    </div>
-    
-    <script>
+<!-- PIN Login Screen -->
+<div id="loginScreen" style="position:fixed; top:0; left:0; right:0; bottom:0; background:linear-gradient(135deg, #1a5276 0%, #2980b9 100%); z-index:9999; display:flex; flex-direction:column; align-items:center; justify-content:center; color:white;">
+<div style="font-size:64px; margin-bottom:20px;">⛽</div>
+<h1 style="font-size:24px; margin-bottom:8px;">SCWS Fuel Tracker</h1>
+<p style="opacity:0.8; margin-bottom:30px;">Enter PIN to continue</p>
+<div style="display:flex; gap:10px; margin-bottom:20px;">
+<input autofocus="" id="pin1" maxlength="1" oninput="pinInput(1)" style="width:50px; height:60px; text-align:center; font-size:24px; border:none; border-radius:10px;" type="password"/>
+<input id="pin2" maxlength="1" oninput="pinInput(2)" style="width:50px; height:60px; text-align:center; font-size:24px; border:none; border-radius:10px;" type="password"/>
+<input id="pin3" maxlength="1" oninput="pinInput(3)" style="width:50px; height:60px; text-align:center; font-size:24px; border:none; border-radius:10px;" type="password"/>
+<input id="pin4" maxlength="1" oninput="pinInput(4)" style="width:50px; height:60px; text-align:center; font-size:24px; border:none; border-radius:10px;" type="password"/>
+</div>
+<p id="pinError" style="color:#ff6b6b; display:none;">Incorrect PIN</p>
+</div>
+<script>
         const CORRECT_PIN = '8520'; // Last 4 of phone number - change this!
         
         function pinInput(num) {
@@ -354,194 +354,178 @@
             });
         });
     </script>
-    
-    <div class="header" id="appHeader">
-        <h1>⛽ SCWS Fuel Tracker</h1>
-        <p>Anza Shop Fuel Pumps</p>
-    </div>
-    <script>
+<div class="header" id="appHeader">
+<h1>⛽ SCWS Fuel Tracker</h1>
+<p>Anza Shop Fuel Pumps</p>
+</div>
+<script>
         if (window.self !== window.top) {
             document.getElementById('appHeader').style.display = 'none';
             document.body.style.paddingTop = '0';
         }
     </script>
-    
-    <div class="container">
-        <div class="tabs">
-            <div class="tab active" onclick="showTab('log')">Log Fuel</div>
-            <div class="tab" onclick="showTab('history')">History</div>
-            <div class="tab" onclick="showTab('maintenance')">Service</div>
-            <div class="tab" onclick="showTab('settings')">Setup</div>
-        </div>
-        
-        <!-- Maintenance Alerts (shown on log tab) -->
-        <div id="maintenanceAlerts"></div>
-        
-        <!-- Log Fuel Tab -->
-        <div id="tab-log" class="tab-content active">
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="value" id="todayGallons">0</div>
-                    <div class="label">Today (gal)</div>
-                </div>
-                <div class="stat-card">
-                    <div class="value" id="weekGallons">0</div>
-                    <div class="label">This Week</div>
-                </div>
-                <div class="stat-card">
-                    <div class="value" id="avgMPG">--</div>
-                    <div class="label">Avg MPG</div>
-                </div>
-            </div>
-            
-            <div class="card">
-                <div class="card-header">Select Truck</div>
-                <div class="card-body">
-                    <div class="truck-select-grid" id="truckGrid"></div>
-                </div>
-            </div>
-            
-            <div class="card">
-                <div class="card-header">Fuel Details</div>
-                <div class="card-body">
-                    <form id="fuelForm">
-                        <div class="form-group">
-                            <label for="odometer">Odometer Reading *</label>
-                            <input type="number" id="odometer" min="0" placeholder="Current mileage" required>
-                            <small style="color:#888; font-size:11px;">Last reading: <span id="lastOdometer">--</span></small>
-                        </div>
-                        <div class="form-group">
-                            <label for="gallons">Gallons *</label>
-                            <input type="number" id="gallons" step="0.1" min="0.1" max="200" placeholder="Gallons pumped" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="notes">Notes (optional)</label>
-                            <input type="text" id="notes" placeholder="e.g., Topped off, filled tank">
-                        </div>
-                        <div class="form-group">
-                            <button type="submit" class="btn btn-primary">⛽ Log Fuel</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-        
-        <!-- History Tab -->
-        <div id="tab-history" class="tab-content">
-            <div class="filter-row">
-                <select id="historyTruckFilter" onchange="renderHistory()">
-                    <option value="">All Trucks</option>
-                </select>
-                <select id="historyDateFilter" onchange="renderHistory()">
-                    <option value="7">Last 7 Days</option>
-                    <option value="30" selected>Last 30 Days</option>
-                    <option value="90">Last 90 Days</option>
-                    <option value="all">All Time</option>
-                </select>
-                <button class="export-btn" onclick="exportCSV()">📊</button>
-            </div>
-            
-            <div class="card">
-                <div class="card-header">
-                    <span>Fuel Log</span>
-                    <span id="historyTotal"></span>
-                </div>
-                <div class="card-body" id="historyList">
-                    <div class="empty-state">
-                        <div class="icon">📋</div>
-                        <p>No fuel entries yet</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Maintenance Tab -->
-        <div id="tab-maintenance" class="tab-content">
-            <div class="card">
-                <div class="card-header">
-                    <span>Select Truck</span>
-                </div>
-                <div class="card-body">
-                    <select id="maintenanceTruckSelect" onchange="renderMaintenanceStatus()" style="width:100%; padding:12px; font-size:16px; border-radius:8px; border:2px solid #e0e0e0;">
-                        <option value="">Choose truck...</option>
-                    </select>
-                </div>
-            </div>
-            
-            <div id="maintenanceStatusContainer"></div>
-            
-            <div class="card">
-                <div class="card-header">Service Intervals</div>
-                <div class="card-body" id="serviceIntervals"></div>
-            </div>
-        </div>
-        
-        <!-- Settings Tab -->
-        <div id="tab-settings" class="tab-content">
-            <div class="card">
-                <div class="card-header">Your Name</div>
-                <div class="card-body">
-                    <div class="form-group">
-                        <input type="text" id="employeeName" placeholder="Enter your name">
-                    </div>
-                    <button class="btn btn-secondary" onclick="saveName()">Save Name</button>
-                </div>
-            </div>
-            
-            <div class="card">
-                <div class="card-header">Manage Trucks</div>
-                <div class="card-body">
-                    <div class="form-group">
-                        <label>Add New Truck</label>
-                        <input type="text" id="newTruckName" placeholder="e.g., White F-350" style="margin-bottom:10px;">
-                        <input type="number" id="newTruckMileage" placeholder="Current odometer reading">
-                    </div>
-                    <button class="btn btn-secondary" onclick="addTruck()">+ Add Truck</button>
-                    <div id="truckList" style="margin-top: 20px;"></div>
-                </div>
-            </div>
-            
-            <div class="card">
-                <div class="card-header">Log Maintenance</div>
-                <div class="card-body">
-                    <div class="form-group">
-                        <label>Truck</label>
-                        <select id="maintTruck" style="width:100%;">
-                            <option value="">Select truck...</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>Service Type</label>
-                        <select id="maintType" style="width:100%;">
-                            <option value="oil">Oil Change</option>
-                            <option value="tires">Tire Rotation</option>
-                            <option value="brakes">Brake Service</option>
-                            <option value="transmission">Transmission Service</option>
-                            <option value="coolant">Coolant Flush</option>
-                            <option value="air_filter">Air Filter</option>
-                            <option value="fuel_filter">Fuel Filter</option>
-                            <option value="other">Other</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>Mileage at Service</label>
-                        <input type="number" id="maintMileage" placeholder="Odometer reading">
-                    </div>
-                    <button class="btn btn-secondary" onclick="logMaintenance()">Log Service</button>
-                </div>
-            </div>
-            
-            <div class="card">
-                <div class="card-header">Data</div>
-                <div class="card-body">
-                    <button class="btn btn-secondary" onclick="exportAllData()" style="margin-bottom:10px;">📥 Export All Data</button>
-                    <button class="btn btn-danger" onclick="confirmClearData()">🗑️ Clear All Data</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <script>
+<div class="container">
+<div class="tabs">
+<div class="tab active" onclick="showTab('log')">Log Fuel</div>
+<div class="tab" onclick="showTab('history')">History</div>
+<div class="tab" onclick="showTab('maintenance')">Service</div>
+<div class="tab" onclick="showTab('settings')">Setup</div>
+</div>
+<!-- Maintenance Alerts (shown on log tab) -->
+<div id="maintenanceAlerts"></div>
+<!-- Log Fuel Tab -->
+<div class="tab-content active" id="tab-log">
+<div class="stats-grid">
+<div class="stat-card">
+<div class="value" id="todayGallons">0</div>
+<div class="label">Today (gal)</div>
+</div>
+<div class="stat-card">
+<div class="value" id="weekGallons">0</div>
+<div class="label">This Week</div>
+</div>
+<div class="stat-card">
+<div class="value" id="avgMPG">--</div>
+<div class="label">Avg MPG</div>
+</div>
+</div>
+<div class="card">
+<div class="card-header">Select Truck</div>
+<div class="card-body">
+<div class="truck-select-grid" id="truckGrid"></div>
+</div>
+</div>
+<div class="card">
+<div class="card-header">Fuel Details</div>
+<div class="card-body">
+<form id="fuelForm">
+<div class="form-group">
+<label for="odometer">Odometer Reading *</label>
+<input id="odometer" min="0" placeholder="Current mileage" required="" type="number"/>
+<small style="color:#888; font-size:11px;">Last reading: <span id="lastOdometer">--</span></small>
+</div>
+<div class="form-group">
+<label for="gallons">Gallons *</label>
+<input id="gallons" max="200" min="0.1" placeholder="Gallons pumped" required="" step="0.1" type="number"/>
+</div>
+<div class="form-group">
+<label for="notes">Notes (optional)</label>
+<input id="notes" placeholder="e.g., Topped off, filled tank" type="text"/>
+</div>
+<div class="form-group">
+<button class="btn btn-primary" type="submit">⛽ Log Fuel</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+<!-- History Tab -->
+<div class="tab-content" id="tab-history">
+<div class="filter-row">
+<select id="historyTruckFilter" onchange="renderHistory()">
+<option value="">All Trucks</option>
+</select>
+<select id="historyDateFilter" onchange="renderHistory()">
+<option value="7">Last 7 Days</option>
+<option selected="" value="30">Last 30 Days</option>
+<option value="90">Last 90 Days</option>
+<option value="all">All Time</option>
+</select>
+<button class="export-btn" onclick="exportCSV()">📊</button>
+</div>
+<div class="card">
+<div class="card-header">
+<span>Fuel Log</span>
+<span id="historyTotal"></span>
+</div>
+<div class="card-body" id="historyList">
+<div class="empty-state">
+<div class="icon">📋</div>
+<p>No fuel entries yet</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Maintenance Tab -->
+<div class="tab-content" id="tab-maintenance">
+<div class="card">
+<div class="card-header">
+<span>Select Truck</span>
+</div>
+<div class="card-body">
+<select id="maintenanceTruckSelect" onchange="renderMaintenanceStatus()" style="width:100%; padding:12px; font-size:16px; border-radius:8px; border:2px solid #e0e0e0;">
+<option value="">Choose truck...</option>
+</select>
+</div>
+</div>
+<div id="maintenanceStatusContainer"></div>
+<div class="card">
+<div class="card-header">Service Intervals</div>
+<div class="card-body" id="serviceIntervals"></div>
+</div>
+</div>
+<!-- Settings Tab -->
+<div class="tab-content" id="tab-settings">
+<div class="card">
+<div class="card-header">Your Name</div>
+<div class="card-body">
+<div class="form-group">
+<input id="employeeName" placeholder="Enter your name" type="text"/>
+</div>
+<button class="btn btn-secondary" onclick="saveName()">Save Name</button>
+</div>
+</div>
+<div class="card">
+<div class="card-header">Manage Trucks</div>
+<div class="card-body">
+<div class="form-group">
+<label>Add New Truck</label>
+<input id="newTruckName" placeholder="e.g., White F-350" style="margin-bottom:10px;" type="text"/>
+<input id="newTruckMileage" placeholder="Current odometer reading" type="number"/>
+</div>
+<button class="btn btn-secondary" onclick="addTruck()">+ Add Truck</button>
+<div id="truckList" style="margin-top: 20px;"></div>
+</div>
+</div>
+<div class="card">
+<div class="card-header">Log Maintenance</div>
+<div class="card-body">
+<div class="form-group">
+<label>Truck</label>
+<select id="maintTruck" style="width:100%;">
+<option value="">Select truck...</option>
+</select>
+</div>
+<div class="form-group">
+<label>Service Type</label>
+<select id="maintType" style="width:100%;">
+<option value="oil">Oil Change</option>
+<option value="tires">Tire Rotation</option>
+<option value="brakes">Brake Service</option>
+<option value="transmission">Transmission Service</option>
+<option value="coolant">Coolant Flush</option>
+<option value="air_filter">Air Filter</option>
+<option value="fuel_filter">Fuel Filter</option>
+<option value="other">Other</option>
+</select>
+</div>
+<div class="form-group">
+<label>Mileage at Service</label>
+<input id="maintMileage" placeholder="Odometer reading" type="number"/>
+</div>
+<button class="btn btn-secondary" onclick="logMaintenance()">Log Service</button>
+</div>
+</div>
+<div class="card">
+<div class="card-header">Data</div>
+<div class="card-body">
+<button class="btn btn-secondary" onclick="exportAllData()" style="margin-bottom:10px;">📥 Export All Data</button>
+<button class="btn btn-danger" onclick="confirmClearData()">🗑️ Clear All Data</button>
+</div>
+</div>
+</div>
+</div>
+<script>
         // Maintenance intervals (miles)
         const MAINTENANCE_INTERVALS = {
             oil: { name: 'Oil Change', interval: 5000, icon: '🛢️' },
@@ -967,12 +951,11 @@
             setTimeout(() => el.remove(), 2000);
         }
     </script>
-
 <style>#sticky-cta{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:2px solid #e5e7eb;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px;z-index:50;box-shadow:0 -4px 12px rgba(0,0,0,0.1)}#sticky-cta a{flex:1;font-weight:700;padding:12px 16px;border-radius:8px;text-align:center;color:#fff;font-size:14px;text-decoration:none}#sticky-cta .cta-call{background:#dc2626}#sticky-cta .cta-call:hover{background:#b91c1c}#sticky-cta .cta-text{background:#2563eb}#sticky-cta .cta-text:hover{background:#1d4ed8}#sticky-cta .cta-est{background:#4e9271}#sticky-cta .cta-est:hover{background:#3d7a5c}@media(min-width:1024px){#sticky-cta{display:none}}</style>
 <div id="sticky-cta">
-    <a href="tel:7604408520" class="cta-call">📞 Call Now</a>
-    <a href="sms:6192590410" class="cta-text">💬 Text Us</a>
-    <a href="/contact.html" class="cta-est">Free Estimate</a>
+<a class="cta-call" href="tel:7604408520">📞 Call Now</a>
+<a class="cta-text" href="sms:6192590410">💬 Text Us</a>
+<a class="cta-est" href="/contact.html">Free Estimate</a>
 </div>
 </body>
 </html>

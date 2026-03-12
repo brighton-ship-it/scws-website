@@ -1,20 +1,21 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <!-- Google Analytics -->
-    <script src="/js/ga4-filter.js"></script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LL1YRWT5T"></script>
-    <script>
+<!-- Google Analytics -->
+<script src="/js/ga4-filter.js"></script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-5LL1YRWT5T"></script>
+<script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
         gtag('config', 'G-5LL1YRWT5T');
     </script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Free well pump sizing calculator. Enter well depth, water level, and flow requirements to get professional pump recommendations for your property.">
-    <title>Pump Sizing Tool</title>
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Free well pump sizing calculator. Enter well depth, water level, and flow requirements to get professional pump recommendations for your property." name="description"/><meta content="https://www.scwellservice.com/images/logo-text-only-3x.png" property="og:image"/><meta content="1200" property="og:image:width"/><meta content="630" property="og:image:height"/><meta content="Pump Sizing Tool" property="og:title"/><meta content="Free well pump sizing calculator. Enter well depth, water level, and flow requirements to get professional pump recommendations for your property." property="og:description"/>
+<title>Pump Sizing Tool</title>
+<style>
         :root {
             --primary: #1a5276;
             --secondary: #2980b9;
@@ -274,7 +275,7 @@
             .specs-grid { grid-template-columns: 1fr 1fr; }
         }
     </style>
-    <style>
+<style>
         /* Force edge-to-edge layout on mobile Safari */
         html, body {
             margin: 0 !important;
@@ -284,173 +285,160 @@
     </style>
 </head>
 <body style="padding-bottom:80px">
-    <div class="container">
-        <div class="card">
-            <div class="header">
-                <h1>🔧 Pump Sizing Calculator</h1>
-                <p>Get the right pump for your well - Goulds, Grundfos & Franklin pump ends</p>
-            </div>
-            
-            <form id="pumpForm">
-                <div class="section">
-                    <div class="section-title">
-                        <span class="number">1</span>
+<div class="container">
+<div class="card">
+<div class="header">
+<h1>🔧 Pump Sizing Calculator</h1>
+<p>Get the right pump for your well - Goulds, Grundfos &amp; Franklin pump ends</p>
+</div>
+<form id="pumpForm">
+<div class="section">
+<div class="section-title">
+<span class="number">1</span>
                         Well Information
                     </div>
-                    <div class="form-grid">
-                        <div class="form-group">
-                            <label for="wellDepth">Total Well Depth (ft)</label>
-                            <input type="number" id="wellDepth" required min="20" max="2000" placeholder="e.g., 400">
-                            <span class="hint">From ground to bottom of well</span>
-                        </div>
-                        <div class="form-group">
-                            <label for="staticLevel">Static Water Level (ft)</label>
-                            <input type="number" id="staticLevel" required min="0" max="1500" placeholder="e.g., 100">
-                            <span class="hint">Water level when not pumping</span>
-                        </div>
-                        <div class="form-group">
-                            <label for="drawdown">Drawdown Level (ft)</label>
-                            <input type="number" id="drawdown" required min="0" max="1500" placeholder="e.g., 200">
-                            <span class="hint">Water level while pumping</span>
-                        </div>
-                        <div class="form-group">
-                            <label for="casingDia">Casing Diameter (in)</label>
-                            <select id="casingDia" required>
-                                <option value="">Select...</option>
-                                <option value="4">4"</option>
-                                <option value="5">5"</option>
-                                <option value="6">6"</option>
-                                <option value="8">8"</option>
-                                <option value="10">10"</option>
-                                <option value="12">12"</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="section">
-                    <div class="section-title">
-                        <span class="number">2</span>
+<div class="form-grid">
+<div class="form-group">
+<label for="wellDepth">Total Well Depth (ft)</label>
+<input id="wellDepth" max="2000" min="20" placeholder="e.g., 400" required="" type="number"/>
+<span class="hint">From ground to bottom of well</span>
+</div>
+<div class="form-group">
+<label for="staticLevel">Static Water Level (ft)</label>
+<input id="staticLevel" max="1500" min="0" placeholder="e.g., 100" required="" type="number"/>
+<span class="hint">Water level when not pumping</span>
+</div>
+<div class="form-group">
+<label for="drawdown">Drawdown Level (ft)</label>
+<input id="drawdown" max="1500" min="0" placeholder="e.g., 200" required="" type="number"/>
+<span class="hint">Water level while pumping</span>
+</div>
+<div class="form-group">
+<label for="casingDia">Casing Diameter (in)</label>
+<select id="casingDia" required="">
+<option value="">Select...</option>
+<option value="4">4"</option>
+<option value="5">5"</option>
+<option value="6">6"</option>
+<option value="8">8"</option>
+<option value="10">10"</option>
+<option value="12">12"</option>
+</select>
+</div>
+</div>
+</div>
+<div class="section">
+<div class="section-title">
+<span class="number">2</span>
                         Water Requirements
                     </div>
-                    <div class="form-grid">
-                        <div class="form-group">
-                            <label for="flowRate">Desired Flow Rate (GPM)</label>
-                            <input type="number" id="flowRate" required min="1" max="500" placeholder="e.g., 15">
-                            <span class="hint">Typical home: 8-12 GPM</span>
-                        </div>
-                        <div class="form-group">
-                            <label for="pressurePSI">Desired Pressure (PSI)</label>
-                            <select id="pressurePSI" required>
-                                <option value="">Select...</option>
-                                <option value="0">0 PSI (storage tank / gravity)</option>
-                                <option value="40">40 PSI (30/50 switch)</option>
-                                <option value="50" selected>50 PSI (40/60 switch)</option>
-                                <option value="60">60 PSI (50/70 switch)</option>
-                                <option value="70">70 PSI (high pressure)</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="elevation">Elevation Above Well (ft)</label>
-                            <input type="number" id="elevation" value="0" min="0" max="500" placeholder="e.g., 50">
-                            <span class="hint">Height from well to highest fixture</span>
-                        </div>
-                        <div class="form-group">
-                            <label for="pipeLength">Pipe Run Length (ft)</label>
-                            <input type="number" id="pipeLength" value="100" min="10" max="2000" placeholder="e.g., 200">
-                            <span class="hint">Total pipe from pump to house</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="section">
-                    <div class="section-title">
-                        <span class="number">3</span>
+<div class="form-grid">
+<div class="form-group">
+<label for="flowRate">Desired Flow Rate (GPM)</label>
+<input id="flowRate" max="500" min="1" placeholder="e.g., 15" required="" type="number"/>
+<span class="hint">Typical home: 8-12 GPM</span>
+</div>
+<div class="form-group">
+<label for="pressurePSI">Desired Pressure (PSI)</label>
+<select id="pressurePSI" required="">
+<option value="">Select...</option>
+<option value="0">0 PSI (storage tank / gravity)</option>
+<option value="40">40 PSI (30/50 switch)</option>
+<option selected="" value="50">50 PSI (40/60 switch)</option>
+<option value="60">60 PSI (50/70 switch)</option>
+<option value="70">70 PSI (high pressure)</option>
+</select>
+</div>
+<div class="form-group">
+<label for="elevation">Elevation Above Well (ft)</label>
+<input id="elevation" max="500" min="0" placeholder="e.g., 50" type="number" value="0"/>
+<span class="hint">Height from well to highest fixture</span>
+</div>
+<div class="form-group">
+<label for="pipeLength">Pipe Run Length (ft)</label>
+<input id="pipeLength" max="2000" min="10" placeholder="e.g., 200" type="number" value="100"/>
+<span class="hint">Total pipe from pump to house</span>
+</div>
+</div>
+</div>
+<div class="section">
+<div class="section-title">
+<span class="number">3</span>
                         Power Supply
                     </div>
-                    <div class="form-grid">
-                        <div class="form-group">
-                            <label for="voltage">Available Voltage</label>
-                            <select id="voltage" required>
-                                <option value="230" selected>230V Single Phase</option>
-                                <option value="230-3">230V Three Phase</option>
-                                <option value="460-3">460V Three Phase</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="section">
-                    <button type="submit" class="btn">Calculate Pump Size →</button>
-                </div>
-            </form>
-            
-            <div class="results" id="results">
-                <div class="section">
-                    <div class="section-title">
-                        <span class="number">✓</span>
+<div class="form-grid">
+<div class="form-group">
+<label for="voltage">Available Voltage</label>
+<select id="voltage" required="">
+<option selected="" value="230">230V Single Phase</option>
+<option value="230-3">230V Three Phase</option>
+<option value="460-3">460V Three Phase</option>
+</select>
+</div>
+</div>
+</div>
+<div class="section">
+<button class="btn" type="submit">Calculate Pump Size →</button>
+</div>
+</form>
+<div class="results" id="results">
+<div class="section">
+<div class="section-title">
+<span class="number">✓</span>
                         Your Pump Requirements
                     </div>
-                    
-                    <div class="result-card">
-                        <h3>Total Dynamic Head (TDH)</h3>
-                        <span class="value" id="tdhValue">--</span>
-                        <span class="unit">feet</span>
-                    </div>
-                    
-                    <div class="specs-grid">
-                        <div class="spec-item">
-                            <div class="label">Recommended HP</div>
-                            <div class="value" id="hpValue">--</div>
-                        </div>
-                        <div class="spec-item">
-                            <div class="label">Motor Size</div>
-                            <div class="value" id="motorSize">--</div>
-                        </div>
-                        <div class="spec-item">
-                            <div class="label">Wire Size</div>
-                            <div class="value" id="wireSize">--</div>
-                        </div>
-                        <div class="spec-item">
-                            <div class="label">Pump Setting</div>
-                            <div class="value" id="pumpSetting">--</div>
-                        </div>
-                        <div class="spec-item">
-                            <div class="label">Est. Flow</div>
-                            <div class="value" id="estFlow">--</div>
-                        </div>
-                    </div>
-                    
-                    <div style="margin-top: 25px;">
-                        <h3 style="color: var(--primary); font-size: 18px; margin-bottom: 15px;">📦 Compatible Pump Ends by Brand</h3>
-                        <div id="pumpEndResults" style="display: grid; gap: 12px;"></div>
-                    </div>
-                    
-                    <div class="recommendation" id="recommendation">
-                        <h4>💡 Our Recommendation</h4>
-                        <p id="recText"></p>
-                    </div>
-                    
-                    <div class="warning-box" id="warnings" style="display:none;">
-                        <h4>⚠️ Important Notes</h4>
-                        <ul id="warningList"></ul>
-                    </div>
-                </div>
-                
-                <div class="cta-section">
-                    <h3>Ready to Install?</h3>
-                    <p>Our team can verify these calculations and provide a professional quote.</p>
-                    <a href="tel:7604408520" class="btn cta-btn">📞 Call (760) 440-8520</a>
-                </div>
-            </div>
-            
-            <div class="disclaimer">
-                <p>This calculator provides estimates based on Goulds, Grundfos, and Franklin pump end specifications. Actual requirements may vary based on well conditions, water quality, and other factors. Always consult a licensed well professional for final sizing.</p>
-            </div>
-        </div>
-    </div>
-    
-    <script>
+<div class="result-card">
+<h3>Total Dynamic Head (TDH)</h3>
+<span class="value" id="tdhValue">--</span>
+<span class="unit">feet</span>
+</div>
+<div class="specs-grid">
+<div class="spec-item">
+<div class="label">Recommended HP</div>
+<div class="value" id="hpValue">--</div>
+</div>
+<div class="spec-item">
+<div class="label">Motor Size</div>
+<div class="value" id="motorSize">--</div>
+</div>
+<div class="spec-item">
+<div class="label">Wire Size</div>
+<div class="value" id="wireSize">--</div>
+</div>
+<div class="spec-item">
+<div class="label">Pump Setting</div>
+<div class="value" id="pumpSetting">--</div>
+</div>
+<div class="spec-item">
+<div class="label">Est. Flow</div>
+<div class="value" id="estFlow">--</div>
+</div>
+</div>
+<div style="margin-top: 25px;">
+<h3 style="color: var(--primary); font-size: 18px; margin-bottom: 15px;">📦 Compatible Pump Ends by Brand</h3>
+<div id="pumpEndResults" style="display: grid; gap: 12px;"></div>
+</div>
+<div class="recommendation" id="recommendation">
+<h4>💡 Our Recommendation</h4>
+<p id="recText"></p>
+</div>
+<div class="warning-box" id="warnings" style="display:none;">
+<h4>⚠️ Important Notes</h4>
+<ul id="warningList"></ul>
+</div>
+</div>
+<div class="cta-section">
+<h3>Ready to Install?</h3>
+<p>Our team can verify these calculations and provide a professional quote.</p>
+<a class="btn cta-btn" href="tel:7604408520">📞 Call (760) 440-8520</a>
+</div>
+</div>
+<div class="disclaimer">
+<p>This calculator provides estimates based on Goulds, Grundfos, and Franklin pump end specifications. Actual requirements may vary based on well conditions, water quality, and other factors. Always consult a licensed well professional for final sizing.</p>
+</div>
+</div>
+</div>
+<script>
         // Franklin Electric pump sizing data
         const PUMP_DATA = {
             // GPM ranges and recommended HP for different TDH ranges
@@ -939,18 +927,17 @@
             return chart[500]; // Use largest wire for long runs
         }
     </script>
-    <script>
+<script>
         // Detect if embedded in app shell
         if (window.self !== window.top) {
             document.body.classList.add('embedded');
         }
     </script>
-
 <style>#sticky-cta{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:2px solid #e5e7eb;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px;z-index:50;box-shadow:0 -4px 12px rgba(0,0,0,0.1)}#sticky-cta a{flex:1;font-weight:700;padding:12px 16px;border-radius:8px;text-align:center;color:#fff;font-size:14px;text-decoration:none}#sticky-cta .cta-call{background:#dc2626}#sticky-cta .cta-call:hover{background:#b91c1c}#sticky-cta .cta-text{background:#2563eb}#sticky-cta .cta-text:hover{background:#1d4ed8}#sticky-cta .cta-est{background:#4e9271}#sticky-cta .cta-est:hover{background:#3d7a5c}@media(min-width:1024px){#sticky-cta{display:none}}</style>
 <div id="sticky-cta">
-    <a href="tel:7604408520" class="cta-call">📞 Call Now</a>
-    <a href="sms:6192590410" class="cta-text">💬 Text Us</a>
-    <a href="/contact.html" class="cta-est">Free Estimate</a>
+<a class="cta-call" href="tel:7604408520">📞 Call Now</a>
+<a class="cta-text" href="sms:6192590410">💬 Text Us</a>
+<a class="cta-est" href="/contact.html">Free Estimate</a>
 </div>
 </body>
 </html>
