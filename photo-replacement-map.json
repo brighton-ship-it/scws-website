@@ -1,0 +1,64 @@
+{
+  "description": "Map of AI-generated/mismatched stock images replaced with real SCWS photos",
+  "date": "2026-03-12",
+  "replacements": [
+    {
+      "original": "images/blog/franklin-electric-pump.jpg",
+      "originalDescription": "Mismatched stock photo of electronics repair (NOT a Franklin pump)",
+      "replacement": "scws-pump-house-interior.jpg",
+      "newDescription": "Real photo of well pump house interior with tanks and controls",
+      "usedIn": ["blog/best-submersible-pump-brands.html"]
+    },
+    {
+      "original": "images/blog/grundfos-sq-pump.jpg",
+      "originalDescription": "Mismatched stock photo (NOT a Grundfos pump)",
+      "replacement": "scws-danfoss-vfd.jpg",
+      "newDescription": "Real photo of Danfoss VFD pump controller",
+      "usedIn": ["blog/best-submersible-pump-brands.html"]
+    },
+    {
+      "original": "images/blog/pump-pressure-switch.jpg",
+      "originalDescription": "Mismatched stock photo",
+      "replacement": "scws-control-box-interior.jpg",
+      "newDescription": "Real photo of well pump control box interior",
+      "usedIn": ["blog/well-pump-noise-problems.html"]
+    },
+    {
+      "original": "images/blog/well-pump-noise-hero.jpg",
+      "originalDescription": "Mismatched stock photo",
+      "replacement": "scws-tech-at-rig.jpg",
+      "newDescription": "Real photo of SCWS technician at drilling rig",
+      "usedIn": ["blog/well-pump-noise-problems.html"]
+    },
+    {
+      "original": "images/blog/water-sample-collection.jpg",
+      "originalDescription": "Mismatched stock photo",
+      "replacement": "scws-well-flow-test.jpg",
+      "newDescription": "Real photo of well flow test with pressure tank system",
+      "usedIn": ["blog/water-quality-testing-san-diego.html"]
+    },
+    {
+      "original": "images/blog/pressure-tank-maintenance-hero.jpg",
+      "originalDescription": "HEADPHONES photo! (NOT a pressure tank)",
+      "replacement": "scws-dual-tanks-palm.jpg",
+      "newDescription": "Real photo of dual pressure tanks installation",
+      "usedIn": ["(not directly referenced but kept for legacy)"]
+    },
+    {
+      "original": "images/blog/pressure-tank-sizing-hero.jpg",
+      "originalDescription": "HEADPHONES photo! (same as above)",
+      "replacement": "scws-dual-tanks-palm.jpg",
+      "newDescription": "Real photo of dual pressure tanks installation",
+      "usedIn": ["(not directly referenced but kept for legacy)"]
+    }
+  ],
+  "backupLocation": "images/blog/stock-originals/",
+  "notes": [
+    "Original mismatched stock photos are backed up in stock-originals/",
+    "Real SCWS photos sourced from existing blog/scws-*.jpg files",
+    "All replacements resized to max 1200px width using sips",
+    "Alt text updated in HTML files to match new images",
+    "assets/images/blog-images/ was already converted to real photos previously",
+    "assets/images/article-categories/ was already converted to real photos previously"
+  ]
+}
