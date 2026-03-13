@@ -89,15 +89,25 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 </head>
 <body class="pb-20 lg:pb-0 bg-white">
-    <header class="site-header">
-        <div class="header-content">
-            <a href="/" class="logo">
-                <img loading="lazy" src="/images/logo-text-only-3x.png" alt="SCWS Logo" width="50" height="50">
-                <span>Southern California Well Service</span>
+    <header class="bg-primary text-white sticky top-0 z-50 shadow-lg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center py-2">
+            <a href="/" class="shrink-0">
+                <img width="840" height="150" loading="lazy" src="/images/logo-text-only-3x.png" alt="Southern California Well Service" class="h-10 lg:h-12 w-auto">
             </a>
-            <nav class="main-nav"><a href="tel:(760) 440-8520" class="phone-link">(760) 440-8520</a></nav>
+            <div class="flex items-center gap-4">
+                <a href="/pages/services/" class="hidden md:flex text-white hover:text-green-400 font-medium">Services</a>
+                <a href="/blog/" class="hidden md:flex text-white hover:text-green-400 font-medium">Blog</a>
+                <a href="/contact.html" class="hidden md:flex text-white hover:text-green-400 font-medium">Contact</a>
+                <a href="tel:7604408520" class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg font-semibold transition flex items-center gap-2">
+                    <span>📞</span>
+                    <span class="hidden sm:inline">(760) 440-8520</span>
+                    <span class="sm:hidden">Call</span>
+                </a>
+            </div>
         </div>
-    </header>
+    </div>
+</header>
     
     <main class="blog-post"><article>
         <h1>Well Pump Repair Ranchita</h1>
