@@ -28,26 +28,67 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 </head>
 <body class="pb-20 lg:pb-0 bg-white">
-<div class="bg-gradient-to-r from-blue-600 to-blue-700 text-white py-2.5">
-<div class="max-w-7xl mx-auto px-4 text-center flex items-center justify-center gap-2 flex-wrap">
-<span class="font-bold">📍 Serving Perris</span>
-<span class="hidden sm:inline">Licensed • Insured • 4.9★ Rated</span>
-<a class="bg-white text-blue-600 font-bold px-4 py-1 rounded-full text-sm ml-1" href="tel:7604408520">Call Now →</a>
-</div>
-</div>
-<header class="bg-primary text-white sticky top-0 z-50 shadow-lg">
-<div class="max-w-7xl mx-auto px-4 flex justify-between items-center py-2">
-<a href="../"><img width="840" height="150" alt="SCWS" class="h-10 lg:h-12" loading="lazy" src="../images/logo-text-only-3x.png"/></a>
-<nav class="hidden lg:flex space-x-4 items-center">
-<a class="hover:text-accent" href="../#services">Services</a>
-<a class="hover:text-accent" href="../#areas">Service Areas</a>
-<a class="hover:text-accent" href="./">Resources</a>
-<a class="hover:text-accent" href="../contact.html">Contact</a>
-</nav>
-<a class="bg-accent text-white font-bold py-2 px-4 rounded-lg" href="tel:+17604408520">(760) 440-8520</a>
-</div>
-</header>
-<main class="max-w-4xl mx-auto px-4 py-12">
+    <!-- Emergency Banner -->
+    <div class="bg-gradient-to-r from-red-600 to-red-700 text-white py-2.5">
+        <div class="max-w-7xl mx-auto px-4 text-center flex items-center justify-center gap-2 flex-wrap">
+            <span class="font-bold tracking-wide">🚨 No Water?</span>
+            <span class="hidden sm:inline">Same-day emergency service available.</span>
+            <a href="tel:7604408520" class="bg-white text-red-600 font-bold px-4 py-1 rounded-full text-sm hover:bg-red-100 transition ml-1">
+                Call Now →
+            </a>
+        </div>
+    </div>
+
+    <!-- Header (sticky) -->
+    <header class="bg-primary text-white sticky top-0 z-50 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <a href="../" class="flex items-center space-x-3 shrink-0">
+                    <img width="840" height="150" loading="lazy" src="../images/logo-text-only-3x.png" alt="Southern California Well Service" class="h-10 lg:h-12 w-auto">
+                </a>
+                <!-- Desktop Navigation -->
+                <nav class="hidden lg:flex space-x-4 items-center">
+                    <a href="../#services" class="text-white hover:text-accent transition whitespace-nowrap">Services</a>
+                    <a href="../#areas" class="text-white hover:text-accent transition whitespace-nowrap">Service Areas</a>
+                    <a href="./" class="text-white hover:text-accent transition whitespace-nowrap">Resources</a>
+                    <a href="../faq.html" class="text-white hover:text-accent transition whitespace-nowrap">FAQ</a>
+                    <a href="../contact.html" class="text-white hover:text-accent transition whitespace-nowrap">Contact</a>
+                    <a href="../cost-calculator.html" class="text-white font-semibold hover:text-accent transition whitespace-nowrap">Free Estimate</a>
+                    <a href="../pages/about.html" class="text-white hover:text-accent transition whitespace-nowrap">About</a>
+                </nav>
+                <div class="flex items-center gap-3">
+                    <!-- Mobile Menu Button -->
+                    <button id="mobile-menu-btn" class="lg:hidden p-2 hover:bg-white/10 rounded-lg transition" aria-label="Toggle menu">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                    <a href="tel:7604408520" class="bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-4 lg:px-6 rounded-lg transition whitespace-nowrap text-sm lg:text-base">
+                        (760) 440-8520
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-primary/95 border-t border-white/10">
+            <nav class="max-w-7xl mx-auto px-4 py-4 flex flex-col space-y-3">
+                <a href="../#services" class="hover:text-accent transition py-2">Services</a>
+                <a href="../#areas" class="hover:text-accent transition py-2">Service Areas</a>
+                <a href="./" class="hover:text-accent transition py-2">Resources</a>
+                <a href="../faq.html" class="hover:text-accent transition py-2">FAQ</a>
+                <a href="../contact.html" class="hover:text-accent transition py-2">Contact</a>
+                <a href="../cost-calculator.html" class="text-white font-semibold hover:text-accent transition py-2">Free Estimate</a>
+                <a href="../pages/about.html" class="hover:text-accent transition py-2">About</a>
+            </nav>
+        </div>
+    </header>
+    <script>
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+    </script>
+
+    <main class="max-w-4xl mx-auto px-4 py-12">
 <article>
 <h1 class="text-4xl font-bold text-gray-900 mb-6">Low Water Pressure Solutions in Perris</h1>
 <p class="text-xl text-gray-600 mb-8">Dealing with weak water pressure in Perris? Low water pressure can make showers frustrating and appliances ineffective. Our team diagnoses the root cause and restores your water pressure fast.</p>
