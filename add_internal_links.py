@@ -232,25 +232,40 @@ def create_related_articles_html(related_articles: List[Tuple[str, str]]) -> str
     
     return html
 
-def insert_related_articles(html_content: str, related_html: str) -> str:
+def insert_related_articles(soup: BeautifulSoup, related_html: str) -> BeautifulSoup:
     """Insert related articles section before </article> or <footer>."""
+    # Parse the related articles HTML
+    related_soup = BeautifulSoup(related_html, 'html.parser')
+    related_section = related_soup.find('section', class_='related-articles')
+    
+    if not related_section:
+        return soup
+    
     # Try to insert before </article>
-    if '</article>' in html_content:
-        return html_content.replace('</article>', f'{related_html}</article>', 1)
+    article = soup.find('article')
+    if article:
+        article.append(related_section)
+        return soup
     
     # Otherwise, insert before <footer>
-    if '<footer>' in html_content:
-        return html_content.replace('<footer>', f'{related_html}\n<footer>', 1)
+    footer = soup.find('footer')
+    if footer:
+        footer.insert_before(related_section)
+        return soup
     
     # Fallback: insert before </main>
-    if '</main>' in html_content:
-        return html_content.replace('</main>', f'{related_html}</main>', 1)
+    main = soup.find('main')
+    if main:
+        main.append(related_section)
+        return soup
     
     # Last resort: insert before </body>
-    if '</body>' in html_content:
-        return html_content.replace('</body>', f'{related_html}\n</body>', 1)
+    body = soup.find('body')
+    if body:
+        body.append(related_section)
+        return soup
     
-    return html_content
+    return soup
 
 def process_blog_files(blog_dir: Path) -> Dict[str, any]:
     """Process all blog HTML files."""
@@ -317,11 +332,11 @@ def process_blog_files(blog_dir: Path) -> Dict[str, any]:
         related_html = create_related_articles_html(related)
         
         # Insert into page
-        modified_html = insert_related_articles(html_content, related_html)
+        modified_soup = insert_related_articles(soup, related_html)
         
-        # Write back
+        # Write back - use prettify to maintain formatting
         with open(filepath, 'w', encoding='utf-8') as f:
-            f.write(modified_html)
+            f.write(str(modified_soup))
         
         stats['processed'] += 1
         stats['modified'].append(filename)
