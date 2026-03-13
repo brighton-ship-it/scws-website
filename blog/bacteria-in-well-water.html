@@ -155,7 +155,7 @@
         <div class="max-w-7xl mx-auto px-4 text-center flex items-center justify-center gap-2 flex-wrap">
             <span class="font-bold tracking-wide">🚨 No Water?</span>
             <span class="hidden sm:inline">Same-day emergency service available.</span>
-            <a href="tel:7604408520" class="bg-white text-red-600 font-bold px-4 py-1 rounded-full text-sm hover:bg-red-100 transition ml-1">
+            <a onclick="gtag('event','click_to_call',{'event_category':'CTA','event_label':document.title})" href="tel:7604408520" class="bg-white text-red-600 font-bold px-4 py-1 rounded-full text-sm hover:bg-red-100 transition ml-1">
                 Call Now →
             </a>
         </div>
@@ -185,7 +185,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                         </svg>
                     </button>
-                    <a href="tel:7604408520" class="bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-4 lg:px-6 rounded-lg transition whitespace-nowrap text-sm lg:text-base">
+                    <a onclick="gtag('event','click_to_call',{'event_category':'CTA','event_label':document.title})" href="tel:7604408520" class="bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-4 lg:px-6 rounded-lg transition whitespace-nowrap text-sm lg:text-base">
                         (760) 440-8520
                     </a>
                 </div>
@@ -222,7 +222,286 @@
             </nav>
         </div>
     </div>
-</article>
+
+    <main class="blog-post">
+        <article>
+            <div class="max-w-4xl mx-auto px-4 py-8">
+                <h1 class="text-3xl md:text-4xl font-bold text-primary mb-6">Bacteria in Well Water: Signs, Causes & Treatment Options</h1>
+                
+                <figure class="blog-hero-image mb-8">
+                    <img alt="Well water bacterial testing" height="450" loading="lazy" src="/assets/images/article-categories/troubleshooting.png" width="800" class="rounded-lg shadow-md w-full"/>
+                </figure>
+                
+                <p class="lead text-xl text-gray-700 mb-8">Bacterial contamination is one of the most common—and most serious—problems affecting private wells. Unlike municipal water, your well water isn't automatically tested or treated, making regular testing essential. This guide explains the types of bacteria found in wells, health risks, testing requirements, and effective treatment options for San Diego County homeowners.</p>
+                
+                <details class="bg-gray-50 rounded-xl p-4 my-6 border border-gray-200" id="table-of-contents">
+                    <summary class="font-bold text-primary text-base cursor-pointer select-none">📋 In This Guide</summary>
+                    <ul class="space-y-1 mt-3 text-sm">
+                        <li><a class="text-accent hover:text-green-700 font-medium" href="#types-of-bacteria">Types of Bacteria in Well Water</a></li>
+                        <li><a class="text-accent hover:text-green-700 font-medium" href="#health-risks">Health Risks</a></li>
+                        <li><a class="text-accent hover:text-green-700 font-medium" href="#warning-signs">Warning Signs of Bacterial Contamination</a></li>
+                        <li><a class="text-accent hover:text-green-700 font-medium" href="#causes">Common Causes of Contamination</a></li>
+                        <li><a class="text-accent hover:text-green-700 font-medium" href="#testing">Testing Your Well Water</a></li>
+                        <li><a class="text-accent hover:text-green-700 font-medium" href="#shock-chlorination">Shock Chlorination</a></li>
+                        <li><a class="text-accent hover:text-green-700 font-medium" href="#ongoing-treatment">Ongoing Treatment Options</a></li>
+                        <li><a class="text-accent hover:text-green-700 font-medium" href="#prevention">Prevention Strategies</a></li>
+                        <li><a class="text-accent hover:text-green-700 font-medium" href="#faq">Frequently Asked Questions</a></li>
+                    </ul>
+                </details>
+
+                <div class="bg-red-50 border-l-4 border-red-500 p-6 my-8">
+                    <h4 class="font-bold text-red-800 mb-2">⚠️ Health Alert</h4>
+                    <p class="text-red-800">If you suspect bacterial contamination, stop drinking your well water immediately and use bottled water until testing confirms your water is safe. E. coli contamination can cause serious illness, especially in children, elderly, and immunocompromised individuals.</p>
+                </div>
+
+                <h2 id="types-of-bacteria" class="text-2xl font-bold text-primary mt-10 mb-4">Types of Bacteria in Well Water</h2>
+                
+                <p>Laboratory testing typically looks for two categories of bacteria:</p>
+
+                <h3 class="text-xl font-semibold text-primary mt-6 mb-3">Total Coliform Bacteria</h3>
+                <p>Coliform bacteria are a broad group that includes bacteria from soil, vegetation, and animal/human waste. Their presence indicates that contamination pathways exist—even if the specific coliform found isn't harmful.</p>
+                <ul class="list-disc pl-6 my-4 space-y-2">
+                    <li><strong>What it means:</strong> Potential contamination pathways exist</li>
+                    <li><strong>Health risk:</strong> Most coliform bacteria aren't harmful themselves</li>
+                    <li><strong>Action needed:</strong> Investigate source, may need shock chlorination</li>
+                </ul>
+
+                <h3 class="text-xl font-semibold text-primary mt-6 mb-3">E. coli (Escherichia coli)</h3>
+                <p>E. coli is a specific type of coliform found only in human and animal intestines. Its presence definitively indicates fecal contamination.</p>
+                <ul class="list-disc pl-6 my-4 space-y-2">
+                    <li><strong>What it means:</strong> Fecal contamination is present</li>
+                    <li><strong>Health risk:</strong> Can cause serious gastrointestinal illness</li>
+                    <li><strong>Action needed:</strong> Stop drinking water immediately, treat and retest</li>
+                </ul>
+
+                <h3 class="text-xl font-semibold text-primary mt-6 mb-3">Other Bacteria of Concern</h3>
+                <ul class="list-disc pl-6 my-4 space-y-2">
+                    <li><strong>Iron bacteria:</strong> Not harmful but causes rusty stains, slime, and odor</li>
+                    <li><strong>Sulfur bacteria:</strong> Creates hydrogen sulfide ("rotten egg" smell)</li>
+                    <li><strong>Legionella:</strong> Can cause Legionnaires' disease (rare in cold water)</li>
+                </ul>
+
+                <h2 id="health-risks" class="text-2xl font-bold text-primary mt-10 mb-4">Health Risks</h2>
+
+                <p>The health effects of bacterial contamination depend on the type and amount of bacteria present:</p>
+
+                <h3 class="text-xl font-semibold text-primary mt-6 mb-3">Acute (Short-Term) Effects</h3>
+                <ul class="list-disc pl-6 my-4 space-y-2">
+                    <li>Nausea and vomiting</li>
+                    <li>Diarrhea (sometimes bloody)</li>
+                    <li>Stomach cramps and pain</li>
+                    <li>Fever and chills</li>
+                    <li>Headache and fatigue</li>
+                </ul>
+
+                <h3 class="text-xl font-semibold text-primary mt-6 mb-3">High-Risk Populations</h3>
+                <p>Some people are more vulnerable to waterborne illness:</p>
+                <ul class="list-disc pl-6 my-4 space-y-2">
+                    <li><strong>Infants and young children:</strong> Underdeveloped immune systems</li>
+                    <li><strong>Elderly:</strong> Weakened immune response</li>
+                    <li><strong>Pregnant women:</strong> Risk to both mother and fetus</li>
+                    <li><strong>Immunocompromised:</strong> HIV/AIDS, chemotherapy patients, organ recipients</li>
+                </ul>
+
+                <h2 id="warning-signs" class="text-2xl font-bold text-primary mt-10 mb-4">Warning Signs of Bacterial Contamination</h2>
+
+                <p>Unfortunately, dangerous bacteria often leave no visible signs. However, watch for:</p>
+
+                <div class="bg-gray-50 p-6 rounded-lg my-6">
+                    <h4 class="font-bold text-primary mb-3">Possible Indicators</h4>
+                    <ul class="space-y-2">
+                        <li>⚠️ Unexplained gastrointestinal illness in household members</li>
+                        <li>⚠️ Multiple people sick with similar symptoms</li>
+                        <li>⚠️ Illness that improves when traveling (drinking other water)</li>
+                        <li>⚠️ Unusual taste or odor (though bacteria often have no taste)</li>
+                        <li>⚠️ Cloudy or discolored water</li>
+                        <li>⚠️ Slimy buildup inside toilet tanks or fixtures</li>
+                    </ul>
+                </div>
+
+                <p><strong>Critical point:</strong> You cannot smell, taste, or see most harmful bacteria. The only reliable way to know if your water is contaminated is laboratory testing.</p>
+
+                <h2 id="causes" class="text-2xl font-bold text-primary mt-10 mb-4">Common Causes of Bacterial Contamination</h2>
+
+                <h3 class="text-xl font-semibold text-primary mt-6 mb-3">Surface Water Intrusion</h3>
+                <ul class="list-disc pl-6 my-4 space-y-2">
+                    <li>Damaged or missing well cap</li>
+                    <li>Cracks in well casing</li>
+                    <li>Flooding around wellhead</li>
+                    <li>Improperly sealed annular space</li>
+                </ul>
+
+                <h3 class="text-xl font-semibold text-primary mt-6 mb-3">Septic System Problems</h3>
+                <ul class="list-disc pl-6 my-4 space-y-2">
+                    <li>Septic system too close to well (minimum 100 feet required)</li>
+                    <li>Failed or overflowing septic system</li>
+                    <li>Improperly maintained drain field</li>
+                </ul>
+
+                <h3 class="text-xl font-semibold text-primary mt-6 mb-3">Animal Activity</h3>
+                <ul class="list-disc pl-6 my-4 space-y-2">
+                    <li>Rodents or insects entering through damaged cap</li>
+                    <li>Livestock waste runoff</li>
+                    <li>Dead animal in well casing</li>
+                </ul>
+
+                <h3 class="text-xl font-semibold text-primary mt-6 mb-3">Well System Issues</h3>
+                <ul class="list-disc pl-6 my-4 space-y-2">
+                    <li>Contamination during pump service or repair</li>
+                    <li>Old, deteriorated casing</li>
+                    <li>Shallow well susceptible to surface contamination</li>
+                </ul>
+
+                <h2 id="testing" class="text-2xl font-bold text-primary mt-10 mb-4">Testing Your Well Water</h2>
+
+                <h3 class="text-xl font-semibold text-primary mt-6 mb-3">When to Test</h3>
+                <ul class="list-disc pl-6 my-4 space-y-2">
+                    <li><strong>Annually:</strong> Baseline testing every year</li>
+                    <li><strong>After flooding:</strong> Any time water reaches the wellhead</li>
+                    <li><strong>After pump service:</strong> Any work that opens the well</li>
+                    <li><strong>After illness:</strong> Unexplained GI illness in household</li>
+                    <li><strong>When buying property:</strong> Always test before closing</li>
+                    <li><strong>Change in water:</strong> Any change in taste, odor, or appearance</li>
+                </ul>
+
+                <h3 class="text-xl font-semibold text-primary mt-6 mb-3">How to Collect a Sample</h3>
+                <ol class="list-decimal pl-6 my-4 space-y-2">
+                    <li>Use sterile containers provided by the laboratory</li>
+                    <li>Remove aerators from faucets</li>
+                    <li>Clean faucet with bleach solution</li>
+                    <li>Run water for 2-3 minutes before collecting</li>
+                    <li>Fill container without touching inside</li>
+                    <li>Keep refrigerated and deliver within 24 hours</li>
+                </ol>
+
+                <h3 class="text-xl font-semibold text-primary mt-6 mb-3">Testing Costs</h3>
+                <ul class="list-disc pl-6 my-4 space-y-2">
+                    <li><strong>Total coliform/E. coli:</strong> $25-$50</li>
+                    <li><strong>Iron bacteria:</strong> $30-$60</li>
+                    <li><strong>Comprehensive panel:</strong> $150-$300</li>
+                </ul>
+
+                <div class="cta-box bg-gradient-to-r from-primary to-blue-800 text-white p-6 rounded-xl my-8">
+                    <h3 class="text-xl font-bold mb-3">Need Water Testing Help?</h3>
+                    <p class="mb-4">We coordinate with certified laboratories and can collect samples properly to ensure accurate results. If treatment is needed, we'll help you choose the right solution.</p>
+                    <a class="cta-button inline-block bg-white text-primary font-bold py-3 px-6 rounded-lg hover:bg-gray-100 transition" href="tel:7604408520">Call (760) 440-8520</a>
+                </div>
+
+                <h2 id="shock-chlorination" class="text-2xl font-bold text-primary mt-10 mb-4">Shock Chlorination</h2>
+
+                <p>Shock chlorination (also called well disinfection) uses high concentrations of chlorine to kill bacteria throughout your well system. It's the first-line treatment for bacterial contamination.</p>
+
+                <h3 class="text-xl font-semibold text-primary mt-6 mb-3">When Shock Chlorination Works</h3>
+                <ul class="list-disc pl-6 my-4 space-y-2">
+                    <li>One-time contamination events (flooding, pump service)</li>
+                    <li>New well construction</li>
+                    <li>After casing or wellhead repairs</li>
+                    <li>Iron bacteria problems (combined with physical cleaning)</li>
+                </ul>
+
+                <h3 class="text-xl font-semibold text-primary mt-6 mb-3">The Shock Chlorination Process</h3>
+                <ol class="list-decimal pl-6 my-4 space-y-2">
+                    <li><strong>Calculate chlorine needed:</strong> Based on well depth and diameter</li>
+                    <li><strong>Mix chlorine solution:</strong> Typically household bleach diluted</li>
+                    <li><strong>Pour into well:</strong> Down the casing</li>
+                    <li><strong>Recirculate:</strong> Run water through system and back into well</li>
+                    <li><strong>Let sit:</strong> Minimum 12-24 hours contact time</li>
+                    <li><strong>Flush system:</strong> Until chlorine odor is gone</li>
+                    <li><strong>Retest:</strong> Wait 7-14 days, then test again</li>
+                </ol>
+
+                <h3 class="text-xl font-semibold text-primary mt-6 mb-3">Shock Chlorination Costs</h3>
+                <ul class="list-disc pl-6 my-4 space-y-2">
+                    <li><strong>DIY:</strong> $25-$50 (materials only)</li>
+                    <li><strong>Professional service:</strong> $150-$400</li>
+                </ul>
+
+                <h2 id="ongoing-treatment" class="text-2xl font-bold text-primary mt-10 mb-4">Ongoing Treatment Options</h2>
+
+                <p>If shock chlorination doesn't solve the problem—or if contamination keeps recurring—you need ongoing treatment.</p>
+
+                <h3 class="text-xl font-semibold text-primary mt-6 mb-3">UV (Ultraviolet) Disinfection</h3>
+                <p><strong>Best for:</strong> Most residential applications</p>
+                <ul class="list-disc pl-6 my-4 space-y-2">
+                    <li><strong>How it works:</strong> UV light damages bacteria DNA, preventing reproduction</li>
+                    <li><strong>Effectiveness:</strong> 99.99% kill rate for bacteria, viruses, and protozoa</li>
+                    <li><strong>Pros:</strong> No chemicals, no taste change, low operating cost</li>
+                    <li><strong>Cons:</strong> Requires pre-filtration, needs electricity, annual bulb replacement</li>
+                    <li><strong>Cost:</strong> $500-$1,500 installed, $50-$100/year maintenance</li>
+                </ul>
+
+                <h3 class="text-xl font-semibold text-primary mt-6 mb-3">Continuous Chlorination</h3>
+                <p><strong>Best for:</strong> Ongoing contamination, iron bacteria</p>
+                <ul class="list-disc pl-6 my-4 space-y-2">
+                    <li><strong>How it works:</strong> Chlorine injection at wellhead with retention time</li>
+                    <li><strong>Effectiveness:</strong> Very effective with proper dosing</li>
+                    <li><strong>Pros:</strong> Proven technology, addresses iron/manganese too</li>
+                    <li><strong>Cons:</strong> Chemical handling, taste issues, requires carbon filter</li>
+                    <li><strong>Cost:</strong> $1,000-$3,000 installed, $200-$400/year chemicals</li>
+                </ul>
+
+                <h3 class="text-xl font-semibold text-primary mt-6 mb-3">Ozone Treatment</h3>
+                <p><strong>Best for:</strong> Complex water quality issues</p>
+                <ul class="list-disc pl-6 my-4 space-y-2">
+                    <li><strong>How it works:</strong> Ozone gas oxidizes and kills bacteria</li>
+                    <li><strong>Effectiveness:</strong> Excellent, faster than chlorine</li>
+                    <li><strong>Pros:</strong> No residual taste, addresses multiple contaminants</li>
+                    <li><strong>Cons:</strong> Higher cost, more complex system</li>
+                    <li><strong>Cost:</strong> $2,000-$5,000 installed</li>
+                </ul>
+
+                <h2 id="prevention" class="text-2xl font-bold text-primary mt-10 mb-4">Prevention Strategies</h2>
+
+                <h3 class="text-xl font-semibold text-primary mt-6 mb-3">Well Construction and Maintenance</h3>
+                <ul class="list-disc pl-6 my-4 space-y-2">
+                    <li>Maintain proper sanitary seal at wellhead</li>
+                    <li>Ensure well cap is intact and pest-proof</li>
+                    <li>Grade ground away from wellhead for drainage</li>
+                    <li>Annual visual inspection of wellhead</li>
+                    <li>Repair casing cracks promptly</li>
+                </ul>
+
+                <h3 class="text-xl font-semibold text-primary mt-6 mb-3">Setback Distances</h3>
+                <p>California requires minimum distances between wells and contamination sources:</p>
+                <ul class="list-disc pl-6 my-4 space-y-2">
+                    <li><strong>Septic tank:</strong> 50 feet minimum</li>
+                    <li><strong>Septic leach field:</strong> 100 feet minimum</li>
+                    <li><strong>Animal enclosures:</strong> 100 feet minimum</li>
+                    <li><strong>Manure storage:</strong> 100 feet minimum</li>
+                </ul>
+
+                <h2 id="faq" class="text-2xl font-bold text-primary mt-10 mb-4">Frequently Asked Questions</h2>
+
+                <div class="faq-section space-y-6 my-8">
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <h3 class="font-bold text-primary mb-2">How do I know if my well water has bacteria?</h3>
+                        <p>The only reliable way to know if your well has bacteria is through laboratory testing. Many bacteria, including dangerous E. coli, have no taste, odor, or color. Annual testing is recommended, and immediately after any flooding, well work, or gastrointestinal illness in your household.</p>
+                    </div>
+                    
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <h3 class="font-bold text-primary mb-2">Can I drink well water with coliform bacteria?</h3>
+                        <p>Total coliform bacteria indicate potential contamination pathways but aren't necessarily harmful themselves. However, their presence means harmful bacteria could enter the well. E. coli (a type of coliform) indicates fecal contamination and water should not be consumed until treated and retested.</p>
+                    </div>
+                    
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <h3 class="font-bold text-primary mb-2">How much does it cost to treat bacteria in well water?</h3>
+                        <p>Shock chlorination costs $150-$400 for professional service. UV treatment systems cost $500-$1,500 installed with $50-$100 annual maintenance. Continuous chlorination systems range from $1,000-$3,000. The best option depends on whether contamination is a one-time event or ongoing issue.</p>
+                    </div>
+                    
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <h3 class="font-bold text-primary mb-2">How often should I test my well for bacteria?</h3>
+                        <p>Test annually as a baseline. Also test after flooding, any well repairs or pump work, if anyone in the household has unexplained gastrointestinal illness, after periods of non-use, or if you notice any changes in water taste, odor, or appearance.</p>
+                    </div>
+                </div>
+
+                <div class="cta-box bg-gradient-to-r from-primary to-blue-800 text-white p-6 rounded-xl my-8">
+                    <h3 class="text-xl font-bold mb-3">Concerned About Bacteria in Your Well?</h3>
+                    <p class="mb-4">From testing to treatment, we provide complete solutions for bacterial contamination. Our team serves all of San Diego County with professional well disinfection and treatment system installation.</p>
+                    <a class="cta-button inline-block bg-white text-primary font-bold py-3 px-6 rounded-lg hover:bg-gray-100 transition" href="tel:7604408520">Call (760) 440-8520</a>
+                </div>
+
+            </div>
+        </article>
 
     <!-- Related Articles -->
     <section class="py-12 bg-gray-50">
@@ -301,7 +580,7 @@
                 <a href="sms:6192590410" class="blog-cta-phone" style="background:#4e9271;color:white !important;">
                     💬 Text Us
                 </a>
-                <a href="tel:7604408520" class="blog-cta-phone">
+                <a onclick="gtag('event','click_to_call',{'event_category':'CTA','event_label':document.title})" href="tel:7604408520" class="blog-cta-phone">
                     📞 Call (760) 440-8520
                 </a>
                 <a href="../contact.html" class="blog-cta-button">
@@ -415,7 +694,7 @@
 <!-- Sticky Mobile CTA Bar -->
 <style>#sticky-cta{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:2px solid #e5e7eb;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px;z-index:50;box-shadow:0 -4px 12px rgba(0,0,0,0.1)}#sticky-cta a{flex:1;font-weight:700;padding:12px 16px;border-radius:8px;text-align:center;color:#fff;font-size:14px;text-decoration:none}#sticky-cta .cta-call{background:#dc2626}#sticky-cta .cta-call:hover{background:#b91c1c}#sticky-cta .cta-text{background:#2563eb}#sticky-cta .cta-text:hover{background:#1d4ed8}#sticky-cta .cta-est{background:#4e9271}#sticky-cta .cta-est:hover{background:#3d7a5c}@media(min-width:1024px){#sticky-cta{display:none}}</style>
 <div id="sticky-cta">
-    <a href="tel:7604408520" class="cta-call">📞 Call Now</a>
+    <a onclick="gtag('event','click_to_call',{'event_category':'CTA','event_label':document.title})" href="tel:7604408520" class="cta-call">📞 Call Now</a>
     <a href="sms:6192590410" class="cta-text">💬 Text Us</a>
     <a href="/contact.html" class="cta-est">Free Estimate</a>
 </div>

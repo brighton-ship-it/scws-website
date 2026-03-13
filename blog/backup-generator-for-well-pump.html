@@ -194,7 +194,7 @@
         <div class="max-w-7xl mx-auto px-4 text-center flex items-center justify-center gap-2 flex-wrap">
             <span class="font-bold tracking-wide">🚨 No Water?</span>
             <span class="hidden sm:inline">Same-day emergency service available.</span>
-            <a href="tel:7604408520" class="bg-white text-red-600 font-bold px-4 py-1 rounded-full text-sm hover:bg-red-100 transition ml-1">
+            <a onclick="gtag('event','click_to_call',{'event_category':'CTA','event_label':document.title})" href="tel:7604408520" class="bg-white text-red-600 font-bold px-4 py-1 rounded-full text-sm hover:bg-red-100 transition ml-1">
                 Call Now →
             </a>
         </div>
@@ -224,7 +224,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                         </svg>
                     </button>
-                    <a href="tel:7604408520" class="bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-4 lg:px-6 rounded-lg transition whitespace-nowrap text-sm lg:text-base">
+                    <a onclick="gtag('event','click_to_call',{'event_category':'CTA','event_label':document.title})" href="tel:7604408520" class="bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-4 lg:px-6 rounded-lg transition whitespace-nowrap text-sm lg:text-base">
                         (760) 440-8520
                     </a>
                 </div>
@@ -261,7 +261,325 @@
             </nav>
         </div>
     </div>
-</article>
+
+    <main class="blog-post">
+        <article>
+            <div class="max-w-4xl mx-auto px-4 py-8">
+                <h1 class="text-3xl md:text-4xl font-bold text-primary mb-6">Backup Generator for Well Pump: Complete Sizing & Setup Guide</h1>
+                
+                <figure class="blog-hero-image mb-8">
+                    <img alt="Backup generator powering well pump system" height="450" loading="lazy" src="/assets/images/article-categories/troubleshooting.png" width="800" class="rounded-lg shadow-md w-full"/>
+                </figure>
+                
+                <p class="lead text-xl text-gray-700 mb-8">When the power goes out, well owners face a unique challenge: no electricity means no water. A properly sized backup generator ensures your well pump keeps running during outages, providing water for drinking, sanitation, and fire safety. This guide covers everything San Diego County well owners need to know about choosing, sizing, and connecting a generator to their well system.</p>
+                
+                <details class="bg-gray-50 rounded-xl p-4 my-6 border border-gray-200" id="table-of-contents">
+                    <summary class="font-bold text-primary text-base cursor-pointer select-none">📋 In This Guide</summary>
+                    <ul class="space-y-1 mt-3 text-sm">
+                        <li><a class="text-accent hover:text-green-700 font-medium" href="#why-well-owners-need-generators">Why Well Owners Need Backup Generators</a></li>
+                        <li><a class="text-accent hover:text-green-700 font-medium" href="#sizing-your-generator">How to Size Your Generator</a></li>
+                        <li><a class="text-accent hover:text-green-700 font-medium" href="#generator-types">Generator Types Compared</a></li>
+                        <li><a class="text-accent hover:text-green-700 font-medium" href="#transfer-switches">Transfer Switch Requirements</a></li>
+                        <li><a class="text-accent hover:text-green-700 font-medium" href="#installation-considerations">Installation Considerations</a></li>
+                        <li><a class="text-accent hover:text-green-700 font-medium" href="#portable-vs-standby">Portable vs Standby Generators</a></li>
+                        <li><a class="text-accent hover:text-green-700 font-medium" href="#costs">Generator Costs</a></li>
+                        <li><a class="text-accent hover:text-green-700 font-medium" href="#faq">Frequently Asked Questions</a></li>
+                    </ul>
+                </details>
+
+                <h2 id="why-well-owners-need-generators" class="text-2xl font-bold text-primary mt-10 mb-4">Why Well Owners Need Backup Generators</h2>
+                
+                <p>Unlike homes on municipal water, well owners are completely dependent on electricity for water. When the power fails:</p>
+                
+                <ul class="list-disc pl-6 my-4 space-y-2">
+                    <li><strong>No drinking water:</strong> Your pressure tank holds limited water (5-20 gallons usable)</li>
+                    <li><strong>No flushing toilets:</strong> Each flush uses 1.6-3.5 gallons</li>
+                    <li><strong>No fire protection:</strong> Critical in San Diego's fire-prone areas</li>
+                    <li><strong>No washing:</strong> Hygiene and sanitation become challenging</li>
+                    <li><strong>Livestock and garden needs:</strong> Animals and plants need water too</li>
+                </ul>
+
+                <p>San Diego County experiences power outages from Santa Ana wind events, PSPS (Public Safety Power Shutoffs), wildfires, and equipment failures. These can last from hours to several days. A backup generator is essential infrastructure for rural and semi-rural well owners.</p>
+
+                <h2 id="sizing-your-generator" class="text-2xl font-bold text-primary mt-10 mb-4">How to Size Your Generator</h2>
+
+                <p>The most common mistake well owners make is buying a generator that's too small. Well pumps require significantly more power to <strong>start</strong> than to run.</p>
+
+                <h3 class="text-xl font-semibold text-primary mt-6 mb-3">Understanding Startup vs Running Watts</h3>
+                <p>Every well pump has two power ratings:</p>
+                <ul class="list-disc pl-6 my-4 space-y-2">
+                    <li><strong>Running watts:</strong> Power needed once the pump is running (shown on pump nameplate)</li>
+                    <li><strong>Starting watts:</strong> Power surge needed to start the motor (3-5x running watts)</li>
+                </ul>
+
+                <div class="overflow-x-auto my-6">
+                    <table class="w-full border-collapse bg-white rounded-lg overflow-hidden shadow">
+                        <thead class="bg-primary text-white">
+                            <tr>
+                                <th class="p-4 text-left">Pump Size (HP)</th>
+                                <th class="p-4 text-left">Running Watts</th>
+                                <th class="p-4 text-left">Starting Watts</th>
+                                <th class="p-4 text-left">Minimum Generator</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y">
+                            <tr class="hover:bg-gray-50">
+                                <td class="p-4">1/2 HP</td>
+                                <td class="p-4">1,000W</td>
+                                <td class="p-4">3,000-4,000W</td>
+                                <td class="p-4">4,000W</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="p-4">3/4 HP</td>
+                                <td class="p-4">1,500W</td>
+                                <td class="p-4">4,500-5,500W</td>
+                                <td class="p-4">5,500W</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="p-4">1 HP</td>
+                                <td class="p-4">2,000W</td>
+                                <td class="p-4">6,000-8,000W</td>
+                                <td class="p-4">7,500W</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="p-4">1.5 HP</td>
+                                <td class="p-4">2,500W</td>
+                                <td class="p-4">7,500-10,000W</td>
+                                <td class="p-4">10,000W</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="p-4">2 HP</td>
+                                <td class="p-4">3,000W</td>
+                                <td class="p-4">9,000-12,000W</td>
+                                <td class="p-4">12,000W</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="p-4">3 HP</td>
+                                <td class="p-4">4,500W</td>
+                                <td class="p-4">13,500-18,000W</td>
+                                <td class="p-4">15,000W+</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="bg-yellow-50 border-l-4 border-yellow-500 p-6 my-6">
+                    <h4 class="font-bold text-yellow-800 mb-2">Pro Tip: Add Headroom</h4>
+                    <p class="text-yellow-800">Always size your generator 20-30% larger than the minimum requirement. This accounts for voltage variations, extreme temperatures, and allows you to run other loads simultaneously. A generator running at 70% capacity lasts longer and runs more efficiently than one at 100%.</p>
+                </div>
+
+                <h3 class="text-xl font-semibold text-primary mt-6 mb-3">Reducing Startup Requirements</h3>
+                <p>If your generator is undersized or you want to run more loads, consider:</p>
+                <ul class="list-disc pl-6 my-4 space-y-2">
+                    <li><strong>Soft-start devices:</strong> Reduce startup surge by 60-70% ($300-$600 installed)</li>
+                    <li><strong>VFD controllers:</strong> Constant pressure systems have inherently soft starts</li>
+                    <li><strong>Larger pressure tank:</strong> Reduces pump cycling, extending fuel between starts</li>
+                </ul>
+
+                <h2 id="generator-types" class="text-2xl font-bold text-primary mt-10 mb-4">Generator Types Compared</h2>
+
+                <h3 class="text-xl font-semibold text-primary mt-6 mb-3">Portable Generators</h3>
+                <p><strong>Best for:</strong> Occasional outages, budget-conscious homeowners</p>
+                <ul class="list-disc pl-6 my-4 space-y-2">
+                    <li><strong>Cost:</strong> $500-$2,500</li>
+                    <li><strong>Fuel:</strong> Gasoline (some dual-fuel with propane)</li>
+                    <li><strong>Pros:</strong> Affordable, versatile, can be moved</li>
+                    <li><strong>Cons:</strong> Manual setup required, limited run time, loud, gasoline storage concerns</li>
+                    <li><strong>Run time:</strong> 8-12 hours per tank at 50% load</li>
+                </ul>
+
+                <h3 class="text-xl font-semibold text-primary mt-6 mb-3">Inverter Generators</h3>
+                <p><strong>Best for:</strong> Clean power requirements, noise-sensitive areas</p>
+                <ul class="list-disc pl-6 my-4 space-y-2">
+                    <li><strong>Cost:</strong> $1,000-$4,000</li>
+                    <li><strong>Fuel:</strong> Gasoline</li>
+                    <li><strong>Pros:</strong> Quiet, clean power, fuel efficient, portable</li>
+                    <li><strong>Cons:</strong> Lower surge capacity (may struggle with pump starts), higher cost per watt</li>
+                    <li><strong>Best pairing:</strong> Works well with soft-start devices</li>
+                </ul>
+
+                <h3 class="text-xl font-semibold text-primary mt-6 mb-3">Standby Generators</h3>
+                <p><strong>Best for:</strong> Frequent outages, whole-house backup, convenience</p>
+                <ul class="list-disc pl-6 my-4 space-y-2">
+                    <li><strong>Cost:</strong> $3,000-$15,000+ (installed)</li>
+                    <li><strong>Fuel:</strong> Natural gas or propane</li>
+                    <li><strong>Pros:</strong> Automatic operation, unlimited fuel supply, powers whole house</li>
+                    <li><strong>Cons:</strong> High upfront cost, requires professional installation, annual maintenance</li>
+                    <li><strong>Run time:</strong> As long as fuel supply lasts (propane tank or gas line)</li>
+                </ul>
+
+                <div class="cta-box bg-gradient-to-r from-primary to-blue-800 text-white p-6 rounded-xl my-8">
+                    <h3 class="text-xl font-bold mb-3">Need Help Sizing a Generator?</h3>
+                    <p class="mb-4">We can assess your well pump's power requirements and recommend the right generator size for your needs. We also install soft-start devices to reduce generator requirements.</p>
+                    <a class="cta-button inline-block bg-white text-primary font-bold py-3 px-6 rounded-lg hover:bg-gray-100 transition" href="tel:7604408520">Call (760) 440-8520</a>
+                </div>
+
+                <h2 id="transfer-switches" class="text-2xl font-bold text-primary mt-10 mb-4">Transfer Switch Requirements</h2>
+
+                <p>A transfer switch is <strong>required</strong> for safely connecting a generator to your electrical system. It isolates your home from utility power, preventing dangerous backfeed that can injure utility workers.</p>
+
+                <h3 class="text-xl font-semibold text-primary mt-6 mb-3">Types of Transfer Switches</h3>
+
+                <div class="overflow-x-auto my-6">
+                    <table class="w-full border-collapse bg-white rounded-lg overflow-hidden shadow">
+                        <thead class="bg-primary text-white">
+                            <tr>
+                                <th class="p-4 text-left">Type</th>
+                                <th class="p-4 text-left">Cost (Installed)</th>
+                                <th class="p-4 text-left">Best For</th>
+                                <th class="p-4 text-left">Operation</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y">
+                            <tr class="hover:bg-gray-50">
+                                <td class="p-4 font-medium">Interlock Kit</td>
+                                <td class="p-4">$150-$400</td>
+                                <td class="p-4">Budget option, existing panel</td>
+                                <td class="p-4">Manual, whole panel</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="p-4 font-medium">Manual Transfer Switch</td>
+                                <td class="p-4">$300-$800</td>
+                                <td class="p-4">Dedicated circuits, clear operation</td>
+                                <td class="p-4">Manual, selected circuits</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="p-4 font-medium">Automatic Transfer Switch</td>
+                                <td class="p-4">$500-$2,000+</td>
+                                <td class="p-4">Standby generators</td>
+                                <td class="p-4">Automatic switchover</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3 class="text-xl font-semibold text-primary mt-6 mb-3">Dedicated Well Pump Circuit</h3>
+                <p>For portable generator setups, many homeowners install a dedicated inlet and transfer switch for just the well pump circuit. This is simpler and less expensive than whole-house transfer, and lets you use a smaller generator dedicated to water.</p>
+
+                <h2 id="installation-considerations" class="text-2xl font-bold text-primary mt-10 mb-4">Installation Considerations</h2>
+
+                <h3 class="text-xl font-semibold text-primary mt-6 mb-3">Location Requirements</h3>
+                <ul class="list-disc pl-6 my-4 space-y-2">
+                    <li><strong>Outdoor placement:</strong> Never run generators indoors—carbon monoxide kills</li>
+                    <li><strong>Distance from windows:</strong> At least 20 feet from any opening</li>
+                    <li><strong>Level surface:</strong> Prevents fuel spillage and ensures proper operation</li>
+                    <li><strong>Weather protection:</strong> Cover or enclosure for standby units</li>
+                    <li><strong>Accessibility:</strong> Easy access for refueling and maintenance</li>
+                </ul>
+
+                <h3 class="text-xl font-semibold text-primary mt-6 mb-3">Electrical Considerations</h3>
+                <ul class="list-disc pl-6 my-4 space-y-2">
+                    <li><strong>Voltage matching:</strong> Most well pumps are 240V—ensure generator provides 240V output</li>
+                    <li><strong>Wire gauge:</strong> Must match distance and load—undersized wires cause voltage drop</li>
+                    <li><strong>Grounding:</strong> Proper grounding prevents electrical hazards</li>
+                    <li><strong>Permits:</strong> Transfer switch installation typically requires electrical permit</li>
+                </ul>
+
+                <h2 id="portable-vs-standby" class="text-2xl font-bold text-primary mt-10 mb-4">Portable vs Standby: Which Is Right for You?</h2>
+
+                <div class="grid md:grid-cols-2 gap-6 my-8">
+                    <div class="bg-blue-50 p-6 rounded-lg">
+                        <h4 class="font-bold text-primary mb-3">Choose Portable If:</h4>
+                        <ul class="space-y-2 text-sm">
+                            <li>✓ Budget is limited</li>
+                            <li>✓ Outages are rare (1-2 per year)</li>
+                            <li>✓ You're physically able to set it up</li>
+                            <li>✓ You can store gasoline safely</li>
+                            <li>✓ You want to use it for other purposes</li>
+                            <li>✓ You're home during most outages</li>
+                        </ul>
+                    </div>
+                    <div class="bg-green-50 p-6 rounded-lg">
+                        <h4 class="font-bold text-primary mb-3">Choose Standby If:</h4>
+                        <ul class="space-y-2 text-sm">
+                            <li>✓ Outages are frequent or extended</li>
+                            <li>✓ You travel frequently</li>
+                            <li>✓ You have medical equipment needs</li>
+                            <li>✓ You want automatic protection</li>
+                            <li>✓ You prefer set-and-forget reliability</li>
+                            <li>✓ Property value increase matters</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h2 id="costs" class="text-2xl font-bold text-primary mt-10 mb-4">Generator Costs</h2>
+
+                <div class="overflow-x-auto my-6">
+                    <table class="w-full border-collapse bg-white rounded-lg overflow-hidden shadow">
+                        <thead class="bg-primary text-white">
+                            <tr>
+                                <th class="p-4 text-left">Generator Type</th>
+                                <th class="p-4 text-left">Equipment</th>
+                                <th class="p-4 text-left">Installation</th>
+                                <th class="p-4 text-left">Annual Costs</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y">
+                            <tr class="hover:bg-gray-50">
+                                <td class="p-4 font-medium">Portable (5,000-7,500W)</td>
+                                <td class="p-4">$600-$1,500</td>
+                                <td class="p-4">$200-$500 (transfer switch)</td>
+                                <td class="p-4">$50-$100 (maintenance)</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="p-4 font-medium">Inverter (5,000-7,000W)</td>
+                                <td class="p-4">$1,500-$3,500</td>
+                                <td class="p-4">$200-$500 (transfer switch)</td>
+                                <td class="p-4">$50-$100 (maintenance)</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="p-4 font-medium">Standby (10-16kW)</td>
+                                <td class="p-4">$3,500-$8,000</td>
+                                <td class="p-4">$2,000-$5,000</td>
+                                <td class="p-4">$200-$400 (service contract)</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="p-4 font-medium">Standby (20kW+)</td>
+                                <td class="p-4">$5,000-$12,000</td>
+                                <td class="p-4">$3,000-$7,000</td>
+                                <td class="p-4">$300-$500 (service contract)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h2 id="faq" class="text-2xl font-bold text-primary mt-10 mb-4">Frequently Asked Questions</h2>
+
+                <div class="faq-section space-y-6 my-8">
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <h3 class="font-bold text-primary mb-2">What size generator do I need to run my well pump?</h3>
+                        <p>Most residential well pumps need a generator with 3-5x the pump's running wattage to handle startup surge. A 1 HP pump (around 2,000 running watts) needs a generator capable of 6,000-10,000 starting watts. A 5,000-7,500 watt generator handles most residential well pumps, while a 10,000+ watt unit can run the pump plus other household loads.</p>
+                    </div>
+                    
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <h3 class="font-bold text-primary mb-2">Can I run my well pump with a portable generator?</h3>
+                        <p>Yes, portable generators can power well pumps if properly sized and connected. You'll need a transfer switch for safe connection—never plug a generator directly into an outlet (backfeeding). Portable generators work well for occasional outages but require manual setup and refueling.</p>
+                    </div>
+                    
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <h3 class="font-bold text-primary mb-2">Do I need a transfer switch for my well pump generator?</h3>
+                        <p>Yes, a transfer switch is required for safe generator operation. It isolates your home from utility power, preventing dangerous backfeeding that can injure utility workers. Options include manual transfer switches ($200-500), interlock kits ($100-300), and automatic transfer switches ($500-2,000+).</p>
+                    </div>
+                    
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <h3 class="font-bold text-primary mb-2">Why does my well pump need so much starting wattage?</h3>
+                        <p>Well pumps use induction motors that require 3-5x their running wattage to start. This startup surge lasts only 1-2 seconds but the generator must handle it. Using too small a generator causes voltage drops that can damage the pump motor. Soft-start devices can reduce startup surge by 60-70%.</p>
+                    </div>
+                    
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <h3 class="font-bold text-primary mb-2">Can I use an inverter generator for my well pump?</h3>
+                        <p>Yes, inverter generators work well for well pumps and provide cleaner power for sensitive electronics. However, ensure the inverter generator can handle the pump's starting surge—many inverters have limited surge capacity. Look for models specifically rated for motor loads or use a soft-start device on your pump.</p>
+                    </div>
+                </div>
+
+                <div class="cta-box bg-gradient-to-r from-primary to-blue-800 text-white p-6 rounded-xl my-8">
+                    <h3 class="text-xl font-bold mb-3">Prepare for the Next Power Outage</h3>
+                    <p class="mb-4">Don't wait until you're without water to plan your backup power strategy. We can assess your system, recommend the right generator size, and install soft-start devices to reduce your power requirements.</p>
+                    <a class="cta-button inline-block bg-white text-primary font-bold py-3 px-6 rounded-lg hover:bg-gray-100 transition" href="tel:7604408520">Call (760) 440-8520</a>
+                </div>
+
+            </div>
+        </article>
 
     <!-- Related Articles -->
     <section class="py-12 bg-gray-50">
@@ -348,7 +666,7 @@
                 <a href="sms:6192590410" class="blog-cta-phone" style="background:#4e9271;color:white !important;">
                     💬 Text Us
                 </a>
-                <a href="tel:7604408520" class="blog-cta-phone">
+                <a onclick="gtag('event','click_to_call',{'event_category':'CTA','event_label':document.title})" href="tel:7604408520" class="blog-cta-phone">
                     📞 Call (760) 440-8520
                 </a>
                 <a href="../contact.html" class="blog-cta-button">
@@ -462,7 +780,7 @@
 <!-- Sticky Mobile CTA Bar -->
 <style>#sticky-cta{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:2px solid #e5e7eb;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px;z-index:50;box-shadow:0 -4px 12px rgba(0,0,0,0.1)}#sticky-cta a{flex:1;font-weight:700;padding:12px 16px;border-radius:8px;text-align:center;color:#fff;font-size:14px;text-decoration:none}#sticky-cta .cta-call{background:#dc2626}#sticky-cta .cta-call:hover{background:#b91c1c}#sticky-cta .cta-text{background:#2563eb}#sticky-cta .cta-text:hover{background:#1d4ed8}#sticky-cta .cta-est{background:#4e9271}#sticky-cta .cta-est:hover{background:#3d7a5c}@media(min-width:1024px){#sticky-cta{display:none}}</style>
 <div id="sticky-cta">
-    <a href="tel:7604408520" class="cta-call">📞 Call Now</a>
+    <a onclick="gtag('event','click_to_call',{'event_category':'CTA','event_label':document.title})" href="tel:7604408520" class="cta-call">📞 Call Now</a>
     <a href="sms:6192590410" class="cta-text">💬 Text Us</a>
     <a href="/contact.html" class="cta-est">Free Estimate</a>
 </div>
