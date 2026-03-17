@@ -145,6 +145,43 @@
     </script>
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@scwellservice">
+    <!-- HowTo Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        "name": "How to Diagnose and Fix Well Pump Short Cycling",
+        "description": "Step-by-step guide to identify why your well pump turns on and off rapidly and how to fix it",
+        "totalTime": "PT20M",
+        "step": [
+            {
+                "@type": "HowToStep",
+                "name": "Identify the cycling pattern",
+                "text": "Determine if the pump cycles rapidly while using water (indicates waterlogged tank) or cycles on its own with no water running (indicates leak or check valve failure)."
+            },
+            {
+                "@type": "HowToStep",
+                "name": "Test for waterlogged pressure tank",
+                "text": "Turn off power to the pump, open a faucet to relieve pressure, then tap on the pressure tank from bottom to top. A healthy tank sounds hollow at top (air) and solid at bottom (water). A waterlogged tank sounds solid throughout."
+            },
+            {
+                "@type": "HowToStep",
+                "name": "Check the tank air pressure",
+                "text": "With pressure relieved, check the air valve (Schrader valve) on top of the tank. It should have air pressure at 2 PSI below cut-in setting (e.g., 38 PSI for a 40/60 system). If water spurts out or pressure is very low, the tank is waterlogged."
+            },
+            {
+                "@type": "HowToStep",
+                "name": "Look for system leaks",
+                "text": "Turn off all water-using appliances. Check every toilet by putting food coloring in the tank—if color appears in bowl within 30 minutes, the flapper is leaking. Watch the pressure gauge with everything off; if pressure slowly drops, water is escaping somewhere."
+            },
+            {
+                "@type": "HowToStep",
+                "name": "Test for check valve failure",
+                "text": "After pump shuts off, watch the pressure gauge. If pressure drops steadily, listen for water running back into the well, or notice air spurting from faucets when pump starts, the check valve may have failed."
+            }
+        ]
+    }
+    </script>
     <style>
         /* Force edge-to-edge layout on mobile Safari */
         html, body {
