@@ -1,6 +1,41 @@
 {
   "redirects": [
     {
+      "source": "/blog/how-to-prime-a-well-pump.html",
+      "destination": "/blog/how-to-prime-well-pump-guide.html",
+      "permanent": true
+    },
+    {
+      "source": "/blog/how-to-prime-well-pump.html",
+      "destination": "/blog/how-to-prime-well-pump-guide.html",
+      "permanent": true
+    },
+    {
+      "source": "/blog/average-well-pump-replacement-cost.html",
+      "destination": "/blog/well-pump-replacement-cost.html",
+      "permanent": true
+    },
+    {
+      "source": "/blog/well-pump-replacement-cost-breakdown-2026.html",
+      "destination": "/blog/well-pump-replacement-cost.html",
+      "permanent": true
+    },
+    {
+      "source": "/blog/well-pump-short-cycling-causes.html",
+      "destination": "/blog/well-pump-short-cycling.html",
+      "permanent": true
+    },
+    {
+      "source": "/blog/well-pump-short-cycling-causes-fixes.html",
+      "destination": "/blog/well-pump-short-cycling.html",
+      "permanent": true
+    },
+    {
+      "source": "/blog/signs-you-need-new-well-pump.html",
+      "destination": "/blog/signs-well-pump-failing.html",
+      "permanent": true
+    },
+    {
       "source": "/blog/well-pump-replacement.html",
       "destination": "/pages/services/pump-repair.html",
       "permanent": true
