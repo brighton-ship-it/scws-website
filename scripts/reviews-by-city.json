@@ -48,6 +48,11 @@
       "date": "2025-07-01"
     },
     {
+      "name": "Paul Truffa",
+      "text": "",
+      "date": "2025-06-25"
+    },
+    {
       "name": "Peter Thomas",
       "text": "Great work, great people. Responsive and professional.",
       "date": "2025-06-23"
@@ -100,6 +105,11 @@
       "date": "2025-07-25"
     },
     {
+      "name": "Tim Turpin",
+      "text": "",
+      "date": "2026-01-09"
+    },
+    {
       "name": "Cathy Lynch",
       "text": "They were able to come out and repair our well the same day we called!  Great service:)",
       "date": "2025-10-15"
@@ -134,6 +144,18 @@
       "date": "2025-07-08"
     }
   ],
+  "San Diego": [
+    {
+      "name": "Jorge Mejia",
+      "text": "",
+      "date": "2025-07-02"
+    },
+    {
+      "name": "Hortensia Badeanlou",
+      "text": "5 Stars\nI had a wonderful experience with Southern Water Well Company. The young men who came were very professional, respectful, and considerate throughout the whole process. They did their work with care and kindness, and I truly appreciated their attitude and service. Thank you very much! I highly recommend them.",
+      "date": "2025-05-20"
+    }
+  ],
   "Twentynine Palms": [
     {
       "name": "Louisa Mauk",
@@ -151,6 +173,11 @@
       "name": "Paul Guerrazzi",
       "text": "Great job! Came out right away and repaired leak at our well pressure gauge. Fair price. Zach was awesome",
       "date": "2025-05-03"
+    },
+    {
+      "name": "barbara halajian",
+      "text": "",
+      "date": "2026-02-02"
     }
   ],
   "Menifee": [
@@ -163,13 +190,6 @@
       "name": "Kathleen Hefley",
       "text": "They are Life savers, super knowledgeable, and professional and they get the job done!!!! I recommend them to everyone. We woke up to problem at the well and no running water. I reached out to them before sunrise hoping they would get a message first thing. Then Wow, they reached out right away! We Got scheduled and a couple hours later they had identified the problem and were making repairs. I am so grateful to them for taking great care of me and my family. We appreciate them so much! If you have a well issue, you can definitely count on them.",
       "date": "2025-12-24"
-    }
-  ],
-  "San Diego": [
-    {
-      "name": "Hortensia Badeanlou",
-      "text": "5 Stars\nI had a wonderful experience with Southern Water Well Company. The young men who came were very professional, respectful, and considerate throughout the whole process. They did their work with care and kindness, and I truly appreciated their attitude and service. Thank you very much! I highly recommend them.",
-      "date": "2025-05-20"
     }
   ],
   "Santa Ysabel": [
