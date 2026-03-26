@@ -302,6 +302,14 @@
                 service_type: 'new_well',
                 notes: (formData.get('project_type') || '') + ' - ' + (formData.get('message') || ''),
                 source: 'google_ads',
+                utm_source: formData.get('utm_source') || '',
+                utm_medium: formData.get('utm_medium') || '',
+                utm_campaign: formData.get('utm_campaign') || '',
+                utm_term: formData.get('utm_term') || '',
+                utm_content: formData.get('utm_content') || '',
+                landing_page: formData.get('landing_page') || window.location.href,
+                referrer: formData.get('referrer') || document.referrer || 'direct',
+                lead_source: formData.get('lead_source') || 'google_ads',
             };
             
             // Submit to CRM
@@ -314,11 +322,17 @@
                 }
             })
             .then(response => {
+                // Also submit to Formspree as email backup
+                fetch('https://formspree.io/f/maqjggnz', {
+                    method: 'POST',
+                    body: formData,
+                }).catch(() => {});
                 form.classList.add('hidden');
                 document.getElementById('form-success').classList.remove('hidden');
             })
             .catch(error => {
                 console.error('Error:', error);
+                fetch('https://formspree.io/f/maqjggnz', { method: 'POST', body: formData }).catch(() => {});
                 submitBtn.disabled = false;
                 submitBtn.textContent = 'Get Free Estimate →';
                 alert('There was an issue. Please call us at (760) 440-8520.');

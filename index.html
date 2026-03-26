@@ -96,7 +96,7 @@
                 'other': 'other'
             };
             
-            // Build CRM payload
+            // Build CRM payload with UTM tracking
             const crmData = {
                 customer_name: formData.get('name') || '',
                 phone: formData.get('phone') || '',
@@ -106,6 +106,14 @@
                 service_type: serviceMap[formData.get('service')] || 'other',
                 notes: formData.get('message') || '',
                 source: 'website',
+                utm_source: formData.get('utm_source') || '',
+                utm_medium: formData.get('utm_medium') || '',
+                utm_campaign: formData.get('utm_campaign') || '',
+                utm_term: formData.get('utm_term') || '',
+                utm_content: formData.get('utm_content') || '',
+                landing_page: formData.get('landing_page') || window.location.href,
+                referrer: formData.get('referrer') || document.referrer || 'direct',
+                lead_source: formData.get('lead_source') || '',
             };
             
             // Submit to CRM
@@ -119,6 +127,11 @@
             })
             .then(response => {
                 if (response.ok) {
+                    // Also submit to Formspree as email backup
+                    fetch('https://formspree.io/f/maqjggnz', {
+                        method: 'POST',
+                        body: formData,
+                    }).catch(() => {});
                     // Show success message
                     form.classList.add('hidden');
                     document.getElementById('form-success').classList.remove('hidden');
@@ -128,6 +141,11 @@
             })
             .catch(error => {
                 console.error('Error:', error);
+                // Still try Formspree as fallback
+                fetch('https://formspree.io/f/maqjggnz', {
+                    method: 'POST',
+                    body: formData,
+                }).catch(() => {});
                 submitBtn.disabled = false;
                 submitBtn.textContent = 'Get Free Estimate →';
                 alert('There was an issue submitting the form. Please call us at (760) 440-8520.');
