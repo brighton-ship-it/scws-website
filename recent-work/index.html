@@ -264,86 +264,115 @@
 
     async function loadProjects() {
         try {
-            // Fetch completed jobs with photos
-            const jobsRes = await fetch(
-                `${SUPABASE_URL}/rest/v1/jobs?select=id,title,job_type,completed_at,description,job_number,property_id&status=eq.completed&completed_at=not.is.null&order=completed_at.desc&limit=500`,
-                { headers: { apikey: SUPABASE_ANON } }
-            );
-            const jobs = await jobsRes.json();
+            // Strategy: Load photos from job_attachments, then try to match with jobs table.
+            // Many photos have job_ids that aren't in the jobs table (Jobber sync gap),
+            // so we show ALL photo groups regardless of jobs table match.
 
-            // Get property info for cities
-            const propIds = [...new Set(jobs.map(j => j.property_id).filter(Boolean))];
-            let properties = {};
-            if (propIds.length > 0) {
-                const propRes = await fetch(
-                    `${SUPABASE_URL}/rest/v1/properties?select=id,city&id=in.(${propIds.join(',')})`,
-                    { headers: { apikey: SUPABASE_ANON } }
-                );
-                const propArr = await propRes.json();
-                propArr.forEach(p => properties[p.id] = p);
-            }
-
-            // Get photos for these jobs
-            const jobIds = jobs.map(j => j.id);
+            // 1. Fetch ALL photo attachments (not PDFs/docs)
             const photosRes = await fetch(
-                `${SUPABASE_URL}/rest/v1/job_attachments?select=job_id,public_url,filename,file_type&job_id=in.(${jobIds.join(',')})&category=eq.photo&file_type=neq.application/pdf&order=uploaded_at.asc`,
+                `${SUPABASE_URL}/rest/v1/job_attachments?select=job_id,public_url,filename,file_type,uploaded_at&category=eq.photo&order=uploaded_at.desc&limit=2000`,
                 { headers: { apikey: SUPABASE_ANON } }
             );
             const allPhotos = await photosRes.json();
-            
+
             // Filter out contracts, documents, and paperwork
             const docPatterns = /contract|docusign|agreement|invoice|estimate|permit|proposal|receipt|signature|sign|pdf|document|envelope|lien|notice|cancellation|attachment.*\d/i;
             const filteredPhotos = allPhotos.filter(p => {
                 const fn = (p.filename || '').toLowerCase();
-                // Skip PDFs
                 if (fn.endsWith('.pdf')) return false;
-                // Skip known document patterns
                 if (docPatterns.test(fn)) return false;
                 return true;
             });
 
-            // Group photos by job
+            // Group photos by job_id
             const photoMap = {};
+            const jobDates = {};
             filteredPhotos.forEach(p => {
-                if (!photoMap[p.job_id]) photoMap[p.job_id] = [];
+                if (!photoMap[p.job_id]) {
+                    photoMap[p.job_id] = [];
+                    jobDates[p.job_id] = p.uploaded_at; // most recent first (ordered desc)
+                }
                 photoMap[p.job_id].push(p);
             });
 
-            // Only show jobs that have photos
-            const projectsWithPhotos = jobs.filter(j => photoMap[j.id]?.length > 0);
+            // 2. Try to fetch matching jobs for titles/cities
+            const jobIds = Object.keys(photoMap);
+            let jobsMap = {};
+            let properties = {};
+
+            if (jobIds.length > 0) {
+                // Fetch in batches of 100 to avoid URL length limits
+                for (let i = 0; i < jobIds.length; i += 100) {
+                    const batch = jobIds.slice(i, i + 100);
+                    const jobsRes = await fetch(
+                        `${SUPABASE_URL}/rest/v1/jobs?select=id,title,job_type,completed_at,property_id&id=in.(${batch.join(',')})`,
+                        { headers: { apikey: SUPABASE_ANON } }
+                    );
+                    const jobsBatch = await jobsRes.json();
+                    if (Array.isArray(jobsBatch)) {
+                        jobsBatch.forEach(j => jobsMap[j.id] = j);
+                    }
+                }
+
+                // Get property info for cities
+                const propIds = [...new Set(Object.values(jobsMap).map(j => j.property_id).filter(Boolean))];
+                if (propIds.length > 0) {
+                    const propRes = await fetch(
+                        `${SUPABASE_URL}/rest/v1/properties?select=id,city&id=in.(${propIds.join(',')})`,
+                        { headers: { apikey: SUPABASE_ANON } }
+                    );
+                    const propArr = await propRes.json();
+                    if (Array.isArray(propArr)) {
+                        propArr.forEach(p => properties[p.id] = p);
+                    }
+                }
+            }
+
+            // Service type labels for display
+            const serviceLabels = ['Well Pump Service', 'Well Drilling', 'Pressure Tank Service', 'Water Treatment', 'Well Maintenance', 'Well Service'];
+
+            // 3. Build project list from ALL photo groups
+            const projects = jobIds.map(jobId => {
+                const job = jobsMap[jobId] || {};
+                const title = job.title || job.job_type || serviceLabels[Math.floor(Math.random() * serviceLabels.length)];
+                const city = (job.property_id && properties[job.property_id]?.city) || 'Southern California';
+                const date = job.completed_at || jobDates[jobId];
+                return { jobId, title, city, date, photos: photoMap[jobId], category: categorizeJob(title) };
+            });
+
+            // Sort by date descending
+            projects.sort((a, b) => new Date(b.date) - new Date(a.date));
 
             const grid = document.getElementById('projects-grid');
             document.getElementById('loading').style.display = 'none';
 
-            if (projectsWithPhotos.length === 0) {
+            if (projects.length === 0) {
                 document.getElementById('no-results').classList.remove('hidden');
                 return;
             }
 
-            projectsWithPhotos.forEach(job => {
-                const photos = photoMap[job.id] || [];
-                const city = properties[job.property_id]?.city || 'Southern California';
-                const category = categorizeJob(job.title || job.job_type);
+            projects.forEach(proj => {
+                const photos = proj.photos;
                 const photoCount = Math.min(photos.length, 3);
                 const gridClass = photoCount === 1 ? 'single' : photoCount === 2 ? 'double' : 'triple';
 
                 const card = document.createElement('div');
                 card.className = 'project-card';
-                card.dataset.category = category;
+                card.dataset.category = proj.category;
 
                 card.innerHTML = `
                     <div class="project-photos ${gridClass}">
                         ${photos.slice(0, 3).map(p => 
-                            `<img src="${p.public_url}" alt="${job.title || 'Well service project'} photo" loading="lazy" onclick="openLightbox('${p.public_url}')" style="cursor:pointer">`
+                            `<img src="${p.public_url}" alt="${proj.title} photo" loading="lazy" onclick="openLightbox('${p.public_url}')" style="cursor:pointer">`
                         ).join('')}
                     </div>
                     <div class="p-4">
                         <div class="flex items-center justify-between mb-2">
-                            <span class="service-badge">${category.replace('-', ' ')}</span>
-                            <span class="text-xs text-gray-400">${formatDate(job.completed_at)}</span>
+                            <span class="service-badge">${proj.category.replace('-', ' ')}</span>
+                            <span class="text-xs text-gray-400">${formatDate(proj.date)}</span>
                         </div>
-                        <h3 class="font-semibold text-gray-900 mb-1">${job.title || job.job_type || 'Service Call'}</h3>
-                        <p class="text-sm text-gray-500">📍 ${city}</p>
+                        <h3 class="font-semibold text-gray-900 mb-1">${proj.title}</h3>
+                        <p class="text-sm text-gray-500">📍 ${proj.city}</p>
                         ${photos.length > 3 ? `<p class="text-xs text-gray-400 mt-2">+${photos.length - 3} more photos</p>` : ''}
                     </div>
                 `;
