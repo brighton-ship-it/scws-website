@@ -10,7 +10,7 @@ API = 'https://api.getjobber.com/api/graphql'
 HEADERS = {
     'Authorization': f'Bearer {TOKEN}',
     'Content-Type': 'application/json',
-    'X-JOBBER-GRAPHQL-VERSION': '2025-01-20'
+    'X-JOBBER-GRAPHQL-VERSION': '2026-03-10'
 }
 
 def search_client(name):

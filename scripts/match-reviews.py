@@ -12,7 +12,7 @@ def jobber(query, variables=None):
         headers={
             "Authorization": "Bearer " + token,
             "Content-Type": "application/json",
-            "X-JOBBER-GRAPHQL-VERSION": "2025-01-20"
+            "X-JOBBER-GRAPHQL-VERSION": "2026-03-10"
         })
     resp = urllib.request.urlopen(req, timeout=10)
     return json.loads(resp.read())
