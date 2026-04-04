@@ -1,0 +1,38 @@
+[
+  {
+    "date": "2026-04-04T04:49:36.495Z",
+    "mode": "dry-run",
+    "fixType": "all",
+    "stats": {
+      "scanned": 9145,
+      "fixed": 2093,
+      "skipped": 0,
+      "errors": 0,
+      "changes": {
+        "fix_title": 824,
+        "fix_desc": 824,
+        "noindex_thin": 659,
+        "add_schema": 22,
+        "add_og": 5
+      }
+    }
+  },
+  {
+    "date": "2026-04-04T04:49:43.880Z",
+    "mode": "apply",
+    "fixType": "all",
+    "stats": {
+      "scanned": 9145,
+      "fixed": 2093,
+      "skipped": 0,
+      "errors": 0,
+      "changes": {
+        "fix_title": 824,
+        "fix_desc": 824,
+        "noindex_thin": 659,
+        "add_schema": 22,
+        "add_og": 5
+      }
+    }
+  }
+]
