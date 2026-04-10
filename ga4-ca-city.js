@@ -10,7 +10,7 @@ const SERVICE = new Set([
 (async()=>{
   const [r] = await c.runReport({
     property: 'properties/396700369',
-    dateRanges:[{startDate:'2026-04-07',endDate:'2026-04-07'}],
+    dateRanges:[{startDate:'7daysAgo',endDate:'today'}],
     dimensions:[{name:'city'}],
     metrics:[{name:'sessions'}],
     dimensionFilter:{filter:{fieldName:'region',stringFilter:{value:'California'}}},
