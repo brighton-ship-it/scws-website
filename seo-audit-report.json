@@ -1,18 +1,18 @@
 {
-  "date": "2026-04-13T15:13:31.303Z",
+  "date": "2026-04-13T15:47:51.324Z",
   "summary": {
     "scanned": 9146,
     "noindexed": 513,
     "indexed": 8633,
-    "critical": 64,
-    "warnings": 8132,
-    "clean": 437
+    "critical": 63,
+    "warnings": 8107,
+    "clean": 463
   },
   "issueCounts": {
-    "MISSING_H1": 64
+    "MISSING_H1": 63
   },
   "warningCounts": {
-    "LOW_CONTENT": 8181,
+    "LOW_CONTENT": 8156,
     "SHORT_TITLE": 5,
     "SHORT_DESC": 189,
     "MULTIPLE_H1": 1
@@ -229,8 +229,8 @@
   },
   "content": {
     "thin": 0,
-    "low": 8181,
-    "good": 452
+    "low": 8156,
+    "good": 477
   },
   "pages": [
     {
@@ -42165,13 +42165,11 @@
     },
     {
       "path": "/blog/low-water-pressure-aguanga.html",
-      "rating": "critical",
-      "wordCount": 3881,
-      "h1Count": 0,
+      "rating": "good",
+      "wordCount": 3893,
+      "h1Count": 1,
       "hasSchema": true,
-      "issues": [
-        "MISSING_H1"
-      ],
+      "issues": [],
       "warnings": []
     },
     {
@@ -42187,25 +42185,21 @@
     },
     {
       "path": "/blog/low-water-pressure-alpine.html",
-      "rating": "okay",
-      "wordCount": 499,
+      "rating": "good",
+      "wordCount": 3824,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/low-water-pressure-anza.html",
-      "rating": "okay",
-      "wordCount": 499,
+      "rating": "good",
+      "wordCount": 4004,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/low-water-pressure-apple-valley.html",
@@ -42253,14 +42247,12 @@
     },
     {
       "path": "/blog/low-water-pressure-banning.html",
-      "rating": "okay",
-      "wordCount": 499,
+      "rating": "good",
+      "wordCount": 3723,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/low-water-pressure-barrio-logan.html",
@@ -42308,14 +42300,12 @@
     },
     {
       "path": "/blog/low-water-pressure-beaumont.html",
-      "rating": "okay",
-      "wordCount": 499,
+      "rating": "good",
+      "wordCount": 4188,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/low-water-pressure-bermuda-dunes.html",
@@ -42473,14 +42463,12 @@
     },
     {
       "path": "/blog/low-water-pressure-cabazon.html",
-      "rating": "okay",
-      "wordCount": 499,
+      "rating": "good",
+      "wordCount": 3679,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/low-water-pressure-cahuilla.html",
@@ -42495,14 +42483,12 @@
     },
     {
       "path": "/blog/low-water-pressure-calimesa.html",
-      "rating": "okay",
-      "wordCount": 499,
+      "rating": "good",
+      "wordCount": 3982,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/low-water-pressure-campo.html",
@@ -42726,14 +42712,12 @@
     },
     {
       "path": "/blog/low-water-pressure-corona.html",
-      "rating": "okay",
-      "wordCount": 499,
+      "rating": "good",
+      "wordCount": 4360,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/low-water-pressure-coronado.html",
@@ -42957,14 +42941,12 @@
     },
     {
       "path": "/blog/low-water-pressure-eastvale.html",
-      "rating": "okay",
-      "wordCount": 499,
+      "rating": "good",
+      "wordCount": 3917,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/low-water-pressure-egger-highlands.html",
@@ -43034,14 +43016,12 @@
     },
     {
       "path": "/blog/low-water-pressure-escondido.html",
-      "rating": "okay",
-      "wordCount": 499,
+      "rating": "good",
+      "wordCount": 3802,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/low-water-pressure-fairbanks-ranch.html",
@@ -43276,14 +43256,12 @@
     },
     {
       "path": "/blog/low-water-pressure-hemet.html",
-      "rating": "okay",
-      "wordCount": 499,
+      "rating": "good",
+      "wordCount": 3828,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/low-water-pressure-hesperia.html",
@@ -43364,25 +43342,21 @@
     },
     {
       "path": "/blog/low-water-pressure-homeland.html",
-      "rating": "okay",
-      "wordCount": 499,
+      "rating": "good",
+      "wordCount": 3691,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/low-water-pressure-idyllwild.html",
-      "rating": "okay",
-      "wordCount": 499,
+      "rating": "good",
+      "wordCount": 4034,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/low-water-pressure-imperial-beach.html",
@@ -43452,14 +43426,12 @@
     },
     {
       "path": "/blog/low-water-pressure-julian.html",
-      "rating": "okay",
-      "wordCount": 499,
+      "rating": "good",
+      "wordCount": 4194,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/low-water-pressure-jurupa-valley.html",
@@ -43650,14 +43622,12 @@
     },
     {
       "path": "/blog/low-water-pressure-lakeside.html",
-      "rating": "okay",
-      "wordCount": 499,
+      "rating": "good",
+      "wordCount": 4274,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/low-water-pressure-lakeview.html",
@@ -43859,14 +43829,12 @@
     },
     {
       "path": "/blog/low-water-pressure-menifee.html",
-      "rating": "okay",
-      "wordCount": 499,
+      "rating": "good",
+      "wordCount": 4305,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/low-water-pressure-mentone.html",
@@ -44046,14 +44014,12 @@
     },
     {
       "path": "/blog/low-water-pressure-murrieta.html",
-      "rating": "okay",
-      "wordCount": 499,
+      "rating": "good",
+      "wordCount": 3860,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/low-water-pressure-muscoy.html",
@@ -44101,14 +44067,12 @@
     },
     {
       "path": "/blog/low-water-pressure-norco.html",
-      "rating": "okay",
-      "wordCount": 499,
+      "rating": "good",
+      "wordCount": 3866,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/low-water-pressure-normal-heights.html",
@@ -44156,14 +44120,12 @@
     },
     {
       "path": "/blog/low-water-pressure-nuevo.html",
-      "rating": "okay",
-      "wordCount": 499,
+      "rating": "good",
+      "wordCount": 4307,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/low-water-pressure-oak-glen.html",
@@ -44420,14 +44382,12 @@
     },
     {
       "path": "/blog/low-water-pressure-perris.html",
-      "rating": "okay",
-      "wordCount": 499,
+      "rating": "good",
+      "wordCount": 3590,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/low-water-pressure-phelan.html",
@@ -44508,14 +44468,12 @@
     },
     {
       "path": "/blog/low-water-pressure-poway.html",
-      "rating": "okay",
-      "wordCount": 499,
+      "rating": "good",
+      "wordCount": 3928,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/low-water-pressure-quail-valley.html",
@@ -44541,14 +44499,12 @@
     },
     {
       "path": "/blog/low-water-pressure-ramona.html",
-      "rating": "okay",
-      "wordCount": 499,
+      "rating": "good",
+      "wordCount": 3485,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/low-water-pressure-ranchita.html",
@@ -44882,14 +44838,12 @@
     },
     {
       "path": "/blog/low-water-pressure-santee.html",
-      "rating": "okay",
-      "wordCount": 499,
+      "rating": "good",
+      "wordCount": 3995,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/low-water-pressure-scripps-ranch.html",
@@ -45091,14 +45045,12 @@
     },
     {
       "path": "/blog/low-water-pressure-temecula.html",
-      "rating": "okay",
-      "wordCount": 499,
+      "rating": "good",
+      "wordCount": 3425,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/low-water-pressure-temescal-valley.html",
@@ -45355,25 +45307,21 @@
     },
     {
       "path": "/blog/low-water-pressure-wildomar.html",
-      "rating": "okay",
-      "wordCount": 499,
+      "rating": "good",
+      "wordCount": 3721,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/low-water-pressure-winchester.html",
-      "rating": "okay",
-      "wordCount": 499,
+      "rating": "good",
+      "wordCount": 3366,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/low-water-pressure-winter-gardens.html",
