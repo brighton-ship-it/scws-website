@@ -34,5 +34,20 @@
         "add_og": 5
       }
     }
+  },
+  {
+    "date": "2026-04-13T15:13:24.339Z",
+    "mode": "apply",
+    "fixType": "all",
+    "stats": {
+      "scanned": 9145,
+      "fixed": 24,
+      "skipped": 0,
+      "errors": 0,
+      "changes": {
+        "fix_title": 7,
+        "fix_desc": 22
+      }
+    }
   }
 ]
