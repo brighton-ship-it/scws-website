@@ -49,5 +49,22 @@
         "fix_desc": 22
       }
     }
+  },
+  {
+    "date": "2026-04-19T16:06:21.479Z",
+    "mode": "apply",
+    "fixType": "all",
+    "stats": {
+      "scanned": 9145,
+      "fixed": 1,
+      "skipped": 0,
+      "errors": 0,
+      "changes": {
+        "fix_title": 1,
+        "fix_desc": 1,
+        "add_schema": 1,
+        "add_og": 1
+      }
+    }
   }
 ]
