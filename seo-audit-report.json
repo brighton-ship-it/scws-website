@@ -1,16 +1,14 @@
 {
-  "date": "2026-04-19T16:11:26.649Z",
+  "date": "2026-04-19T16:11:54.148Z",
   "summary": {
     "scanned": 9146,
     "noindexed": 513,
     "indexed": 8633,
-    "critical": 6,
-    "warnings": 7910,
+    "critical": 0,
+    "warnings": 7916,
     "clean": 717
   },
-  "issueCounts": {
-    "MISSING_H1": 6
-  },
+  "issueCounts": {},
   "warningCounts": {
     "LOW_CONTENT": 7893,
     "SHORT_TITLE": 5,
@@ -90985,13 +90983,11 @@
     },
     {
       "path": "/blog/well-service-rancho-penasquitos.html",
-      "rating": "critical",
-      "wordCount": 461,
-      "h1Count": 0,
+      "rating": "okay",
+      "wordCount": 472,
+      "h1Count": 1,
       "hasSchema": true,
-      "issues": [
-        "MISSING_H1"
-      ],
+      "issues": [],
       "warnings": [
         "LOW_CONTENT"
       ]
@@ -91180,13 +91176,11 @@
     },
     {
       "path": "/blog/well-service-shelter-valley.html",
-      "rating": "critical",
-      "wordCount": 1023,
-      "h1Count": 0,
+      "rating": "okay",
+      "wordCount": 1034,
+      "h1Count": 1,
       "hasSchema": true,
-      "issues": [
-        "MISSING_H1"
-      ],
+      "issues": [],
       "warnings": [
         "LOW_CONTENT"
       ]
@@ -91237,13 +91231,11 @@
     },
     {
       "path": "/blog/well-service-tecate.html",
-      "rating": "critical",
-      "wordCount": 449,
-      "h1Count": 0,
+      "rating": "okay",
+      "wordCount": 459,
+      "h1Count": 1,
       "hasSchema": true,
-      "issues": [
-        "MISSING_H1"
-      ],
+      "issues": [],
       "warnings": [
         "LOW_CONTENT"
       ]
@@ -91283,13 +91275,11 @@
     },
     {
       "path": "/blog/well-service-twentynine-palms.html",
-      "rating": "critical",
-      "wordCount": 464,
-      "h1Count": 0,
+      "rating": "okay",
+      "wordCount": 475,
+      "h1Count": 1,
       "hasSchema": true,
-      "issues": [
-        "MISSING_H1"
-      ],
+      "issues": [],
       "warnings": [
         "LOW_CONTENT"
       ]
@@ -91385,13 +91375,11 @@
     },
     {
       "path": "/blog/well-service-wynola.html",
-      "rating": "critical",
-      "wordCount": 978,
-      "h1Count": 0,
+      "rating": "okay",
+      "wordCount": 988,
+      "h1Count": 1,
       "hasSchema": true,
-      "issues": [
-        "MISSING_H1"
-      ],
+      "issues": [],
       "warnings": [
         "LOW_CONTENT"
       ]
@@ -91409,13 +91397,11 @@
     },
     {
       "path": "/blog/well-service-yucca-valley.html",
-      "rating": "critical",
-      "wordCount": 465,
-      "h1Count": 0,
+      "rating": "okay",
+      "wordCount": 476,
+      "h1Count": 1,
       "hasSchema": true,
-      "issues": [
-        "MISSING_H1"
-      ],
+      "issues": [],
       "warnings": [
         "LOW_CONTENT"
       ]
