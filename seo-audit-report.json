@@ -1,16 +1,15 @@
 {
-  "date": "2026-04-19T16:06:28.428Z",
+  "date": "2026-04-19T16:09:39.758Z",
   "summary": {
     "scanned": 9146,
     "noindexed": 513,
     "indexed": 8633,
-    "critical": 62,
-    "warnings": 7847,
+    "critical": 60,
+    "warnings": 7849,
     "clean": 724
   },
   "issueCounts": {
-    "MISSING_CANONICAL": 1,
-    "MISSING_H1": 61
+    "MISSING_H1": 60
   },
   "warningCounts": {
     "LOW_CONTENT": 7893,
@@ -10757,13 +10756,11 @@
     },
     {
       "path": "/blog/booster-pump-adelanto.html",
-      "rating": "critical",
+      "rating": "okay",
       "wordCount": 1552,
       "h1Count": 1,
       "hasSchema": true,
-      "issues": [
-        "MISSING_CANONICAL"
-      ],
+      "issues": [],
       "warnings": [
         "FEW_INTERNAL_LINKS"
       ]
@@ -48030,13 +48027,11 @@
     },
     {
       "path": "/blog/pressure-tank-replacement-cost.html",
-      "rating": "critical",
-      "wordCount": 546,
-      "h1Count": 0,
+      "rating": "okay",
+      "wordCount": 553,
+      "h1Count": 1,
       "hasSchema": true,
-      "issues": [
-        "MISSING_H1"
-      ],
+      "issues": [],
       "warnings": [
         "LOW_CONTENT"
       ]
