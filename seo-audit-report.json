@@ -1,22 +1,22 @@
 {
-  "date": "2026-04-19T16:10:54.348Z",
+  "date": "2026-04-19T16:11:26.649Z",
   "summary": {
     "scanned": 9146,
     "noindexed": 513,
     "indexed": 8633,
-    "critical": 20,
-    "warnings": 7894,
-    "clean": 719
+    "critical": 6,
+    "warnings": 7910,
+    "clean": 717
   },
   "issueCounts": {
-    "MISSING_H1": 20
+    "MISSING_H1": 6
   },
   "warningCounts": {
     "LOW_CONTENT": 7893,
     "SHORT_TITLE": 5,
     "FEW_INTERNAL_LINKS": 1,
     "SHORT_DESC": 189,
-    "MULTIPLE_H1": 14
+    "MULTIPLE_H1": 16
   },
   "duplicates": {
     "titles": [
@@ -90238,13 +90238,11 @@
     },
     {
       "path": "/blog/well-service-highland.html",
-      "rating": "critical",
-      "wordCount": 704,
-      "h1Count": 0,
+      "rating": "okay",
+      "wordCount": 714,
+      "h1Count": 1,
       "hasSchema": true,
-      "issues": [
-        "MISSING_H1"
-      ],
+      "issues": [],
       "warnings": [
         "LOW_CONTENT"
       ]
@@ -90340,13 +90338,11 @@
     },
     {
       "path": "/blog/well-service-jurupa-valley.html",
-      "rating": "critical",
-      "wordCount": 461,
-      "h1Count": 0,
+      "rating": "okay",
+      "wordCount": 472,
+      "h1Count": 1,
       "hasSchema": true,
-      "issues": [
-        "MISSING_H1"
-      ],
+      "issues": [],
       "warnings": [
         "LOW_CONTENT"
       ]
@@ -90421,13 +90417,11 @@
     },
     {
       "path": "/blog/well-service-lake-riverside.html",
-      "rating": "critical",
-      "wordCount": 1015,
-      "h1Count": 0,
+      "rating": "okay",
+      "wordCount": 1026,
+      "h1Count": 1,
       "hasSchema": true,
-      "issues": [
-        "MISSING_H1"
-      ],
+      "issues": [],
       "warnings": [
         "LOW_CONTENT"
       ]
@@ -90522,13 +90516,11 @@
     },
     {
       "path": "/blog/well-service-mentone.html",
-      "rating": "critical",
-      "wordCount": 444,
-      "h1Count": 0,
+      "rating": "okay",
+      "wordCount": 448,
+      "h1Count": 1,
       "hasSchema": true,
-      "issues": [
-        "MISSING_H1"
-      ],
+      "issues": [],
       "warnings": [
         "SHORT_TITLE",
         "LOW_CONTENT"
@@ -90593,13 +90585,11 @@
     },
     {
       "path": "/blog/well-service-mount-laguna.html",
-      "rating": "critical",
-      "wordCount": 1032,
-      "h1Count": 0,
+      "rating": "okay",
+      "wordCount": 1043,
+      "h1Count": 1,
       "hasSchema": true,
-      "issues": [
-        "MISSING_H1"
-      ],
+      "issues": [],
       "warnings": [
         "LOW_CONTENT"
       ]
@@ -90648,13 +90638,11 @@
     },
     {
       "path": "/blog/well-service-norco.html",
-      "rating": "critical",
-      "wordCount": 700,
-      "h1Count": 0,
+      "rating": "okay",
+      "wordCount": 711,
+      "h1Count": 1,
       "hasSchema": true,
-      "issues": [
-        "MISSING_H1"
-      ],
+      "issues": [],
       "warnings": [
         "LOW_CONTENT"
       ]
@@ -90683,26 +90671,22 @@
     },
     {
       "path": "/blog/well-service-oak-glen.html",
-      "rating": "critical",
-      "wordCount": 464,
-      "h1Count": 0,
+      "rating": "okay",
+      "wordCount": 475,
+      "h1Count": 1,
       "hasSchema": true,
-      "issues": [
-        "MISSING_H1"
-      ],
+      "issues": [],
       "warnings": [
         "LOW_CONTENT"
       ]
     },
     {
       "path": "/blog/well-service-oak-grove.html",
-      "rating": "critical",
-      "wordCount": 1020,
-      "h1Count": 0,
+      "rating": "okay",
+      "wordCount": 1031,
+      "h1Count": 1,
       "hasSchema": true,
-      "issues": [
-        "MISSING_H1"
-      ],
+      "issues": [],
       "warnings": [
         "LOW_CONTENT"
       ]
@@ -90744,13 +90728,11 @@
     },
     {
       "path": "/blog/well-service-ocotillo.html",
-      "rating": "critical",
-      "wordCount": 908,
-      "h1Count": 0,
+      "rating": "okay",
+      "wordCount": 918,
+      "h1Count": 1,
       "hasSchema": true,
-      "issues": [
-        "MISSING_H1"
-      ],
+      "issues": [],
       "warnings": [
         "LOW_CONTENT"
       ]
@@ -90836,13 +90818,11 @@
     },
     {
       "path": "/blog/well-service-palomar-mountain.html",
-      "rating": "critical",
-      "wordCount": 1049,
-      "h1Count": 0,
+      "rating": "okay",
+      "wordCount": 1060,
+      "h1Count": 1,
       "hasSchema": true,
-      "issues": [
-        "MISSING_H1"
-      ],
+      "issues": [],
       "warnings": [
         "LOW_CONTENT"
       ]
@@ -90961,13 +90941,11 @@
     },
     {
       "path": "/blog/well-service-rainbow.html",
-      "rating": "critical",
-      "wordCount": 450,
-      "h1Count": 0,
+      "rating": "okay",
+      "wordCount": 460,
+      "h1Count": 1,
       "hasSchema": true,
-      "issues": [
-        "MISSING_H1"
-      ],
+      "issues": [],
       "warnings": [
         "LOW_CONTENT"
       ]
@@ -90985,13 +90963,11 @@
     },
     {
       "path": "/blog/well-service-ranchita.html",
-      "rating": "critical",
-      "wordCount": 993,
-      "h1Count": 0,
+      "rating": "okay",
+      "wordCount": 1003,
+      "h1Count": 1,
       "hasSchema": true,
-      "issues": [
-        "MISSING_H1"
-      ],
+      "issues": [],
       "warnings": [
         "LOW_CONTENT"
       ]
@@ -91031,13 +91007,11 @@
     },
     {
       "path": "/blog/well-service-redlands.html",
-      "rating": "critical",
-      "wordCount": 712,
-      "h1Count": 0,
+      "rating": "okay",
+      "wordCount": 722,
+      "h1Count": 1,
       "hasSchema": true,
-      "issues": [
-        "MISSING_H1"
-      ],
+      "issues": [],
       "warnings": [
         "LOW_CONTENT"
       ]
@@ -91241,12 +91215,14 @@
     },
     {
       "path": "/blog/well-service-spring-valley.html",
-      "rating": "good",
-      "wordCount": 1767,
-      "h1Count": 1,
+      "rating": "okay",
+      "wordCount": 1778,
+      "h1Count": 2,
       "hasSchema": true,
       "issues": [],
-      "warnings": []
+      "warnings": [
+        "MULTIPLE_H1"
+      ]
     },
     {
       "path": "/blog/well-service-sun-city.html",
@@ -91375,12 +91351,14 @@
     },
     {
       "path": "/blog/well-service-wildomar.html",
-      "rating": "good",
-      "wordCount": 2346,
-      "h1Count": 1,
+      "rating": "okay",
+      "wordCount": 2356,
+      "h1Count": 2,
       "hasSchema": true,
       "issues": [],
-      "warnings": []
+      "warnings": [
+        "MULTIPLE_H1"
+      ]
     },
     {
       "path": "/blog/well-service-winchester.html",
@@ -91420,13 +91398,11 @@
     },
     {
       "path": "/blog/well-service-yucaipa.html",
-      "rating": "critical",
-      "wordCount": 452,
-      "h1Count": 0,
+      "rating": "okay",
+      "wordCount": 462,
+      "h1Count": 1,
       "hasSchema": true,
-      "issues": [
-        "MISSING_H1"
-      ],
+      "issues": [],
       "warnings": [
         "LOW_CONTENT"
       ]
