@@ -1,5 +1,5 @@
 {
-  "date": "2026-04-19T16:06:16.923Z",
+  "date": "2026-04-19T16:06:28.428Z",
   "summary": {
     "scanned": 9146,
     "noindexed": 513,
@@ -15,11 +15,7 @@
   "warningCounts": {
     "LOW_CONTENT": 7893,
     "SHORT_TITLE": 5,
-    "LONG_TITLE": 1,
-    "LONG_DESC": 1,
-    "MISSING_SCHEMA": 1,
     "FEW_INTERNAL_LINKS": 1,
-    "MISSING_OG": 1,
     "SHORT_DESC": 189,
     "MULTIPLE_H1": 1
   },
@@ -10762,18 +10758,14 @@
     {
       "path": "/blog/booster-pump-adelanto.html",
       "rating": "critical",
-      "wordCount": 1557,
+      "wordCount": 1552,
       "h1Count": 1,
-      "hasSchema": false,
+      "hasSchema": true,
       "issues": [
         "MISSING_CANONICAL"
       ],
       "warnings": [
-        "LONG_TITLE",
-        "LONG_DESC",
-        "MISSING_SCHEMA",
-        "FEW_INTERNAL_LINKS",
-        "MISSING_OG"
+        "FEW_INTERNAL_LINKS"
       ]
     },
     {
