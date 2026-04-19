@@ -1,15 +1,15 @@
 {
-  "date": "2026-04-19T16:09:39.758Z",
+  "date": "2026-04-19T16:10:12.850Z",
   "summary": {
     "scanned": 9146,
     "noindexed": 513,
     "indexed": 8633,
-    "critical": 60,
-    "warnings": 7849,
+    "critical": 50,
+    "warnings": 7859,
     "clean": 724
   },
   "issueCounts": {
-    "MISSING_H1": 60
+    "MISSING_H1": 50
   },
   "warningCounts": {
     "LOW_CONTENT": 7893,
@@ -89712,13 +89712,11 @@
     },
     {
       "path": "/blog/well-service-aguanga.html",
-      "rating": "critical",
-      "wordCount": 990,
-      "h1Count": 0,
+      "rating": "okay",
+      "wordCount": 1000,
+      "h1Count": 1,
       "hasSchema": true,
-      "issues": [
-        "MISSING_H1"
-      ],
+      "issues": [],
       "warnings": [
         "LOW_CONTENT"
       ]
@@ -89736,52 +89734,44 @@
     },
     {
       "path": "/blog/well-service-alpine.html",
-      "rating": "critical",
-      "wordCount": 467,
-      "h1Count": 0,
+      "rating": "okay",
+      "wordCount": 477,
+      "h1Count": 1,
       "hasSchema": true,
-      "issues": [
-        "MISSING_H1"
-      ],
+      "issues": [],
       "warnings": [
         "LOW_CONTENT"
       ]
     },
     {
       "path": "/blog/well-service-anza.html",
-      "rating": "critical",
-      "wordCount": 445,
-      "h1Count": 0,
+      "rating": "okay",
+      "wordCount": 455,
+      "h1Count": 1,
       "hasSchema": true,
-      "issues": [
-        "MISSING_H1"
-      ],
+      "issues": [],
       "warnings": [
         "LOW_CONTENT"
       ]
     },
     {
       "path": "/blog/well-service-apple-valley.html",
-      "rating": "critical",
-      "wordCount": 461,
-      "h1Count": 0,
+      "rating": "okay",
+      "wordCount": 472,
+      "h1Count": 1,
       "hasSchema": true,
-      "issues": [
-        "MISSING_H1"
-      ],
+      "issues": [],
       "warnings": [
         "LOW_CONTENT"
       ]
     },
     {
       "path": "/blog/well-service-banning.html",
-      "rating": "critical",
-      "wordCount": 448,
-      "h1Count": 0,
+      "rating": "okay",
+      "wordCount": 458,
+      "h1Count": 1,
       "hasSchema": true,
-      "issues": [
-        "MISSING_H1"
-      ],
+      "issues": [],
       "warnings": [
         "LOW_CONTENT"
       ]
@@ -89831,13 +89821,11 @@
     },
     {
       "path": "/blog/well-service-bonsall.html",
-      "rating": "critical",
-      "wordCount": 450,
-      "h1Count": 0,
+      "rating": "okay",
+      "wordCount": 460,
+      "h1Count": 1,
       "hasSchema": true,
-      "issues": [
-        "MISSING_H1"
-      ],
+      "issues": [],
       "warnings": [
         "LOW_CONTENT"
       ]
@@ -89853,52 +89841,44 @@
     },
     {
       "path": "/blog/well-service-boulevard.html",
-      "rating": "critical",
-      "wordCount": 1058,
-      "h1Count": 0,
+      "rating": "okay",
+      "wordCount": 1068,
+      "h1Count": 1,
       "hasSchema": true,
-      "issues": [
-        "MISSING_H1"
-      ],
+      "issues": [],
       "warnings": [
         "LOW_CONTENT"
       ]
     },
     {
       "path": "/blog/well-service-cabazon.html",
-      "rating": "critical",
-      "wordCount": 450,
-      "h1Count": 0,
+      "rating": "okay",
+      "wordCount": 460,
+      "h1Count": 1,
       "hasSchema": true,
-      "issues": [
-        "MISSING_H1"
-      ],
+      "issues": [],
       "warnings": [
         "LOW_CONTENT"
       ]
     },
     {
       "path": "/blog/well-service-calimesa.html",
-      "rating": "critical",
-      "wordCount": 450,
-      "h1Count": 0,
+      "rating": "okay",
+      "wordCount": 460,
+      "h1Count": 1,
       "hasSchema": true,
-      "issues": [
-        "MISSING_H1"
-      ],
+      "issues": [],
       "warnings": [
         "LOW_CONTENT"
       ]
     },
     {
       "path": "/blog/well-service-campo.html",
-      "rating": "critical",
-      "wordCount": 1067,
-      "h1Count": 0,
+      "rating": "okay",
+      "wordCount": 1077,
+      "h1Count": 1,
       "hasSchema": true,
-      "issues": [
-        "MISSING_H1"
-      ],
+      "issues": [],
       "warnings": [
         "LOW_CONTENT"
       ]
