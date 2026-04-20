@@ -1,12 +1,12 @@
 {
-  "date": "2026-04-20T15:47:00.046Z",
+  "date": "2026-04-20T15:48:07.744Z",
   "summary": {
     "scanned": 9146,
-    "noindexed": 513,
-    "indexed": 8633,
+    "noindexed": 514,
+    "indexed": 8632,
     "critical": 0,
     "warnings": 7904,
-    "clean": 729
+    "clean": 728
   },
   "issueCounts": {},
   "warningCounts": {
@@ -17,22 +17,7 @@
     "MULTIPLE_H1": 16
   },
   "duplicates": {
-    "titles": [
-      [
-        "submersible vs jet pump: which well pump is right for you?",
-        [
-          "/blog/submersible-vs-jet-pump-test.html",
-          "/blog/submersible-vs-jet-pump.html"
-        ]
-      ],
-      [
-        "well pump repair in rancho mirage | scws",
-        [
-          "/blog/well-pump-repair-rancho-mirage.html",
-          "/blog/well-pump-repair-woodcrest.html"
-        ]
-      ]
-    ],
+    "titles": [],
     "descriptions": [
       [
         "lost water from your well? we respond 24/7 for pump failures, no-water emergencies, and pressure pro",
@@ -174,13 +159,6 @@
         ]
       ],
       [
-        "compare submersible and jet pumps for residential wells. learn the pros, cons, costs, and best appli",
-        [
-          "/blog/submersible-vs-jet-pump-test.html",
-          "/blog/submersible-vs-jet-pump.html"
-        ]
-      ],
-      [
         "well water quality varies by location. southern california well service provides water testing and t",
         [
           "/blog/water-treatment-glen-avon.html",
@@ -229,7 +207,7 @@
   "content": {
     "thin": 0,
     "low": 7881,
-    "good": 752
+    "good": 751
   },
   "pages": [
     {
@@ -62948,15 +62926,6 @@
       ]
     },
     {
-      "path": "/blog/submersible-vs-jet-pump-test.html",
-      "rating": "good",
-      "wordCount": 2208,
-      "h1Count": 1,
-      "hasSchema": true,
-      "issues": [],
-      "warnings": []
-    },
-    {
       "path": "/blog/submersible-vs-jet-pump.html",
       "rating": "good",
       "wordCount": 2208,
@@ -87115,7 +87084,7 @@
     {
       "path": "/blog/well-pump-repair-woodcrest.html",
       "rating": "okay",
-      "wordCount": 684,
+      "wordCount": 683,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
