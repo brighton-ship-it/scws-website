@@ -1,16 +1,16 @@
 {
-  "date": "2026-04-20T15:48:07.744Z",
+  "date": "2026-04-22T00:09:23.325Z",
   "summary": {
     "scanned": 9146,
     "noindexed": 514,
     "indexed": 8632,
     "critical": 0,
-    "warnings": 7904,
-    "clean": 728
+    "warnings": 7903,
+    "clean": 729
   },
   "issueCounts": {},
   "warningCounts": {
-    "LOW_CONTENT": 7881,
+    "LOW_CONTENT": 7880,
     "SHORT_TITLE": 5,
     "FEW_INTERNAL_LINKS": 1,
     "SHORT_DESC": 189,
@@ -38,7 +38,6 @@
       [
         "⚠️ experiencing this problem right now? call (760) 440-8520 for same-day diagnosis.",
         [
-          "/blog/air-spurts-from-faucets.html",
           "/blog/banging-pipes-well-system.html",
           "/blog/burnt-smell-well-pump.html",
           "/blog/clicking-sound-well-pressure-switch.html",
@@ -48,7 +47,6 @@
           "/blog/humming-sound-from-well.html",
           "/blog/milky-well-water-clears-up.html",
           "/blog/new-home-well-problems.html",
-          "/blog/no-water-after-power-outage.html",
           "/blog/vibrating-pipes-well-pump.html",
           "/blog/water-spraying-from-well-tank.html",
           "/blog/well-control-box-hot.html",
@@ -79,7 +77,6 @@
           "/blog/well-water-foamy.html",
           "/blog/well-water-oily-film.html",
           "/blog/well-water-orange-staining.html",
-          "/blog/well-water-smells-like-sewage.html",
           "/blog/well-water-spits-and-sputters.html",
           "/blog/well-water-sprays-then-stops.html",
           "/blog/well-water-stops-then-starts.html",
@@ -206,8 +203,8 @@
   },
   "content": {
     "thin": 0,
-    "low": 7881,
-    "good": 751
+    "low": 7880,
+    "good": 752
   },
   "pages": [
     {
@@ -10862,14 +10859,12 @@
     },
     {
       "path": "/blog/booster-pump-barstow.html",
-      "rating": "okay",
-      "wordCount": 571,
+      "rating": "good",
+      "wordCount": 3899,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/booster-pump-bay-ho.html",
