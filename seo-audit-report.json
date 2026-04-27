@@ -1,16 +1,16 @@
 {
-  "date": "2026-04-23T16:44:30.441Z",
+  "date": "2026-04-27T15:11:46.496Z",
   "summary": {
     "scanned": 9146,
     "noindexed": 514,
     "indexed": 8632,
     "critical": 0,
-    "warnings": 7903,
-    "clean": 729
+    "warnings": 7891,
+    "clean": 741
   },
   "issueCounts": {},
   "warningCounts": {
-    "LOW_CONTENT": 7880,
+    "LOW_CONTENT": 7868,
     "SHORT_TITLE": 5,
     "FEW_INTERNAL_LINKS": 1,
     "SHORT_DESC": 189,
@@ -203,8 +203,8 @@
   },
   "content": {
     "thin": 0,
-    "low": 7880,
-    "good": 752
+    "low": 7868,
+    "good": 764
   },
   "pages": [
     {
@@ -21214,14 +21214,12 @@
     },
     {
       "path": "/blog/cloudy-water-blue-jay.html",
-      "rating": "okay",
-      "wordCount": 551,
+      "rating": "good",
+      "wordCount": 2045,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/cloudy-water-blythe.html",
@@ -21263,14 +21261,12 @@
     },
     {
       "path": "/blog/cloudy-water-borrego-springs.html",
-      "rating": "okay",
-      "wordCount": 551,
+      "rating": "good",
+      "wordCount": 2149,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/cloudy-water-boulevard.html",
@@ -21361,14 +21357,12 @@
     },
     {
       "path": "/blog/cloudy-water-carmel-valley.html",
-      "rating": "okay",
-      "wordCount": 551,
+      "rating": "good",
+      "wordCount": 2498,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/cloudy-water-casa-de-oro.html",
@@ -21394,25 +21388,21 @@
     },
     {
       "path": "/blog/cloudy-water-cedar-glen.html",
-      "rating": "okay",
-      "wordCount": 551,
+      "rating": "good",
+      "wordCount": 2452,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/cloudy-water-cedarpines-park.html",
-      "rating": "okay",
-      "wordCount": 551,
+      "rating": "good",
+      "wordCount": 2216,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/cloudy-water-cherry-valley.html",
@@ -21427,14 +21417,12 @@
     },
     {
       "path": "/blog/cloudy-water-chino-hills.html",
-      "rating": "okay",
-      "wordCount": 551,
+      "rating": "good",
+      "wordCount": 1954,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/cloudy-water-chino.html",
@@ -21447,36 +21435,30 @@
     },
     {
       "path": "/blog/cloudy-water-chollas-view.html",
-      "rating": "okay",
-      "wordCount": 551,
+      "rating": "good",
+      "wordCount": 1952,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/cloudy-water-chula-vista.html",
-      "rating": "okay",
-      "wordCount": 551,
+      "rating": "good",
+      "wordCount": 1996,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/cloudy-water-city-heights.html",
-      "rating": "okay",
-      "wordCount": 551,
+      "rating": "good",
+      "wordCount": 2240,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/cloudy-water-clairemont.html",
@@ -21498,14 +21480,12 @@
     },
     {
       "path": "/blog/cloudy-water-college-area.html",
-      "rating": "okay",
-      "wordCount": 551,
+      "rating": "good",
+      "wordCount": 2894,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/cloudy-water-colton.html",
@@ -21669,14 +21649,12 @@
     },
     {
       "path": "/blog/cloudy-water-devore.html",
-      "rating": "okay",
-      "wordCount": 540,
+      "rating": "good",
+      "wordCount": 2012,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/cloudy-water-dulzura.html",
@@ -21718,14 +21696,12 @@
     },
     {
       "path": "/blog/cloudy-water-eastlake.html",
-      "rating": "okay",
-      "wordCount": 540,
+      "rating": "good",
+      "wordCount": 2094,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/cloudy-water-eastvale.html",
