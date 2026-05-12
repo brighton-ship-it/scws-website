@@ -1,20 +1,21 @@
 {
-  "date": "2026-04-27T15:11:46.496Z",
+  "date": "2026-05-12T19:03:54.020Z",
   "summary": {
     "scanned": 9146,
     "noindexed": 514,
     "indexed": 8632,
     "critical": 0,
-    "warnings": 7891,
-    "clean": 741
+    "warnings": 7860,
+    "clean": 772
   },
   "issueCounts": {},
   "warningCounts": {
-    "LOW_CONTENT": 7868,
+    "LOW_CONTENT": 7833,
     "SHORT_TITLE": 5,
     "FEW_INTERNAL_LINKS": 1,
     "SHORT_DESC": 189,
-    "MULTIPLE_H1": 16
+    "MULTIPLE_H1": 16,
+    "LONG_DESC": 1
   },
   "duplicates": {
     "titles": [],
@@ -203,8 +204,8 @@
   },
   "content": {
     "thin": 0,
-    "low": 7868,
-    "good": 764
+    "low": 7833,
+    "good": 799
   },
   "pages": [
     {
@@ -10868,14 +10869,12 @@
     },
     {
       "path": "/blog/booster-pump-bay-ho.html",
-      "rating": "okay",
-      "wordCount": 592,
+      "rating": "good",
+      "wordCount": 2083,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/booster-pump-bay-park.html",
@@ -21516,14 +21515,12 @@
     },
     {
       "path": "/blog/cloudy-water-crest-park.html",
-      "rating": "okay",
-      "wordCount": 551,
+      "rating": "good",
+      "wordCount": 2087,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/cloudy-water-crest.html",
@@ -21554,14 +21551,12 @@
     },
     {
       "path": "/blog/cloudy-water-de-luz.html",
-      "rating": "okay",
-      "wordCount": 551,
+      "rating": "good",
+      "wordCount": 2447,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/cloudy-water-dehesa.html",
@@ -21574,25 +21569,21 @@
     },
     {
       "path": "/blog/cloudy-water-del-cerro.html",
-      "rating": "okay",
-      "wordCount": 551,
+      "rating": "good",
+      "wordCount": 2062,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/cloudy-water-del-mar-heights.html",
-      "rating": "okay",
-      "wordCount": 562,
+      "rating": "good",
+      "wordCount": 1992,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/cloudy-water-del-mar.html",
@@ -21685,14 +21676,12 @@
     },
     {
       "path": "/blog/cloudy-water-east-village.html",
-      "rating": "okay",
-      "wordCount": 551,
+      "rating": "good",
+      "wordCount": 2123,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/cloudy-water-eastlake.html",
@@ -21714,14 +21703,12 @@
     },
     {
       "path": "/blog/cloudy-water-egger-highlands.html",
-      "rating": "okay",
-      "wordCount": 551,
+      "rating": "good",
+      "wordCount": 2868,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/cloudy-water-el-cajon.html",
@@ -21756,25 +21743,21 @@
     },
     {
       "path": "/blog/cloudy-water-encanto.html",
-      "rating": "okay",
-      "wordCount": 540,
+      "rating": "good",
+      "wordCount": 2483,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/cloudy-water-encinitas.html",
-      "rating": "okay",
-      "wordCount": 540,
+      "rating": "good",
+      "wordCount": 2491,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/cloudy-water-escondido.html",
@@ -21840,14 +21823,12 @@
     },
     {
       "path": "/blog/cloudy-water-fontana.html",
-      "rating": "okay",
-      "wordCount": 540,
+      "rating": "good",
+      "wordCount": 2546,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/cloudy-water-forest-falls.html",
@@ -21948,14 +21929,12 @@
     },
     {
       "path": "/blog/cloudy-water-grantville.html",
-      "rating": "okay",
-      "wordCount": 540,
+      "rating": "good",
+      "wordCount": 2511,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/cloudy-water-green-acres.html",
@@ -21981,14 +21960,12 @@
     },
     {
       "path": "/blog/cloudy-water-guatay.html",
-      "rating": "okay",
-      "wordCount": 540,
+      "rating": "good",
+      "wordCount": 2523,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/cloudy-water-harbison-canyon.html",
@@ -22003,14 +21980,12 @@
     },
     {
       "path": "/blog/cloudy-water-helendale.html",
-      "rating": "okay",
-      "wordCount": 540,
+      "rating": "good",
+      "wordCount": 2492,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/cloudy-water-hemet.html",
@@ -22023,14 +21998,12 @@
     },
     {
       "path": "/blog/cloudy-water-hesperia.html",
-      "rating": "okay",
-      "wordCount": 540,
+      "rating": "good",
+      "wordCount": 2759,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/cloudy-water-hidden-meadows.html",
@@ -22054,36 +22027,30 @@
     },
     {
       "path": "/blog/cloudy-water-highland.html",
-      "rating": "okay",
-      "wordCount": 540,
+      "rating": "good",
+      "wordCount": 3192,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/cloudy-water-hillcrest.html",
-      "rating": "okay",
-      "wordCount": 540,
+      "rating": "good",
+      "wordCount": 2418,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/cloudy-water-hinkley.html",
-      "rating": "okay",
-      "wordCount": 540,
+      "rating": "good",
+      "wordCount": 1853,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/cloudy-water-home-gardens.html",
@@ -22145,14 +22112,12 @@
     },
     {
       "path": "/blog/cloudy-water-jacumba.html",
-      "rating": "okay",
-      "wordCount": 540,
+      "rating": "good",
+      "wordCount": 2205,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/cloudy-water-jamul.html",
@@ -22176,14 +22141,12 @@
     },
     {
       "path": "/blog/cloudy-water-julian.html",
-      "rating": "okay",
-      "wordCount": 540,
+      "rating": "good",
+      "wordCount": 2040,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/cloudy-water-jurupa-valley.html",
@@ -22209,25 +22172,21 @@
     },
     {
       "path": "/blog/cloudy-water-kensington.html",
-      "rating": "okay",
-      "wordCount": 540,
+      "rating": "good",
+      "wordCount": 2129,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/cloudy-water-la-costa.html",
-      "rating": "okay",
-      "wordCount": 551,
+      "rating": "good",
+      "wordCount": 1724,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/cloudy-water-la-jolla.html",
@@ -22388,14 +22347,12 @@
     },
     {
       "path": "/blog/cloudy-water-landers.html",
-      "rating": "okay",
-      "wordCount": 540,
+      "rating": "good",
+      "wordCount": 2565,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/cloudy-water-lemon-crest.html",
@@ -23460,14 +23417,12 @@
     },
     {
       "path": "/blog/cloudy-water-san-diego-county.html",
-      "rating": "okay",
-      "wordCount": 562,
+      "rating": "good",
+      "wordCount": 2760,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/cloudy-water-san-diego.html",
@@ -24121,14 +24076,12 @@
     },
     {
       "path": "/blog/cloudy-water-yucca-valley.html",
-      "rating": "okay",
-      "wordCount": 551,
+      "rating": "good",
+      "wordCount": 2213,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/coastal-wells-oceanside-encinitas.html",
@@ -30396,13 +30349,12 @@
     {
       "path": "/blog/emergency-well-repair-san-jacinto.html",
       "rating": "okay",
-      "wordCount": 691,
+      "wordCount": 2035,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
       "warnings": [
-        "SHORT_DESC",
-        "LOW_CONTENT"
+        "SHORT_DESC"
       ]
     },
     {
@@ -42306,14 +42258,12 @@
     },
     {
       "path": "/blog/low-water-pressure-casa-de-oro.html",
-      "rating": "okay",
-      "wordCount": 533,
+      "rating": "good",
+      "wordCount": 1937,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/low-water-pressure-cathedral-city.html",
@@ -83472,14 +83422,12 @@
     },
     {
       "path": "/blog/well-pump-installation-cost.html",
-      "rating": "okay",
-      "wordCount": 1269,
+      "rating": "good",
+      "wordCount": 2946,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/well-pump-installation-process-guide.html",
@@ -87325,14 +87273,12 @@
     },
     {
       "path": "/blog/well-pump-sizing-calculator.html",
-      "rating": "okay",
-      "wordCount": 1252,
+      "rating": "good",
+      "wordCount": 2724,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/well-pump-sizing-guide.html",
@@ -89659,14 +89605,12 @@
     },
     {
       "path": "/blog/well-service-anza.html",
-      "rating": "okay",
-      "wordCount": 455,
+      "rating": "good",
+      "wordCount": 3312,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/well-service-apple-valley.html",
@@ -89681,14 +89625,12 @@
     },
     {
       "path": "/blog/well-service-banning.html",
-      "rating": "okay",
-      "wordCount": 458,
+      "rating": "good",
+      "wordCount": 2257,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/well-service-barrio-logan.html",
@@ -89921,14 +89863,12 @@
     },
     {
       "path": "/blog/well-service-corona.html",
-      "rating": "okay",
-      "wordCount": 456,
+      "rating": "good",
+      "wordCount": 1997,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/well-service-coronado.html",
@@ -90099,14 +90039,12 @@
     },
     {
       "path": "/blog/well-service-fallbrook.html",
-      "rating": "okay",
-      "wordCount": 458,
+      "rating": "good",
+      "wordCount": 2176,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/well-service-french-valley.html",
@@ -90431,13 +90369,12 @@
     {
       "path": "/blog/well-service-mentone.html",
       "rating": "okay",
-      "wordCount": 448,
+      "wordCount": 2794,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
       "warnings": [
-        "SHORT_TITLE",
-        "LOW_CONTENT"
+        "SHORT_TITLE"
       ]
     },
     {
@@ -91467,13 +91404,12 @@
     {
       "path": "/blog/well-video-inspection-hemet.html",
       "rating": "okay",
-      "wordCount": 543,
+      "wordCount": 2103,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
       "warnings": [
-        "SHORT_DESC",
-        "LOW_CONTENT"
+        "SHORT_DESC"
       ]
     },
     {
@@ -92386,12 +92322,12 @@
     {
       "path": "/blog/well-water-smells-like-rotten-eggs.html",
       "rating": "okay",
-      "wordCount": 538,
+      "wordCount": 2070,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
       "warnings": [
-        "LOW_CONTENT"
+        "LONG_DESC"
       ]
     },
     {
