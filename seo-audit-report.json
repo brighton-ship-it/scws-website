@@ -1,16 +1,16 @@
 {
-  "date": "2026-05-12T19:03:54.020Z",
+  "date": "2026-05-27T16:05:52.773Z",
   "summary": {
-    "scanned": 9146,
+    "scanned": 9147,
     "noindexed": 514,
-    "indexed": 8632,
+    "indexed": 8633,
     "critical": 0,
-    "warnings": 7860,
-    "clean": 772
+    "warnings": 7828,
+    "clean": 805
   },
   "issueCounts": {},
   "warningCounts": {
-    "LOW_CONTENT": 7833,
+    "LOW_CONTENT": 7801,
     "SHORT_TITLE": 5,
     "FEW_INTERNAL_LINKS": 1,
     "SHORT_DESC": 189,
@@ -18,8 +18,23 @@
     "LONG_DESC": 1
   },
   "duplicates": {
-    "titles": [],
+    "titles": [
+      [
+        "1 hp vs 2 hp well pump: which size do you need? (2026 guide)",
+        [
+          "/blog/1hp-vs-2hp-well-pump-sizing-OLD.html",
+          "/blog/1hp-vs-2hp-well-pump-sizing.html"
+        ]
+      ]
+    ],
     "descriptions": [
+      [
+        "how to choose between 1 hp and 2 hp well pumps. compare performance, costs, and learn which horsepow",
+        [
+          "/blog/1hp-vs-2hp-well-pump-sizing-OLD.html",
+          "/blog/1hp-vs-2hp-well-pump-sizing.html"
+        ]
+      ],
       [
         "lost water from your well? we respond 24/7 for pump failures, no-water emergencies, and pressure pro",
         [
@@ -204,8 +219,8 @@
   },
   "content": {
     "thin": 0,
-    "low": 7833,
-    "good": 799
+    "low": 7801,
+    "good": 832
   },
   "pages": [
     {
@@ -254,7 +269,7 @@
       ]
     },
     {
-      "path": "/blog/1hp-vs-2hp-well-pump-sizing.html",
+      "path": "/blog/1hp-vs-2hp-well-pump-sizing-OLD.html",
       "rating": "okay",
       "wordCount": 1041,
       "h1Count": 1,
@@ -263,6 +278,15 @@
       "warnings": [
         "LOW_CONTENT"
       ]
+    },
+    {
+      "path": "/blog/1hp-vs-2hp-well-pump-sizing.html",
+      "rating": "good",
+      "wordCount": 2599,
+      "h1Count": 1,
+      "hasSchema": true,
+      "issues": [],
+      "warnings": []
     },
     {
       "path": "/blog/24-hour-emergency-well-service.html",
@@ -10752,25 +10776,21 @@
     },
     {
       "path": "/blog/booster-pump-aguanga.html",
-      "rating": "okay",
-      "wordCount": 764,
+      "rating": "good",
+      "wordCount": 2958,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/booster-pump-allied-gardens.html",
-      "rating": "okay",
-      "wordCount": 743,
+      "rating": "good",
+      "wordCount": 2098,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/booster-pump-alpine.html",
@@ -10977,14 +10997,12 @@
     },
     {
       "path": "/blog/booster-pump-bloomington.html",
-      "rating": "okay",
-      "wordCount": 571,
+      "rating": "good",
+      "wordCount": 2436,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/booster-pump-blue-jay.html",
@@ -11228,14 +11246,12 @@
     },
     {
       "path": "/blog/booster-pump-chino.html",
-      "rating": "okay",
-      "wordCount": 571,
+      "rating": "good",
+      "wordCount": 2594,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/booster-pump-chollas-view.html",
@@ -11305,14 +11321,12 @@
     },
     {
       "path": "/blog/booster-pump-colton.html",
-      "rating": "okay",
-      "wordCount": 571,
+      "rating": "good",
+      "wordCount": 2307,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/booster-pump-corona.html",
@@ -11393,14 +11407,12 @@
     },
     {
       "path": "/blog/booster-pump-dehesa.html",
-      "rating": "okay",
-      "wordCount": 571,
+      "rating": "good",
+      "wordCount": 2749,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/booster-pump-del-cerro.html",
@@ -11481,14 +11493,12 @@
     },
     {
       "path": "/blog/booster-pump-devore.html",
-      "rating": "okay",
-      "wordCount": 571,
+      "rating": "good",
+      "wordCount": 1952,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/booster-pump-dulzura.html",
@@ -11547,14 +11557,12 @@
     },
     {
       "path": "/blog/booster-pump-eastvale.html",
-      "rating": "okay",
-      "wordCount": 764,
+      "rating": "good",
+      "wordCount": 2548,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/booster-pump-egger-highlands.html",
@@ -13306,14 +13314,12 @@
     },
     {
       "path": "/blog/booster-pump-romoland.html",
-      "rating": "okay",
-      "wordCount": 568,
+      "rating": "good",
+      "wordCount": 1850,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/booster-pump-running-springs.html",
@@ -13900,14 +13906,12 @@
     },
     {
       "path": "/blog/booster-pump-viejas.html",
-      "rating": "okay",
-      "wordCount": 571,
+      "rating": "good",
+      "wordCount": 2515,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/booster-pump-vista.html",
@@ -13944,14 +13948,12 @@
     },
     {
       "path": "/blog/booster-pump-webster.html",
-      "rating": "okay",
-      "wordCount": 571,
+      "rating": "good",
+      "wordCount": 2679,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/booster-pump-wildomar.html",
@@ -20967,14 +20969,12 @@
     },
     {
       "path": "/blog/cloudy-water-4s-ranch.html",
-      "rating": "okay",
-      "wordCount": 551,
+      "rating": "good",
+      "wordCount": 2750,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/cloudy-water-adelanto.html",
@@ -20987,14 +20987,12 @@
     },
     {
       "path": "/blog/cloudy-water-aguanga-valley.html",
-      "rating": "okay",
-      "wordCount": 550,
+      "rating": "good",
+      "wordCount": 4103,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/cloudy-water-aguanga.html",
@@ -22376,25 +22374,21 @@
     },
     {
       "path": "/blog/cloudy-water-lenwood.html",
-      "rating": "okay",
-      "wordCount": 540,
+      "rating": "good",
+      "wordCount": 2197,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/cloudy-water-leucadia.html",
-      "rating": "okay",
-      "wordCount": 540,
+      "rating": "good",
+      "wordCount": 2077,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/cloudy-water-liberty-station.html",
@@ -22537,14 +22531,12 @@
     },
     {
       "path": "/blog/cloudy-water-mentone.html",
-      "rating": "okay",
-      "wordCount": 540,
+      "rating": "good",
+      "wordCount": 2556,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/cloudy-water-midway-district.html",
@@ -22601,19 +22593,17 @@
     },
     {
       "path": "/blog/cloudy-water-montclair.html",
-      "rating": "okay",
-      "wordCount": 540,
+      "rating": "good",
+      "wordCount": 2557,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/cloudy-water-morena.html",
       "rating": "okay",
-      "wordCount": 540,
+      "wordCount": 1486,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
@@ -23840,14 +23830,12 @@
     },
     {
       "path": "/blog/cloudy-water-twin-oaks-valley.html",
-      "rating": "okay",
-      "wordCount": 562,
+      "rating": "good",
+      "wordCount": 1598,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/cloudy-water-twin-peaks.html",
@@ -30606,14 +30594,12 @@
     },
     {
       "path": "/blog/emergency-well-repair-thermal.html",
-      "rating": "okay",
-      "wordCount": 542,
+      "rating": "good",
+      "wordCount": 1985,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/emergency-well-repair-tierra-del-sol.html",
@@ -45475,14 +45461,12 @@
     },
     {
       "path": "/blog/pressure-tank-barstow.html",
-      "rating": "okay",
-      "wordCount": 576,
+      "rating": "good",
+      "wordCount": 1783,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/pressure-tank-bay-ho.html",
@@ -45592,14 +45576,12 @@
     },
     {
       "path": "/blog/pressure-tank-bloomington.html",
-      "rating": "okay",
-      "wordCount": 576,
+      "rating": "good",
+      "wordCount": 1731,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/pressure-tank-blue-jay.html",
@@ -46004,14 +45986,12 @@
     },
     {
       "path": "/blog/pressure-tank-dehesa.html",
-      "rating": "okay",
-      "wordCount": 576,
+      "rating": "good",
+      "wordCount": 1942,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/pressure-tank-del-cerro.html",
@@ -46092,14 +46072,12 @@
     },
     {
       "path": "/blog/pressure-tank-devore.html",
-      "rating": "okay",
-      "wordCount": 576,
+      "rating": "good",
+      "wordCount": 2425,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/pressure-tank-dulzura.html",
@@ -46301,14 +46279,12 @@
     },
     {
       "path": "/blog/pressure-tank-fontana.html",
-      "rating": "okay",
-      "wordCount": 576,
+      "rating": "good",
+      "wordCount": 2998,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/pressure-tank-forest-falls.html",
@@ -89677,14 +89653,12 @@
     },
     {
       "path": "/blog/well-service-bonsall.html",
-      "rating": "okay",
-      "wordCount": 460,
+      "rating": "good",
+      "wordCount": 2533,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/well-service-borrego-springs.html",
@@ -89708,25 +89682,21 @@
     },
     {
       "path": "/blog/well-service-cabazon.html",
-      "rating": "okay",
-      "wordCount": 460,
+      "rating": "good",
+      "wordCount": 1973,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/well-service-calimesa.html",
-      "rating": "okay",
-      "wordCount": 460,
+      "rating": "good",
+      "wordCount": 1988,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/well-service-campo.html",
@@ -89937,14 +89907,12 @@
     },
     {
       "path": "/blog/well-service-descanso.html",
-      "rating": "okay",
-      "wordCount": 460,
+      "rating": "good",
+      "wordCount": 2555,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/well-service-desert-hot-springs.html",
@@ -89959,14 +89927,12 @@
     },
     {
       "path": "/blog/well-service-dulzura.html",
-      "rating": "okay",
-      "wordCount": 459,
+      "rating": "good",
+      "wordCount": 2537,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/well-service-eastlake.html",
@@ -90068,14 +90034,12 @@
     },
     {
       "path": "/blog/well-service-guatay.html",
-      "rating": "okay",
-      "wordCount": 460,
+      "rating": "good",
+      "wordCount": 3000,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/well-service-hemet.html",
@@ -91084,14 +91048,12 @@
     },
     {
       "path": "/blog/well-service-tecate.html",
-      "rating": "okay",
-      "wordCount": 459,
+      "rating": "good",
+      "wordCount": 1990,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/well-service-temecula.html",
@@ -91205,14 +91167,12 @@
     },
     {
       "path": "/blog/well-service-winchester.html",
-      "rating": "okay",
-      "wordCount": 458,
+      "rating": "good",
+      "wordCount": 2224,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/well-service-wrightwood.html",
