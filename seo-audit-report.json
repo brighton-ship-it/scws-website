@@ -1,16 +1,16 @@
 {
-  "date": "2026-05-27T16:05:52.773Z",
+  "date": "2026-05-28T16:24:07.307Z",
   "summary": {
     "scanned": 9147,
     "noindexed": 514,
     "indexed": 8633,
     "critical": 0,
-    "warnings": 7828,
-    "clean": 805
+    "warnings": 7814,
+    "clean": 819
   },
   "issueCounts": {},
   "warningCounts": {
-    "LOW_CONTENT": 7801,
+    "LOW_CONTENT": 7787,
     "SHORT_TITLE": 5,
     "FEW_INTERNAL_LINKS": 1,
     "SHORT_DESC": 189,
@@ -219,8 +219,8 @@
   },
   "content": {
     "thin": 0,
-    "low": 7801,
-    "good": 832
+    "low": 7787,
+    "good": 846
   },
   "pages": [
     {
@@ -10953,25 +10953,21 @@
     },
     {
       "path": "/blog/booster-pump-big-bear.html",
-      "rating": "okay",
-      "wordCount": 740,
+      "rating": "good",
+      "wordCount": 3332,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/booster-pump-bird-rock.html",
-      "rating": "okay",
-      "wordCount": 592,
+      "rating": "good",
+      "wordCount": 2719,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/booster-pump-birdland.html",
@@ -11006,14 +11002,12 @@
     },
     {
       "path": "/blog/booster-pump-blue-jay.html",
-      "rating": "okay",
-      "wordCount": 592,
+      "rating": "good",
+      "wordCount": 2384,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/booster-pump-blythe.html",
@@ -11202,25 +11196,21 @@
     },
     {
       "path": "/blog/booster-pump-cedar-glen.html",
-      "rating": "okay",
-      "wordCount": 592,
+      "rating": "good",
+      "wordCount": 2271,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/booster-pump-cedarpines-park.html",
-      "rating": "okay",
-      "wordCount": 592,
+      "rating": "good",
+      "wordCount": 2477,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/booster-pump-cherry-valley.html",
@@ -22710,14 +22700,12 @@
     },
     {
       "path": "/blog/cloudy-water-muscoy.html",
-      "rating": "okay",
-      "wordCount": 540,
+      "rating": "good",
+      "wordCount": 1737,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/cloudy-water-national-city.html",
@@ -22730,14 +22718,12 @@
     },
     {
       "path": "/blog/cloudy-water-navajo.html",
-      "rating": "okay",
-      "wordCount": 540,
+      "rating": "good",
+      "wordCount": 2394,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/cloudy-water-near-me.html",
@@ -22889,14 +22875,12 @@
     },
     {
       "path": "/blog/cloudy-water-oceanside.html",
-      "rating": "okay",
-      "wordCount": 540,
+      "rating": "good",
+      "wordCount": 2101,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/cloudy-water-ocotillo.html",
@@ -46288,14 +46272,12 @@
     },
     {
       "path": "/blog/pressure-tank-forest-falls.html",
-      "rating": "okay",
-      "wordCount": 761,
+      "rating": "good",
+      "wordCount": 2065,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/pressure-tank-french-valley.html",
@@ -53226,14 +53208,12 @@
     },
     {
       "path": "/blog/ranch-well-french-valley.html",
-      "rating": "okay",
-      "wordCount": 545,
+      "rating": "good",
+      "wordCount": 2600,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/ranch-well-garner-valley.html",
@@ -53259,14 +53239,12 @@
     },
     {
       "path": "/blog/ranch-well-glen-avon.html",
-      "rating": "okay",
-      "wordCount": 545,
+      "rating": "good",
+      "wordCount": 2449,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/ranch-well-golden-hill.html",
@@ -90076,14 +90054,12 @@
     },
     {
       "path": "/blog/well-service-homeland.html",
-      "rating": "okay",
-      "wordCount": 460,
+      "rating": "good",
+      "wordCount": 2110,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/well-service-idyllwild.html",
@@ -90121,14 +90097,12 @@
     },
     {
       "path": "/blog/well-service-jamul.html",
-      "rating": "okay",
-      "wordCount": 460,
+      "rating": "good",
+      "wordCount": 2334,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/well-service-joshua-tree.html",
@@ -90420,14 +90394,12 @@
     },
     {
       "path": "/blog/well-service-mountain-center.html",
-      "rating": "okay",
-      "wordCount": 472,
+      "rating": "good",
+      "wordCount": 1785,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/well-service-murrieta.html",
