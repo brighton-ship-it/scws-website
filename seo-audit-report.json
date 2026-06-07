@@ -1,20 +1,20 @@
 {
-  "date": "2026-05-28T16:24:07.307Z",
+  "date": "2026-06-07T12:53:15.429Z",
   "summary": {
     "scanned": 9147,
     "noindexed": 514,
     "indexed": 8633,
     "critical": 0,
-    "warnings": 7814,
-    "clean": 819
+    "warnings": 7803,
+    "clean": 830
   },
   "issueCounts": {},
   "warningCounts": {
-    "LOW_CONTENT": 7787,
+    "LOW_CONTENT": 7772,
     "SHORT_TITLE": 5,
     "FEW_INTERNAL_LINKS": 1,
     "SHORT_DESC": 189,
-    "MULTIPLE_H1": 16,
+    "MULTIPLE_H1": 19,
     "LONG_DESC": 1
   },
   "duplicates": {
@@ -219,8 +219,8 @@
   },
   "content": {
     "thin": 0,
-    "low": 7787,
-    "good": 846
+    "low": 7772,
+    "good": 861
   },
   "pages": [
     {
@@ -11688,14 +11688,12 @@
     },
     {
       "path": "/blog/booster-pump-fontana.html",
-      "rating": "okay",
-      "wordCount": 571,
+      "rating": "good",
+      "wordCount": 2480,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/booster-pump-forest-falls.html",
@@ -43003,12 +43001,12 @@
     {
       "path": "/blog/low-water-pressure-la-costa.html",
       "rating": "okay",
-      "wordCount": 517,
-      "h1Count": 1,
+      "wordCount": 2191,
+      "h1Count": 2,
       "hasSchema": true,
       "issues": [],
       "warnings": [
-        "LOW_CONTENT"
+        "MULTIPLE_H1"
       ]
     },
     {
@@ -44343,12 +44341,12 @@
     {
       "path": "/blog/low-water-pressure-spring-valley.html",
       "rating": "okay",
-      "wordCount": 515,
-      "h1Count": 1,
+      "wordCount": 2216,
+      "h1Count": 2,
       "hasSchema": true,
       "issues": [],
       "warnings": [
-        "LOW_CONTENT"
+        "MULTIPLE_H1"
       ]
     },
     {
@@ -44562,12 +44560,12 @@
     {
       "path": "/blog/low-water-pressure-valley-center.html",
       "rating": "okay",
-      "wordCount": 515,
-      "h1Count": 1,
+      "wordCount": 2556,
+      "h1Count": 2,
       "hasSchema": true,
       "issues": [],
       "warnings": [
-        "LOW_CONTENT"
+        "MULTIPLE_H1"
       ]
     },
     {
@@ -52955,14 +52953,12 @@
     },
     {
       "path": "/blog/ranch-well-desert-edge.html",
-      "rating": "okay",
-      "wordCount": 545,
+      "rating": "good",
+      "wordCount": 2032,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/ranch-well-desert-hot-springs.html",
@@ -52999,14 +52995,12 @@
     },
     {
       "path": "/blog/ranch-well-east-hemet.html",
-      "rating": "okay",
-      "wordCount": 545,
+      "rating": "good",
+      "wordCount": 1823,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/ranch-well-east-otay-mesa.html",
@@ -53217,14 +53211,12 @@
     },
     {
       "path": "/blog/ranch-well-garner-valley.html",
-      "rating": "okay",
-      "wordCount": 545,
+      "rating": "good",
+      "wordCount": 2221,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/ranch-well-garnet.html",
@@ -53435,14 +53427,12 @@
     },
     {
       "path": "/blog/ranch-well-home-gardens.html",
-      "rating": "okay",
-      "wordCount": 545,
+      "rating": "good",
+      "wordCount": 2664,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/ranch-well-homeland.html",
@@ -53721,14 +53711,12 @@
     },
     {
       "path": "/blog/ranch-well-lakeland-village.html",
-      "rating": "okay",
-      "wordCount": 545,
+      "rating": "good",
+      "wordCount": 2724,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/ranch-well-lakeside.html",
@@ -89568,14 +89556,12 @@
     },
     {
       "path": "/blog/well-service-apple-valley.html",
-      "rating": "okay",
-      "wordCount": 472,
+      "rating": "good",
+      "wordCount": 2168,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/well-service-banning.html",
@@ -89620,13 +89606,12 @@
     {
       "path": "/blog/well-service-bonita.html",
       "rating": "okay",
-      "wordCount": 1011,
+      "wordCount": 2128,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
       "warnings": [
-        "SHORT_DESC",
-        "LOW_CONTENT"
+        "SHORT_DESC"
       ]
     },
     {
@@ -90570,14 +90555,12 @@
     },
     {
       "path": "/blog/well-service-pala.html",
-      "rating": "okay",
-      "wordCount": 464,
+      "rating": "good",
+      "wordCount": 2008,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/well-service-palm-desert.html",
@@ -90728,14 +90711,12 @@
     },
     {
       "path": "/blog/well-service-rainbow.html",
-      "rating": "okay",
-      "wordCount": 460,
+      "rating": "good",
+      "wordCount": 2000,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/well-service-ramona.html",
@@ -91106,14 +91087,12 @@
     },
     {
       "path": "/blog/well-service-vista.html",
-      "rating": "okay",
-      "wordCount": 460,
+      "rating": "good",
+      "wordCount": 2164,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/well-service-warner-springs.html",
@@ -91171,14 +91150,12 @@
     },
     {
       "path": "/blog/well-service-yucaipa.html",
-      "rating": "okay",
-      "wordCount": 462,
+      "rating": "good",
+      "wordCount": 2511,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LOW_CONTENT"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/well-service-yucca-valley.html",
