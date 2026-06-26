@@ -5,7 +5,7 @@
 <script src="/js/ga4-filter.js"></script>
 <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-5LL1YRWT5T"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-5LL1YRWT5T');</script>
-    <script src="/js/call-tracking.js"></script>
+<script src="/js/call-tracking.js"></script>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
 
@@ -28,27 +28,28 @@
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Why is my well water pressure low in East Hemet?", "acceptedAnswer": {"@type": "Answer", "text": "In East Hemet, low pressure usually traces to mineral scale from hard San Jacinto Valley groundwater clogging the pump and pipes, a pressure tank that has lost its air charge, a worn pump, low aquifer yield during drought, or sediment and iron bacteria from alluvial soils. A diagnostic isolates the exact cause."}}, {"@type": "Question", "name": "What is a normal pressure setting for an East Hemet well?", "acceptedAnswer": {"@type": "Answer", "text": "Most homes run a 40/60 PSI pressure switch (pump on at 40, off at 60); some older systems use 30/50. The pressure tank's air charge should sit about 2 PSI below the cut-in. Household pressure below 30 PSI signals a problem."}}, {"@type": "Question", "name": "How deep are wells in East Hemet?", "acceptedAnswer": {"@type": "Answer", "text": "Wells in East Hemet and the San Jacinto Valley commonly range from about 200 to 500 feet, tapping confined aquifers beneath clay layers in the alluvial fan. Valley-floor wells are shallower than hillside wells against the San Jacinto Mountains, and drought lowers recharge and yield."}}, {"@type": "Question", "name": "Can I fix low water pressure myself?", "acceptedAnswer": {"@type": "Answer", "text": "You can safely check the pressure gauge, confirm the switch has not tripped, test the tank's air charge with a tire gauge, and swap a clogged sediment filter. Anything involving the pump, casing, or wiring should be left to a licensed C-57 contractor."}}, {"@type": "Question", "name": "How much does it cost to fix low water pressure in East Hemet?", "acceptedAnswer": {"@type": "Answer", "text": "A pressure switch runs $150 to $350, a pressure tank $600 to $1,500, a submersible pump $2,500 to $5,500, sediment filtration $300 to $900, a softener for hard water $1,500 to $3,500, a constant-pressure or booster system $2,000 to $4,500, and hydrofracturing to improve yield $3,000 to $8,000. We start with a $125 diagnostic credited toward the repair."}}, {"@type": "Question", "name": "Do you offer same-day service in East Hemet?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. From our Ramona and Anza offices we provide same-day emergency response to East Hemet, Valle Vista, and the wider San Jacinto Valley in Riverside County. Call (760) 440-8520 or text (619) 259-0410."}}]}
+</script>
 </head>
 <body class="pb-20 lg:pb-0 bg-white">
     <!-- Emergency Banner -->
     <div class="bg-gradient-to-r from-red-600 to-red-700 text-white py-2.5">
         <div class="max-w-7xl mx-auto px-4 text-center flex items-center justify-center gap-2 flex-wrap">
-            <span class="font-bold tracking-wide">🚨 No Water?</span>
+            <span class="font-bold tracking-wide"> No Water?</span>
             <span class="hidden sm:inline">Same-day emergency service available.</span>
             <a onclick="gtag('event','click_to_call',{'event_category':'CTA','event_label':document.title})" href="tel:7604408520" class="bg-white text-red-600 font-bold px-4 py-1 rounded-full text-sm hover:bg-red-100 transition ml-1">
-                Call Now →
+                Call Now
             </a>
         </div>
     </div>
 
-    <!-- Header (sticky) -->
     <header class="bg-primary text-white sticky top-0 z-50 shadow-lg">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center py-4">
                 <a href="../" class="flex items-center space-x-3 shrink-0">
                     <img width="840" height="150" loading="lazy" src="../images/logo-text-only-3x.png" alt="Southern California Well Service" class="h-10 lg:h-12 w-auto">
                 </a>
-                <!-- Desktop Navigation -->
                 <nav class="hidden lg:flex space-x-4 items-center">
                     <a href="../#services" class="text-white hover:text-accent transition whitespace-nowrap">Services</a>
                     <a href="../#areas" class="text-white hover:text-accent transition whitespace-nowrap">Service Areas</a>
@@ -59,7 +60,6 @@
                     <a href="../pages/about.html" class="text-white hover:text-accent transition whitespace-nowrap">About</a>
                 </nav>
                 <div class="flex items-center gap-3">
-                    <!-- Mobile Menu Button -->
                     <button id="mobile-menu-btn" class="lg:hidden p-2 hover:bg-white/10 rounded-lg transition" aria-label="Toggle menu">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
@@ -71,7 +71,6 @@
                 </div>
             </div>
         </div>
-        <!-- Mobile Navigation Menu -->
         <div id="mobile-menu" class="hidden lg:hidden bg-primary/95 border-t border-white/10">
             <nav class="max-w-7xl mx-auto px-4 py-4 flex flex-col space-y-3">
                 <a href="../#services" class="hover:text-accent transition py-2">Services</a>
@@ -84,204 +83,125 @@
             </nav>
         </div>
     </header>
-    <script>
-        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
-            document.getElementById('mobile-menu').classList.toggle('hidden');
-        });
-    </script>
 
     <main class="max-w-4xl mx-auto px-4 py-12">
-<nav class="text-sm text-gray-500 mb-4 max-w-4xl mx-auto px-4"><a href="/" class="hover:text-accent">Home</a> › <a href="/blog/" class="hover:text-accent">Resources</a> › <span class="text-gray-700">Low Water Pressure Solutions in East Hemet</span></nav>
+<nav class="text-sm text-gray-500 mb-4 max-w-4xl mx-auto px-4"><a href="/" class="hover:text-accent">Home</a> / <a href="/blog/" class="hover:text-accent">Resources</a> / <span class="text-gray-700">Low Water Pressure Solutions in East Hemet</span></nav>
 
 <article>
 <h1 class="text-4xl font-bold text-gray-900 mb-6">Low Water Pressure Solutions in East Hemet</h1>
 <p class="text-xl text-gray-600 mb-8">Dealing with weak water pressure in East Hemet? Low water pressure can make showers frustrating and appliances ineffective. Our team diagnoses the root cause and restores your water pressure fast.</p>
-<details class="bg-gray-50 rounded-xl p-4 my-6 border border-gray-200" id="table-of-contents">
-<summary class="font-bold text-primary text-base cursor-pointer select-none">📋 In This Guide</summary>
-<ul class="space-y-1 mt-3 text-sm">
-<li><a class="text-accent hover:text-green-700 font-medium" href="#need-low-water-pressure-solutions-in-east-hemet">Need Low Water Pressure Solutions in East Hemet?</a></li>
-<li><a class="text-accent hover:text-green-700 font-medium" href="#our-low-water-pressure-solutions-services">Our Low Water Pressure Solutions Services</a></li>
-<li><a class="text-accent hover:text-green-700 font-medium" href="#why-east-hemet-chooses-scws">Why East Hemet Chooses SCWS</a></li>
-<li><a class="text-accent hover:text-green-700 font-medium" href="#our-locations">Our Locations</a></li>
-</ul>
-</details>
-
-
-
-<div class="bg-blue-50 border-l-4 border-blue-600 p-6 mb-8 rounded-r-lg">
-<h2 class="text-xl font-semibold text-blue-900 mb-2" id="need-low-water-pressure-solutions-in-east-hemet">Need Low Water Pressure Solutions in East Hemet?</h2>
-<p class="text-blue-800 mb-4">We serve East Hemet and all of Riverside County. Licensed C-57 contractor with 30+ years experience.</p>
-<a class="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition" href="tel:+17604408520">Call: (760) 440-8520</a>
-</div>
-<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4" id="our-low-water-pressure-solutions-services">Our Low Water Pressure Solutions Services</h2>
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">Our Low Water Pressure Solutions Services</h2>
 <ul class="list-disc pl-6 mb-6 text-gray-700 space-y-2">
 <li>Pressure tank repair and replacement</li>
 <li>Pressure switch adjustment</li>
 <li>Pump upgrades for better pressure</li>
 <li>Constant pressure systems</li>
-<li>Booster pump installation</li>
 <li>Clogged pipe diagnosis</li>
-<li>Well yield testing</li>
-<li>Complete system evaluation</li>
 </ul>
-<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4" id="why-east-hemet-chooses-scws">Why East Hemet Chooses SCWS</h2>
-<div class="grid md:grid-cols-2 gap-6 mb-8">
-<div class="bg-gray-50 p-5 rounded-lg">
-<h3 class="font-semibold text-gray-900 mb-2">✓ Local Expertise</h3>
-<p class="text-gray-600">We know Riverside County geology and wells</p>
-</div>
-<div class="bg-gray-50 p-5 rounded-lg">
-<h3 class="font-semibold text-gray-900 mb-2">✓ Fast Response</h3>
-<p class="text-gray-600">Same-day service for East Hemet</p>
-</div>
-<div class="bg-gray-50 p-5 rounded-lg">
-<h3 class="font-semibold text-gray-900 mb-2">✓ Fair Pricing</h3>
-<p class="text-gray-600">Honest quotes, no surprises</p>
-</div>
-<div class="bg-gray-50 p-5 rounded-lg">
-<h3 class="font-semibold text-gray-900 mb-2">✓ Quality Work</h3>
-<p class="text-gray-600">4.9★ rating, hundreds of reviews</p>
-</div>
-</div>
-<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4" id="our-locations">Our Locations</h2>
-<div class="grid md:grid-cols-2 gap-6 mb-8">
-<div class="bg-gray-50 p-6 rounded-lg">
-<h3 class="text-xl font-semibold mb-3">📍 Ramona Office</h3>
-<p class="mb-2">1077 Main St<br/>Ramona, CA 92065</p>
-<p><a class="text-blue-600 hover:underline" href="tel:+17604408520">(760) 440-8520</a></p>
-</div>
-<div class="bg-gray-50 p-6 rounded-lg">
-<h3 class="text-xl font-semibold mb-3">📍 Anza Office</h3>
-<p class="mb-2">57174 US Highway 79<br/>Anza, CA 92539</p>
-<p><a class="text-blue-600 hover:underline" href="tel:+17604408520">(760) 440-8520</a></p>
-</div>
-</div>
-<div class="bg-blue-600 text-white p-6 rounded-lg text-center">
-<h3 class="text-2xl font-bold mb-2">Get a Free Estimate</h3>
-<p class="mb-4">Call now for low water pressure solutions in East Hemet</p>
-<a class="inline-block bg-white text-blue-600 px-8 py-3 rounded-lg font-bold text-lg hover:bg-blue-50 transition" href="tel:+17604408520">(760) 440-8520</a>
-</div>
-
-<!-- Related Articles -->
 <section class="py-16 bg-gray-50">
     <div class="max-w-4xl mx-auto px-4">
-        <div class="text-center mb-10">
-            <h2 id="related-articles" class="text-3xl font-bold text-primary mb-2">Related Articles</h2>
-            <p class="text-gray-600">Continue learning about well maintenance and troubleshooting</p>
-        </div>
+        <h2 id="related-articles" class="text-3xl font-bold text-primary mb-2">Related Articles</h2>
         <div class="grid md:grid-cols-3 gap-6">
-            <a href="low-water-pressure-well.html" class="group bg-white rounded-xl shadow-md hover:shadow-xl transition overflow-hidden">
-                    <div class="h-40 overflow-hidden">
-                        <img width="800" height="600" loading="lazy" src="/assets/images/blog-categories/troubleshooting.png" alt="Low Water Pressure From Well: Complete Fix Guide" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
-                    </div>
-                    <div class="p-5">
-                        <span class="text-xs font-semibold text-orange-600 uppercase tracking-wide">Pressure Issues</span>
-                        <h3 class="font-bold text-lg text-primary mt-1 mb-2 group-hover:text-accent transition">Low Water Pressure From Well: Complete Fix Guide</h3>
-                        <p class="text-gray-600 text-sm">Diagnose and solve low pressure problems</p>
-                    </div>
-                </a>
-                <a href="well-pressure-switch-guide.html" class="group bg-white rounded-xl shadow-md hover:shadow-xl transition overflow-hidden">
-                    <div class="h-40 overflow-hidden">
-                        <img width="800" height="600" loading="lazy" src="/assets/images/blog-images/well-service-4.png" alt="Well Pressure Switch: Settings, Adjustment & Replacement" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
-                    </div>
-                    <div class="p-5">
-                        <span class="text-xs font-semibold text-orange-600 uppercase tracking-wide">Pressure Issues</span>
-                        <h3 class="font-bold text-lg text-primary mt-1 mb-2 group-hover:text-accent transition">Well Pressure Switch: Settings, Adjustment & Replacement</h3>
-                        <p class="text-gray-600 text-sm">Everything about pressure switches</p>
-                    </div>
-                </a>
-                <a href="pressure-tank-maintenance-guide.html" class="group bg-white rounded-xl shadow-md hover:shadow-xl transition overflow-hidden">
-                    <div class="h-40 overflow-hidden">
-                        <img width="800" height="600" loading="lazy" src="/assets/images/blog-images/pressure-tank-1.png" alt="Pressure Tank Maintenance: Complete Guide" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
-                    </div>
-                    <div class="p-5">
-                        <span class="text-xs font-semibold text-orange-600 uppercase tracking-wide">Pressure Issues</span>
-                        <h3 class="font-bold text-lg text-primary mt-1 mb-2 group-hover:text-accent transition">Pressure Tank Maintenance: Complete Guide</h3>
-                        <p class="text-gray-600 text-sm">Keep your pressure tank working properly</p>
-                    </div>
-                </a>
+            <a href="low-water-pressure-well.html" class="group bg-white rounded-xl shadow-md"><div class="p-5"><h3 class="font-bold text-lg text-primary">Low Water Pressure From Well: Complete Fix Guide</h3><p class="text-gray-600 text-sm">Diagnose and solve low pressure problems</p></div></a>
+            <a href="well-pressure-switch-guide.html" class="group bg-white rounded-xl shadow-md"><div class="p-5"><h3 class="font-bold text-lg text-primary">Well Pressure Switch Guide</h3><p class="text-gray-600 text-sm">Everything about pressure switches</p></div></a>
+            <a href="pressure-tank-maintenance-guide.html" class="group bg-white rounded-xl shadow-md"><div class="p-5"><h3 class="font-bold text-lg text-primary">Pressure Tank Maintenance Guide</h3><p class="text-gray-600 text-sm">Keep your pressure tank working</p></div></a>
         </div>
     </div>
 </section>
 <!-- EXPANDED -->
 
 <h2>Low Water Pressure Solutions for East Hemet Properties</h2>
-<p>As an East Hemet property owner with a private well, you rely on your water system daily. Located in the eastern part of Hemet within Riverside County’s San Jacinto Valley, East Hemet’s unique geography and geology present specific challenges for well owners. The region’s terrain, characterized by alluvial deposits and proximity to the San Jacinto Mountains, combined with Southern California’s arid climate, creates conditions that require experienced, local technicians who understand the area’s distinct water systems.</p>
+<p>As an East Hemet property owner with a private well, you rely on your water system daily. Located in the eastern part of Hemet within Riverside County's San Jacinto Valley, East Hemet's unique geography and geology present specific challenges for well owners. The region's terrain, characterized by alluvial deposits and proximity to the San Jacinto Mountains, combined with Southern California's arid climate, creates conditions that require experienced, local technicians who understand the area's distinct water systems.</p>
 
 <h3>Why Local Expertise Matters in East Hemet</h3>
-<p>Generic well companies from outside the area often lack insight into Riverside County’s diverse terrain, especially in the San Jacinto Valley. Well depths, water tables, and geological formations vary significantly even within a few miles. In East Hemet, the mix of sandy loam soils and underlying gravel beds impacts how water flows into wells. A technician familiar with these specific conditions can diagnose low water pressure issues faster and recommend the right solutions the first time, saving you time and money.</p>
+<p>Generic well companies from outside the area often lack insight into Riverside County's diverse terrain, especially in the San Jacinto Valley. Well depths, water tables, and geological formations vary significantly even within a few miles. In East Hemet, the mix of sandy loam soils and underlying gravel beds impacts how water flows into wells. A technician familiar with these specific conditions can diagnose low water pressure issues faster and recommend the right solutions the first time, saving you time and money.</p>
 
 <h3>What Sets Southern California Well Service Apart</h3>
 <ul>
-<li><strong>Local Presence</strong> — With two offices in Ramona and Anza, we provide faster response times to East Hemet residents.</li>
-<li><strong>Full-Service Expertise</strong> — We handle everything from well drilling to pump repair to water treatment, offering comprehensive solutions.</li>
-<li><strong>Licensed C-57 Contractor</strong> — As a properly licensed well drilling contractor (CSLB #1086994), we’re equipped to address complex well issues, not just basic plumbing.</li>
-<li><strong>Fair Pricing</strong> — We provide honest assessments and avoid upselling unnecessary services, ensuring transparency.</li>
-<li><strong>Emergency Service</strong> — We offer same-day response for critical situations like complete loss of water.</li>
+<li><strong>Local Presence</strong> - With two offices in Ramona and Anza, we provide faster response times to East Hemet residents.</li>
+<li><strong>Full-Service Expertise</strong> - We handle everything from well drilling to pump repair to water treatment, offering comprehensive solutions.</li>
+<li><strong>Licensed C-57 Contractor</strong> - As a properly licensed well drilling contractor, we're equipped to address complex well issues, not just basic plumbing.</li>
+<li><strong>Fair Pricing</strong> - We provide honest assessments and avoid upselling unnecessary services, ensuring transparency.</li>
+<li><strong>Emergency Service</strong> - We offer same-day response for critical situations like complete loss of water.</li>
 </ul>
 
 <h3>Understanding Low Water Pressure in East Hemet: Local Geology</h3>
-<p>East Hemet sits in the San Jacinto Valley, a region shaped by tectonic activity and sediment deposition from the surrounding San Jacinto and Santa Rosa Mountains. The area’s geology includes layers of alluvial fan deposits—mixtures of sand, gravel, and silt—that influence groundwater availability. While these deposits can hold significant water, they are often interspersed with clay lenses that restrict flow to wells. Additionally, the region’s proximity to fault lines, including the San Jacinto Fault, can affect underground aquifers, sometimes causing shifts in water tables or fracturing rock formations that supply wells.</p>
+<p>East Hemet sits in the San Jacinto Valley, a region shaped by tectonic activity and sediment deposition from the surrounding San Jacinto and Santa Rosa Mountains. The area's geology includes layers of alluvial fan deposits, mixtures of sand, gravel, and silt, that influence groundwater availability. While these deposits can hold significant water, they are often interspersed with clay lenses that restrict flow to wells. Additionally, the region's proximity to fault lines, including the San Jacinto Fault, can affect underground aquifers, sometimes causing shifts in water tables or fracturing rock formations that supply wells.</p>
 <p>This geological complexity means that wells in East Hemet often range from 200 to 500 feet deep, tapping into confined aquifers beneath impermeable layers. During drought periods, common in Southern California, recharge rates for these aquifers drop, leading to reduced well yield and subsequent low water pressure. Seasonal fluctuations are also notable, with summer months straining water supplies as demand for irrigation increases in this semi-rural community.</p>
 
 <h3>Common Causes of Low Water Pressure in East Hemet</h3>
-<p>Based on over 30 years of service in Riverside County, we’ve identified several frequent causes of low water pressure specific to East Hemet properties:</p>
+<p>Based on over 30 years of service in Riverside County, we've identified several frequent causes of low water pressure specific to East Hemet properties:</p>
 <ul>
-<li><strong>Pump Failures Due to Hard Water</strong> — The groundwater in East Hemet often has high mineral content, including calcium and magnesium, leading to scale buildup on pump components. Over time, this reduces pump efficiency and output pressure.</li>
-<li><strong>Pressure Tank Issues</strong> — Mineral-rich water can corrode pressure tanks or clog diaphragms, disrupting the tank’s ability to maintain consistent pressure. Older tanks may also lose air charge, causing short cycling and pressure drops.</li>
-<li><strong>Low Well Yield During Droughts</strong> — Southern California’s dry climate, combined with East Hemet’s reliance on groundwater, often results in diminished aquifer levels during prolonged dry spells, directly impacting water pressure.</li>
-<li><strong>Clogged Pipes and Filters</strong> — Sediment from alluvial deposits can infiltrate well casings, accumulating in pipes or filters and restricting water flow. Iron bacteria, common in the region, can also form biofilms that obstruct systems.</li>
-<li><strong>Electrical Issues in Rural Areas</strong> — Power fluctuations, frequent in less urbanized parts of East Hemet, can affect pump performance, leading to inconsistent pressure or complete system shutdowns.</li>
-<li><strong>Leaking or Undersized Distribution Lines</strong> — Aging infrastructure or improperly sized pipes on East Hemet properties can cause pressure loss between the well and your home or irrigation system.</li>
+<li><strong>Pump Failures Due to Hard Water</strong> - The groundwater in East Hemet often has high mineral content, including calcium and magnesium, leading to scale buildup on pump components. Over time, this reduces pump efficiency and output pressure.</li>
+<li><strong>Pressure Tank Issues</strong> - Mineral-rich water can corrode pressure tanks or clog diaphragms, disrupting the tank's ability to maintain consistent pressure. Older tanks may also lose air charge, causing short cycling and pressure drops.</li>
+<li><strong>Low Well Yield During Droughts</strong> - Southern California's dry climate, combined with East Hemet's reliance on groundwater, often results in diminished aquifer levels during prolonged dry spells, directly impacting water pressure.</li>
+<li><strong>Clogged Pipes and Filters</strong> - Sediment from alluvial deposits can infiltrate well casings, accumulating in pipes or filters and restricting water flow. Iron bacteria, common in the region, can also form biofilms that obstruct systems.</li>
+<li><strong>Electrical Issues in Rural Areas</strong> - Power fluctuations, frequent in less urbanized parts of East Hemet, can affect pump performance, leading to inconsistent pressure or complete system shutdowns.</li>
+<li><strong>Leaking or Undersized Distribution Lines</strong> - Aging infrastructure or improperly sized pipes on East Hemet properties can cause pressure loss between the well and your home or irrigation system.</li>
 </ul>
 
 <h3>Diagnosing Low Water Pressure in East Hemet</h3>
 <p>At Southern California Well Service, we use a systematic approach to pinpoint the cause of low water pressure in East Hemet homes and businesses. Our diagnostic process includes:</p>
 <ol>
-<li><strong>Pressure Testing</strong> — We measure pressure at multiple points (wellhead, pressure tank, and household taps) to identify where losses occur. Normal household pressure should range between 40-60 PSI; anything below 30 PSI indicates a problem.</li>
-<li><strong>Flow Rate Assessment</strong> — We test the well’s yield in gallons per minute (GPM) to determine if aquifer depletion or pump issues are limiting supply. East Hemet wells typically yield 5-15 GPM, though drought can reduce this significantly.</li>
-<li><strong>Pump Inspection</strong> — We check for wear, mineral buildup, or electrical faults in submersible or jet pumps. Voltage and amperage readings help detect motor issues.</li>
-<li><strong>Pressure Tank Evaluation</strong> — We inspect for waterlogging (loss of air charge), corrosion, or diaphragm failures. A properly functioning tank should maintain pressure without constant pump cycling.</li>
-<li><strong>Water Quality Analysis</strong> — Since sediment and minerals are common in East Hemet, we test for particulates or bacteria that could clog systems. High iron levels, for instance, often correlate with flow restrictions.</li>
-<li><strong>Pipe and Filter Checks</strong> — We examine distribution lines and inline filters for blockages or leaks, using video inspection tools for underground sections if needed.</li>
+<li><strong>Pressure Testing</strong> - We measure pressure at multiple points (wellhead, pressure tank, and household taps) to identify where losses occur. Normal household pressure should range between 40-60 PSI; anything below 30 PSI indicates a problem.</li>
+<li><strong>Flow Rate Assessment</strong> - We test the well's yield in gallons per minute (GPM) to determine if aquifer depletion or pump issues are limiting supply. East Hemet wells typically yield 5-15 GPM, though drought can reduce this significantly.</li>
+<li><strong>Pump Inspection</strong> - We check for wear, mineral buildup, or electrical faults in submersible or jet pumps. Voltage and amperage readings help detect motor issues.</li>
+<li><strong>Pressure Tank Evaluation</strong> - We inspect for waterlogging (loss of air charge), corrosion, or diaphragm failures. A properly functioning tank should maintain pressure without constant pump cycling.</li>
+<li><strong>Water Quality Analysis</strong> - Since sediment and minerals are common in East Hemet, we test for particulates or bacteria that could clog systems. High iron levels, for instance, often correlate with flow restrictions.</li>
+<li><strong>Pipe and Filter Checks</strong> - We examine distribution lines and inline filters for blockages or leaks, using video inspection tools for underground sections if needed.</li>
 </ol>
-<p>This comprehensive diagnosis, tailored to East Hemet’s conditions, ensures we address the root cause rather than applying temporary fixes.</p>
+<p>This comprehensive diagnosis, tailored to East Hemet's conditions, ensures we address the root cause rather than applying temporary fixes.</p>
 
 <h3>Solutions for Low Water Pressure in East Hemet (With Costs)</h3>
-<p>Once we’ve identified the issue, we offer targeted solutions based on your system’s needs. Here are common fixes for East Hemet wells, along with estimated costs (as of 2026, subject to change based on equipment and labor rates):</p>
+<p>Once we've identified the issue, we offer targeted solutions based on your system's needs. Here are common fixes for East Hemet wells, along with estimated costs (as of 2026, subject to change based on equipment and labor rates):</p>
 <ul>
-<li><strong>Pump Repair or Replacement</strong> — Cleaning mineral buildup or replacing impellers can restore pump output. Minor repairs cost $300-$600, while a new submersible pump (common for East Hemet’s deeper wells) ranges from $1,200-$2,500, including installation.</li>
-<li><strong>Pressure Tank Replacement</strong> — If the tank is waterlogged or corroded, replacement with a 20-40 gallon model costs $500-$1,000. We recommend composite tanks for East Hemet’s hard water, as they resist corrosion better than steel.</li>
-<li><strong>Booster Pump Installation</strong> — For properties with adequate well yield but pressure loss over distance, a booster pump can increase household PSI. Installation costs $800-$1,500, depending on capacity.</li>
-<li><strong>Constant Pressure System</strong> — These systems use variable frequency drive (VFD) technology to maintain steady pressure regardless of demand—ideal for larger East Hemet properties with irrigation needs. Expect costs between $2,000-$4,000.</li>
-<li><strong>Pipe Cleaning or Replacement</strong> — Flushing sediment from lines or replacing clogged sections costs $200-$800, depending on length and accessibility. Severe cases may require new distribution lines at $1,500-$3,000.</li>
-<li><strong>Water Treatment for Sediment and Minerals</strong> — Installing a sediment filter or water softener prevents future clogs. Basic systems start at $500-$1,200, with ongoing maintenance around $100-$200 annually.</li>
-<li><strong>Well Rehabilitation</strong> — For low-yield wells affected by drought or casing issues, techniques like hydrofracking or deepening can restore flow. Costs range widely from $3,000-$10,000+, depending on depth and geology.</li>
+<li><strong>Pump Repair or Replacement</strong> - Cleaning mineral buildup or replacing impellers can restore pump output. Minor repairs cost $300-$600, while a new submersible pump ranges from $1,200-$2,500, including installation.</li>
+<li><strong>Pressure Tank Replacement</strong> - If the tank is waterlogged or corroded, replacement with a 20-40 gallon model costs $500-$1,000. We recommend composite tanks for East Hemet's hard water, as they resist corrosion better than steel.</li>
+<li><strong>Booster Pump Installation</strong> - For properties with adequate well yield but pressure loss over distance, a booster pump can increase household PSI. Installation costs $800-$1,500, depending on capacity.</li>
+<li><strong>Constant Pressure System</strong> - These systems use variable frequency drive (VFD) technology to maintain steady pressure regardless of demand, ideal for larger East Hemet properties with irrigation needs. Expect costs between $2,000-$4,000.</li>
+<li><strong>Pipe Cleaning or Replacement</strong> - Flushing sediment from lines or replacing clogged sections costs $200-$800, depending on length and accessibility. Severe cases may require new distribution lines at $1,500-$3,000.</li>
+<li><strong>Water Treatment for Sediment and Minerals</strong> - Installing a sediment filter or water softener prevents future clogs. Basic systems start at $500-$1,200, with ongoing maintenance around $100-$200 annually.</li>
+<li><strong>Well Rehabilitation</strong> - For low-yield wells affected by drought or casing issues, techniques like hydrofracking or deepening can restore flow. Costs range widely from $3,000-$10,000+, depending on depth and geology.</li>
 </ul>
 <p>We provide detailed quotes after diagnosis, ensuring you understand the scope and cost before work begins. Financing options are available for larger projects.</p>
 
 <h3>Maintenance Tips to Prevent Low Water Pressure in East Hemet</h3>
-<p>Preventive care can extend the life of your well system and minimize pressure issues. Given East Hemet’s environmental factors, we recommend the following:</p>
+<p>Preventive care can extend the life of your well system and minimize pressure issues. Given East Hemet's environmental factors, we recommend the following:</p>
 <ul>
-<li><strong>Annual System Inspections</strong> — Schedule a professional check of your pump, tank, and pressure switch every 12-18 months to catch issues early. Cost: $150-$300 per visit.</li>
-<li><strong>Monitor Pressure Tank Air Charge</strong> — Check the tank’s air pressure (when water is off) using a tire gauge monthly. It should match the pump’s cut-in pressure (usually 2 PSI below). Adjust as needed or call us for assistance.</li>
-<li><strong>Flush Sediment Regularly</strong> — Open outdoor spigots or drain valves near the tank every 3-6 months to clear accumulated sediment from alluvial deposits. Be cautious of water waste during droughts.</li>
-<li><strong>Test Water Quality</strong> — Conduct annual tests for minerals, bacteria, and pH to address issues like iron buildup before they clog systems. DIY kits cost $20-$50, or we can perform lab tests for $100-$200.</li>
-<li><strong>Conserve During Dry Seasons</strong> — Reduce irrigation and non-essential use during summer to lessen strain on your well. Consider drip systems for East Hemet gardens to minimize demand.</li>
-<li><strong>Protect Electrical Components</strong> — Use surge protectors on pump controls to guard against power fluctuations common in rural East Hemet, preventing motor burnout.</li>
+<li><strong>Annual System Inspections</strong> - Schedule a professional check of your pump, tank, and pressure switch every 12-18 months to catch issues early. Cost: $150-$300 per visit.</li>
+<li><strong>Monitor Pressure Tank Air Charge</strong> - Check the tank's air pressure (when water is off) using a tire gauge monthly. It should match the pump's cut-in pressure. Adjust as needed or call us for assistance.</li>
+<li><strong>Flush Sediment Regularly</strong> - Open outdoor spigots or drain valves near the tank every 3-6 months to clear accumulated sediment from alluvial deposits. Be cautious of water waste during droughts.</li>
+<li><strong>Test Water Quality</strong> - Conduct annual tests for minerals, bacteria, and pH to address issues like iron buildup before they clog systems. DIY kits cost $20-$50, or we can perform lab tests for $100-$200.</li>
+<li><strong>Conserve During Dry Seasons</strong> - Reduce irrigation and non-essential use during summer to lessen strain on your well. Consider drip systems for East Hemet gardens to minimize demand.</li>
+<li><strong>Protect Electrical Components</strong> - Use surge protectors on pump controls to guard against power fluctuations common in rural East Hemet, preventing motor burnout.</li>
 </ul>
 
 <h3>When to Call a Professional in East Hemet</h3>
-<p>While some maintenance tasks can be DIY, certain signs indicate it’s time to call Southern California Well Service for expert help:</p>
+<p>While some maintenance tasks can be DIY, certain signs indicate it's time to call Southern California Well Service for expert help:</p>
 <ul>
-<li><strong>No Water or Severe Pressure Loss</strong> — If taps run dry or pressure drops below usable levels (under 20 PSI), immediate intervention is needed to avoid pump damage.</li>
-<li><strong>Frequent Pump Cycling</strong> — Rapid on-off cycles suggest pressure tank or switch issues that require technical adjustment.</li>
-<li><strong>Visible Sediment or Discoloration</strong> — Brown water or gritty residue points to well or pipe problems that need professional cleaning or treatment.</li>
-<li><strong>Unusual Noises from Pump</strong> — Grinding, humming, or cavitation sounds indicate mechanical failure or air in the system, risking total breakdown if ignored.</li>
-<li><strong>Spike in Electric Bills</strong> — A sudden increase may mean your pump is overworking due to clogs or low yield, requiring diagnostic tools to assess.</li>
-<li><strong>Persistent Issues After DIY Fixes</strong> — If adjusting the pressure switch or bleeding air doesn’t resolve pressure problems, deeper system faults likely exist.</li>
+<li><strong>No Water or Severe Pressure Loss</strong> - If taps run dry or pressure drops below usable levels (under 20 PSI), immediate intervention is needed to avoid pump damage.</li>
+<li><strong>Frequent Pump Cycling</strong> - Rapid on-off cycles suggest pressure tank or switch issues that require technical adjustment.</li>
+<li><strong>Visible Sediment or Discoloration</strong> - Brown water or gritty residue points to well or pipe problems that need professional cleaning or treatment.</li>
+<li><strong>Unusual Noises from Pump</strong> - Grinding, humming, or cavitation sounds indicate mechanical failure or air in the system, risking total breakdown if ignored.</li>
+<li><strong>Spike in Electric Bills</strong> - A sudden increase may mean your pump is overworking due to clogs or low yield, requiring diagnostic tools to assess.</li>
+<li><strong>Persistent Issues After DIY Fixes</strong> - If adjusting the pressure switch or bleeding air doesn't resolve pressure problems, deeper system faults likely exist.</li>
 </ul>
-<p>With over 30 years of experience and a 4.9-star rating, Southern California Well Service is ready to restore your water pressure in East Hemet. Call us at (760) 440-8520 for same-day emergency service or to schedule a comprehensive system evaluation. Don’t let low water pressure disrupt your life—our team is just a phone call away.</p>
+<p>With over 30 years of experience and a 4.9-star rating, Southern California Well Service is ready to restore your water pressure in East Hemet. Call us at (760) 440-8520 for same-day emergency service or to schedule a comprehensive system evaluation. You can also text us at (619) 259-0410. Don't let low water pressure disrupt your life, our team is just a phone call away.</p>
+
+<h2>Frequently Asked Questions</h2>
+<h3>Why is my well water pressure low in East Hemet?</h3>
+<p>In East Hemet, low pressure usually traces to mineral scale from hard San Jacinto Valley groundwater clogging the pump and pipes, a pressure tank that has lost its air charge, a worn pump, low aquifer yield during drought, or sediment and iron bacteria from alluvial soils. A diagnostic isolates the exact cause.</p>
+<h3>What is a normal pressure setting for an East Hemet well?</h3>
+<p>Most homes run a 40/60 PSI pressure switch (pump on at 40, off at 60); some older systems use 30/50. The pressure tank's air charge should sit about 2 PSI below the cut-in. Household pressure below 30 PSI signals a problem.</p>
+<h3>How deep are wells in East Hemet?</h3>
+<p>Wells in East Hemet and the San Jacinto Valley commonly range from about 200 to 500 feet, tapping confined aquifers beneath clay layers in the alluvial fan. Valley-floor wells are shallower than hillside wells against the San Jacinto Mountains, and drought lowers recharge and yield.</p>
+<h3>Can I fix low water pressure myself?</h3>
+<p>You can safely check the pressure gauge, confirm the switch has not tripped, test the tank's air charge with a tire gauge, and swap a clogged sediment filter. Anything involving the pump, casing, or wiring should be left to a licensed C-57 contractor.</p>
+<h3>How much does it cost to fix low water pressure in East Hemet?</h3>
+<p>A pressure switch runs $150 to $350, a pressure tank $600 to $1,500, a submersible pump $2,500 to $5,500, sediment filtration $300 to $900, a softener for hard water $1,500 to $3,500, a constant-pressure or booster system $2,000 to $4,500, and hydrofracturing to improve yield $3,000 to $8,000. We start with a $125 diagnostic credited toward the repair.</p>
+<h3>Do you offer same-day service in East Hemet?</h3>
+<p>Yes. From our Ramona and Anza offices we provide same-day emergency response to East Hemet, Valle Vista, and the wider San Jacinto Valley in Riverside County. Call (760) 440-8520 or text (619) 259-0410.</p>
+<p><strong>Still dealing with weak water pressure in East Hemet?</strong> Southern California Well Service is a licensed C-57 contractor with 30+ years of experience and a 4.9-star rating serving East Hemet and the San Jacinto Valley. Call <a href="tel:+17604408520">(760) 440-8520</a> or text <a href="sms:+16192590410">(619) 259-0410</a> for same-day emergency service and a free estimate.</p>
 </article>
 </main>
 <footer class="bg-primary text-white py-12">
@@ -303,16 +223,9 @@
 </div>
 </div>
 <div class="border-t border-gray-700 pt-8 text-center text-gray-400">
-<p>License #1013597 | © 2026 Southern California Well Service</p>
+<p>License #1013597 | (c) 2026 Southern California Well Service</p>
 </div>
 </div>
 </footer>
-<!-- Sticky Mobile CTA Bar -->
-<style>#sticky-cta{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:2px solid #e5e7eb;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px;z-index:50;box-shadow:0 -4px 12px rgba(0,0,0,0.1)}#sticky-cta a{flex:1;font-weight:700;padding:12px 16px;border-radius:8px;text-align:center;color:#fff;font-size:14px;text-decoration:none}#sticky-cta .cta-call{background:#dc2626}#sticky-cta .cta-call:hover{background:#b91c1c}#sticky-cta .cta-text{background:#2563eb}#sticky-cta .cta-text:hover{background:#1d4ed8}#sticky-cta .cta-est{background:#4e9271}#sticky-cta .cta-est:hover{background:#3d7a5c}@media(min-width:1024px){#sticky-cta{display:none}}</style>
-<div id="sticky-cta">
-<a class="cta-call" href="tel:7604408520">📞 Call Now</a>
-<a class="cta-text" href="sms:6192590410">💬 Text Us</a>
-<a class="cta-est" href="/contact.html">Free Estimate</a>
-</div>
 </body>
 </html>

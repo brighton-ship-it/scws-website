@@ -1,12 +1,12 @@
 {
-  "date": "2026-06-07T12:53:15.429Z",
+  "date": "2026-06-24T17:20:38.015Z",
   "summary": {
     "scanned": 9147,
     "noindexed": 514,
     "indexed": 8633,
     "critical": 0,
-    "warnings": 7803,
-    "clean": 830
+    "warnings": 7802,
+    "clean": 831
   },
   "issueCounts": {},
   "warningCounts": {
@@ -14,8 +14,7 @@
     "SHORT_TITLE": 5,
     "FEW_INTERNAL_LINKS": 1,
     "SHORT_DESC": 189,
-    "MULTIPLE_H1": 19,
-    "LONG_DESC": 1
+    "MULTIPLE_H1": 19
   },
   "duplicates": {
     "titles": [
@@ -92230,14 +92229,12 @@
     },
     {
       "path": "/blog/well-water-smells-like-rotten-eggs.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 2070,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/well-water-smells-like-sewage.html",

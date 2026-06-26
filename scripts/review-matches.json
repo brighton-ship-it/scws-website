@@ -1,374 +1,752 @@
 {
   "matched": [
     {
-      "reviewer": "Wayne Wilcoxen",
-      "jobberClient": "Wayne Wilcoxen",
-      "city": "Julian"
-    },
-    {
       "reviewer": "Phoenix",
-      "jobberClient": "Jess&Carlos Phoenix",
-      "city": "Valley center"
+      "city": "Valley Center",
+      "text": "Always happy to work with this company. Their work is second to none, I had them redo all the pipes on my pumps, replace booster tanks, and many other things. Last time, we had a broken pipe, they came and fixed it the next day. Congratulations once again on acquiring another well company, it's this kind of company that grows because of their service and workmanship.",
+      "date": "2026-02-07",
+      "crmMatch": "Jess&Carlos Phoenix",
+      "customerId": "d1a99bea-ef17-4952-af75-62e914c1b336",
+      "citySource": "property"
     },
     {
-      "reviewer": "Joyce Boysel (Joyful#1)",
-      "jobberClient": "Joyce Boysel",
-      "city": "Ramona"
+      "reviewer": "Keep n’ up with Kim",
+      "city": "Aguanga",
+      "text": "Great service!!",
+      "date": "2025-08-05",
+      "crmMatch": "Byeong Kim",
+      "customerId": "24248ecb-a86a-48f6-825f-9950012fe442",
+      "citySource": "property"
     },
     {
-      "reviewer": "Dennis Albert",
-      "jobberClient": "Dennis Albert",
-      "city": "Ramona"
-    },
-    {
-      "reviewer": "rick tiedeman",
-      "jobberClient": "Rick tiedeman",
-      "city": "Aguanga"
-    },
-    {
-      "reviewer": "dan blosch",
-      "jobberClient": "Dan Blosch",
-      "city": "Aguanga"
+      "reviewer": "Joash Sollenberger",
+      "city": "Lakeside",
+      "text": "I’ve worked with a lot of service companies over the years, but Southern California Well Service stands out. My well has been a challenge with one issue after another, yet they handle every problem quickly and with total professionalism. Their responsiveness—whether by phone or text—is unmatched, and their attention to detail gives me peace of mind. Easily a five-star experience.",
+      "date": "2025-07-24",
+      "crmMatch": "Josh Sollenberger",
+      "customerId": "5667c45f-8838-4dfa-82f4-7d1bf466dc8a",
+      "citySource": "property"
     },
     {
       "reviewer": "Jerry Sanders",
-      "jobberClient": "Jerry  Sanders",
-      "city": "Ramona"
+      "city": "Alpine",
+      "text": "Service was the same day of my call, The technician was friendly and knowledgeable. He quickly diagnosed the problem, had me up and running that day, One part was needed to permanently fix the issue.\nThat part was received and installed the same week.\nGREAT SERVICE",
+      "date": "2025-07-22",
+      "crmMatch": "Julio Sanders",
+      "customerId": "155692ef-eb22-4bdb-9de7-df75d39c6e85",
+      "citySource": "property"
     },
     {
-      "reviewer": "Richard Loomis",
-      "jobberClient": "Richard  Loomis",
-      "city": "Julian"
+      "reviewer": "Jorge Mejia",
+      "city": "Morongo Valley",
+      "text": "",
+      "date": "2025-07-02",
+      "crmMatch": "Blanca Mejia",
+      "customerId": "0b6be404-a3f4-4e6c-8dcc-f6a645973d54",
+      "citySource": "property"
     },
     {
-      "reviewer": "Robert Behic",
-      "jobberClient": "Robert Behic",
-      "city": "Poway"
-    },
-    {
-      "reviewer": "Patricia Donato",
-      "jobberClient": "Patricia Donato",
-      "city": "Ramona"
-    },
-    {
-      "reviewer": "David Lorenz",
-      "jobberClient": "David  Lorenz",
-      "city": "El"
-    },
-    {
-      "reviewer": "Carlos Rivera",
-      "jobberClient": "Carlos Rivera",
-      "city": "Ramona"
-    },
-    {
-      "reviewer": "Louisa Mauk",
-      "jobberClient": "Louisa & Ron Mauk",
-      "city": "Twentynine palms"
-    },
-    {
-      "reviewer": "Peter Thomas",
-      "jobberClient": "Peter  Thomas",
-      "city": "Ramona"
-    },
-    {
-      "reviewer": "miles lockhart",
-      "jobberClient": "Miles Lockhart",
-      "city": "Ramona"
-    },
-    {
-      "reviewer": "Ledezma #6",
-      "jobberClient": "Jose Ledezma",
-      "city": "Valley center"
+      "reviewer": "alyson coons",
+      "city": "Rancho Santa FE",
+      "text": "Professional, quality service, and a great “family run” vibe.",
+      "date": "2025-06-14",
+      "crmMatch": "Allsion Coons",
+      "customerId": "dc78b5af-1f76-4d81-9a1d-2dbb7e5ec2fb",
+      "citySource": "property"
     },
     {
       "reviewer": "Kevin Wilkes",
-      "jobberClient": "Kevin  Wilkes",
-      "city": "Anza"
+      "city": "Lancaster",
+      "text": "Saving thousand dollars over another estimate. Quick response. Extremely satisfied",
+      "date": "2025-06-10",
+      "crmMatch": "Kevin W.",
+      "customerId": "de9bc09a-4ad6-4199-ac6c-c2dffe0230bb",
+      "citySource": "property"
     },
     {
       "reviewer": "Angela Johnson",
-      "jobberClient": "Angela Johnson",
-      "city": "Menifee"
+      "city": "Moreno Valley",
+      "text": "Highly recommend!",
+      "date": "2025-06-05",
+      "crmMatch": "Allen And Cydney Johnson",
+      "customerId": "da84df53-726b-48e0-b0ae-a04e7c531516",
+      "citySource": "property"
     },
     {
-      "reviewer": "Birdsong Retreat",
-      "jobberClient": "Laurie  Roberts",
-      "city": "Warner springs"
+      "reviewer": "Mary Ellen Wilson",
+      "city": "Bonsall",
+      "text": "Travis is very knowledgeable and helpful",
+      "date": "2025-06-02",
+      "crmMatch": "Eric Wilson",
+      "customerId": "e71e657f-5585-476b-a993-4073b12f3c08",
+      "citySource": "property"
     },
     {
-      "reviewer": "Hortensia Badeanlou",
-      "jobberClient": "Hortensia Badeanlou",
-      "city": "San diego"
+      "reviewer": "Susan Bennett",
+      "city": "Escondido",
+      "text": "They got back to us quickly and took care of the issue we had with our well pump.",
+      "date": "2025-04-16",
+      "crmMatch": "Dave Bennett",
+      "customerId": "1f432222-84a9-44c1-b3a1-c60e54e153ae",
+      "citySource": "property"
     },
     {
-      "reviewer": "Maggie",
-      "jobberClient": "Maggie Jones",
-      "city": "Hemet"
+      "reviewer": "byeong il kim",
+      "city": "Aguanga",
+      "text": "",
+      "date": "2025-03-05",
+      "crmMatch": "Byeong Kim",
+      "customerId": "24248ecb-a86a-48f6-825f-9950012fe442",
+      "citySource": "property"
     },
     {
-      "reviewer": "Paul Guerrazzi",
-      "jobberClient": "Paul&Nicole Guerrazzi",
-      "city": "Anza"
+      "reviewer": "Ashley Cabanas",
+      "city": "Deconzo",
+      "text": "So happy to have found a reliable pump company. We had an issue where our pump wasn't receiving power after a recent power outage and we did not have water. We called a few companies and southern california well service was the only one who answered. He tried to walk us through it over the phone but we needed a site visit. He was able to get us on his schedule the next day and was very responsive not only with the initial call but also communicating eta, and what he found on site. Our well was back up and running within 20 minutes\nDefinitely saving this contact and recommending their services to anyone and everyone who needs it! Give them a call you will not be disappointed!!\n\nThank you again Southern California Well Service. We appreciate you!",
+      "date": "2024-12-14",
+      "crmMatch": "Ashley",
+      "customerId": "a39fc9ad-de16-4f02-b348-7ea9a7a8691f",
+      "citySource": "property"
     },
     {
-      "reviewer": "Maria M",
-      "jobberClient": "Maria Lease",
-      "city": "Desert hot springs"
+      "reviewer": "Lippy Lippincott",
+      "city": "San Diego",
+      "text": "I've called on Southern Ca Well Service 3 times now for repairs to my well system.  Brighton is extremely knowledgeable and quick.  I have been impressed with the service every time.  I can't imagine going with anyone else for repair work.",
+      "date": "2022-10-15",
+      "crmMatch": "John lippincott",
+      "customerId": "f11013a1-8ff4-4375-b9da-7896f1e26cbe",
+      "citySource": "property"
+    },
+    {
+      "reviewer": "Tyler",
+      "city": "Lake Elsinore",
+      "text": "These guys are amazing professionals, who seemed to really care. They provided multiple options for a replacement pump based on my needs and were able to quickly install everything.",
+      "date": "2022-02-01",
+      "crmMatch": "Tyler Elzig",
+      "customerId": "2b989fcd-401d-48d4-82f0-944155cae17d",
+      "citySource": "property"
+    },
+    {
+      "reviewer": "kyle yarbrough",
+      "city": "Escondido",
+      "text": "Good guys, went the extra mile to help me get the permit.  The well's been doing great 2 years+ in.",
+      "date": "2026-05-06",
+      "crmMatch": "Kyle Yarbrough",
+      "customerId": "39c8b172-938d-452c-aa25-39bd5016aa0b",
+      "citySource": "property"
+    },
+    {
+      "reviewer": "Rich Stephens",
+      "city": "Hemet",
+      "text": "",
+      "date": "2026-04-29",
+      "crmMatch": "Josh  Stephens",
+      "customerId": "9c34a774-3f18-40bf-965f-93f567454be5",
+      "citySource": "property"
+    },
+    {
+      "reviewer": "John LaFata",
+      "city": "Rancho Santa Fe",
+      "text": "Superb, honest and efficient service at reasonable price.  What more can you wish.",
+      "date": "2026-04-27",
+      "crmMatch": "John",
+      "customerId": "98366240-78c6-466c-92be-c9cc6b7f3c1d",
+      "citySource": "property"
+    },
+    {
+      "reviewer": "Stephanie Johnson",
+      "city": "Moreno Valley",
+      "text": "Life is a lot safer and better with SC Well Service around. What would we do without them?!",
+      "date": "2026-04-21",
+      "crmMatch": "Allen And Cydney Johnson",
+      "customerId": "da84df53-726b-48e0-b0ae-a04e7c531516",
+      "citySource": "property"
+    },
+    {
+      "reviewer": "johnny behnan",
+      "city": "Murrieta",
+      "text": "",
+      "date": "2026-03-30",
+      "crmMatch": "Johnny Behnan",
+      "customerId": "39bcd647-eb2f-40de-b46d-b7f62e853188",
+      "citySource": "property"
     },
     {
       "reviewer": "Doug Skidmore",
-      "jobberClient": "Doug Skidmore",
-      "city": "Fallbrook"
+      "city": "Fallbrook",
+      "text": "The team was very knowledgeable and helpful.  The work they performed was done quickly and efficiently.",
+      "date": "2026-03-29",
+      "crmMatch": "Doug Skidmore",
+      "customerId": "97efadc0-ed74-4649-822f-2c8d2f773d64",
+      "citySource": "property"
+    },
+    {
+      "reviewer": "Denison Golden",
+      "city": "Escondido",
+      "text": "With my 40 years of needing and hiring well service companies, SCWS were by far the most efficient. My pump and 7hp motor were installed in record time at 800 ft. The job needed coordination with my crew to get the rust algae cleaned from the pipes before re-installing and all went by without a hitch. Thank you guys. You're awesome.",
+      "date": "2026-03-25",
+      "crmMatch": "Denny Golden",
+      "customerId": "ade46446-91f4-4a6b-ab97-b1833f2040a4",
+      "citySource": "property"
     },
     {
       "reviewer": "Carol Bischoff",
-      "jobberClient": "Carol Bischoff",
-      "city": "Twin peaks"
+      "city": "Twin Peaks",
+      "text": "I am writing to share my appreciation for the excellent service we received during our well installation.\n\nWhile the process took over a year to complete, we now fully understand why. Our project, which was estimated to take three to four days, ultimately required over three weeks due to unpredictable underground conditions. Despite our ground collapsing, your team never gave up and actually drilled the well twice to ensure it was successful.\n\nHaving been rejected by two other drilling companies, we are incredibly grateful for your persistence. Your crew was professional, hardworking, and went above and beyond to ensure the well was in perfect working order.\n\nI would highly recommend Southern California Well Service to anyone in need of their expertise. Thank you again for your hard work and dedication.\n\nBest regards,  Bob Bischoff",
+      "date": "2026-03-25",
+      "crmMatch": "Carol Bischoff",
+      "customerId": "e6b44fdd-17b2-4e02-a1bb-4a1651ce4624",
+      "citySource": "property"
+    },
+    {
+      "reviewer": "D. L. Imrie",
+      "city": "Jamul",
+      "text": "A rare combination:  They showed up when they said they would; they fully explained what they were going to do before they did it; their prices were reasonable and fair.  They put in 2 new 5000 ga. water tanks and rebuilt 2 wells.  Call them.",
+      "date": "2026-03-25",
+      "crmMatch": "David Imrie",
+      "customerId": "f228e13f-4501-43a0-89fd-d8e843d17aa9",
+      "citySource": "property"
     },
     {
       "reviewer": "David Bennett",
-      "jobberClient": "David Bennett",
-      "city": "Escondido"
-    },
-    {
-      "reviewer": "Dmitry Zaitsev",
-      "jobberClient": "Dmitry Zaitsev",
-      "city": "Poway"
+      "city": "Escondido",
+      "text": "Brighton's team at SoCal Well is awesome. They've come out same day on almost every occasion we've had an issue, calling back first thing in the morning to let us know we're on the schedule. They replaced pretty much every component of our 30 year old well system over the past 4 years from the pump to the tank. Highly recommend.",
+      "date": "2026-03-24",
+      "crmMatch": "David Bennett",
+      "customerId": "bc8fb71f-b778-4e55-a3a5-1347a6f81a82",
+      "citySource": "property"
     },
     {
       "reviewer": "Robert Moore",
-      "jobberClient": "Robert Moore",
-      "city": "Escondido"
+      "city": "Escondido",
+      "text": "Have you used these guys for years!!!  They do a great job very trustworthy.",
+      "date": "2026-03-24",
+      "crmMatch": "Robert Moore",
+      "customerId": "e91234b5-cb28-4ab7-8591-4a878198e9dd",
+      "citySource": "property"
     },
     {
-      "reviewer": "Lorena Marodi",
-      "jobberClient": "Lorena   Marodi",
-      "city": "Ramona"
+      "reviewer": "Currien MacDonald",
+      "city": "El Cajon",
+      "text": "i called late one evening when my pump went out. Their AI answered right away, and actually was surprisingly good. It wasn't a  real emergency, so I left my notes with the AI. Called back by one of the workers first thing in the morning. Took care of everything. Nice!",
+      "date": "2026-03-22",
+      "crmMatch": "Currue Macdonald",
+      "customerId": "4c2ba2ae-0769-4e16-a1f9-b9c56bc749e0",
+      "citySource": "property"
     },
     {
-      "reviewer": "Kathy Bast",
-      "jobberClient": "Kathy Bast",
-      "city": "Lakeside"
-    },
-    {
-      "reviewer": "Steen Jacobsen",
-      "jobberClient": "Steen Jacobsen",
-      "city": "Hemet"
-    },
-    {
-      "reviewer": "Ryan Kirk",
-      "jobberClient": "Ryan Kirk",
-      "city": "Poway"
+      "reviewer": "John Reveles",
+      "city": "Rancho Santa Fe",
+      "text": "Service was fast and friendly. They were actually able to come out the same day to inspect my well and the prices are fair. Highly recommended.",
+      "date": "2026-02-23",
+      "crmMatch": "John",
+      "customerId": "98366240-78c6-466c-92be-c9cc6b7f3c1d",
+      "citySource": "property"
     },
     {
       "reviewer": "Nancy",
-      "jobberClient": "Nancy",
-      "city": "Anza"
+      "city": "Lake Arrowhead",
+      "text": "Kept us informed of the entire process and showed up on time and completed the work with no problems. Great company.",
+      "date": "2026-02-08",
+      "crmMatch": "Allen & Nancy Ronk",
+      "customerId": "47701580-3a3e-433f-bce3-e53b66f8a23f",
+      "citySource": "property"
     },
     {
-      "reviewer": "Jan Karlseder",
-      "jobberClient": "Jan Karlseder",
-      "city": "Ramona"
+      "reviewer": "George’s Perez",
+      "city": "alpine",
+      "text": "Came quick answered all my questions!",
+      "date": "2025-11-04",
+      "crmMatch": "Earnie Perez",
+      "customerId": "03bcff64-0359-4e27-9b61-24aa2dba71fc",
+      "citySource": "property"
     },
     {
-      "reviewer": "Diane Donald",
-      "jobberClient": "Donald and Diane  Pruitt",
-      "city": "Ramona"
+      "reviewer": "Rosann Flores",
+      "city": "Lytle Creek",
+      "text": "Always prompt and professional. Very friendly, I appreciate it very much.",
+      "date": "2025-10-21",
+      "crmMatch": "Brenda Flores",
+      "customerId": "1b63e173-fd10-435b-b9fa-5d41ccb890b7",
+      "citySource": "property"
     },
     {
-      "reviewer": "Nadia S",
-      "jobberClient": "Nadia Shihadeh",
-      "city": "Anza"
+      "reviewer": "john baldwin",
+      "city": "Rancho Santa Fe",
+      "text": "This has been my go to well service for over 10 years. You will be most impressed by their constant contact and prompt service. They explain things clearly and honor all warranties with no run around. My well had to be pulled after a motor failure and the entire process took less than 3 days with warranty coverage, and small charge to me. The owner, Brighton, even got involved and replaced some items free of charge to assure constant service.\nThank you to all involved.",
+      "date": "2025-09-02",
+      "crmMatch": "John",
+      "customerId": "98366240-78c6-466c-92be-c9cc6b7f3c1d",
+      "citySource": "property"
     },
     {
-      "reviewer": "Margaret Long",
-      "jobberClient": "Margaret (Peggy)  Long",
-      "city": "Costa mesa"
+      "reviewer": "David Lee",
+      "city": "Valley Center",
+      "text": "Fast reply/response, prompt and friendly service.",
+      "date": "2025-08-19",
+      "crmMatch": "Grace Lee",
+      "customerId": "2245f63c-f1cd-427e-ad89-83a73dd5d7d7",
+      "citySource": "property"
     },
     {
-      "reviewer": "Teresa Kassen",
-      "jobberClient": "Teresa / Tim Kassen",
-      "city": "Poway"
+      "reviewer": "valerie rogers",
+      "city": "Aguanga",
+      "text": "After attempting to contact other Well companies, these folks responded immediately and pulled the pump out, replacing it and the wiring efficiently and timely. I would recommend them. We were quite concerned with so many wildfires burning and not able to obtain water on the property. Thank you very much for servicing our well.",
+      "date": "2025-08-10",
+      "crmMatch": "Brian Rogers",
+      "customerId": "d91cee93-83d0-4ced-b396-1443e50b4aad",
+      "citySource": "property"
     },
     {
-      "reviewer": "Ed Spaeth",
-      "jobberClient": "Dr. Edmund and Lillian  Spaeth",
-      "city": "Ramona"
+      "reviewer": "Rosa Lopez",
+      "city": "Potrero",
+      "text": "Quick diagnosis of the issue and quick repair.  Thank you.  Homes with water wells so critical.  Again, thanks for your jock response.",
+      "date": "2025-08-10",
+      "crmMatch": "Giselle Lopez",
+      "customerId": "64c01d52-1c0a-409a-a2bf-acd81bb0daa7",
+      "citySource": "property"
     },
     {
-      "reviewer": "Larry Donald",
-      "jobberClient": "Larry Donald",
-      "city": "Winchester"
-    },
-    {
-      "reviewer": "Adam Rife",
-      "jobberClient": "Adam Rife",
-      "city": "Mountain center"
-    },
-    {
-      "reviewer": "Mary McDowell",
-      "jobberClient": "mary  McDowell",
-      "city": "Ramona"
-    },
-    {
-      "reviewer": "Kathleen Hefley",
-      "jobberClient": "Kathleen  Hefley",
-      "city": "Menifee"
-    },
-    {
-      "reviewer": "Fritz Ortlieb",
-      "jobberClient": "Randy  Ortlieb",
-      "city": "Escondido"
-    },
-    {
-      "reviewer": "Darlene Jean",
-      "jobberClient": "Darlene Jean",
-      "city": "Alpine"
-    },
-    {
-      "reviewer": "Jessie Boissier",
-      "jobberClient": "Jessie Boissier",
-      "city": "Ramona"
-    },
-    {
-      "reviewer": "Dan Olson",
-      "jobberClient": "Dan Olson",
-      "city": "Winchester"
-    },
-    {
-      "reviewer": "Cathy Lynch",
-      "jobberClient": "Cathy  Lynch",
-      "city": "Aguanga"
+      "reviewer": "errol ransom",
+      "city": "Poway",
+      "text": "Always reliable. Showed up same day and took care of the issue",
+      "date": "2025-08-06",
+      "crmMatch": "Errol Ransom",
+      "customerId": "190da478-3b0e-4ad5-a156-49648a9bc654",
+      "citySource": "property"
     }
   ],
   "unmatched": [
     {
-      "name": "Robert Gonzalez",
-      "reason": "not found"
+      "reviewer": "Wayne Wilcoxen",
+      "reason": "Not found in CRM"
     },
     {
-      "name": "Joash Sollenberger",
-      "reason": "not found"
+      "reviewer": "Joyce Boysel (Joyful#1)",
+      "reason": "Not found in CRM"
     },
     {
-      "name": "Sophie Duck",
-      "reason": "not found"
+      "reviewer": "Dennis Albert",
+      "reason": "No city in CRM",
+      "crmMatch": "Bert"
     },
     {
-      "name": "Bob Nunya",
-      "reason": "not found"
+      "reviewer": "Robert Gonzalez",
+      "reason": "No city in CRM",
+      "crmMatch": "Bert"
     },
     {
-      "name": "Gavin Chandler",
-      "reason": "not found"
+      "reviewer": "rick tiedeman",
+      "reason": "Not found in CRM"
     },
     {
-      "name": "Rosalind Brooks",
-      "reason": "not found"
+      "reviewer": "Sophie Duck",
+      "reason": "Not found in CRM"
     },
     {
-      "name": "Donna Daub Conrad",
-      "reason": "not found"
+      "reviewer": "dan blosch",
+      "reason": "Not found in CRM"
     },
     {
-      "name": "DeAnna McGough",
-      "reason": "not found"
+      "reviewer": "Bob Nunya",
+      "reason": "Not found in CRM"
     },
     {
-      "name": "alyson coons",
-      "reason": "not found"
+      "reviewer": "Gavin Chandler",
+      "reason": "Not found in CRM"
     },
     {
-      "name": "Mary Ellen Wilson",
-      "reason": "not found"
+      "reviewer": "Richard Loomis",
+      "reason": "Not found in CRM"
     },
     {
-      "name": "Bill Swegles",
-      "reason": "not found"
+      "reviewer": "Robert Behic",
+      "reason": "No city in CRM",
+      "crmMatch": "Bert"
     },
     {
-      "name": "Regina Saller",
-      "reason": "not found"
+      "reviewer": "Ricardo",
+      "reason": "Not found in CRM"
     },
     {
-      "name": "Susan Bennett",
-      "reason": "not found"
+      "reviewer": "Rosalind Brooks",
+      "reason": "Not found in CRM"
     },
     {
-      "name": "Amy Froehlich",
-      "reason": "not found"
+      "reviewer": "Patricia Donato",
+      "reason": "Not found in CRM"
     },
     {
-      "name": "Ashraf Okba",
-      "reason": "not found"
+      "reviewer": "David Lorenz",
+      "reason": "Not found in CRM"
     },
     {
-      "name": "Jinda Srimuang",
-      "reason": "not found"
+      "reviewer": "Donna Daub Conrad",
+      "reason": "Not found in CRM"
     },
     {
-      "name": "Denison Golden",
-      "reason": "not found"
+      "reviewer": "Carlos Rivera",
+      "reason": "Not found in CRM"
     },
     {
-      "name": "D. L. Imrie",
-      "reason": "not found"
+      "reviewer": "Louisa Mauk",
+      "reason": "Not found in CRM"
     },
     {
-      "name": "Currien MacDonald",
-      "reason": "not found"
+      "reviewer": "Michael Plantenga",
+      "reason": "Not found in CRM"
     },
     {
-      "name": "John Reveles",
-      "reason": "not found"
+      "reviewer": "Paul Truffa",
+      "reason": "Not found in CRM"
     },
     {
-      "name": "Ryan Cauzza",
-      "reason": "no city in Jobber"
+      "reviewer": "DeAnna McGough",
+      "reason": "Not found in CRM"
     },
     {
-      "name": "Elizabeth Dunlap",
-      "reason": "not found"
+      "reviewer": "Peter Thomas",
+      "reason": "No city in CRM",
+      "crmMatch": "Don Thomas"
     },
     {
-      "name": "Jenise Mastro",
-      "reason": "not found"
+      "reviewer": "Sabrina N",
+      "reason": "Not found in CRM"
     },
     {
-      "name": "sister haero",
-      "reason": "not found"
+      "reviewer": "miles lockhart",
+      "reason": "Not found in CRM"
     },
     {
-      "name": "michael keller",
-      "reason": "not found"
+      "reviewer": "Ledezma #6",
+      "reason": "Not found in CRM"
     },
     {
-      "name": "Brent Eastty",
-      "reason": "not found"
+      "reviewer": "Birdsong Retreat",
+      "reason": "Not found in CRM"
     },
     {
-      "name": "Sand to Sea Videos",
-      "reason": "not found"
+      "reviewer": "Hortensia Badeanlou",
+      "reason": "Not found in CRM"
     },
     {
-      "name": "George’s Perez",
-      "reason": "not found"
+      "reviewer": "Bill Swegles",
+      "reason": "Not found in CRM"
     },
     {
-      "name": "Tamara Shure",
-      "reason": "not found"
+      "reviewer": "Maggie",
+      "reason": "Not found in CRM"
     },
     {
-      "name": "Jonas Juodas",
-      "reason": "not found"
+      "reviewer": "Regina Saller",
+      "reason": "Not found in CRM"
     },
     {
-      "name": "Rosann Flores",
-      "reason": "not found"
+      "reviewer": "Paul Guerrazzi",
+      "reason": "Not found in CRM"
     },
     {
-      "name": "Eduardo Escoto",
-      "reason": "not found"
+      "reviewer": "Maria M",
+      "reason": "Not found in CRM"
+    },
+    {
+      "reviewer": "Amy Froehlich",
+      "reason": "Not found in CRM"
+    },
+    {
+      "reviewer": "Ashraf Okba",
+      "reason": "Not found in CRM"
+    },
+    {
+      "reviewer": "Jesse Cesena",
+      "reason": "Not found in CRM"
+    },
+    {
+      "reviewer": "Tracy Hege",
+      "reason": "Not found in CRM"
+    },
+    {
+      "reviewer": "the buddy and max show",
+      "reason": "Not found in CRM"
+    },
+    {
+      "reviewer": "Victor Trevino",
+      "reason": "Not found in CRM"
+    },
+    {
+      "reviewer": "Deb Stanfill",
+      "reason": "Not found in CRM"
+    },
+    {
+      "reviewer": "Wallen West Farms & Riding Academy",
+      "reason": "Not found in CRM"
+    },
+    {
+      "reviewer": "Bob Pellissier",
+      "reason": "Not found in CRM"
+    },
+    {
+      "reviewer": "Michael Lakin",
+      "reason": "Not found in CRM"
+    },
+    {
+      "reviewer": "John Barile",
+      "reason": "No city in CRM",
+      "crmMatch": "John Barile"
+    },
+    {
+      "reviewer": "Keith Trahan",
+      "reason": "Not found in CRM"
+    },
+    {
+      "reviewer": "Karen Small",
+      "reason": "Not found in CRM"
+    },
+    {
+      "reviewer": "Charles Aalfs",
+      "reason": "No city in CRM",
+      "crmMatch": "charles"
+    },
+    {
+      "reviewer": "Jarrett Kessler",
+      "reason": "Not found in CRM"
+    },
+    {
+      "reviewer": "Jinda Srimuang",
+      "reason": "Not found in CRM"
+    },
+    {
+      "reviewer": "Dmitry Zaitsev",
+      "reason": "No city in CRM",
+      "crmMatch": "Dmitry Zaitsev"
+    },
+    {
+      "reviewer": "Dan",
+      "reason": "Not found in CRM"
+    },
+    {
+      "reviewer": "Lorena Marodi",
+      "reason": "Not found in CRM"
+    },
+    {
+      "reviewer": "Ryan Cauzza",
+      "reason": "Not found in CRM"
+    },
+    {
+      "reviewer": "Kathy Bast",
+      "reason": "Not found in CRM"
+    },
+    {
+      "reviewer": "Steen Jacobsen",
+      "reason": "Not found in CRM"
+    },
+    {
+      "reviewer": "Ryan Kirk",
+      "reason": "Not found in CRM"
+    },
+    {
+      "reviewer": "Elizabeth Dunlap",
+      "reason": "Not found in CRM"
+    },
+    {
+      "reviewer": "Jenise Mastro",
+      "reason": "Not found in CRM"
+    },
+    {
+      "reviewer": "sister haero",
+      "reason": "Not found in CRM"
+    },
+    {
+      "reviewer": "Patricia Frost",
+      "reason": "Not found in CRM"
+    },
+    {
+      "reviewer": "Jan Karlseder",
+      "reason": "Not found in CRM"
+    },
+    {
+      "reviewer": "Diane Donald",
+      "reason": "Not found in CRM"
+    },
+    {
+      "reviewer": "Stone Tucker",
+      "reason": "Not found in CRM"
+    },
+    {
+      "reviewer": "barbara halajian",
+      "reason": "Not found in CRM"
+    },
+    {
+      "reviewer": "Nadia S",
+      "reason": "Not found in CRM"
+    },
+    {
+      "reviewer": "Margaret Long",
+      "reason": "Not found in CRM"
+    },
+    {
+      "reviewer": "michael keller",
+      "reason": "Not found in CRM"
+    },
+    {
+      "reviewer": "Teresa Kassen",
+      "reason": "Not found in CRM"
+    },
+    {
+      "reviewer": "Ed Spaeth",
+      "reason": "Not found in CRM"
+    },
+    {
+      "reviewer": "Larry Donald",
+      "reason": "Not found in CRM"
+    },
+    {
+      "reviewer": "Adam Rife",
+      "reason": "Not found in CRM"
+    },
+    {
+      "reviewer": "Tim Turpin",
+      "reason": "Not found in CRM"
+    },
+    {
+      "reviewer": "Mary McDowell",
+      "reason": "No city in CRM",
+      "crmMatch": "Larry McDowell"
+    },
+    {
+      "reviewer": "Kathleen Hefley",
+      "reason": "Not found in CRM"
+    },
+    {
+      "reviewer": "Fritz Ortlieb",
+      "reason": "Not found in CRM"
+    },
+    {
+      "reviewer": "Regina Saller",
+      "reason": "Not found in CRM"
+    },
+    {
+      "reviewer": "Brent Eastty",
+      "reason": "Not found in CRM"
+    },
+    {
+      "reviewer": "Darlene Jean",
+      "reason": "Not found in CRM"
+    },
+    {
+      "reviewer": "Sand to Sea Videos",
+      "reason": "Not found in CRM"
+    },
+    {
+      "reviewer": "Jessie Boissier",
+      "reason": "Not found in CRM"
+    },
+    {
+      "reviewer": "Tamara Shure",
+      "reason": "Not found in CRM"
+    },
+    {
+      "reviewer": "Jonas Juodas",
+      "reason": "Not found in CRM"
+    },
+    {
+      "reviewer": "Dan Olson",
+      "reason": "Not found in CRM"
+    },
+    {
+      "reviewer": "Eduardo Escoto",
+      "reason": "Not found in CRM"
+    },
+    {
+      "reviewer": "Cathy Lynch",
+      "reason": "Not found in CRM"
+    },
+    {
+      "reviewer": "Brianna McCormick",
+      "reason": "Not found in CRM"
+    },
+    {
+      "reviewer": "Barbara Franke",
+      "reason": "Not found in CRM"
+    },
+    {
+      "reviewer": "Molly Turgeon",
+      "reason": "Not found in CRM"
+    },
+    {
+      "reviewer": "Mark Stidham",
+      "reason": "Not found in CRM"
+    },
+    {
+      "reviewer": "elizabeth kilmer",
+      "reason": "Not found in CRM"
+    },
+    {
+      "reviewer": "Jay",
+      "reason": "Not found in CRM"
+    },
+    {
+      "reviewer": "Marilyn Horton",
+      "reason": "Not found in CRM"
+    },
+    {
+      "reviewer": "staci zaffuto",
+      "reason": "Not found in CRM"
+    },
+    {
+      "reviewer": "Capital & Influence Inc",
+      "reason": "No city in CRM",
+      "crmMatch": "B&S Construction Services Inc"
+    },
+    {
+      "reviewer": "Loreto Molina",
+      "reason": "Not found in CRM"
+    },
+    {
+      "reviewer": "Robert Judge",
+      "reason": "No city in CRM",
+      "crmMatch": "Bert"
+    },
+    {
+      "reviewer": "Patricia Hinchliff",
+      "reason": "Not found in CRM"
+    },
+    {
+      "reviewer": "Ken Waite",
+      "reason": "Not found in CRM"
+    },
+    {
+      "reviewer": "Don Elmore",
+      "reason": "Not found in CRM"
+    },
+    {
+      "reviewer": "Tammy Packard",
+      "reason": "Not found in CRM"
+    },
+    {
+      "reviewer": "Lorene Kellogg",
+      "reason": "Not found in CRM"
+    },
+    {
+      "reviewer": "Doug Wagenbach",
+      "reason": "Not found in CRM"
+    },
+    {
+      "reviewer": "Jeff Mccowln",
+      "reason": "Not found in CRM"
+    },
+    {
+      "reviewer": "Jane Frank",
+      "reason": "Not found in CRM"
+    },
+    {
+      "reviewer": "Marilyn Kahle",
+      "reason": "Not found in CRM"
+    },
+    {
+      "reviewer": "Ron Roberts",
+      "reason": "No city in CRM",
+      "crmMatch": "Bert"
     }
   ]
 }
