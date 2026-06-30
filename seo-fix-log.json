@@ -104,5 +104,23 @@
         "fix_desc": 1
       }
     }
+  },
+  {
+    "date": "2026-06-30T12:48:30.895Z",
+    "mode": "apply",
+    "fixType": "all",
+    "stats": {
+      "scanned": 9322,
+      "fixed": 189,
+      "skipped": 0,
+      "errors": 0,
+      "changes": {
+        "add_schema": 6,
+        "add_og": 10,
+        "fix_desc": 144,
+        "noindex_thin": 7,
+        "fix_title": 45
+      }
+    }
   }
 ]
