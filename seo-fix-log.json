@@ -137,5 +137,20 @@
         "add_og": 4
       }
     }
+  },
+  {
+    "date": "2026-07-01T20:50:35.973Z",
+    "mode": "apply",
+    "fixType": "all",
+    "stats": {
+      "scanned": 9322,
+      "fixed": 4,
+      "skipped": 0,
+      "errors": 0,
+      "changes": {
+        "add_schema": 4,
+        "add_og": 4
+      }
+    }
   }
 ]

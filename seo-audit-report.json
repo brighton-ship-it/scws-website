@@ -1,5 +1,5 @@
 {
-  "date": "2026-07-01T12:51:31.113Z",
+  "date": "2026-07-01T20:50:25.411Z",
   "summary": {
     "scanned": 9323,
     "noindexed": 521,
@@ -19050,7 +19050,7 @@
     {
       "path": "/blog/california-groundwater-depletion-statistics.html",
       "rating": "okay",
-      "wordCount": 867,
+      "wordCount": 868,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
@@ -49878,7 +49878,7 @@
     {
       "path": "/blog/private-well-water-quality-statistics.html",
       "rating": "okay",
-      "wordCount": 822,
+      "wordCount": 823,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
@@ -83905,7 +83905,7 @@
     {
       "path": "/blog/well-pump-failure-statistics.html",
       "rating": "okay",
-      "wordCount": 933,
+      "wordCount": 934,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
