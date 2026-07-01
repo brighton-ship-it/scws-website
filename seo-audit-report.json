@@ -1,29 +1,27 @@
 {
-  "date": "2026-06-30T12:48:26.169Z",
+  "date": "2026-07-01T12:51:31.113Z",
   "summary": {
     "scanned": 9323,
-    "noindexed": 514,
-    "indexed": 8809,
-    "critical": 17,
-    "warnings": 6545,
-    "clean": 2247
+    "noindexed": 521,
+    "indexed": 8802,
+    "critical": 10,
+    "warnings": 6370,
+    "clean": 2422
   },
   "issueCounts": {
-    "MISSING_TITLE": 5,
-    "MISSING_DESC": 5,
-    "MISSING_CANONICAL": 5,
-    "MISSING_H1": 12,
-    "MISSING_VIEWPORT": 8,
-    "THIN_CONTENT": 10
+    "MISSING_TITLE": 3,
+    "MISSING_DESC": 3,
+    "MISSING_CANONICAL": 3,
+    "MISSING_H1": 7,
+    "MISSING_VIEWPORT": 6,
+    "THIN_CONTENT": 3
   },
   "warningCounts": {
     "LOW_CONTENT": 6325,
     "SHORT_TITLE": 22,
-    "MISSING_SCHEMA": 6,
-    "FEW_INTERNAL_LINKS": 7,
-    "MISSING_OG": 10,
-    "LONG_DESC": 144,
-    "LONG_TITLE": 45,
+    "MISSING_SCHEMA": 3,
+    "FEW_INTERNAL_LINKS": 4,
+    "MISSING_OG": 3,
     "SHORT_DESC": 189,
     "MULTIPLE_H1": 16
   },
@@ -218,8 +216,7 @@
         [
           "/blog/avocado-well-aguanga-valley (1).html",
           "/blog/avocado-well-aguanga-valley (2).html",
-          "/blog/avocado-well-aguanga-valley (3).html",
-          "/blog/avocado-well-aguanga-valley.html"
+          "/blog/avocado-well-aguanga-valley (3).html"
         ]
       ],
       [
@@ -234,8 +231,7 @@
         [
           "/blog/avocado-well-big-bear-lake (1).html",
           "/blog/avocado-well-big-bear-lake (2).html",
-          "/blog/avocado-well-big-bear-lake (3).html",
-          "/blog/avocado-well-big-bear-lake.html"
+          "/blog/avocado-well-big-bear-lake (3).html"
         ]
       ],
       [
@@ -775,7 +771,6 @@
         [
           "/blog/low-water-pressure-university-heights (1).html",
           "/blog/low-water-pressure-university-heights (2).html",
-          "/blog/low-water-pressure-university-heights (3).html",
           "/blog/low-water-pressure-university-heights (4).html",
           "/blog/low-water-pressure-university-heights (5).html",
           "/blog/low-water-pressure-university-heights (6).html",
@@ -919,16 +914,10 @@
       [
         "rusty water from well in palomar mountain | causes &amp;...",
         [
-          "/blog/rusty-water-palomar-mountain (1).html",
           "/blog/rusty-water-palomar-mountain (2).html",
-          "/blog/rusty-water-palomar-mountain.html"
-        ]
-      ],
-      [
-        "rusty water from well in palomar mountain | causes &amp; solutions",
-        [
           "/blog/rusty-water-palomar-mountain (3).html",
-          "/blog/rusty-water-palomar-mountain (4).html"
+          "/blog/rusty-water-palomar-mountain (4).html",
+          "/blog/rusty-water-palomar-mountain.html"
         ]
       ],
       [
@@ -1181,8 +1170,7 @@
         [
           "/blog/avocado-well-aguanga-valley (1).html",
           "/blog/avocado-well-aguanga-valley (2).html",
-          "/blog/avocado-well-aguanga-valley (3).html",
-          "/blog/avocado-well-aguanga-valley.html"
+          "/blog/avocado-well-aguanga-valley (3).html"
         ]
       ],
       [
@@ -1197,8 +1185,7 @@
         [
           "/blog/avocado-well-big-bear-lake (1).html",
           "/blog/avocado-well-big-bear-lake (2).html",
-          "/blog/avocado-well-big-bear-lake (3).html",
-          "/blog/avocado-well-big-bear-lake.html"
+          "/blog/avocado-well-big-bear-lake (3).html"
         ]
       ],
       [
@@ -1815,7 +1802,6 @@
         [
           "/blog/low-water-pressure-university-heights (1).html",
           "/blog/low-water-pressure-university-heights (2).html",
-          "/blog/low-water-pressure-university-heights (3).html",
           "/blog/low-water-pressure-university-heights (4).html",
           "/blog/low-water-pressure-university-heights (5).html",
           "/blog/low-water-pressure-university-heights (6).html",
@@ -1966,7 +1952,6 @@
       [
         "rusty or orange well water in palomar mountain? learn causes and solutions. iron removal systems, we",
         [
-          "/blog/rusty-water-palomar-mountain (1).html",
           "/blog/rusty-water-palomar-mountain (2).html",
           "/blog/rusty-water-palomar-mountain (3).html",
           "/blog/rusty-water-palomar-mountain (4).html",
@@ -2085,7 +2070,7 @@
     ]
   },
   "content": {
-    "thin": 10,
+    "thin": 3,
     "low": 6325,
     "good": 2474
   },
@@ -2348,14 +2333,12 @@
     },
     {
       "path": "/blog/agricultural-well-aguanga-valley.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 1755,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/agricultural-well-aguanga.html",
@@ -2667,14 +2650,12 @@
     },
     {
       "path": "/blog/agricultural-well-cahuilla.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 1730,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/agricultural-well-calimesa.html",
@@ -3338,14 +3319,12 @@
     },
     {
       "path": "/blog/agricultural-well-garner-valley.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 1739,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/agricultural-well-garnet.html",
@@ -3520,14 +3499,12 @@
     },
     {
       "path": "/blog/agricultural-well-hidden-meadows (1).html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 1759,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/agricultural-well-hidden-meadows.html",
@@ -3582,14 +3559,12 @@
     },
     {
       "path": "/blog/agricultural-well-home-gardens.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 1785,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/agricultural-well-homeland (1).html",
@@ -3633,25 +3608,21 @@
     },
     {
       "path": "/blog/agricultural-well-indian-wells (1).html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 1816,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/agricultural-well-indian-wells.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 1816,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/agricultural-well-indio.html",
@@ -3904,14 +3875,12 @@
     },
     {
       "path": "/blog/agricultural-well-lakeview.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 1874,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/agricultural-well-landers.html",
@@ -4078,14 +4047,12 @@
     },
     {
       "path": "/blog/agricultural-well-mead-valley.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 1765,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/agricultural-well-mecca (1).html",
@@ -4104,26 +4071,6 @@
       "hasSchema": true,
       "issues": [],
       "warnings": []
-    },
-    {
-      "path": "/blog/agricultural-well-menifee (1).html",
-      "rating": "critical",
-      "wordCount": 0,
-      "h1Count": 0,
-      "hasSchema": false,
-      "issues": [
-        "MISSING_TITLE",
-        "MISSING_DESC",
-        "MISSING_CANONICAL",
-        "MISSING_H1",
-        "MISSING_VIEWPORT",
-        "THIN_CONTENT"
-      ],
-      "warnings": [
-        "MISSING_SCHEMA",
-        "FEW_INTERNAL_LINKS",
-        "MISSING_OG"
-      ]
     },
     {
       "path": "/blog/agricultural-well-menifee (2).html",
@@ -4765,14 +4712,12 @@
     },
     {
       "path": "/blog/agricultural-well-pine-valley.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 1769,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/agricultural-well-pinon-hills (1).html",
@@ -4785,14 +4730,12 @@
     },
     {
       "path": "/blog/agricultural-well-pinon-hills.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 1786,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/agricultural-well-pioneertown.html",
@@ -4862,14 +4805,12 @@
     },
     {
       "path": "/blog/agricultural-well-quail-valley.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 2020,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/agricultural-well-rainbow (1).html",
@@ -4973,14 +4914,12 @@
     },
     {
       "path": "/blog/agricultural-well-rancho-santa-fe.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 1819,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/agricultural-well-redlands.html",
@@ -5596,14 +5535,12 @@
     },
     {
       "path": "/blog/agricultural-well-valle-vista.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 1828,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/agricultural-well-valley-center (1).html",
@@ -5625,25 +5562,21 @@
     },
     {
       "path": "/blog/agricultural-well-victorville (1).html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 1731,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/agricultural-well-victorville.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 1731,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/agricultural-well-viejas.html",
@@ -5696,14 +5629,12 @@
     },
     {
       "path": "/blog/agricultural-well-warner-springs.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 1783,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/agricultural-well-webster.html",
@@ -5758,14 +5689,12 @@
     },
     {
       "path": "/blog/agricultural-well-woodcrest.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 1736,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/agricultural-well-wrightwood.html",
@@ -9338,17 +9267,6 @@
       "warnings": []
     },
     {
-      "path": "/blog/avocado-well-aguanga-valley.html",
-      "rating": "critical",
-      "wordCount": 53,
-      "h1Count": 1,
-      "hasSchema": true,
-      "issues": [
-        "THIN_CONTENT"
-      ],
-      "warnings": []
-    },
-    {
       "path": "/blog/avocado-well-aguanga.html",
       "rating": "good",
       "wordCount": 1869,
@@ -9526,18 +9444,6 @@
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": []
-    },
-    {
-      "path": "/blog/avocado-well-big-bear-lake.html",
-      "rating": "critical",
-      "wordCount": 139,
-      "h1Count": 0,
-      "hasSchema": true,
-      "issues": [
-        "MISSING_H1",
-        "THIN_CONTENT"
-      ],
       "warnings": []
     },
     {
@@ -9758,14 +9664,12 @@
     },
     {
       "path": "/blog/avocado-well-cherry-valley.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 1866,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/avocado-well-chino-hills.html",
@@ -9922,14 +9826,12 @@
     },
     {
       "path": "/blog/avocado-well-del-cerro.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 1812,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/avocado-well-del-mar-heights.html",
@@ -10329,14 +10231,12 @@
     },
     {
       "path": "/blog/avocado-well-grantville.html",
-      "rating": "okay",
-      "wordCount": 1863,
+      "rating": "good",
+      "wordCount": 1862,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_TITLE"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/avocado-well-green-acres.html",
@@ -10884,62 +10784,48 @@
     },
     {
       "path": "/blog/avocado-well-lytle-creek.html",
-      "rating": "okay",
-      "wordCount": 1866,
+      "rating": "good",
+      "wordCount": 1861,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_TITLE",
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/avocado-well-march-air-reserve-base.html",
-      "rating": "okay",
-      "wordCount": 1640,
+      "rating": "good",
+      "wordCount": 1635,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_TITLE"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/avocado-well-mead-valley.html",
-      "rating": "okay",
-      "wordCount": 1649,
+      "rating": "good",
+      "wordCount": 1644,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_TITLE",
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/avocado-well-mecca.html",
-      "rating": "okay",
-      "wordCount": 1679,
+      "rating": "good",
+      "wordCount": 1674,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_TITLE",
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/avocado-well-menifee.html",
-      "rating": "okay",
-      "wordCount": 1634,
+      "rating": "good",
+      "wordCount": 1629,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_TITLE",
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/avocado-well-mentone.html",
@@ -10952,39 +10838,30 @@
     },
     {
       "path": "/blog/avocado-well-midway-district.html",
-      "rating": "okay",
-      "wordCount": 1663,
+      "rating": "good",
+      "wordCount": 1657,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_TITLE",
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/avocado-well-mira-mesa.html",
-      "rating": "okay",
-      "wordCount": 1612,
+      "rating": "good",
+      "wordCount": 1609,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_TITLE",
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/avocado-well-mission-beach.html",
-      "rating": "okay",
-      "wordCount": 1616,
+      "rating": "good",
+      "wordCount": 1613,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_TITLE",
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/avocado-well-mission-hills.html",
@@ -11674,26 +11551,21 @@
     },
     {
       "path": "/blog/avocado-well-romoland.html",
-      "rating": "okay",
-      "wordCount": 1591,
+      "rating": "good",
+      "wordCount": 1586,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_TITLE"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/avocado-well-running-springs.html",
-      "rating": "okay",
-      "wordCount": 1654,
+      "rating": "good",
+      "wordCount": 1649,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_TITLE",
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/avocado-well-sabre-springs.html",
@@ -11706,71 +11578,57 @@
     },
     {
       "path": "/blog/avocado-well-sage.html",
-      "rating": "okay",
-      "wordCount": 1566,
+      "rating": "good",
+      "wordCount": 1561,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_TITLE",
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/avocado-well-san-bernardino.html",
-      "rating": "okay",
-      "wordCount": 1632,
+      "rating": "good",
+      "wordCount": 1627,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_TITLE"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/avocado-well-san-carlos.html",
-      "rating": "okay",
-      "wordCount": 1639,
+      "rating": "good",
+      "wordCount": 1634,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_TITLE"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/avocado-well-san-diego-county.html",
-      "rating": "okay",
-      "wordCount": 1619,
+      "rating": "good",
+      "wordCount": 1614,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_TITLE"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/avocado-well-san-diego.html",
-      "rating": "okay",
-      "wordCount": 1649,
+      "rating": "good",
+      "wordCount": 1644,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_TITLE",
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/avocado-well-san-dieguito.html",
-      "rating": "okay",
-      "wordCount": 1642,
+      "rating": "good",
+      "wordCount": 1637,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_TITLE"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/avocado-well-san-elijo-hills.html",
@@ -13463,26 +13321,6 @@
       "issues": [],
       "warnings": [
         "LOW_CONTENT"
-      ]
-    },
-    {
-      "path": "/blog/booster-pump-fontana (1).html",
-      "rating": "critical",
-      "wordCount": 0,
-      "h1Count": 0,
-      "hasSchema": false,
-      "issues": [
-        "MISSING_TITLE",
-        "MISSING_DESC",
-        "MISSING_CANONICAL",
-        "MISSING_H1",
-        "MISSING_VIEWPORT",
-        "THIN_CONTENT"
-      ],
-      "warnings": [
-        "MISSING_SCHEMA",
-        "FEW_INTERNAL_LINKS",
-        "MISSING_OG"
       ]
     },
     {
@@ -15887,25 +15725,21 @@
     },
     {
       "path": "/blog/brown-water-alpine.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 2646,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/brown-water-anza.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 2579,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/brown-water-apple-valley.html",
@@ -16735,14 +16569,12 @@
     },
     {
       "path": "/blog/brown-water-escondido.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 2425,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/brown-water-fairbanks-ranch.html",
@@ -16955,14 +16787,12 @@
     },
     {
       "path": "/blog/brown-water-harbison-canyon.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 2332,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/brown-water-helendale.html",
@@ -16999,14 +16829,12 @@
     },
     {
       "path": "/blog/brown-water-hidden-meadows.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 2277,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/brown-water-highgrove.html",
@@ -17076,14 +16904,12 @@
     },
     {
       "path": "/blog/brown-water-idyllwild.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 2420,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/brown-water-imperial-beach.html",
@@ -17120,14 +16946,12 @@
     },
     {
       "path": "/blog/brown-water-jacumba.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 2415,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/brown-water-jamul.html",
@@ -17208,14 +17032,12 @@
     },
     {
       "path": "/blog/brown-water-la-jolla.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 2542,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/brown-water-la-mesa.html",
@@ -17944,14 +17766,12 @@
     },
     {
       "path": "/blog/brown-water-oceanside.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 2146,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/brown-water-ocotillo.html",
@@ -18109,14 +17929,12 @@
     },
     {
       "path": "/blog/brown-water-pauma-valley.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 2706,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/brown-water-pedley.html",
@@ -18142,14 +17960,12 @@
     },
     {
       "path": "/blog/brown-water-phelan.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 2211,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/brown-water-pine-valley.html",
@@ -18336,14 +18152,12 @@
     },
     {
       "path": "/blog/brown-water-redlands.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 2082,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/brown-water-rialto.html",
@@ -18961,14 +18775,12 @@
     },
     {
       "path": "/blog/brown-water-valley-center.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 2684,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/brown-water-victorville.html",
@@ -19027,14 +18839,12 @@
     },
     {
       "path": "/blog/brown-water-warner-springs.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 2376,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/brown-water-webster.html",
@@ -19060,14 +18870,12 @@
     },
     {
       "path": "/blog/brown-water-winchester.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 2444,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/brown-water-winter-gardens.html",
@@ -20288,17 +20096,6 @@
       "warnings": [
         "LOW_CONTENT"
       ]
-    },
-    {
-      "path": "/blog/citrus-well-escondido.html",
-      "rating": "critical",
-      "wordCount": 14,
-      "h1Count": 1,
-      "hasSchema": true,
-      "issues": [
-        "THIN_CONTENT"
-      ],
-      "warnings": []
     },
     {
       "path": "/blog/citrus-well-fairbanks-ranch.html",
@@ -27064,14 +26861,12 @@
     },
     {
       "path": "/blog/dry-well-solutions-desert-hot-springs.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 2432,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/dry-well-solutions-devore.html",
@@ -28555,14 +28350,12 @@
     },
     {
       "path": "/blog/dry-well-solutions-palomar-mountain.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 1580,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/dry-well-solutions-paradise-hills.html",
@@ -28797,14 +28590,12 @@
     },
     {
       "path": "/blog/dry-well-solutions-rancho-santa-fe.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 2430,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/dry-well-solutions-redlands.html",
@@ -29264,14 +29055,12 @@
     },
     {
       "path": "/blog/dry-well-solutions-temescal-valley.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 2378,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/dry-well-solutions-teralta-west.html",
@@ -29912,14 +29701,12 @@
     },
     {
       "path": "/blog/emergency-well-repair-bloomington.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 1896,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/emergency-well-repair-blue-jay.html",
@@ -30095,14 +29882,12 @@
     },
     {
       "path": "/blog/emergency-well-repair-cedar-glen.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 1954,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/emergency-well-repair-cedarpines-park.html",
@@ -30233,14 +30018,12 @@
     },
     {
       "path": "/blog/emergency-well-repair-crest-park.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 1721,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/emergency-well-repair-crest.html",
@@ -30449,14 +30232,12 @@
     },
     {
       "path": "/blog/emergency-well-repair-el-mirage.html",
-      "rating": "okay",
-      "wordCount": 1761,
+      "rating": "good",
+      "wordCount": 1756,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_TITLE"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/emergency-well-repair-emerald-hills.html",
@@ -30555,25 +30336,21 @@
     },
     {
       "path": "/blog/emergency-well-repair-fontana.html",
-      "rating": "okay",
-      "wordCount": 1710,
+      "rating": "good",
+      "wordCount": 1705,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_TITLE"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/emergency-well-repair-forest-falls.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 1844,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/emergency-well-repair-french-valley.html",
@@ -30626,14 +30403,12 @@
     },
     {
       "path": "/blog/emergency-well-repair-good-hope.html",
-      "rating": "okay",
-      "wordCount": 1720,
+      "rating": "good",
+      "wordCount": 1715,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_TITLE"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/emergency-well-repair-grand-terrace.html",
@@ -30752,14 +30527,12 @@
     },
     {
       "path": "/blog/emergency-well-repair-highgrove.html",
-      "rating": "okay",
-      "wordCount": 1703,
+      "rating": "good",
+      "wordCount": 1698,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_TITLE"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/emergency-well-repair-highland.html",
@@ -30984,14 +30757,12 @@
     },
     {
       "path": "/blog/emergency-well-repair-lake-gregory.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 1753,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/emergency-well-repair-lake-hodges.html",
@@ -31006,14 +30777,12 @@
     },
     {
       "path": "/blog/emergency-well-repair-lake-matthews.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 1913,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/emergency-well-repair-lake-morena.html",
@@ -31048,14 +30817,12 @@
     },
     {
       "path": "/blog/emergency-well-repair-lakeland-village.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 1868,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/emergency-well-repair-lakeside.html",
@@ -31453,14 +31220,12 @@
     },
     {
       "path": "/blog/emergency-well-repair-needles.html",
-      "rating": "okay",
-      "wordCount": 1814,
+      "rating": "good",
+      "wordCount": 1809,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_TITLE"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/emergency-well-repair-norco.html",
@@ -31502,14 +31267,12 @@
     },
     {
       "path": "/blog/emergency-well-repair-north-shore.html",
-      "rating": "okay",
-      "wordCount": 1745,
+      "rating": "good",
+      "wordCount": 1740,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_TITLE"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/emergency-well-repair-nuevo.html",
@@ -31629,14 +31392,12 @@
     },
     {
       "path": "/blog/emergency-well-repair-oro-grande.html",
-      "rating": "okay",
-      "wordCount": 1757,
+      "rating": "good",
+      "wordCount": 1752,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_TITLE"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/emergency-well-repair-otay-mesa.html",
@@ -31790,14 +31551,12 @@
     },
     {
       "path": "/blog/emergency-well-repair-poppet-flats.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 1914,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/emergency-well-repair-poway.html",
@@ -31903,14 +31662,12 @@
     },
     {
       "path": "/blog/emergency-well-repair-romoland.html",
-      "rating": "okay",
-      "wordCount": 1716,
+      "rating": "good",
+      "wordCount": 1711,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_TITLE"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/emergency-well-repair-running-springs.html",
@@ -31963,14 +31720,12 @@
     },
     {
       "path": "/blog/emergency-well-repair-san-dieguito.html",
-      "rating": "okay",
-      "wordCount": 1771,
+      "rating": "good",
+      "wordCount": 1766,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_TITLE"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/emergency-well-repair-san-elijo-hills.html",
@@ -32038,14 +31793,12 @@
     },
     {
       "path": "/blog/emergency-well-repair-santa-fe-hills.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 2045,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/emergency-well-repair-santa-ysabel.html",
@@ -32215,14 +31968,12 @@
     },
     {
       "path": "/blog/emergency-well-repair-temescal-valley.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 1835,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/emergency-well-repair-teralta-west.html",
@@ -32321,14 +32072,12 @@
     },
     {
       "path": "/blog/emergency-well-repair-valle-vista.html",
-      "rating": "okay",
-      "wordCount": 1728,
+      "rating": "good",
+      "wordCount": 1723,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_TITLE"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/emergency-well-repair-valley-center.html",
@@ -32343,14 +32092,12 @@
     },
     {
       "path": "/blog/emergency-well-repair-viejas.html",
-      "rating": "okay",
-      "wordCount": 1775,
+      "rating": "good",
+      "wordCount": 1770,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_TITLE"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/emergency-well-repair-vista.html",
@@ -32365,14 +32112,12 @@
     },
     {
       "path": "/blog/emergency-well-repair-warm-springs.html",
-      "rating": "okay",
-      "wordCount": 1725,
+      "rating": "good",
+      "wordCount": 1720,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_TITLE"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/emergency-well-repair-webster.html",
@@ -36691,14 +36436,12 @@
     },
     {
       "path": "/blog/hydrofracturing-allied-gardens.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 2031,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/hydrofracturing-alpine.html",
@@ -36720,14 +36463,12 @@
     },
     {
       "path": "/blog/hydrofracturing-apple-valley.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 1935,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/hydrofracturing-arrowbear-lake.html",
@@ -36740,25 +36481,21 @@
     },
     {
       "path": "/blog/hydrofracturing-bankers-hill.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 1915,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/hydrofracturing-banning-pass.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 1958,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/hydrofracturing-banning.html",
@@ -36771,14 +36508,12 @@
     },
     {
       "path": "/blog/hydrofracturing-barrio-logan.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 1931,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/hydrofracturing-barstow.html",
@@ -36818,47 +36553,39 @@
     },
     {
       "path": "/blog/hydrofracturing-bermuda-dunes.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 1921,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/hydrofracturing-big-bear-city.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 1946,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/hydrofracturing-big-bear-lake.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 1948,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/hydrofracturing-bird-rock.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 1933,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/hydrofracturing-birdland.html",
@@ -36871,25 +36598,21 @@
     },
     {
       "path": "/blog/hydrofracturing-black-mountain-ranch.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 1964,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/hydrofracturing-bloomington.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 1930,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/hydrofracturing-blue-jay.html",
@@ -36992,14 +36715,12 @@
     },
     {
       "path": "/blog/hydrofracturing-canyon-lake.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 1970,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/hydrofracturing-cardiff-by-the-sea.html",
@@ -37336,14 +37057,12 @@
     },
     {
       "path": "/blog/hydrofracturing-east-otay-mesa.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 1840,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/hydrofracturing-east-village.html",
@@ -37446,14 +37165,12 @@
     },
     {
       "path": "/blog/hydrofracturing-fairmount-village.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 1670,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/hydrofracturing-fallbrook.html",
@@ -37511,14 +37228,12 @@
     },
     {
       "path": "/blog/hydrofracturing-garner-valley.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 1959,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/hydrofracturing-garnet.html",
@@ -37531,14 +37246,12 @@
     },
     {
       "path": "/blog/hydrofracturing-glen-avon.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 1686,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/hydrofracturing-golden-hill.html",
@@ -37578,14 +37291,12 @@
     },
     {
       "path": "/blog/hydrofracturing-grantville.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 1651,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/hydrofracturing-green-acres.html",
@@ -37724,14 +37435,12 @@
     },
     {
       "path": "/blog/hydrofracturing-imperial-beach.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 1723,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/hydrofracturing-indian-wells.html",
@@ -37753,14 +37462,12 @@
     },
     {
       "path": "/blog/hydrofracturing-jacumba.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 1955,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/hydrofracturing-jamul.html",
@@ -37809,14 +37516,12 @@
     },
     {
       "path": "/blog/hydrofracturing-kensington.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 2019,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/hydrofracturing-la-costa.html",
@@ -37856,14 +37561,12 @@
     },
     {
       "path": "/blog/hydrofracturing-la-quinta.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 2002,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/hydrofracturing-lake-arrowhead.html",
@@ -37876,36 +37579,30 @@
     },
     {
       "path": "/blog/hydrofracturing-lake-elsinore.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 1972,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/hydrofracturing-lake-gregory.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 1950,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/hydrofracturing-lake-hodges (1).html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 1965,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/hydrofracturing-lake-hodges.html",
@@ -37936,14 +37633,12 @@
     },
     {
       "path": "/blog/hydrofracturing-lake-murray.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 1914,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/hydrofracturing-lake-riverside.html",
@@ -37992,25 +37687,21 @@
     },
     {
       "path": "/blog/hydrofracturing-lemon-crest.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 1924,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/hydrofracturing-lemon-grove.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 1912,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/hydrofracturing-lenwood.html",
@@ -38032,14 +37723,12 @@
     },
     {
       "path": "/blog/hydrofracturing-liberty-station.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 1909,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/hydrofracturing-lincoln-acres.html",
@@ -38106,14 +37795,12 @@
     },
     {
       "path": "/blog/hydrofracturing-lytle-creek.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 1956,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/hydrofracturing-march-air-reserve-base.html",
@@ -38171,14 +37858,12 @@
     },
     {
       "path": "/blog/hydrofracturing-mira-mesa.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 2019,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/hydrofracturing-mission-beach.html",
@@ -38200,14 +37885,12 @@
     },
     {
       "path": "/blog/hydrofracturing-mission-valley.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 1906,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/hydrofracturing-montclair.html",
@@ -38274,25 +37957,21 @@
     },
     {
       "path": "/blog/hydrofracturing-mountain-center.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 1935,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/hydrofracturing-mountain-view.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 1954,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/hydrofracturing-mt-baldy.html",
@@ -38377,14 +38056,12 @@
     },
     {
       "path": "/blog/hydrofracturing-north-clairemont.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 2038,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/hydrofracturing-north-park.html",
@@ -38498,14 +38175,12 @@
     },
     {
       "path": "/blog/hydrofracturing-olivenhain.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 2036,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/hydrofracturing-ontario.html",
@@ -38527,14 +38202,12 @@
     },
     {
       "path": "/blog/hydrofracturing-otay-mesa.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 1920,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/hydrofracturing-otay-ranch.html",
@@ -38583,14 +38256,12 @@
     },
     {
       "path": "/blog/hydrofracturing-palm-springs.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 1904,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/hydrofracturing-palomar-mountain.html",
@@ -38666,14 +38337,12 @@
     },
     {
       "path": "/blog/hydrofracturing-pinon-hills (1).html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 1974,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/hydrofracturing-pinon-hills.html",
@@ -38686,36 +38355,30 @@
     },
     {
       "path": "/blog/hydrofracturing-pioneertown.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 1981,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/hydrofracturing-point-loma (1).html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 2001,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/hydrofracturing-point-loma.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 2068,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/hydrofracturing-poppet-flats.html",
@@ -38791,25 +38454,21 @@
     },
     {
       "path": "/blog/hydrofracturing-rancho-cucamonga (1).html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 1997,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/hydrofracturing-rancho-cucamonga.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 2213,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/hydrofracturing-rancho-mirage (1).html",
@@ -38822,14 +38481,12 @@
     },
     {
       "path": "/blog/hydrofracturing-rancho-mirage.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 2050,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/hydrofracturing-rancho-penasquitos (1).html",
@@ -38842,14 +38499,12 @@
     },
     {
       "path": "/blog/hydrofracturing-rancho-penasquitos.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 2106,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/hydrofracturing-rancho-san-diego (1).html",
@@ -38862,14 +38517,12 @@
     },
     {
       "path": "/blog/hydrofracturing-rancho-san-diego.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 2079,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/hydrofracturing-rancho-santa-fe.html",
@@ -38918,14 +38571,12 @@
     },
     {
       "path": "/blog/hydrofracturing-rimforest (1).html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 2025,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/hydrofracturing-rimforest.html",
@@ -38938,14 +38589,12 @@
     },
     {
       "path": "/blog/hydrofracturing-riverside-county.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 2006,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/hydrofracturing-riverside.html",
@@ -38985,14 +38634,12 @@
     },
     {
       "path": "/blog/hydrofracturing-sabre-springs.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 1920,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/hydrofracturing-sage.html",
@@ -39005,14 +38652,12 @@
     },
     {
       "path": "/blog/hydrofracturing-san-bernardino.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 1977,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/hydrofracturing-san-carlos.html",
@@ -39034,14 +38679,12 @@
     },
     {
       "path": "/blog/hydrofracturing-san-diego-county.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 1932,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/hydrofracturing-san-diego.html",
@@ -39099,14 +38742,12 @@
     },
     {
       "path": "/blog/hydrofracturing-san-marcos.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 1904,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/hydrofracturing-san-pasqual (1).html",
@@ -39832,14 +39473,12 @@
     },
     {
       "path": "/blog/hydrofracturing-woodcrest.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 1815,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/hydrofracturing-wrightwood.html",
@@ -45003,9 +44642,7 @@
       "issues": [
         "MISSING_VIEWPORT"
       ],
-      "warnings": [
-        "MISSING_OG"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/low-water-pressure-mountain-view.html",
@@ -46027,22 +45664,6 @@
       "hasSchema": true,
       "issues": [],
       "warnings": []
-    },
-    {
-      "path": "/blog/low-water-pressure-university-heights (3).html",
-      "rating": "critical",
-      "wordCount": 9,
-      "h1Count": 0,
-      "hasSchema": false,
-      "issues": [
-        "MISSING_H1",
-        "THIN_CONTENT"
-      ],
-      "warnings": [
-        "MISSING_SCHEMA",
-        "FEW_INTERNAL_LINKS",
-        "MISSING_OG"
-      ]
     },
     {
       "path": "/blog/low-water-pressure-university-heights (4).html",
@@ -47246,14 +46867,12 @@
     },
     {
       "path": "/blog/pressure-tank-carlsbad.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 2452,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/pressure-tank-carmel-mountain-ranch.html",
@@ -47674,14 +47293,12 @@
     },
     {
       "path": "/blog/pressure-tank-el-cajon.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 2482,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/pressure-tank-el-mirage.html",
@@ -47959,14 +47576,12 @@
     },
     {
       "path": "/blog/pressure-tank-hemet.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 2447,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/pressure-tank-hesperia.html",
@@ -48904,14 +48519,12 @@
     },
     {
       "path": "/blog/pressure-tank-oak-hills.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 2471,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/pressure-tank-oak-park.html",
@@ -50021,14 +49634,12 @@
     },
     {
       "path": "/blog/pressure-tank-upland.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 2454,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/pressure-tank-valle-vista.html",
@@ -57458,14 +57069,12 @@
     },
     {
       "path": "/blog/rusty-water-cardiff-by-the-sea.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 1899,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_TITLE"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/rusty-water-carlsbad.html",
@@ -57478,14 +57087,12 @@
     },
     {
       "path": "/blog/rusty-water-carmel-mountain-ranch.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 1900,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_TITLE"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/rusty-water-carmel-valley.html",
@@ -57714,14 +57321,12 @@
     },
     {
       "path": "/blog/rusty-water-del-mar.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 1658,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/rusty-water-descanso.html",
@@ -57752,14 +57357,12 @@
     },
     {
       "path": "/blog/rusty-water-desert-hot-springs.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 1587,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_TITLE"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/rusty-water-devore.html",
@@ -58051,14 +57654,12 @@
     },
     {
       "path": "/blog/rusty-water-green-valley-lake.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 1909,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_TITLE"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/rusty-water-guatay.html",
@@ -58215,14 +57816,12 @@
     },
     {
       "path": "/blog/rusty-water-jamul (1).html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 1791,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "MISSING_OG"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/rusty-water-jamul (2).html",
@@ -58658,14 +58257,12 @@
     },
     {
       "path": "/blog/rusty-water-march-air-reserve-base.html",
-      "rating": "okay",
-      "wordCount": 2086,
+      "rating": "good",
+      "wordCount": 2085,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_TITLE"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/rusty-water-mead-valley.html",
@@ -58912,14 +58509,12 @@
     },
     {
       "path": "/blog/rusty-water-north-clairemont.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 1862,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_TITLE"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/rusty-water-north-park.html",
@@ -59130,18 +58725,6 @@
       ]
     },
     {
-      "path": "/blog/rusty-water-palomar-mountain (1).html",
-      "rating": "critical",
-      "wordCount": 289,
-      "h1Count": 0,
-      "hasSchema": true,
-      "issues": [
-        "MISSING_H1",
-        "THIN_CONTENT"
-      ],
-      "warnings": []
-    },
-    {
       "path": "/blog/rusty-water-palomar-mountain (2).html",
       "rating": "good",
       "wordCount": 1935,
@@ -59152,25 +58735,21 @@
     },
     {
       "path": "/blog/rusty-water-palomar-mountain (3).html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 1999,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_TITLE"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/rusty-water-palomar-mountain (4).html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 1963,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_TITLE"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/rusty-water-palomar-mountain.html",
@@ -59335,14 +58914,12 @@
     },
     {
       "path": "/blog/rusty-water-ranchita (1).html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 1658,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "MISSING_OG"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/rusty-water-ranchita (2).html",
@@ -59645,14 +59222,12 @@
     },
     {
       "path": "/blog/rusty-water-san-pasqual-valley.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 1874,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_TITLE"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/rusty-water-san-pasqual.html",
@@ -59740,14 +59315,12 @@
     },
     {
       "path": "/blog/rusty-water-shelter-valley (1).html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 1660,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "MISSING_OG"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/rusty-water-shelter-valley (2).html",
@@ -60035,25 +59608,21 @@
     },
     {
       "path": "/blog/rusty-water-twentynine-palms.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 1865,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_TITLE"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/rusty-water-twin-oaks-valley.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 2156,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_TITLE"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/rusty-water-twin-peaks.html",
@@ -74271,14 +73840,12 @@
     },
     {
       "path": "/blog/well-drilling-colton.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 2377,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/well-drilling-corona.html",
@@ -74523,14 +74090,12 @@
     },
     {
       "path": "/blog/well-drilling-devore.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 3413,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/well-drilling-dulzura.html",
@@ -74982,14 +74547,12 @@
     },
     {
       "path": "/blog/well-drilling-home-gardens.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 2105,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/well-drilling-homeland.html",
@@ -75432,14 +74995,12 @@
     },
     {
       "path": "/blog/well-drilling-loma-portal.html",
-      "rating": "okay",
-      "wordCount": 2436,
+      "rating": "good",
+      "wordCount": 2431,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_TITLE"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/well-drilling-lucerne-valley.html",
@@ -75454,14 +75015,12 @@
     },
     {
       "path": "/blog/well-drilling-lytle-creek.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 3391,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/well-drilling-march-air-reserve-base.html",
@@ -75909,14 +75468,12 @@
     },
     {
       "path": "/blog/well-drilling-oro-grande.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 3318,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/well-drilling-otay-mesa.html",
@@ -76717,14 +76274,12 @@
     },
     {
       "path": "/blog/well-drilling-teralta-west.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 2539,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/well-drilling-thermal.html",
@@ -77026,14 +76581,12 @@
     },
     {
       "path": "/blog/well-drilling-yermo.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 3324,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/well-drilling-yucca-valley.html",
@@ -77302,14 +76855,12 @@
     },
     {
       "path": "/blog/well-inspection-barrio-logan.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 1898,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/well-inspection-barstow.html",
@@ -78168,15 +77719,12 @@
     },
     {
       "path": "/blog/well-inspection-flinn-springs.html",
-      "rating": "okay",
-      "wordCount": 1970,
+      "rating": "good",
+      "wordCount": 1965,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_TITLE",
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/well-inspection-fontana.html",
@@ -80184,15 +79732,12 @@
     },
     {
       "path": "/blog/well-inspection-temescal-valley.html",
-      "rating": "okay",
-      "wordCount": 1942,
+      "rating": "good",
+      "wordCount": 1937,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_TITLE",
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/well-inspection-teralta-west.html",
@@ -80350,15 +79895,12 @@
     },
     {
       "path": "/blog/well-inspection-valley-center.html",
-      "rating": "okay",
-      "wordCount": 2011,
+      "rating": "good",
+      "wordCount": 2006,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_TITLE",
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/well-inspection-victorville.html",
@@ -86442,9 +85984,7 @@
       "issues": [
         "MISSING_H1"
       ],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/well-pump-repair-lytle-creek.html",
@@ -86477,9 +86017,7 @@
       "issues": [
         "MISSING_H1"
       ],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/well-pump-repair-mecca.html",
@@ -87168,16 +86706,13 @@
     {
       "path": "/blog/well-pump-repair-quail-valley.html",
       "rating": "critical",
-      "wordCount": 1772,
+      "wordCount": 1767,
       "h1Count": 0,
       "hasSchema": true,
       "issues": [
         "MISSING_H1"
       ],
-      "warnings": [
-        "LONG_TITLE",
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/well-pump-repair-rainbow.html",
@@ -88580,14 +88115,12 @@
     },
     {
       "path": "/blog/well-rehabilitation-aguanga.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 2072,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/well-rehabilitation-allied-gardens.html",
@@ -88602,14 +88135,12 @@
     },
     {
       "path": "/blog/well-rehabilitation-alpine.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 2084,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/well-rehabilitation-anza.html",
@@ -88624,14 +88155,12 @@
     },
     {
       "path": "/blog/well-rehabilitation-apple-valley.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 2113,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/well-rehabilitation-banning.html",
@@ -88721,14 +88250,12 @@
     },
     {
       "path": "/blog/well-rehabilitation-borrego-springs.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 2133,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/well-rehabilitation-boulevard.html",
@@ -89082,14 +88609,12 @@
     },
     {
       "path": "/blog/well-rehabilitation-fallbrook.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 2090,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/well-rehabilitation-forest-falls.html",
@@ -89146,14 +88671,12 @@
     },
     {
       "path": "/blog/well-rehabilitation-hemet.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 2091,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/well-rehabilitation-hesperia.html",
@@ -89333,14 +88856,12 @@
     },
     {
       "path": "/blog/well-rehabilitation-lake-elsinore.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 2170,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/well-rehabilitation-lake-riverside.html",
@@ -89441,14 +88962,12 @@
     },
     {
       "path": "/blog/well-rehabilitation-menifee.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 2056,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/well-rehabilitation-mentone.html",
@@ -89803,14 +89322,12 @@
     },
     {
       "path": "/blog/well-rehabilitation-phelan.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 2061,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/well-rehabilitation-pine-valley.html",
@@ -90074,14 +89591,12 @@
     },
     {
       "path": "/blog/well-rehabilitation-san-jacinto.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 2101,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/well-rehabilitation-san-marcos.html",
@@ -90306,14 +89821,12 @@
     },
     {
       "path": "/blog/well-rehabilitation-valley-center.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 2111,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/well-rehabilitation-victorville.html",
@@ -90399,14 +89912,12 @@
     },
     {
       "path": "/blog/well-rehabilitation-yucca-valley.html",
-      "rating": "okay",
+      "rating": "good",
       "wordCount": 2107,
       "h1Count": 1,
       "hasSchema": true,
       "issues": [],
-      "warnings": [
-        "LONG_DESC"
-      ]
+      "warnings": []
     },
     {
       "path": "/blog/well-repair-vs-new-well-cost-comparison.html",

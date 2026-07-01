@@ -122,5 +122,20 @@
         "fix_title": 45
       }
     }
+  },
+  {
+    "date": "2026-07-01T12:51:35.078Z",
+    "mode": "apply",
+    "fixType": "all",
+    "stats": {
+      "scanned": 9322,
+      "fixed": 4,
+      "skipped": 0,
+      "errors": 0,
+      "changes": {
+        "add_schema": 4,
+        "add_og": 4
+      }
+    }
   }
 ]
