@@ -1,27 +1,21 @@
 {
-  "date": "2026-07-03T16:52:26.534Z",
+  "date": "2026-07-03T16:53:10.588Z",
   "summary": {
-    "scanned": 9323,
+    "scanned": 9320,
     "noindexed": 521,
-    "indexed": 8802,
-    "critical": 10,
+    "indexed": 8799,
+    "critical": 7,
     "warnings": 6370,
     "clean": 2422
   },
   "issueCounts": {
-    "MISSING_TITLE": 3,
-    "MISSING_DESC": 3,
-    "MISSING_CANONICAL": 3,
-    "MISSING_H1": 7,
-    "MISSING_VIEWPORT": 6,
-    "THIN_CONTENT": 3
+    "MISSING_VIEWPORT": 3,
+    "MISSING_H1": 4
   },
   "warningCounts": {
     "LOW_CONTENT": 6325,
     "SHORT_TITLE": 22,
-    "MISSING_SCHEMA": 3,
-    "FEW_INTERNAL_LINKS": 4,
-    "MISSING_OG": 3,
+    "FEW_INTERNAL_LINKS": 1,
     "SHORT_DESC": 189,
     "MULTIPLE_H1": 16
   },
@@ -2070,7 +2064,7 @@
     ]
   },
   "content": {
-    "thin": 3,
+    "thin": 0,
     "low": 6325,
     "good": 2474
   },
@@ -2169,66 +2163,6 @@
       "issues": [],
       "warnings": [
         "LOW_CONTENT"
-      ]
-    },
-    {
-      "path": "/blog/__b64_test_delete_me.html",
-      "rating": "critical",
-      "wordCount": 3,
-      "h1Count": 0,
-      "hasSchema": false,
-      "issues": [
-        "MISSING_TITLE",
-        "MISSING_DESC",
-        "MISSING_CANONICAL",
-        "MISSING_H1",
-        "MISSING_VIEWPORT",
-        "THIN_CONTENT"
-      ],
-      "warnings": [
-        "MISSING_SCHEMA",
-        "FEW_INTERNAL_LINKS",
-        "MISSING_OG"
-      ]
-    },
-    {
-      "path": "/blog/__test_delete_me.html",
-      "rating": "critical",
-      "wordCount": 1,
-      "h1Count": 0,
-      "hasSchema": false,
-      "issues": [
-        "MISSING_TITLE",
-        "MISSING_DESC",
-        "MISSING_CANONICAL",
-        "MISSING_H1",
-        "MISSING_VIEWPORT",
-        "THIN_CONTENT"
-      ],
-      "warnings": [
-        "MISSING_SCHEMA",
-        "FEW_INTERNAL_LINKS",
-        "MISSING_OG"
-      ]
-    },
-    {
-      "path": "/blog/_textcontent_test.html",
-      "rating": "critical",
-      "wordCount": 5,
-      "h1Count": 0,
-      "hasSchema": false,
-      "issues": [
-        "MISSING_TITLE",
-        "MISSING_DESC",
-        "MISSING_CANONICAL",
-        "MISSING_H1",
-        "MISSING_VIEWPORT",
-        "THIN_CONTENT"
-      ],
-      "warnings": [
-        "MISSING_SCHEMA",
-        "FEW_INTERNAL_LINKS",
-        "MISSING_OG"
       ]
     },
     {
