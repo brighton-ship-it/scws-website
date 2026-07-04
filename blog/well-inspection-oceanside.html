@@ -33,34 +33,17 @@
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "How do I know if my well pump needs repair?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Common signs include: no water or low pressure, pump cycling on and off rapidly (short cycling), unusual noises, dirty or sandy water, and higher-than-normal electric bills. Any of these warrant a professional inspection."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How much does well pump repair cost?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Simple repairs like pressure switch replacement run $150-$300. Motor or pump replacement typically costs $1,500-$4,500 depending on well depth and pump type. We diagnose the issue before recommending repairs."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can I repair my well pump myself?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Surface-level issues like pressure switch adjustment or breaker resets are safe DIY tasks. However, anything involving pulling the pump from the well requires specialized equipment and should be handled by a licensed contractor to avoid damaging the well casing."
-      }
-    }
+    {"@type": "Question", "name": "What is checked during an Oceanside well inspection?", "acceptedAnswer": {"@type": "Answer", "text": "We check the wellhead and sanitary cap, casing integrity, static and pumping water levels, pump flow rate (GPM) and system pressure, the pressure tank and switch, and the electrical wiring and controls. A water sample is collected for quality screening, with particular attention to coastal concerns like salinity. You receive a detailed written report."}},
+    {"@type": "Question", "name": "How much does a well inspection cost in Oceanside?", "acceptedAnswer": {"@type": "Answer", "text": "Well inspections typically run $150-$400 depending on scope and whether laboratory water testing is included. If a repair is found, our $125 diagnostic fee is credited toward the work, and we provide a written estimate before starting."}},
+    {"@type": "Question", "name": "Is a well inspection required for real estate in Oceanside?", "acceptedAnswer": {"@type": "Answer", "text": "San Diego County requires well inspections for many real estate transactions, and our reports are accepted by all major title companies and lenders. Even when not strictly required, a pre-purchase inspection protects buyers from inheriting a failing well or poor water quality."}},
+    {"@type": "Question", "name": "Should coastal Oceanside wells be tested for saltwater intrusion?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Wells near the coast and the San Luis Rey River corridor can be affected by seawater intrusion and elevated chlorides. Our water screening checks for salinity along with hardness, iron, nitrates, and bacteria, and we recommend treatment such as reverse osmosis ($300-$1,200) where appropriate."}},
+    {"@type": "Question", "name": "How often should an Oceanside well be inspected?", "acceptedAnswer": {"@type": "Answer", "text": "An annual inspection is recommended for existing well owners. Checking flow, water level, pressure, and water quality each year catches issues like a weakening pump or rising chlorides early, before they become expensive emergencies."}},
+    {"@type": "Question", "name": "How long does the inspection take and when do I get the report?", "acceptedAnswer": {"@type": "Answer", "text": "On-site inspection usually takes one to two hours. If water is sent to a lab, results add turnaround time, but we deliver the written report promptly so your transaction or maintenance decision can proceed without delay."}}
   ]
 }
 </script>
 </head>
+
 <body class="pb-20 lg:pb-0 bg-white">
     <!-- Emergency Banner -->
     <div class="bg-gradient-to-r from-red-600 to-red-700 text-white py-2.5">
@@ -80,7 +63,6 @@
                 <a href="../" class="flex items-center space-x-3 shrink-0">
                     <img width="840" height="150" loading="lazy" src="../images/logo-text-only-3x.png" alt="Southern California Well Service" class="h-10 lg:h-12 w-auto">
                 </a>
-                <!-- Desktop Navigation -->
                 <nav class="hidden lg:flex space-x-4 items-center">
                     <a href="../#services" class="text-white hover:text-accent transition whitespace-nowrap">Services</a>
                     <a href="../#areas" class="text-white hover:text-accent transition whitespace-nowrap">Service Areas</a>
@@ -91,7 +73,6 @@
                     <a href="../pages/about.html" class="text-white hover:text-accent transition whitespace-nowrap">About</a>
                 </nav>
                 <div class="flex items-center gap-3">
-                    <!-- Mobile Menu Button -->
                     <button id="mobile-menu-btn" class="lg:hidden p-2 hover:bg-white/10 rounded-lg transition" aria-label="Toggle menu">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
@@ -103,7 +84,6 @@
                 </div>
             </div>
         </div>
-        <!-- Mobile Navigation Menu -->
         <div id="mobile-menu" class="hidden lg:hidden bg-primary/95 border-t border-white/10">
             <nav class="max-w-7xl mx-auto px-4 py-4 flex flex-col space-y-3">
                 <a href="../#services" class="hover:text-accent transition py-2">Services</a>
@@ -146,7 +126,8 @@
 <ul class="space-y-1 mt-3 text-sm">
 <li><a class="text-accent hover:text-green-700 font-medium" href="#need-well-inspection-in-oceanside">Need Well Inspection in Oceanside?</a></li>
 <li><a class="text-accent hover:text-green-700 font-medium" href="#our-well-inspection-services">Our Well Inspection Services</a></li>
-<li><a class="text-accent hover:text-green-700 font-medium" href="#why-oceanside-chooses-scws">Why Oceanside Chooses SCWS</a></li>
+<li><a class="text-accent hover:text-green-700 font-medium" href="#what-we-inspect">What We Inspect</a></li>
+<li><a class="text-accent hover:text-green-700 font-medium" href="#frequently-asked-questions">Frequently Asked Questions</a></li>
 <li><a class="text-accent hover:text-green-700 font-medium" href="#our-locations">Our Locations</a></li>
 </ul>
 </details>
@@ -158,16 +139,22 @@
 <p class="text-blue-800 mb-4">We serve Oceanside and all of San Diego County. Licensed C-57 contractor with 30+ years experience.</p>
 <a class="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition" href="tel:+17604408520">Call: (760) 440-8520</a>
 </div>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4" id="oceanside-intro">Coastal Well Inspections in Oceanside</h2>
+<p class="text-gray-700 mb-4">Oceanside anchors the northern coast of San Diego County, where the San Luis Rey River meets the Pacific. City water reaches most neighborhoods, but the agricultural back-country and older estate parcels inland — around Whelan Lake, the river valley, and the edges toward Bonsall and Fallbrook — still draw from private wells. Coastal and river-valley wells carry a unique set of concerns that inland wells do not, which makes a knowledgeable inspection especially valuable in Oceanside.</p>
+<p class="text-gray-700 mb-4">Whether you are closing on a property, refinancing, or maintaining a well you already rely on, our inspection evaluates every part of the system and screens the water for the specific issues that show up near the coast. You get a written report ready for a buyer, seller, lender, or title company.</p>
+
 <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4" id="our-well-inspection-services">Our Well Inspection Services</h2>
 <ul class="list-disc pl-6 mb-6 text-gray-700 space-y-2">
-<li>Pre-purchase well inspections</li>
+<li>Pre-purchase and real-estate well inspections</li>
 <li>Annual well health checkups</li>
-<li>Flow rate and recovery testing</li>
-<li>Water quality analysis</li>
-<li>Pump and equipment assessment</li>
-<li>Pressure system evaluation</li>
-<li>Written inspection reports</li>
-<li>Recommendations and estimates</li>
+<li>Flow rate (GPM) and recovery testing</li>
+<li>Static and pumping water-level measurement</li>
+<li>Water quality sampling, including salinity screening</li>
+<li>Pump, pressure tank, and pressure-switch assessment</li>
+<li>Wellhead, casing, and sanitary-seal evaluation</li>
+<li>Electrical and control-wiring inspection</li>
+<li>Written reports accepted by lenders and title companies</li>
 </ul>
 
 <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4" id="well-data-oceanside">Well Data: Oceanside, California</h2>
@@ -178,26 +165,34 @@
     <div><p class="text-3xl font-bold text-amber-800">546</p><p class="text-sm text-amber-700">Wells on Record</p></div>
     <div><p class="text-3xl font-bold text-amber-800">San Diego</p><p class="text-sm text-amber-700">County</p></div>
   </div>
-  <p class="text-amber-800 text-sm mt-4 text-center">Based on California DWR well completion reports. Oceanside's average well depth is 302 feet shallower than the San Diego County average of 450 feet.</p>
+  <p class="text-amber-800 text-sm mt-4 text-center">Based on California DWR well completion reports. Oceanside's shallower wells tap the San Luis Rey River alluvium; deeper wells reach the granitic Peninsular Ranges batholith.</p>
 </div>
-<p class="text-gray-700 mb-4">With 546 wells on record, Oceanside has a well-established well infrastructure. The wide depth range of 3 to 1517 feet reflects the varied terrain and geology across Oceanside's landscape. Shallower wells typically tap into alluvial aquifers near drainages, while deeper wells penetrate the Peninsular Ranges batholith, primarily granitic and metamorphic rock to reach more reliable water sources.</p>
-<p class="text-gray-700 mb-4">At an average depth of 148 feet, well inspections in Oceanside should include a static water level measurement, pump performance test, and water quality screening. <a href="average-well-depth-oceanside-ca.html" class="text-blue-600 hover:underline">See detailed well depth data for Oceanside →</a></p>
-<h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">What We Inspect in Oceanside Wells</h3>
-<p class="text-gray-700 mb-4">A thorough well inspection in Oceanside covers the wellhead condition, casing integrity, static and pumping water levels, pump performance (GPM and pressure), electrical systems, and water quality. With wells averaging 148 feet deep in the Peninsular Ranges batholith, primarily granitic and metamorphic rock, we pay particular attention to casing condition and proper sanitary seals.</p>
-<p class="text-gray-700 mb-4">San Diego County requires well inspections for real estate transactions. Our inspection reports are accepted by all major title companies and lenders. We also recommend annual inspections for existing Oceanside well owners to catch problems before they become emergencies.</p>
+<p class="text-gray-700 mb-4">With 546 wells on record, Oceanside has a well-established well infrastructure. The wide depth range of roughly 3 to 1,517 feet reflects the contrast between the shallow coastal plain and the harder rock inland. Near the San Luis Rey River, shallow wells draw from sand and gravel alluvium; farther from the coast, deeper wells penetrate the granitic and metamorphic rock of the Peninsular Ranges batholith to reach more reliable water. That coastal-to-foothill gradient is exactly why local knowledge matters when inspecting an Oceanside well.</p>
+<p class="text-gray-700 mb-4">At an average depth around 148 feet, an Oceanside well inspection should always include a static water-level reading, a pumping-level and flow measurement, and a water-quality screening. Because shallow coastal aquifers are vulnerable to seawater intrusion, we place extra emphasis on salinity and chloride levels here.</p>
+
+<h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3" id="what-we-inspect">What We Inspect in Oceanside Wells</h3>
+<p class="text-gray-700 mb-4">A complete inspection covers the wellhead and sanitary cap, casing integrity, static and pumping water levels, pump performance in gallons per minute along with system pressure, the pressure tank and switch, and the electrical wiring and controls. In the river-valley alluvium, we watch for sediment and screen wear; in deeper granitic wells, we assess recovery rate and casing condition.</p>
+<p class="text-gray-700 mb-4">Water quality gets special attention in Oceanside. We screen for salinity and chlorides — the signature of seawater intrusion in coastal aquifers — alongside hardness, iron, manganese, nitrates, and bacteria. When treatment is warranted, we lay out realistic options: sediment filtration ($300-$900), a water softener ($1,500-$3,500), UV disinfection ($800-$1,800), or reverse osmosis ($300-$1,200) for salinity and drinking-water polishing. If a pump has failed, submersible replacement runs $2,500-$5,500 depending on depth, and a worn pressure switch or tank is $150-$350 or $600-$1,500 respectively.</p>
+
+<h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3" id="how-inspection-works">How a Well Inspection Works, Step by Step</h3>
+<p class="text-gray-700 mb-4">Understanding the sequence helps you see the value of the service. We start at the wellhead, checking casing, the sanitary cap, and the seal that keeps surface water and contaminants out of the borehole — critical in a coastal city where the water table can sit close to the surface. Next we measure the static water level, then run the pump to record the drawdown level and flow rate in gallons per minute. How far the water level drops and how quickly it recovers tells us whether the aquifer can meet household demand.</p>
+<p class="text-gray-700 mb-4">We then evaluate the pressure tank's pre-charge and condition, the pressure switch settings and contacts, and the electrical wiring, breakers, and controls. Finally we draw a water sample. In Oceanside that sample is especially important, because a rising chloride trend can signal seawater intrusion long before the water tastes salty. Only after every component is checked do we assemble the findings into your report.</p>
+
+<h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3" id="report-deliverables">What Your Inspection Report Delivers</h3>
+<p class="text-gray-700 mb-4">Our report documents flow rate and pressure, static and pumping levels, recovery performance, the condition of the wellhead, casing, pump, pressure tank, and switch, and the water-quality results including salinity. Any deficiencies are rated by severity with realistic repair estimates attached. San Diego County requires well inspections for many real estate transactions, and our reports are accepted by all major title companies and lenders, so buyers, sellers, and financing can move forward on solid documentation.</p>
+<p class="text-gray-700 mb-4">For existing Oceanside owners, an annual inspection builds a year-over-year record that reveals trends — a dropping water level, a weakening pump, or creeping chlorides — well before they become an emergency. That early warning, and the ability to budget for maintenance rather than react to a failure, is the real reason to schedule an inspection every year.</p>
+
 <h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Serving Oceanside and Surrounding Areas</h3>
-<p class="text-gray-700 mb-4">In addition to Oceanside, we provide well inspection services throughout San Diego County, including nearby communities:</p>
-<ul class="list-disc pl-6 mb-6 text-gray-700 space-y-1">
-<li><a href="well-inspection-oasis.html" class="text-blue-600 hover:underline">Oasis</a> (avg well depth: 538')</li>
-<li><a href="well-inspection-ocean-beach.html" class="text-blue-600 hover:underline">Ocean Beach</a></li>
-<li><a href="well-inspection-ocotillo.html" class="text-blue-600 hover:underline">Ocotillo</a></li>
-<li><a href="well-inspection-old-town.html" class="text-blue-600 hover:underline">Old Town</a></li>
-</ul>
+<p class="text-gray-700 mb-4">Beyond Oceanside, we provide well inspection services across coastal and inland San Diego County, including Vista, Carlsbad, Bonsall, Fallbrook, and San Marcos. From shallow river-valley wells to deeper foothill wells, our crews understand the coastal geology and the water that moves through it.</p>
+
+<h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3" id="when-to-inspect">When to Schedule Your Oceanside Inspection</h3>
+<p class="text-gray-700 mb-4">Timing an inspection well protects both your wallet and your water. Book a pre-purchase inspection whenever you are buying or selling an Oceanside well property, so buyers are not surprised by a failing pump or salty water after closing, and sellers can prove the well is sound. For existing owners, an annual visit is the wise choice, particularly on shallow coastal wells where water-quality conditions can shift from one year to the next. If you already notice sputtering faucets, sandy or discolored water, a salty taste, or a pump that seems to run constantly, do not wait for the annual date on the calendar, call us right away and we will diagnose the problem before it becomes a no-water emergency.</p>
+
 <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4" id="why-oceanside-chooses-scws">Why Oceanside Chooses SCWS</h2>
 <div class="grid md:grid-cols-2 gap-6 mb-8">
 <div class="bg-gray-50 p-5 rounded-lg">
 <h3 class="font-semibold text-gray-900 mb-2">✓ Local Expertise</h3>
-<p class="text-gray-600">We know San Diego County geology and wells</p>
+<p class="text-gray-600">We know San Diego County coastal geology and wells</p>
 </div>
 <div class="bg-gray-50 p-5 rounded-lg">
 <h3 class="font-semibold text-gray-900 mb-2">✓ Fast Response</h3>
@@ -212,6 +207,33 @@
 <p class="text-gray-600">4.9★ rating, hundreds of reviews</p>
 </div>
 </div>
+
+<h2 class="text-3xl font-bold text-primary mt-12 mb-4" id="frequently-asked-questions">Frequently Asked Questions</h2>
+<div class="bg-gray-50 rounded-lg p-4 mb-3">
+  <h3 class="font-bold text-gray-900 mb-2">What is checked during an Oceanside well inspection?</h3>
+  <p class="text-gray-700">We check the wellhead and sanitary cap, casing integrity, static and pumping water levels, pump flow rate (GPM) and system pressure, the pressure tank and switch, and the electrical wiring and controls. A water sample is collected for quality screening, with particular attention to coastal concerns like salinity. You receive a detailed written report.</p>
+</div>
+<div class="bg-gray-50 rounded-lg p-4 mb-3">
+  <h3 class="font-bold text-gray-900 mb-2">How much does a well inspection cost in Oceanside?</h3>
+  <p class="text-gray-700">Well inspections typically run $150-$400 depending on scope and whether laboratory water testing is included. If a repair is found, our $125 diagnostic fee is credited toward the work, and we provide a written estimate before starting.</p>
+</div>
+<div class="bg-gray-50 rounded-lg p-4 mb-3">
+  <h3 class="font-bold text-gray-900 mb-2">Is a well inspection required for real estate in Oceanside?</h3>
+  <p class="text-gray-700">San Diego County requires well inspections for many real estate transactions, and our reports are accepted by all major title companies and lenders. Even when not strictly required, a pre-purchase inspection protects buyers from inheriting a failing well or poor water quality.</p>
+</div>
+<div class="bg-gray-50 rounded-lg p-4 mb-3">
+  <h3 class="font-bold text-gray-900 mb-2">Should coastal Oceanside wells be tested for saltwater intrusion?</h3>
+  <p class="text-gray-700">Yes. Wells near the coast and the San Luis Rey River corridor can be affected by seawater intrusion and elevated chlorides. Our water screening checks for salinity along with hardness, iron, nitrates, and bacteria, and we recommend treatment such as reverse osmosis ($300-$1,200) where appropriate.</p>
+</div>
+<div class="bg-gray-50 rounded-lg p-4 mb-3">
+  <h3 class="font-bold text-gray-900 mb-2">How often should an Oceanside well be inspected?</h3>
+  <p class="text-gray-700">An annual inspection is recommended for existing well owners. Checking flow, water level, pressure, and water quality each year catches issues like a weakening pump or rising chlorides early, before they become expensive emergencies.</p>
+</div>
+<div class="bg-gray-50 rounded-lg p-4 mb-3">
+  <h3 class="font-bold text-gray-900 mb-2">How long does the inspection take and when do I get the report?</h3>
+  <p class="text-gray-700">On-site inspection usually takes one to two hours. If water is sent to a lab, results add turnaround time, but we deliver the written report promptly so your transaction or maintenance decision can proceed without delay.</p>
+</div>
+
 <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4" id="our-locations">Our Locations</h2>
 <div class="grid md:grid-cols-2 gap-6 mb-8">
 <div class="bg-gray-50 p-6 rounded-lg">
@@ -235,25 +257,7 @@
 <section class="py-16 bg-gray-50">
     <div class="max-w-4xl mx-auto px-4">
         <div class="text-center mb-10">
-            
-<!-- FAQ Section -->
-
-<p class="text-gray-700 my-4">We service all major pump brands including <strong>Franklin Electric</strong>, <strong>Grundfos</strong>, <strong>Goulds (Xylem)</strong>, and <strong>Sta-Rite (Pentair)</strong>. Our trucks carry common parts and components for same-day repairs.</p>
-<h2 id="frequently-asked-questions" class="text-3xl font-bold text-primary mt-12 mb-4">Frequently Asked Questions</h2>
-<div class="bg-gray-50 rounded-lg p-4 mb-3">
-  <h3 class="font-bold text-gray-900 mb-2">How do I know if my well pump needs repair?</h3>
-  <p class="text-gray-700">Common signs include: no water or low pressure, pump cycling on and off rapidly (short cycling), unusual noises, dirty or sandy water, and higher-than-normal electric bills. Any of these warrant a professional inspection.</p>
-</div>
-<div class="bg-gray-50 rounded-lg p-4 mb-3">
-  <h3 class="font-bold text-gray-900 mb-2">How much does well pump repair cost?</h3>
-  <p class="text-gray-700">Simple repairs like pressure switch replacement run <h2 id="related-articles" class="text-3xl font-bold text-primary mb-2">Related Articles</h2>50-$300. Motor or pump replacement typically costs <h2 id="related-articles" class="text-3xl font-bold text-primary mb-2">Related Articles</h2>,500-$4,500 depending on well depth and pump type. We diagnose the issue before recommending repairs.</p>
-</div>
-<div class="bg-gray-50 rounded-lg p-4 mb-3">
-  <h3 class="font-bold text-gray-900 mb-2">Can I repair my well pump myself?</h3>
-  <p class="text-gray-700">Surface-level issues like pressure switch adjustment or breaker resets are safe DIY tasks. However, anything involving pulling the pump from the well requires specialized equipment and should be handled by a licensed contractor to avoid damaging the well casing.</p>
-</div>
-
-<h2 id="related-articles" class="text-3xl font-bold text-primary mb-2">Related Articles</h2>
+            <h2 id="related-articles" class="text-3xl font-bold text-primary mb-2">Related Articles</h2>
             <p class="text-gray-600">Continue learning about well maintenance and troubleshooting</p>
         </div>
         <div class="grid md:grid-cols-3 gap-6">

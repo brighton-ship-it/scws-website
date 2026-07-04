@@ -35,34 +35,39 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "How do I know if my well pump needs repair?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Common signs include: no water or low pressure, pump cycling on and off rapidly (short cycling), unusual noises, dirty or sandy water, and higher-than-normal electric bills. Any of these warrant a professional inspection."
-      }
+      "name": "Are there really private wells in Coronado?",
+      "acceptedAnswer": {"@type": "Answer","text": "Honestly, very few on the island itself. Coronado sits on a sandy tombolo connected to the mainland by the Silver Strand, and essentially the entire city runs on municipal water. Private drinking-water wells are rare here. The wells that do exist tend to be irrigation or landscape wells serving larger grounds. Most of our Coronado customers actually reach us because they own additional property elsewhere in San Diego County, in the rural and outlying areas where wells are the norm."}
     },
     {
       "@type": "Question",
-      "name": "How much does well pump repair cost?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Simple repairs like pressure switch replacement run $150-$300. Motor or pump replacement typically costs $1,500-$4,500 depending on well depth and pump type. We diagnose the issue before recommending repairs."
-      }
+      "name": "I live in Coronado but own a rural property with a well. Can you help?",
+      "acceptedAnswer": {"@type": "Answer","text": "Yes, and that is one of the most common reasons Coronado residents call us. We serve well owners across the greater San Diego County region, including the backcountry areas where second homes, ranches and rural parcels rely on private wells. We can inspect, test and service that well and give you a full written report even though the property is well outside the city."}
     },
     {
       "@type": "Question",
-      "name": "Can I repair my well pump myself?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Surface-level issues like pressure switch adjustment or breaker resets are safe DIY tasks. However, anything involving pulling the pump from the well requires specialized equipment and should be handled by a licensed contractor to avoid damaging the well casing."
-      }
+      "name": "What would a landscape or irrigation well inspection in Coronado include?",
+      "acceptedAnswer": {"@type": "Answer","text": "We measure pump flow in gallons per minute, verify pressure and motor amp draw, read static and pumping water levels with a recovery test, inspect the pressure tank and switch, examine the control box and wiring, check the wellhead, casing and sanitary seal, and sample the water. Because Coronado sits on a sandy coastal spit, we pay particular attention to sand infiltration and salinity in any well here."}
+    },
+    {
+      "@type": "Question",
+      "name": "Does the sandy Silver Strand geology affect wells?",
+      "acceptedAnswer": {"@type": "Answer","text": "It does. Coronado's tombolo is built of sand, and any shallow well in that material is prone to sand infiltration that wears pumps and clouds water, and to salt intrusion given how close the water table sits to the bay and ocean. We screen for total dissolved solids and chloride and check pump and screen condition closely on coastal wells."}
+    },
+    {
+      "@type": "Question",
+      "name": "How much does a well inspection cost?",
+      "acceptedAnswer": {"@type": "Answer","text": "A well inspection runs $150 to $400, a water quality test is $100 to $300 depending on the panel, and a flow or yield test is $150 to $350. A diagnostic visit for a specific issue is $125, credited toward any repair you approve. Pricing is the same whether the well is a rare Coronado landscape well or a rural property you own elsewhere in the county."}
+    },
+    {
+      "@type": "Question",
+      "name": "When should I have a well inspected?",
+      "acceptedAnswer": {"@type": "Answer","text": "Before buying any property that has a well, before relying on a well that has sat unused, once a year as preventive maintenance, and any time you notice trouble such as low pressure, sand or discoloration, a pump that runs constantly, or a rising electric bill. For Coronado owners with rural or second properties, an annual inspection is the simplest way to keep a distant well dependable."}
     }
   ]
 }
 </script>
 </head>
 <body class="pb-20 lg:pb-0 bg-white">
-    <!-- Emergency Banner -->
     <div class="bg-gradient-to-r from-red-600 to-red-700 text-white py-2.5">
         <div class="max-w-7xl mx-auto px-4 text-center flex items-center justify-center gap-2 flex-wrap">
             <span class="font-bold tracking-wide">🚨 No Water?</span>
@@ -73,14 +78,12 @@
         </div>
     </div>
 
-    <!-- Header (sticky) -->
     <header class="bg-primary text-white sticky top-0 z-50 shadow-lg">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center py-4">
                 <a href="../" class="flex items-center space-x-3 shrink-0">
                     <img width="840" height="150" loading="lazy" src="../images/logo-text-only-3x.png" alt="Southern California Well Service" class="h-10 lg:h-12 w-auto">
                 </a>
-                <!-- Desktop Navigation -->
                 <nav class="hidden lg:flex space-x-4 items-center">
                     <a href="../#services" class="text-white hover:text-accent transition whitespace-nowrap">Services</a>
                     <a href="../#areas" class="text-white hover:text-accent transition whitespace-nowrap">Service Areas</a>
@@ -91,7 +94,6 @@
                     <a href="../pages/about.html" class="text-white hover:text-accent transition whitespace-nowrap">About</a>
                 </nav>
                 <div class="flex items-center gap-3">
-                    <!-- Mobile Menu Button -->
                     <button id="mobile-menu-btn" class="lg:hidden p-2 hover:bg-white/10 rounded-lg transition" aria-label="Toggle menu">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
@@ -103,7 +105,6 @@
                 </div>
             </div>
         </div>
-        <!-- Mobile Navigation Menu -->
         <div id="mobile-menu" class="hidden lg:hidden bg-primary/95 border-t border-white/10">
             <nav class="max-w-7xl mx-auto px-4 py-4 flex flex-col space-y-3">
                 <a href="../#services" class="hover:text-accent transition py-2">Services</a>
@@ -116,7 +117,6 @@
             </nav>
         </div>
     </header>
-    <!-- Breadcrumbs -->
     <nav class="max-w-4xl mx-auto px-4 pt-4 pb-2" aria-label="Breadcrumb">
         <ol class="flex flex-wrap items-center gap-1.5 text-sm text-gray-500">
             <li><a href="../" class="hover:text-blue-600">Home</a></li>
@@ -145,30 +145,44 @@
 <summary class="font-bold text-primary text-base cursor-pointer select-none">📋 In This Guide</summary>
 <ul class="space-y-1 mt-3 text-sm">
 <li><a class="text-accent hover:text-green-700 font-medium" href="#need-well-inspection-in-coronado">Need Well Inspection in Coronado?</a></li>
-<li><a class="text-accent hover:text-green-700 font-medium" href="#our-well-inspection-services">Our Well Inspection Services</a></li>
-<li><a class="text-accent hover:text-green-700 font-medium" href="#why-coronado-chooses-scws">Why Coronado Chooses SCWS</a></li>
-<li><a class="text-accent hover:text-green-700 font-medium" href="#our-locations">Our Locations</a></li>
+<li><a class="text-accent hover:text-green-700 font-medium" href="#straight-talk">Straight Talk About Wells Here</a></li>
+<li><a class="text-accent hover:text-green-700 font-medium" href="#full-inspection-checklist">Full Inspection Checklist</a></li>
+<li><a class="text-accent hover:text-green-700 font-medium" href="#water-testing">Water Testing</a></li>
+<li><a class="text-accent hover:text-green-700 font-medium" href="#cost">Cost</a></li>
+<li><a class="text-accent hover:text-green-700 font-medium" href="#service-area">Service Area</a></li>
 </ul>
 </details>
 
 
-
 <div class="bg-blue-50 border-l-4 border-blue-600 p-6 mb-8 rounded-r-lg">
 <h2 class="text-xl font-semibold text-blue-900 mb-2" id="need-well-inspection-in-coronado">Need Well Inspection in Coronado?</h2>
-<p class="text-blue-800 mb-4">We serve Coronado and all of San Diego County. Licensed C-57 contractor with 30+ years experience.</p>
+<p class="text-blue-800 mb-4">We serve Coronado and the wider San Diego County region. Licensed C-57 contractor, 30+ years, 4.9-star rating.</p>
 <a class="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition" href="tel:+17604408520">Call: (760) 440-8520</a>
 </div>
-<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4" id="our-well-inspection-services">Our Well Inspection Services</h2>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4" id="straight-talk">Straight Talk About Wells in Coronado</h2>
+<p class="text-gray-700 mb-4">Let's be upfront, because it would be dishonest not to be: Coronado is not well country. The city sits on a sandy tombolo across San Diego Bay, joined to the mainland by the long, narrow Silver Strand, and essentially every property on the island is served by municipal water. Private drinking-water wells here are rare. You will not find rows of backyard wells the way you would in the county's backcountry. So if a marketing pitch tells you that every Coronado home needs a well inspection, treat it skeptically.</p>
+<p class="text-gray-700 mb-4">What does exist in Coronado is a small number of irrigation and landscape wells serving larger grounds, plus the occasional legacy well on an older parcel. Those wells are worth inspecting when present, especially given the sandy, salt-influenced ground they sit in. But the bigger reason Coronado residents call Southern California Well Service is different: many islanders own a second home, a ranch or a rural parcel elsewhere in San Diego County — in Ramona, the mountain communities, or the desert fringe near Anza — where private wells are the everyday reality. That is where our work usually takes us, and we are glad to serve Coronado owners wherever their well happens to be.</p>
+
+<p class="text-gray-700 mb-4">Whether your well is one of the rare landscape wells on the island or a workhorse supply well on a distant property, the inspection is the same disciplined process, and the report is the same thorough document. What changes is the emphasis: on a sandy coastal site we watch for sand and salinity, while on a granite-country parcel we focus on depth, casing and yield.</p>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4" id="full-inspection-checklist">Our Full Well Inspection Checklist</h2>
+<p class="text-gray-700 mb-4">Every inspection, wherever the well sits, works through the same component-by-component checklist:</p>
 <ul class="list-disc pl-6 mb-6 text-gray-700 space-y-2">
-<li>Pre-purchase well inspections</li>
-<li>Annual well health checkups</li>
-<li>Flow rate and recovery testing</li>
-<li>Water quality analysis</li>
-<li>Pump and equipment assessment</li>
-<li>Pressure system evaluation</li>
-<li>Written inspection reports</li>
-<li>Recommendations and estimates</li>
+<li><strong>Pump performance</strong> — flow in gallons per minute, working pressure through the cycle, and motor amp draw to expose a pump that is struggling. On sandy coastal wells, sand infiltration is a common pump-killer we specifically look for.</li>
+<li><strong>Pressure tank and switch</strong> — air charge, bladder condition, and cut-in/cut-out settings, plus a check for short-cycling that shortens motor life.</li>
+<li><strong>Electrical, control box and wiring</strong> — inspection of the control box, breakers, connections and grounding, with extra scrutiny for corrosion in the salt-laden coastal air.</li>
+<li><strong>Static and pumping water levels</strong> — resting level, drawdown under load, and a timed recovery test to establish real, sustainable yield.</li>
+<li><strong>Water quality sampling</strong> — bacteria (total coliform and E. coli), nitrates, general minerals, and — on coastal wells — total dissolved solids and chloride to check for salinity.</li>
+<li><strong>Wellhead, sanitary seal and casing</strong> — examination of the cap, seal and above-grade casing for cracks, gaps and corrosion that would admit contaminants or, near the coast, saltwater.</li>
 </ul>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4" id="pre-purchase-vs-annual">Pre-Purchase Inspections vs. Annual Care</h2>
+<p class="text-gray-700 mb-4"><strong>Pre-purchase and real-estate inspections</strong> matter most for Coronado owners who are buying property elsewhere. When you close on a rural or backcountry parcel with a well, the buyer needs to know what the well can do, the seller needs to clear any surprises, and the lender and escrow officer usually require documentation that the well produces enough clean water safely. Our real-estate report is written to satisfy all of them, and San Diego County title companies and lenders accept it.</p>
+<p class="text-gray-700 mb-4"><strong>Annual and preventive inspections</strong> are the practical choice for a well you already own, particularly one you do not visit every day. A distant well on a second property is exactly the kind that fails unnoticed — a pressure switch drifts, a seal cracks, a pump loses output — until the day you arrive and nothing works. A yearly inspection keeps that well dependable and catches small problems before they become expensive ones. For the rare Coronado landscape well, the same logic applies on a seasonal cycle.</p>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4" id="water-testing">Water Testing and the Silver Strand</h2>
+<p class="text-gray-700 mb-4">Water testing on the island is shaped by the sand and the sea. Coronado's tombolo is built from sand deposited across the mouth of the bay, and any shallow well in that material faces two coastal hazards. The first is sand infiltration, which wears pump components and clouds the water. The second is salt intrusion: with the bay on one side and the ocean on the other, the water table is close and salty, so we screen total dissolved solids and chloride whenever we test a coastal well. Bacteria and nitrate testing remain standard everywhere. On the rural properties many Coronado owners hold, we shift the panel toward the contaminants that matter in granite and alluvial country, tailoring each test to the site rather than running a generic screen.</p>
 
 <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4" id="well-data-coronado">Well Data: Coronado, California</h2>
 <div class="bg-amber-50 border border-amber-200 rounded-xl p-6 mb-6">
@@ -180,28 +194,38 @@
   </div>
   <p class="text-amber-800 text-sm mt-4 text-center">Based on California DWR well completion reports. Coronado's average well depth is 400 feet shallower than the San Diego County average of 450 feet.</p>
 </div>
-<p class="text-gray-700 mb-4">With 57 wells on record, Coronado has a growing well infrastructure. The wide depth range of 13 to 300 feet reflects the varied terrain and geology across Coronado's landscape. Shallower wells typically tap into alluvial aquifers near drainages, while deeper wells penetrate the Peninsular Ranges batholith, primarily granitic and metamorphic rock to reach more reliable water sources.</p>
-<p class="text-gray-700 mb-4">At an average depth of 50 feet, well inspections in Coronado should include a static water level measurement, pump performance test, and water quality screening. <a href="average-well-depth-coronado-ca.html" class="text-blue-600 hover:underline">See detailed well depth data for Coronado →</a></p>
-<h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">What We Inspect in Coronado Wells</h3>
-<p class="text-gray-700 mb-4">A thorough well inspection in Coronado covers the wellhead condition, casing integrity, static and pumping water levels, pump performance (GPM and pressure), electrical systems, and water quality. With wells averaging 50 feet deep in the Peninsular Ranges batholith, primarily granitic and metamorphic rock, we pay particular attention to casing condition and proper sanitary seals.</p>
-<p class="text-gray-700 mb-4">San Diego County requires well inspections for real estate transactions. Our inspection reports are accepted by all major title companies and lenders. We also recommend annual inspections for existing Coronado well owners to catch problems before they become emergencies.</p>
-<h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Serving Coronado and Surrounding Areas</h3>
-<p class="text-gray-700 mb-4">In addition to Coronado, we provide well inspection services throughout San Diego County, including nearby communities:</p>
+<p class="text-gray-700 mb-4">The 57 wells on record for the Coronado area average just 50 feet deep — among the shallowest in the county, which makes sense for a sandy coastal spit where the water table sits high. The 13-to-300-foot range spans shallow sand-and-alluvium wells near the bay and the deeper wells that reach firmer ground. Shallow coastal wells like these are exactly the ones most exposed to sand and salinity, which is why static level readings, a pumping test and careful water-quality screening are non-negotiable parts of an inspection here. <a href="average-well-depth-coronado-ca.html" class="text-blue-600 hover:underline">See detailed well depth data for Coronado →</a></p>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4" id="your-report">What Your Report Includes</h2>
+<p class="text-gray-700 mb-4">Every inspection concludes with a written report, not a verbal impression. It documents our findings for each system, includes photographs of the wellhead, equipment and any trouble spots, spells out our recommendations plainly, and attaches itemized estimates for any repairs so you can plan the cost. For a real-estate purchase elsewhere in the county, that report is the file your lender, escrow officer and title company will want. For a well you are keeping, it is the baseline for every future check.</p>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4" id="when-you-need-one">When You Need an Inspection</h2>
+<p class="text-gray-700 mb-4">Schedule one before buying any property with a well; before relying on a well that has sat idle; once a year on an active well as preventive maintenance; and whenever you see warning signs — low or dropping pressure, sand or discoloration in the water, air sputtering from the lines, a pump that never shuts off, or a jump in your power bill. For Coronado residents whose wells are on distant rural land, an annual inspection is simply the most reliable way to keep a well you rarely see in working order.</p>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4" id="cost">What It Costs</h2>
+<p class="text-gray-700 mb-4">A well inspection runs <strong>$150 to $400</strong> depending on the system. A water quality test is <strong>$100 to $300</strong> depending on the contaminants screened. A dedicated flow or yield test is <strong>$150 to $350</strong>. A diagnostic visit for a specific problem is <strong>$125</strong>, credited toward any repair you approve. The pricing is the same whether we are looking at a rare Coronado landscape well or a rural property you own elsewhere in San Diego County, and we quote before we start.</p>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4" id="when-to-call-a-pro">When to Call a Professional</h2>
+<p class="text-gray-700 mb-4">A homeowner can reset a breaker, adjust a pressure switch or check a pressure tank's air charge. Everything past that — pulling a pump, working in the control box, opening the casing — calls for a licensed contractor because of the risk of injury, dropped equipment and contamination. As a licensed C-57 pump contractor with more than 30 years in the field, we handle that work safely, and we service all major pump brands including Franklin Electric, Grundfos, Goulds (Xylem) and Sta-Rite (Pentair).</p>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4" id="service-area">Serving Coronado and San Diego County</h2>
+<p class="text-gray-700 mb-4">We serve Coronado and the neighboring communities of Imperial Beach, San Diego, the Silver Strand and Point Loma, and we reach well owners throughout the greater San Diego County region — including the rural and outlying areas where our customers so often own additional property. Wherever your well is, we can get to it. Nearby and regional areas we also serve include:</p>
 <ul class="list-disc pl-6 mb-6 text-gray-700 space-y-1">
 <li><a href="well-inspection-colton.html" class="text-blue-600 hover:underline">Colton</a> (avg well depth: 226')</li>
 <li><a href="well-inspection-corona.html" class="text-blue-600 hover:underline">Corona</a> (avg well depth: 194')</li>
-<li><a href="well-inspection-cost.html" class="text-blue-600 hover:underline">Cost</a></li>
-<li><a href="well-inspection-cost-california.html" class="text-blue-600 hover:underline">Cost California</a></li>
+<li><a href="well-inspection-cost.html" class="text-blue-600 hover:underline">Well Inspection Cost</a></li>
+<li><a href="well-inspection-cost-california.html" class="text-blue-600 hover:underline">Cost in California</a></li>
 </ul>
+
 <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4" id="why-coronado-chooses-scws">Why Coronado Chooses SCWS</h2>
 <div class="grid md:grid-cols-2 gap-6 mb-8">
 <div class="bg-gray-50 p-5 rounded-lg">
 <h3 class="font-semibold text-gray-900 mb-2">✓ Local Expertise</h3>
-<p class="text-gray-600">We know San Diego County geology and wells</p>
+<p class="text-gray-600">We know San Diego County geology, from sandy coast to granite backcountry</p>
 </div>
 <div class="bg-gray-50 p-5 rounded-lg">
 <h3 class="font-semibold text-gray-900 mb-2">✓ Fast Response</h3>
-<p class="text-gray-600">Same-day service for Coronado</p>
+<p class="text-gray-600">Same-day service available for Coronado and the region</p>
 </div>
 <div class="bg-gray-50 p-5 rounded-lg">
 <h3 class="font-semibold text-gray-900 mb-2">✓ Fair Pricing</h3>
@@ -212,6 +236,7 @@
 <p class="text-gray-600">4.9★ rating, hundreds of reviews</p>
 </div>
 </div>
+
 <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4" id="our-locations">Our Locations</h2>
 <div class="grid md:grid-cols-2 gap-6 mb-8">
 <div class="bg-gray-50 p-6 rounded-lg">
@@ -225,9 +250,36 @@
 <p><a class="text-blue-600 hover:underline" href="tel:+17604408520">(760) 440-8520</a></p>
 </div>
 </div>
-<div class="bg-blue-600 text-white p-6 rounded-lg text-center">
+
+<h2 id="frequently-asked-questions" class="text-3xl font-bold text-primary mt-12 mb-4">Frequently Asked Questions</h2>
+<div class="bg-gray-50 rounded-lg p-4 mb-3">
+  <h3 class="font-bold text-gray-900 mb-2">Are there really private wells in Coronado?</h3>
+  <p class="text-gray-700">Honestly, very few on the island itself. Coronado sits on a sandy tombolo connected to the mainland by the Silver Strand, and essentially the entire city runs on municipal water. Private drinking-water wells are rare here. The wells that do exist tend to be irrigation or landscape wells serving larger grounds. Most of our Coronado customers actually reach us because they own additional property elsewhere in San Diego County, in the rural and outlying areas where wells are the norm.</p>
+</div>
+<div class="bg-gray-50 rounded-lg p-4 mb-3">
+  <h3 class="font-bold text-gray-900 mb-2">I live in Coronado but own a rural property with a well. Can you help?</h3>
+  <p class="text-gray-700">Yes, and that is one of the most common reasons Coronado residents call us. We serve well owners across the greater San Diego County region, including the backcountry areas where second homes, ranches and rural parcels rely on private wells. We can inspect, test and service that well and give you a full written report even though the property is well outside the city.</p>
+</div>
+<div class="bg-gray-50 rounded-lg p-4 mb-3">
+  <h3 class="font-bold text-gray-900 mb-2">What would a landscape or irrigation well inspection in Coronado include?</h3>
+  <p class="text-gray-700">We measure pump flow in gallons per minute, verify pressure and motor amp draw, read static and pumping water levels with a recovery test, inspect the pressure tank and switch, examine the control box and wiring, check the wellhead, casing and sanitary seal, and sample the water. Because Coronado sits on a sandy coastal spit, we pay particular attention to sand infiltration and salinity in any well here.</p>
+</div>
+<div class="bg-gray-50 rounded-lg p-4 mb-3">
+  <h3 class="font-bold text-gray-900 mb-2">Does the sandy Silver Strand geology affect wells?</h3>
+  <p class="text-gray-700">It does. Coronado's tombolo is built of sand, and any shallow well in that material is prone to sand infiltration that wears pumps and clouds water, and to salt intrusion given how close the water table sits to the bay and ocean. We screen for total dissolved solids and chloride and check pump and screen condition closely on coastal wells.</p>
+</div>
+<div class="bg-gray-50 rounded-lg p-4 mb-3">
+  <h3 class="font-bold text-gray-900 mb-2">How much does a well inspection cost?</h3>
+  <p class="text-gray-700">A well inspection runs $150 to $400, a water quality test is $100 to $300 depending on the panel, and a flow or yield test is $150 to $350. A diagnostic visit for a specific issue is $125, credited toward any repair you approve. Pricing is the same whether the well is a rare Coronado landscape well or a rural property you own elsewhere in the county.</p>
+</div>
+<div class="bg-gray-50 rounded-lg p-4 mb-3">
+  <h3 class="font-bold text-gray-900 mb-2">When should I have a well inspected?</h3>
+  <p class="text-gray-700">Before buying any property that has a well, before relying on a well that has sat unused, once a year as preventive maintenance, and any time you notice trouble such as low pressure, sand or discoloration, a pump that runs constantly, or a rising electric bill. For Coronado owners with rural or second properties, an annual inspection is the simplest way to keep a distant well dependable.</p>
+</div>
+
+<div class="bg-blue-600 text-white p-6 rounded-lg text-center my-8">
 <h3 class="text-2xl font-bold mb-2">Get a Free Estimate</h3>
-<p class="mb-4">Call now for well inspection in Coronado</p>
+<p class="mb-4">Call or text now for well inspection in Coronado or anywhere in San Diego County</p>
 <a class="inline-block bg-white text-blue-600 px-8 py-3 rounded-lg font-bold text-lg hover:bg-blue-50 transition" href="tel:+17604408520">(760) 440-8520</a>
 </div>
 
@@ -235,25 +287,7 @@
 <section class="py-16 bg-gray-50">
     <div class="max-w-4xl mx-auto px-4">
         <div class="text-center mb-10">
-            
-<!-- FAQ Section -->
-
-<p class="text-gray-700 my-4">We service all major pump brands including <strong>Franklin Electric</strong>, <strong>Grundfos</strong>, <strong>Goulds (Xylem)</strong>, and <strong>Sta-Rite (Pentair)</strong>. Our trucks carry common parts and components for same-day repairs.</p>
-<h2 id="frequently-asked-questions" class="text-3xl font-bold text-primary mt-12 mb-4">Frequently Asked Questions</h2>
-<div class="bg-gray-50 rounded-lg p-4 mb-3">
-  <h3 class="font-bold text-gray-900 mb-2">How do I know if my well pump needs repair?</h3>
-  <p class="text-gray-700">Common signs include: no water or low pressure, pump cycling on and off rapidly (short cycling), unusual noises, dirty or sandy water, and higher-than-normal electric bills. Any of these warrant a professional inspection.</p>
-</div>
-<div class="bg-gray-50 rounded-lg p-4 mb-3">
-  <h3 class="font-bold text-gray-900 mb-2">How much does well pump repair cost?</h3>
-  <p class="text-gray-700">Simple repairs like pressure switch replacement run <h2 id="related-articles" class="text-3xl font-bold text-primary mb-2">Related Articles</h2>50-$300. Motor or pump replacement typically costs <h2 id="related-articles" class="text-3xl font-bold text-primary mb-2">Related Articles</h2>,500-$4,500 depending on well depth and pump type. We diagnose the issue before recommending repairs.</p>
-</div>
-<div class="bg-gray-50 rounded-lg p-4 mb-3">
-  <h3 class="font-bold text-gray-900 mb-2">Can I repair my well pump myself?</h3>
-  <p class="text-gray-700">Surface-level issues like pressure switch adjustment or breaker resets are safe DIY tasks. However, anything involving pulling the pump from the well requires specialized equipment and should be handled by a licensed contractor to avoid damaging the well casing.</p>
-</div>
-
-<h2 id="related-articles" class="text-3xl font-bold text-primary mb-2">Related Articles</h2>
+<h2 class="text-3xl font-bold text-primary mb-2">Related Articles</h2>
             <p class="text-gray-600">Continue learning about well maintenance and troubleshooting</p>
         </div>
         <div class="grid md:grid-cols-3 gap-6">
@@ -315,7 +349,6 @@
 </div>
 </div>
 </footer>
-<!-- Sticky Mobile CTA Bar -->
 <style>#sticky-cta{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:2px solid #e5e7eb;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px;z-index:50;box-shadow:0 -4px 12px rgba(0,0,0,0.1)}#sticky-cta a{flex:1;font-weight:700;padding:12px 16px;border-radius:8px;text-align:center;color:#fff;font-size:14px;text-decoration:none}#sticky-cta .cta-call{background:#dc2626}#sticky-cta .cta-call:hover{background:#b91c1c}#sticky-cta .cta-text{background:#2563eb}#sticky-cta .cta-text:hover{background:#1d4ed8}#sticky-cta .cta-est{background:#4e9271}#sticky-cta .cta-est:hover{background:#3d7a5c}@media(min-width:1024px){#sticky-cta{display:none}}</style>
 <div id="sticky-cta">
 <a class="cta-call" href="tel:7604408520">📞 Call Now</a>

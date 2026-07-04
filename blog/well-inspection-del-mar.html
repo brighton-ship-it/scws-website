@@ -35,34 +35,39 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "How do I know if my well pump needs repair?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Common signs include: no water or low pressure, pump cycling on and off rapidly (short cycling), unusual noises, dirty or sandy water, and higher-than-normal electric bills. Any of these warrant a professional inspection."
-      }
+      "name": "Most of Del Mar is on municipal water. Is a well inspection still relevant here?",
+      "acceptedAnswer": {"@type": "Answer","text": "Inside the city of Del Mar, nearly every home is served by the municipal system, so private drinking-water wells are uncommon. Where wells matter is on the fringes: the San Dieguito River valley, the estates bordering Rancho Santa Fe, and the unincorporated parcels around Del Mar Heights and Carmel Valley, where irrigation and agricultural wells are still in use. If a property you own or are buying has a well of any kind, an inspection protects you before you rely on it."}
     },
     {
       "@type": "Question",
-      "name": "How much does well pump repair cost?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Simple repairs like pressure switch replacement run $150-$300. Motor or pump replacement typically costs $1,500-$4,500 depending on well depth and pump type. We diagnose the issue before recommending repairs."
-      }
+      "name": "I'm buying an estate near Rancho Santa Fe with an irrigation well. What should the inspection cover?",
+      "acceptedAnswer": {"@type": "Answer","text": "For an estate irrigation well we verify flow in gallons per minute and confirm the system holds pressure, read static and pumping water levels, time the recovery to judge sustainable yield, inspect the pump, pressure tank, control box and wiring, check the wellhead and sanitary seal, and sample the water. You get a written report with photos and estimates suitable for escrow and lenders."}
     },
     {
       "@type": "Question",
-      "name": "Can I repair my well pump myself?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Surface-level issues like pressure switch adjustment or breaker resets are safe DIY tasks. However, anything involving pulling the pump from the well requires specialized equipment and should be handled by a licensed contractor to avoid damaging the well casing."
-      }
+      "name": "What does a well inspection cost in the Del Mar area?",
+      "acceptedAnswer": {"@type": "Answer","text": "A well inspection runs $150 to $400, a water quality test is $100 to $300 depending on which contaminants you screen, and a stand-alone flow or yield test is $150 to $350. A targeted diagnostic visit is $125, which we credit toward any repair you approve."}
+    },
+    {
+      "@type": "Question",
+      "name": "How does the San Dieguito River valley affect a well here?",
+      "acceptedAnswer": {"@type": "Answer","text": "Del Mar sits at the mouth of the San Dieguito River, where the coastal terrace meets the river valley and lagoon. Wells near the valley floor often tap shallow alluvial groundwater, which can be productive but is also more exposed to surface influence and, near the coast, to salinity. We factor that setting into how we read water levels and which water-quality tests we recommend."}
+    },
+    {
+      "@type": "Question",
+      "name": "Do you handle inspections on tight escrow timelines?",
+      "acceptedAnswer": {"@type": "Answer","text": "Yes. Real-estate deals in Del Mar and the surrounding areas move fast, and we schedule inspections to fit escrow. On-site mechanical findings are documented the same day, bacteria results usually return in 24 to 48 hours, and full mineral panels take a few business days. We deliver a consolidated report your lender and title company will accept."}
+    },
+    {
+      "@type": "Question",
+      "name": "Should I test an older irrigation well for salinity or minerals?",
+      "acceptedAnswer": {"@type": "Answer","text": "For coastal and valley-floor wells near Del Mar we recommend screening total dissolved solids, chloride and general minerals along with bacteria and nitrate. Proximity to the lagoon and the river mouth makes salinity worth checking, and mineral content tells you how the water will perform in irrigation lines and landscape systems before you commit to using it."}
     }
   ]
 }
 </script>
 </head>
 <body class="pb-20 lg:pb-0 bg-white">
-    <!-- Emergency Banner -->
     <div class="bg-gradient-to-r from-red-600 to-red-700 text-white py-2.5">
         <div class="max-w-7xl mx-auto px-4 text-center flex items-center justify-center gap-2 flex-wrap">
             <span class="font-bold tracking-wide">🚨 No Water?</span>
@@ -73,14 +78,12 @@
         </div>
     </div>
 
-    <!-- Header (sticky) -->
     <header class="bg-primary text-white sticky top-0 z-50 shadow-lg">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center py-4">
                 <a href="../" class="flex items-center space-x-3 shrink-0">
                     <img width="840" height="150" loading="lazy" src="../images/logo-text-only-3x.png" alt="Southern California Well Service" class="h-10 lg:h-12 w-auto">
                 </a>
-                <!-- Desktop Navigation -->
                 <nav class="hidden lg:flex space-x-4 items-center">
                     <a href="../#services" class="text-white hover:text-accent transition whitespace-nowrap">Services</a>
                     <a href="../#areas" class="text-white hover:text-accent transition whitespace-nowrap">Service Areas</a>
@@ -91,7 +94,6 @@
                     <a href="../pages/about.html" class="text-white hover:text-accent transition whitespace-nowrap">About</a>
                 </nav>
                 <div class="flex items-center gap-3">
-                    <!-- Mobile Menu Button -->
                     <button id="mobile-menu-btn" class="lg:hidden p-2 hover:bg-white/10 rounded-lg transition" aria-label="Toggle menu">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
@@ -103,7 +105,6 @@
                 </div>
             </div>
         </div>
-        <!-- Mobile Navigation Menu -->
         <div id="mobile-menu" class="hidden lg:hidden bg-primary/95 border-t border-white/10">
             <nav class="max-w-7xl mx-auto px-4 py-4 flex flex-col space-y-3">
                 <a href="../#services" class="hover:text-accent transition py-2">Services</a>
@@ -116,7 +117,6 @@
             </nav>
         </div>
     </header>
-    <!-- Breadcrumbs -->
     <nav class="max-w-4xl mx-auto px-4 pt-4 pb-2" aria-label="Breadcrumb">
         <ol class="flex flex-wrap items-center gap-1.5 text-sm text-gray-500">
             <li><a href="../" class="hover:text-blue-600">Home</a></li>
@@ -145,30 +145,45 @@
 <summary class="font-bold text-primary text-base cursor-pointer select-none">📋 In This Guide</summary>
 <ul class="space-y-1 mt-3 text-sm">
 <li><a class="text-accent hover:text-green-700 font-medium" href="#need-well-inspection-in-del-mar">Need Well Inspection in Del Mar?</a></li>
-<li><a class="text-accent hover:text-green-700 font-medium" href="#our-well-inspection-services">Our Well Inspection Services</a></li>
-<li><a class="text-accent hover:text-green-700 font-medium" href="#why-del-mar-chooses-scws">Why Del Mar Chooses SCWS</a></li>
-<li><a class="text-accent hover:text-green-700 font-medium" href="#our-locations">Our Locations</a></li>
+<li><a class="text-accent hover:text-green-700 font-medium" href="#the-checklist">The Full Checklist</a></li>
+<li><a class="text-accent hover:text-green-700 font-medium" href="#real-estate-vs-annual">Real-Estate vs. Annual</a></li>
+<li><a class="text-accent hover:text-green-700 font-medium" href="#water-testing">Water Testing</a></li>
+<li><a class="text-accent hover:text-green-700 font-medium" href="#cost">Cost</a></li>
+<li><a class="text-accent hover:text-green-700 font-medium" href="#service-area">Service Area</a></li>
 </ul>
 </details>
 
 
-
 <div class="bg-blue-50 border-l-4 border-blue-600 p-6 mb-8 rounded-r-lg">
 <h2 class="text-xl font-semibold text-blue-900 mb-2" id="need-well-inspection-in-del-mar">Need Well Inspection in Del Mar?</h2>
-<p class="text-blue-800 mb-4">We serve Del Mar and all of San Diego County. Licensed C-57 contractor with 30+ years experience.</p>
+<p class="text-blue-800 mb-4">We serve Del Mar and all of San Diego County. Licensed C-57 contractor, 30+ years in business, 4.9-star rating.</p>
 <a class="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition" href="tel:+17604408520">Call: (760) 440-8520</a>
 </div>
-<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4" id="our-well-inspection-services">Our Well Inspection Services</h2>
+
+<p class="text-gray-700 mb-4">Del Mar is a compact, affluent coastal city wrapped around the mouth of the San Dieguito River, where the coastal terrace drops toward the lagoon and the sea. It is one of the smallest incorporated cities in San Diego County, and almost every home within its borders draws from the municipal water system. So let's be honest about wells here: inside the city of Del Mar itself, private drinking-water wells are rare. Where wells actually come into play is around the edges — up the San Dieguito River valley, out toward the estates that border Rancho Santa Fe, and across the unincorporated parcels near Del Mar Heights and Carmel Valley, where irrigation, agricultural and estate-landscape wells are still very much in use. Those are the wells we inspect, and they deserve the same rigor as any household supply well.</p>
+
+<p class="text-gray-700 mb-4">If you own or are buying one of those properties, the well is usually keeping a large landscape, an orchard, pasture or riding facility watered rather than filling a kitchen tap. That does not make it less important. An irrigation well that fails at the wrong time can cost thousands in dead landscaping, and a neglected well can turn into a contamination and liability problem regardless of what the water is used for. Our inspection is designed to tell you exactly where that well stands.</p>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4" id="the-checklist">The Full Del Mar Well Inspection Checklist</h2>
+<p class="text-gray-700 mb-4">We start with the checklist because it is the heart of the job. A thorough inspection walks through every component of the well and its support system:</p>
 <ul class="list-disc pl-6 mb-6 text-gray-700 space-y-2">
-<li>Pre-purchase well inspections</li>
-<li>Annual well health checkups</li>
-<li>Flow rate and recovery testing</li>
-<li>Water quality analysis</li>
-<li>Pump and equipment assessment</li>
-<li>Pressure system evaluation</li>
-<li>Written inspection reports</li>
-<li>Recommendations and estimates</li>
+<li><strong>Pump performance</strong> — flow measured in gallons per minute, working pressure across the cycle, and motor amp draw to reveal a pump that is laboring or wearing out.</li>
+<li><strong>Pressure tank and switch</strong> — air charge, bladder integrity, and the cut-in/cut-out settings that keep the system from short-cycling and cooking the motor.</li>
+<li><strong>Electrical, control box and wiring</strong> — a careful look at the control box, breakers, connections and grounding for corrosion and moisture, which the salt air near the lagoon accelerates.</li>
+<li><strong>Static and pumping water levels</strong> — the resting level, the drawdown under load, and a timed recovery test to establish the well's real, sustainable yield.</li>
+<li><strong>Water quality sampling</strong> — bacteria (total coliform and E. coli), nitrates, and a general mineral profile, with salinity indicators added for wells near the river mouth.</li>
+<li><strong>Wellhead, sanitary seal and casing</strong> — inspection of the cap, seal and above-grade casing for cracks, gaps and corrosion that could admit surface water or contaminants.</li>
 </ul>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4" id="the-report">What You Get: The Report</h2>
+<p class="text-gray-700 mb-4">When we finish, you receive a written report rather than a quick verbal summary. It records our findings component by component, includes photographs of the wellhead, the equipment and anything that needs attention, states our recommendations in plain terms, and attaches itemized repair estimates so nothing about the numbers is a mystery. In a real-estate context, that report is the document your escrow officer, lender and title company want to see. If you are keeping the property, it becomes the baseline you measure future inspections against.</p>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4" id="real-estate-vs-annual">Real-Estate Inspections vs. Annual Maintenance</h2>
+<p class="text-gray-700 mb-4"><strong>Real-estate and pre-purchase inspections</strong> serve everyone in the transaction. A buyer wants a clear picture of the well before closing on an estate near Rancho Santa Fe. A seller wants to resolve issues before they surface during due diligence. Lenders and escrow frequently require proof that the well produces adequately, functions safely and yields usable water. Our real-estate inspection answers all of those questions in one visit, on a schedule that fits your escrow.</p>
+<p class="text-gray-700 mb-4"><strong>Annual and preventive inspections</strong> are for owners. Irrigation wells in the Del Mar area often run seasonally, then sit idle for months. That idle time is when pressure switches drift, seals dry and crack, and pumps quietly lose ground. A yearly checkup catches those problems while they are inexpensive, and it makes sure the well fires up reliably when the dry season arrives.</p>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4" id="water-testing">Water Testing Near the River and Coast</h2>
+<p class="text-gray-700 mb-4">Water testing takes on a coastal flavor in Del Mar. Bacteria screening is standard on every well, since a compromised seal or a long-idle well can harbor coliform. But the setting at the mouth of the San Dieguito River adds two considerations. First, wells drawing from the shallow alluvial groundwater of the valley floor are more exposed to surface influence, so bacterial and nitrate testing matter. Second, proximity to the lagoon and the sea makes salinity worth checking — we screen total dissolved solids and chloride so you know whether the water is suitable for the irrigation and landscape use it is likely serving. We round out the panel with a general mineral profile so you understand how the water will behave in lines, valves and filtration.</p>
 
 <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4" id="well-data-del-mar">Well Data: Del Mar, California</h2>
 <div class="bg-amber-50 border border-amber-200 rounded-xl p-6 mb-6">
@@ -180,28 +195,35 @@
   </div>
   <p class="text-amber-800 text-sm mt-4 text-center">Based on California DWR well completion reports. Del Mar's average well depth is 310 feet shallower than the San Diego County average of 450 feet.</p>
 </div>
-<p class="text-gray-700 mb-4">With 50 wells on record, Del Mar has a growing well infrastructure. The wide depth range of 18 to 400 feet reflects the varied terrain and geology across Del Mar's landscape. Shallower wells typically tap into alluvial aquifers near drainages, while deeper wells penetrate the Peninsular Ranges batholith, primarily granitic and metamorphic rock to reach more reliable water sources.</p>
-<p class="text-gray-700 mb-4">At an average depth of 140 feet, well inspections in Del Mar should include a static water level measurement, pump performance test, and water quality screening. <a href="average-well-depth-del-mar-ca.html" class="text-blue-600 hover:underline">See detailed well depth data for Del Mar →</a></p>
-<h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">What We Inspect in Del Mar Wells</h3>
-<p class="text-gray-700 mb-4">A thorough well inspection in Del Mar covers the wellhead condition, casing integrity, static and pumping water levels, pump performance (GPM and pressure), electrical systems, and water quality. With wells averaging 140 feet deep in the Peninsular Ranges batholith, primarily granitic and metamorphic rock, we pay particular attention to casing condition and proper sanitary seals.</p>
-<p class="text-gray-700 mb-4">San Diego County requires well inspections for real estate transactions. Our inspection reports are accepted by all major title companies and lenders. We also recommend annual inspections for existing Del Mar well owners to catch problems before they become emergencies.</p>
-<h3 class="text-xl font-semibold text-gray-900 mt-8 mb-3">Serving Del Mar and Surrounding Areas</h3>
-<p class="text-gray-700 mb-4">In addition to Del Mar, we provide well inspection services throughout San Diego County, including nearby communities:</p>
+<p class="text-gray-700 mb-4">The record shows 50 wells around Del Mar with an average depth of 140 feet — shallow by county standards, which fits a coastal-terrace and river-valley setting. The 18-to-400-foot range separates shallow wells drawing alluvial groundwater near the San Dieguito valley from deeper wells reaching into the granitic and metamorphic rock of the Peninsular Ranges batholith on the higher ground. Because the shallower wells are so tied to the valley floor, static level readings, a pumping test and water-quality screening are essential parts of any inspection here. <a href="average-well-depth-del-mar-ca.html" class="text-blue-600 hover:underline">See detailed well depth data for Del Mar →</a></p>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4" id="when-you-need-one">When You Need an Inspection</h2>
+<p class="text-gray-700 mb-4">Get an inspection before closing on any Del Mar–area property with a well; before you count on an estate or irrigation well after a long idle stretch; annually as preventive care on a working well; and whenever the system misbehaves — falling pressure, air spitting from the lines, sand or cloudiness in the water, a pump that will not shut off, or a climbing electric bill. Bringing a dormant well back into service on a Rancho Santa Fe–fringe estate is one of the most common reasons owners call us, and those wells nearly always need testing before use.</p>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4" id="cost">What It Costs</h2>
+<p class="text-gray-700 mb-4">A full well inspection runs <strong>$150 to $400</strong> depending on system size and complexity. Water quality testing is <strong>$100 to $300</strong> depending on the panel you choose. A dedicated flow or yield test — worth it when production is the question on a large landscape well — is <strong>$150 to $350</strong>. A focused diagnostic visit for a specific fault is <strong>$125</strong>, credited toward any repair you approve. You get a quote up front.</p>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4" id="when-to-call-a-pro">When to Call a Professional</h2>
+<p class="text-gray-700 mb-4">Some tasks are fine for an owner: resetting a tripped breaker, fine-tuning a pressure switch, checking a pressure tank's air charge. Beyond that, well work belongs to a licensed contractor. Pulling a submersible pump, opening the electrical control box, or breaking into the casing risks injury, dropped equipment and contamination. We are a licensed C-57 pump contractor with the rigs and the decades of experience to do it safely, and we service every major pump brand — Franklin Electric, Grundfos, Goulds (Xylem) and Sta-Rite (Pentair) among them.</p>
+
+<h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4" id="service-area">Serving Del Mar and the Coast</h2>
+<p class="text-gray-700 mb-4">We inspect wells throughout Del Mar and the communities around it — Solana Beach, Carmel Valley, Del Mar Heights and the Rancho Santa Fe fringe among them — and across the wider San Diego County region. If your property sits in an outlying or unincorporated area, that is exactly where wells are most common, and we cover it. Nearby areas we also serve include:</p>
 <ul class="list-disc pl-6 mb-6 text-gray-700 space-y-1">
 <li><a href="well-inspection-dehesa.html" class="text-blue-600 hover:underline">Dehesa</a> (avg well depth: 364')</li>
 <li><a href="well-inspection-del-cerro.html" class="text-blue-600 hover:underline">Del Cerro</a></li>
 <li><a href="well-inspection-del-mar-heights.html" class="text-blue-600 hover:underline">Del Mar Heights</a></li>
 <li><a href="well-inspection-descanso.html" class="text-blue-600 hover:underline">Descanso</a> (avg well depth: 413')</li>
 </ul>
+
 <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4" id="why-del-mar-chooses-scws">Why Del Mar Chooses SCWS</h2>
 <div class="grid md:grid-cols-2 gap-6 mb-8">
 <div class="bg-gray-50 p-5 rounded-lg">
 <h3 class="font-semibold text-gray-900 mb-2">✓ Local Expertise</h3>
-<p class="text-gray-600">We know San Diego County geology and wells</p>
+<p class="text-gray-600">We know San Diego County geology and coastal, valley-floor wells</p>
 </div>
 <div class="bg-gray-50 p-5 rounded-lg">
 <h3 class="font-semibold text-gray-900 mb-2">✓ Fast Response</h3>
-<p class="text-gray-600">Same-day service for Del Mar</p>
+<p class="text-gray-600">Same-day service available for Del Mar</p>
 </div>
 <div class="bg-gray-50 p-5 rounded-lg">
 <h3 class="font-semibold text-gray-900 mb-2">✓ Fair Pricing</h3>
@@ -212,6 +234,7 @@
 <p class="text-gray-600">4.9★ rating, hundreds of reviews</p>
 </div>
 </div>
+
 <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4" id="our-locations">Our Locations</h2>
 <div class="grid md:grid-cols-2 gap-6 mb-8">
 <div class="bg-gray-50 p-6 rounded-lg">
@@ -225,9 +248,36 @@
 <p><a class="text-blue-600 hover:underline" href="tel:+17604408520">(760) 440-8520</a></p>
 </div>
 </div>
-<div class="bg-blue-600 text-white p-6 rounded-lg text-center">
+
+<h2 id="frequently-asked-questions" class="text-3xl font-bold text-primary mt-12 mb-4">Frequently Asked Questions</h2>
+<div class="bg-gray-50 rounded-lg p-4 mb-3">
+  <h3 class="font-bold text-gray-900 mb-2">Most of Del Mar is on municipal water. Is a well inspection still relevant here?</h3>
+  <p class="text-gray-700">Inside the city of Del Mar, nearly every home is served by the municipal system, so private drinking-water wells are uncommon. Where wells matter is on the fringes: the San Dieguito River valley, the estates bordering Rancho Santa Fe, and the unincorporated parcels around Del Mar Heights and Carmel Valley, where irrigation and agricultural wells are still in use. If a property you own or are buying has a well of any kind, an inspection protects you before you rely on it.</p>
+</div>
+<div class="bg-gray-50 rounded-lg p-4 mb-3">
+  <h3 class="font-bold text-gray-900 mb-2">I'm buying an estate near Rancho Santa Fe with an irrigation well. What should the inspection cover?</h3>
+  <p class="text-gray-700">For an estate irrigation well we verify flow in gallons per minute and confirm the system holds pressure, read static and pumping water levels, time the recovery to judge sustainable yield, inspect the pump, pressure tank, control box and wiring, check the wellhead and sanitary seal, and sample the water. You get a written report with photos and estimates suitable for escrow and lenders.</p>
+</div>
+<div class="bg-gray-50 rounded-lg p-4 mb-3">
+  <h3 class="font-bold text-gray-900 mb-2">What does a well inspection cost in the Del Mar area?</h3>
+  <p class="text-gray-700">A well inspection runs $150 to $400, a water quality test is $100 to $300 depending on which contaminants you screen, and a stand-alone flow or yield test is $150 to $350. A targeted diagnostic visit is $125, which we credit toward any repair you approve.</p>
+</div>
+<div class="bg-gray-50 rounded-lg p-4 mb-3">
+  <h3 class="font-bold text-gray-900 mb-2">How does the San Dieguito River valley affect a well here?</h3>
+  <p class="text-gray-700">Del Mar sits at the mouth of the San Dieguito River, where the coastal terrace meets the river valley and lagoon. Wells near the valley floor often tap shallow alluvial groundwater, which can be productive but is also more exposed to surface influence and, near the coast, to salinity. We factor that setting into how we read water levels and which water-quality tests we recommend.</p>
+</div>
+<div class="bg-gray-50 rounded-lg p-4 mb-3">
+  <h3 class="font-bold text-gray-900 mb-2">Do you handle inspections on tight escrow timelines?</h3>
+  <p class="text-gray-700">Yes. Real-estate deals in Del Mar and the surrounding areas move fast, and we schedule inspections to fit escrow. On-site mechanical findings are documented the same day, bacteria results usually return in 24 to 48 hours, and full mineral panels take a few business days. We deliver a consolidated report your lender and title company will accept.</p>
+</div>
+<div class="bg-gray-50 rounded-lg p-4 mb-3">
+  <h3 class="font-bold text-gray-900 mb-2">Should I test an older irrigation well for salinity or minerals?</h3>
+  <p class="text-gray-700">For coastal and valley-floor wells near Del Mar we recommend screening total dissolved solids, chloride and general minerals along with bacteria and nitrate. Proximity to the lagoon and the river mouth makes salinity worth checking, and mineral content tells you how the water will perform in irrigation lines and landscape systems before you commit to using it.</p>
+</div>
+
+<div class="bg-blue-600 text-white p-6 rounded-lg text-center my-8">
 <h3 class="text-2xl font-bold mb-2">Get a Free Estimate</h3>
-<p class="mb-4">Call now for well inspection in Del Mar</p>
+<p class="mb-4">Call or text now for well inspection in Del Mar</p>
 <a class="inline-block bg-white text-blue-600 px-8 py-3 rounded-lg font-bold text-lg hover:bg-blue-50 transition" href="tel:+17604408520">(760) 440-8520</a>
 </div>
 
@@ -235,25 +285,7 @@
 <section class="py-16 bg-gray-50">
     <div class="max-w-4xl mx-auto px-4">
         <div class="text-center mb-10">
-            
-<!-- FAQ Section -->
-
-<p class="text-gray-700 my-4">We service all major pump brands including <strong>Franklin Electric</strong>, <strong>Grundfos</strong>, <strong>Goulds (Xylem)</strong>, and <strong>Sta-Rite (Pentair)</strong>. Our trucks carry common parts and components for same-day repairs.</p>
-<h2 id="frequently-asked-questions" class="text-3xl font-bold text-primary mt-12 mb-4">Frequently Asked Questions</h2>
-<div class="bg-gray-50 rounded-lg p-4 mb-3">
-  <h3 class="font-bold text-gray-900 mb-2">How do I know if my well pump needs repair?</h3>
-  <p class="text-gray-700">Common signs include: no water or low pressure, pump cycling on and off rapidly (short cycling), unusual noises, dirty or sandy water, and higher-than-normal electric bills. Any of these warrant a professional inspection.</p>
-</div>
-<div class="bg-gray-50 rounded-lg p-4 mb-3">
-  <h3 class="font-bold text-gray-900 mb-2">How much does well pump repair cost?</h3>
-  <p class="text-gray-700">Simple repairs like pressure switch replacement run <h2 id="related-articles" class="text-3xl font-bold text-primary mb-2">Related Articles</h2>50-$300. Motor or pump replacement typically costs <h2 id="related-articles" class="text-3xl font-bold text-primary mb-2">Related Articles</h2>,500-$4,500 depending on well depth and pump type. We diagnose the issue before recommending repairs.</p>
-</div>
-<div class="bg-gray-50 rounded-lg p-4 mb-3">
-  <h3 class="font-bold text-gray-900 mb-2">Can I repair my well pump myself?</h3>
-  <p class="text-gray-700">Surface-level issues like pressure switch adjustment or breaker resets are safe DIY tasks. However, anything involving pulling the pump from the well requires specialized equipment and should be handled by a licensed contractor to avoid damaging the well casing.</p>
-</div>
-
-<h2 id="related-articles" class="text-3xl font-bold text-primary mb-2">Related Articles</h2>
+<h2 class="text-3xl font-bold text-primary mb-2">Related Articles</h2>
             <p class="text-gray-600">Continue learning about well maintenance and troubleshooting</p>
         </div>
         <div class="grid md:grid-cols-3 gap-6">
@@ -315,7 +347,6 @@
 </div>
 </div>
 </footer>
-<!-- Sticky Mobile CTA Bar -->
 <style>#sticky-cta{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:2px solid #e5e7eb;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px;z-index:50;box-shadow:0 -4px 12px rgba(0,0,0,0.1)}#sticky-cta a{flex:1;font-weight:700;padding:12px 16px;border-radius:8px;text-align:center;color:#fff;font-size:14px;text-decoration:none}#sticky-cta .cta-call{background:#dc2626}#sticky-cta .cta-call:hover{background:#b91c1c}#sticky-cta .cta-text{background:#2563eb}#sticky-cta .cta-text:hover{background:#1d4ed8}#sticky-cta .cta-est{background:#4e9271}#sticky-cta .cta-est:hover{background:#3d7a5c}@media(min-width:1024px){#sticky-cta{display:none}}</style>
 <div id="sticky-cta">
 <a class="cta-call" href="tel:7604408520">📞 Call Now</a>
