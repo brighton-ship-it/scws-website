@@ -179,5 +179,35 @@
       "errors": 0,
       "changes": {}
     }
+  },
+  {
+    "date": "2026-07-03T20:52:31.885Z",
+    "mode": "apply",
+    "fixType": "all",
+    "stats": {
+      "scanned": 9319,
+      "fixed": 1,
+      "skipped": 0,
+      "errors": 0,
+      "changes": {
+        "add_schema": 1,
+        "add_og": 1
+      }
+    }
+  },
+  {
+    "date": "2026-07-04T12:52:12.691Z",
+    "mode": "apply",
+    "fixType": "all",
+    "stats": {
+      "scanned": 9319,
+      "fixed": 1,
+      "skipped": 0,
+      "errors": 0,
+      "changes": {
+        "add_schema": 1,
+        "add_og": 1
+      }
+    }
   }
 ]
