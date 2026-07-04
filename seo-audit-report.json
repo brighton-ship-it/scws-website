@@ -1,17 +1,14 @@
 {
-  "date": "2026-07-04T12:52:03.482Z",
+  "date": "2026-07-04T12:54:18.370Z",
   "summary": {
     "scanned": 9320,
     "noindexed": 521,
     "indexed": 8799,
-    "critical": 7,
+    "critical": 0,
     "warnings": 6370,
-    "clean": 2422
+    "clean": 2429
   },
-  "issueCounts": {
-    "MISSING_VIEWPORT": 3,
-    "MISSING_H1": 4
-  },
+  "issueCounts": {},
   "warningCounts": {
     "LOW_CONTENT": 6325,
     "SHORT_TITLE": 22,
@@ -10219,13 +10216,11 @@
     },
     {
       "path": "/blog/avocado-well-hemet.html",
-      "rating": "critical",
+      "rating": "good",
       "wordCount": 1734,
       "h1Count": 1,
       "hasSchema": true,
-      "issues": [
-        "MISSING_VIEWPORT"
-      ],
+      "issues": [],
       "warnings": []
     },
     {
@@ -10617,13 +10612,11 @@
     },
     {
       "path": "/blog/avocado-well-lenwood.html",
-      "rating": "critical",
+      "rating": "good",
       "wordCount": 1592,
       "h1Count": 1,
       "hasSchema": true,
-      "issues": [
-        "MISSING_VIEWPORT"
-      ],
+      "issues": [],
       "warnings": []
     },
     {
@@ -44569,13 +44562,11 @@
     },
     {
       "path": "/blog/low-water-pressure-mountain-center.html",
-      "rating": "critical",
+      "rating": "good",
       "wordCount": 2119,
       "h1Count": 1,
       "hasSchema": true,
-      "issues": [
-        "MISSING_VIEWPORT"
-      ],
+      "issues": [],
       "warnings": []
     },
     {
@@ -44913,13 +44904,11 @@
     },
     {
       "path": "/blog/low-water-pressure-perris.html",
-      "rating": "critical",
-      "wordCount": 2124,
-      "h1Count": 0,
+      "rating": "good",
+      "wordCount": 2130,
+      "h1Count": 1,
       "hasSchema": true,
-      "issues": [
-        "MISSING_H1"
-      ],
+      "issues": [],
       "warnings": []
     },
     {
@@ -85911,13 +85900,11 @@
     },
     {
       "path": "/blog/well-pump-repair-lucerne-valley.html",
-      "rating": "critical",
-      "wordCount": 1691,
-      "h1Count": 0,
+      "rating": "good",
+      "wordCount": 1697,
+      "h1Count": 1,
       "hasSchema": true,
-      "issues": [
-        "MISSING_H1"
-      ],
+      "issues": [],
       "warnings": []
     },
     {
@@ -85944,13 +85931,11 @@
     },
     {
       "path": "/blog/well-pump-repair-mead-valley.html",
-      "rating": "critical",
-      "wordCount": 1770,
-      "h1Count": 0,
+      "rating": "good",
+      "wordCount": 1776,
+      "h1Count": 1,
       "hasSchema": true,
-      "issues": [
-        "MISSING_H1"
-      ],
+      "issues": [],
       "warnings": []
     },
     {
@@ -86639,13 +86624,11 @@
     },
     {
       "path": "/blog/well-pump-repair-quail-valley.html",
-      "rating": "critical",
-      "wordCount": 1767,
-      "h1Count": 0,
+      "rating": "good",
+      "wordCount": 1773,
+      "h1Count": 1,
       "hasSchema": true,
-      "issues": [
-        "MISSING_H1"
-      ],
+      "issues": [],
       "warnings": []
     },
     {
