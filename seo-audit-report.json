@@ -1,30 +1,20 @@
 {
-  "date": "2026-07-04T18:35:02.939Z",
+  "date": "2026-07-05T20:48:49.894Z",
   "summary": {
-    "scanned": 9353,
+    "scanned": 9352,
     "noindexed": 521,
-    "indexed": 8832,
-    "critical": 2,
-    "warnings": 6350,
+    "indexed": 8831,
+    "critical": 0,
+    "warnings": 6351,
     "clean": 2480
   },
-  "issueCounts": {
-    "MISSING_TITLE": 1,
-    "MISSING_DESC": 1,
-    "MISSING_CANONICAL": 1,
-    "MISSING_H1": 2,
-    "MISSING_VIEWPORT": 1,
-    "THIN_CONTENT": 1
-  },
+  "issueCounts": {},
   "warningCounts": {
     "LOW_CONTENT": 6105,
     "SHORT_TITLE": 23,
     "LONG_DESC": 157,
     "LONG_TITLE": 49,
     "SHORT_DESC": 190,
-    "MISSING_SCHEMA": 1,
-    "FEW_INTERNAL_LINKS": 1,
-    "MISSING_OG": 1,
     "MULTIPLE_H1": 16
   },
   "duplicates": {
@@ -2448,7 +2438,7 @@
     ]
   },
   "content": {
-    "thin": 1,
+    "thin": 0,
     "low": 6105,
     "good": 2726
   },
@@ -50203,26 +50193,6 @@
       ]
     },
     {
-      "path": "/blog/pressure-tank-vista (1).html",
-      "rating": "critical",
-      "wordCount": 1,
-      "h1Count": 0,
-      "hasSchema": false,
-      "issues": [
-        "MISSING_TITLE",
-        "MISSING_DESC",
-        "MISSING_CANONICAL",
-        "MISSING_H1",
-        "MISSING_VIEWPORT",
-        "THIN_CONTENT"
-      ],
-      "warnings": [
-        "MISSING_SCHEMA",
-        "FEW_INTERNAL_LINKS",
-        "MISSING_OG"
-      ]
-    },
-    {
       "path": "/blog/pressure-tank-vista (2).html",
       "rating": "good",
       "wordCount": 1869,
@@ -87261,13 +87231,11 @@
     },
     {
       "path": "/blog/well-pump-repair-quail-valley.html",
-      "rating": "critical",
-      "wordCount": 1772,
-      "h1Count": 0,
+      "rating": "okay",
+      "wordCount": 1778,
+      "h1Count": 1,
       "hasSchema": true,
-      "issues": [
-        "MISSING_H1"
-      ],
+      "issues": [],
       "warnings": [
         "LONG_TITLE",
         "LONG_DESC"
