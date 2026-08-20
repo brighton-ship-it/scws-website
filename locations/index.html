@@ -5,7 +5,65 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Service Areas | Southern California Well Service</title>
-<meta content="Southern California Well Service provides well drilling, pump repair, and water treatment across San Diego, Riverside, Imperial, and San Bernardino counties. Find your city." name="description"/><meta content="https://www.scwellservice.com/images/logo-text-only-3x.png" property="og:image"/><meta content="1200" property="og:image:width"/><meta content="630" property="og:image:height"/><meta content="Service Areas | Southern California Well Service" property="og:title"/><meta content="Southern California Well Service provides well drilling, pump repair, and water treatment across San Diego, Riverside, Imperial, and San Bernardino counties. Find your city." property="og:description"/>
+<meta content="Southern California Well Service provides well drilling, pump repair, and water treatment across San Diego, Riverside, Imperial, and San Bernardino counties. Find your city." name="description"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://scwellservice.com/#organization",
+      "name": "Southern California Well Service",
+      "url": "https://scwellservice.com",
+      "telephone": "(760) 440-8520",
+      "department": [
+        {"@id": "https://scwellservice.com/#ramona-shop"},
+        {"@id": "https://scwellservice.com/#anza-shop"}
+      ]
+    },
+    {
+      "@type": "LocalBusiness",
+      "@id": "https://scwellservice.com/#ramona-shop",
+      "name": "Southern California Well Service — Ramona Shop",
+      "parentOrganization": {"@id": "https://scwellservice.com/#organization"},
+      "telephone": "(760) 440-8520",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "1077 Main Street, Unit B",
+        "addressLocality": "Ramona",
+        "addressRegion": "CA",
+        "postalCode": "92065",
+        "addressCountry": "US"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "33.0425",
+        "longitude": "-116.8681"
+      }
+    },
+    {
+      "@type": "LocalBusiness",
+      "@id": "https://scwellservice.com/#anza-shop",
+      "name": "Southern California Well Service — Anza Shop",
+      "parentOrganization": {"@id": "https://scwellservice.com/#organization"},
+      "telephone": "(760) 440-8520",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "57174 CA-371 (US Hwy 79)",
+        "addressLocality": "Anza",
+        "addressRegion": "CA",
+        "postalCode": "92539",
+        "addressCountry": "US"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "33.5539",
+        "longitude": "-116.6747"
+      }
+    }
+  ]
+}
+</script><meta content="https://www.scwellservice.com/images/logo-text-only-3x.png" property="og:image"/><meta content="1200" property="og:image:width"/><meta content="630" property="og:image:height"/><meta content="Service Areas | Southern California Well Service" property="og:title"/><meta content="Southern California Well Service provides well drilling, pump repair, and water treatment across San Diego, Riverside, Imperial, and San Bernardino counties. Find your city." property="og:description"/>
 <link href="https://scwellservice.com/locations/" rel="canonical"/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <script src="https://cdn.tailwindcss.com"></script>
@@ -35,6 +93,22 @@
 <main class="max-w-7xl mx-auto px-4 py-12">
 <h1 class="text-4xl font-bold text-gray-900 mb-4">Areas We Serve</h1>
 <p class="text-xl text-gray-600 mb-8">Southern California Well Service provides professional well services across four counties. Click your city to see available services.</p>
+<section class="grid md:grid-cols-2 gap-6 mb-12" id="shops">
+<div class="bg-white rounded-xl p-6 shadow-sm">
+<h2 class="text-2xl font-bold text-gray-900 mb-2">Ramona Shop</h2>
+<p>1077 Main Street, Unit B, Ramona, CA 92065</p>
+<p class="mt-2"><a class="text-blue-700 font-semibold" href="tel:7604408520">Voice (760) 440-8520</a></p>
+<p><a class="text-blue-700 font-semibold" href="sms:7602195877">Text (760) 219-5877</a></p>
+<p class="text-sm text-gray-600 mt-2">CSLB #1086994 (C-57 Water Well Drilling)</p>
+</div>
+<div class="bg-white rounded-xl p-6 shadow-sm">
+<h2 class="text-2xl font-bold text-gray-900 mb-2">Anza Shop</h2>
+<p>57174 CA-371 (US Hwy 79), Anza, CA 92539</p>
+<p class="mt-2"><a class="text-blue-700 font-semibold" href="tel:7604408520">Voice (760) 440-8520</a></p>
+<p><a class="text-blue-700 font-semibold" href="sms:7602195877">Text (760) 219-5877</a></p>
+<p class="text-sm text-gray-600 mt-2">CSLB #1086994 (C-57 Water Well Drilling)</p>
+</div>
+</section>
 <!-- Quick Stats -->
 <div class="grid md:grid-cols-4 gap-4 mb-12">
 <div class="bg-white rounded-xl p-6 shadow-sm text-center">
@@ -131,7 +205,9 @@
 <!-- Footer -->
 <footer class="bg-gray-900 text-gray-400 py-8 mt-12">
 <div class="max-w-7xl mx-auto px-4 text-center">
-<p>© 2026 Southern California Well Service. License #1098422</p>
+<p>© 2026 Southern California Well Service. CSLB License #1086994 (C-57 Water Well Drilling)</p>
+<p class="mt-2">Ramona Shop: 1077 Main Street, Unit B, Ramona, CA 92065</p>
+<p>Anza Shop: 57174 CA-371 (US Hwy 79), Anza, CA 92539</p>
 </div>
 </footer>
 <script>

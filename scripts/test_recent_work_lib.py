@@ -12,16 +12,20 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from recent_work_lib import (
+    PAGE_SIZE,
     build_project,
     card_html,
     categorize_job,
     collect_attachments,
     is_public_safe_title,
+    job_h1,
     jsonld_items,
     merge_projects,
+    paginate_projects,
     public_location,
     sanitize_public_text,
     slugify,
+    trim_meta_description,
     unique_slug,
 )
 
@@ -166,6 +170,30 @@ class AttachmentTests(unittest.TestCase):
         self.assertEqual([f["name"] for f in files], ["wellhead.jpg"])
 
 
+class HeadingMetaTests(unittest.TestCase):
+    def test_h1_includes_city(self):
+        self.assertEqual(
+            job_h1({"title": "Well diagnostic", "location": "Anza"}),
+            "Well diagnostic in Anza",
+        )
+        self.assertEqual(
+            job_h1({"title": "Well diagnostic in Anza", "location": "Anza"}),
+            "Well diagnostic in Anza",
+        )
+
+    def test_meta_trims_on_word_not_inch_mark(self):
+        long = (
+            "Repaired a hole in the pressure-tank piping and replaced a rotting "
+            "union with stainless 1-1/4\" fittings plus extra words to force a "
+            "cutoff somewhere after the inch mark and more filler text here."
+        )
+        out = trim_meta_description(long, limit=80)
+        self.assertLessEqual(len(out), 81)
+        self.assertNotIn('"', out)
+        self.assertTrue(out.endswith("."))
+        self.assertNotEqual(out[-2], "\"")
+
+
 class HtmlTests(unittest.TestCase):
     def test_card_matches_existing_structure(self):
         project = {
@@ -213,7 +241,15 @@ class HtmlTests(unittest.TestCase):
         text = index.read_text()
         self.assertIn(CARD_MARKERS[0], text)
         self.assertIn(CARD_MARKERS[1], text)
-        self.assertGreaterEqual(text.count('class="project-card"'), 107)
+        self.assertLessEqual(text.count('class="project-card"'), PAGE_SIZE)
+        self.assertGreaterEqual(text.count('class="project-card"'), 1)
+        self.assertIn("job3174", text)
+        self.assertIn("7602195877", text)
+        self.assertIn("(760) 440-8520", text)
+        listing_text = "\n".join(
+            p.read_text()
+            for p in [index, *sorted((index.parent).glob("page-*.html"))]
+        )
         for job_id in (
             "job3049",
             "job3174",
@@ -224,9 +260,8 @@ class HtmlTests(unittest.TestCase):
             "job3159",
             "job3134",
         ):
-            self.assertIn(f'data-job="{job_id}"', text)
-        self.assertIn("7602195877", text)
-        self.assertIn("(760) 440-8520", text)
+            self.assertIn(f'data-job="{job_id}"', listing_text)
+        self.assertIn("San Diego County (Torrey Hill area)", listing_text)
 
         data = json.loads(
             (Path(__file__).resolve().parents[1] / "recent-work" / "projects.json").read_text()
@@ -241,10 +276,13 @@ class HtmlTests(unittest.TestCase):
             finally:
                 recent_work_lib.INDEX_HTML = original
             rewritten = copy.read_text()
+            pages = paginate_projects(data["projects"])
+            self.assertLessEqual(rewritten.count('class="project-card"'), PAGE_SIZE)
+            self.assertTrue((Path(tmp) / "page-2.html").exists())
+            self.assertEqual(len(pages), 5)
         self.assertIn("7602195877", rewritten)
         self.assertIn("(760) 440-8520", rewritten)
-        self.assertIn('data-job="job3049"', rewritten)
-        self.assertIn("San Diego County (Torrey Hill area)", rewritten)
+        self.assertIn('data-job="job3174"', rewritten)
 
 
 class DryRunCliTests(unittest.TestCase):

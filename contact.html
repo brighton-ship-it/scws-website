@@ -36,22 +36,42 @@
         "name": "Southern California Well Service",
         "image": "https://scwellservice.com/images/logo-text-only-3x.png",
         "telephone": "(760) 440-8520",
-        "address": [
+        "department": [
             {
-                "@type": "PostalAddress",
-                "streetAddress": "1077 Main Street, Unit B",
-                "addressLocality": "Ramona",
-                "addressRegion": "CA",
-                "postalCode": "92065",
-                "addressCountry": "US"
+                "@type": "LocalBusiness",
+                "name": "Southern California Well Service — Ramona Shop",
+                "telephone": "(760) 440-8520",
+                "address": {
+                    "@type": "PostalAddress",
+                    "streetAddress": "1077 Main Street, Unit B",
+                    "addressLocality": "Ramona",
+                    "addressRegion": "CA",
+                    "postalCode": "92065",
+                    "addressCountry": "US"
+                },
+                "geo": {
+                    "@type": "GeoCoordinates",
+                    "latitude": "33.0425",
+                    "longitude": "-116.8681"
+                }
             },
             {
-                "@type": "PostalAddress",
-                "streetAddress": "57174 CA-371",
-                "addressLocality": "Anza",
-                "addressRegion": "CA",
-                "postalCode": "92539",
-                "addressCountry": "US"
+                "@type": "LocalBusiness",
+                "name": "Southern California Well Service — Anza Shop",
+                "telephone": "(760) 440-8520",
+                "address": {
+                    "@type": "PostalAddress",
+                    "streetAddress": "57174 CA-371 (US Hwy 79)",
+                    "addressLocality": "Anza",
+                    "addressRegion": "CA",
+                    "postalCode": "92539",
+                    "addressCountry": "US"
+                },
+                "geo": {
+                    "@type": "GeoCoordinates",
+                    "latitude": "33.5539",
+                    "longitude": "-116.6747"
+                }
             }
         ],
         "openingHours": "Mo-Fr 07:00-17:00",
@@ -87,9 +107,14 @@
                     <a href="blog/" class="text-white hover:text-accent transition whitespace-nowrap">Blog</a>
                     <a href="contact.html" class="text-white font-semibold whitespace-nowrap">Contact</a>
                 </nav>
+                <div class="flex items-center gap-2">
                 <a href="tel:7604408520" class="bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-4 lg:px-6 rounded-lg transition whitespace-nowrap text-sm lg:text-base">
                     (760) 440-8520
                 </a>
+                <a href="sms:7602195877" class="hidden sm:inline-flex bg-white/10 hover:bg-white/20 text-white font-semibold py-2 px-4 rounded-lg transition whitespace-nowrap text-sm">
+                    Text (760) 219-5877
+                </a>
+                </div>
             </div>
         </div>
     </header>
@@ -101,6 +126,7 @@
         <div class="max-w-4xl mx-auto px-4 text-center">
             <h1 class="text-4xl lg:text-5xl font-bold mb-4">Contact Us</h1>
             <p class="text-xl text-gray-300">Two locations serving San Diego, Riverside & San Bernardino Counties</p>
+            <p class="mt-4 text-lg">Voice <a class="underline font-semibold" href="tel:7604408520">(760) 440-8520</a> · Text <a class="underline font-semibold" href="sms:7602195877">(760) 219-5877</a></p>
         </div>
     </section>
 
@@ -147,6 +173,10 @@
                             <a href="tel:7604408520" class="text-accent hover:underline">(760) 440-8520</a>
                         </p>
                         <p class="flex items-center">
+                            <span class="font-semibold w-20">Text:</span>
+                            <a href="sms:7602195877" class="text-accent hover:underline">(760) 219-5877</a>
+                        </p>
+                        <p class="flex items-center">
                             <span class="font-semibold w-20">Hours:</span>
                             <span>Mon-Fri: 7AM - 5PM</span>
                         </p>
@@ -180,11 +210,15 @@
                     <div class="space-y-3 text-gray-600">
                         <p class="flex items-start">
                             <span class="font-semibold w-20">Address:</span>
-                            <span>57174 CA-371<br>Anza, CA 92539</span>
+                            <span>57174 CA-371 (US Hwy 79)<br>Anza, CA 92539</span>
                         </p>
                         <p class="flex items-center">
                             <span class="font-semibold w-20">Phone:</span>
                             <a href="tel:7604408520" class="text-accent hover:underline">(760) 440-8520</a>
+                        </p>
+                        <p class="flex items-center">
+                            <span class="font-semibold w-20">Text:</span>
+                            <a href="sms:7602195877" class="text-accent hover:underline">(760) 219-5877</a>
                         </p>
                         <p class="flex items-center">
                             <span class="font-semibold w-20">Hours:</span>
@@ -327,7 +361,7 @@
                         </li>
                         <li class="pt-2">
                             <span class="text-gray-500">📍 Anza Shop</span><br>
-                            57174 CA-371, Anza, CA 92539
+                            57174 CA-371 (US Hwy 79), Anza, CA 92539
                         </li>
                     </ul>
                 </div>
