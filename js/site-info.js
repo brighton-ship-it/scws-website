@@ -18,7 +18,7 @@
  *
  * Phones:
  *   Voice (primary): (760) 440-8520 / tel:+17604408520
- *   Text-only:       (619) 259-0410 / sms:6192590410
+ *   Text-only:       (760) 219-5877 / sms:7602195877
  *   Former Ransom:   (760) 789-5955 (label it if it stays)
  */
 (function (root) {
@@ -30,8 +30,8 @@
     heritage: '60+ years family heritage',
     phoneVoice: '(760) 440-8520',
     phoneVoiceTel: 'tel:+17604408520',
-    phoneText: '(619) 259-0410',
-    phoneTextSms: 'sms:6192590410',
+    phoneText: '(760) 219-5877',
+    phoneTextSms: 'sms:7602195877',
     phoneRansom: '(760) 789-5955',
     ramona: '1077 Main Street, Unit B, Ramona, CA 92065',
     ramonaStreet: '1077 Main Street, Unit B',
