@@ -1,0 +1,119 @@
+# Publish Recent Work cards from Jobber.
+#
+# How to run: Actions → "Publish Recent Work from Jobber" → Run workflow.
+# Required secrets (repo Settings → Secrets): JOBBER_ACCESS_TOKEN
+#   or JOBBER_CLIENT_ID + JOBBER_CLIENT_SECRET + JOBBER_REFRESH_TOKEN.
+# Opens a PR to main. Does not push to main. See recent-work/README.md.
+name: Publish Recent Work from Jobber
+
+on:
+  workflow_dispatch:
+    inputs:
+      days:
+        description: Look back this many days for completed Jobber jobs
+        required: false
+        default: "21"
+      limit:
+        description: Max new jobs to add
+        required: false
+        default: "8"
+  schedule:
+    # Monday 15:00 UTC ≈ 8am Pacific
+    - cron: "0 15 * * 1"
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: publish-recent-work
+  cancel-in-progress: false
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Unit tests (no Jobber token needed)
+        run: python3 -m unittest scripts/test_recent_work_lib.py -v
+
+  publish:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install image tools
+        run: python3 -m pip install --quiet pillow
+
+      - name: Check Jobber secrets
+        env:
+          JOBBER_ACCESS_TOKEN: ${{ secrets.JOBBER_ACCESS_TOKEN }}
+          JOBBER_CLIENT_ID: ${{ secrets.JOBBER_CLIENT_ID }}
+          JOBBER_CLIENT_SECRET: ${{ secrets.JOBBER_CLIENT_SECRET }}
+          JOBBER_REFRESH_TOKEN: ${{ secrets.JOBBER_REFRESH_TOKEN }}
+        run: |
+          if [ -n "$JOBBER_ACCESS_TOKEN" ]; then
+            echo "Using JOBBER_ACCESS_TOKEN"
+            exit 0
+          fi
+          if [ -n "$JOBBER_CLIENT_ID" ] && [ -n "$JOBBER_CLIENT_SECRET" ] && [ -n "$JOBBER_REFRESH_TOKEN" ]; then
+            echo "Using Jobber refresh-token flow"
+            exit 0
+          fi
+          echo "Missing Jobber secrets."
+          echo "Add JOBBER_ACCESS_TOKEN, or JOBBER_CLIENT_ID + JOBBER_CLIENT_SECRET + JOBBER_REFRESH_TOKEN."
+          echo "See recent-work/README.md"
+          exit 1
+
+      - name: Pull Jobber jobs and write cards
+        env:
+          JOBBER_ACCESS_TOKEN: ${{ secrets.JOBBER_ACCESS_TOKEN }}
+          JOBBER_CLIENT_ID: ${{ secrets.JOBBER_CLIENT_ID }}
+          JOBBER_CLIENT_SECRET: ${{ secrets.JOBBER_CLIENT_SECRET }}
+          JOBBER_REFRESH_TOKEN: ${{ secrets.JOBBER_REFRESH_TOKEN }}
+          JOBBER_GRAPHQL_VERSION: ${{ secrets.JOBBER_GRAPHQL_VERSION }}
+        run: |
+          DAYS="${{ github.event.inputs.days || '21' }}"
+          LIMIT="${{ github.event.inputs.limit || '8' }}"
+          python3 scripts/publish-recent-work-from-jobber.py --days "$DAYS" --limit "$LIMIT"
+          python3 scripts/generate-recent-work-pages.py
+
+      - name: Open PR if there are changes
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add recent-work js/recent-work-projects.js images/recent-work sitemap-pages.xml
+          if git diff --cached --quiet; then
+            echo "No new Recent Work cards."
+            exit 0
+          fi
+          STAMP="$(date -u +%Y%m%d)"
+          BRANCH="jobber/recent-work-${STAMP}"
+          git checkout -B "$BRANCH"
+          git commit -m "Add Recent Work cards from completed Jobber jobs"
+          git push -u origin "$BRANCH"
+          if gh pr list --base main --head "$BRANCH" --json number --jq '.[0].number' | grep -q '[0-9]'; then
+            echo "PR already open for $BRANCH"
+            exit 0
+          fi
+          gh pr create --base main --head "$BRANCH" \
+            --title "Recent Work from Jobber (${STAMP})" \
+            --body "$(cat <<'EOF'
+          Automated pull of recently completed Jobber jobs and their job photos.
+
+          Review on the PR diff (and after merge on https://scwellservice.com/recent-work/).
+          Confirm photos are real Jobber attachments and that cards show city/area only — no last names, street addresses, or prices.
+
+          Do not merge if any card looks private.
+          EOF
+          )"

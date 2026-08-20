@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
-"""Generate static /recent-work/<slug>.html pages from projects.json."""
+"""Generate static /recent-work/<slug>.html pages from projects.json.
+
+Called automatically by the Jobber publish Action after projects.json is
+updated. Safe to run on its own; it only rewrites detail pages from the
+current JSON and does not change live cards if JSON is unchanged.
+"""
 from __future__ import annotations
 
 import json
