@@ -8,7 +8,7 @@
  * - Expose window.scwsAb = { id, variant }
  * - No-op safely if gtag is missing (bot filter)
  *
- * Active experiment: exp_emergency_cta
+ * Active experiment: exp_emergency_cta (homepage emergency bar only)
  *   control: red emergency top bar, Call only
  *   variant: same bar, equal Call + Text buttons
  */
@@ -188,7 +188,13 @@
     }
   }
 
+  function isHomepage() {
+    var path = (window.location.pathname || '/').replace(/index\.html$/, '').replace(/\/$/, '');
+    return path === '' || path === '/';
+  }
+
   function applyExperiment() {
+    if (!isHomepage()) return;
     var bars = findEmergencyBars();
     for (var i = 0; i < bars.length; i++) applyVariant(bars[i]);
   }

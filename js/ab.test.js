@@ -129,6 +129,16 @@ test('variant adds an equal Text button and keeps the voice tel: node', function
   assert.match(text.textContent, /Text \(760\) 219-5877/);
 });
 
+test('does not apply the emergency-bar variant off the homepage', function () {
+  var page = loadPage({
+    url: 'https://scwellservice.com/contact.html?scws_ab=variant'
+  });
+  var bar = page.document.getElementById('scws-emergency-cta');
+  assert.strictEqual(page.window.scwsAb.variant, 'variant');
+  assert.strictEqual(bar.querySelectorAll('a[href^="sms:"]').length, 0);
+  assert.match(bar.textContent, /Call Now/);
+});
+
 test('does not change the sticky bar or header phone', function () {
   var page = loadPage({ variant: 'variant' });
   var sticky = page.document.getElementById('sticky-cta');
