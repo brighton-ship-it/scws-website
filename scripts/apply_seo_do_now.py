@@ -168,47 +168,151 @@ def add_money_urls_to_sitemap() -> None:
         print("sitemap-pages.xml already has money URLs")
 
 
-def html_is_noindex(url: str) -> bool:
-    rel = url.replace("https://scwellservice.com/", "")
-    candidates = [
-        ROOT / rel,
-        ROOT / f"{rel}.html",
-        ROOT / rel / "index.html",
-    ]
-    if rel.endswith("/"):
-        candidates.append(ROOT / rel[:-1] / "index.html")
-    for path in candidates:
-        if path.is_file():
-            head = path.read_text(encoding="utf-8", errors="ignore")[:4000]
-            return bool(re.search(r'name=["\']robots["\'][^>]*noindex|content=["\']noindex', head, re.I))
-    return False
+ROBOTS_META_RE = re.compile(r"<meta\b[^>]*\bname=[\"']robots[\"'][^>]*>", re.I)
+ROBOTS_META_SWAPPED_RE = re.compile(
+    r"<meta\b[^>]*content=[\"'][^\"']*noindex[^\"']*[\"'][^>]*name=[\"']robots[\"']",
+    re.I,
+)
+CANONICAL_RE = re.compile(
+    r"""<link\b[^>]*rel=["']canonical["'][^>]*href=["']([^"']+)["']|<link\b[^>]*href=["']([^"']+)["'][^>]*rel=["']canonical["']""",
+    re.I,
+)
+BROKEN_NAME_RE = re.compile(r"\s+\(\d+\)")
+
+
+def html_head(path: Path) -> str:
+    text = path.read_text(encoding="utf-8", errors="ignore")
+    lower = text.lower()
+    end = lower.find("</head>")
+    return text[:end] if end != -1 else text[:20000]
+
+
+def html_is_noindex(path: Path) -> bool:
+    head = html_head(path)
+    if ROBOTS_META_SWAPPED_RE.search(head):
+        return True
+    return any("noindex" in tag.lower() for tag in ROBOTS_META_RE.findall(head))
+
+
+def blog_file_for_url(url: str) -> Path | None:
+    rel = url.replace("https://scwellservice.com/", "").split("?")[0]
+    if rel in {"blog", "blog/"}:
+        path = ROOT / "blog" / "index.html"
+        return path if path.is_file() else None
+    if rel.endswith(".html"):
+        path = ROOT / rel
+    else:
+        path = ROOT / f"{rel}.html"
+    return path if path.is_file() else None
+
+
+def blog_canonical_url(path: Path) -> str:
+    if path.name == "index.html":
+        return "https://scwellservice.com/blog/"
+    own = f"https://scwellservice.com/blog/{path.name}"
+    match = CANONICAL_RE.search(html_head(path))
+    if not match:
+        return own
+    href = match.group(1) or match.group(2)
+    if " " in href or "(" in href:
+        return own
+    if not href.startswith("https://scwellservice.com/blog/"):
+        return own
+    target = blog_file_for_url(href)
+    # Never advertise a noindex or city-well-depth target.
+    if target is None:
+        return own
+    if html_is_noindex(target):
+        return own
+    if target.name.startswith("average-well-depth-"):
+        return own
+    return href
+
+
+def indexable_blog_urls() -> list[str]:
+    """Indexable blog URLs only: no robots noindex, no -OLD, no `name (1)` leftovers."""
+    urls: list[str] = []
+    seen: set[str] = set()
+    for path in sorted((ROOT / "blog").glob("*.html")):
+        if BROKEN_NAME_RE.search(path.name) or " " in path.name:
+            continue
+        if "-OLD" in path.name:
+            continue
+        if path.name.startswith("average-well-depth-"):
+            continue
+        if html_is_noindex(path):
+            continue
+        url = blog_canonical_url(path)
+        target = blog_file_for_url(url)
+        if target is not None and (
+            html_is_noindex(target)
+            or target.name.startswith("average-well-depth-")
+            or "-OLD" in target.name
+            or BROKEN_NAME_RE.search(target.name)
+        ):
+            continue
+        if url in seen:
+            continue
+        seen.add(url)
+        urls.append(url)
+    return urls
+
+
+def write_blog_sitemaps(urls: list[str], parts: int = 4) -> None:
+    today = TODAY
+    n = max(len(urls), 1)
+    size = (n + parts - 1) // parts
+    chunks = [urls[i : i + size] for i in range(0, len(urls), size)] or [[]]
+    while len(chunks) < parts:
+        chunks.append([])
+    for i in range(parts):
+        path = ROOT / f"sitemap-blog-{i + 1}.xml"
+        lines = [
+            '<?xml version="1.0" encoding="UTF-8"?>\n',
+            '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n',
+        ]
+        for url in chunks[i] if i < len(chunks) else []:
+            lines.append(
+                f"  <url><loc>{url}</loc><lastmod>{today}</lastmod><priority>0.6</priority></url>\n"
+            )
+        lines.append("</urlset>\n")
+        path.write_text("".join(lines), encoding="utf-8")
+        print(f"{path.name}: {len(chunks[i]) if i < len(chunks) else 0} indexable URLs")
 
 
 def clean_blog_sitemaps() -> None:
-    old_re = re.compile(r"-OLD(?:</loc>|[\?#])")
-    for path in sorted(ROOT.glob("sitemap-blog-*.xml")):
-        xml = path.read_text(encoding="utf-8")
-        urls = re.findall(r"  <url>.*?</url>\n?", xml, flags=re.S)
-        kept = []
-        dropped = []
-        for block in urls:
-            loc_m = re.search(r"<loc>([^<]+)</loc>", block)
-            if not loc_m:
-                kept.append(block)
-                continue
-            loc = loc_m.group(1)
-            slug = loc.rsplit("/", 1)[-1]
-            if slug.endswith("-OLD") or "-OLD" in slug:
-                dropped.append(loc)
-                continue
-            if "well-permit-" in slug or html_is_noindex(loc):
-                dropped.append(loc)
-                continue
-            kept.append(block)
-        new_xml = re.sub(r"  <url>.*?</url>\n?", "", xml, flags=re.S)
-        new_xml = new_xml.replace("</urlset>", "".join(kept) + "</urlset>")
-        path.write_text(new_xml, encoding="utf-8")
-        print(f"{path.name}: kept {len(kept)}, dropped {len(dropped)}")
+    urls = indexable_blog_urls()
+    write_blog_sitemaps(urls)
+    print(f"blog sitemap total indexable: {len(urls)}")
+    index = ROOT / "sitemap.xml"
+    xml = index.read_text(encoding="utf-8")
+    xml = re.sub(
+        r"(<loc>https://scwellservice.com/sitemap-blog-[1-4]\.xml</loc><lastmod>)[^<]+",
+        rf"\g<1>{TODAY}",
+        xml,
+    )
+    index.write_text(xml, encoding="utf-8")
+
+
+def drop_city_well_depth_from_index() -> None:
+    index = ROOT / "sitemap.xml"
+    xml = index.read_text(encoding="utf-8")
+    new = re.sub(
+        r"  <sitemap><loc>https://scwellservice.com/sitemap-city-well-depth.xml</loc>.*?</sitemap>\n?",
+        "",
+        xml,
+        flags=re.S,
+    )
+    if new != xml:
+        index.write_text(new, encoding="utf-8")
+        print("removed sitemap-city-well-depth.xml from sitemap index")
+    empty = (
+        '<?xml version="1.0" encoding="UTF-8"?>\n'
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+        "</urlset>\n"
+    )
+    (ROOT / "sitemap-city-well-depth.xml").write_text(empty, encoding="utf-8")
+    print("emptied sitemap-city-well-depth.xml (300 noindex city-well-depth URLs)")
 
 
 def fix_company_age_copy() -> None:
@@ -325,6 +429,7 @@ def main() -> int:
     add_city_and_service_links(projects)
     add_money_urls_to_sitemap()
     clean_blog_sitemaps()
+    drop_city_well_depth_from_index()
     fix_company_age_copy()
     align_review_count()
     return 0
