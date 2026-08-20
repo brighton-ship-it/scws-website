@@ -4,8 +4,8 @@ module.exports = {
     "./*.html",
     "./pages/**/*.html",
     "./tools/**/*.html",
+    "./recent-work/**/*.html",
     "./blog/*.html",
-    "./public/**/*.html",
     "./js/**/*.js"
   ],
   theme: {

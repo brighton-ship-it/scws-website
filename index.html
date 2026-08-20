@@ -63,6 +63,10 @@
             const form = document.getElementById('contact-form');
             const submitBtn = document.getElementById('submit-btn');
             const formData = new FormData(form);
+
+            if ((formData.get('website_url') || '').trim()) {
+                return false;
+            }
             
             // Disable button and show loading
             submitBtn.disabled = true;
@@ -160,7 +164,7 @@
     <!-- Preload hero image for faster LCP -->
     <link rel="preload" as="image" href="images/drilling-rig.jpg" fetchpriority="high">
     
-    <title>Southern California Well Service | San Diego Well Drilling &...</title>
+    <title>Southern California Well Service | San Diego Well Drilling &amp; Pump Repair</title>
     
     <!-- HTTPS Redirect for non-secure requests -->
     <script>
@@ -195,7 +199,7 @@
         "@type": "LocalBusiness",
         "@id": "https://scwellservice.com",
         "name": "Southern California Well Service",
-        "description": "Expert water well drilling, pump repair, and maintenance serving San Diego, Riverside, and San Bernardino Counties. Family-owned with 20+ years experience.",
+        "description": "Expert water well drilling, pump repair, and maintenance serving San Diego, Riverside, and San Bernardino Counties. Founded in 2020 by Brighton Scala and Travis Sego. 60+ years family heritage.",
         "url": "https://scwellservice.com",
         "telephone": "+1-760-440-8520",
         "email": "info@scwellservice.com",
@@ -417,18 +421,13 @@
         ]
     }
     </script>
-    <!-- WebSite Schema for Sitelinks -->
+    <!-- WebSite Schema for Sitelinks (no SearchAction — /search is 404 on GitHub Pages) -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "WebSite",
         "name": "Southern California Well Service",
-        "url": "https://scwellservice.com",
-        "potentialAction": {
-            "@type": "SearchAction",
-            "target": "https://scwellservice.com/search?q={search_term_string}",
-            "query-input": "required name=search_term_string"
-        }
+        "url": "https://scwellservice.com"
     }
     </script>
     <!-- Organization Schema -->
@@ -483,11 +482,11 @@
     <header class="bg-primary text-white sticky top-0 z-50 shadow-lg">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center py-2">
-                <a href="/" class="shrink-0">
-                    <img width="840" height="150" loading="lazy" src="images/logo-text-only-3x.png" alt="Southern California Well Service" class="h-10 lg:h-12 w-auto">
+                <a href="/" class="shrink min-w-0">
+                    <img width="840" height="150" loading="lazy" src="images/logo-text-only-3x.png" alt="Southern California Well Service" class="site-logo-img">
                 </a>
-                <!-- Desktop Navigation -->
-                <nav class="hidden lg:flex space-x-4 items-center">
+                <!-- Desktop Navigation (xl+ so the phone CTA never clips at 1024–1280) -->
+                <nav class="hidden xl:flex space-x-4 items-center">
                     <a href="#services" class="text-white hover:text-accent transition whitespace-nowrap">Services</a>
                     <a href="#areas" class="text-white hover:text-accent transition whitespace-nowrap">Service Areas</a>
                     <a href="blog/" class="text-white hover:text-accent transition whitespace-nowrap">Resources</a>
@@ -497,21 +496,21 @@
                     <a href="cost-calculator.html" class="text-white font-semibold hover:text-accent transition whitespace-nowrap">Free Estimate</a>
                     <a href="pages/about.html" class="text-white hover:text-accent transition whitespace-nowrap">About</a>
                 </nav>
-                <div class="flex items-center gap-3">
+                <div class="flex items-center gap-2 shrink-0">
                     <!-- Mobile Menu Button -->
-                    <button id="mobile-menu-btn" class="lg:hidden p-2 hover:bg-white/10 rounded-lg transition" aria-label="Toggle menu">
+                    <button id="mobile-menu-btn" class="xl:hidden p-2 hover:bg-white/10 rounded-lg transition" aria-label="Toggle menu">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                         </svg>
                     </button>
-                    <a href="tel:7604408520" class="bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-4 lg:px-6 rounded-lg transition whitespace-nowrap text-sm lg:text-base">
+                    <a href="tel:+17604408520" class="site-phone-cta bg-red-600 hover:bg-red-700 text-white font-semibold rounded-lg transition">
                         (760) 440-8520
                     </a>
                 </div>
             </div>
         </div>
         <!-- Mobile Navigation Menu -->
-        <div id="mobile-menu" class="hidden lg:hidden bg-primary/95 border-t border-white/10">
+        <div id="mobile-menu" class="hidden xl:hidden bg-primary/95 border-t border-white/10">
             <nav class="max-w-7xl mx-auto px-4 py-4 flex flex-col space-y-3">
                 <a href="#services" class="hover:text-accent transition py-2">Services</a>
                 <a href="#areas" class="hover:text-accent transition py-2">Service Areas</a>
@@ -1080,7 +1079,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
                 <h2 class="text-3xl lg:text-4xl font-bold text-primary mb-4">Well Owner Resources</h2>
-                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Expert guides and troubleshooting tips from our 20+ years of experience serving Southern California well owners.</p>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Expert guides and troubleshooting tips from our team. Founded in 2020 — 60+ years family heritage in well work.</p>
             </div>
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <a href="blog/no-water-from-well.html" class="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition group">
@@ -1112,6 +1111,16 @@
                     <p class="text-gray-600 text-sm mt-2">Understand your well system from aquifer to faucet.</p>
                 </a>
             </div>
+            <div class="grid md:grid-cols-2 gap-6 mt-6 max-w-3xl mx-auto">
+                <a href="blog/water-well-maintenance-guide.html" class="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition group">
+                    <h3 class="font-bold text-primary group-hover:text-accent transition">Complete Water Well Maintenance Guide</h3>
+                    <p class="text-gray-600 text-sm mt-2">Keep your well running smoothly year-round.</p>
+                </a>
+                <a href="tools/welldepth/" class="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition group border-2 border-accent">
+                    <h3 class="font-bold text-primary group-hover:text-accent transition">🔧 Well Depth Calculator</h3>
+                    <p class="text-gray-600 text-sm mt-2">Free tool: estimate well depth from nearby CA DWR records.</p>
+                </a>
+            </div>
             <div class="text-center mt-8">
                 <a href="blog/" class="inline-flex items-center text-accent font-semibold hover:text-green-700 transition">
                     View All 100+ Guides & Resources
@@ -1140,8 +1149,9 @@
                                 </svg>
                             </div>
                             <div>
-                                <div class="font-semibold text-primary">Phone</div>
-                                <a href="tel:7604408520" class="text-lg text-gray-600 hover:text-accent">(760) 440-8520</a>
+                                <div class="font-semibold text-primary">Phone (voice)</div>
+                                <a href="tel:+17604408520" class="text-lg text-gray-600 hover:text-accent">(760) 440-8520</a>
+                                <div class="text-sm text-gray-500 mt-1">Text-only: <a href="sms:6192590410" class="hover:text-accent">(619) 259-0410</a></div>
                             </div>
                         </div>
                         <div class="flex items-center space-x-4">
@@ -1180,6 +1190,10 @@
                         <input type="hidden" name="landing_page" id="landing_page">
                         <input type="hidden" name="referrer" id="referrer">
                         <input type="hidden" name="lead_source" id="lead_source">
+                        <div aria-hidden="true" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;">
+                            <label for="website_url">Website</label>
+                            <input type="text" id="website_url" name="website_url" tabindex="-1" autocomplete="off">
+                        </div>
                         <div class="space-y-4">
                             <div>
                                 <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name *</label>
@@ -1260,42 +1274,6 @@
         </div>
     </section>
 
-    <!-- Resources / Blog Section -->
-    <section class="py-16 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-primary mb-4">Well Owner Resources</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto">Expert guides to help you understand and maintain your water well system</p>
-            </div>
-            <div class="grid md:grid-cols-3 gap-8">
-                <a href="blog/signs-well-pump-failing.html" class="bg-white rounded-xl shadow-md hover:shadow-lg transition p-6 group">
-                    <h3 class="font-bold text-lg text-primary group-hover:text-accent transition mb-2">7 Warning Signs Your Well Pump Is Failing</h3>
-                    <p class="text-gray-600 text-sm">Learn to spot pump problems early before they become emergencies.</p>
-                </a>
-                <a href="blog/water-well-maintenance-guide.html" class="bg-white rounded-xl shadow-md hover:shadow-lg transition p-6 group">
-                    <h3 class="font-bold text-lg text-primary group-hover:text-accent transition mb-2">Complete Water Well Maintenance Guide</h3>
-                    <p class="text-gray-600 text-sm">Everything you need to know to keep your well running smoothly.</p>
-                </a>
-                <a href="blog/well-drilling-cost-san-diego.html" class="bg-white rounded-xl shadow-md hover:shadow-lg transition p-6 group">
-                    <h3 class="font-bold text-lg text-primary group-hover:text-accent transition mb-2">Well Drilling Costs in San Diego</h3>
-                    <p class="text-gray-600 text-sm">What to expect when drilling a new water well in Southern California.</p>
-                </a>
-                <a href="blog/well-water-vs-city-water.html" class="bg-white rounded-xl shadow-md hover:shadow-lg transition p-6 group">
-                    <h3 class="font-bold text-lg text-primary group-hover:text-accent transition mb-2">Well Water vs City Water: Pros & Cons</h3>
-                    <p class="text-gray-600 text-sm">Compare the benefits and considerations of each water source.</p>
-                </a>
-                <a href="blog/how-deep-should-well-be-san-diego.html" class="bg-white rounded-xl shadow-md hover:shadow-lg transition p-6 group">
-                    <h3 class="font-bold text-lg text-primary group-hover:text-accent transition mb-2">How Deep Should a Well Be in San Diego?</h3>
-                    <p class="text-gray-600 text-sm">Local factors that determine proper well depth in our region.</p>
-                </a>
-                <a href="tools/welldepth/index.html" class="bg-white rounded-xl shadow-md hover:shadow-lg transition p-6 group border-2 border-accent">
-                    <h3 class="font-bold text-lg text-primary group-hover:text-accent transition mb-2">🔧 Well Depth Calculator</h3>
-                    <p class="text-gray-600 text-sm">Free tool: Estimate well depth based on your San Diego location.</p>
-                </a>
-            </div>
-        </div>
-    </section>
-
     <!-- Footer -->
     <footer class="bg-slate-900 text-white py-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1367,17 +1345,18 @@
     
     <!-- Lead Generation Components (Sticky Header + Exit Popup) -->
     
+        <script src="js/site-info.js"></script>
         <script src="js/utm-tracking.js"></script>
 <script src="js/cookie-consent.js"></script>
     <!-- SCWS Live Chat Widget -->
-    <script>setTimeout(function(){var s=document.createElement("script");s.src="js/chat-widget.js?v=3";document.body.appendChild(s)},3000)</script>
+    <script>setTimeout(function(){var s=document.createElement("script");s.src="js/chat-widget.js?v=4";document.body.appendChild(s)},3000)</script>
     <!-- Lead Capture (Sticky Phone Bar + Exit Intent) -->
     <script src="js/lead-capture.js"></script>
-    <!-- Sticky Mobile CTA Bar -->
-    <style>#sticky-cta{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:2px solid #e5e7eb;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px;z-index:50;box-shadow:0 -4px 12px rgba(0,0,0,0.1)}#sticky-cta a{flex:1;font-weight:700;padding:12px 16px;border-radius:8px;text-align:center;color:#fff;font-size:14px;text-decoration:none}#sticky-cta .cta-call{background:#dc2626}#sticky-cta .cta-call:hover{background:#b91c1c}#sticky-cta .cta-text{background:#2563eb}#sticky-cta .cta-text:hover{background:#1d4ed8}#sticky-cta .cta-est{background:#4e9271}#sticky-cta .cta-est:hover{background:#3d7a5c}@media(min-width:1024px){#sticky-cta{display:none}}</style>
+    <!-- Sticky Mobile CTA Bar — z-index above cookie/chat so Call stays tappable -->
+    <style>#sticky-cta{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:2px solid #e5e7eb;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px;z-index:1100;box-shadow:0 -4px 12px rgba(0,0,0,0.1)}#sticky-cta a{flex:1;font-weight:700;padding:12px 16px;border-radius:8px;text-align:center;color:#fff;font-size:14px;text-decoration:none}#sticky-cta .cta-call{background:#dc2626}#sticky-cta .cta-call:hover{background:#b91c1c}#sticky-cta .cta-text{background:#2563eb}#sticky-cta .cta-text:hover{background:#1d4ed8}#sticky-cta .cta-est{background:#4e9271}#sticky-cta .cta-est:hover{background:#3d7a5c}@media(min-width:1024px){#sticky-cta{display:none}}</style>
     <div id="sticky-cta">
-        <a href="tel:7604408520" onclick="trackPhoneClick()" class="cta-call">📞 Call Now</a>
-        <a href="sms:6192590410" class="cta-text">💬 Text Us</a>
+        <a href="tel:+17604408520" onclick="trackPhoneClick()" class="cta-call">📞 Call Now</a>
+        <a href="sms:6192590410" class="cta-text" title="Text-only line: (619) 259-0410">💬 Text Us</a>
         <a href="#contact" class="cta-est">Free Estimate</a>
     </div>
 </body>

@@ -28,7 +28,7 @@
           position: fixed;
           bottom: 80px;
           right: 20px;
-          z-index: 99999;
+          z-index: 1050;
         }
         #scws-chat-button {
           width: 60px;
@@ -216,9 +216,37 @@
     return container;
   }
 
+  function overlayOffset() {
+    const sticky = document.getElementById('sticky-cta');
+    const cookie = document.getElementById('scws-cookie-banner');
+    const desktop = window.matchMedia && window.matchMedia('(min-width: 1024px)').matches;
+    let offset = 16;
+    if (!desktop && sticky) {
+      const style = window.getComputedStyle(sticky);
+      if (style.display !== 'none' && style.visibility !== 'hidden') {
+        sticky.style.zIndex = '1100';
+        offset += sticky.offsetHeight;
+      }
+    }
+    if (cookie && cookie.style.display !== 'none' && cookie.offsetParent !== null) {
+      offset += cookie.offsetHeight;
+    }
+    return offset;
+  }
+
+  function positionWidget() {
+    const widget = document.getElementById('scws-chat-widget');
+    if (!widget) return;
+    widget.style.bottom = overlayOffset() + 'px';
+    widget.style.zIndex = '1050';
+  }
+
   // Initialize widget
   function init() {
     const widget = createWidget();
+    positionWidget();
+    window.addEventListener('resize', positionWidget);
+    document.addEventListener('scws-overlays-changed', positionWidget);
     const button = document.getElementById('scws-chat-button');
     const window = document.getElementById('scws-chat-window');
     const closeBtn = document.getElementById('scws-chat-close');

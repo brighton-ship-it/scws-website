@@ -241,6 +241,8 @@
             <input type="text" id="exit-name" placeholder="Your Name" required>
             <input type="tel" id="exit-phone" placeholder="Phone Number" required>
             <input type="text" id="exit-address" placeholder="Service Address (optional)">
+            <input type="text" id="exit-website" name="website_url" autocomplete="off" tabindex="-1" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;">
+            <p id="exit-error" style="display:none;color:#b91c1c;font-size:14px;margin:0 0 12px;"></p>
             <button class="submit-btn" onclick="submitExitForm()">Request Callback →</button>
             <span class="skip-link" onclick="closeExitPopup()">No thanks, I'll call later</span>
           </div>
@@ -296,6 +298,12 @@
     const name = document.getElementById('exit-name').value.trim();
     const phone = document.getElementById('exit-phone').value.trim();
     const address = document.getElementById('exit-address').value.trim();
+    const honeypot = (document.getElementById('exit-website') || {}).value || '';
+    const errorEl = document.getElementById('exit-error');
+
+    if (honeypot) {
+      return;
+    }
 
     if (!name || !phone) {
       alert('Please enter your name and phone number.');
@@ -305,6 +313,10 @@
     const btn = document.querySelector('#scws-exit-popup .submit-btn');
     btn.disabled = true;
     btn.textContent = 'Submitting...';
+    if (errorEl) {
+      errorEl.style.display = 'none';
+      errorEl.textContent = '';
+    }
 
     // Send to API
     fetch(API_URL, {
@@ -321,16 +333,22 @@
         lead_source_detail: 'exit-intent-popup'
       })
     })
-    .then(response => response.json())
-    .then(data => {
+    .then(response => {
+      if (!response.ok) throw new Error('Lead request failed');
+      return response.json().catch(function () { return {}; });
+    })
+    .then(function () {
       document.getElementById('exit-form').style.display = 'none';
       document.getElementById('exit-success').style.display = 'block';
     })
-    .catch(error => {
+    .catch(function (error) {
       console.error('Error:', error);
-      // Still show success - we'll have the form data in logs
-      document.getElementById('exit-form').style.display = 'none';
-      document.getElementById('exit-success').style.display = 'block';
+      btn.disabled = false;
+      btn.textContent = 'Request Callback →';
+      if (errorEl) {
+        errorEl.textContent = 'We could not send that request. Please call (760) 440-8520 or try again.';
+        errorEl.style.display = 'block';
+      }
     });
   };
 
