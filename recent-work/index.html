@@ -134,11 +134,11 @@
 <!-- Header -->
 <header class="bg-primary text-white sticky top-0 z-50 shadow-lg">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-<div class="flex justify-between items-center py-4">
-<a class="flex items-center space-x-3 shrink-0" href="../">
-<img width="840" height="150" alt="Southern California Well Service" class="h-10 lg:h-12 w-auto" loading="lazy" src="../images/logo-text-only-3x.png"/>
+<div class="flex justify-between items-center py-2 gap-2">
+<a class="shrink min-w-0" href="../">
+<img width="840" height="150" alt="Southern California Well Service" class="site-logo-img" loading="lazy" src="../images/logo-text-only-3x.png"/>
 </a>
-<nav class="hidden lg:flex space-x-4 items-center">
+<nav class="hidden xl:flex space-x-4 items-center">
 <a class="text-white hover:text-accent transition whitespace-nowrap" href="../#services">Services</a>
 <a class="text-white hover:text-accent transition whitespace-nowrap" href="../#areas">Service Areas</a>
 <a class="text-white hover:text-accent transition whitespace-nowrap" href="../blog/">Resources</a>
@@ -147,11 +147,14 @@
 <a class="text-white hover:text-accent transition whitespace-nowrap" href="../contact.html">Contact</a>
 <a class="text-white font-semibold hover:text-accent transition whitespace-nowrap" href="../cost-calculator.html">Free Estimate</a>
 </nav>
-<button class="lg:hidden text-white" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+<div class="flex items-center gap-2 shrink-0">
+<button class="xl:hidden text-white p-2" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" aria-label="Toggle menu">
 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
 </button>
+<a class="site-phone-cta bg-red-600 hover:bg-red-700 text-white font-semibold rounded-lg transition" href="tel:+17604408520">(760) 440-8520</a>
 </div>
-<div class="hidden lg:hidden pb-4 space-y-2" id="mobile-menu">
+</div>
+<div class="hidden xl:hidden pb-4 space-y-2" id="mobile-menu">
 <a class="block text-white py-2" href="../#services">Services</a>
 <a class="block text-white py-2" href="../#areas">Service Areas</a>
 <a class="block text-white py-2" href="../blog/">Resources</a>
@@ -199,7 +202,7 @@
 <p class="text-lg opacity-90 mb-8">From emergency repairs to new well drilling, our team is ready to help.</p>
 <div class="flex flex-col sm:flex-row gap-4 justify-center">
 <a class="bg-white text-primary font-bold px-8 py-3 rounded-full hover:bg-gray-100 transition text-lg" href="tel:7604408520">📞 (760) 440-8520</a>
-<a class="bg-accent text-white font-bold px-8 py-3 rounded-full hover:bg-accent/90 transition text-lg" href="sms:6192590410">💬 Text Us</a>
+<a class="bg-accent text-white font-bold px-8 py-3 rounded-full hover:bg-accent/90 transition text-lg" href="sms:6192590410" title="Text-only line: (619) 259-0410">💬 Text Us</a>
 <a class="border-2 border-white text-white font-bold px-8 py-3 rounded-full hover:bg-white hover:text-primary transition text-lg" href="../cost-calculator.html">Free Estimate</a>
 </div>
 </div>
@@ -211,16 +214,16 @@
 <div>
 <h3 class="text-white font-bold text-lg mb-4">Southern California Well Service</h3>
 <p class="text-sm">Licensed well drilling and pump service for San Diego, Riverside, and San Bernardino counties.</p>
-<p class="text-sm mt-2">CA License #1057049</p>
+<p class="text-sm mt-2">CSLB License #1086994 (C-57 Water Well Drilling)</p>
 </div>
 <div>
-<h3 class="text-white font-bold mb-4">Ramona Office</h3>
-<p class="text-sm">1077 Main St, Ramona, CA 92065</p>
+<h3 class="text-white font-bold mb-4">Ramona Shop</h3>
+<p class="text-sm">1077 Main Street, Unit B, Ramona, CA 92065</p>
 <p class="text-sm mt-1"><a class="hover:text-white" href="tel:7604408520">(760) 440-8520</a></p>
 </div>
 <div>
-<h3 class="text-white font-bold mb-4">Anza Office</h3>
-<p class="text-sm">57174 US Highway 79, Anza, CA 92539</p>
+<h3 class="text-white font-bold mb-4">Anza Shop</h3>
+<p class="text-sm">57174 CA-371, Anza, CA 92539</p>
 <p class="text-sm mt-1"><a class="hover:text-white" href="tel:7604408520">(760) 440-8520</a></p>
 </div>
 </div>
@@ -234,14 +237,27 @@
 <img alt="Project photo" id="lightbox-img" src=""/>
 </div>
 <!-- Sticky CTA Bar (Mobile) -->
-<div class="fixed bottom-0 left-0 right-0 bg-white border-t shadow-lg py-2 px-4 flex justify-center gap-2 z-50 lg:hidden">
-<a class="flex-1 bg-primary text-white text-center py-2.5 rounded-full font-bold text-sm" href="tel:7604408520">📞 Call</a>
-<a class="flex-1 bg-blue-500 text-white text-center py-2.5 rounded-full font-bold text-sm" href="sms:6192590410">💬 Text Us</a>
+<div class="fixed bottom-0 left-0 right-0 bg-white border-t shadow-lg py-2 px-4 flex justify-center gap-2 z-[1100] lg:hidden" id="sticky-cta">
+<a class="flex-1 bg-primary text-white text-center py-2.5 rounded-full font-bold text-sm" href="tel:+17604408520">📞 Call</a>
+<a class="flex-1 bg-blue-500 text-white text-center py-2.5 rounded-full font-bold text-sm" href="sms:6192590410" title="Text-only line: (619) 259-0410">💬 Text Us</a>
 <a class="flex-1 bg-accent text-white text-center py-2.5 rounded-full font-bold text-sm" href="../cost-calculator.html" onclick="trackFormClick()">Free Estimate</a>
 </div>
 <script>
     const SUPABASE_URL = 'https://htzsnpqrrrdfleldgybn.supabase.co';
     const SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imh0enNucHFycnJkZmxlbGRneWJuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njk5MTQ0NDgsImV4cCI6MjA4NTQ5MDQ0OH0.-jZ7sUn7Q_U8OwsBEk2O_czrA4_eOYIZqKMU5M4i2Oo';
+    const SUPABASE_HEADERS = { apikey: SUPABASE_ANON, Authorization: 'Bearer ' + SUPABASE_ANON };
+
+    const FALLBACK_PROJECTS = [
+        { title: 'Residential Well Drilling', city: 'San Diego County', date: '2026-06-01', category: 'drilling', photos: [{ public_url: '../images/gbp-photos/gbp-01.jpg' }] },
+        { title: 'Emergency Pump Repair', city: 'Ramona', date: '2026-05-20', category: 'pump', photos: [{ public_url: '../images/gbp-photos/gbp-02.jpg' }] },
+        { title: 'Submersible Pump Installation', city: 'Valley Center', date: '2026-05-12', category: 'pump', photos: [{ public_url: '../images/gbp-photos/gbp-03.jpg' }] },
+        { title: 'Annual Well Maintenance', city: 'Escondido', date: '2026-04-28', category: 'maintenance', photos: [{ public_url: '../images/gbp-photos/gbp-04.jpg' }] },
+        { title: 'Rural Property Drilling', city: 'Anza', date: '2026-04-15', category: 'drilling', photos: [{ public_url: '../images/gbp-photos/gbp-06.jpg' }] },
+        { title: 'Pump Pull & Replacement', city: 'Temecula', date: '2026-04-02', category: 'pump', photos: [{ public_url: '../images/gbp-photos/gbp-07.jpg' }] },
+        { title: 'New Well Installation', city: 'Julian', date: '2026-03-22', category: 'drilling', photos: [{ public_url: '../images/gbp-photos/gbp-08.jpg' }] },
+        { title: 'Pressure Tank Installation', city: 'Fallbrook', date: '2026-03-10', category: 'tank', photos: [{ public_url: '../images/gbp-photos/gbp-16.jpg' }] },
+        { title: 'Water Quality Testing', city: 'Lakeside', date: '2026-02-26', category: 'water-quality', photos: [{ public_url: '../images/gbp-photos/gbp-19.jpg' }] }
+    ];
 
     function categorizeJob(title) {
         const t = (title || '').toLowerCase();
@@ -272,9 +288,11 @@
             // 1. Fetch ALL photo attachments (not PDFs/docs)
             const photosRes = await fetch(
                 `${SUPABASE_URL}/rest/v1/job_attachments?select=job_id,public_url,filename,file_type,uploaded_at&category=eq.photo&order=uploaded_at.desc&limit=2000`,
-                { headers: { apikey: SUPABASE_ANON } }
+                { headers: SUPABASE_HEADERS }
             );
+            if (!photosRes.ok) throw new Error('Supabase photos ' + photosRes.status);
             const allPhotos = await photosRes.json();
+            if (!Array.isArray(allPhotos)) throw new Error('Unexpected photos payload');
 
             // Filter out contracts, documents, and paperwork
             const docPatterns = /contract|docusign|agreement|invoice|estimate|permit|proposal|receipt|signature|sign|pdf|document|envelope|lien|notice|cancellation|attachment.*\d/i;
@@ -307,9 +325,9 @@
                     const batch = jobIds.slice(i, i + 100);
                     const jobsRes = await fetch(
                         `${SUPABASE_URL}/rest/v1/jobs?select=id,title,job_type,completed_at,property_id&id=in.(${batch.join(',')})`,
-                        { headers: { apikey: SUPABASE_ANON } }
+                        { headers: SUPABASE_HEADERS }
                     );
-                    const jobsBatch = await jobsRes.json();
+                    const jobsBatch = jobsRes.ok ? await jobsRes.json() : [];
                     if (Array.isArray(jobsBatch)) {
                         jobsBatch.forEach(j => jobsMap[j.id] = j);
                     }
@@ -320,9 +338,9 @@
                 if (propIds.length > 0) {
                     const propRes = await fetch(
                         `${SUPABASE_URL}/rest/v1/properties?select=id,city&id=in.(${propIds.join(',')})`,
-                        { headers: { apikey: SUPABASE_ANON } }
+                        { headers: SUPABASE_HEADERS }
                     );
-                    const propArr = await propRes.json();
+                    const propArr = propRes.ok ? await propRes.json() : [];
                     if (Array.isArray(propArr)) {
                         propArr.forEach(p => properties[p.id] = p);
                     }
@@ -397,12 +415,58 @@
             });
 
         } catch (err) {
-            console.error('Failed to load projects:', err);
-            document.getElementById('loading').innerHTML = '<p class="text-red-500">Failed to load projects. Please try again later.</p>';
+            console.error('Live project feed unavailable:', err);
+            renderFallbackProjects();
         }
+    }
+
+    function renderFallbackProjects() {
+        const grid = document.getElementById('projects-grid');
+        const loading = document.getElementById('loading');
+        loading.innerHTML = '<p class="text-gray-600 mb-2">Live job photos are temporarily unavailable.</p><p class="text-sm text-gray-500">Showing recent crew work from our gallery instead.</p>';
+        loading.style.display = 'block';
+
+        FALLBACK_PROJECTS.forEach(proj => {
+            const card = document.createElement('div');
+            card.className = 'project-card';
+            card.dataset.category = proj.category;
+            card.innerHTML = `
+                <div class="project-photos single">
+                    ${proj.photos.map(p =>
+                        `<img src="${p.public_url}" alt="${proj.title} photo" loading="lazy" onclick="openLightbox('${p.public_url}')" style="cursor:pointer">`
+                    ).join('')}
+                </div>
+                <div class="p-4">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="service-badge">${proj.category.replace('-', ' ')}</span>
+                        <span class="text-xs text-gray-400">${formatDate(proj.date)}</span>
+                    </div>
+                    <h3 class="font-semibold text-gray-900 mb-1">${proj.title}</h3>
+                    <p class="text-sm text-gray-500">📍 ${proj.city}</p>
+                </div>
+            `;
+            grid.appendChild(card);
+        });
+
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const filter = btn.dataset.filter;
+                let visible = 0;
+                document.querySelectorAll('.project-card').forEach(card => {
+                    const show = filter === 'all' || card.dataset.category === filter;
+                    card.style.display = show ? '' : 'none';
+                    if (show) visible++;
+                });
+                document.getElementById('no-results').classList.toggle('hidden', visible > 0);
+            });
+        });
     }
 
     loadProjects();
     </script>
+<script src="/js/cookie-consent.js"></script>
+<script>setTimeout(function(){var s=document.createElement("script");s.src="/js/chat-widget.js?v=4";document.body.appendChild(s)},3000)</script>
 </body>
 </html>

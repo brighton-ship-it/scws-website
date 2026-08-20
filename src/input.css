@@ -36,6 +36,42 @@ body { font-family: 'Inter', sans-serif; }
     .floating-call { display: none; }
 }
 
+/* Keep the mobile Call/Text/Estimate bar above cookie + chat overlays */
+#sticky-cta {
+    z-index: 1100 !important;
+}
+#scws-cookie-banner {
+    z-index: 1000;
+}
+#scws-chat-widget {
+    z-index: 1050;
+}
+
+/* Header phone CTA: keep the full number visible on ~390px and 1024–1280 */
+.site-phone-cta {
+    white-space: nowrap;
+    flex-shrink: 0;
+    font-size: 0.75rem;
+    padding: 0.5rem 0.65rem;
+}
+@media (min-width: 640px) {
+    .site-phone-cta { font-size: 0.875rem; padding: 0.5rem 1rem; }
+}
+@media (min-width: 1280px) {
+    .site-phone-cta { font-size: 1rem; }
+}
+.site-logo-img {
+    height: 2rem;
+    width: auto;
+    max-width: 130px;
+}
+@media (min-width: 640px) {
+    .site-logo-img { height: 2.5rem; max-width: 200px; }
+}
+@media (min-width: 1280px) {
+    .site-logo-img { height: 3rem; max-width: none; }
+}
+
 /* Service card hover effects */
 .service-card {
     transition: all 0.3s ease;

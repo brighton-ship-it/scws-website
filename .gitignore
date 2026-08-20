@@ -3,3 +3,11 @@ node_modules/
 *.log
 .vercel
 assets/images/blog-images/ai-originals/
+
+# Never publish Jobber catalogs or duplicate well DBs on GitHub Pages
+tools/inventory/inventory.json
+tools/inventory/products.json
+public/app/well_data.json
+**/jobber_credentials.json
+**/.env
+**/.env.*

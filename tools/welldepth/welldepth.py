@@ -12,14 +12,15 @@ Usage:
 import argparse
 import json
 import math
+import os
 import sys
 from statistics import mean, median
 from urllib.parse import urlencode
 from urllib.request import urlopen, Request
 from collections import Counter
 
-# Google Maps API key (from Clawdbot config)
-GOOGLE_API_KEY = "AIzaSyBdW_b5GyhrKG6_ov-6QarU62bkW8k1Mbo"
+# Load from the environment only — do not commit API keys
+GOOGLE_API_KEY = os.environ.get("GOOGLE_API_KEY", "")
 
 # CA DWR Well Completion Reports API
 DWR_API_BASE = "https://gis.water.ca.gov/arcgis/rest/services/Environment/i07_WellCompletionReports/FeatureServer/0/query"
