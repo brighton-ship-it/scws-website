@@ -16,8 +16,7 @@
       categoryLabel: 'Pump Service',
       summary: 'Crew pulled a submersible pump set at 320 ft in a 354-ft well and found the pump end clogged with sediment and the drop wire failed. Installed a new submersible pump end, 2 HP motor, new drop wire, stainless couplings, check valve and well seal. System tested and returned to full service.',
       photos: [
-        { file: 'job3049_1.jpg', alt: 'Pulled submersible pump end packed with reddish-brown sediment' },
-        { file: 'job3049_2.jpg', alt: 'New 2 HP Goulds 18GS20 wet end ready for installation' }
+        { file: 'job3049_1.jpg', alt: 'Pulled submersible pump end packed with reddish-brown sediment' }
       ]
     },
     {

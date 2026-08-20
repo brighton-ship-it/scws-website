@@ -18,7 +18,6 @@ SOURCES = [
 
 WANTED = {
     "job3049_1": "job3049_1.jpg",
-    "job3049_2": "job3049_2.jpg",
     "job3174_1": "job3174_1.jpg",
     "job3174_2": "job3174_2.jpg",
     "job3139_1": "job3139_1.jpg",
