@@ -8,7 +8,17 @@ current JSON and does not change live cards if JSON is unchanged.
 from __future__ import annotations
 
 import json
+import sys
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+
+from recent_work_lib import (
+    city_service_href,
+    job_h1,
+    service_page_href,
+    trim_meta_description,
+)
 
 ROOT = Path(__file__).resolve().parents[1]
 PROJECTS = json.loads((ROOT / "recent-work" / "projects.json").read_text())["projects"]
@@ -53,9 +63,31 @@ def page_html(project: dict) -> str:
         if photos
         else "https://www.scwellservice.com/images/logo-text-only-3x.png"
     )
+    headline = job_h1(project)
     title = f"{project['title']} — {project['location']} | SCWS"
-    description = project["summary"]
+    description = trim_meta_description(project["summary"])
     gallery = gallery_html(project)
+    city_href = city_service_href(project["location"])
+    if city_href:
+        city_html = (
+            f'<a class="text-accent font-semibold hover:underline" href="{city_href}">'
+            f'{project["location"]}</a>'
+        )
+    else:
+        city_html = project["location"]
+    service_pair = service_page_href(project)
+    if service_pair:
+        service_html = (
+            f'<a class="text-accent font-semibold hover:underline" href="{service_pair[0]}">'
+            f'{project["categoryLabel"]}</a>'
+        )
+    else:
+        service_html = project["categoryLabel"]
+    related_html = (
+        f'<p class="text-sm text-gray-600 mb-6">'
+        f'Service: {service_html} · City: {city_html}'
+        f"</p>"
+    )
     return f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -88,8 +120,8 @@ def page_html(project: dict) -> str:
 {json.dumps({
     "@context": "https://schema.org",
     "@type": "Article",
-    "headline": project["title"],
-    "description": project["summary"],
+    "headline": headline,
+    "description": description,
     "datePublished": project["date"],
     "dateModified": project["date"],
     "author": {"@type": "Organization", "name": "Southern California Well Service"},
@@ -215,11 +247,12 @@ def page_html(project: dict) -> str:
 </div>
 <article class="max-w-3xl mx-auto px-4 sm:px-6 py-10">
 <div class="flex items-center justify-between gap-3 mb-4 flex-wrap">
-<span class="service-badge">{project['categoryLabel']}</span>
+<span class="service-badge">{service_html if service_pair else project['categoryLabel']}</span>
 <time class="text-sm text-gray-500" datetime="{project['date']}">{project['dateLabel']}</time>
 </div>
-<h1 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-2">{project['title']}</h1>
-<p class="text-lg text-gray-600 mb-8">📍 {project['location']}</p>
+<h1 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-2">{headline}</h1>
+<p class="text-lg text-gray-600 mb-2">📍 {city_html}</p>
+{related_html}
 {gallery}
 <p class="text-gray-700 text-lg leading-relaxed mt-8">{project['summary']}</p>
 <p class="mt-8"><a class="text-accent font-semibold hover:underline" href="./">← All recent work</a></p>
@@ -250,7 +283,7 @@ def page_html(project: dict) -> str:
 </div>
 <div>
 <h3 class="text-white font-bold mb-4">Anza Shop</h3>
-<p class="text-sm">57174 CA-371, Anza, CA 92539</p>
+<p class="text-sm">57174 CA-371 (US Hwy 79), Anza, CA 92539</p>
 <p class="text-sm mt-1"><a class="hover:text-white" href="tel:7604408520">(760) 440-8520</a></p>
 </div>
 </div>

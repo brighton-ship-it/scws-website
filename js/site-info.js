@@ -9,8 +9,8 @@
  * Physical shops (not service-area labels):
  *   Ramona: 1077 Main Street, Unit B, Ramona, CA 92065
  *           (ZIP 92065 was already in the repo; Unit B confirmed 20 Aug 2026)
- *   Anza:   57174 CA-371, Anza, CA 92539
- *           Do not use "57174 US Highway 79".
+ *   Anza:   57174 CA-371 (US Hwy 79), Anza, CA 92539
+ *           Do not use "57174 CA-371 (US Hwy 79)" alone.
  *
  * Company: founded 2020 by Brighton Scala and Travis Sego.
  * Heritage claim: "60+ years family heritage" — not company age.
@@ -36,8 +36,8 @@
     ramona: '1077 Main Street, Unit B, Ramona, CA 92065',
     ramonaStreet: '1077 Main Street, Unit B',
     ramonaZip: '92065',
-    anza: '57174 CA-371, Anza, CA 92539',
-    anzaStreet: '57174 CA-371',
+    anza: '57174 CA-371 (US Hwy 79), Anza, CA 92539',
+    anzaStreet: '57174 CA-371 (US Hwy 79)',
     anzaZip: '92539'
   };
 })(window);

@@ -58,10 +58,39 @@ LAST_NAME_HINT_RE = re.compile(
     r"\b(?:mr|mrs|ms|miss|for the)\.?\s+[A-Z][a-z]+(?:\s+[A-Z][a-z]+)?\b"
 )
 CARD_MARKERS = ("<!-- RECENT_WORK_CARDS_START -->", "<!-- RECENT_WORK_CARDS_END -->")
+PAGINATION_MARKERS = (
+    "<!-- RECENT_WORK_PAGINATION_START -->",
+    "<!-- RECENT_WORK_PAGINATION_END -->",
+)
 JSONLD_ITEMLIST_RE = re.compile(
     r'"numberOfItems":\s*\d+\s*,\s*"itemListElement":\s*\[.*?\]',
     re.S,
 )
+PAGE_SIZE = 24
+CANONICAL_RE = re.compile(
+    r'<link href="https://scwellservice\.com/recent-work/[^"]*" rel="canonical"/>'
+)
+OG_URL_RE = re.compile(
+    r'<meta content="https://scwellservice\.com/recent-work/[^"]*" property="og:url"/>'
+)
+TITLE_RE = re.compile(r"<title>[^<]*</title>")
+OG_TITLE_RE = re.compile(r'<meta content="[^"]*" property="og:title"/>')
+PAGINATION_LINK_RE = re.compile(r'<link rel="(?:prev|next)" href="[^"]*"/>\n?')
+
+CATEGORY_SERVICE_PAGES = {
+    "pump": ("/pages/services/pump-repair.html", "pump repair"),
+    "drilling": ("/pages/services/well-drilling.html", "well drilling"),
+    "tank": ("/pages/services/pump-repair.html", "pressure tank"),
+    "water-quality": ("/pages/services/water-testing.html", "water testing"),
+    "maintenance": ("/pages/services/maintenance.html", "maintenance"),
+}
+
+SERVICE_PAGE_MATCHERS = {
+    "pump-repair": {"pump", "tank"},
+    "emergency-well-service": {"pump", "maintenance"},
+    "well-drilling": {"drilling"},
+    "maintenance": {"maintenance"},
+}
 
 CATEGORY_LABELS = {
     "pump": "Pump Service",
@@ -402,6 +431,211 @@ def card_html(project: dict[str, Any]) -> str:
     )
 
 
+def job_h1(project: dict[str, Any]) -> str:
+    title = (project.get("title") or "").strip()
+    location = (project.get("location") or "").strip()
+    if not location:
+        return title
+    if location.lower() in title.lower():
+        return title
+    return f"{title} in {location}"
+
+
+def trim_meta_description(text: str, limit: int = 158) -> str:
+    """Word-boundary trim to ~150–160 chars. Avoid cutting on inch marks."""
+    raw = (text or "").replace("\n", " ").strip()
+    raw = raw.replace('"', " inch")
+    raw = re.sub(r"\s+", " ", raw)
+    if len(raw) <= limit:
+        return raw
+    cut = raw[:limit]
+    if " " in cut:
+        cut = cut.rsplit(" ", 1)[0]
+    cut = cut.rstrip(" ,;:-")
+    if cut.endswith("."):
+        return cut
+    return cut + "."
+
+
+def city_slug_from_location(location: str) -> str:
+    loc = (location or "").strip()
+    area = re.search(r"\(([^)]+?)(?:\s+area)?\)", loc)
+    if area:
+        area_slug = slugify(area.group(1))
+        if (ROOT / "services" / area_slug / "index.html").exists():
+            return area_slug
+    city = re.sub(r"\s*\([^)]*\)\s*", "", loc).split(",")[0].strip()
+    return slugify(city)
+
+
+def city_service_href(location: str) -> str | None:
+    slug = city_slug_from_location(location)
+    if not slug:
+        return None
+    if (ROOT / "services" / slug / "index.html").exists():
+        return f"/services/{slug}/"
+    return None
+
+
+def service_page_href(project: dict[str, Any]) -> tuple[str, str] | None:
+    category = project.get("category") or ""
+    pair = CATEGORY_SERVICE_PAGES.get(category)
+    if not pair:
+        return None
+    href, label = pair
+    if (ROOT / href.lstrip("/")).exists():
+        return href, label
+    return None
+
+
+def projects_for_city(projects: list[dict[str, Any]], city: str, limit: int = 6) -> list[dict[str, Any]]:
+    city_l = city.lower()
+    hits = [p for p in projects if city_l in (p.get("location") or "").lower()]
+    return hits[:limit]
+
+
+def projects_for_service(projects: list[dict[str, Any]], service_key: str, limit: int = 6) -> list[dict[str, Any]]:
+    cats = SERVICE_PAGE_MATCHERS.get(service_key, {service_key})
+    hits = [p for p in projects if p.get("category") in cats]
+    if service_key == "well-drilling":
+        wellish = [
+            p
+            for p in projects
+            if re.search(
+                r"drill|deepen|bail|brush|deep-set|well production|well diagnostic|pull well",
+                p.get("title") or "",
+                re.I,
+            )
+        ]
+        hits = wellish or hits
+    if service_key == "emergency-well-service":
+        emergencyish = [
+            p
+            for p in projects
+            if re.search(r"diagnostic|emergency|no water|not producing|fault|overload", p.get("title") or "", re.I)
+        ]
+        # Prefer diagnostic/emergency titles, then the category matches.
+        merged: list[dict[str, Any]] = []
+        seen: set[str] = set()
+        for p in emergencyish + hits:
+            if p["id"] in seen:
+                continue
+            seen.add(p["id"])
+            merged.append(p)
+        hits = merged
+    return hits[:limit]
+
+
+def paginate_projects(projects: list[dict[str, Any]], size: int = PAGE_SIZE) -> list[list[dict[str, Any]]]:
+    if not projects:
+        return [[]]
+    return [projects[i : i + size] for i in range(0, len(projects), size)]
+
+
+def listing_page_href(page_num: int) -> str:
+    return "./" if page_num <= 1 else f"page-{page_num}.html"
+
+
+def pagination_html(page_num: int, total_pages: int) -> str:
+    if total_pages <= 1:
+        return ""
+    bits = ['<nav class="recent-work-pagination" aria-label="Recent work pages">']
+    if page_num > 1:
+        bits.append(f'<a class="page-link" href="{listing_page_href(page_num - 1)}">← Previous</a>')
+    for i in range(1, total_pages + 1):
+        href = listing_page_href(i)
+        if i == page_num:
+            bits.append(f'<span class="page-link current" aria-current="page">{i}</span>')
+        else:
+            bits.append(f'<a class="page-link" href="{href}">{i}</a>')
+    if page_num < total_pages:
+        bits.append(f'<a class="page-link" href="{listing_page_href(page_num + 1)}">Next →</a>')
+    bits.append("</nav>")
+    return "\n".join(bits)
+
+
+def _replace_cards(text: str, projects_page: list[dict[str, Any]]) -> str:
+    start, end = CARD_MARKERS
+    cards = "\n".join(card_html(p) for p in projects_page)
+    block = f"{start}\n{cards}\n{end}"
+    return re.sub(
+        re.escape(start) + r".*?" + re.escape(end),
+        lambda _: block,
+        text,
+        count=1,
+        flags=re.S,
+    )
+
+
+def _replace_pagination(text: str, page_num: int, total_pages: int) -> str:
+    start, end = PAGINATION_MARKERS
+    nav = pagination_html(page_num, total_pages)
+    block = f"{start}\n{nav}\n{end}"
+    if start in text and end in text:
+        return re.sub(
+            re.escape(start) + r".*?" + re.escape(end),
+            lambda _: block,
+            text,
+            count=1,
+            flags=re.S,
+        )
+    # First run: insert after the projects grid.
+    insert = (
+        "</div>\n"
+        f"{block}\n"
+        '<p class="live-feed-note hidden" id="live-feed-note"></p>'
+    )
+    if '<p class="live-feed-note hidden" id="live-feed-note"></p>' in text:
+        return text.replace(
+            '<p class="live-feed-note hidden" id="live-feed-note"></p>',
+            insert[len("</div>\n") :],
+            1,
+        )
+    return text.replace(CARD_MARKERS[1], f"{CARD_MARKERS[1]}\n{block}", 1)
+
+
+def _set_listing_head(text: str, page_num: int, total_pages: int) -> str:
+    if page_num <= 1:
+        canonical = "https://scwellservice.com/recent-work/"
+        title = "Recent Work &amp; Projects | Southern California Well Service"
+    else:
+        canonical = f"https://scwellservice.com/recent-work/page-{page_num}.html"
+        title = f"Recent Work &amp; Projects — Page {page_num} | Southern California Well Service"
+    if CANONICAL_RE.search(text):
+        text = CANONICAL_RE.sub(f'<link href="{canonical}" rel="canonical"/>', text, count=1)
+    if OG_URL_RE.search(text):
+        text = OG_URL_RE.sub(
+            f'<meta content="{canonical}" property="og:url"/>',
+            text,
+            count=1,
+        )
+    if TITLE_RE.search(text):
+        text = TITLE_RE.sub(f"<title>{title}</title>", text, count=1)
+    if OG_TITLE_RE.search(text):
+        text = OG_TITLE_RE.sub(
+            f'<meta content="{title}" property="og:title"/>',
+            text,
+            count=1,
+        )
+    text = PAGINATION_LINK_RE.sub("", text)
+    links = ""
+    if page_num > 1:
+        prev = "https://scwellservice.com/recent-work/" if page_num == 2 else (
+            f"https://scwellservice.com/recent-work/page-{page_num - 1}.html"
+        )
+        links += f'<link rel="prev" href="{prev}"/>\n'
+    if page_num < total_pages:
+        nxt = f"https://scwellservice.com/recent-work/page-{page_num + 1}.html"
+        links += f'<link rel="next" href="{nxt}"/>\n'
+    if links:
+        text = text.replace(
+            f'<link href="{canonical}" rel="canonical"/>',
+            f'<link href="{canonical}" rel="canonical"/>\n{links.rstrip()}',
+            1,
+        )
+    return text
+
+
 def jsonld_items(projects: list[dict[str, Any]]) -> str:
     items = []
     for i, project in enumerate(projects, start=1):
@@ -431,20 +665,34 @@ def update_index_html(projects: list[dict[str, Any]]) -> None:
             f"{INDEX_HTML} is missing {start} / {end} markers. "
             "Add them around the #projects-grid cards."
         )
-    cards = "\n".join(card_html(p) for p in projects)
-    block = f"{start}\n{cards}\n{end}"
-    text = re.sub(
-        re.escape(start) + r".*?" + re.escape(end),
-        lambda _: block,
-        text,
-        count=1,
-        flags=re.S,
-    )
+    pages = paginate_projects(projects)
+    total_pages = len(pages)
     replacement = jsonld_items(projects)
     if not JSONLD_ITEMLIST_RE.search(text):
         raise RuntimeError("Could not find JSON-LD item list in recent-work/index.html")
-    text = JSONLD_ITEMLIST_RE.sub(lambda _: replacement, text, count=1)
-    INDEX_HTML.write_text(text)
+
+    page1 = _replace_cards(text, pages[0])
+    page1 = _replace_pagination(page1, 1, total_pages)
+    page1 = _set_listing_head(page1, 1, total_pages)
+    page1 = JSONLD_ITEMLIST_RE.sub(lambda _: replacement, page1, count=1)
+    INDEX_HTML.write_text(page1)
+
+    out_dir = INDEX_HTML.parent
+    stale = {
+        p
+        for p in out_dir.glob("page-*.html")
+        if re.fullmatch(r"page-\d+\.html", p.name)
+    }
+    for page_num, chunk in enumerate(pages[1:], start=2):
+        page = _replace_cards(page1, chunk)
+        page = _replace_pagination(page, page_num, total_pages)
+        page = _set_listing_head(page, page_num, total_pages)
+        page = JSONLD_ITEMLIST_RE.sub(lambda _: jsonld_items(chunk), page, count=1)
+        dest = out_dir / f"page-{page_num}.html"
+        dest.write_text(page)
+        stale.discard(dest)
+    for leftover in stale:
+        leftover.unlink()
 
 
 def update_sitemap(projects: list[dict[str, Any]]) -> None:
@@ -454,17 +702,18 @@ def update_sitemap(projects: list[dict[str, Any]]) -> None:
     today = date.today().isoformat()
     existing = set(re.findall(r"<loc>(https://scwellservice\.com/recent-work/[^<]+)</loc>", xml))
     additions = []
-    index_url = "https://scwellservice.com/recent-work/"
-    if index_url not in existing:
-        additions.append(
-            f"  <url><loc>{index_url}</loc><lastmod>{today}</lastmod><priority>0.6</priority></url>\n"
-        )
+    wanted = ["https://scwellservice.com/recent-work/"]
+    total_pages = max(1, (len(projects) + PAGE_SIZE - 1) // PAGE_SIZE)
+    for page_num in range(2, total_pages + 1):
+        wanted.append(f"https://scwellservice.com/recent-work/page-{page_num}.html")
     for project in projects:
-        url = f"https://scwellservice.com/recent-work/{project['slug']}.html"
+        wanted.append(f"https://scwellservice.com/recent-work/{project['slug']}.html")
+    for url in wanted:
         if url in existing:
             continue
+        priority = "0.6" if url.rstrip("/").endswith("recent-work") or "/page-" in url else "0.5"
         additions.append(
-            f"  <url><loc>{url}</loc><lastmod>{today}</lastmod><priority>0.5</priority></url>\n"
+            f"  <url><loc>{url}</loc><lastmod>{today}</lastmod><priority>{priority}</priority></url>\n"
         )
     if not additions:
         return
