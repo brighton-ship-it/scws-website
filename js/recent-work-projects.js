@@ -1,0 +1,127 @@
+/**
+ * Curated public recent-work posts.
+ * Source: Jobber completed/archived jobs, read-only pull on 20 Aug 2026.
+ * No customer names, street addresses, prices, or Jobber URLs.
+ */
+(function (root) {
+  root.SCWS_RECENT_WORK = [
+    {
+      id: 'job3049',
+      slug: 'torrey-hill-pump-replacement',
+      title: 'Well pump & motor replacement',
+      location: 'San Diego County (Torrey Hill area)',
+      date: '2026-08-20',
+      dateLabel: 'August 19–20, 2026',
+      category: 'pump',
+      categoryLabel: 'Pump Service',
+      summary: 'Crew pulled a submersible pump set at 320 ft in a 354-ft well and found the pump end clogged with sediment and the drop wire failed. Installed a new submersible pump end, 2 HP motor, new drop wire, stainless couplings, check valve and well seal. System tested and returned to full service.',
+      photos: [
+        { file: 'job3049_1.jpg', alt: 'Pulled submersible pump end packed with reddish-brown sediment' },
+        { file: 'job3049_2.jpg', alt: 'New 2 HP Goulds 18GS20 wet end ready for installation' }
+      ]
+    },
+    {
+      id: 'job3174',
+      slug: 'aguanga-pump-installation',
+      title: 'New pump & motor installation',
+      location: 'Aguanga',
+      date: '2026-08-20',
+      dateLabel: 'August 19–20, 2026',
+      category: 'pump',
+      categoryLabel: 'Pump Service',
+      summary: 'Installed a new 10 GPM, 1.5 HP 230V single-phase submersible pump and motor with control box. Post-install testing showed 12 GPM at 9.4 A / 237 V and the system built pressure normally.',
+      photos: [
+        { file: 'job3174_1.jpg', alt: 'Completed well system with control box and pressure tank in Aguanga' },
+        { file: 'job3174_2.jpg', alt: 'Aguanga well installation detail after new pump and motor' }
+      ]
+    },
+    {
+      id: 'job3139',
+      slug: 'de-luz-pump-replacement',
+      title: 'Pull & replace pump and motor',
+      location: 'Temecula (De Luz area)',
+      date: '2026-08-19',
+      dateLabel: 'August 18–19, 2026',
+      category: 'pump',
+      categoryLabel: 'Pump Service',
+      summary: 'Replaced the submersible pump and motor and made a new wire splice. Franklin Electric submersible motor installed and the system was confirmed operating before leaving.',
+      photos: [
+        { file: 'job3139_1.jpg', alt: 'Franklin Electric submersible motor installed in the De Luz area' }
+      ]
+    },
+    {
+      id: 'job3141',
+      slug: 'lake-elsinore-pump-replacement',
+      title: 'Pull & replace pump and motor',
+      location: 'Lake Elsinore',
+      date: '2026-08-18',
+      dateLabel: 'August 18, 2026',
+      category: 'pump',
+      categoryLabel: 'Pump Service',
+      summary: 'Pulled the failed unit and installed a new Goulds 18GS30 submersible pump with matching motor and wire. System restored.',
+      photos: [
+        { file: 'job3141_1.jpg', alt: 'Wellhead after Goulds 18GS30 pump replacement in Lake Elsinore' },
+        { file: 'job3141_2.jpg', alt: 'Goulds 18GS30 submersible pump installed in Lake Elsinore' }
+      ]
+    },
+    {
+      id: 'job3115',
+      slug: 'ramona-cathedral-pump-replacement',
+      title: 'Pull & replace pump, motor and wire',
+      location: 'Ramona (Cathedral Way area)',
+      date: '2026-08-14',
+      dateLabel: 'August 14, 2026',
+      category: 'pump',
+      categoryLabel: 'Pump Service',
+      summary: 'Diagnosed a seized pump and motor with a bent shaft and badly degraded wire on a 250-ft setting. Installed new pump, motor and drop wire; amp draw verified at 16.3 A.',
+      photos: [
+        { file: 'job3115_1.jpg', alt: 'Pump, motor and drop wire replacement in the Cathedral Way area of Ramona' },
+        { file: 'job3115_2.jpg', alt: 'Clamp meter reading 16.3 amps after the new pump installation' }
+      ]
+    },
+    {
+      id: 'job3145',
+      slug: 'ramona-hanson-pressure-tank',
+      title: 'Pressure tank replacement',
+      location: 'Ramona (Hanson Lane area)',
+      date: '2026-08-17',
+      dateLabel: 'August 17, 2026',
+      category: 'tank',
+      categoryLabel: 'Pressure Tanks',
+      summary: 'Installed a new 86-gallon ProMax pressure tank plus new 1" schedule-80 PVC couplers after debris fouled the pressure switch.',
+      photos: [
+        { file: 'job3145_1.jpg', alt: 'Debris-fouled well pressure switch before the tank replacement' },
+        { file: 'job3145_2.jpg', alt: 'New 86-gallon ProMax pressure tank installation in Ramona' }
+      ]
+    },
+    {
+      id: 'job3159',
+      slug: 'pauma-valley-pumptec-plus',
+      title: 'Pumptec Plus pump protection controller replacement',
+      location: 'Pauma Valley',
+      date: '2026-08-18',
+      dateLabel: 'August 18, 2026',
+      category: 'pump',
+      categoryLabel: 'Pump Service',
+      summary: 'Installed and calibrated a new Pumptec Plus controller (running 10.3 A) after the old unit failed.',
+      photos: [
+        { file: 'job3159_1.jpg', alt: 'New Pumptec Plus controller installed next to the failed unit in Pauma Valley' }
+      ]
+    },
+    {
+      id: 'job3134',
+      slug: 'ramona-highland-booster-motor',
+      title: 'Booster pump motor replacement (5 HP, 3-phase)',
+      location: 'Ramona (Highland Valley area)',
+      date: '2026-08-14',
+      dateLabel: 'August 14, 2026',
+      category: 'pump',
+      categoryLabel: 'Pump Service',
+      summary: 'Replaced the 5 HP 230V three-phase motor on a vertical multistage booster (motor only). System tested good.',
+      photos: [
+        { file: 'job3134_1.jpg', alt: 'Vertical multistage booster pump base and motor mount in Highland Valley' },
+        { file: 'job3134_2.jpg', alt: 'Booster pump motor replacement on a 5 HP three-phase unit' }
+      ]
+    }
+  ];
+})(window);

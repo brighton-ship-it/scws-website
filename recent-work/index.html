@@ -38,6 +38,20 @@
             "name": "Southern California Well Service",
             "logo": "https://scwellservice.com/images/logo-text-only-3x.png",
             "telephone": "(760) 440-8520"
+        },
+        "mainEntity": {
+            "@type": "ItemList",
+            "numberOfItems": 8,
+            "itemListElement": [
+                {"@type": "ListItem", "position": 1, "url": "https://scwellservice.com/recent-work/torrey-hill-pump-replacement.html", "name": "Well pump & motor replacement — San Diego County (Torrey Hill area)"},
+                {"@type": "ListItem", "position": 2, "url": "https://scwellservice.com/recent-work/aguanga-pump-installation.html", "name": "New pump & motor installation — Aguanga"},
+                {"@type": "ListItem", "position": 3, "url": "https://scwellservice.com/recent-work/de-luz-pump-replacement.html", "name": "Pull & replace pump and motor — Temecula (De Luz area)"},
+                {"@type": "ListItem", "position": 4, "url": "https://scwellservice.com/recent-work/lake-elsinore-pump-replacement.html", "name": "Pull & replace pump and motor — Lake Elsinore"},
+                {"@type": "ListItem", "position": 5, "url": "https://scwellservice.com/recent-work/ramona-cathedral-pump-replacement.html", "name": "Pull & replace pump, motor and wire — Ramona (Cathedral Way area)"},
+                {"@type": "ListItem", "position": 6, "url": "https://scwellservice.com/recent-work/ramona-hanson-pressure-tank.html", "name": "Pressure tank replacement — Ramona (Hanson Lane area)"},
+                {"@type": "ListItem", "position": 7, "url": "https://scwellservice.com/recent-work/pauma-valley-pumptec-plus.html", "name": "Pumptec Plus pump protection controller replacement — Pauma Valley"},
+                {"@type": "ListItem", "position": 8, "url": "https://scwellservice.com/recent-work/ramona-highland-booster-motor.html", "name": "Booster pump motor replacement (5 HP, 3-phase) — Ramona (Highland Valley area)"}
+            ]
         }
     }
     </script>
@@ -109,6 +123,29 @@
             object-fit: contain;
             border-radius: 8px;
         }
+        .project-photos.empty,
+        .photo-fallback {
+            background: linear-gradient(135deg, #1f3b4d, #4e9271);
+            min-height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .photo-fallback .service-badge {
+            background: rgba(255,255,255,0.95);
+        }
+        .project-card p.text-sm.text-gray-600 {
+            display: -webkit-box;
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        .live-feed-note {
+            font-size: 0.8rem;
+            color: #6b7280;
+            text-align: center;
+            margin-top: 1.5rem;
+        }
     </style>
 <style>
         /* Force edge-to-edge layout on mobile Safari */
@@ -168,7 +205,7 @@
 <section class="bg-white border-b">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 text-center">
 <h1 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Recent Work</h1>
-<p class="text-lg text-gray-600 max-w-2xl mx-auto">Real projects from our team across San Diego, Riverside, and San Bernardino counties. See the quality of work we deliver every day.</p>
+<p class="text-lg text-gray-600 max-w-2xl mx-auto">Real completed jobs from our crew across San Diego, Riverside, and San Bernardino counties. This first batch is from mid-August 2026 — pump replacements, a new install, a pressure tank, and a booster motor.</p>
 </div>
 </section>
 <!-- Filters -->
@@ -185,12 +222,134 @@
 <!-- Projects Grid -->
 <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="projects-grid">
-<!-- Projects loaded dynamically -->
+<article class="project-card" data-category="pump" data-static="1" data-job="job3049">
+<div class="project-photos double">
+<img src="../images/recent-work/job3049_1.jpg" alt="Pulled submersible pump end packed with reddish-brown sediment" width="800" height="450" loading="lazy" onclick="openLightbox('../images/recent-work/job3049_1.jpg')" style="cursor:pointer">
+<img src="../images/recent-work/job3049_2.jpg" alt="New 2 HP Goulds 18GS20 wet end ready for installation" width="800" height="450" loading="lazy" onclick="openLightbox('../images/recent-work/job3049_2.jpg')" style="cursor:pointer">
 </div>
-<div class="text-center py-12 text-gray-500" id="loading">
-<div class="animate-spin inline-block w-8 h-8 border-4 border-gray-300 border-t-blue-600 rounded-full mb-4"></div>
-<p>Loading recent projects...</p>
+<div class="p-4">
+<div class="flex items-center justify-between mb-2 gap-2">
+<span class="service-badge">Pump Service</span>
+<time class="text-xs text-gray-400" datetime="2026-08-20">August 19–20, 2026</time>
 </div>
+<h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="torrey-hill-pump-replacement.html">Well pump &amp; motor replacement</a></h3>
+<p class="text-sm text-gray-500 mb-2">📍 San Diego County (Torrey Hill area)</p>
+<p class="text-sm text-gray-600 leading-relaxed">Crew pulled a submersible pump set at 320 ft in a 354-ft well and found the pump end clogged with sediment and the drop wire failed. Installed a new submersible pump end, 2 HP motor, new drop wire, stainless couplings, check valve and well seal. System tested and returned to full service.</p>
+<p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="torrey-hill-pump-replacement.html">View project →</a></p>
+</div>
+</article>
+<article class="project-card" data-category="pump" data-static="1" data-job="job3174">
+<div class="project-photos double">
+<img src="../images/recent-work/job3174_1.jpg" alt="Completed well system with control box and pressure tank in Aguanga" width="800" height="450" loading="lazy" onclick="openLightbox('../images/recent-work/job3174_1.jpg')" style="cursor:pointer">
+<img src="../images/recent-work/job3174_2.jpg" alt="Aguanga well installation detail after new pump and motor" width="800" height="450" loading="lazy" onclick="openLightbox('../images/recent-work/job3174_2.jpg')" style="cursor:pointer">
+</div>
+<div class="p-4">
+<div class="flex items-center justify-between mb-2 gap-2">
+<span class="service-badge">Pump Service</span>
+<time class="text-xs text-gray-400" datetime="2026-08-20">August 19–20, 2026</time>
+</div>
+<h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="aguanga-pump-installation.html">New pump &amp; motor installation</a></h3>
+<p class="text-sm text-gray-500 mb-2">📍 Aguanga</p>
+<p class="text-sm text-gray-600 leading-relaxed">Installed a new 10 GPM, 1.5 HP 230V single-phase submersible pump and motor with control box. Post-install testing showed 12 GPM at 9.4 A / 237 V and the system built pressure normally.</p>
+<p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="aguanga-pump-installation.html">View project →</a></p>
+</div>
+</article>
+<article class="project-card" data-category="pump" data-static="1" data-job="job3139">
+<div class="project-photos single">
+<img src="../images/recent-work/job3139_1.jpg" alt="Franklin Electric submersible motor installed in the De Luz area" width="800" height="450" loading="lazy" onclick="openLightbox('../images/recent-work/job3139_1.jpg')" style="cursor:pointer">
+</div>
+<div class="p-4">
+<div class="flex items-center justify-between mb-2 gap-2">
+<span class="service-badge">Pump Service</span>
+<time class="text-xs text-gray-400" datetime="2026-08-19">August 18–19, 2026</time>
+</div>
+<h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="de-luz-pump-replacement.html">Pull &amp; replace pump and motor</a></h3>
+<p class="text-sm text-gray-500 mb-2">📍 Temecula (De Luz area)</p>
+<p class="text-sm text-gray-600 leading-relaxed">Replaced the submersible pump and motor and made a new wire splice. Franklin Electric submersible motor installed and the system was confirmed operating before leaving.</p>
+<p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="de-luz-pump-replacement.html">View project →</a></p>
+</div>
+</article>
+<article class="project-card" data-category="pump" data-static="1" data-job="job3141">
+<div class="project-photos double">
+<img src="../images/recent-work/job3141_1.jpg" alt="Wellhead after Goulds 18GS30 pump replacement in Lake Elsinore" width="800" height="450" loading="lazy" onclick="openLightbox('../images/recent-work/job3141_1.jpg')" style="cursor:pointer">
+<img src="../images/recent-work/job3141_2.jpg" alt="Goulds 18GS30 submersible pump installed in Lake Elsinore" width="800" height="450" loading="lazy" onclick="openLightbox('../images/recent-work/job3141_2.jpg')" style="cursor:pointer">
+</div>
+<div class="p-4">
+<div class="flex items-center justify-between mb-2 gap-2">
+<span class="service-badge">Pump Service</span>
+<time class="text-xs text-gray-400" datetime="2026-08-18">August 18, 2026</time>
+</div>
+<h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="lake-elsinore-pump-replacement.html">Pull &amp; replace pump and motor</a></h3>
+<p class="text-sm text-gray-500 mb-2">📍 Lake Elsinore</p>
+<p class="text-sm text-gray-600 leading-relaxed">Pulled the failed unit and installed a new Goulds 18GS30 submersible pump with matching motor and wire. System restored.</p>
+<p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="lake-elsinore-pump-replacement.html">View project →</a></p>
+</div>
+</article>
+<article class="project-card" data-category="pump" data-static="1" data-job="job3115">
+<div class="project-photos double">
+<img src="../images/recent-work/job3115_1.jpg" alt="Pump, motor and drop wire replacement in the Cathedral Way area of Ramona" width="800" height="450" loading="lazy" onclick="openLightbox('../images/recent-work/job3115_1.jpg')" style="cursor:pointer">
+<img src="../images/recent-work/job3115_2.jpg" alt="Clamp meter reading 16.3 amps after the new pump installation" width="800" height="450" loading="lazy" onclick="openLightbox('../images/recent-work/job3115_2.jpg')" style="cursor:pointer">
+</div>
+<div class="p-4">
+<div class="flex items-center justify-between mb-2 gap-2">
+<span class="service-badge">Pump Service</span>
+<time class="text-xs text-gray-400" datetime="2026-08-14">August 14, 2026</time>
+</div>
+<h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="ramona-cathedral-pump-replacement.html">Pull &amp; replace pump, motor and wire</a></h3>
+<p class="text-sm text-gray-500 mb-2">📍 Ramona (Cathedral Way area)</p>
+<p class="text-sm text-gray-600 leading-relaxed">Diagnosed a seized pump and motor with a bent shaft and badly degraded wire on a 250-ft setting. Installed new pump, motor and drop wire; amp draw verified at 16.3 A.</p>
+<p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="ramona-cathedral-pump-replacement.html">View project →</a></p>
+</div>
+</article>
+<article class="project-card" data-category="tank" data-static="1" data-job="job3145">
+<div class="project-photos double">
+<img src="../images/recent-work/job3145_1.jpg" alt="Debris-fouled well pressure switch before the tank replacement" width="800" height="450" loading="lazy" onclick="openLightbox('../images/recent-work/job3145_1.jpg')" style="cursor:pointer">
+<img src="../images/recent-work/job3145_2.jpg" alt="New 86-gallon ProMax pressure tank installation in Ramona" width="800" height="450" loading="lazy" onclick="openLightbox('../images/recent-work/job3145_2.jpg')" style="cursor:pointer">
+</div>
+<div class="p-4">
+<div class="flex items-center justify-between mb-2 gap-2">
+<span class="service-badge">Pressure Tanks</span>
+<time class="text-xs text-gray-400" datetime="2026-08-17">August 17, 2026</time>
+</div>
+<h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="ramona-hanson-pressure-tank.html">Pressure tank replacement</a></h3>
+<p class="text-sm text-gray-500 mb-2">📍 Ramona (Hanson Lane area)</p>
+<p class="text-sm text-gray-600 leading-relaxed">Installed a new 86-gallon ProMax pressure tank plus new 1&quot; schedule-80 PVC couplers after debris fouled the pressure switch.</p>
+<p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="ramona-hanson-pressure-tank.html">View project →</a></p>
+</div>
+</article>
+<article class="project-card" data-category="pump" data-static="1" data-job="job3159">
+<div class="project-photos single">
+<img src="../images/recent-work/job3159_1.jpg" alt="New Pumptec Plus controller installed next to the failed unit in Pauma Valley" width="800" height="450" loading="lazy" onclick="openLightbox('../images/recent-work/job3159_1.jpg')" style="cursor:pointer">
+</div>
+<div class="p-4">
+<div class="flex items-center justify-between mb-2 gap-2">
+<span class="service-badge">Pump Service</span>
+<time class="text-xs text-gray-400" datetime="2026-08-18">August 18, 2026</time>
+</div>
+<h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="pauma-valley-pumptec-plus.html">Pumptec Plus pump protection controller replacement</a></h3>
+<p class="text-sm text-gray-500 mb-2">📍 Pauma Valley</p>
+<p class="text-sm text-gray-600 leading-relaxed">Installed and calibrated a new Pumptec Plus controller (running 10.3 A) after the old unit failed.</p>
+<p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="pauma-valley-pumptec-plus.html">View project →</a></p>
+</div>
+</article>
+<article class="project-card" data-category="pump" data-static="1" data-job="job3134">
+<div class="project-photos double">
+<img src="../images/recent-work/job3134_1.jpg" alt="Vertical multistage booster pump base and motor mount in Highland Valley" width="800" height="450" loading="lazy" onclick="openLightbox('../images/recent-work/job3134_1.jpg')" style="cursor:pointer">
+<img src="../images/recent-work/job3134_2.jpg" alt="Booster pump motor replacement on a 5 HP three-phase unit" width="800" height="450" loading="lazy" onclick="openLightbox('../images/recent-work/job3134_2.jpg')" style="cursor:pointer">
+</div>
+<div class="p-4">
+<div class="flex items-center justify-between mb-2 gap-2">
+<span class="service-badge">Pump Service</span>
+<time class="text-xs text-gray-400" datetime="2026-08-14">August 14, 2026</time>
+</div>
+<h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="ramona-highland-booster-motor.html">Booster pump motor replacement (5 HP, 3-phase)</a></h3>
+<p class="text-sm text-gray-500 mb-2">📍 Ramona (Highland Valley area)</p>
+<p class="text-sm text-gray-600 leading-relaxed">Replaced the 5 HP 230V three-phase motor on a vertical multistage booster (motor only). System tested good.</p>
+<p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="ramona-highland-booster-motor.html">View project →</a></p>
+</div>
+</article>
+</div>
+<p class="live-feed-note hidden" id="live-feed-note"></p>
 <div class="hidden text-center py-12 text-gray-500" id="no-results">
 <p class="text-lg">No projects found for this filter.</p>
 </div>
@@ -242,36 +401,26 @@
 <a class="flex-1 bg-blue-500 text-white text-center py-2.5 rounded-full font-bold text-sm" href="sms:6192590410" title="Text-only line: (619) 259-0410">💬 Text Us</a>
 <a class="flex-1 bg-accent text-white text-center py-2.5 rounded-full font-bold text-sm" href="../cost-calculator.html" onclick="trackFormClick()">Free Estimate</a>
 </div>
+<script src="/js/recent-work-projects.js"></script>
 <script>
     const SUPABASE_URL = 'https://htzsnpqrrrdfleldgybn.supabase.co';
     const SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imh0enNucHFycnJkZmxlbGRneWJuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njk5MTQ0NDgsImV4cCI6MjA4NTQ5MDQ0OH0.-jZ7sUn7Q_U8OwsBEk2O_czrA4_eOYIZqKMU5M4i2Oo';
     const SUPABASE_HEADERS = { apikey: SUPABASE_ANON, Authorization: 'Bearer ' + SUPABASE_ANON };
 
-    const FALLBACK_PROJECTS = [
-        { title: 'Residential Well Drilling', city: 'San Diego County', date: '2026-06-01', category: 'drilling', photos: [{ public_url: '../images/gbp-photos/gbp-01.jpg' }] },
-        { title: 'Emergency Pump Repair', city: 'Ramona', date: '2026-05-20', category: 'pump', photos: [{ public_url: '../images/gbp-photos/gbp-02.jpg' }] },
-        { title: 'Submersible Pump Installation', city: 'Valley Center', date: '2026-05-12', category: 'pump', photos: [{ public_url: '../images/gbp-photos/gbp-03.jpg' }] },
-        { title: 'Annual Well Maintenance', city: 'Escondido', date: '2026-04-28', category: 'maintenance', photos: [{ public_url: '../images/gbp-photos/gbp-04.jpg' }] },
-        { title: 'Rural Property Drilling', city: 'Anza', date: '2026-04-15', category: 'drilling', photos: [{ public_url: '../images/gbp-photos/gbp-06.jpg' }] },
-        { title: 'Pump Pull & Replacement', city: 'Temecula', date: '2026-04-02', category: 'pump', photos: [{ public_url: '../images/gbp-photos/gbp-07.jpg' }] },
-        { title: 'New Well Installation', city: 'Julian', date: '2026-03-22', category: 'drilling', photos: [{ public_url: '../images/gbp-photos/gbp-08.jpg' }] },
-        { title: 'Pressure Tank Installation', city: 'Fallbrook', date: '2026-03-10', category: 'tank', photos: [{ public_url: '../images/gbp-photos/gbp-16.jpg' }] },
-        { title: 'Water Quality Testing', city: 'Lakeside', date: '2026-02-26', category: 'water-quality', photos: [{ public_url: '../images/gbp-photos/gbp-19.jpg' }] }
-    ];
-
     function categorizeJob(title) {
         const t = (title || '').toLowerCase();
         if (t.includes('drill')) return 'drilling';
-        if (t.includes('pump') || t.includes('pull') || t.includes('motor')) return 'pump';
+        if (t.includes('pump') || t.includes('pull') || t.includes('motor') || t.includes('pumptec')) return 'pump';
         if (t.includes('tank') || t.includes('pressure')) return 'tank';
         if (t.includes('filter') || t.includes('treatment') || t.includes('water quality') || t.includes('softener')) return 'water-quality';
         if (t.includes('maintenance') || t.includes('inspect') || t.includes('chlorin')) return 'maintenance';
-        return 'pump'; // default - most jobs are pump service
+        return 'pump';
     }
 
     function formatDate(dateStr) {
         const d = new Date(dateStr);
-        return d.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+        if (Number.isNaN(d.getTime())) return '';
+        return d.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric', timeZone: 'America/Los_Angeles' });
     }
 
     function openLightbox(src) {
@@ -279,7 +428,61 @@
         document.getElementById('lightbox').classList.add('active');
     }
 
-    async function loadProjects() {
+    function bindFilters() {
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const filter = btn.dataset.filter;
+                let visible = 0;
+                document.querySelectorAll('.project-card').forEach(card => {
+                    const show = filter === 'all' || card.dataset.category === filter;
+                    card.style.display = show ? '' : 'none';
+                    if (show) visible++;
+                });
+                document.getElementById('no-results').classList.toggle('hidden', visible > 0);
+            });
+        });
+    }
+
+    function hydrateBrokenPhotos() {
+        document.querySelectorAll('.project-photos').forEach(box => {
+            const imgs = Array.from(box.querySelectorAll('img'));
+            function syncGrid() {
+                const live = Array.from(box.querySelectorAll('img'));
+                box.classList.remove('single', 'double', 'triple', 'empty');
+                if (live.length === 0) {
+                    box.classList.add('empty');
+                    if (!box.querySelector('.photo-fallback')) {
+                        const fallback = document.createElement('div');
+                        fallback.className = 'photo-fallback';
+                        const badge = box.closest('.project-card')?.querySelector('.service-badge');
+                        fallback.innerHTML = '<span class="service-badge">' + (badge ? badge.textContent : 'Recent Work') + '</span>';
+                        box.appendChild(fallback);
+                    }
+                } else if (live.length === 1) box.classList.add('single');
+                else if (live.length === 2) box.classList.add('double');
+                else box.classList.add('triple');
+            }
+            imgs.forEach(img => {
+                img.addEventListener('error', () => { img.remove(); syncGrid(); });
+                if (img.complete && img.naturalWidth === 0) {
+                    img.remove();
+                }
+            });
+            syncGrid();
+        });
+    }
+
+    function isPublicSafeTitle(title) {
+        if (!title) return false;
+        const t = title.trim();
+        if (/https?:\/\//i.test(t) || /jobber/i.test(t)) return false;
+        if (/\d{3,5}\s+\w+/.test(t)) return false;
+        return /pump|well|tank|motor|drill|filter|treatment|inspect|maintenance|wire|controller|booster/i.test(t);
+    }
+
+    async function loadLiveProjects() {
         try {
             // Strategy: Load photos from job_attachments, then try to match with jobs table.
             // Many photos have job_ids that aren't in the jobs table (Jobber sync gap),
@@ -347,41 +550,33 @@
                 }
             }
 
-            // Service type labels for display
-            const serviceLabels = ['Well Pump Service', 'Well Drilling', 'Pressure Tank Service', 'Water Treatment', 'Well Maintenance', 'Well Service'];
-
-            // 3. Build project list from ALL photo groups
             const projects = jobIds.map(jobId => {
                 const job = jobsMap[jobId] || {};
-                const title = job.title || job.job_type || serviceLabels[Math.floor(Math.random() * serviceLabels.length)];
-                const city = (job.property_id && properties[job.property_id]?.city) || 'Southern California';
+                const title = (job.title || job.job_type || '').trim();
+                if (!isPublicSafeTitle(title)) return null;
+                const city = (job.property_id && properties[job.property_id] && properties[job.property_id].city) || '';
+                if (!city) return null;
                 const date = job.completed_at || jobDates[jobId];
                 return { jobId, title, city, date, photos: photoMap[jobId], category: categorizeJob(title) };
-            });
+            }).filter(Boolean);
 
-            // Sort by date descending
             projects.sort((a, b) => new Date(b.date) - new Date(a.date));
 
             const grid = document.getElementById('projects-grid');
-            document.getElementById('loading').style.display = 'none';
-
-            if (projects.length === 0) {
-                document.getElementById('no-results').classList.remove('hidden');
-                return;
-            }
-
-            projects.forEach(proj => {
+            const staticIds = new Set(Array.from(document.querySelectorAll('[data-job]')).map(el => el.dataset.job));
+            let appended = 0;
+            projects.slice(0, 12).forEach(proj => {
+                if (staticIds.has(String(proj.jobId))) return;
                 const photos = proj.photos;
                 const photoCount = Math.min(photos.length, 3);
                 const gridClass = photoCount === 1 ? 'single' : photoCount === 2 ? 'double' : 'triple';
-
-                const card = document.createElement('div');
+                const card = document.createElement('article');
                 card.className = 'project-card';
                 card.dataset.category = proj.category;
-
+                card.dataset.live = '1';
                 card.innerHTML = `
                     <div class="project-photos ${gridClass}">
-                        ${photos.slice(0, 3).map(p => 
+                        ${photos.slice(0, 3).map(p =>
                             `<img src="${p.public_url}" alt="${proj.title} photo" loading="lazy" onclick="openLightbox('${p.public_url}')" style="cursor:pointer">`
                         ).join('')}
                     </div>
@@ -396,75 +591,22 @@
                     </div>
                 `;
                 grid.appendChild(card);
+                appended++;
             });
 
-            // Set up filters
-            document.querySelectorAll('.filter-btn').forEach(btn => {
-                btn.addEventListener('click', () => {
-                    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-                    btn.classList.add('active');
-                    const filter = btn.dataset.filter;
-                    let visible = 0;
-                    document.querySelectorAll('.project-card').forEach(card => {
-                        const show = filter === 'all' || card.dataset.category === filter;
-                        card.style.display = show ? '' : 'none';
-                        if (show) visible++;
-                    });
-                    document.getElementById('no-results').classList.toggle('hidden', visible > 0);
-                });
-            });
-
+            if (appended) {
+                const note = document.getElementById('live-feed-note');
+                note.textContent = 'Additional field photos loaded from the live job feed.';
+                note.classList.remove('hidden');
+            }
         } catch (err) {
-            console.error('Live project feed unavailable:', err);
-            renderFallbackProjects();
+            console.info('Live project feed unavailable; showing static recent work.', err);
         }
     }
 
-    function renderFallbackProjects() {
-        const grid = document.getElementById('projects-grid');
-        const loading = document.getElementById('loading');
-        loading.innerHTML = '<p class="text-gray-600 mb-2">Live job photos are temporarily unavailable.</p><p class="text-sm text-gray-500">Showing recent crew work from our gallery instead.</p>';
-        loading.style.display = 'block';
-
-        FALLBACK_PROJECTS.forEach(proj => {
-            const card = document.createElement('div');
-            card.className = 'project-card';
-            card.dataset.category = proj.category;
-            card.innerHTML = `
-                <div class="project-photos single">
-                    ${proj.photos.map(p =>
-                        `<img src="${p.public_url}" alt="${proj.title} photo" loading="lazy" onclick="openLightbox('${p.public_url}')" style="cursor:pointer">`
-                    ).join('')}
-                </div>
-                <div class="p-4">
-                    <div class="flex items-center justify-between mb-2">
-                        <span class="service-badge">${proj.category.replace('-', ' ')}</span>
-                        <span class="text-xs text-gray-400">${formatDate(proj.date)}</span>
-                    </div>
-                    <h3 class="font-semibold text-gray-900 mb-1">${proj.title}</h3>
-                    <p class="text-sm text-gray-500">📍 ${proj.city}</p>
-                </div>
-            `;
-            grid.appendChild(card);
-        });
-
-        document.querySelectorAll('.filter-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                const filter = btn.dataset.filter;
-                let visible = 0;
-                document.querySelectorAll('.project-card').forEach(card => {
-                    const show = filter === 'all' || card.dataset.category === filter;
-                    card.style.display = show ? '' : 'none';
-                    if (show) visible++;
-                });
-                document.getElementById('no-results').classList.toggle('hidden', visible > 0);
-            });
-        });
-    }
-
-    loadProjects();
+    hydrateBrokenPhotos();
+    bindFilters();
+    loadLiveProjects();
     </script>
 <script src="/js/cookie-consent.js"></script>
 <script>setTimeout(function(){var s=document.createElement("script");s.src="/js/chat-widget.js?v=4";document.body.appendChild(s)},3000)</script>
