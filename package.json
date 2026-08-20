@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "scripts": {
     "build:css": "tailwindcss -i ./src/input.css -o ./css/styles.css --minify",
-    "watch:css": "tailwindcss -i ./src/input.css -o ./css/styles.css --watch"
+    "watch:css": "tailwindcss -i ./src/input.css -o ./css/styles.css --watch",
+    "test:ab": "node js/ab.test.js"
   },
   "devDependencies": {
     "jsdom": "^28.1.0",
