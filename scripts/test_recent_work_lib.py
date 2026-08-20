@@ -196,11 +196,14 @@ class HtmlTests(unittest.TestCase):
     def test_existing_live_projects_json_still_valid(self):
         path = Path(__file__).resolve().parents[1] / "recent-work" / "projects.json"
         data = json.loads(path.read_text())
-        self.assertGreaterEqual(len(data["projects"]), 8)
+        self.assertGreaterEqual(len(data["projects"]), 107)
         for project in data["projects"]:
             self.assertTrue(project["id"].startswith("job"))
+            self.assertTrue(project["title"])
+            self.assertTrue(project["location"])
             self.assertTrue(project["photos"])
-            self.assertTrue(is_public_safe_title(project["title"]))
+            self.assertNotIn("jobber", project["title"].lower())
+            self.assertNotIn("$", project["summary"])
 
     def test_index_markers_and_rewrite(self):
         import recent_work_lib
@@ -210,6 +213,7 @@ class HtmlTests(unittest.TestCase):
         text = index.read_text()
         self.assertIn(CARD_MARKERS[0], text)
         self.assertIn(CARD_MARKERS[1], text)
+        self.assertGreaterEqual(text.count('class="project-card"'), 107)
         for job_id in (
             "job3049",
             "job3174",
