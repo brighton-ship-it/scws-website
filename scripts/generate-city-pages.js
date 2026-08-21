@@ -376,8 +376,9 @@ cities.forEach(city => {
     </main>
 
     <footer>
-        <p>&copy; 2026 Southern California Well Service. Licensed C-57 Contractor.</p>
-        <p>1077 Main Street, Unit B, Ramona, CA 92065 | <a href="tel:7604408520">(760) 440-8520</a></p>
+        <p>&copy; 2026 Southern California Well Service. Licensed C-57 Contractor. CSLB License #1086994.</p>
+        <p>Ramona: 1077 Main Street, Unit B, Ramona, CA 92065 · Anza: 57174 CA-371 (US Hwy 79), Anza, CA 92539</p>
+        <p>Voice <a href="tel:7604408520">(760) 440-8520</a> · Text <a href="sms:7602195877">(760) 219-5877</a></p>
     </footer>
 
 <!-- Sticky Mobile CTA Bar -->
