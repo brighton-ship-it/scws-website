@@ -1,11 +1,29 @@
 /**
  * SCWS Live Chat Widget
  * Embed on any page with:
- * <script src="https://scws-jobs.vercel.app/chat-widget.js"></script>
+ * <script src="/js/chat-widget.js?v=5"></script>
  */
 (function() {
   const API_URL = 'https://scws-jobs.vercel.app/api/chat';
   const WIDGET_COLOR = '#166534'; // green-800
+
+  function existingWidget() {
+    return document.getElementById('scws-chat-widget');
+  }
+
+  function pruneExtraWidgets() {
+    const widgets = document.querySelectorAll('[id="scws-chat-widget"]');
+    for (let i = 1; i < widgets.length; i++) {
+      widgets[i].remove();
+    }
+  }
+
+  function watchDuplicates() {
+    if (!document.body || window.__scwsChatWidgetObserver) return;
+    const observer = new MutationObserver(pruneExtraWidgets);
+    window.__scwsChatWidgetObserver = observer;
+    observer.observe(document.body, { childList: true });
+  }
   
   // Generate or retrieve session ID
   function getSessionId() {
@@ -19,6 +37,7 @@
 
   // Create widget HTML
   function createWidget() {
+    if (existingWidget()) return null;
     const container = document.createElement('div');
     container.id = 'scws-chat-widget';
     container.innerHTML = `
@@ -243,12 +262,20 @@
 
   // Initialize widget
   function init() {
+    if (existingWidget()) {
+      pruneExtraWidgets();
+      watchDuplicates();
+      return;
+    }
     const widget = createWidget();
+    if (!widget) return;
+    pruneExtraWidgets();
+    watchDuplicates();
     positionWidget();
     window.addEventListener('resize', positionWidget);
     document.addEventListener('scws-overlays-changed', positionWidget);
     const button = document.getElementById('scws-chat-button');
-    const window = document.getElementById('scws-chat-window');
+    const chatWindow = document.getElementById('scws-chat-window');
     const closeBtn = document.getElementById('scws-chat-close');
     const input = document.getElementById('scws-chat-input');
     const sendBtn = document.getElementById('scws-chat-send');
@@ -261,19 +288,39 @@
     // Toggle chat window
     button.addEventListener('click', () => {
       isOpen = !isOpen;
-      window.classList.toggle('open', isOpen);
+      chatWindow.classList.toggle('open', isOpen);
       if (isOpen) input.focus();
     });
 
     closeBtn.addEventListener('click', () => {
       isOpen = false;
-      window.classList.remove('open');
+      chatWindow.classList.remove('open');
     });
+
+    function collectHistory() {
+      const nodes = messages.querySelectorAll('.scws-message');
+      const history = [];
+      for (let i = 0; i < nodes.length; i++) {
+        const el = nodes[i];
+        if (el.classList.contains('typing')) continue;
+        const content = (el.textContent || '').trim();
+        if (!content) continue;
+        if (/writeareview/i.test(content)) continue;
+        let role = null;
+        if (el.classList.contains('user')) role = 'user';
+        else if (el.classList.contains('assistant')) role = 'assistant';
+        if (!role) continue;
+        history.push({ role: role, content: content });
+      }
+      return history.length > 20 ? history.slice(-20) : history;
+    }
 
     // Send message
     async function sendMessage() {
       const text = input.value.trim();
       if (!text || isSending) return;
+
+      const history = collectHistory();
 
       isSending = true;
       sendBtn.disabled = true;
@@ -302,6 +349,7 @@
             visitorInfo: {
               pageUrl: (typeof window !== 'undefined' && window.location) ? window.location.href : '',
             },
+            history: history,
           }),
         });
 
