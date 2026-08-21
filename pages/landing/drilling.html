@@ -313,10 +313,6 @@
                     throw new Error('Form submission failed');
                 }
                 if (typeof gtag === 'function') {
-                    gtag('event', 'ads_conversion_submit_lead_form', {
-                        'event_category': 'lead',
-                        'event_label': 'drilling_landing_form'
-                    });
                     gtag('event', 'generate_lead', {
                         'event_category': 'engagement',
                         'value': 500

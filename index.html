@@ -24,37 +24,14 @@
             'phone_conversion_number': '(760) 440-8520'
         });
         
-        // Track form button clicks as lead form submissions
+        // Clicks are not leads. generate_lead fires only after a successful CRM POST.
         function trackFormClick() {
-            // GA4 event
-            gtag('event', 'ads_conversion_submit_lead_form', {
-                'event_category': 'lead',
-                'event_label': 'jobber_form_click'
-            });
-            gtag('event', 'generate_lead', {
-                'event_category': 'engagement',
-                'value': 100
-            });
-            // Google Ads conversion
-            gtag('event', 'conversion', {
-                'send_to': 'AW-490838730/aFiRCMDlofAbEMq1huoB',
-                'value': 100,
-                'currency': 'USD'
-            });
-            console.log('Tracking: Form click');
+            /* generate_lead fires only after a successful CRM POST */
         }
         
-        // Track phone clicks as contact conversions
+        // call-tracking.js owns call_click when present
         function trackPhoneClick() {
-            // GA4 events
-            gtag('event', 'contact_page', {
-                'event_category': 'contact',
-                'event_label': 'phone_click'
-            });
-            gtag('event', 'click_to_call', {
-                'event_category': 'engagement'
-            });
-            console.log('Tracking: Phone click');
+            if (window.scwsCallTracking) return;
         }
         
         // Handle contact form submission with conversion tracking
@@ -116,10 +93,6 @@
                 if (response.ok) {
                     // Count a lead only after CRM accepts the POST
                     if (typeof gtag === 'function') {
-                        gtag('event', 'ads_conversion_submit_lead_form', {
-                            'event_category': 'lead',
-                            'event_label': 'contact_form_submit'
-                        });
                         gtag('event', 'generate_lead', {
                             'event_category': 'engagement',
                             'value': 150

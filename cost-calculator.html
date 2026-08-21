@@ -740,20 +740,6 @@
             submitBtn.disabled = true;
             submitBtn.textContent = 'Processing...';
             
-            // Track conversion
-            if (typeof gtag !== 'undefined') {
-                gtag('event', 'generate_lead', {
-                    'event_category': 'cost_calculator',
-                    'event_label': calculatorData.service,
-                    'value': 100
-                });
-                gtag('event', 'conversion', {
-                    'send_to': 'AW-490838730/aFiRCMDlofAbEMq1huoB',
-                    'value': 100,
-                    'currency': 'USD'
-                });
-            }
-            
             // Map service types to CRM format
             const serviceMap = {
                 'new-well': 'new_well',
@@ -788,6 +774,18 @@
             })
             .then(response => {
                 if (response.ok) {
+                    if (typeof gtag === 'function') {
+                        gtag('event', 'generate_lead', {
+                            'event_category': 'cost_calculator',
+                            'event_label': calculatorData.service,
+                            'value': 100
+                        });
+                        gtag('event', 'conversion', {
+                            'send_to': 'AW-490838730/aFiRCMDlofAbEMq1huoB',
+                            'value': 100,
+                            'currency': 'USD'
+                        });
+                    }
                     showResults();
                 } else {
                     throw new Error('Submission failed');
@@ -886,12 +884,7 @@
 
         // Track phone clicks
         function trackPhoneClick() {
-            if (typeof gtag !== 'undefined') {
-                gtag('event', 'click_to_call', {
-                    'event_category': 'cost_calculator',
-                    'event_label': 'result_page_call'
-                });
-            }
+            if (window.scwsCallTracking) return;
         }
     </script>
 <!-- Chat Widget -->

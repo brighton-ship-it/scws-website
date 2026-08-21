@@ -69,75 +69,9 @@ def add_ga4_to_page(filepath):
     return True
 
 def add_click_tracking_to_blog():
-    """Add onclick tracking to all tel: links in blog pages"""
-    blog_dir = os.path.join(WEBSITE_DIR, 'blog')
-    blog_files = glob.glob(os.path.join(blog_dir, '*.html'))
-    
-    tracking_attr = '''onclick="gtag('event','click_to_call',{'event_category':'CTA','event_label':document.title})"'''
-    
-    modified_count = 0
-    total_links_fixed = 0
-    
-    for filepath in blog_files:
-        with open(filepath, 'r', encoding='utf-8') as f:
-            content = f.read()
-        
-        # Skip if already has click tracking on tel links
-        # Pattern: find <a href="tel: that doesn't have onclick before it
-        # Replace <a href="tel: with <a onclick="..." href="tel:
-        
-        # Pattern to find tel links without onclick tracking
-        pattern = r'<a\s+href="tel:'
-        pattern_with_tracking = r'<a\s+onclick="gtag\([^"]*\)"\s+href="tel:'
-        
-        # Count existing tel links
-        tel_links = len(re.findall(pattern, content))
-        already_tracked = len(re.findall(pattern_with_tracking, content))
-        
-        if tel_links == 0:
-            continue
-        
-        if tel_links == already_tracked:
-            continue  # All links already tracked
-        
-        # Replace untracked tel links
-        new_content = re.sub(
-            r'<a\s+href="tel:',
-            f'<a {tracking_attr} href="tel:',
-            content
-        )
-        
-        # But this would double-track already tracked ones, so let's be smarter
-        # First, temporarily mark tracked ones
-        content_temp = re.sub(
-            r'<a\s+onclick="gtag\([^"]*\)"\s+href="tel:',
-            '<a ALREADY_TRACKED href="tel:',
-            content
-        )
-        
-        # Now add tracking to untracked ones
-        content_temp = re.sub(
-            r'<a\s+href="tel:',
-            f'<a {tracking_attr} href="tel:',
-            content_temp
-        )
-        
-        # Restore the already tracked markers
-        new_content = re.sub(
-            r'<a ALREADY_TRACKED href="tel:',
-            f'<a {tracking_attr} href="tel:',
-            content_temp
-        )
-        
-        if new_content != content:
-            with open(filepath, 'w', encoding='utf-8') as f:
-                f.write(new_content)
-            modified_count += 1
-            links_added = tel_links - already_tracked
-            total_links_fixed += links_added
-    
-    print(f"✓ Added click tracking to {total_links_fixed} tel: links in {modified_count} blog files")
-    return modified_count
+    """Phone taps are a single call_click from /js/call-tracking.js."""
+    print("✓ Skipped inline click_to_call onclicks (call-tracking.js owns call_click)")
+    return 0
 
 def main():
     print("=== PART 1A: Fixing GA4 ID on pages with wrong ID ===")

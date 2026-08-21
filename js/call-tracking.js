@@ -7,6 +7,9 @@
 (function() {
   'use strict';
 
+  // Lets inline trackPhoneClick / extra tel: listeners stand down
+  window.scwsCallTracking = true;
+
   // Determine traffic source from referrer + UTM
   function getTrafficSource() {
     var utm = {};
@@ -71,6 +74,7 @@
     // Fire GA4 event
     if (typeof gtag === 'function') {
       // Primary event — all call clicks
+      // One GA4 event per tap. Organic is a parameter, not a second event.
       gtag('event', 'call_click', Object.assign({
         'event_category': 'engagement',
         'event_label': page,
@@ -79,16 +83,6 @@
         'page_path': page,
         'page_title': document.title
       }, extra));
-
-      // Organic-specific conversion event
-      if (isOrganic) {
-        gtag('event', 'seo_call_conversion', Object.assign({
-          'event_category': 'conversion',
-          'event_label': page,
-          'search_engine': source.split('/')[0],
-          'landing_page': page
-        }, extra));
-      }
 
       // Google Ads conversion (if from paid) — voice only
       if (source === 'google_ads') {
