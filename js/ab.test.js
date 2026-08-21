@@ -125,8 +125,16 @@ test('variant adds an equal Text button and keeps the voice tel: node', function
   assert.ok(text);
   assert.strictEqual(call.getAttribute('href'), 'tel:7604408520');
   assert.strictEqual(text.getAttribute('href'), 'sms:7602195877');
-  assert.match(call.textContent, /Call \(760\) 440-8520/);
-  assert.match(text.textContent, /Text \(760\) 219-5877/);
+  assert.strictEqual(call.textContent, 'Call');
+  assert.strictEqual(text.textContent, 'Text');
+  assert.strictEqual(call.style.minWidth, '');
+  assert.strictEqual(text.style.minWidth, '');
+  assert.strictEqual(call.nextElementSibling, text);
+  assert.strictEqual(bar.getAttribute('data-scws-ab'), 'applied');
+  assert.strictEqual(bar.getAttribute('data-scws-ab-var'), 'variant');
+  page.window.eval(abSrc);
+  page.document.dispatchEvent(new page.window.Event('DOMContentLoaded', { bubbles: true }));
+  assert.strictEqual(bar.querySelectorAll('a[href^="sms:"]').length, 1);
 });
 
 test('does not apply the emergency-bar variant off the homepage', function () {

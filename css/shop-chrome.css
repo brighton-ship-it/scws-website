@@ -11,6 +11,10 @@ body.shop-page {
 }
 
 #scws-emergency-cta {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
   background: linear-gradient(90deg, #dc2626, #b91c1c);
   color: #fff;
   padding: 0.25rem 0.75rem;
@@ -32,12 +36,13 @@ body.shop-page {
   color: #dc2626;
   font-weight: 700;
   min-height: 44px;
+  min-width: 0 !important;
   padding: 0.55rem 1rem;
   border-radius: 999px;
   text-decoration: none;
   font-size: 0.95rem;
   white-space: nowrap;
-  flex-shrink: 0;
+  flex: 0 0 auto;
 }
 #scws-emergency-cta a[href^="sms:"] {
   background: #fff7ed;
@@ -55,20 +60,8 @@ body.shop-page {
     padding: 0.4rem 0.65rem;
     font-size: 0.8125rem;
   }
-  /* Variant: keep Call + Text on one row. Full number stays on the header button. */
-  #scws-emergency-cta:has(a[href^="sms:"]) a[href^="tel:"],
-  #scws-emergency-cta:has(a[href^="sms:"]) a[href^="sms:"] {
-    font-size: 0;
-  }
-  #scws-emergency-cta:has(a[href^="sms:"]) a[href^="tel:"]::before {
-    content: "Call";
-    font-size: 0.875rem;
-    font-weight: 700;
-  }
-  #scws-emergency-cta:has(a[href^="sms:"]) a[href^="sms:"]::before {
-    content: "Text";
-    font-size: 0.875rem;
-    font-weight: 700;
+  #scws-emergency-cta .scws-emergency-note {
+    display: none !important;
   }
 }
 @media (min-width: 768px) {
@@ -108,11 +101,12 @@ header.shop-header {
   .shop-header .site-logo-img { height: 2.5rem; max-width: 200px; }
 }
 header .site-phone-cta {
-  display: inline-flex;
+  display: inline-flex !important;
+  visibility: visible !important;
   align-items: center;
   justify-content: center;
   white-space: nowrap;
-  flex-shrink: 0;
+  flex: 0 0 auto;
   min-height: 44px;
   font-size: 0.75rem;
   padding: 0.45rem 0.6rem;
@@ -130,14 +124,36 @@ header .site-phone-cta {
 
 /* Homepage hero: Call + Get Estimate stay on one row (never stack). */
 .hero-cta-row {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.5rem;
 }
-.hero-cta-row a {
+.hero-cta-row a,
+.hero-cta-row > * {
   white-space: nowrap;
+  width: auto !important;
+  max-width: none;
+  flex: 0 1 auto;
+}
+.hero-cta-short { display: none; }
+@media (max-width: 767px) {
+  .hero-cta-row {
+    gap: 0.4rem;
+  }
+  .hero-cta-row a {
+    padding: 0.55rem 0.7rem !important;
+    font-size: 0.9375rem !important;
+  }
+}
+@media (max-width: 480px) {
+  .hero-cta-row a {
+    padding: 0.5rem 0.65rem !important;
+    font-size: 0.875rem !important;
+  }
+  .hero-cta-full { display: none; }
+  .hero-cta-short { display: inline; }
 }
 .shop-menu-btn {
   display: inline-flex;
