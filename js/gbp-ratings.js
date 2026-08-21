@@ -1,5 +1,6 @@
 /**
- * Live Google Business Profile ratings for the homepage Why SCWS item.
+ * Live Google Business Profile ratings for the homepage strip
+ * under the Heritage / Ransom banner.
  *
  * Fetches public JSON from the jobs app (GitHub Pages cannot hold GBP secrets).
  * Success body (from scws-jobs src/lib/gbp.ts GbpRatingsPayload):
@@ -8,8 +9,8 @@
  *
  * Homepage widget shows Anza only. Never invent or hardcode a star count.
  * Never reuse the Ramona review URL for Anza. On any fetch/parse failure
- * or missing Anza rating, show "Google reviews" plus the Anza Maps link
- * already in the homepage mount.
+ * or missing Anza rating, show a star row plus "Anza on Google" linking
+ * to the Anza Maps listing already in the homepage mount.
  */
 (function (root) {
   'use strict';
@@ -23,6 +24,7 @@
   var ANZA_LISTING = 'https://www.google.com/maps/place/57174+CA-371,+Anza,+CA+92539';
 
   var SHOP = { label: 'Anza', fallbackUrl: ANZA_LISTING };
+  var STAR_ROW = '<span class="gbp-stars" aria-hidden="true">★★★★★</span>';
 
   function isHttpUrl(value) {
     return typeof value === 'string' && /^https?:\/\/\S+$/i.test(value.trim());
@@ -62,49 +64,46 @@
     return String(Math.round(n));
   }
 
-  function shopLine(data) {
-    var url = escapeAttr(shopUrl(data));
-    if (hasLive(data)) {
-      return (
-        '<a href="' + url + '" target="_blank" rel="noopener">' +
-          '<strong>' + SHOP.label + '</strong> ' +
-          formatRating(data.rating) + ' (' + formatCount(data.count) + ')' +
-        '</a>'
-      );
+  function headingText(payload) {
+    if (payload && typeof payload === 'object' && !payload.error && hasLive(payload.anza)) {
+      return formatRating(payload.anza.rating);
     }
+    return 'Anza on Google';
+  }
+
+  function fallbackWidgetHtml() {
     return (
-      '<a href="' + url + '" target="_blank" rel="noopener">' + SHOP.label + '</a>'
+      '<a class="gbp-ratings-link" href="' + ANZA_LISTING + '" target="_blank" rel="noopener">' +
+        STAR_ROW +
+        '<span data-gbp-heading>Anza on Google</span>' +
+      '</a>'
     );
   }
 
-  function headingText(payload) {
-    if (!payload || typeof payload !== 'object' || payload.error) {
-      return 'Google reviews';
+  function widgetHtml(payload) {
+    if (!payload || typeof payload !== 'object' || payload.error || !hasLive(payload.anza)) {
+      return fallbackWidgetHtml();
     }
-    if (hasLive(payload.anza)) {
-      return (
-        'Anza ' + formatRating(payload.anza.rating) +
-          ' (' + formatCount(payload.anza.count) + ')'
-      );
-    }
-    return 'Google reviews';
+    var data = payload.anza;
+    var url = escapeAttr(shopUrl(data));
+    var rating = formatRating(data.rating);
+    var count = formatCount(data.count);
+    return (
+      '<a class="gbp-ratings-link" href="' + url + '" target="_blank" rel="noopener">' +
+        STAR_ROW +
+        '<span class="gbp-ratings-score" data-gbp-heading>' + rating + '</span>' +
+        '<span class="gbp-ratings-count">(' + count + ')</span>' +
+        '<span class="gbp-ratings-label" data-gbp-shops>' + SHOP.label + '</span>' +
+      '</a>'
+    );
   }
 
   function shopsHtml(payload) {
-    if (!payload || typeof payload !== 'object' || payload.error) {
-      return fallbackShopsHtml();
-    }
-    return (
-      '<p class="text-gray-600">' + shopLine(payload.anza) + '</p>'
-    );
+    return widgetHtml(payload);
   }
 
   function fallbackShopsHtml() {
-    return (
-      '<p class="text-gray-600">' +
-        '<a href="' + ANZA_LISTING + '" target="_blank" rel="noopener">Anza</a>' +
-      '</p>'
-    );
+    return fallbackWidgetHtml();
   }
 
   function mountNodes() {
@@ -118,31 +117,8 @@
     return nodes;
   }
 
-  function headingNode(mount) {
-    return (
-      mount.querySelector('[data-gbp-heading]') ||
-      mount.querySelector('h3')
-    );
-  }
-
-  function shopsNode(mount) {
-    return (
-      mount.querySelector('[data-gbp-shops]') ||
-      mount.querySelector('.gbp-ratings-shops')
-    );
-  }
-
   function renderMount(mount, payload) {
-    var heading = headingNode(mount);
-    var shops = shopsNode(mount);
-    if (heading) heading.textContent = headingText(payload);
-    if (shops) {
-      shops.innerHTML = shopsHtml(payload);
-      return;
-    }
-    mount.innerHTML =
-      '<h3 class="font-bold text-primary text-lg">' + headingText(payload) + '</h3>' +
-      shopsHtml(payload);
+    mount.innerHTML = widgetHtml(payload);
   }
 
   function renderAll(payload) {
@@ -206,8 +182,10 @@
     },
     hasLive: hasLive,
     headingText: headingText,
+    widgetHtml: widgetHtml,
     shopsHtml: shopsHtml,
     fallbackShopsHtml: fallbackShopsHtml,
+    fallbackWidgetHtml: fallbackWidgetHtml,
     init: init
   };
 
