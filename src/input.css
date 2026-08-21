@@ -60,6 +60,10 @@ body { font-family: 'Inter', sans-serif; }
 @media (min-width: 1280px) {
     .site-phone-cta { font-size: 1rem; }
 }
+@media (max-width: 639px) {
+    /* Sticky bar already has Call — don't stack a third phone chip in the header. */
+    header .site-phone-cta { display: none; }
+}
 .site-logo-img {
     height: 2rem;
     width: auto;

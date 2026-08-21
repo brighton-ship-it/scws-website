@@ -29,7 +29,7 @@
             "telephone": "(760) 440-8520",
             "address": {
                 "@type": "PostalAddress",
-                "streetAddress": "1077 Main St",
+                "streetAddress": "1077 Main Street, Unit B",
                 "addressLocality": "Ramona",
                 "addressRegion": "CA",
                 "postalCode": "92065"
@@ -106,14 +106,15 @@
             overflow-x: hidden;
         }
     </style>
+<link rel="stylesheet" href="/css/shop-chrome.css"/>
 </head>
-<body style="padding-bottom:80px">
+<body class="shop-page" style="padding-bottom:80px">
 <!-- Emergency Banner -->
 <div class="bg-gradient-to-r from-red-600 to-red-700 text-white py-2.5">
 <div class="max-w-7xl mx-auto px-4 text-center flex items-center justify-center gap-2 flex-wrap">
 <span class="font-bold tracking-wide">🚨 No Water?</span>
 <span class="hidden sm:inline">Same-day emergency service available.</span>
-<a class="bg-white text-red-600 font-bold px-4 py-1 rounded-full text-sm hover:bg-red-100 transition ml-1" href="tel:7604408520">
+<a class="bg-white text-red-600 font-bold px-4 py-2.5 rounded-full text-sm hover:bg-red-100 transition ml-1" style="min-height:44px;display:inline-flex;align-items:center;" href="tel:7604408520">
                 Call Now →
             </a>
 </div>
@@ -132,9 +133,27 @@
 <a class="text-white hover:text-accent transition whitespace-nowrap" href="/blog/">Resources</a>
 <a class="text-white hover:text-accent transition whitespace-nowrap" href="/faq.html">FAQ</a>
 <a class="text-white hover:text-accent transition whitespace-nowrap" href="/contact.html">Contact</a>
-<a class="text-white font-semibold hover:text-accent transition whitespace-nowrap" href="/cost-calculator.html">Free Estimate</a>
+<a class="text-white font-semibold hover:text-accent transition whitespace-nowrap" href="/cost-calculator.html">Cost Calculator</a>
 <a class="text-white hover:text-accent transition whitespace-nowrap" href="/pages/about.html">About</a>
 </nav>
+<div class="flex items-center gap-2">
+<button type="button" id="mobile-menu-btn" class="shop-menu-btn" aria-label="Open menu">☰</button>
+<a class="site-phone-cta bg-red-600 hover:bg-red-700 text-white font-semibold rounded-lg transition" href="tel:+17604408520">(760) 440-8520</a>
+</div>
+</div>
+</div>
+<div id="mobile-menu" class="hidden shop-mobile-nav bg-primary/95 border-t border-white/10 px-4 py-3">
+<a href="/">Home</a>
+<a href="/pages/services/well-drilling.html">Services</a>
+<a href="/recent-work/">Recent Work</a>
+<a href="/contact.html">Contact</a>
+<a href="/pages/about.html">About</a>
+</div>
+</header>
+<script>
+(function(){var b=document.getElementById('mobile-menu-btn');var m=document.getElementById('mobile-menu');if(b&&m){b.addEventListener('click',function(){m.classList.toggle('hidden');});}})();
+</script>
+
 
 
         
@@ -221,7 +240,7 @@
               <li><strong>Licensed:</strong> CSLB #1086994 (C-57 Water Well Drilling)</li>
               <li><strong>Local knowledge:</strong> Decades drilling Ramona wells in fractured granite and Santiago Peak volcanics</li>
               <li><strong>Full service:</strong> From permits to completed system</li>
-              <li><strong>Response time:</strong> 0 min (HQ) from Ramona, 60 min from Anza</li>
+              <li><strong>Response time:</strong> same-day from the Ramona shop from Ramona, 60 min from Anza</li>
               <li><strong>Family-owned:</strong> Brighton Scala, owner</li>
             </ul>
 

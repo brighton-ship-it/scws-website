@@ -15,6 +15,10 @@
   // 1. STICKY MOBILE PHONE BAR
   // ============================================
   function createStickyPhoneBar() {
+    // Money pages already have #sticky-cta (Call / Text / Estimate).
+    // Never stack a second “Tap to Call” bar on top of it.
+    if (document.getElementById('sticky-cta')) return;
+
     // Only show on mobile (check both width and user agent)
     const isMobile = window.innerWidth <= 768 || /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
     if (!isMobile) return;
@@ -352,15 +356,23 @@
     });
   };
 
+  function removeDuplicatePhoneBar() {
+    if (!document.getElementById('sticky-cta')) return;
+    var extra = document.getElementById('scws-sticky-phone');
+    if (extra && extra.parentNode) extra.parentNode.removeChild(extra);
+  }
+
   // Initialize when DOM is ready
-  // NOTE: Sticky phone bar disabled - site already has enough phone CTAs
+  // NOTE: Sticky phone bar stays off whenever #sticky-cta is present.
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', function() {
-      // createStickyPhoneBar(); // Disabled - too cluttered
+      removeDuplicatePhoneBar();
+      createStickyPhoneBar();
       createExitIntentPopup();
     });
   } else {
-    // createStickyPhoneBar(); // Disabled - too cluttered
+    removeDuplicatePhoneBar();
+    createStickyPhoneBar();
     createExitIntentPopup();
   }
 })();

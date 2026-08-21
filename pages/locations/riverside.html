@@ -49,7 +49,7 @@
         "telephone": "+1-760-440-8520",
         "address": {
             "@type": "PostalAddress",
-            "streetAddress": "1077 Main St",
+            "streetAddress": "1077 Main Street, Unit B",
             "addressLocality": "Ramona",
             "addressRegion": "CA",
             "postalCode": "92065"
@@ -96,8 +96,9 @@
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/css/shop-chrome.css"/>
 </head>
-<body class="bg-white">
+<body class="shop-page bg-white">
     <!-- Header -->
     <header class="bg-primary text-white sticky top-0 z-50 shadow-lg">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -109,16 +110,27 @@
                     <a href="../../index.html#services" class="text-white hover:text-accent transition whitespace-nowrap">Services</a>
                     <a href="../../index.html#areas" class="text-white hover:text-accent transition whitespace-nowrap">Service Areas</a>
                     <a href="../../index.html#reviews" class="text-white hover:text-accent transition whitespace-nowrap">Reviews</a>
-                    <a href="../estimate.html" class="text-white font-semibold hover:text-accent transition whitespace-nowrap">Free Estimate</a>
-                    <a href="../../index.html#about" class="text-white hover:text-accent transition whitespace-nowrap">About</a>
-                    <a href="../../index.html#contact" class="text-white hover:text-accent transition whitespace-nowrap">Contact</a>
+                    <a href="/cost-calculator.html" class="text-white font-semibold hover:text-accent transition whitespace-nowrap">Cost Calculator</a>
+                    <a href="/pages/about.html" class="text-white hover:text-accent transition whitespace-nowrap">About</a>
+                    <a href="/contact.html" class="text-white hover:text-accent transition whitespace-nowrap">Contact</a>
                 </nav>
-                <a href="tel:7604408520" class="bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-4 lg:px-6 rounded-lg transition whitespace-nowrap text-sm lg:text-base">
-                    (760) 440-8520
-                </a>
+                
+                <div class="flex items-center gap-2">
+                    <button type="button" id="mobile-menu-btn" class="shop-menu-btn lg:hidden" aria-label="Open menu">☰</button>
+                    <a href="tel:+17604408520" class="site-phone-cta bg-red-600 hover:bg-red-700 text-white font-semibold rounded-lg transition">(760) 440-8520</a>
+                </div>
             </div>
         </div>
+        <div id="mobile-menu" class="hidden lg:hidden shop-mobile-nav bg-primary/95 border-t border-white/10 px-4 py-3">
+            <a href="/">Home</a>
+            <a href="/pages/services/well-drilling.html">Services</a>
+            <a href="/contact.html">Contact</a>
+            <a href="/pages/about.html">About</a>
+        </div>
+
     </header>
+    <script>document.getElementById('mobile-menu-btn').addEventListener('click', function () { document.getElementById('mobile-menu').classList.toggle('hidden'); });</script>
+
 
     <!-- Hero Section -->
     <section class="bg-gradient-to-br from-primary to-slate-800 text-white py-16 lg:py-24">
@@ -135,13 +147,13 @@
                     Well Service in Riverside County
                 </h1>
                 <p class="text-xl text-gray-300 mb-8">
-                    Trusted well experts serving Temecula, Murrieta, Hemet, and communities throughout Riverside County. From wine country vineyards to mountain homesteads, we deliver reliable well service backed by 20+ years of experience.
+                    Trusted well experts serving Temecula, Murrieta, Hemet, and communities throughout Riverside County. From wine country vineyards to mountain homesteads, we deliver reliable well service founded in 2020.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4">
                     <a href="tel:7604408520" class="bg-red-600 hover:bg-red-700 text-white font-semibold py-4 px-8 rounded-lg text-center text-lg transition">
                         Call: (760) 440-8520
                     </a>
-                    <a href="../../index.html#contact" class="border-2 border-white hover:bg-white hover:text-primary text-white font-semibold py-4 px-8 rounded-lg text-center text-lg transition">
+                    <a href="/contact.html" class="border-2 border-white hover:bg-white hover:text-primary text-white font-semibold py-4 px-8 rounded-lg text-center text-lg transition">
                         Get Free Estimate
                     </a>
                 </div>
@@ -456,7 +468,7 @@
                         <a href="tel:7604408520" class="block w-full bg-red-600 hover:bg-red-700 text-white font-semibold py-4 px-6 rounded-lg text-center transition mb-4">
                             (760) 440-8520
                         </a>
-                        <a href="../../index.html#contact" class="block w-full border-2 border-primary text-primary hover:bg-primary hover:text-white font-semibold py-4 px-6 rounded-lg text-center transition">
+                        <a href="/contact.html" class="block w-full border-2 border-primary text-primary hover:bg-primary hover:text-white font-semibold py-4 px-6 rounded-lg text-center transition">
                             Request Service
                         </a>
 
@@ -562,7 +574,7 @@
         </div>
     </footer>
     <!-- Lead Generation Components (Sticky Header + Exit Popup) -->
-    <script src="/js/lead-gen.js"></script>
+    
 <script>setTimeout(function(){var s=document.createElement("script");s.src="/js/chat-widget.js?v=5";document.body.appendChild(s)},3000)</script>
 
 <style>#sticky-cta{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:2px solid #e5e7eb;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px;z-index:50;box-shadow:0 -4px 12px rgba(0,0,0,0.1)}#sticky-cta a{flex:1;font-weight:700;padding:12px 16px;border-radius:8px;text-align:center;color:#fff;font-size:14px;text-decoration:none}#sticky-cta .cta-call{background:#dc2626}#sticky-cta .cta-call:hover{background:#b91c1c}#sticky-cta .cta-text{background:#2563eb}#sticky-cta .cta-text:hover{background:#1d4ed8}#sticky-cta .cta-est{background:#4e9271}#sticky-cta .cta-est:hover{background:#3d7a5c}@media(min-width:1024px){#sticky-cta{display:none}}</style>

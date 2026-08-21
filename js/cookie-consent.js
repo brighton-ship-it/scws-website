@@ -79,11 +79,13 @@
 
     var banner = document.createElement('div');
     banner.id = 'scws-cookie-banner';
-    banner.style.cssText = 'position: fixed; left: 0; right: 0; background: rgba(0, 0, 0, 0.8); color: white; padding: 15px; text-align: center; z-index: 1000; font-family: Inter, sans-serif;';
+    banner.style.cssText = 'position:fixed;left:0;right:0;background:rgba(15,23,42,0.96);color:#fff;padding:6px 10px;z-index:1000;font-family:Inter,sans-serif;display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:nowrap;min-height:52px;box-sizing:border-box;';
     banner.innerHTML =
-      '<p style="margin: 0 0 10px 0; font-size: 14px;">We use cookies to enhance your browsing experience and analyze site traffic. By clicking "Accept", you consent to the use of cookies as described in our <a href="/privacy-policy.html" style="color: #4e9271; text-decoration: underline;">Privacy Policy</a>.</p>' +
-      '<button id="acceptCookies" type="button" style="background: #4e9271; color: white; border: none; padding: 8px 16px; margin: 0 5px; cursor: pointer; border-radius: 4px; font-weight: bold;">Accept</button>' +
-      '<button id="rejectCookies" type="button" style="background: #dc2626; color: white; border: none; padding: 8px 16px; margin: 0 5px; cursor: pointer; border-radius: 4px; font-weight: bold;">Reject</button>';
+      '<p style="margin:0;font-size:13px;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;flex:1;min-width:0;">Cookies help us run the site. <a href="/privacy-policy.html" style="color:#86efac;text-decoration:underline;">Privacy</a></p>' +
+      '<span style="display:flex;gap:8px;flex-shrink:0;">' +
+      '<button id="acceptCookies" type="button" style="background:#4e9271;color:#fff;border:none;min-height:44px;min-width:88px;padding:10px 16px;cursor:pointer;border-radius:8px;font-weight:700;font-size:16px;">Accept</button>' +
+      '<button id="rejectCookies" type="button" style="background:#dc2626;color:#fff;border:none;min-height:44px;min-width:88px;padding:10px 16px;cursor:pointer;border-radius:8px;font-weight:700;font-size:16px;">Reject</button>' +
+      '</span>';
     document.body.appendChild(banner);
     positionBanner(banner);
     notify();

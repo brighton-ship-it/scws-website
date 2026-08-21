@@ -99,14 +99,15 @@
   ]
 }
 </script>
+<link rel="stylesheet" href="/css/shop-chrome.css"/>
 </head>
-<body style="padding-bottom:80px">
+<body class="shop-page" style="padding-bottom:80px">
 <!-- Emergency Banner -->
 <div class="bg-gradient-to-r from-red-600 to-red-700 text-white py-2.5">
 <div class="max-w-7xl mx-auto px-4 text-center flex items-center justify-center gap-2 flex-wrap">
 <span class="font-bold tracking-wide">🚨 No Water?</span>
 <span class="hidden sm:inline">Same-day emergency service available.</span>
-<a class="bg-white text-red-600 font-bold px-4 py-1 rounded-full text-sm hover:bg-red-100 transition ml-1" href="tel:7604408520">
+<a class="bg-white text-red-600 font-bold px-4 py-2.5 rounded-full text-sm hover:bg-red-100 transition ml-1" style="min-height:44px;display:inline-flex;align-items:center;" href="tel:7604408520">
                 Call Now →
             </a>
 </div>
@@ -125,9 +126,27 @@
 <a class="text-white hover:text-accent transition whitespace-nowrap" href="/blog/">Resources</a>
 <a class="text-white hover:text-accent transition whitespace-nowrap" href="/faq.html">FAQ</a>
 <a class="text-white hover:text-accent transition whitespace-nowrap" href="/contact.html">Contact</a>
-<a class="text-white font-semibold hover:text-accent transition whitespace-nowrap" href="/cost-calculator.html">Free Estimate</a>
+<a class="text-white font-semibold hover:text-accent transition whitespace-nowrap" href="/cost-calculator.html">Cost Calculator</a>
 <a class="text-white hover:text-accent transition whitespace-nowrap" href="/pages/about.html">About</a>
 </nav>
+<div class="flex items-center gap-2">
+<button type="button" id="mobile-menu-btn" class="shop-menu-btn" aria-label="Open menu">☰</button>
+<a class="site-phone-cta bg-red-600 hover:bg-red-700 text-white font-semibold rounded-lg transition" href="tel:+17604408520">(760) 440-8520</a>
+</div>
+</div>
+</div>
+<div id="mobile-menu" class="hidden shop-mobile-nav bg-primary/95 border-t border-white/10 px-4 py-3">
+<a href="/">Home</a>
+<a href="/pages/services/well-drilling.html">Services</a>
+<a href="/recent-work/">Recent Work</a>
+<a href="/contact.html">Contact</a>
+<a href="/pages/about.html">About</a>
+</div>
+</header>
+<script>
+(function(){var b=document.getElementById('mobile-menu-btn');var m=document.getElementById('mobile-menu');if(b&&m){b.addEventListener('click',function(){m.classList.toggle('hidden');});}})();
+</script>
+
 
 
         
@@ -140,12 +159,12 @@
 
           <section class="city-overview">
             <h2>Well Service in Aguanga</h2>
-            <p>Southern California Well Service has been serving Aguanga for decades. We know the local geology (granite and alluvial valley deposits), typical well depths (200-450ft), and water quality issues (moderate hardness (10-16 grains), iron in granite wells) better than anyone.</p>
+            <p>Southern California Well Service was founded in 2020 and serves Aguanga. We know the local geology (granite and alluvial valley deposits), typical well depths (200-450ft), and water quality issues (moderate hardness (10-16 grains), iron in granite wells) better than anyone.</p>
 
             <div class="service-area-info">
               <h3>Aguanga Service Area</h3>
               <p><strong>Neighborhoods:</strong> Aguanga proper, Radec, Chihuahua Valley, Terwilliger area, Highway 79 corridor</p>
-              <p><strong>Response time:</strong> 55 min from our Ramona headquarters (1077 Main St, Ramona, CA 92065)</p>
+              <p><strong>Response time:</strong> 55 min from our Ramona shop (1077 Main Street, Unit B, Ramona, CA 92065)</p>
               <p><strong>From Anza office:</strong> 15 min</p>
             </div>
 
@@ -218,7 +237,7 @@
           <section class="why-choose-scws">
             <h2>Why Aguanga Trusts SCWS</h2>
             <ul>
-              <li><strong>Local expertise:</strong> We've drilled and serviced Aguanga wells for decades</li>
+              <li><strong>Local expertise:</strong> We service Aguanga wells from our Ramona and Anza shops (founded 2020)</li>
               <li><strong>Know the geology:</strong> granite and alluvial valley deposits requires specific drilling and pump techniques</li>
               <li><strong>Fast response:</strong> 55 min from Ramona, 15 min from Anza</li>
               <li><strong>Licensed & insured:</strong> CSLB #1086994 (C-57 Water Well Drilling)</li>
@@ -254,7 +273,7 @@
           <div class="contact-cta">
             <h2>Call SCWS for Aguanga Well Service</h2>
             <p class="phone-large"><a href="tel:7604408520">(760) 440-8520</a></p>
-            <p><a href="/contact">Request service online</a> | <a href="/about">About SCWS</a></p>
+            <p><a href="/contact.html">Request service online</a> | <a href="/pages/about.html">About SCWS</a></p>
             <p class="license">Licensed & Insured | CSLB #1086994 | Serving Aguanga since 2020</p>
           </div>
         
@@ -272,7 +291,7 @@
 </div>
 <div class="bg-gray-50 rounded-lg p-4 mb-3">
   <h3 class="font-bold text-gray-900 mb-2">How much does well drilling cost in your area?</h3>
-  <p class="text-gray-700">Well drilling in your area typically costs $45-$85 per foot, with most wells totaling </main>5,000-$45,000 depending on depth, casing requirements, and equipment needed. We provide free estimates before any work begins.</p>
+  <p class="text-gray-700">Well drilling in your area typically costs $45-$85 per foot, with most wells totaling $15,000-$45,000 depending on depth, casing requirements, and equipment needed. We provide free estimates before any work begins.</p>
 </div>
 
 </main>
@@ -291,3 +310,19 @@
   <p><a href="/recent-work/">See all recent work →</a></p>
 </section>
 <
+
+<footer class="footer shop-footer-nap" style="background:#0f172a;color:#94a3b8;padding:2rem 1rem;">
+<p><strong style="color:#fff;">Southern California Well Service</strong></p>
+<p>Voice <a href="tel:+17604408520">(760) 440-8520</a> · Text <a href="sms:7602195877">(760) 219-5877</a></p>
+<p>1077 Main Street, Unit B, Ramona, CA 92065 · 57174 CA-371 (US Hwy 79), Anza, CA 92539</p>
+<p>Mon–Fri 7:00am–5:00pm PT · Emergency 24/7 · CSLB License #1086994 (C-57)</p>
+</footer>
+
+<div id="sticky-cta">
+<a class="cta-call" href="tel:+17604408520">Call</a>
+<a class="cta-text" href="sms:7602195877" title="Text-only line: (760) 219-5877">Text</a>
+<a class="cta-est" href="/contact.html">Estimate</a>
+</div>
+
+</body>
+</html>

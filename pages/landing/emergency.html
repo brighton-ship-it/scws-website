@@ -50,8 +50,9 @@
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/css/shop-chrome.css"/>
 </head>
-<body class="bg-white">
+<body class="shop-page bg-white">
     <!-- Urgent Header -->
     <header class="bg-emergency text-white py-3 text-center">
         <div class="flex items-center justify-center space-x-2">
@@ -165,6 +166,12 @@
                             placeholder="(760) 555-1234">
                     </div>
                     <div>
+                        <label for="address" class="block text-sm font-medium text-gray-700 mb-1">Property Address *</label>
+                        <input type="text" id="address" name="address" required
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emergency focus:border-emergency transition"
+                            placeholder="Street address">
+                    </div>
+                    <div>
                         <label for="city" class="block text-sm font-medium text-gray-700 mb-1">City *</label>
                         <input type="text" id="city" name="city" required
                             class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emergency focus:border-emergency transition"
@@ -229,7 +236,7 @@
         <p class="mt-2">Serving San Diego, Riverside, and San Bernardino Counties</p>
     </footer>
     <!-- Lead Generation Components (Sticky Header + Exit Popup) -->
-    <script src="/js/lead-gen.js"></script>
+    
     <script>setTimeout(function(){var s=document.createElement("script");s.src="/js/chat-widget.js?v=5";document.body.appendChild(s)},3000)</script>
     <script>
         // Populate UTM fields
@@ -252,7 +259,7 @@
                 customer_name: formData.get('name') || '',
                 phone: formData.get('phone') || '',
                 email: '',
-                address: 'Not provided',
+                address: formData.get('address') || 'Not provided',
                 city: formData.get('city') || 'San Diego County',
                 service_type: 'no_water',
                 notes: formData.get('message') || '',
