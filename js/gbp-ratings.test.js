@@ -19,7 +19,8 @@ function homepageMount() {
       '<div class="gbp-ratings-shops" data-gbp-shops>' +
         '<p class="text-gray-600">' +
           '<a href="https://g.page/r/CU9X_NG3TvP2EBM/review" target="_blank" rel="noopener">Ramona</a>' +
-          ' · ' +
+        '</p>' +
+        '<p class="text-gray-600">' +
           '<a href="https://www.google.com/maps/place/57174+CA-371,+Anza,+CA+92539" target="_blank" rel="noopener">Anza</a>' +
         '</p>' +
       '</div>' +
@@ -123,6 +124,22 @@ async function run() {
     /\(\d+\)/
   );
 
+  var unavailable = loadWidget(function () {
+    return jsonResponse({ error: 'gbp_unavailable' }, 502);
+  });
+  await wait(20);
+  var unavailableShops = unavailable.document.querySelector('[data-gbp-shops]').innerHTML;
+  assert.strictEqual(
+    unavailable.document.querySelector('[data-gbp-heading]').textContent,
+    'Google reviews'
+  );
+  assert.match(unavailableShops, /g\.page\/r\/CU9X_NG3TvP2EBM\/review/);
+  assert.match(unavailableShops, /57174\+CA-371/);
+  assert.doesNotMatch(unavailableShops, /CU9X_NG3TvP2EBM[\s\S]*CU9X_NG3TvP2EBM/);
+  assert.doesNotMatch(unavailableShops, /\(\d+\)/);
+  assert.doesNotMatch(unavailableShops, /4\.9/);
+  assert.doesNotMatch(unavailableShops, /127/);
+
   var html404 = loadWidget(function () {
     return jsonResponse({ ramona: { rating: 4.7, count: 61 } }, 404);
   });
@@ -152,9 +169,18 @@ async function run() {
     anza: { rating: 'nope' }
   }), 'Ramona 4.6 (10)');
 
+  var withAnzaUrl = api.shopsHtml({
+    ramona: { rating: 4.6, count: 10 },
+    anza: { rating: 4.8, count: 22, url: 'https://example.com/anza' },
+    updated: '2026-08-21T00:00:00Z'
+  });
+  assert.match(withAnzaUrl, /https:\/\/example.com\/anza/);
+  assert.doesNotMatch(withAnzaUrl, /CU9X_NG3TvP2EBM/);
+
   var fallback = api.fallbackShopsHtml();
   assert.match(fallback, /Ramona/);
   assert.match(fallback, /Anza/);
+  assert.match(fallback, /<\/p>\s*<p class="text-gray-600">/);
   assert.doesNotMatch(fallback, /4\.9/);
   assert.doesNotMatch(fallback, /127/);
   assert.doesNotMatch(fallback, /\(\d+\)/);

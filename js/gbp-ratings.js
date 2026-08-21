@@ -113,7 +113,8 @@
     return (
       '<p class="text-gray-600">' +
         '<a href="' + RAMONA_REVIEWS + '" target="_blank" rel="noopener">Ramona</a>' +
-        ' · ' +
+      '</p>' +
+      '<p class="text-gray-600">' +
         '<a href="' + ANZA_LISTING + '" target="_blank" rel="noopener">Anza</a>' +
       '</p>'
     );
