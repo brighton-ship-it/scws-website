@@ -165,13 +165,16 @@ def generate_page(city, service_slug, service_data, output_dir):
     html = f'''<!DOCTYPE html>
 <html lang="en">
 <head>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KR42LY3LF7"></script>
+    <script src="/js/ga4-filter.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LL1YRWT5T"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){{dataLayer.push(arguments);}}
         gtag('js', new Date());
-        gtag('config', 'G-KR42LY3LF7');
+        gtag('config', 'G-5LL1YRWT5T');
+        gtag('config', 'AW-490838730');
     </script>
+    <script src="/js/call-tracking.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="{meta_desc}">
@@ -343,13 +346,16 @@ def generate_city_index(city, output_dir):
     html = f'''<!DOCTYPE html>
 <html lang="en">
 <head>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KR42LY3LF7"></script>
+    <script src="/js/ga4-filter.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LL1YRWT5T"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){{dataLayer.push(arguments);}}
         gtag('js', new Date());
-        gtag('config', 'G-KR42LY3LF7');
+        gtag('config', 'G-5LL1YRWT5T');
+        gtag('config', 'AW-490838730');
     </script>
+    <script src="/js/call-tracking.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Well services in {city_name}, CA. Well pump repair, drilling, water testing & more. Licensed C-57 contractor. Call (760) 440-8520.">

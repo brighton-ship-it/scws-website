@@ -327,18 +327,6 @@
             submitBtn.disabled = true;
             submitBtn.textContent = 'Processing...';
             
-            // Track conversion
-            gtag('event', 'generate_lead', {
-                'event_category': 'lead_magnet',
-                'event_label': 'well_pump_guide_download',
-                'value': 50
-            });
-            gtag('event', 'conversion', {
-                'send_to': 'AW-490838730/aFiRCMDlofAbEMq1huoB',
-                'value': 50,
-                'currency': 'USD'
-            });
-            
             try {
                 // Build CRM payload
                 const formData = new FormData(form);
@@ -378,6 +366,18 @@
                 }).catch(() => {});
                 
                 if (response.ok) {
+                    if (typeof gtag === 'function') {
+                        gtag('event', 'generate_lead', {
+                            'event_category': 'lead_magnet',
+                            'event_label': 'well_pump_guide_download',
+                            'value': 50
+                        });
+                        gtag('event', 'conversion', {
+                            'send_to': 'AW-490838730/aFiRCMDlofAbEMq1huoB',
+                            'value': 50,
+                            'currency': 'USD'
+                        });
+                    }
                     // Show success message with download button
                     formContainer.classList.add('hidden');
                     successMessage.classList.add('show');

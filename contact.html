@@ -3,6 +3,7 @@
 <head>
     <!-- Google Analytics + Ads Conversion Tracking -->
     <script src="/js/ga4-filter.js"></script>
+    <script src="/js/cookie-consent.js"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LL1YRWT5T"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -378,8 +379,8 @@
     
     <!-- Lead Generation Components (Sticky Header + Exit Popup) -->
 <script src="js/utm-tracking.js"></script>
-<script src="js/cookie-consent.js"></script>
-    <!-- Lead Capture (Sticky Phone Bar + Exit Intent) -->
+
+<!-- Lead Capture (Sticky Phone Bar + Exit Intent) -->
     <script src="js/lead-capture.js"></script>
     
     <!-- Conversion Tracking + CRM Integration -->
@@ -391,21 +392,14 @@
             const form = document.getElementById('contact-form');
             const submitBtn = form.querySelector('button[type="submit"]');
             const formData = new FormData(form);
+
+            if ((formData.get('website_url') || '').trim()) {
+                return false;
+            }
             
             // Disable button and show loading
             submitBtn.disabled = true;
             submitBtn.textContent = 'Sending...';
-            
-            // Track conversions
-            if (typeof gtag !== 'undefined') {
-                gtag('event', 'generate_lead', {
-                    'event_category': 'Contact',
-                    'event_label': 'Contact Form Submission'
-                });
-                gtag('event', 'conversion', {
-                    'send_to': 'AW-490838730/contact_form_submit'
-                });
-            }
             
             // Map service types to CRM format
             const serviceMap = {
@@ -441,6 +435,15 @@
             })
             .then(response => {
                 if (response.ok) {
+                    if (typeof gtag === 'function') {
+                        gtag('event', 'generate_lead', {
+                            'event_category': 'Contact',
+                            'event_label': 'Contact Form Submission'
+                        });
+                        gtag('event', 'conversion', {
+                            'send_to': 'AW-490838730/contact_form_submit'
+                        });
+                    }
                     // Show success message
                     form.innerHTML = '<div class="text-center py-8"><div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4"><svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div><h3 class="text-xl font-bold text-primary mb-2">Thank You!</h3><p class="text-gray-600 mb-4">We\'ve received your request and will call you back shortly.</p><a href="tel:7604408520" class="text-accent font-semibold hover:underline">Or call us now: (760) 440-8520</a></div>';
                 } else {
@@ -457,24 +460,7 @@
             return false;
         }
         
-        // Track all click-to-call events
-        document.addEventListener('DOMContentLoaded', function() {
-            document.querySelectorAll('a[href^="tel:"]').forEach(function(link) {
-                link.addEventListener('click', function() {
-                    if (typeof gtag !== 'undefined') {
-                        // GA4 event
-                        gtag('event', 'click_to_call', {
-                            'event_category': 'Contact',
-                            'event_label': this.href.replace('tel:', '')
-                        });
-                        // Google Ads conversion
-                        gtag('event', 'conversion', {
-                            'send_to': 'AW-490838730/click_to_call'
-                        });
-                    }
-                });
-            });
-        });
+        // Phone taps: js/call-tracking.js fires a single call_click
     </script>
 
 <style>#sticky-cta{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:2px solid #e5e7eb;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px;z-index:50;box-shadow:0 -4px 12px rgba(0,0,0,0.1)}#sticky-cta a{flex:1;font-weight:700;padding:12px 16px;border-radius:8px;text-align:center;color:#fff;font-size:14px;text-decoration:none}#sticky-cta .cta-call{background:#dc2626}#sticky-cta .cta-call:hover{background:#b91c1c}#sticky-cta .cta-text{background:#2563eb}#sticky-cta .cta-text:hover{background:#1d4ed8}#sticky-cta .cta-est{background:#4e9271}#sticky-cta .cta-est:hover{background:#3d7a5c}@media(min-width:1024px){#sticky-cta{display:none}}</style>

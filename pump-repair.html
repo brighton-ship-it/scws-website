@@ -324,10 +324,6 @@
             submitBtn.disabled = true;
             submitBtn.textContent = 'Sending...';
             
-            // Track conversion
-            gtag('event', 'conversion', { 'send_to': 'AW-490838730/form_submit' });
-            gtag('event', 'generate_lead', { 'event_category': 'engagement', 'value': 100 });
-            
             fetch(form.action, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -335,6 +331,10 @@
             })
             .then(response => {
                 if (response.ok) {
+                    if (typeof gtag === 'function') {
+                        gtag('event', 'conversion', { 'send_to': 'AW-490838730/form_submit' });
+                        gtag('event', 'generate_lead', { 'event_category': 'engagement', 'value': 100 });
+                    }
                     form.innerHTML = '<div style="text-align:center;padding:2rem;"><h3 style="color:#16a34a;">✓ Request Received!</h3><p>We\'ll call you back within a few hours.</p><p style="margin-top:1rem;"><strong>Need help sooner?</strong> Call <a href="tel:+17604408520" style="color:#1e40af;">(760) 440-8520</a></p></div>';
                 } else {
                     throw new Error('Submit failed');

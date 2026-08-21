@@ -34,8 +34,8 @@ for (const file of walk(ROOT)) {
   if (!html.includes('G-5LL1YRWT5T')) { skipped++; continue; }
   
   // Insert after the GA4 config block closing </script>
-  // Pattern: gtag('config', 'G-5LL1YRWT5T'); followed by </script>
-  const pattern = /(gtag\('config',\s*'G-5LL1YRWT5T'\);?\s*<\/script>)/;
+  // Pattern: last gtag('config', ...) in the first gtag snippet, then </script>
+  const pattern = /(gtag\('config',\s*'(?:G-5LL1YRWT5T|AW-490838730)'\);?\s*<\/script>)/;
   if (pattern.test(html)) {
     html = html.replace(pattern, '$1\n    ' + SCRIPT_TAG);
     fs.writeFileSync(file, html);

@@ -92,12 +92,14 @@ def page_html(project: dict) -> str:
 <html lang="en">
 <head>
 <script src="/js/ga4-filter.js"></script>
+<script src="/js/cookie-consent.js"></script>
 <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-5LL1YRWT5T"></script>
 <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){{dataLayer.push(arguments);}}
     gtag('js', new Date());
         gtag('config', 'G-5LL1YRWT5T');
+        gtag('config', 'AW-490838730');
     </script>
     <script src="/js/call-tracking.js"></script>
 <meta charset="utf-8"/>
@@ -320,7 +322,6 @@ def page_html(project: dict) -> str:
         sync();
     }});
 </script>
-<script src="/js/cookie-consent.js"></script>
 <script>setTimeout(function(){{var s=document.createElement("script");s.src="/js/chat-widget.js?v=4";document.body.appendChild(s)}},3000)</script>
 </body>
 </html>
