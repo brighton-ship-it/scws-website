@@ -20,6 +20,10 @@
  *   Voice (primary): (760) 440-8520 / tel:+17604408520
  *   Text-only:       (760) 219-5877 / sms:7602195877
  *   Former Ransom:   (760) 789-5955 (label it if it stays)
+ *
+ * Yelp (claimed Ramona listing; no separate Anza page):
+ *   https://www.yelp.com/biz/southern-california-well-service-ramona
+ *   Awareness only — never link /writeareview or ask for a Yelp review.
  */
 (function (root) {
   root.SCWS_SITE = {
@@ -38,6 +42,7 @@
     ramonaZip: '92065',
     anza: '57174 CA-371 (US Hwy 79), Anza, CA 92539',
     anzaStreet: '57174 CA-371 (US Hwy 79)',
-    anzaZip: '92539'
+    anzaZip: '92539',
+    yelpUrl: 'https://www.yelp.com/biz/southern-california-well-service-ramona'
   };
 })(window);
