@@ -322,7 +322,7 @@ def page_html(project: dict) -> str:
         sync();
     }});
 </script>
-<script>setTimeout(function(){{var s=document.createElement("script");s.src="/js/chat-widget.js?v=4";document.body.appendChild(s)}},3000)</script>
+<script>setTimeout(function(){{var s=document.createElement("script");s.src="/js/chat-widget.js?v=5";document.body.appendChild(s)}},3000)</script>
 </body>
 </html>
 """
