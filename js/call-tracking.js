@@ -1,7 +1,8 @@
 /**
- * SCWS Click-to-Call Conversion Tracking
- * Tracks all tel: link clicks as GA4 events with source attribution
- * Works with single number (760) 440-8520 across all pages
+ * SCWS Click-to-Call / Click-to-Text Conversion Tracking
+ * Tracks tel: and sms: clicks as GA4 events with source attribution
+ * Works with voice (760) 440-8520 and text (760) 219-5877
+ * Ads phone conversion is voice-only — never sent on SMS clicks
  */
 (function() {
   'use strict';
@@ -30,11 +31,34 @@
     return window.location.pathname.replace(/\.html$/, '').replace(/\/$/, '') || '/';
   }
 
-  // Attach click listeners to all tel: links
+  // Optional A/B params — only if another PR has set window.scwsAb
+  function getAbParams() {
+    var extra = {};
+    var ab = window.scwsAb;
+    if (!ab || typeof ab !== 'object') return extra;
+    if (ab.expId || ab.experimentId || ab.id) {
+      extra.exp_id = ab.expId || ab.experimentId || ab.id;
+    }
+    if (ab.variant || ab.expVariant) {
+      extra.exp_variant = ab.variant || ab.expVariant;
+    }
+    return extra;
+  }
+
+  function bindOnce(el, handler) {
+    if (!el || el.getAttribute('data-scws-tracked') === '1') return;
+    el.setAttribute('data-scws-tracked', '1');
+    el.addEventListener('click', handler);
+  }
+
   function attachListeners() {
-    var links = document.querySelectorAll('a[href^="tel:"]');
-    for (var i = 0; i < links.length; i++) {
-      links[i].addEventListener('click', handleCallClick);
+    var calls = document.querySelectorAll('a[href^="tel:"]');
+    for (var i = 0; i < calls.length; i++) {
+      bindOnce(calls[i], handleCallClick);
+    }
+    var texts = document.querySelectorAll('a[href^="sms:"]');
+    for (var j = 0; j < texts.length; j++) {
+      bindOnce(texts[j], handleTextClick);
     }
   }
 
@@ -42,30 +66,31 @@
     var source = getTrafficSource();
     var page = getPagePath();
     var isOrganic = source.indexOf('organic') !== -1;
+    var extra = getAbParams();
     
     // Fire GA4 event
     if (typeof gtag === 'function') {
       // Primary event — all call clicks
-      gtag('event', 'call_click', {
+      gtag('event', 'call_click', Object.assign({
         'event_category': 'engagement',
         'event_label': page,
         'traffic_source': source,
         'is_organic': isOrganic,
         'page_path': page,
         'page_title': document.title
-      });
+      }, extra));
 
       // Organic-specific conversion event
       if (isOrganic) {
-        gtag('event', 'seo_call_conversion', {
+        gtag('event', 'seo_call_conversion', Object.assign({
           'event_category': 'conversion',
           'event_label': page,
           'search_engine': source.split('/')[0],
           'landing_page': page
-        });
+        }, extra));
       }
 
-      // Google Ads conversion (if from paid)
+      // Google Ads conversion (if from paid) — voice only
       if (source === 'google_ads') {
         gtag('event', 'conversion', {
           'send_to': 'AW-490838730/aFiRCMDlofAbEMq1huoB'
@@ -77,6 +102,27 @@
     console.log('[SCWS Call Tracking]', source, page);
   }
 
+  function handleTextClick(e) {
+    var source = getTrafficSource();
+    var page = getPagePath();
+    var isOrganic = source.indexOf('organic') !== -1;
+    var extra = getAbParams();
+
+    if (typeof gtag === 'function') {
+      gtag('event', 'text_click', Object.assign({
+        'event_category': 'engagement',
+        'event_label': page,
+        'traffic_source': source,
+        'is_organic': isOrganic,
+        'page_path': page,
+        'page_title': document.title
+      }, extra));
+    }
+
+    // Do not send the Google Ads phone conversion on text clicks
+    console.log('[SCWS Text Tracking]', source, page);
+  }
+
   // Run on DOM ready
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', attachListeners);
@@ -84,15 +130,26 @@
     attachListeners();
   }
 
-  // Also catch dynamically added tel: links (e.g., chat widget, popups)
+  // Also catch dynamically added tel: / sms: links (e.g., chat widget, popups)
   var observer = new MutationObserver(function(mutations) {
     for (var i = 0; i < mutations.length; i++) {
       var added = mutations[i].addedNodes;
       for (var j = 0; j < added.length; j++) {
-        if (added[j].querySelectorAll) {
-          var newLinks = added[j].querySelectorAll('a[href^="tel:"]');
-          for (var k = 0; k < newLinks.length; k++) {
-            newLinks[k].addEventListener('click', handleCallClick);
+        var node = added[j];
+        if (node.nodeType === 1 && node.matches && node.matches('a[href^="tel:"]')) {
+          bindOnce(node, handleCallClick);
+        }
+        if (node.nodeType === 1 && node.matches && node.matches('a[href^="sms:"]')) {
+          bindOnce(node, handleTextClick);
+        }
+        if (node.querySelectorAll) {
+          var newCalls = node.querySelectorAll('a[href^="tel:"]');
+          for (var k = 0; k < newCalls.length; k++) {
+            bindOnce(newCalls[k], handleCallClick);
+          }
+          var newTexts = node.querySelectorAll('a[href^="sms:"]');
+          for (var n = 0; n < newTexts.length; n++) {
+            bindOnce(newTexts[n], handleTextClick);
           }
         }
       }

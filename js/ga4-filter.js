@@ -1,9 +1,30 @@
 /**
- * GA4 Bot Filter
+ * GA4 Bot Filter + Consent Mode honor
  * Prevents GA4 from tracking obvious bot/scraper traffic
  * Load BEFORE the GA4 snippet
+ *
+ * If the visitor already accepted/rejected cookies on a page with the
+ * banner, honor that decision here so city/other pages stay consistent.
  */
 (function() {
+  window.dataLayer = window.dataLayer || [];
+  if (typeof window.gtag !== 'function') {
+    window.gtag = function () { window.dataLayer.push(arguments); };
+  }
+  try {
+    var storedConsent = localStorage.getItem('cookieConsent');
+    if (storedConsent === 'accepted' || storedConsent === 'rejected') {
+      var granted = storedConsent === 'accepted';
+      window.gtag('consent', 'default', {
+        analytics_storage: granted ? 'granted' : 'denied',
+        ad_storage: granted ? 'granted' : 'denied'
+      });
+      if (!granted) {
+        window['ga-disable-G-5LL1YRWT5T'] = true;
+      }
+    }
+  } catch (e) {}
+
   var dominated = false;
 
   // 1. Check for headless browser indicators

@@ -3,6 +3,7 @@
 <head>
     <!-- Google Analytics + Ads Conversion Tracking -->
     <script src="/js/ga4-filter.js"></script>
+    <script src="/js/cookie-consent.js"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LL1YRWT5T"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -378,8 +379,8 @@
     
     <!-- Lead Generation Components (Sticky Header + Exit Popup) -->
 <script src="js/utm-tracking.js"></script>
-<script src="js/cookie-consent.js"></script>
-    <!-- Lead Capture (Sticky Phone Bar + Exit Intent) -->
+
+<!-- Lead Capture (Sticky Phone Bar + Exit Intent) -->
     <script src="js/lead-capture.js"></script>
     
     <!-- Conversion Tracking + CRM Integration -->
@@ -391,21 +392,14 @@
             const form = document.getElementById('contact-form');
             const submitBtn = form.querySelector('button[type="submit"]');
             const formData = new FormData(form);
+
+            if ((formData.get('website_url') || '').trim()) {
+                return false;
+            }
             
             // Disable button and show loading
             submitBtn.disabled = true;
             submitBtn.textContent = 'Sending...';
-            
-            // Track conversions
-            if (typeof gtag !== 'undefined') {
-                gtag('event', 'generate_lead', {
-                    'event_category': 'Contact',
-                    'event_label': 'Contact Form Submission'
-                });
-                gtag('event', 'conversion', {
-                    'send_to': 'AW-490838730/contact_form_submit'
-                });
-            }
             
             // Map service types to CRM format
             const serviceMap = {
@@ -441,6 +435,15 @@
             })
             .then(response => {
                 if (response.ok) {
+                    if (typeof gtag === 'function') {
+                        gtag('event', 'generate_lead', {
+                            'event_category': 'Contact',
+                            'event_label': 'Contact Form Submission'
+                        });
+                        gtag('event', 'conversion', {
+                            'send_to': 'AW-490838730/contact_form_submit'
+                        });
+                    }
                     // Show success message
                     form.innerHTML = '<div class="text-center py-8"><div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4"><svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></div><h3 class="text-xl font-bold text-primary mb-2">Thank You!</h3><p class="text-gray-600 mb-4">We\'ve received your request and will call you back shortly.</p><a href="tel:7604408520" class="text-accent font-semibold hover:underline">Or call us now: (760) 440-8520</a></div>';
                 } else {

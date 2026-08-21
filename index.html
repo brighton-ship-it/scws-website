@@ -6,6 +6,7 @@
     
     <!-- Google Analytics (GA4) + Google Ads Conversion Tracking -->
     <script src="/js/ga4-filter.js"></script>
+    <script src="/js/cookie-consent.js"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LL1YRWT5T"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -72,24 +73,6 @@
             submitBtn.disabled = true;
             submitBtn.textContent = 'Sending...';
             
-            // Track conversions FIRST
-            // GA4 form submission event
-            gtag('event', 'ads_conversion_submit_lead_form', {
-                'event_category': 'lead',
-                'event_label': 'contact_form_submit'
-            });
-            gtag('event', 'generate_lead', {
-                'event_category': 'engagement',
-                'value': 150
-            });
-            // Google Ads conversion
-            gtag('event', 'conversion', {
-                'send_to': 'AW-490838730/aFiRCMDlofAbEMq1huoB',
-                'value': 150,
-                'currency': 'USD'
-            });
-            console.log('Tracking: Form submitted');
-            
             // Map service types to CRM format
             const serviceMap = {
                 'pump-repair': 'pump_repair',
@@ -131,6 +114,23 @@
             })
             .then(response => {
                 if (response.ok) {
+                    // Count a lead only after CRM accepts the POST
+                    if (typeof gtag === 'function') {
+                        gtag('event', 'ads_conversion_submit_lead_form', {
+                            'event_category': 'lead',
+                            'event_label': 'contact_form_submit'
+                        });
+                        gtag('event', 'generate_lead', {
+                            'event_category': 'engagement',
+                            'value': 150
+                        });
+                        gtag('event', 'conversion', {
+                            'send_to': 'AW-490838730/aFiRCMDlofAbEMq1huoB',
+                            'value': 150,
+                            'currency': 'USD'
+                        });
+                    }
+                    console.log('Tracking: Form submitted');
                     // Also submit to Formspree as email backup
                     fetch('https://formspree.io/f/maqjggnz', {
                         method: 'POST',
@@ -1362,8 +1362,8 @@
     
         <script src="js/site-info.js"></script>
         <script src="js/utm-tracking.js"></script>
-<script src="js/cookie-consent.js"></script>
-    <!-- SCWS Live Chat Widget -->
+
+<!-- SCWS Live Chat Widget -->
     <script>setTimeout(function(){var s=document.createElement("script");s.src="js/chat-widget.js?v=4";document.body.appendChild(s)},3000)</script>
     <!-- Lead Capture (Sticky Phone Bar + Exit Intent) -->
     <script src="js/lead-capture.js"></script>

@@ -1,9 +1,59 @@
 /* Cookie Consent Banner for SCWS
  * Sits above the mobile sticky Call/Text/Estimate bar so the call CTA
  * stays fully visible and tappable.
+ *
+ * Consent Mode: this file must load BEFORE gtag.js so the default
+ * (denied, or the stored accepted/rejected choice) is set first.
  */
 
 (function () {
+  var STORAGE_KEY = 'cookieConsent';
+  var GA_ID = 'G-5LL1YRWT5T';
+
+  function getStoredConsent() {
+    try { return localStorage.getItem(STORAGE_KEY); } catch (e) { return null; }
+  }
+
+  function ensureGtag() {
+    window.dataLayer = window.dataLayer || [];
+    if (typeof window.gtag !== 'function') {
+      window.gtag = function () { window.dataLayer.push(arguments); };
+    }
+  }
+
+  function consentParams(granted) {
+    return {
+      analytics_storage: granted ? 'granted' : 'denied',
+      ad_storage: granted ? 'granted' : 'denied'
+    };
+  }
+
+  function applyDisableFlag(granted) {
+    window['ga-disable-' + GA_ID] = !granted;
+  }
+
+  // Immediate: Consent Mode default before any gtag config / page_view
+  ensureGtag();
+  var stored = getStoredConsent();
+  if (stored === 'accepted') {
+    gtag('consent', 'default', consentParams(true));
+    applyDisableFlag(true);
+  } else if (stored === 'rejected') {
+    gtag('consent', 'default', consentParams(false));
+    applyDisableFlag(false);
+  } else {
+    gtag('consent', 'default', Object.assign({
+      wait_for_update: 500
+    }, consentParams(false)));
+  }
+
+  function updateConsent(value) {
+    var granted = value === 'accepted';
+    ensureGtag();
+    gtag('consent', 'update', consentParams(granted));
+    applyDisableFlag(granted);
+  }
+
   function stickyVisible() {
     var sticky = document.getElementById('sticky-cta');
     if (!sticky) return false;
@@ -45,6 +95,7 @@
 
     function dismiss(value) {
       localStorage.setItem('cookieConsent', value);
+      updateConsent(value);
       banner.style.display = 'none';
       notify();
     }
@@ -55,7 +106,6 @@
 
     document.getElementById('rejectCookies').addEventListener('click', function () {
       dismiss('rejected');
-      window['ga-disable-G-5LL1YRWT5T'] = true;
     });
   });
 })();

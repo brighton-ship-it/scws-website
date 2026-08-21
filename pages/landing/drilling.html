@@ -279,21 +279,6 @@
             submitBtn.disabled = true;
             submitBtn.textContent = 'Sending...';
             
-            // Track conversions
-            gtag('event', 'ads_conversion_submit_lead_form', {
-                'event_category': 'lead',
-                'event_label': 'drilling_landing_form'
-            });
-            gtag('event', 'generate_lead', {
-                'event_category': 'engagement',
-                'value': 500
-            });
-            gtag('event', 'conversion', {
-                'send_to': 'AW-490838730/aFiRCMDlofAbEMq1huoB',
-                'value': 500,
-                'currency': 'USD'
-            });
-            
             // Build CRM payload
             const crmData = {
                 customer_name: formData.get('name') || '',
@@ -324,6 +309,24 @@
                 }
             })
             .then(response => {
+                if (!response.ok) {
+                    throw new Error('Form submission failed');
+                }
+                if (typeof gtag === 'function') {
+                    gtag('event', 'ads_conversion_submit_lead_form', {
+                        'event_category': 'lead',
+                        'event_label': 'drilling_landing_form'
+                    });
+                    gtag('event', 'generate_lead', {
+                        'event_category': 'engagement',
+                        'value': 500
+                    });
+                    gtag('event', 'conversion', {
+                        'send_to': 'AW-490838730/aFiRCMDlofAbEMq1huoB',
+                        'value': 500,
+                        'currency': 'USD'
+                    });
+                }
                 // Also submit to Formspree as email backup
                 fetch('https://formspree.io/f/maqjggnz', {
                     method: 'POST',
