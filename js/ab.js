@@ -168,17 +168,19 @@
     if (!callLink) return;
 
     // Keep the existing tel: node so Google Ads can still swap the voice number.
+    // Short labels only — long “Call (760) …” plus minWidth blows a ~390px row.
     if (!callLink.getAttribute('href')) callLink.setAttribute('href', VOICE_TEL);
-    callLink.textContent = 'Call ' + VOICE_DISPLAY;
-    callLink.style.minWidth = '11.5rem';
+    callLink.textContent = 'Call';
+    callLink.title = 'Call ' + VOICE_DISPLAY;
+    callLink.style.minWidth = '';
     callLink.style.textAlign = 'center';
 
     var textLink = callLink.cloneNode(false);
     textLink.setAttribute('href', TEXT_SMS);
     textLink.removeAttribute('onclick');
-    textLink.textContent = 'Text ' + TEXT_DISPLAY;
+    textLink.textContent = 'Text';
     textLink.title = 'Text-only line: ' + TEXT_DISPLAY;
-    textLink.style.minWidth = '11.5rem';
+    textLink.style.minWidth = '';
     textLink.style.textAlign = 'center';
 
     if (callLink.parentNode) {

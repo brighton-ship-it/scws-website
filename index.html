@@ -24,7 +24,7 @@
             'phone_conversion_number': '(760) 440-8520'
         });
     </script>
-    <script src="/js/ab.js"></script>
+    <script src="/js/ab.js?v=20260821b"></script>
     <script>
         // Clicks are not leads. generate_lead fires only after a successful CRM POST.
         function trackFormClick() {
@@ -162,7 +162,7 @@
     <meta name="twitter:description" content="Well drilling and pump repair from Ramona and Anza. Call (760) 440-8520 or text (760) 219-5877. Emergency 24/7.">
     <link rel="icon" type="image/png" href="images/logo-text-only-3x.png">
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/shop-chrome.css">
+    <link rel="stylesheet" href="css/shop-chrome.css?v=20260821b">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -455,7 +455,7 @@
     <div id="scws-emergency-cta" class="bg-gradient-to-r from-red-600 to-red-700 text-white">
         <div class="max-w-7xl mx-auto px-4 text-center flex items-center justify-center gap-2 flex-nowrap">
             <span class="font-bold tracking-wide">🚨 No Water?</span>
-            <span class="hidden sm:inline">Same-day emergency service available.</span>
+            <span class="scws-emergency-note hidden sm:inline">Same-day emergency service available.</span>
             <a href="tel:7604408520" class="bg-white text-red-600 font-bold px-4 py-2 rounded-full text-sm hover:bg-red-100 transition ml-1">
                 Call Now →
             </a>
@@ -535,10 +535,12 @@
                     </p>
                     <div class="hero-cta-row flex flex-row flex-nowrap items-center gap-2 sm:gap-4 justify-center lg:justify-start">
                         <a href="tel:7604408520" onclick="trackPhoneClick()" class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-4 sm:py-4 sm:px-8 rounded-lg text-center text-base sm:text-lg transition shadow-lg whitespace-nowrap">
-                            Call (760) 440-8520
+                            <span class="hero-cta-full">Call (760) 440-8520</span>
+                            <span class="hero-cta-short">Call</span>
                         </a>
                         <a href="#contact" class="border-2 border-white hover:bg-white hover:text-primary text-white font-semibold py-3 px-4 sm:py-4 sm:px-8 rounded-lg text-center text-base sm:text-lg transition backdrop-blur-sm bg-white/10 whitespace-nowrap">
-                            Get Estimate
+                            <span class="hero-cta-full">Get Estimate</span>
+                            <span class="hero-cta-short">Estimate</span>
                         </a>
                     </div>
                 </div>
