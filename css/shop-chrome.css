@@ -13,8 +13,15 @@ body.shop-page {
 #scws-emergency-cta {
   background: linear-gradient(90deg, #dc2626, #b91c1c);
   color: #fff;
-  padding: 0.45rem 0.75rem;
+  padding: 0.25rem 0.75rem;
   text-align: center;
+}
+#scws-emergency-cta > div {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
 }
 #scws-emergency-cta a[href^="tel:"],
 #scws-emergency-cta a[href^="sms:"] {
@@ -29,9 +36,50 @@ body.shop-page {
   border-radius: 999px;
   text-decoration: none;
   font-size: 0.95rem;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 #scws-emergency-cta a[href^="sms:"] {
   background: #fff7ed;
+}
+@media (max-width: 767px) {
+  #scws-emergency-cta {
+    padding: 0.35rem 0.5rem;
+  }
+  #scws-emergency-cta > div {
+    gap: 0.35rem;
+  }
+  #scws-emergency-cta a[href^="tel:"],
+  #scws-emergency-cta a[href^="sms:"] {
+    min-width: 0 !important;
+    padding: 0.4rem 0.65rem;
+    font-size: 0.8125rem;
+  }
+  /* Variant: keep Call + Text on one row. Full number stays on the header button. */
+  #scws-emergency-cta:has(a[href^="sms:"]) a[href^="tel:"],
+  #scws-emergency-cta:has(a[href^="sms:"]) a[href^="sms:"] {
+    font-size: 0;
+  }
+  #scws-emergency-cta:has(a[href^="sms:"]) a[href^="tel:"]::before {
+    content: "Call";
+    font-size: 0.875rem;
+    font-weight: 700;
+  }
+  #scws-emergency-cta:has(a[href^="sms:"]) a[href^="sms:"]::before {
+    content: "Text";
+    font-size: 0.875rem;
+    font-weight: 700;
+  }
+}
+@media (min-width: 768px) {
+  #scws-emergency-cta {
+    padding: 0.2rem 0.75rem;
+  }
+  #scws-emergency-cta a[href^="tel:"],
+  #scws-emergency-cta a[href^="sms:"] {
+    min-height: 36px;
+    padding: 0.3rem 0.9rem;
+  }
 }
 
 header.shop-header {
@@ -59,8 +107,37 @@ header.shop-header {
 @media (min-width: 640px) {
   .shop-header .site-logo-img { height: 2.5rem; max-width: 200px; }
 }
-@media (max-width: 639px) {
-  header .site-phone-cta { display: none !important; }
+header .site-phone-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  flex-shrink: 0;
+  min-height: 44px;
+  font-size: 0.75rem;
+  padding: 0.45rem 0.6rem;
+  line-height: 1;
+}
+@media (min-width: 640px) {
+  header .site-phone-cta {
+    font-size: 0.875rem;
+    padding: 0.5rem 1rem;
+  }
+}
+@media (min-width: 1280px) {
+  header .site-phone-cta { font-size: 1rem; }
+}
+
+/* Homepage hero: Call + Get Estimate stay on one row (never stack). */
+.hero-cta-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 0.75rem;
+}
+.hero-cta-row a {
+  white-space: nowrap;
 }
 .shop-menu-btn {
   display: inline-flex;
