@@ -86,7 +86,7 @@ Promise.resolve()
     });
   })
   .then(function () {
-    return test('send POSTs to the existing /api/chat URL', function () {
+    return test('send POSTs to the existing /api/chat URL with visible history', function () {
       var page = loadWidget();
       var input = page.document.getElementById('scws-chat-input');
       var sendBtn = page.document.getElementById('scws-chat-send');
@@ -98,6 +98,66 @@ Promise.resolve()
         assert.strictEqual(page.fetches[0].opts.method, 'POST');
         var body = JSON.parse(page.fetches[0].opts.body);
         assert.strictEqual(body.message, 'How much to replace a pump?');
+        assert.ok(body.visitorInfo && body.visitorInfo.pageUrl);
+        assert.ok(Array.isArray(body.history));
+        assert.deepStrictEqual(body.history, [{
+          role: 'assistant',
+          content: "Hi! 👋 I'm Sarah from Southern California Well Service. How can I help you today?"
+        }]);
+        assert.ok(!JSON.stringify(body).includes('writeareview'));
+      });
+    });
+  })
+  .then(function () {
+    return test('later sends include prior turns and skip the typing indicator', function () {
+      var page = loadWidget();
+      var input = page.document.getElementById('scws-chat-input');
+      var sendBtn = page.document.getElementById('scws-chat-send');
+      input.value = 'Need a pump repair';
+      sendBtn.dispatchEvent(new page.window.MouseEvent('click', { bubbles: true }));
+      return new Promise(function (resolve) { setTimeout(resolve, 20); }).then(function () {
+        input.value = 'In Ramona';
+        sendBtn.dispatchEvent(new page.window.MouseEvent('click', { bubbles: true }));
+        return new Promise(function (resolve) { setTimeout(resolve, 20); });
+      }).then(function () {
+        assert.strictEqual(page.fetches.length, 2);
+        var body = JSON.parse(page.fetches[1].opts.body);
+        assert.strictEqual(body.message, 'In Ramona');
+        assert.deepStrictEqual(body.history, [
+          { role: 'assistant', content: "Hi! 👋 I'm Sarah from Southern California Well Service. How can I help you today?" },
+          { role: 'user', content: 'Need a pump repair' },
+          { role: 'assistant', content: 'Hello from Sarah' }
+        ]);
+        assert.ok(body.history.every(function (row) { return row.content !== 'Typing...'; }));
+      });
+    });
+  })
+  .then(function () {
+    return test('history is last 20 messages, oldest first', function () {
+      var page = loadWidget();
+      var box = page.document.getElementById('scws-chat-messages');
+      box.innerHTML = '';
+      for (var i = 0; i < 25; i++) {
+        var el = page.document.createElement('div');
+        el.className = i % 2 === 0 ? 'scws-message assistant' : 'scws-message user';
+        el.textContent = 'msg-' + i;
+        box.appendChild(el);
+      }
+      var typing = page.document.createElement('div');
+      typing.className = 'scws-message assistant typing';
+      typing.textContent = 'Typing...';
+      box.appendChild(typing);
+      var input = page.document.getElementById('scws-chat-input');
+      var sendBtn = page.document.getElementById('scws-chat-send');
+      input.value = 'newest';
+      sendBtn.dispatchEvent(new page.window.MouseEvent('click', { bubbles: true }));
+      return new Promise(function (resolve) { setTimeout(resolve, 20); }).then(function () {
+        var body = JSON.parse(page.fetches[0].opts.body);
+        assert.strictEqual(body.message, 'newest');
+        assert.strictEqual(body.history.length, 20);
+        assert.strictEqual(body.history[0].content, 'msg-5');
+        assert.strictEqual(body.history[19].content, 'msg-24');
+        assert.ok(body.history.every(function (row) { return row.content !== 'Typing...' && row.content !== 'newest'; }));
       });
     });
   })

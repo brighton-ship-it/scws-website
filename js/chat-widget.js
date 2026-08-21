@@ -297,10 +297,30 @@
       chatWindow.classList.remove('open');
     });
 
+    function collectHistory() {
+      const nodes = messages.querySelectorAll('.scws-message');
+      const history = [];
+      for (let i = 0; i < nodes.length; i++) {
+        const el = nodes[i];
+        if (el.classList.contains('typing')) continue;
+        const content = (el.textContent || '').trim();
+        if (!content) continue;
+        if (/writeareview/i.test(content)) continue;
+        let role = null;
+        if (el.classList.contains('user')) role = 'user';
+        else if (el.classList.contains('assistant')) role = 'assistant';
+        if (!role) continue;
+        history.push({ role: role, content: content });
+      }
+      return history.length > 20 ? history.slice(-20) : history;
+    }
+
     // Send message
     async function sendMessage() {
       const text = input.value.trim();
       if (!text || isSending) return;
+
+      const history = collectHistory();
 
       isSending = true;
       sendBtn.disabled = true;
@@ -329,6 +349,7 @@
             visitorInfo: {
               pageUrl: (typeof window !== 'undefined' && window.location) ? window.location.href : '',
             },
+            history: history,
           }),
         });
 
