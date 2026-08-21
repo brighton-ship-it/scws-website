@@ -137,7 +137,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- Preload hero image for faster LCP -->
-    <link rel="preload" as="image" href="images/drilling-rig.jpg" fetchpriority="high">
+    <link rel="preload" as="image" href="images/homepage-hero-rig.jpg" fetchpriority="high">
     
     <title>Southern California Well Service | San Diego Well Drilling &amp; Pump Repair</title>
     
@@ -519,7 +519,7 @@
     <section class="relative text-white py-12 lg:py-16 overflow-hidden min-h-[450px] flex items-center">
         <!-- Background image for all screen sizes -->
         <div class="absolute inset-0">
-            <img loading="eager" src="images/drilling-rig.jpg" alt="Southern California Well Service drilling rig and service truck at job site" class="w-full h-full object-cover object-center" fetchpriority="high"  width="1920" height="1080">
+            <img loading="eager" src="images/homepage-hero-rig.jpg" alt="SCWS truck-mounted drilling rig with mast up on a hillside job site" class="w-full h-full object-cover object-center" fetchpriority="high" width="1600" height="1200">
             <div class="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/70 to-slate-900/60"></div>
         </div>
         
@@ -537,11 +537,8 @@
                         <a href="tel:7604408520" onclick="trackPhoneClick()" class="bg-red-600 hover:bg-red-700 text-white font-bold py-4 px-8 rounded-lg text-center text-lg transition shadow-lg">
                             Call (760) 440-8520
                         </a>
-                        <a href="sms:7602195877" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-lg text-center text-lg transition shadow-lg" title="Text-only line: (760) 219-5877">
-                            Text (760) 219-5877
-                        </a>
                         <a href="#contact" class="border-2 border-white hover:bg-white hover:text-primary text-white font-semibold py-4 px-8 rounded-lg text-center text-lg transition backdrop-blur-sm bg-white/10">
-                            Get Free Estimate
+                            Get Estimate
                         </a>
                     </div>
                 </div>
@@ -549,14 +546,18 @@
         </div>
     </section>
 
-    <!-- Honest trust strip -->
-    <section class="shop-trust" aria-label="License, shops, and phone numbers">
-        <div class="shop-trust-inner">
-            <p><strong>CSLB #1086994</strong> (C-57) · Founded 2020 by Brighton Scala and Travis Sego. In 2024 we acquired Ransom Pump (~60 years) and Heritage Well Service (20+ years).</p>
-            <p><strong>Ramona:</strong> 1077 Main Street, Unit B, Ramona, CA 92065 · <strong>Anza:</strong> 57174 CA-371 (US Hwy 79), Anza, CA 92539</p>
-            <p>Voice <a href="tel:+17604408520">(760) 440-8520</a> · Text <a href="sms:7602195877">(760) 219-5877</a> · Mon–Fri 7:00am–5:00pm PT · Emergency 24/7</p>
-            <p>Former Heritage or Ransom customer? Your records and warranties continue with us. <a href="/blog/heritage-well-service-san-diego.html">Learn more →</a></p>
+    <section class="heritage-banner" aria-label="Heritage Well and Ransom Pump customers">
+      <div class="max-w-7xl mx-auto px-4 py-4">
+        <div class="bg-gradient-to-r from-blue-50 to-green-50 border-2 border-blue-200 rounded-xl p-4 text-center">
+          <p class="text-sm font-semibold text-gray-800 mb-1">
+            <span class="text-primary">Proudly Serving Heritage Well &amp; Ransom Pump Customers</span>
+          </p>
+          <p class="text-xs text-gray-600">
+            We've acquired Heritage Well Service and Ransom Pump. Your records, warranties, and trust continue with SCWS.
+            <a href="/blog/heritage-well-service-san-diego.html" class="text-blue-600 hover:underline ml-1">Learn more →</a>
+          </p>
         </div>
+      </div>
     </section>
 
     <!-- Why SCWS Section -->
@@ -1117,7 +1118,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid lg:grid-cols-2 gap-12">
                 <div>
-                    <h2 class="text-3xl lg:text-4xl font-bold text-primary mb-6">Get Your Free Estimate</h2>
+                    <h2 class="text-3xl lg:text-4xl font-bold text-primary mb-6">Request an Estimate</h2>
                     <p class="text-lg text-gray-600 mb-8">
                         Have a well problem? Need a new well drilled? Contact us for a free estimate. We typically respond within a few hours.
                     </p>

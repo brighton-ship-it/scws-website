@@ -1,6 +1,7 @@
 /* Cookie Consent Banner for SCWS
- * Sits above the mobile sticky Call/Text/Estimate bar so the call CTA
- * stays fully visible and tappable.
+ * One line, pinned to the bottom above #sticky-cta.
+ * Never covers the homepage hero Call or the sticky Call/Text/Estimate.
+ * On mobile, wait for the first scroll so the first-paint Call stays clear.
  *
  * Consent Mode: this file must load BEFORE gtag.js so the default
  * (granted, or denied if cookieConsent is already rejected) is set first.
@@ -59,8 +60,13 @@
     return style.display !== 'none' && style.visibility !== 'hidden';
   }
 
+  function isMobileViewport() {
+    return !(window.matchMedia && window.matchMedia('(min-width: 1024px)').matches);
+  }
+
   function positionBanner(banner) {
     if (!banner || banner.style.display === 'none') return;
+    banner.style.top = 'auto';
     var sticky = document.getElementById('sticky-cta');
     if (stickyVisible() && sticky) {
       sticky.style.zIndex = '1100';
@@ -74,18 +80,51 @@
     document.dispatchEvent(new CustomEvent('scws-overlays-changed'));
   }
 
-  document.addEventListener('DOMContentLoaded', function () {
-    if (localStorage.getItem('cookieConsent')) return;
+  function mountBanner() {
+    if (document.getElementById('scws-cookie-banner')) return null;
 
     var banner = document.createElement('div');
     banner.id = 'scws-cookie-banner';
-    banner.style.cssText = 'position:fixed;left:0;right:0;background:rgba(15,23,42,0.96);color:#fff;padding:6px 10px;z-index:1000;font-family:Inter,sans-serif;display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:nowrap;min-height:52px;box-sizing:border-box;';
+    banner.setAttribute('role', 'dialog');
+    banner.setAttribute('aria-label', 'Cookie consent');
+    // Bottom from the first paint — never top. One row. Buttons ≥44px.
+    banner.style.position = 'fixed';
+    banner.style.left = '0';
+    banner.style.right = '0';
+    banner.style.top = 'auto';
+    banner.style.bottom = '0';
+    banner.style.background = 'rgba(15,23,42,0.96)';
+    banner.style.color = '#fff';
+    banner.style.padding = '6px 10px';
+    banner.style.zIndex = '1000';
+    banner.style.fontFamily = 'Inter,sans-serif';
+    banner.style.display = 'flex';
+    banner.style.alignItems = 'center';
+    banner.style.justifyContent = 'space-between';
+    banner.style.gap = '8px';
+    banner.style.flexWrap = 'nowrap';
+    banner.style.minHeight = '52px';
+    banner.style.boxSizing = 'border-box';
     banner.innerHTML =
       '<p style="margin:0;font-size:13px;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;flex:1;min-width:0;">Cookies help us run the site. <a href="/privacy-policy.html" style="color:#86efac;text-decoration:underline;">Privacy</a></p>' +
       '<span style="display:flex;gap:8px;flex-shrink:0;">' +
-      '<button id="acceptCookies" type="button" style="background:#4e9271;color:#fff;border:none;min-height:44px;min-width:88px;padding:10px 16px;cursor:pointer;border-radius:8px;font-weight:700;font-size:16px;">Accept</button>' +
-      '<button id="rejectCookies" type="button" style="background:#dc2626;color:#fff;border:none;min-height:44px;min-width:88px;padding:10px 16px;cursor:pointer;border-radius:8px;font-weight:700;font-size:16px;">Reject</button>' +
+      '<button id="acceptCookies" type="button">Accept</button>' +
+      '<button id="rejectCookies" type="button">Reject</button>' +
       '</span>';
+    function styleBtn(el, bg) {
+      el.style.background = bg;
+      el.style.color = '#fff';
+      el.style.border = 'none';
+      el.style.minHeight = '44px';
+      el.style.minWidth = '88px';
+      el.style.padding = '10px 16px';
+      el.style.cursor = 'pointer';
+      el.style.borderRadius = '8px';
+      el.style.fontWeight = '700';
+      el.style.fontSize = '16px';
+    }
+    styleBtn(banner.querySelector('#acceptCookies'), '#4e9271');
+    styleBtn(banner.querySelector('#rejectCookies'), '#dc2626');
     document.body.appendChild(banner);
     positionBanner(banner);
     notify();
@@ -102,9 +141,27 @@
     document.getElementById('acceptCookies').addEventListener('click', function () {
       dismiss('accepted');
     });
-
     document.getElementById('rejectCookies').addEventListener('click', function () {
       dismiss('rejected');
     });
+    return banner;
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    if (getStoredConsent()) return;
+
+    if (isMobileViewport()) {
+      var shown = false;
+      function onFirstScroll() {
+        if (shown || window.scrollY < 12) return;
+        shown = true;
+        window.removeEventListener('scroll', onFirstScroll);
+        mountBanner();
+      }
+      window.addEventListener('scroll', onFirstScroll, { passive: true });
+      return;
+    }
+
+    mountBanner();
   });
 })();
