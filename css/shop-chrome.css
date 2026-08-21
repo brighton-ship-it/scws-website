@@ -13,7 +13,7 @@ body.shop-page {
 #scws-emergency-cta {
   background: linear-gradient(90deg, #dc2626, #b91c1c);
   color: #fff;
-  padding: 0.45rem 0.75rem;
+  padding: 0.3rem 0.75rem;
   text-align: center;
 }
 #scws-emergency-cta > div {
@@ -116,6 +116,18 @@ header .site-phone-cta {
 }
 @media (min-width: 1280px) {
   header .site-phone-cta { font-size: 1rem; }
+}
+
+/* Homepage hero: Call + Get Estimate stay on one row (never stack). */
+.hero-cta-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 0.75rem;
+}
+.hero-cta-row a {
+  white-space: nowrap;
 }
 .shop-menu-btn {
   display: inline-flex;
