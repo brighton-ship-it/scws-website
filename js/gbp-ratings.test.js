@@ -109,14 +109,14 @@ async function run() {
   assert.match(indexHtml, /js\/gbp-ratings\.js\?v=/);
 
   var widgetBlock = indexHtml.slice(gbpIdx, h1Idx);
-  var trustIdx = indexHtml.indexOf('homepage-trust');
+  var trustIdx = indexHtml.indexOf('aria-label="Trust stats and badges"');
   assert.ok(trustIdx > heritageIdx && trustIdx < whyIdx, 'trust row sits under Heritage, above Why SCWS');
   var trustBlock = indexHtml.slice(trustIdx, whyIdx);
   assert.match(trustBlock, /60\+/);
   assert.match(trustBlock, /Years Family Heritage/);
   assert.match(trustBlock, /16,000\+/);
   assert.match(trustBlock, /Customers Served/);
-  assert.match(trustBlock, /4\.8★/);
+  assert.match(trustBlock, /text-3xl font-bold text-primary">4\.8★</);
   assert.match(trustBlock, /Google Rating/);
   assert.match(trustBlock, /24\/7/);
   assert.match(trustBlock, /Emergency Service/);
@@ -125,8 +125,8 @@ async function run() {
   assert.match(trustBlock, /Free Estimates/);
   assert.match(trustBlock, /Same-Day Service/);
   assert.match(trustBlock, /NGWA Member/);
-  assert.doesNotMatch(trustBlock, /4\.9/);
-  assert.doesNotMatch(trustBlock, /127/);
+  assert.doesNotMatch(trustBlock, />4\.9★</);
+  assert.doesNotMatch(trustBlock, />127</);
   assert.doesNotMatch(trustBlock, /id="gbp-ratings"/);
   assert.doesNotMatch(trustBlock, /drilling since 1966/i);
   assert.doesNotMatch(trustBlock, /founded 1966/i);
