@@ -1,6 +1,6 @@
 /**
- * Live Google Business Profile ratings for the homepage strip
- * under the Heritage / Ransom banner.
+ * Live Google Business Profile ratings for the homepage hero kicker
+ * (stars + rating + count + "on Google" above the H1).
  *
  * Fetches public JSON from the jobs app (GitHub Pages cannot hold GBP secrets).
  * Success body (from scws-jobs src/lib/gbp.ts GbpRatingsPayload):
