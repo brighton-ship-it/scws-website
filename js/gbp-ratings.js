@@ -6,9 +6,10 @@
  *   { ramona: { rating, count, url? }, anza: { rating, count, url? }, updated }
  * Failure body: { error: "gbp_unconfigured" | "gbp_unavailable" }
  *
- * Never invent or hardcode a combined star count. Never reuse the Ramona
- * review URL for Anza. On any fetch/parse failure, show "Google reviews"
- * plus the two shop links already in the homepage mount.
+ * Homepage widget shows Anza only. Never invent or hardcode a star count.
+ * Never reuse the Ramona review URL for Anza. On any fetch/parse failure
+ * or missing Anza rating, show "Google reviews" plus the Anza Maps link
+ * already in the homepage mount.
  */
 (function (root) {
   'use strict';
@@ -16,14 +17,12 @@
   var API_URL = 'https://scws-jobs.vercel.app/api/gbp-ratings';
   var FETCH_MS = 6000;
 
+  // Documented so it is never reused as the Anza href.
   var RAMONA_REVIEWS = 'https://g.page/r/CU9X_NG3TvP2EBM/review';
   // No Anza g.page exists in this repo. Use the contact.html Maps place page.
   var ANZA_LISTING = 'https://www.google.com/maps/place/57174+CA-371,+Anza,+CA+92539';
 
-  var SHOPS = {
-    ramona: { label: 'Ramona', fallbackUrl: RAMONA_REVIEWS },
-    anza: { label: 'Anza', fallbackUrl: ANZA_LISTING }
-  };
+  var SHOP = { label: 'Anza', fallbackUrl: ANZA_LISTING };
 
   function isHttpUrl(value) {
     return typeof value === 'string' && /^https?:\/\/\S+$/i.test(value.trim());
@@ -37,9 +36,9 @@
       .replace(/>/g, '&gt;');
   }
 
-  function shopUrl(key, data) {
+  function shopUrl(data) {
     if (data && isHttpUrl(data.url)) return data.url.trim();
-    return SHOPS[key].fallbackUrl;
+    return SHOP.fallbackUrl;
   }
 
   function hasLive(data) {
@@ -63,19 +62,18 @@
     return String(Math.round(n));
   }
 
-  function shopLine(key, data) {
-    var meta = SHOPS[key];
-    var url = escapeAttr(shopUrl(key, data));
+  function shopLine(data) {
+    var url = escapeAttr(shopUrl(data));
     if (hasLive(data)) {
       return (
         '<a href="' + url + '" target="_blank" rel="noopener">' +
-          '<strong>' + meta.label + '</strong> ' +
+          '<strong>' + SHOP.label + '</strong> ' +
           formatRating(data.rating) + ' (' + formatCount(data.count) + ')' +
         '</a>'
       );
     }
     return (
-      '<a href="' + url + '" target="_blank" rel="noopener">' + meta.label + '</a>'
+      '<a href="' + url + '" target="_blank" rel="noopener">' + SHOP.label + '</a>'
     );
   }
 
@@ -83,20 +81,13 @@
     if (!payload || typeof payload !== 'object' || payload.error) {
       return 'Google reviews';
     }
-    var parts = [];
-    if (hasLive(payload.ramona)) {
-      parts.push(
-        'Ramona ' + formatRating(payload.ramona.rating) +
-          ' (' + formatCount(payload.ramona.count) + ')'
-      );
-    }
     if (hasLive(payload.anza)) {
-      parts.push(
+      return (
         'Anza ' + formatRating(payload.anza.rating) +
           ' (' + formatCount(payload.anza.count) + ')'
       );
     }
-    return parts.length ? parts.join(' · ') : 'Google reviews';
+    return 'Google reviews';
   }
 
   function shopsHtml(payload) {
@@ -104,16 +95,12 @@
       return fallbackShopsHtml();
     }
     return (
-      '<p class="text-gray-600">' + shopLine('ramona', payload.ramona) + '</p>' +
-      '<p class="text-gray-600">' + shopLine('anza', payload.anza) + '</p>'
+      '<p class="text-gray-600">' + shopLine(payload.anza) + '</p>'
     );
   }
 
   function fallbackShopsHtml() {
     return (
-      '<p class="text-gray-600">' +
-        '<a href="' + RAMONA_REVIEWS + '" target="_blank" rel="noopener">Ramona</a>' +
-      '</p>' +
       '<p class="text-gray-600">' +
         '<a href="' + ANZA_LISTING + '" target="_blank" rel="noopener">Anza</a>' +
       '</p>'
@@ -189,8 +176,8 @@
         if (!data || typeof data !== 'object' || data.error) {
           throw new Error('gbp error payload');
         }
-        if (!hasLive(data.ramona) && !hasLive(data.anza)) {
-          throw new Error('no shop ratings');
+        if (!hasLive(data.anza)) {
+          throw new Error('no anza ratings');
         }
         return data;
       })
