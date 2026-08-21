@@ -22,7 +22,7 @@
   "url": "https://scwellservice.com",
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "1077 Main St",
+    "streetAddress": "1077 Main Street, Unit B",
     "addressLocality": "Ramona",
     "addressRegion": "CA",
     "postalCode": "92065"
@@ -66,9 +66,41 @@
   ]
 }
 </script>
+<link rel="stylesheet" href="/css/shop-chrome.css"/>
 </head>
-<body>
-<header class="bg-gray-800 text-white sticky top-0 z-50"><div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center"><a href="/"><img width="840" height="150" alt="SCWS" class="h-12 w-auto" src="/images/logo-text-only-3x.png"/></a><a class="bg-red-600 hover:bg-red-700 font-bold py-2 px-6 rounded" href="tel:7604408520">(760) 440-8520</a></div></header>
+<body class="shop-page">
+<header class="bg-primary text-white sticky top-0 z-50 shadow-lg shop-header">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center py-2">
+<a class="flex items-center space-x-3 shrink-0" href="/">
+<img width="840" height="150" alt="Southern California Well Service" class="site-logo-img" loading="lazy" src="/images/logo-text-only-3x.png"/>
+</a>
+<nav class="hidden xl:flex space-x-4 items-center shop-desktop-nav">
+<a class="text-white hover:text-accent transition whitespace-nowrap" href="/pages/services/well-drilling.html">Services</a>
+<a class="text-white hover:text-accent transition whitespace-nowrap" href="/recent-work/">Recent Work</a>
+<a class="text-white hover:text-accent transition whitespace-nowrap" href="/contact.html">Contact</a>
+<a class="text-white hover:text-accent transition whitespace-nowrap" href="/pages/about.html">About</a>
+</nav>
+<div class="flex items-center gap-2">
+<button type="button" id="mobile-menu-btn" class="shop-menu-btn xl:hidden" aria-label="Open menu">☰</button>
+<a class="site-phone-cta bg-red-600 hover:bg-red-700 text-white font-semibold rounded-lg transition" href="tel:+17604408520">(760) 440-8520</a>
+</div>
+</div>
+</div>
+<div id="mobile-menu" class="hidden xl:hidden shop-mobile-nav bg-primary/95 border-t border-white/10 px-4 py-3">
+<a href="/">Home</a>
+<a href="/pages/services/well-drilling.html">Services</a>
+<a href="/recent-work/">Recent Work</a>
+<a href="/contact.html">Contact</a>
+<a href="/pages/about.html">About</a>
+</div>
+</header>
+<script>
+document.getElementById('mobile-menu-btn').addEventListener('click', function () {
+    document.getElementById('mobile-menu').classList.toggle('hidden');
+});
+</script>
+
 
 
 
@@ -84,12 +116,12 @@
 
           <section class="city-overview">
             <h2>Well Service in Fallbrook</h2>
-            <p>Southern California Well Service has been serving Fallbrook for decades. We know the local geology (decomposed granite and weathered gabbroic rock), typical well depths (200-450ft), and water quality issues (moderate hardness, boron in some areas (bad for avocados)) better than anyone.</p>
+            <p>Southern California Well Service was founded in 2020 and serves Fallbrook. We know the local geology (decomposed granite and weathered gabbroic rock), typical well depths (200-450ft), and water quality issues (moderate hardness, boron in some areas (bad for avocados)) better than anyone.</p>
 
             <div class="service-area-info">
               <h3>Fallbrook Service Area</h3>
               <p><strong>Neighborhoods:</strong> De Luz, Live Oak Park, Monserate, Gopher Canyon, Winterwarm</p>
-              <p><strong>Response time:</strong> 30 min from our Ramona headquarters (1077 Main St, Ramona, CA 92065)</p>
+              <p><strong>Response time:</strong> 30 min from our Ramona shop (1077 Main Street, Unit B, Ramona, CA 92065)</p>
               <p><strong>From Anza office:</strong> 45 min</p>
             </div>
 
@@ -162,7 +194,7 @@
           <section class="why-choose-scws">
             <h2>Why Fallbrook Trusts SCWS</h2>
             <ul>
-              <li><strong>Local expertise:</strong> We've drilled and serviced Fallbrook wells for decades</li>
+              <li><strong>Local expertise:</strong> We service Fallbrook wells from our Ramona and Anza shops (founded 2020)</li>
               <li><strong>Know the geology:</strong> decomposed granite and weathered gabbroic rock requires specific drilling and pump techniques</li>
               <li><strong>Fast response:</strong> 30 min from Ramona, 45 min from Anza</li>
               <li><strong>Licensed & insured:</strong> CSLB #1086994 (C-57 Water Well Drilling)</li>
@@ -198,8 +230,8 @@
           <div class="contact-cta">
             <h2>Call SCWS for Fallbrook Well Service</h2>
             <p class="phone-large"><a href="tel:7604408520">(760) 440-8520</a></p>
-            <p><a href="/contact">Request service online</a> | <a href="/about">About SCWS</a></p>
-            <p class="license">Licensed & Insured | CSLB #1086994 | Serving Fallbrook since 1985</p>
+            <p><a href="/contact.html">Request service online</a> | <a href="/pages/about.html">About SCWS</a></p>
+            <p class="license">Licensed & Insured | CSLB #1086994 | Serving Fallbrook since 2020</p>
           </div>
         
 <!-- FAQ Section -->
@@ -226,5 +258,12 @@
       
 <footer class="bg-gray-900 text-white p-8 text-center"><p>© 2026 SCWS | CSLB #1086994</p></footer>
 <div style="position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:2px solid #ddd;padding:12px;display:flex;gap:12px;z-index:50"><a href="tel:7604408520" style="flex:1;background:#dc2626;color:#fff;font-weight:bold;padding:12px;border-radius:8px;text-align:center;text-decoration:none">Call Now</a></div>
+
+<div id="sticky-cta">
+<a class="cta-call" href="tel:+17604408520">Call</a>
+<a class="cta-text" href="sms:7602195877" title="Text-only line: (760) 219-5877">Text</a>
+<a class="cta-est" href="/contact.html">Estimate</a>
+</div>
+
 </body>
 </html>

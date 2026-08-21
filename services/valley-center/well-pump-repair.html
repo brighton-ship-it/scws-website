@@ -33,7 +33,7 @@
             "telephone": "(760) 440-8520",
             "address": {
                 "@type": "PostalAddress",
-                "streetAddress": "1077 Main St",
+                "streetAddress": "1077 Main Street, Unit B",
                 "addressLocality": "Ramona",
                 "addressRegion": "CA",
                 "postalCode": "92065"
@@ -97,14 +97,15 @@
             }
         }
     </script>
+<link rel="stylesheet" href="/css/shop-chrome.css"/>
 </head>
-<body style="padding-bottom:80px">
+<body class="shop-page" style="padding-bottom:80px">
 <!-- Emergency Banner -->
 <div class="bg-gradient-to-r from-red-600 to-red-700 text-white py-2.5">
 <div class="max-w-7xl mx-auto px-4 text-center flex items-center justify-center gap-2 flex-wrap">
 <span class="font-bold tracking-wide">🚨 Pump Failed?</span>
 <span class="hidden sm:inline">Same-day service in Valley Center.</span>
-<a class="bg-white text-red-600 font-bold px-4 py-1 rounded-full text-sm hover:bg-red-100 transition ml-1" href="tel:7604408520">
+<a class="bg-white text-red-600 font-bold px-4 py-2.5 rounded-full text-sm hover:bg-red-100 transition ml-1" style="min-height:44px;display:inline-flex;align-items:center;" href="tel:7604408520">
                 Call Now →
             </a>
 </div>
@@ -123,9 +124,27 @@
 <a class="text-white hover:text-accent transition whitespace-nowrap" href="/blog/">Resources</a>
 <a class="text-white hover:text-accent transition whitespace-nowrap" href="/faq.html">FAQ</a>
 <a class="text-white hover:text-accent transition whitespace-nowrap" href="/contact.html">Contact</a>
-<a class="text-white font-semibold hover:text-accent transition whitespace-nowrap" href="/cost-calculator.html">Free Estimate</a>
+<a class="text-white font-semibold hover:text-accent transition whitespace-nowrap" href="/cost-calculator.html">Cost Calculator</a>
 <a class="text-white hover:text-accent transition whitespace-nowrap" href="/pages/about.html">About</a>
 </nav>
+<div class="flex items-center gap-2">
+<button type="button" id="mobile-menu-btn" class="shop-menu-btn" aria-label="Open menu">☰</button>
+<a class="site-phone-cta bg-red-600 hover:bg-red-700 text-white font-semibold rounded-lg transition" href="tel:+17604408520">(760) 440-8520</a>
+</div>
+</div>
+</div>
+<div id="mobile-menu" class="hidden shop-mobile-nav bg-primary/95 border-t border-white/10 px-4 py-3">
+<a href="/">Home</a>
+<a href="/pages/services/well-drilling.html">Services</a>
+<a href="/recent-work/">Recent Work</a>
+<a href="/contact.html">Contact</a>
+<a href="/pages/about.html">About</a>
+</div>
+</header>
+<script>
+(function(){var b=document.getElementById('mobile-menu-btn');var m=document.getElementById('mobile-menu');if(b&&m){b.addEventListener('click',function(){m.classList.toggle('hidden');});}})();
+</script>
+
 
 
         
@@ -152,7 +171,7 @@
             <p>Hard water scale buildup, ag wells overworked in summer, older galvanized drop pipe failures. Our technicians know these issues intimately because we've been servicing Valley Center wells for decades.</p>
 
             <div class="service-area-note">
-              <p><strong>Response time to Valley Center:</strong> 15 min from our Ramona headquarters, 55 min from our Anza office.</p>
+              <p><strong>Response time to Valley Center:</strong> 15 min from our Ramona shop, 55 min from our Anza office.</p>
             </div>
 
             <h3>Pump Types for Valley Center Geology</h3>
@@ -175,14 +194,14 @@
             <h2>Why Choose SCWS for Valley Center Pump Repair?</h2>
             <ul>
               <li><strong>Local geology expertise:</strong> We understand alluvial valley floor with granite hillsides and how it affects pumps</li>
-              <li><strong>Fast response:</strong> 15 min from Ramona HQ</li>
+              <li><strong>Fast response:</strong> 15 min from the Ramona shop</li>
               <li><strong>Licensed & insured:</strong> CSLB #1086994</li>
               <li><strong>24/7 emergency service</strong> available</li>
             </ul>
 
             <div class="contact-cta">
               <h3>Need pump repair in Valley Center?</h3>
-              <p>Call <a href="tel:7604408520">(760) 440-8520</a> or <a href="/contact">request service online</a>.</p>
+              <p>Call <a href="tel:7604408520">(760) 440-8520</a> or <a href="/contact.html">request service online</a>.</p>
             </div>
           </section>
         </main>

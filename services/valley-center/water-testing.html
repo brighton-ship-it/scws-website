@@ -33,7 +33,7 @@
             "telephone": "(760) 440-8520",
             "address": {
                 "@type": "PostalAddress",
-                "streetAddress": "1077 Main St",
+                "streetAddress": "1077 Main Street, Unit B",
                 "addressLocality": "Ramona",
                 "addressRegion": "CA",
                 "postalCode": "92065"
@@ -85,8 +85,9 @@
         .breadcrumb span { color: #718096; }
     </style>
 <script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="/css/shop-chrome.css"/>
 </head>
-<body style="padding-bottom:80px">
+<body class="shop-page" style="padding-bottom:80px">
 <!-- Emergency Banner -->
 <div class="bg-gradient-to-r from-blue-600 to-blue-700 text-white py-2.5">
 <div class="max-w-7xl mx-auto px-4 text-center flex items-center justify-center gap-2 flex-wrap">
@@ -110,9 +111,27 @@
 <a class="text-white hover:text-accent transition whitespace-nowrap" href="/blog/">Resources</a>
 <a class="text-white hover:text-accent transition whitespace-nowrap" href="/faq.html">FAQ</a>
 <a class="text-white hover:text-accent transition whitespace-nowrap" href="/contact.html">Contact</a>
-<a class="text-white font-semibold hover:text-accent transition whitespace-nowrap" href="/cost-calculator.html">Free Estimate</a>
+<a class="text-white font-semibold hover:text-accent transition whitespace-nowrap" href="/cost-calculator.html">Cost Calculator</a>
 <a class="text-white hover:text-accent transition whitespace-nowrap" href="/pages/about.html">About</a>
 </nav>
+<div class="flex items-center gap-2">
+<button type="button" id="mobile-menu-btn" class="shop-menu-btn" aria-label="Open menu">☰</button>
+<a class="site-phone-cta bg-red-600 hover:bg-red-700 text-white font-semibold rounded-lg transition" href="tel:+17604408520">(760) 440-8520</a>
+</div>
+</div>
+</div>
+<div id="mobile-menu" class="hidden shop-mobile-nav bg-primary/95 border-t border-white/10 px-4 py-3">
+<a href="/">Home</a>
+<a href="/pages/services/well-drilling.html">Services</a>
+<a href="/recent-work/">Recent Work</a>
+<a href="/contact.html">Contact</a>
+<a href="/pages/about.html">About</a>
+</div>
+</header>
+<script>
+(function(){var b=document.getElementById('mobile-menu-btn');var m=document.getElementById('mobile-menu');if(b&&m){b.addEventListener('click',function(){m.classList.toggle('hidden');});}})();
+</script>
+
 
 
         
@@ -178,7 +197,7 @@
 
             <div class="contact-cta">
               <h3>Schedule water testing in Valley Center</h3>
-              <p>Call <a href="tel:7604408520">(760) 440-8520</a> or <a href="/contact">request service online</a>.</p>
+              <p>Call <a href="tel:7604408520">(760) 440-8520</a> or <a href="/contact.html">request service online</a>.</p>
             </div>
           </section>
         </main>

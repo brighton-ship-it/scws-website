@@ -207,3 +207,35 @@ header.shop-header {
   color: #64748b;
   font-size: 0.9rem;
 }
+
+.city-landing .hero,
+.service-page .hero {
+  background: linear-gradient(135deg, #1f3b4d 0%, #0f172a 100%);
+  color: #fff;
+  padding: 2.5rem 1rem;
+  text-align: center;
+}
+.city-landing .hero h1,
+.service-page .hero h1 {
+  font-size: 2rem;
+  margin-bottom: 0.75rem;
+}
+.cta-button {
+  display: inline-block;
+  margin-top: 1rem;
+  background: #dc2626;
+  color: #fff;
+  padding: 0.85rem 1.25rem;
+  border-radius: 8px;
+  font-weight: 700;
+  text-decoration: none;
+  min-height: 44px;
+}
+.city-landing section,
+.city-landing .contact-cta,
+.service-page .content,
+.service-page section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem;
+}

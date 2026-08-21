@@ -12,9 +12,41 @@
 <link rel="canonical" href="https://scwellservice.com/services/fallbrook/water-treatment.html"/>
 <style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:-apple-system,sans-serif;line-height:1.6;color:#333;padding-bottom:80px}.hero{background:linear-gradient(135deg,#1a365d,#2c5282);color:#fff;padding:3rem 1rem;text-align:center}.container{max-width:1200px;margin:0 auto;padding:2rem 1rem}</style>
 <script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="/css/shop-chrome.css"/>
 </head>
-<body>
-<header class="bg-gray-800 text-white sticky top-0 z-50"><div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center"><a href="/"><img width="840" height="150" alt="SCWS" class="h-12 w-auto" src="/images/logo-text-only-3x.png"/></a><a class="bg-red-600 hover:bg-red-700 font-bold py-2 px-6 rounded" href="tel:7604408520">(760) 440-8520</a></div></header>
+<body class="shop-page">
+<header class="bg-primary text-white sticky top-0 z-50 shadow-lg shop-header">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center py-2">
+<a class="flex items-center space-x-3 shrink-0" href="/">
+<img width="840" height="150" alt="Southern California Well Service" class="site-logo-img" loading="lazy" src="/images/logo-text-only-3x.png"/>
+</a>
+<nav class="hidden xl:flex space-x-4 items-center shop-desktop-nav">
+<a class="text-white hover:text-accent transition whitespace-nowrap" href="/pages/services/well-drilling.html">Services</a>
+<a class="text-white hover:text-accent transition whitespace-nowrap" href="/recent-work/">Recent Work</a>
+<a class="text-white hover:text-accent transition whitespace-nowrap" href="/contact.html">Contact</a>
+<a class="text-white hover:text-accent transition whitespace-nowrap" href="/pages/about.html">About</a>
+</nav>
+<div class="flex items-center gap-2">
+<button type="button" id="mobile-menu-btn" class="shop-menu-btn xl:hidden" aria-label="Open menu">☰</button>
+<a class="site-phone-cta bg-red-600 hover:bg-red-700 text-white font-semibold rounded-lg transition" href="tel:+17604408520">(760) 440-8520</a>
+</div>
+</div>
+</div>
+<div id="mobile-menu" class="hidden xl:hidden shop-mobile-nav bg-primary/95 border-t border-white/10 px-4 py-3">
+<a href="/">Home</a>
+<a href="/pages/services/well-drilling.html">Services</a>
+<a href="/recent-work/">Recent Work</a>
+<a href="/contact.html">Contact</a>
+<a href="/pages/about.html">About</a>
+</div>
+</header>
+<script>
+document.getElementById('mobile-menu-btn').addEventListener('click', function () {
+    document.getElementById('mobile-menu').classList.toggle('hidden');
+});
+</script>
+
 
 <main class="service-page">
   <section class="hero">
@@ -289,7 +321,7 @@
       <p class="text-lg text-gray-700 mb-6">Start with a water test. We'll tell you exactly what's in your water and design a treatment system that actually solves the problem — whether it's hard water in your house or boron burning your avocados.</p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
         <a href="tel:7604408520" class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-8 rounded-lg text-lg no-underline">Call (760) 440-8520</a>
-        <a href="/contact" class="bg-white border-2 border-green-600 text-green-700 font-bold py-3 px-8 rounded-lg text-lg no-underline hover:bg-green-50">Request Water Testing</a>
+        <a href="/contact.html" class="bg-white border-2 border-green-600 text-green-700 font-bold py-3 px-8 rounded-lg text-lg no-underline hover:bg-green-50">Request Water Testing</a>
       </div>
       <p class="mt-4 text-gray-500">CSLB #1086994 · Licensed C-57 Water Well Drilling Contractor</p>
     </section>
@@ -299,5 +331,12 @@
 
 <footer class="bg-gray-900 text-white p-8 text-center"><p>© 2026 Southern California Well Service | CSLB #1086994</p></footer>
 <div style="position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:2px solid #ddd;padding:12px;display:flex;gap:12px;z-index:50"><a href="tel:7604408520" style="flex:1;background:#dc2626;color:#fff;font-weight:bold;padding:12px;border-radius:8px;text-align:center;text-decoration:none">Call (760) 440-8520</a></div>
+
+<div id="sticky-cta">
+<a class="cta-call" href="tel:+17604408520">Call</a>
+<a class="cta-text" href="sms:7602195877" title="Text-only line: (760) 219-5877">Text</a>
+<a class="cta-est" href="/contact.html">Estimate</a>
+</div>
+
 </body>
 </html>
