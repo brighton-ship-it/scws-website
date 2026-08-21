@@ -412,7 +412,7 @@ def fix_company_age_copy() -> None:
 def align_review_count() -> None:
     path = ROOT / "index.html"
     text = path.read_text(encoding="utf-8")
-    text = text.replace("on Google (100+ reviews)", "on Google (127 reviews)")
+    text = text.replace("on Google (100+ reviews)", "on Google")
     path.write_text(text, encoding="utf-8")
     well = ROOT / "well-drilling.html"
     if well.exists():

@@ -54,16 +54,10 @@ Updated meta descriptions and added "Last Updated: March 2026" to all top 20 blo
 
 2. ✅ **Meta description:** Updated to compelling version:
    - OLD: "SC Well Service - San Diego's trusted well drilling & pump repair company. Serving Riverside & San Bernardino Counties. 4.9★ rated, licensed C-57. Call (760) 440-8520."
-   - NEW: "San Diego's trusted well drilling & pump repair company. Same-day emergency service. 4.9★ rated, 127+ reviews. Serving SD, Riverside & SB Counties. Call (760) 440-8520"
+   - NEW: "San Diego's trusted well drilling & pump repair company. Same-day emergency service. Serving SD, Riverside & SB Counties. Call (760) 440-8520"
 
 3. ✅ **AggregateRating schema:** Already exists in LocalBusiness schema with correct data:
    ```json
-   "aggregateRating": {
-       "@type": "AggregateRating",
-       "ratingValue": "4.9",
-       "reviewCount": "127",
-       "bestRating": "5"
-   }
    ```
 
 ---

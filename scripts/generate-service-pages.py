@@ -193,7 +193,7 @@ def generate_page(city, service_slug, service_data, output_dir):
             "telephone": "(760) 440-8520",
             "address": {{
                 "@type": "PostalAddress",
-                "streetAddress": "1077 Main St",
+                "streetAddress": "1077 Main Street, Unit B",
                 "addressLocality": "Ramona",
                 "addressRegion": "CA",
                 "postalCode": "92065"
@@ -325,7 +325,7 @@ def generate_page(city, service_slug, service_data, output_dir):
     </section>
     
     <footer class="footer">
-        <p>© 2026 Southern California Well Service | Licensed C-57 Contractor #1098473</p>
+        <p>© 2026 Southern California Well Service | Licensed C-57 Contractor #1086994</p>
         <p><a href="/">Home</a> | <a href="/services/">Services</a> | <a href="/blog/">Resources</a> | <a href="/contact.html">Contact</a></p>
     </footer>
 </body>
@@ -428,7 +428,7 @@ def generate_city_index(city, output_dir):
     </section>
     
     <footer class="footer">
-        <p>© 2026 Southern California Well Service | Licensed C-57 Contractor #1098473</p>
+        <p>© 2026 Southern California Well Service | Licensed C-57 Contractor #1086994</p>
     </footer>
 </body>
 </html>'''

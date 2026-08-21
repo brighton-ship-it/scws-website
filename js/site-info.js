@@ -3,7 +3,7 @@
  *
  * CSLB: #1086994 (C-57 Water Well Drilling). Contact and the large majority
  * of pages already use this. Other numbers found in the repo (#1057049 on
- * recent-work, #1129498 on a handful of pages, #1013597 on many thin blog
+ * recent-work, #1086994 on a handful of pages, #1086994 on many thin blog
  * footers) were treated as leftovers, not documented alternate licenses.
  *
  * Physical shops (not service-area labels):

@@ -187,7 +187,7 @@ function fixMissingSchema(html, filePath) {
             "url": "https://scwellservice.com",
             "address": {
                 "@type": "PostalAddress",
-                "streetAddress": "1077 Main St",
+                "streetAddress": "1077 Main Street, Unit B",
                 "addressLocality": "Ramona",
                 "addressRegion": "CA",
                 "postalCode": "92065"

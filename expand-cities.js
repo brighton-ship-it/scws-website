@@ -21,7 +21,7 @@ const cityData = {
       { q: 'Can I drill a well near the coast in Oceanside?', a: 'Yes, but it requires expert well design. We drill coastal wells deeper to access freshwater aquifers below the saltwater zone and use special casing techniques to prevent seawater intrusion. We\'ve successfully drilled wells in inland Oceanside, including near Camp Pendleton.' },
       { q: 'What does well water cost vs. municipal water in Oceanside?', a: 'After the initial well drilling investment ($15,000-$35,000 depending on depth), well water costs only your pump electricity — typically $30-80/month. Oceanside municipal water can cost $80-200+ monthly for average households, making wells cost-effective for long-term property owners.' },
       { q: 'How often should I service my Oceanside well?', a: 'We recommend annual well inspections for Oceanside properties. Coastal-area wells should be tested for salinity every 2-3 years. Regular maintenance prevents expensive emergencies and ensures your pump operates efficiently.' },
-      { q: 'Do Oceanside wells need permits?', a: 'Yes, well drilling in San Diego County requires permits from the County Department of Environmental Health. We handle all permitting for you — we\'ve been working with the county for over 20 years and know the exact requirements.' }
+      { q: 'Do Oceanside wells need permits?', a: 'Yes, well drilling in San Diego County requires permits from the County Department of Environmental Health. We handle all permitting for you — we\'ve been working with the county since 2020 and know the exact requirements.' }
     ],
     neighborhoods: ['Morro Hills', 'Mission San Luis Rey', 'Rancho Del Oro', 'Fire Mountain', 'Peacock Hills', 'Ivey Ranch', 'Arrowood', 'South Oceanside']
   },
@@ -313,7 +313,7 @@ ${data.faqs.map(f => `                <div class="bg-gray-50 rounded-lg p-6">
                     <div class="text-accent text-3xl">✓</div>
                     <div>
                         <h3 class="font-bold text-lg mb-2">4.9★ Google Rating</h3>
-                        <p class="text-gray-700">127 five-star reviews from satisfied customers. Our reputation speaks for itself.</p>
+                        <p class="text-gray-700">Reviews from customers across our service area.</p>
                     </div>
                 </div>
                 <div class="flex gap-4">

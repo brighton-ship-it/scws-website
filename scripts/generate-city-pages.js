@@ -218,7 +218,7 @@ cities.forEach(city => {
     <script src="/js/ga4-filter.js"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LL1YRWT5T"></script>
     <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-5LL1YRWT5T');</script>
-    <meta property="og:image" content="https://scwellservice.com/images/og-default.jpg">
+    <meta property="og:image" content="https://scwellservice.com/images/logo-text-only-3x.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@scwellservice">
 </head>
@@ -367,7 +367,7 @@ cities.forEach(city => {
 
             <div class="bg-primary text-white rounded-xl p-6 my-8">
                 <h2 class="text-xl font-bold mb-2">Ready to Drill a Well in ${city}?</h2>
-                <p class="text-gray-200 mb-4">Southern California Well Service has over 40 years of experience drilling wells in ${county} County. We provide honest estimates, quality workmanship, and reliable service.</p>
+                <p class="text-gray-200 mb-4">Southern California Well Service was founded in 2020 and drills wells across ${county} County. We provide honest estimates, quality workmanship, and reliable service.</p>
                 <a href="tel:7604408520" class="inline-block bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-lg text-center transition">📞 (760) 440-8520</a>
                 <p class="text-gray-300 text-sm mt-4">Licensed C-57 Contractor | San Diego, Riverside & San Bernardino Counties</p>
             </div>
@@ -377,13 +377,14 @@ cities.forEach(city => {
 
     <footer>
         <p>&copy; 2026 Southern California Well Service. Licensed C-57 Contractor.</p>
-        <p>1077 Main St, Ramona, CA 92065 | <a href="tel:7604408520">(760) 440-8520</a></p>
+        <p>1077 Main Street, Unit B, Ramona, CA 92065 | <a href="tel:7604408520">(760) 440-8520</a></p>
     </footer>
 
 <!-- Sticky Mobile CTA Bar -->
-<style>#sticky-cta{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:2px solid #e5e7eb;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px;z-index:50;box-shadow:0 -4px 12px rgba(0,0,0,0.1)}#sticky-cta a{flex:1;font-weight:700;padding:12px 16px;border-radius:8px;text-align:center;color:#fff;font-size:14px;text-decoration:none}#sticky-cta .cta-call{background:#dc2626}#sticky-cta .cta-call:hover{background:#b91c1c}#sticky-cta .cta-est{background:#4e9271}#sticky-cta .cta-est:hover{background:#3d7a5c}@media(min-width:1024px){#sticky-cta{display:none}}</style>
+<style>#sticky-cta{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:2px solid #e5e7eb;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px;z-index:50;box-shadow:0 -4px 12px rgba(0,0,0,0.1)}#sticky-cta a{flex:1;font-weight:700;padding:12px 16px;border-radius:8px;text-align:center;color:#fff;font-size:14px;text-decoration:none}#sticky-cta .cta-call{background:#dc2626}#sticky-cta .cta-call:hover{background:#b91c1c}#sticky-cta .cta-text{background:#2563eb}#sticky-cta .cta-text:hover{background:#1d4ed8}#sticky-cta .cta-est{background:#4e9271}#sticky-cta .cta-est:hover{background:#3d7a5c}@media(min-width:1024px){#sticky-cta{display:none}}</style>
 <div id="sticky-cta">
     <a href="tel:7604408520" class="cta-call">📞 Call Now</a>
+    <a href="sms:7602195877" class="cta-text">💬 Text Us</a>
     <a href="/contact.html" class="cta-est">Free Estimate</a>
 </div>
 </body>
