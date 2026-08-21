@@ -87,9 +87,30 @@
 <header class="shop-header">
     <div class="shop-header-inner">
         <a href="/"><img width="840" height="150" class="site-logo-img" src="/images/logo-text-only-3x.png" alt="Southern California Well Service"></a>
-        <a class="site-phone-cta" href="tel:+17604408520" style="background:#dc2626;color:#fff;border-radius:8px;padding:0.5rem 0.85rem;text-decoration:none;font-weight:700;">(760) 440-8520</a>
+        <nav class="shop-desktop-nav">
+            <a href="/">Home</a>
+            <a href="/recent-work/">Recent Work</a>
+            <a href="/contact.html">Contact</a>
+            <a href="/pages/about.html">About</a>
+        </nav>
+        <div style="display:flex;align-items:center;gap:8px;">
+            <button type="button" id="mobile-menu-btn" class="shop-menu-btn" aria-label="Open menu">☰</button>
+            <a class="site-phone-cta" href="tel:+17604408520" style="background:#dc2626;color:#fff;border-radius:8px;padding:0.5rem 0.85rem;text-decoration:none;font-weight:700;">(760) 440-8520</a>
+        </div>
+    </div>
+    <div id="mobile-menu" class="shop-mobile-nav" hidden style="padding:0.75rem 1rem;border-top:1px solid rgba(255,255,255,.15);">
+        <a href="/">Home</a>
+        <a href="/recent-work/">Recent Work</a>
+        <a href="/contact.html">Contact</a>
+        <a href="/pages/about.html">About</a>
     </div>
 </header>
+<script>
+document.getElementById('mobile-menu-btn').addEventListener('click', function () {
+    var menu = document.getElementById('mobile-menu');
+    menu.hidden = !menu.hidden;
+});
+</script>
 <div class="crumb"><a href="/">Home</a> › Reviews</div>
 <section class="hero">
     <h1>Customer Reviews</h1>
@@ -152,24 +173,21 @@
         </div>
     </div>
     <div class="review-cta">
-        <h3>Been out on a job with us?</h3>
-        <p>Leave a Google review for the shop that served you.</p>
-        <a class="btn btn-google" href="https://g.page/r/CU9X_NG3TvP2EBM/review" target="_blank" rel="noopener">Review on Google (Ramona)</a>
-        <a class="btn btn-google" href="https://g.page/r/Cajtn6jSo-ONEBM/review" target="_blank" rel="noopener">Review on Google (Anza)</a>
-        <p style="margin-top: 1rem;"><a href="https://www.yelp.com/biz/southern-california-well-service-ramona" target="_blank" rel="noopener">Find us on Yelp</a></p>
+        <p>Find us on Google and Yelp. We do not ask for a review on this page.</p>
+        <p><a href="https://www.google.com/maps/place/Southern+California+Well+Service/@33.0414646,-116.8702167,17z" target="_blank" rel="noopener">Ramona shop on Google</a></p>
+        <p><a href="https://www.yelp.com/biz/southern-california-well-service-ramona" target="_blank" rel="noopener">Find us on Yelp</a></p>
     </div>
     <h2>Our shops</h2>
     <div class="locations">
         <div class="location-card">
             <h3>Ramona Shop</h3>
             <p>1077 Main Street, Unit B, Ramona, CA 92065</p>
-            <p><a href="https://g.page/r/CU9X_NG3TvP2EBM/review" target="_blank" rel="noopener">Google reviews (Ramona)</a></p>
+            <p><a href="https://www.google.com/maps/place/Southern+California+Well+Service/@33.0414646,-116.8702167,17z" target="_blank" rel="noopener">Ramona shop on Google</a></p>
             <p><a href="https://www.yelp.com/biz/southern-california-well-service-ramona" target="_blank" rel="noopener">Find us on Yelp</a></p>
         </div>
         <div class="location-card">
             <h3>Anza Shop</h3>
             <p>57174 CA-371 (US Hwy 79), Anza, CA 92539</p>
-            <p><a href="https://g.page/r/Cajtn6jSo-ONEBM/review" target="_blank" rel="noopener">Google reviews (Anza)</a></p>
         </div>
     </div>
 </div>

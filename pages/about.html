@@ -103,7 +103,7 @@
         <div class="max-w-7xl mx-auto px-4 text-center flex items-center justify-center gap-2 flex-wrap">
             <span class="font-bold tracking-wide">🚨 No Water?</span>
             <span class="hidden sm:inline">Same-day emergency service available.</span>
-            <a href="tel:7604408520" class="bg-white text-red-600 font-bold px-4 py-1 rounded-full text-sm hover:bg-red-100 transition ml-1">Call Now →</a>
+            <a href="tel:7604408520" class="bg-white text-red-600 font-bold px-4 py-2.5 rounded-full text-sm hover:bg-red-100 transition ml-1" style="min-height:44px;display:inline-flex;align-items:center;">Call Now →</a>
         </div>
     </div>
     <!-- Header -->
@@ -119,10 +119,24 @@
                     <a href="../contact.html" class="text-white hover:text-accent transition whitespace-nowrap">Contact</a>
                     <a href="about.html" class="text-white font-semibold whitespace-nowrap">About</a>
                 </nav>
-                <a href="tel:+17604408520" class="site-phone-cta bg-red-600 hover:bg-red-700 text-white font-semibold rounded-lg transition">(760) 440-8520</a>
+                <div class="flex items-center gap-2">
+                    <button type="button" id="mobile-menu-btn" class="shop-menu-btn xl:hidden" aria-label="Open menu">☰</button>
+                    <a href="tel:+17604408520" class="site-phone-cta bg-red-600 hover:bg-red-700 text-white font-semibold rounded-lg transition">(760) 440-8520</a>
+                </div>
             </div>
         </div>
+        <div id="mobile-menu" class="hidden xl:hidden shop-mobile-nav bg-primary/95 border-t border-white/10 px-4 py-3">
+            <a href="../index.html#services">Services</a>
+            <a href="../recent-work/">Recent Work</a>
+            <a href="../contact.html">Contact</a>
+            <a href="about.html">About</a>
+        </div>
     </header>
+    <script>
+        document.getElementById('mobile-menu-btn').addEventListener('click', function () {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+    </script>
     <div class="bg-gray-50 border-b"><div class="max-w-7xl mx-auto px-4 py-3 text-sm text-gray-500"><a href="/" class="hover:text-accent">Home</a> › <span class="text-gray-700">About Us</span></div></div>
 
 
@@ -364,11 +378,8 @@
             </div>
         </div>
     </footer>
-    <!-- Lead Generation Components (Sticky Header + Exit Popup) -->
-    <script src="/js/lead-gen.js"></script>
 <script>setTimeout(function(){var s=document.createElement("script");s.src="/js/chat-widget.js?v=5";document.body.appendChild(s)},3000)</script>
 
-<style>#sticky-cta{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:2px solid #e5e7eb;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px;z-index:50;box-shadow:0 -4px 12px rgba(0,0,0,0.1)}#sticky-cta a{flex:1;font-weight:700;padding:12px 16px;border-radius:8px;text-align:center;color:#fff;font-size:14px;text-decoration:none}#sticky-cta .cta-call{background:#dc2626}#sticky-cta .cta-call:hover{background:#b91c1c}#sticky-cta .cta-text{background:#2563eb}#sticky-cta .cta-text:hover{background:#1d4ed8}#sticky-cta .cta-est{background:#4e9271}#sticky-cta .cta-est:hover{background:#3d7a5c}@media(min-width:1024px){#sticky-cta{display:none}}</style>
 <div id="sticky-cta">
     <a href="tel:7604408520" class="cta-call">📞 Call Now</a>
     <a href="sms:7602195877" class="cta-text">💬 Text Us</a>

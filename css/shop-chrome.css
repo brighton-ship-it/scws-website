@@ -18,14 +18,17 @@ body.shop-page {
 }
 #scws-emergency-cta a[href^="tel:"],
 #scws-emergency-cta a[href^="sms:"] {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   background: #fff;
   color: #dc2626;
   font-weight: 700;
-  padding: 0.28rem 0.85rem;
+  min-height: 44px;
+  padding: 0.55rem 1rem;
   border-radius: 999px;
   text-decoration: none;
-  font-size: 0.875rem;
+  font-size: 0.95rem;
 }
 #scws-emergency-cta a[href^="sms:"] {
   background: #fff7ed;
@@ -58,6 +61,39 @@ header.shop-header {
 }
 @media (max-width: 639px) {
   header .site-phone-cta { display: none !important; }
+}
+.shop-menu-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
+  background: transparent;
+  border: 0;
+  color: #fff;
+  cursor: pointer;
+}
+@media (min-width: 1280px) {
+  .shop-menu-btn { display: none; }
+}
+.shop-desktop-nav {
+  display: none;
+  align-items: center;
+  gap: 1rem;
+}
+.shop-desktop-nav a {
+  color: #fff;
+  text-decoration: none;
+  white-space: nowrap;
+}
+@media (min-width: 1280px) {
+  .shop-desktop-nav { display: flex; }
+}
+.shop-mobile-nav a {
+  display: block;
+  padding: 0.65rem 0;
+  color: #fff;
+  text-decoration: none;
 }
 
 .shop-trust {

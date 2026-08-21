@@ -43,8 +43,13 @@
         .service-card .price { color: #ed8936; font-weight: bold; }
         .cta-section { background: #ed8936; color: white; padding: 3rem 1rem; text-align: center; margin-top: 2rem; }
         .cta-section .phone-big { font-size: 2rem; color: white; text-decoration: none; font-weight: bold; }
-        .footer { background: #1a365d; color: white; padding: 2rem 1rem; text-align: center; }
-        .footer a { color: #ed8936; }
+        .footer { background: #0f172a; color: #94a3b8; padding: 2rem 1rem; }
+        .footer a { color: #e2e8f0; }
+        .city-landing { background: #fff; color: #1e293b; }
+        .city-landing .hero { background: linear-gradient(135deg, #1f3b4d 0%, #0f172a 100%); color: #fff; padding: 2.5rem 1rem; text-align: center; }
+        .city-landing .hero h1 { font-size: 2rem; margin-bottom: 0.75rem; }
+        .cta-button { display: inline-block; margin-top: 1rem; background: #dc2626; color: #fff; padding: 0.85rem 1.25rem; border-radius: 8px; font-weight: 700; text-decoration: none; min-height: 44px; }
+        .city-landing section, .city-landing .contact-cta { max-width: 1200px; margin: 0 auto; padding: 1.5rem 1rem; }
     </style>
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
@@ -100,40 +105,50 @@
 }
 </script>
 </head>
-<body style="padding-bottom:80px">
-<!-- Emergency Banner -->
+<body class="shop-page" style="padding-bottom:80px">
+<!-- Emergency Banner (not the homepage A/B bar) -->
 <div class="bg-gradient-to-r from-red-600 to-red-700 text-white py-2.5">
 <div class="max-w-7xl mx-auto px-4 text-center flex items-center justify-center gap-2 flex-wrap">
 <span class="font-bold tracking-wide">🚨 No Water?</span>
 <span class="hidden sm:inline">Same-day emergency service available.</span>
-<a class="bg-white text-red-600 font-bold px-4 py-1 rounded-full text-sm hover:bg-red-100 transition ml-1" href="tel:7604408520">
+<a class="bg-white text-red-600 font-bold px-4 py-2.5 rounded-full text-sm hover:bg-red-100 transition ml-1" href="tel:7604408520" style="min-height:44px;display:inline-flex;align-items:center;">
                 Call Now →
             </a>
 </div>
 </div>
+<link rel="stylesheet" href="/css/shop-chrome.css"/>
 <!-- Header (sticky) -->
-<header class="bg-primary text-white sticky top-0 z-50 shadow-lg">
+<header class="bg-primary text-white sticky top-0 z-50 shadow-lg shop-header">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-<div class="flex justify-between items-center py-4">
+<div class="flex justify-between items-center py-2">
 <a class="flex items-center space-x-3 shrink-0" href="/">
-<img width="840" height="150" alt="Southern California Well Service" class="h-10 lg:h-12 w-auto" loading="lazy" src="/images/logo-text-only-3x.png"/>
+<img width="840" height="150" alt="Southern California Well Service" class="site-logo-img" loading="lazy" src="/images/logo-text-only-3x.png"/>
 </a>
-<!-- Desktop Navigation -->
-<nav class="hidden lg:flex space-x-4 items-center">
+<nav class="hidden xl:flex space-x-4 items-center">
 <a class="text-white hover:text-accent transition whitespace-nowrap" href="/pages/services/well-drilling.html">Services</a>
-<a class="text-white hover:text-accent transition whitespace-nowrap" href="/pages/service-area.html">Service Areas</a>
-<a class="text-white hover:text-accent transition whitespace-nowrap" href="/blog/">Resources</a>
-<a class="text-white hover:text-accent transition whitespace-nowrap" href="/faq.html">FAQ</a>
+<a class="text-white hover:text-accent transition whitespace-nowrap" href="/recent-work/">Recent Work</a>
 <a class="text-white hover:text-accent transition whitespace-nowrap" href="/contact.html">Contact</a>
-<a class="text-white font-semibold hover:text-accent transition whitespace-nowrap" href="/cost-calculator.html">Free Estimate</a>
 <a class="text-white hover:text-accent transition whitespace-nowrap" href="/pages/about.html">About</a>
 </nav>
-
-
-        
-        
-        
-        <main class="city-landing">
+<div class="flex items-center gap-2">
+<button type="button" id="mobile-menu-btn" class="shop-menu-btn xl:hidden" aria-label="Open menu">☰</button>
+<a class="site-phone-cta bg-red-600 hover:bg-red-700 text-white font-semibold rounded-lg transition" href="tel:+17604408520">(760) 440-8520</a>
+</div>
+</div>
+</div>
+<div id="mobile-menu" class="hidden xl:hidden shop-mobile-nav bg-primary/95 border-t border-white/10 px-4 py-3">
+<a href="/pages/services/well-drilling.html">Services</a>
+<a href="/recent-work/">Recent Work</a>
+<a href="/contact.html">Contact</a>
+<a href="/pages/about.html">About</a>
+</div>
+</header>
+<script>
+document.getElementById('mobile-menu-btn').addEventListener('click', function () {
+    document.getElementById('mobile-menu').classList.toggle('hidden');
+});
+</script>
+<main class="city-landing">
           <section class="hero">
             <h1>Well Services in Ramona, CA</h1>
             <p>Expert well drilling, pump repair, and water treatment for fractured granite and Santiago Peak volcanics wells</p>
@@ -142,18 +157,18 @@
 
           <section class="city-overview">
             <h2>Well Service in Ramona</h2>
-            <p>Southern California Well Service has been serving Ramona for decades. We know the local geology (fractured granite and Santiago Peak volcanics), typical well depths (250-450ft), and water quality issues (iron, manganese, moderate hardness (8-15 grains)) better than anyone.</p>
+            <p>Southern California Well Service was founded in 2020 and works from our Ramona shop at 1077 Main Street, Unit B. We know the local geology (fractured granite and Santiago Peak volcanics), typical well depths (250-450ft), and water quality issues (iron, manganese, moderate hardness (8-15 grains)).</p>
 
             <div class="service-area-info">
               <h3>Ramona Service Area</h3>
               <p><strong>Neighborhoods:</strong> San Diego Country Estates, Mt. Woodson, Barona, Mussey Grade, Dye Road</p>
-              <p><strong>Response time:</strong> 0 min (HQ) from our Ramona headquarters (1077 Main St, Ramona, CA 92065)</p>
-              <p><strong>Local office:</strong> 57174 CA-371 (US Hwy 79), Anza, CA 92539 (4.9★ Google rating)</p>
+              <p><strong>Response:</strong> Same-day from our Ramona shop (1077 Main Street, Unit B, Ramona, CA 92065)</p>
+              <p><strong>Anza shop:</strong> 57174 CA-371 (US Hwy 79), Anza, CA 92539</p>
             </div>
 
             <div class="local-geology">
               <h3>Ramona Well Geology & Water Quality</h3>
-              <p>SCWS headquarters at 1077 Main St. Most properties are well-dependent. Fire-prone area with eucalyptus and chaparral.</p>
+              <p>SCWS Ramona shop at 1077 Main Street, Unit B. Most properties are well-dependent. Fire-prone area with eucalyptus and chaparral.</p>
               <ul>
                 <li><strong>Geology:</strong> fractured granite and Santiago Peak volcanics</li>
                 <li><strong>Typical well depth:</strong> 250-450ft</li>
@@ -188,7 +203,7 @@
 
             <div class="service-card">
               <h3><a href="/services/ramona/emergency-well-service.html">24/7 Emergency Service</a></h3>
-              <p>No water? We're 0 min (HQ) away. Call (760) 440-8520 anytime — we answer 24/7.</p>
+              <p>No water? Call (760) 440-8520 or text (760) 219-5877 — we answer 24/7.</p>
               <a href="/services/ramona/emergency-well-service.html" class="learn-more">Learn more →</a>
             </div>
 
@@ -220,9 +235,9 @@
           <section class="why-choose-scws">
             <h2>Why Ramona Trusts SCWS</h2>
             <ul>
-              <li><strong>Local expertise:</strong> We've drilled and serviced Ramona wells for decades</li>
+              <li><strong>Local shop:</strong> Founded 2020 — Ramona shop at 1077 Main Street, Unit B</li>
               <li><strong>Know the geology:</strong> fractured granite and Santiago Peak volcanics requires specific drilling and pump techniques</li>
-              <li><strong>Fast response:</strong> 0 min (HQ) from Ramona, 60 min from Anza</li>
+              <li><strong>Fast response:</strong> Same-day from the Ramona shop; Anza shop covers the high desert</li>
               <li><strong>Licensed & insured:</strong> CSLB #1086994 (C-57 Water Well Drilling)</li>
               <li><strong>24/7 emergency service:</strong> We answer the phone, day or night</li>
               <li><strong>Family-owned:</strong> Brighton Scala, owner, lives in Valley Center and knows this area intimately</li>
@@ -256,7 +271,7 @@
           <div class="contact-cta">
             <h2>Call SCWS for Ramona Well Service</h2>
             <p class="phone-large"><a href="tel:7604408520">(760) 440-8520</a></p>
-            <p><a href="/contact">Request service online</a> | <a href="/about">About SCWS</a></p>
+            <p><a href="/contact.html">Request service online</a> | <a href="/pages/about.html">About SCWS</a></p>
             <p class="license">Licensed & Insured | CSLB #1086994 | Serving Ramona since 2020</p>
           </div>
         
@@ -274,7 +289,7 @@
 </div>
 <div class="bg-gray-50 rounded-lg p-4 mb-3">
   <h3 class="font-bold text-gray-900 mb-2">How much does well drilling cost in your area?</h3>
-  <p class="text-gray-700">Well drilling in your area typically costs $45-$85 per foot, with most wells totaling </main>5,000-$45,000 depending on depth, casing requirements, and equipment needed. We provide free estimates before any work begins.</p>
+  <p class="text-gray-700">Well drilling in your area typically costs $45-$85 per foot, with most wells totaling $15,000-$45,000 depending on depth, casing requirements, and equipment needed. We provide free estimates before any work begins.</p>
 </div>
 
 </main>
@@ -294,4 +309,16 @@
   </ul>
   <p><a href="/recent-work/">See all recent work →</a></p>
 </section>
+<footer class="footer">
+  <p>Voice <a href="tel:+17604408520">(760) 440-8520</a> · Text <a href="sms:7602195877">(760) 219-5877</a></p>
+  <p>1077 Main Street, Unit B, Ramona, CA 92065 · 57174 CA-371 (US Hwy 79), Anza, CA 92539</p>
+  <p>Mon–Fri 7:00am–5:00pm PT · Emergency 24/7 · CSLB License #1086994 (C-57)</p>
+</footer>
+<div id="sticky-cta">
+  <a class="cta-call" href="tel:+17604408520">Call</a>
+  <a class="cta-text" href="sms:7602195877" title="Text-only line: (760) 219-5877">Text</a>
+  <a class="cta-est" href="/contact.html">Estimate</a>
+</div>
+</body>
+</html>
 <
