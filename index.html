@@ -598,9 +598,15 @@
                             <div class="w-10 h-10 bg-accent/10 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
                                 <svg class="w-5 h-5 text-accent" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
                             </div>
-                            <div>
-                                <h3 class="font-bold text-primary text-lg">Read us on Google</h3>
-                                <p class="text-gray-600">Shop reviews are on Google (Ramona and Anza). We don’t publish a combined star count here — read the shops directly.</p>
+                            <div id="gbp-ratings">
+                                <h3 class="font-bold text-primary text-lg" data-gbp-heading>Google reviews</h3>
+                                <div class="gbp-ratings-shops" data-gbp-shops>
+                                    <p class="text-gray-600">
+                                        <a href="https://g.page/r/CU9X_NG3TvP2EBM/review" target="_blank" rel="noopener">Ramona</a>
+                                        ·
+                                        <a href="https://www.google.com/maps/place/57174+CA-371,+Anza,+CA+92539" target="_blank" rel="noopener">Anza</a>
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1332,6 +1338,7 @@
     
         <script src="js/site-info.js"></script>
         <script src="js/utm-tracking.js"></script>
+        <script src="js/gbp-ratings.js"></script>
 
 <!-- SCWS Live Chat Widget -->
     <script>setTimeout(function(){var s=document.createElement("script");s.src="js/chat-widget.js?v=5";document.body.appendChild(s)},3000)</script>
