@@ -12,15 +12,33 @@ var { JSDOM } = require('jsdom');
 var src = fs.readFileSync(path.join(__dirname, 'gbp-ratings.js'), 'utf8');
 var indexHtml = fs.readFileSync(path.join(__dirname, '..', 'index.html'), 'utf8');
 
-function homepageMount() {
+function snapshotWidgetInner() {
   return (
-    '<div id="gbp-ratings" class="gbp-ratings-widget">' +
-      '<a class="gbp-ratings-link" href="https://www.google.com/maps/place/57174+CA-371,+Anza,+CA+92539" target="_blank" rel="noopener">' +
-        '<span class="gbp-stars" aria-hidden="true">★★★★★</span>' +
-        '<span data-gbp-heading>Anza on Google</span>' +
-      '</a>' +
-    '</div>'
+    '<a class="gbp-ratings-link" href="https://www.google.com/maps/place/57174+CA-371,+Anza,+CA+92539" target="_blank" rel="noopener">' +
+      '<span class="gbp-stars" aria-hidden="true">★★★★★</span>' +
+      '<span class="gbp-ratings-score" data-gbp-heading>4.8</span>' +
+      '<span class="gbp-ratings-count">(94)</span>' +
+      '<span class="gbp-ratings-label" data-gbp-shops>Anza</span>' +
+    '</a>'
   );
+}
+
+function homepageMount() {
+  return '<div id="gbp-ratings" class="gbp-ratings-widget">' + snapshotWidgetInner() + '</div>';
+}
+
+function assertAnzaSnapshot(html, heading) {
+  assert.strictEqual(heading, '4.8');
+  assert.match(html, /★★★★★/);
+  assert.match(html, /gbp-ratings-score[^>]*>4\.8</);
+  assert.match(html, /\(94\)/);
+  assert.match(html, />Anza</);
+  assert.match(html, /57174\+CA-371/);
+  assert.doesNotMatch(html, /Anza on Google/);
+  assert.doesNotMatch(html, /Ramona/);
+  assert.doesNotMatch(html, /g\.page\/r\/CU9X_NG3TvP2EBM/);
+  assert.doesNotMatch(html, /4\.9/);
+  assert.doesNotMatch(html, /127/);
 }
 
 function loadWidget(fetchImpl) {
@@ -57,13 +75,15 @@ function mountHtml(win) {
 async function run() {
   assert.doesNotMatch(src, /4\.9/);
   assert.doesNotMatch(src, /127/);
-  assert.doesNotMatch(src, /4\.8/);
   assert.doesNotMatch(src, /4\.7/);
-  assert.doesNotMatch(src, /\b94\b/);
   assert.doesNotMatch(src, /\b61\b/);
+  assert.match(src, /rating:\s*4\.8/);
+  assert.match(src, /count:\s*94/);
+  assert.match(src, /2026-08-20/);
   assert.match(src, /scws-jobs\.vercel\.app\/api\/gbp-ratings/);
   assert.match(src, /g\.page\/r\/CU9X_NG3TvP2EBM\/review/);
   assert.match(src, /57174\+CA-371/);
+  assert.doesNotMatch(src, /Anza on Google/);
   assert.doesNotMatch(src, /we don.?t publish a combined star count/i);
 
   var heritageIdx = indexHtml.indexOf('heritage-banner');
@@ -75,11 +95,13 @@ async function run() {
 
   var widgetBlock = indexHtml.slice(gbpIdx, whyIdx);
   assert.match(widgetBlock, /★★★★★/);
-  assert.match(widgetBlock, /Anza on Google/);
+  assert.match(widgetBlock, /gbp-ratings-score[^>]*>4\.8</);
+  assert.match(widgetBlock, /\(94\)/);
+  assert.match(widgetBlock, />Anza</);
   assert.match(widgetBlock, /57174\+CA-371/);
+  assert.doesNotMatch(widgetBlock, /Anza on Google/);
   assert.doesNotMatch(widgetBlock, /4\.9/);
   assert.doesNotMatch(widgetBlock, /127/);
-  assert.doesNotMatch(widgetBlock, /4\.8/);
   assert.doesNotMatch(widgetBlock, /4\.7/);
   assert.doesNotMatch(widgetBlock, /Ramona/);
   assert.doesNotMatch(widgetBlock, /g\.page\/r\/CU9X_NG3TvP2EBM\/review/);
@@ -130,58 +152,37 @@ async function run() {
   await wait(20);
   var failHeading = failWin.document.querySelector('[data-gbp-heading]').textContent;
   var failShops = mountHtml(failWin);
-  assert.strictEqual(failHeading, 'Anza on Google');
-  assert.match(failShops, /★★★★★/);
-  assert.match(failShops, /Anza on Google/);
-  assert.doesNotMatch(failShops, /Ramona/);
-  assert.doesNotMatch(failShops, /g\.page\/r\/CU9X_NG3TvP2EBM\/review/);
-  assert.match(failShops, /57174\+CA-371/);
-  assert.doesNotMatch(failShops, /4\.9/);
-  assert.doesNotMatch(failShops, /127/);
+  assertAnzaSnapshot(failShops, failHeading);
   assert.doesNotMatch(failShops, /4\.7/);
-  assert.doesNotMatch(failShops, /\(\d+\)/);
 
   var unconfigured = loadWidget(function () {
     return jsonResponse({ error: 'gbp_unconfigured' }, 503);
   });
   await wait(20);
-  assert.strictEqual(
-    unconfigured.document.querySelector('[data-gbp-heading]').textContent,
-    'Anza on Google'
+  assertAnzaSnapshot(
+    mountHtml(unconfigured),
+    unconfigured.document.querySelector('[data-gbp-heading]').textContent
   );
-  var unconfiguredShops = mountHtml(unconfigured);
-  assert.match(unconfiguredShops, /★★★★★/);
-  assert.doesNotMatch(unconfiguredShops, /\(\d+\)/);
-  assert.doesNotMatch(unconfiguredShops, /Ramona/);
-  assert.match(unconfiguredShops, /Anza on Google/);
-  assert.match(unconfiguredShops, /57174\+CA-371/);
 
   var unavailable = loadWidget(function () {
     return jsonResponse({ error: 'gbp_unavailable' }, 502);
   });
   await wait(20);
-  var unavailableShops = mountHtml(unavailable);
-  assert.strictEqual(
-    unavailable.document.querySelector('[data-gbp-heading]').textContent,
-    'Anza on Google'
+  assertAnzaSnapshot(
+    mountHtml(unavailable),
+    unavailable.document.querySelector('[data-gbp-heading]').textContent
   );
-  assert.match(unavailableShops, /★★★★★/);
-  assert.doesNotMatch(unavailableShops, /g\.page\/r\/CU9X_NG3TvP2EBM\/review/);
-  assert.match(unavailableShops, /57174\+CA-371/);
-  assert.doesNotMatch(unavailableShops, /Ramona/);
-  assert.doesNotMatch(unavailableShops, /\(\d+\)/);
-  assert.doesNotMatch(unavailableShops, /4\.9/);
-  assert.doesNotMatch(unavailableShops, /127/);
 
   var html404 = loadWidget(function () {
     return jsonResponse({ ramona: { rating: 4.7, count: 61 } }, 404);
   });
   await wait(20);
-  assert.strictEqual(
-    html404.document.querySelector('[data-gbp-heading]').textContent,
-    'Anza on Google'
+  var html404Shops = mountHtml(html404);
+  assertAnzaSnapshot(
+    html404Shops,
+    html404.document.querySelector('[data-gbp-heading]').textContent
   );
-  assert.doesNotMatch(mountHtml(html404), /4\.7/);
+  assert.doesNotMatch(html404Shops, /4\.7/);
 
   var missingAnza = loadWidget(function () {
     return jsonResponse({
@@ -193,31 +194,26 @@ async function run() {
   await wait(20);
   var missingHeading = missingAnza.document.querySelector('[data-gbp-heading]').textContent;
   var missingShops = mountHtml(missingAnza);
-  assert.strictEqual(missingHeading, 'Anza on Google');
-  assert.match(missingShops, /★★★★★/);
-  assert.doesNotMatch(missingShops, /Ramona/);
-  assert.match(missingShops, /Anza on Google/);
-  assert.match(missingShops, /57174\+CA-371/);
+  assertAnzaSnapshot(missingShops, missingHeading);
   assert.doesNotMatch(missingShops, /4\.7/);
-  assert.doesNotMatch(missingShops, /\(\d+\)/);
+  assert.doesNotMatch(missingShops, /https:\/\/example.com\/ramona/);
 
   var api = liveWin.scwsGbpRatings;
   assert.notStrictEqual(api.LINKS.ramonaReviews, api.LINKS.anzaListing);
   assert.doesNotMatch(api.LINKS.anzaListing, /CU9X_NG3TvP2EBM/);
+  assert.strictEqual(api.ANZA_SNAPSHOT.rating, 4.8);
+  assert.strictEqual(api.ANZA_SNAPSHOT.count, 94);
+  assert.strictEqual(api.ANZA_SNAPSHOT.asOf, '2026-08-20');
 
   var partial = api.shopsHtml({
     ramona: { rating: 4.6, count: 10 },
     anza: { rating: 'nope' }
   });
-  assert.doesNotMatch(partial, /Ramona/);
-  assert.match(partial, /Anza on Google/);
-  assert.match(partial, /★★★★★/);
-  assert.doesNotMatch(partial, /4\.6/);
-  assert.doesNotMatch(partial, /4\.9/);
-  assert.strictEqual(api.headingText({
+  assertAnzaSnapshot(partial, api.headingText({
     ramona: { rating: 4.6, count: 10 },
     anza: { rating: 'nope' }
-  }), 'Anza on Google');
+  }));
+  assert.doesNotMatch(partial, /4\.6/);
 
   var withAnzaUrl = api.shopsHtml({
     ramona: { rating: 4.6, count: 10 },
@@ -231,21 +227,17 @@ async function run() {
   assert.match(withAnzaUrl, />Anza</);
   assert.doesNotMatch(withAnzaUrl, /CU9X_NG3TvP2EBM/);
   assert.doesNotMatch(withAnzaUrl, /Ramona/);
+  assert.doesNotMatch(withAnzaUrl, /\(94\)/);
   assert.strictEqual(api.headingText({
     ramona: { rating: 4.6, count: 10 },
     anza: { rating: 4.8, count: 22, url: 'https://example.com/anza' }
   }), '4.8');
 
   var fallback = api.fallbackShopsHtml();
-  assert.doesNotMatch(fallback, /Ramona/);
-  assert.match(fallback, /Anza on Google/);
-  assert.match(fallback, /★★★★★/);
+  assertAnzaSnapshot(fallback, api.headingText(null));
   assert.doesNotMatch(fallback, /<\/p>\s*<p class="text-gray-600">/);
   assert.doesNotMatch(fallback, /4\.9/);
   assert.doesNotMatch(fallback, /127/);
-  assert.doesNotMatch(fallback, /\(\d+\)/);
-  assert.doesNotMatch(fallback, /CU9X_NG3TvP2EBM/);
-  assert.match(fallback, /57174\+CA-371/);
 
   assert.strictEqual(api.hasLive({ rating: 4.6, count: 10 }), true);
   assert.strictEqual(api.hasLive({ rating: 4.6 }), false);
@@ -254,8 +246,8 @@ async function run() {
   assert.strictEqual(api.hasLive({ rating: 5, count: 0 }), true);
   assert.strictEqual(api.hasLive({ rating: -0.1, count: 1 }), false);
   assert.strictEqual(api.hasLive({ rating: 5.1, count: 1 }), false);
-  assert.strictEqual(api.headingText({ error: 'gbp_unconfigured' }), 'Anza on Google');
-  assert.strictEqual(api.headingText(null), 'Anza on Google');
+  assert.strictEqual(api.headingText({ error: 'gbp_unconfigured' }), '4.8');
+  assert.strictEqual(api.headingText(null), '4.8');
 
   console.log('gbp-ratings tests passed');
 }
