@@ -7,14 +7,15 @@
  *   { ramona: { rating, count, url? }, anza: { rating, count, url? }, updated }
  * Failure body: { error: "gbp_unconfigured" | "gbp_unavailable" }
  *
- * Homepage widget shows Anza only. Never invent a combined star count.
+ * Homepage widget uses the Anza listing only. Never invent a combined star count.
  * Never reuse the Ramona review URL for Anza.
  *
- * When live Anza { rating, count } is present: stars + rating + count + Anza.
+ * Visible copy is stars + rating + count + "on Google" — no shop name.
+ * When live Anza { rating, count } is present: use those numbers.
  * When the API fails, returns gbp_unconfigured / gbp_unavailable, or
  * Anza numbers are missing: show the last verified Anza listing snapshot
  * from 2026-08-20 PT (pulled from Google Business Profile API, not invented):
- *   ★★★★★  4.8  (94)  Anza, linking to the Anza Maps listing in the mount.
+ *   ★★★★★  4.8  (94)  on Google, linking to the Anza GBP g.page in the mount.
  */
 (function (root) {
   'use strict';
@@ -24,14 +25,16 @@
 
   // Documented so it is never reused as the Anza href.
   var RAMONA_REVIEWS = 'https://g.page/r/CU9X_NG3TvP2EBM/review';
-  // No Anza g.page exists in this repo. Use the contact.html Maps place page.
-  var ANZA_LISTING = 'https://www.google.com/maps/place/57174+CA-371,+Anza,+CA+92539';
+  // Anza Google Business Profile (g.page). This is the listing, not a
+  // write-a-review dump — do not append /review. Do not replace this with the
+  // street-address Maps pin (57174 CA-371) or the Ramona g.page above.
+  var ANZA_LISTING = 'https://g.page/r/Cajtn6jSo-ONEBM';
 
   // Last verified Anza listing from GBP API on 2026-08-20 PT.
   // Fail-state only. Not a combined Ramona+Anza score.
   var ANZA_SNAPSHOT = { rating: 4.8, count: 94, asOf: '2026-08-20' };
 
-  var SHOP = { label: 'Anza', fallbackUrl: ANZA_LISTING };
+  var SHOP = { label: 'on Google', fallbackUrl: ANZA_LISTING };
   var STAR_ROW = '<span class="gbp-stars" aria-hidden="true">★★★★★</span>';
 
   function isHttpUrl(value) {
