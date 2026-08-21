@@ -3,7 +3,7 @@
  * stays fully visible and tappable.
  *
  * Consent Mode: this file must load BEFORE gtag.js so the default
- * (denied, or the stored accepted/rejected choice) is set first.
+ * (granted, or denied if cookieConsent is already rejected) is set first.
  */
 
 (function () {
@@ -35,16 +35,13 @@
   // Immediate: Consent Mode default before any gtag config / page_view
   ensureGtag();
   var stored = getStoredConsent();
-  if (stored === 'accepted') {
-    gtag('consent', 'default', consentParams(true));
-    applyDisableFlag(true);
-  } else if (stored === 'rejected') {
+  if (stored === 'rejected') {
     gtag('consent', 'default', consentParams(false));
     applyDisableFlag(false);
   } else {
-    gtag('consent', 'default', Object.assign({
-      wait_for_update: 500
-    }, consentParams(false)));
+    // First visit and already-accepted: keep tracking on (CA site, not GDPR opt-in).
+    gtag('consent', 'default', consentParams(true));
+    applyDisableFlag(true);
   }
 
   function updateConsent(value) {

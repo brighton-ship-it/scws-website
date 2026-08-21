@@ -42,8 +42,8 @@
     if (ab.expId || ab.experimentId || ab.id) {
       extra.exp_id = ab.expId || ab.experimentId || ab.id;
     }
-    if (ab.variant || ab.expVariant) {
-      extra.exp_variant = ab.variant || ab.expVariant;
+    if (ab.variant || ab.expVar || ab.exp_var) {
+      extra.exp_var = ab.variant || ab.expVar || ab.exp_var;
     }
     return extra;
   }
