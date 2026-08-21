@@ -22,9 +22,7 @@
   var ENRICH_EVENTS = {
     generate_lead: true,
     call_click: true,
-    click_to_call: true,
     text_click: true,
-    click_to_text: true,
     ads_conversion_submit_lead_form: true
   };
 

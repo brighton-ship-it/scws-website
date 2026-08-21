@@ -152,18 +152,20 @@ test('does not change the sticky bar or header phone', function () {
 test('enriches generate_lead / call_click / text_click with exp_id and exp_var', function () {
   var page = loadPage({ variant: 'control' });
   page.window.gtag('event', 'generate_lead', { event_category: 'engagement' });
-  page.window.gtag('event', 'click_to_call', { event_category: 'engagement' });
+  page.window.gtag('event', 'call_click', { event_category: 'engagement' });
+  page.window.gtag('event', 'text_click', { event_category: 'engagement' });
   page.window.gtag('event', 'ads_conversion_submit_lead_form', { event_category: 'lead' });
   page.window.gtag('event', 'page_view', {});
   var lead = findEvent(page.events, 'generate_lead');
   assert.strictEqual(lead[2].exp_id, 'exp_emergency_cta');
   assert.strictEqual(lead[2].exp_var, 'control');
-  assert.strictEqual(findEvent(page.events, 'click_to_call')[2].exp_id, 'exp_emergency_cta');
+  assert.strictEqual(findEvent(page.events, 'call_click')[2].exp_id, 'exp_emergency_cta');
+  assert.strictEqual(findEvent(page.events, 'text_click')[2].exp_id, 'exp_emergency_cta');
   assert.strictEqual(findEvent(page.events, 'ads_conversion_submit_lead_form')[2].exp_id, 'exp_emergency_cta');
   assert.strictEqual(findEvent(page.events, 'page_view')[2].exp_id, undefined);
 });
 
-test('SMS clicks fire text_click / click_to_text and never the Ads phone conversion', function () {
+test('SMS clicks fire text_click only and never the Ads phone conversion', function () {
   var page = loadPage({
     variant: 'variant',
     utm: { utm_source: 'google', utm_medium: 'cpc' }
@@ -172,16 +174,16 @@ test('SMS clicks fire text_click / click_to_text and never the Ads phone convers
   page.document.querySelector('#scws-emergency-cta a[href^="sms:"]').dispatchEvent(
     new page.window.MouseEvent('click', { bubbles: true })
   );
-  assert.ok(findEvent(page.events, 'text_click'));
-  assert.ok(findEvent(page.events, 'click_to_text'));
+  var names = eventNames(page.events);
+  assert.deepStrictEqual(names, ['text_click']);
   assert.strictEqual(findEvent(page.events, 'text_click')[2].traffic_source, 'google_ads');
   assert.strictEqual(findEvent(page.events, 'text_click')[2].page_path, '/');
-  assert.ok(!page.events.some(function (e) {
-    return e[0] === 'event' && e[1] === 'conversion';
-  }));
+  assert.strictEqual(findEvent(page.events, 'text_click')[2].exp_id, 'exp_emergency_cta');
+  assert.ok(!findEvent(page.events, 'click_to_text'));
+  assert.ok(!findEvent(page.events, 'conversion'));
 });
 
-test('voice clicks still forward the Google Ads phone conversion', function () {
+test('voice clicks fire one call_click plus the Ads phone conversion', function () {
   var page = loadPage({
     variant: 'control',
     utm: { utm_source: 'google', utm_medium: 'cpc' }
@@ -190,10 +192,14 @@ test('voice clicks still forward the Google Ads phone conversion', function () {
   page.document.querySelector('#scws-emergency-cta a[href^="tel:"]').dispatchEvent(
     new page.window.MouseEvent('click', { bubbles: true })
   );
+  var names = eventNames(page.events);
+  assert.deepStrictEqual(names, ['call_click', 'conversion']);
   var conv = findEvent(page.events, 'conversion');
-  assert.ok(conv);
   assert.strictEqual(conv[2].send_to, 'AW-490838730/aFiRCMDlofAbEMq1huoB');
   assert.strictEqual(findEvent(page.events, 'call_click')[2].exp_id, 'exp_emergency_cta');
+  assert.ok(!findEvent(page.events, 'click_to_call'));
+  assert.ok(!findEvent(page.events, 'contact_page'));
+  assert.ok(!findEvent(page.events, 'seo_call_conversion'));
 });
 
 console.log('\n' + passed + ' tests passed');
