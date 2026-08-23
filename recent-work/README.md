@@ -45,12 +45,30 @@ Never commit tokens. `.gitignore` already blocks `**/.env` and `**/jobber_creden
 **GitHub Action (normal path)**
 
 1. Actions → **Publish Recent Work from Jobber** → Run workflow.
-2. Optional inputs: look-back days (default 21) and max new jobs (default 8).
+2. Optional inputs: look-back days (default 21), max new jobs (default 8),
+   pages (default 3), and page size (default 20).
 3. The workflow opens a **PR to `main`**. Do not merge until you have checked
    the photos and the public wording.
 4. After merge, GitHub Pages updates https://scwellservice.com/recent-work/.
 
 A Monday 15:00 UTC schedule is enabled. It is a no-op when there is nothing new.
+
+**Historical backfill (thousands of completed jobs)**
+
+The weekly Action stays small. To walk years of completed / archived Jobber
+jobs and publish many more cards from real job photos, run the same Action
+with larger inputs (or the local command below):
+
+| Input | Suggested backfill |
+|---|---|
+| days | `1825` (5 years) |
+| limit | `200` (max new cards this run) |
+| pages | `80` |
+| page_size | `50` |
+
+That scans up to 4,000 jobs and adds at most 200 new public-safe cards.
+Already published job IDs are skipped, so you can re-run to continue. Do not
+invent photos. Review the PR before merge.
 
 **Local**
 
@@ -61,6 +79,10 @@ export JOBBER_CLIENT_SECRET=...
 export JOBBER_REFRESH_TOKEN=...
 
 python3 scripts/publish-recent-work-from-jobber.py
+python3 scripts/generate-recent-work-pages.py
+
+# Historical backfill — real Jobber photos only
+python3 scripts/publish-recent-work-from-jobber.py --days 1825 --limit 200 --pages 80 --page-size 50
 python3 scripts/generate-recent-work-pages.py
 ```
 
