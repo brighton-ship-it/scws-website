@@ -17,6 +17,14 @@ on:
         description: Max new jobs to add
         required: false
         default: "8"
+      pages:
+        description: Max Jobber GraphQL pages to walk (default 3; use 80+ for a historical backfill)
+        required: false
+        default: "3"
+      page_size:
+        description: Jobs per GraphQL page (default 20)
+        required: false
+        default: "20"
   schedule:
     # Monday 15:00 UTC ≈ 8am Pacific
     - cron: "0 15 * * 1"
@@ -83,7 +91,9 @@ jobs:
         run: |
           DAYS="${{ github.event.inputs.days || '21' }}"
           LIMIT="${{ github.event.inputs.limit || '8' }}"
-          python3 scripts/publish-recent-work-from-jobber.py --days "$DAYS" --limit "$LIMIT"
+          PAGES="${{ github.event.inputs.pages || '3' }}"
+          PAGE_SIZE="${{ github.event.inputs.page_size || '20' }}"
+          python3 scripts/publish-recent-work-from-jobber.py --days "$DAYS" --limit "$LIMIT" --pages "$PAGES" --page-size "$PAGE_SIZE"
           python3 scripts/generate-recent-work-pages.py
 
       - name: Open PR if there are changes
