@@ -221,6 +221,15 @@ Promise.resolve()
         assert.doesNotMatch(block, /aFiRCMDlofAbEMq1huoB/, file);
         assert.doesNotMatch(block, /contact_form_submit/, file);
         assert.doesNotMatch(block, /send_to/, file);
+        ['gclid', 'gbraid', 'wbraid', 'ga_client_id'].forEach(function (field) {
+          assert.match(html, new RegExp('name="' + field + '"'), file + ' missing hidden ' + field);
+        });
+        var postsWholeForm = /Object\.fromEntries\(formData\)/.test(block);
+        if (!postsWholeForm) {
+          ['gclid', 'gbraid', 'wbraid', 'ga_client_id'].forEach(function (field) {
+            assert.match(block, new RegExp(field), file + ' booking payload missing ' + field);
+          });
+        }
       });
     });
   })

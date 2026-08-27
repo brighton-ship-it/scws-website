@@ -7,7 +7,8 @@
     "test:ab": "node js/ab.test.js",
     "test:gbp": "node js/gbp-ratings.test.js",
     "test:lead-events": "node js/lead-events.test.js",
-    "test:tracking": "node js/lead-events.test.js"
+    "test:utm": "node js/utm-tracking.test.js",
+    "test:tracking": "node js/lead-events.test.js && node js/utm-tracking.test.js"
   },
   "devDependencies": {
     "jsdom": "^28.1.0",

@@ -392,6 +392,11 @@
 <input id="utm_campaign" name="utm_campaign" type="hidden"/>
 <input id="utm_term" name="utm_term" type="hidden"/>
 <input id="utm_content" name="utm_content" type="hidden"/>
+<input id="gclid" name="gclid" type="hidden"/>
+<input id="gbraid" name="gbraid" type="hidden"/>
+<input id="wbraid" name="wbraid" type="hidden"/>
+<input id="ga_client_id" name="ga_client_id" type="hidden"/>
+<input id="ga_session_id" name="ga_session_id" type="hidden"/>
 <input id="landing_page" name="landing_page" type="hidden"/>
 <input id="referrer" name="referrer" type="hidden"/>
 <input id="lead_source" name="lead_source" type="hidden"/>
@@ -756,6 +761,19 @@
                 service_type: serviceMap[calculatorData.service] || 'other',
                 notes: `Cost Calculator Lead - Service: ${calculatorData.service}, Property: ${calculatorData.property}, Depth: ${calculatorData.depthUnknown ? 'Unknown' : calculatorData.depth + 'ft'}, Urgency: ${calculatorData.urgency}`,
                 source: 'cost-calculator',
+                utm_source: formData.get('utm_source') || '',
+                utm_medium: formData.get('utm_medium') || '',
+                utm_campaign: formData.get('utm_campaign') || '',
+                utm_term: formData.get('utm_term') || '',
+                utm_content: formData.get('utm_content') || '',
+                gclid: formData.get('gclid') || '',
+                gbraid: formData.get('gbraid') || '',
+                wbraid: formData.get('wbraid') || '',
+                ga_client_id: formData.get('ga_client_id') || '',
+                ga_session_id: formData.get('ga_session_id') || '',
+                landing_page: formData.get('landing_page') || window.location.href,
+                referrer: formData.get('referrer') || document.referrer || 'direct',
+                lead_source: formData.get('lead_source') || '',
             };
             
             // Submit to CRM
