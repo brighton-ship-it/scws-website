@@ -25,6 +25,7 @@
         });
     </script>
     <script src="/js/ab.js?v=20260821b"></script>
+    <script src="/js/lead-events.js"></script>
     <script>
         // Clicks are not leads. generate_lead fires only after a successful CRM POST.
         function trackFormClick() {
@@ -34,6 +35,14 @@
         // call-tracking.js owns call_click when present
         function trackPhoneClick() {
             if (window.scwsCallTracking) return;
+        }
+
+        function trackEstimateClick() {
+            if (typeof gtag === 'function') {
+                gtag('event', 'estimate_click', {
+                    event_category: 'engagement'
+                });
+            }
         }
         
         // Handle contact form submission with conversion tracking
@@ -94,15 +103,10 @@
             .then(response => {
                 if (response.ok) {
                     // Count a lead only after CRM accepts the POST
-                    if (typeof gtag === 'function') {
-                        gtag('event', 'generate_lead', {
-                            'event_category': 'engagement',
-                            'value': 150
-                        });
-                        gtag('event', 'conversion', {
-                            'send_to': 'AW-490838730/aFiRCMDlofAbEMq1huoB',
-                            'value': 150,
-                            'currency': 'USD'
+                    if (typeof scwsTrackLeadFormSuccess === 'function') {
+                        scwsTrackLeadFormSuccess({
+                            event_category: 'engagement',
+                            value: 150
                         });
                     }
                     console.log('Tracking: Form submitted');
@@ -617,7 +621,7 @@
                             <span class="hero-cta-full">Call (760) 440-8520</span>
                             <span class="hero-cta-short">Call</span>
                         </a>
-                        <a href="#contact" class="border-2 border-white hover:bg-white hover:text-primary text-white font-semibold py-3 px-4 sm:py-4 sm:px-8 rounded-lg text-center text-base sm:text-lg transition backdrop-blur-sm bg-white/10 whitespace-nowrap">
+                        <a href="#contact" onclick="trackEstimateClick()" class="border-2 border-white hover:bg-white hover:text-primary text-white font-semibold py-3 px-4 sm:py-4 sm:px-8 rounded-lg text-center text-base sm:text-lg transition backdrop-blur-sm bg-white/10 whitespace-nowrap">
                             <span class="hero-cta-full">Get Estimate</span>
                             <span class="hero-cta-short">Estimate</span>
                         </a>

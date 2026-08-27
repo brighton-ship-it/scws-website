@@ -11,6 +11,32 @@
   const PHONE_LINK = 'tel:7604408520';
   const API_URL = 'https://scws-jobs.vercel.app/api/leads/create';
 
+  // Fallback if js/lead-events.js is not on this page (many blog pages).
+  // Ads form conversion still needs a real Google Ads label created in Ads.
+  // Do not send form leads to AW-490838730/aFiRCMDlofAbEMq1huoB (phone/calls only).
+  function trackLeadFormSuccess(params) {
+    if (typeof window.scwsTrackLeadFormSuccess === 'function') {
+      window.scwsTrackLeadFormSuccess(params);
+      return;
+    }
+    if (typeof window.gtag !== 'function') return;
+    var payload = {
+      event_category: (params && params.event_category) || 'engagement'
+    };
+    if (params) {
+      for (var key in params) {
+        if (Object.prototype.hasOwnProperty.call(params, key)) payload[key] = params[key];
+      }
+    }
+    var ab = window.scwsAb;
+    if (ab && typeof ab === 'object') {
+      if (payload.exp_id == null && ab.id) payload.exp_id = ab.id;
+      if (payload.exp_var == null && ab.variant) payload.exp_var = ab.variant;
+    }
+    window.gtag('event', 'generate_lead', payload);
+    window.gtag('event', 'ads_conversion_submit_lead_form', payload);
+  }
+
   // ============================================
   // 1. STICKY MOBILE PHONE BAR
   // ============================================
@@ -339,6 +365,10 @@
     })
     .then(response => {
       if (!response.ok) throw new Error('Lead request failed');
+      trackLeadFormSuccess({
+        event_category: 'engagement',
+        event_label: 'exit_intent'
+      });
       return response.json().catch(function () { return {}; });
     })
     .then(function () {

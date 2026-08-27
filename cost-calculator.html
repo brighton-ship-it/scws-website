@@ -138,6 +138,7 @@
 }
 </script>
     <script src="/js/call-tracking.js"></script>
+    <script src="/js/lead-events.js"></script>
 </head>
 <body class="bg-gray-50">
 <!-- Header -->
@@ -774,16 +775,11 @@
             })
             .then(response => {
                 if (response.ok) {
-                    if (typeof gtag === 'function') {
-                        gtag('event', 'generate_lead', {
-                            'event_category': 'cost_calculator',
-                            'event_label': calculatorData.service,
-                            'value': 100
-                        });
-                        gtag('event', 'conversion', {
-                            'send_to': 'AW-490838730/aFiRCMDlofAbEMq1huoB',
-                            'value': 100,
-                            'currency': 'USD'
+                    if (typeof scwsTrackLeadFormSuccess === 'function') {
+                        scwsTrackLeadFormSuccess({
+                            event_category: 'engagement',
+                            event_label: calculatorData.service,
+                            value: 100
                         });
                     }
                     showResults();
