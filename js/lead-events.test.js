@@ -66,6 +66,7 @@ function loadExitCapture(opts) {
     window.dataLayer.push(Array.prototype.slice.call(arguments));
   };
   if (opts.scwsAb) window.scwsAb = opts.scwsAb;
+  if (opts.bootstrap) window.eval(trackingSrc);
   if (opts.withLeadEvents !== false) window.eval(leadEventsSrc);
   var fetches = [];
   window.fetch = function (url, init) {
@@ -98,17 +99,23 @@ function test(name, fn) {
 
 Promise.resolve()
   .then(function () {
-    return test('fires generate_lead and ads_conversion_submit_lead_form only', function () {
-      var page = loadLeadEvents();
+    return test('fires generate_lead, ads_conversion_submit_lead_form, and form conversion', function () {
+      var page = loadLeadEvents({ bootstrap: true });
       page.window.scwsTrackLeadFormSuccess({ event_category: 'engagement', value: 150 });
       assert.deepStrictEqual(eventNames(page.events), [
         'generate_lead',
-        'ads_conversion_submit_lead_form'
+        'ads_conversion_submit_lead_form',
+        'conversion'
       ]);
       assert.strictEqual(findEvent(page.events, 'generate_lead')[2].value, 150);
-      assert.ok(!findEvent(page.events, 'conversion'));
+      var conv = findEvent(page.events, 'conversion');
+      assert.ok(conv);
+      assert.strictEqual(conv[2].send_to, 'AW-490838730/nFeMCN_cyegcEMq1huoB');
+      assert.strictEqual(conv[2].value, 150);
       page.events.forEach(function (evt) {
-        assert.ok(!evt[2] || !evt[2].send_to, 'form success must not send_to an Ads label');
+        assert.ok(!evt[2] || evt[2].send_to !== 'AW-490838730/aFiRCMDlofAbEMq1huoB');
+        assert.ok(!evt[2] || evt[2].send_to !== 'AW-490838730/contact_form_submit');
+        assert.ok(!evt[2] || evt[2].send_to !== 'AW-490838730/form_submit');
       });
     });
   })
@@ -140,7 +147,7 @@ Promise.resolve()
   })
   .then(function () {
     return test('exit-intent fires the same events after CRM ok', function () {
-      var page = loadExitCapture();
+      var page = loadExitCapture({ bootstrap: true });
       page.document.getElementById('exit-name').value = 'Test User';
       page.document.getElementById('exit-phone').value = '7605550100';
       page.window.submitExitForm();
@@ -151,10 +158,18 @@ Promise.resolve()
         assert.match(page.fetches[0].url, /api\/leads\/create/);
         assert.deepStrictEqual(eventNames(page.events), [
           'generate_lead',
-          'ads_conversion_submit_lead_form'
+          'ads_conversion_submit_lead_form',
+          'conversion'
         ]);
         assert.strictEqual(findEvent(page.events, 'generate_lead')[2].event_label, 'exit_intent');
-        assert.ok(!findEvent(page.events, 'conversion'));
+        var conv = findEvent(page.events, 'conversion');
+        assert.ok(conv);
+        assert.strictEqual(conv[2].send_to, 'AW-490838730/nFeMCN_cyegcEMq1huoB');
+        page.events.forEach(function (evt) {
+          assert.ok(!evt[2] || evt[2].send_to !== 'AW-490838730/aFiRCMDlofAbEMq1huoB');
+          assert.ok(!evt[2] || evt[2].send_to !== 'AW-490838730/contact_form_submit');
+          assert.ok(!evt[2] || evt[2].send_to !== 'AW-490838730/form_submit');
+        });
       });
     });
   })
@@ -290,13 +305,21 @@ Promise.resolve()
           assert.ok(page.fetches.some(function (url) { return /api\/booking/.test(url); }));
           assert.deepStrictEqual(eventNames(page.events), [
             'generate_lead',
-            'ads_conversion_submit_lead_form'
+            'ads_conversion_submit_lead_form',
+            'conversion'
           ]);
           assert.strictEqual(findEvent(page.events, 'generate_lead')[2].exp_id, 'exp_emergency_cta');
-          assert.ok(!findEvent(page.events, 'conversion'));
+          var conv = findEvent(page.events, 'conversion');
+          assert.ok(conv);
+          assert.strictEqual(conv[2].send_to, 'AW-490838730/nFeMCN_cyegcEMq1huoB');
           assert.ok(!findEvent(page.events, 'click_to_call'));
           assert.ok(!findEvent(page.events, 'seo_call_conversion'));
           assert.ok(!findEvent(page.events, 'contact_page'));
+          page.events.forEach(function (evt) {
+            assert.ok(!evt[2] || evt[2].send_to !== 'AW-490838730/aFiRCMDlofAbEMq1huoB');
+            assert.ok(!evt[2] || evt[2].send_to !== 'AW-490838730/contact_form_submit');
+            assert.ok(!evt[2] || evt[2].send_to !== 'AW-490838730/form_submit');
+          });
           var userData = page.events.find(function (e) { return e[0] === 'set' && e[1] === 'user_data'; });
           assert.ok(userData, 'enhanced conversions user_data should be set');
           assert.strictEqual(userData[2].email, 'test@example.com');
@@ -326,10 +349,16 @@ Promise.resolve()
       assert.strictEqual(userData[2].phone_number, '7604408520');
       assert.deepStrictEqual(eventNames(page.events), [
         'generate_lead',
-        'ads_conversion_submit_lead_form'
+        'ads_conversion_submit_lead_form',
+        'conversion'
       ]);
+      var conv = findEvent(page.events, 'conversion');
+      assert.ok(conv);
+      assert.strictEqual(conv[2].send_to, 'AW-490838730/nFeMCN_cyegcEMq1huoB');
       page.events.forEach(function (evt) {
         assert.ok(!evt[2] || evt[2].send_to !== 'AW-490838730/aFiRCMDlofAbEMq1huoB');
+        assert.ok(!evt[2] || evt[2].send_to !== 'AW-490838730/contact_form_submit');
+        assert.ok(!evt[2] || evt[2].send_to !== 'AW-490838730/form_submit');
       });
     });
   })
@@ -340,17 +369,24 @@ Promise.resolve()
         event_category: 'engagement',
         send_to: 'AW-490838730/aFiRCMDlofAbEMq1huoB'
       }, { email: 'lead@example.com' });
-      assert.ok(!findEvent(page.events, 'conversion'));
       var lead = findEvent(page.events, 'generate_lead');
       assert.ok(lead);
       assert.ok(!lead[2].send_to);
+      var conv = findEvent(page.events, 'conversion');
+      assert.ok(conv);
+      assert.strictEqual(conv[2].send_to, 'AW-490838730/nFeMCN_cyegcEMq1huoB');
+      page.events.forEach(function (evt) {
+        assert.ok(!evt[2] || evt[2].send_to !== 'AW-490838730/aFiRCMDlofAbEMq1huoB');
+        assert.ok(!evt[2] || evt[2].send_to !== 'AW-490838730/contact_form_submit');
+        assert.ok(!evt[2] || evt[2].send_to !== 'AW-490838730/form_submit');
+      });
     });
   })
   .then(function () {
-    return test('bootstrap is idempotent and exposes AW_FORM_SEND_TO as null', function () {
+    return test('bootstrap is idempotent and exposes the Ads form conversion label', function () {
       var page = loadLeadEvents({ bootstrap: true });
-      assert.strictEqual(page.window.AW_FORM_SEND_TO, null);
-      assert.strictEqual(page.window.scwsTracking.AW_FORM_SEND_TO, null);
+      assert.strictEqual(page.window.AW_FORM_SEND_TO, 'AW-490838730/nFeMCN_cyegcEMq1huoB');
+      assert.strictEqual(page.window.scwsTracking.AW_FORM_SEND_TO, 'AW-490838730/nFeMCN_cyegcEMq1huoB');
       var configs = page.events.filter(function (e) { return e[0] === 'config'; });
       assert.strictEqual(configs.length, 3);
       assert.strictEqual(configs[0][1], 'G-5LL1YRWT5T');
@@ -367,7 +403,8 @@ Promise.resolve()
     return test('bootstrap and helper contain no fake Ads labels or retired events', function () {
       assert.doesNotMatch(trackingSrc, /contact_form_submit|form_submit|phone_click|hero_call_click|footer_call_click|click_to_call|seo_call_conversion|contact_page/);
       assert.doesNotMatch(leadEventsSrc, /contact_form_submit|click_to_call|seo_call_conversion|contact_page/);
-      assert.match(trackingSrc, /AW_FORM_SEND_TO = null/);
+      assert.match(trackingSrc, /AW_FORM_SEND_TO = 'AW-490838730\/nFeMCN_cyegcEMq1huoB'/);
+      assert.doesNotMatch(trackingSrc, /AW-490838730\/contact_form_submit|AW-490838730\/form_submit/);
       assert.doesNotMatch(trackingSrc, /console\.log\([^\)]*email|console\.log\([^\)]*phone/i);
     });
   })
