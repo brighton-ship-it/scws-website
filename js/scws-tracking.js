@@ -12,10 +12,9 @@
  *   - fires generate_lead + ads_conversion_submit_lead_form
  *   - attaches exp_id / exp_var from window.scwsAb
  *   - NEVER send_to the phone/call label
+ *   - Ads form conversion send_to AW_FORM_SEND_TO when it is set
  *
- * There is no real Ads form conversion label yet.
- * When Google Ads creates AW-490838730/<label>, drop it into AW_FORM_SEND_TO.
- * While null/empty, do not fire a fake Ads conversion.
+ * While AW_FORM_SEND_TO is null/empty, do not fire a fake Ads conversion.
  */
 (function (root) {
   'use strict';
@@ -25,9 +24,8 @@
   var AW_PHONE_SEND_TO = 'AW-490838730/aFiRCMDlofAbEMq1huoB';
   var PHONE_CONVERSION_NUMBER = '(760) 440-8520';
 
-  // Real AW-490838730/<label> will be dropped in when created in Google Ads.
-  // Do not invent placeholder send_to suffixes.
-  var AW_FORM_SEND_TO = null;
+  // Website form lead. Do not invent placeholder send_to suffixes.
+  var AW_FORM_SEND_TO = 'AW-490838730/nFeMCN_cyegcEMq1huoB';
 
   function assign(target, source) {
     if (!source) return target;
