@@ -8,24 +8,8 @@
     <script src="/js/ga4-filter.js"></script>
     <script src="/js/cookie-consent.js"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LL1YRWT5T"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        
-        // GA4 Config
-        gtag('config', 'G-5LL1YRWT5T');
-        
-        // Google Ads Config
-        gtag('config', 'AW-490838730');
-        
-        // Google Ads Phone Call Tracking - replaces phone number with Google Forwarding Number
-        gtag('config', 'AW-490838730/aFiRCMDlofAbEMq1huoB', {
-            'phone_conversion_number': '(760) 440-8520'
-        });
-    </script>
+        <script src="/js/scws-tracking.js"></script>
     <script src="/js/ab.js?v=20260821b"></script>
-    <script src="/js/lead-events.js"></script>
     <script>
         // Clicks are not leads. generate_lead fires only after a successful CRM POST.
         function trackFormClick() {
@@ -38,6 +22,10 @@
         }
 
         function trackEstimateClick() {
+            if (typeof scwsTrackEstimateClick === 'function') {
+                scwsTrackEstimateClick({ event_category: 'engagement' });
+                return;
+            }
             if (typeof gtag === 'function') {
                 gtag('event', 'estimate_click', {
                     event_category: 'engagement'
@@ -107,9 +95,11 @@
                         scwsTrackLeadFormSuccess({
                             event_category: 'engagement',
                             value: 150
+                        }, {
+                            email: crmData.email,
+                            phone: crmData.phone
                         });
                     }
-                    console.log('Tracking: Form submitted');
                     // Also submit to Formspree as email backup
                     fetch('https://formspree.io/f/maqjggnz', {
                         method: 'POST',

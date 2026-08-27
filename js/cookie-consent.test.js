@@ -101,4 +101,16 @@ test('already-consented visitors see no banner', function () {
   assert.strictEqual(page.document.getElementById('scws-cookie-banner'), null);
 });
 
+test('Consent Mode v2 default includes ad_user_data and ad_personalization', function () {
+  var page = loadPage({ mobile: false });
+  var consent = page.window.dataLayer.find(function (args) {
+    return args[0] === 'consent' && args[1] === 'default';
+  });
+  assert.ok(consent, 'expected a consent default call');
+  assert.strictEqual(consent[2].analytics_storage, 'granted');
+  assert.strictEqual(consent[2].ad_storage, 'granted');
+  assert.strictEqual(consent[2].ad_user_data, 'granted');
+  assert.strictEqual(consent[2].ad_personalization, 'granted');
+});
+
 console.log('\n' + passed + ' tests passed');

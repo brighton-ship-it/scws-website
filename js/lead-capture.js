@@ -14,12 +14,21 @@
   // Fallback if js/lead-events.js is not on this page (many blog pages).
   // Ads form conversion still needs a real Google Ads label created in Ads.
   // Do not send form leads to AW-490838730/aFiRCMDlofAbEMq1huoB (phone/calls only).
-  function trackLeadFormSuccess(params) {
+  function trackLeadFormSuccess(params, user) {
     if (typeof window.scwsTrackLeadFormSuccess === 'function') {
-      window.scwsTrackLeadFormSuccess(params);
+      window.scwsTrackLeadFormSuccess(params, user);
       return;
     }
     if (typeof window.gtag !== 'function') return;
+    if (user && (user.email || user.phone || user.phone_number)) {
+      var userData = {};
+      if (user.email) userData.email = String(user.email).replace(/^\s+|\s+$/g, '');
+      var fallbackPhone = user.phone_number || user.phone;
+      if (fallbackPhone) userData.phone_number = String(fallbackPhone).replace(/^\s+|\s+$/g, '');
+      if (userData.email || userData.phone_number) {
+        window.gtag('set', 'user_data', userData);
+      }
+    }
     var payload = {
       event_category: (params && params.event_category) || 'engagement'
     };
@@ -28,6 +37,7 @@
         if (Object.prototype.hasOwnProperty.call(params, key)) payload[key] = params[key];
       }
     }
+    if (payload.send_to === 'AW-490838730/aFiRCMDlofAbEMq1huoB') delete payload.send_to;
     var ab = window.scwsAb;
     if (ab && typeof ab === 'object') {
       if (payload.exp_id == null && ab.id) payload.exp_id = ab.id;
@@ -368,7 +378,7 @@
       trackLeadFormSuccess({
         event_category: 'engagement',
         event_label: 'exit_intent'
-      });
+      }, { phone: phone });
       return response.json().catch(function () { return {}; });
     })
     .then(function () {
