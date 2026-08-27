@@ -46,7 +46,9 @@ Never commit tokens. `.gitignore` already blocks `**/.env` and `**/jobber_creden
 
 1. Actions → **Publish Recent Work from Jobber** → Run workflow.
 2. Optional inputs: look-back days (default 21), max new jobs (default 8),
-   pages (default 3), and page size (default 20).
+   pages (default 3), and page size (default 20). For the next ~80-card
+   month batch use **days=40**, **limit=80**, **pages=20**. Default
+   `pages=3` only fetches 60 newest jobs — most of those IDs are already live.
 3. The workflow opens a **PR to `main`**. Do not merge until you have checked
    the photos and the public wording.
 4. After merge, GitHub Pages updates https://scwellservice.com/recent-work/.
@@ -110,3 +112,58 @@ as written.
   `index.html` as a silent extra, but it is not the publish store. That API
   has been 401/RLS. Do not revive it unless someone confirms it is healthy.
 - Do not change the public text number `760-219-5877` or voice `(760) 440-8520`.
+- The homepage six-card teaser in `index.html` is hand-picked. The publisher
+  and `generate-recent-work-pages.py` do **not** rewrite it.
+
+## 2026-08-23 batch attempt — Jobber auth missing in this VM
+
+Tried to add ~80 **new** cards from completed jobs roughly 2026-07-22 to
+2026-08-21 (job numbers in the 2900–3185 range that are not already
+published). Titles stay city + job type only. No customer names, streets,
+phones, prices, or Joe Fain. Real Jobber photos only — none were invented.
+
+### Dry-run
+
+```bash
+python3 scripts/publish-recent-work-from-jobber.py --days 40 --limit 80 --pages 15 --dry-run
+```
+
+Exit code **2**:
+
+```
+Need JOBBER_ACCESS_TOKEN, or JOBBER_CLIENT_ID + JOBBER_CLIENT_SECRET + JOBBER_REFRESH_TOKEN
+```
+
+### What was checked
+
+| Check | Result |
+|---|---|
+| `JOBBER_*` env in this VM | unset |
+| `**/.env` / `**/jobber_credentials.json` | none (and gitignored) |
+| `gh secret list` | HTTP 403 — this token cannot read Actions secrets. They may still exist. |
+| `gh workflow run "Publish Recent Work from Jobber"` | HTTP 403 — cannot dispatch from here |
+| Prior `publish-recent-work.yml` runs | none in the recent Actions history |
+| Google Drive Jobber dumps | older April 2026 exports only; no current photo-bearing job catalog |
+
+### Current live set (unchanged)
+
+- 107 published cards (`job2811`–`job3184`)
+- 94 of those are already in the 2900–3185 window and dated 2026-07-22 or later
+- Homepage teasers left alone (publisher does not update them)
+
+### How to finish this batch
+
+If Actions secrets are already set, run the workflow (do not merge until review):
+
+1. Actions → **Publish Recent Work from Jobber** → Run workflow
+2. Inputs: `days=40`, `limit=80`, `pages=20` (page_size can stay 20)
+3. Review the PR the Action opens. Confirm real Jobber JPEGs and city-only copy.
+
+Local equivalent once env vars are in the shell (never commit them):
+
+```bash
+python3 scripts/publish-recent-work-from-jobber.py --days 40 --limit 80 --pages 20
+python3 scripts/generate-recent-work-pages.py
+```
+
+The publisher skips existing job IDs, so the 107 live cards stay as written.
