@@ -1,4 +1,10 @@
-Thursday 2026-08-27 Recent Work backfill helpers.
-Load cards: parse and concat cards_00.json .. cards_06.json (each a JSON array) into one 70-item array.
-Load urls: concat urls_00.txt .. urls_05.txt (filename SPACE url per line) = 192 photos.
-Then: download+Pillow JPEG q=86 optimize; merge into recent-work/projects.json (keep existing 280); generate pages via scripts/recent_work_lib.py write_site_files + scripts/generate-recent-work-pages.py; git commit real JPEG binaries (not MCP push_files for binaries); DELETE entire _backfill/ before final commit; push branch; open PR titled "Recent Work: +70 Jobber field-photo cards (Thu 2026-08-27 backfill)"; verify raw JPEG magic ffd8ff; squash-merge ONLY if real JPEGs + full ~13KB HTML present. Do not touch homepage/hero/ratings/widget.
+Thursday 2026-08-27 Recent Work backfill helpers
+
+CARDS: concat JSON arrays cards_00.json … cards_06.json → 70 projects.
+Ignore cards.json (placeholder stub).
+
+URLS (192 photos):
+  cat urls.b64.0 urls.b64.1 urls.b64.2 urls.b64.3 urls.b64.4 urls.b64.5 urls.b64.6 urls.b64.7 | base64 -d | gunzip > urls.txt
+  Each line: filename SPACE signed_url
+
+Then download, Pillow q=86 JPEG, merge projects.json (keep existing 280), generate pages, delete this _backfill/ folder, commit binaries with git, open PR, verify ffd8ff + full HTML, squash-merge only if real.
