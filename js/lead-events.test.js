@@ -233,6 +233,71 @@ Promise.resolve()
     });
   })
   .then(function () {
+    return test('homepage and contact handlers fire GA4 events only after mocked CRM ok', function () {
+      function extractHandler(html) {
+        var start = html.indexOf('function handleFormSubmit');
+        return html.slice(start, html.indexOf('</script>', start));
+      }
+
+      function loadFormPage(file, formHtml) {
+        var html = fs.readFileSync(path.join(__dirname, '..', file), 'utf8');
+        var dom = new JSDOM('<!doctype html><html><body>' + formHtml + '</body></html>', {
+          url: 'https://scwellservice.com/' + file,
+          runScripts: 'outside-only'
+        });
+        var window = dom.window;
+        window.dataLayer = [];
+        window.gtag = function () { window.dataLayer.push(Array.prototype.slice.call(arguments)); };
+        window.scwsAb = { id: 'exp_emergency_cta', variant: 'control' };
+        window.alert = function () {};
+        window.console.error = function () {};
+        var fetches = [];
+        window.fetch = function (url) {
+          fetches.push(String(url));
+          return Promise.resolve({ ok: true, json: function () { return Promise.resolve({}); } });
+        };
+        window.eval(leadEventsSrc);
+        window.eval(extractHandler(html) + '\nwindow.handleFormSubmit = handleFormSubmit;');
+        return { window: window, events: window.dataLayer, fetches: fetches };
+      }
+
+      var formHtml =
+        '<form id="contact-form">' +
+          '<input name="name" value="Test User">' +
+          '<input name="phone" value="7605550100">' +
+          '<input name="email" value="test@example.com">' +
+          '<input name="address" value="1 Main">' +
+          '<input name="city" value="Ramona">' +
+          '<input name="location" value="Ramona">' +
+          '<input name="service" value="pump-repair">' +
+          '<textarea name="message">test</textarea>' +
+          '<input name="website_url" value="">' +
+          '<button id="submit-btn" type="submit">Go</button>' +
+        '</form>' +
+        '<div id="form-success" class="hidden"></div>';
+
+      var home = loadFormPage('index.html', formHtml);
+      var contact = loadFormPage('contact.html', formHtml);
+      home.window.handleFormSubmit(new home.window.Event('submit', { bubbles: true, cancelable: true }));
+      contact.window.handleFormSubmit(new contact.window.Event('submit', { bubbles: true, cancelable: true }));
+
+      return Promise.resolve().then(function () { return Promise.resolve(); }).then(function () {
+        [home, contact].forEach(function (page) {
+          assert.ok(page.fetches.some(function (url) { return /api\/booking/.test(url); }));
+          assert.deepStrictEqual(eventNames(page.events), [
+            'generate_lead',
+            'ads_conversion_submit_lead_form'
+          ]);
+          assert.strictEqual(findEvent(page.events, 'generate_lead')[2].exp_id, 'exp_emergency_cta');
+          assert.ok(!findEvent(page.events, 'conversion'));
+          assert.ok(!findEvent(page.events, 'click_to_call'));
+          assert.ok(!findEvent(page.events, 'seo_call_conversion'));
+          assert.ok(!findEvent(page.events, 'contact_page'));
+        });
+      });
+    });
+  })
+  .then(function () {
     return test('pump-repair drops fake Ads send_to suffixes', function () {
       var html = fs.readFileSync(path.join(__dirname, '..', 'pump-repair.html'), 'utf8');
       assert.doesNotMatch(html, /phone_click|hero_call_click|footer_call_click|footer_button_click|form_submit/);
