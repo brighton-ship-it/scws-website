@@ -6,18 +6,9 @@
 <meta content="4sWQb_Uh0NjF4jC43erSNa0M_-L_3MZN-RPA5rOGXKo" name="google-site-verification"/>
 <!-- Google Analytics (GA4) + Google Ads Conversion Tracking -->
 <script src="/js/ga4-filter.js"></script>
+<script src="/js/cookie-consent.js"></script>
 <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-5LL1YRWT5T"></script>
-<script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-5LL1YRWT5T');
-        gtag('config', 'AW-490838730');
-        gtag('config', 'AW-490838730/aFiRCMDlofAbEMq1huoB', {
-            'phone_conversion_number': '(760) 440-8520'
-        });
-    </script>
-<script src="/js/lead-events.js"></script>
+<script src="/js/scws-tracking.js"></script>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>FREE Guide: 10 Warning Signs Your Well Pump Is Failing</title>
@@ -375,6 +366,9 @@
                             event_category: 'engagement',
                             event_label: 'well_pump_guide_download',
                             value: 50
+                        }, {
+                            email: crmData.email,
+                            phone: crmData.phone
                         });
                     }
                     // Show success message with download button

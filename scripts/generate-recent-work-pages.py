@@ -94,13 +94,7 @@ def page_html(project: dict) -> str:
 <script src="/js/ga4-filter.js"></script>
 <script src="/js/cookie-consent.js"></script>
 <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-5LL1YRWT5T"></script>
-<script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){{dataLayer.push(arguments);}}
-    gtag('js', new Date());
-        gtag('config', 'G-5LL1YRWT5T');
-        gtag('config', 'AW-490838730');
-    </script>
+<script src="/js/scws-tracking.js"></script>
     <script src="/js/call-tracking.js"></script>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>

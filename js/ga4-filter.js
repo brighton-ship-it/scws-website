@@ -15,9 +15,12 @@
     var storedConsent = localStorage.getItem('cookieConsent');
     if (storedConsent === 'accepted' || storedConsent === 'rejected') {
       var granted = storedConsent === 'accepted';
+      var state = granted ? 'granted' : 'denied';
       window.gtag('consent', 'default', {
-        analytics_storage: granted ? 'granted' : 'denied',
-        ad_storage: granted ? 'granted' : 'denied'
+        analytics_storage: state,
+        ad_storage: state,
+        ad_user_data: state,
+        ad_personalization: state
       });
       if (!granted) {
         window['ga-disable-G-5LL1YRWT5T'] = true;

@@ -23,9 +23,12 @@
   }
 
   function consentParams(granted) {
+    var state = granted ? 'granted' : 'denied';
     return {
-      analytics_storage: granted ? 'granted' : 'denied',
-      ad_storage: granted ? 'granted' : 'denied'
+      analytics_storage: state,
+      ad_storage: state,
+      ad_user_data: state,
+      ad_personalization: state
     };
   }
 
