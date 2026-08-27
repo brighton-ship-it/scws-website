@@ -227,6 +227,17 @@ Promise.resolve()
       assert.match(indexHtml, /phone_conversion_number/);
       var handler = extractHandlerBlock(indexHtml);
       assert.doesNotMatch(handler, /aFiRCMDlofAbEMq1huoB/);
+
+      var contactHtml = fs.readFileSync(path.join(__dirname, '..', 'contact.html'), 'utf8');
+      assert.match(contactHtml, /phone_conversion_number/);
+    });
+  })
+  .then(function () {
+    return test('pump-repair drops fake Ads send_to suffixes', function () {
+      var html = fs.readFileSync(path.join(__dirname, '..', 'pump-repair.html'), 'utf8');
+      assert.doesNotMatch(html, /phone_click|hero_call_click|footer_call_click|footer_button_click|form_submit/);
+      assert.match(html, /call-tracking\.js|lead-events\.js/);
+      assert.match(html, /phone_conversion_number/);
     });
   })
   .then(function () {
