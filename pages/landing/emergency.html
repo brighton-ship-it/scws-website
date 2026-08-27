@@ -9,8 +9,13 @@
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
         gtag('config', 'G-5LL1YRWT5T');
+        gtag('config', 'AW-490838730');
+        gtag('config', 'AW-490838730/aFiRCMDlofAbEMq1huoB', {
+            'phone_conversion_number': '(760) 440-8520'
+        });
     </script>
     <script src="/js/call-tracking.js"></script>
+    <script src="/js/lead-events.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Well Emergency? 24/7 Pump Repair • We Answer Day or Night</title>
@@ -287,15 +292,10 @@
                 if (!response.ok) {
                     throw new Error('Form submission failed');
                 }
-                if (typeof gtag === 'function') {
-                    gtag('event', 'generate_lead', {
-                        'event_category': 'engagement',
-                        'value': 150
-                    });
-                    gtag('event', 'conversion', {
-                        'send_to': 'AW-490838730/aFiRCMDlofAbEMq1huoB',
-                        'value': 150,
-                        'currency': 'USD'
+                if (typeof scwsTrackLeadFormSuccess === 'function') {
+                    scwsTrackLeadFormSuccess({
+                        event_category: 'engagement',
+                        value: 150
                     });
                 }
                 // Also submit to Formspree as email backup

@@ -13,7 +13,11 @@
         gtag('js', new Date());
         gtag('config', 'G-5LL1YRWT5T');
         gtag('config', 'AW-490838730');
+        gtag('config', 'AW-490838730/aFiRCMDlofAbEMq1huoB', {
+            'phone_conversion_number': '(760) 440-8520'
+        });
     </script>
+<script src="/js/lead-events.js"></script>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>FREE Guide: 10 Warning Signs Your Well Pump Is Failing</title>
@@ -366,16 +370,11 @@
                 }).catch(() => {});
                 
                 if (response.ok) {
-                    if (typeof gtag === 'function') {
-                        gtag('event', 'generate_lead', {
-                            'event_category': 'lead_magnet',
-                            'event_label': 'well_pump_guide_download',
-                            'value': 50
-                        });
-                        gtag('event', 'conversion', {
-                            'send_to': 'AW-490838730/aFiRCMDlofAbEMq1huoB',
-                            'value': 50,
-                            'currency': 'USD'
+                    if (typeof scwsTrackLeadFormSuccess === 'function') {
+                        scwsTrackLeadFormSuccess({
+                            event_category: 'engagement',
+                            event_label: 'well_pump_guide_download',
+                            value: 50
                         });
                     }
                     // Show success message with download button

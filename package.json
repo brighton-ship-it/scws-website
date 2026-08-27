@@ -5,7 +5,8 @@
     "build:css": "tailwindcss -i ./src/input.css -o ./css/styles.css --minify",
     "watch:css": "tailwindcss -i ./src/input.css -o ./css/styles.css --watch",
     "test:ab": "node js/ab.test.js",
-    "test:gbp": "node js/gbp-ratings.test.js"
+    "test:gbp": "node js/gbp-ratings.test.js",
+    "test:lead-events": "node js/lead-events.test.js"
   },
   "devDependencies": {
     "jsdom": "^28.1.0",

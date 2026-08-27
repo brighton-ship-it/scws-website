@@ -17,7 +17,11 @@
         gtag('js', new Date());
         gtag('config', 'G-5LL1YRWT5T');
         gtag('config', 'AW-490838730');
+        gtag('config', 'AW-490838730/aFiRCMDlofAbEMq1huoB', {
+            'phone_conversion_number': '(760) 440-8520'
+        });
     </script>
+<script src="/js/lead-events.js"></script>
 <!-- Schema Markup -->
 <script type="application/ld+json">
     {
@@ -163,14 +167,14 @@
 <a href="/contact.html">Contact</a>
 </nav>
 <button class="hamburger" onclick="alert('Menu: Home | Drilling | Pump Repair | Contact')">☰</button>
-<div class="phone-header"><a href="tel:+17604408520" onclick="gtag('event', 'conversion', {'send_to': 'AW-490838730/phone_click'});">(760) 440-8520</a></div>
+<div class="phone-header"><a href="tel:+17604408520">(760) 440-8520</a></div>
 </div>
 </header>
 <div class="bg-gray-50 border-b"><div class="max-w-7xl mx-auto px-4 py-3 text-sm text-gray-500"><a class="hover:text-accent" href="/">Home</a> › <a class="hover:text-accent" href="/#services">Services</a> › <span class="text-gray-700">Well Pump Repair</span></div></div>
 <section class="hero" style="background: linear-gradient(rgba(26, 54, 93, 0.85), rgba(30, 64, 175, 0.9)), url('images/well-pump-service.jpg') center/cover;">
 <h1>Well Pump Repair San Diego</h1>
 <p>No water? Pump making noise? We fix it fast.<br/>Same-day emergency service available.</p>
-<a class="cta-button" href="tel:+17604408520" onclick="gtag('event', 'conversion', {'send_to': 'AW-490838730/hero_call_click'});">Call Now: (760) 440-8520</a>
+<a class="cta-button" href="tel:+17604408520">Call Now: (760) 440-8520</a>
 <p class="urgency">⚡ Most repairs completed same day</p>
 </section>
 <div class="trust-bar">
@@ -297,8 +301,8 @@
 <section class="cta-section">
 <h2>Need Your Pump Fixed?</h2>
 <p>Don't wait — pump problems only get worse. Call now for fast, reliable service.</p>
-<div class="cta-phone"><a href="tel:+17604408520" onclick="gtag('event', 'conversion', {'send_to': 'AW-490838730/footer_call_click'});">(760) 440-8520</a></div>
-<a class="cta-button" href="tel:+17604408520" onclick="gtag('event', 'conversion', {'send_to': 'AW-490838730/footer_button_click'});">Call For Free Estimate</a>
+<div class="cta-phone"><a href="tel:+17604408520">(760) 440-8520</a></div>
+<a class="cta-button" href="tel:+17604408520">Call For Free Estimate</a>
 </section>
 <footer class="footer">
 <p>Southern California Well Service | Ramona Shop: 1077 Main Street, Unit B, Ramona, CA 92065 | Anza Shop: 57174 CA-371 (US Hwy 79), Anza, CA 92539</p>
@@ -331,9 +335,11 @@
             })
             .then(response => {
                 if (response.ok) {
-                    if (typeof gtag === 'function') {
-                        gtag('event', 'conversion', { 'send_to': 'AW-490838730/form_submit' });
-                        gtag('event', 'generate_lead', { 'event_category': 'engagement', 'value': 100 });
+                    if (typeof scwsTrackLeadFormSuccess === 'function') {
+                        scwsTrackLeadFormSuccess({
+                            event_category: 'engagement',
+                            value: 100
+                        });
                     }
                     form.innerHTML = '<div style="text-align:center;padding:2rem;"><h3 style="color:#16a34a;">✓ Request Received!</h3><p>We\'ll call you back within a few hours.</p><p style="margin-top:1rem;"><strong>Need help sooner?</strong> Call <a href="tel:+17604408520" style="color:#1e40af;">(760) 440-8520</a></p></div>';
                 } else {
