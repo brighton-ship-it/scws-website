@@ -65,6 +65,9 @@ function loadTracker(opts) {
     window.sessionStorage.setItem('scws_utm', JSON.stringify(opts.stored));
   }
   window.eval(utmSrc);
+  if (window.document.readyState === 'loading') {
+    window.document.dispatchEvent(new window.Event('DOMContentLoaded'));
+  }
   return { window: window, document: window.document, logs: logs };
 }
 
