@@ -260,6 +260,11 @@
                     <input type="hidden" name="utm_campaign" id="utm_campaign">
                     <input type="hidden" name="utm_term" id="utm_term">
                     <input type="hidden" name="utm_content" id="utm_content">
+                    <input type="hidden" name="gclid" id="gclid">
+                    <input type="hidden" name="gbraid" id="gbraid">
+                    <input type="hidden" name="wbraid" id="wbraid">
+                    <input type="hidden" name="ga_client_id" id="ga_client_id">
+                    <input type="hidden" name="ga_session_id" id="ga_session_id">
                     <input type="hidden" name="landing_page" id="landing_page">
                     <input type="hidden" name="referrer" id="referrer">
                     <input type="hidden" name="lead_source" id="lead_source">
@@ -431,6 +436,19 @@
                 service_type: serviceMap[formData.get('service')] || 'other',
                 notes: formData.get('message') || '',
                 source: 'website',
+                utm_source: formData.get('utm_source') || '',
+                utm_medium: formData.get('utm_medium') || '',
+                utm_campaign: formData.get('utm_campaign') || '',
+                utm_term: formData.get('utm_term') || '',
+                utm_content: formData.get('utm_content') || '',
+                gclid: formData.get('gclid') || '',
+                gbraid: formData.get('gbraid') || '',
+                wbraid: formData.get('wbraid') || '',
+                ga_client_id: formData.get('ga_client_id') || '',
+                ga_session_id: formData.get('ga_session_id') || '',
+                landing_page: formData.get('landing_page') || window.location.href,
+                referrer: formData.get('referrer') || document.referrer || 'direct',
+                lead_source: formData.get('lead_source') || '',
             };
             
             // Submit to CRM

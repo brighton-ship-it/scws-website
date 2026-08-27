@@ -166,6 +166,11 @@
                 <input type="hidden" name="utm_source" id="utm_source">
                 <input type="hidden" name="utm_medium" id="utm_medium">
                 <input type="hidden" name="utm_campaign" id="utm_campaign">
+                <input type="hidden" name="gclid" id="gclid">
+                <input type="hidden" name="gbraid" id="gbraid">
+                <input type="hidden" name="wbraid" id="wbraid">
+                <input type="hidden" name="ga_client_id" id="ga_client_id">
+                <input type="hidden" name="ga_session_id" id="ga_session_id">
                 <input type="hidden" name="landing_page" value="drilling">
                 <input type="hidden" name="lead_source" value="google_ads">
                 <input type="hidden" name="_subject" value="🔵 DRILLING Lead from Ads Landing Page">
@@ -260,6 +265,7 @@
     </footer>
     
     <script>setTimeout(function(){var s=document.createElement("script");s.src="/js/chat-widget.js?v=5";document.body.appendChild(s)},3000)</script>
+    <script src="/js/utm-tracking.js"></script>
     <script>
         // Populate UTM fields
         const urlParams = new URLSearchParams(window.location.search);
@@ -291,6 +297,11 @@
                 utm_campaign: formData.get('utm_campaign') || '',
                 utm_term: formData.get('utm_term') || '',
                 utm_content: formData.get('utm_content') || '',
+                gclid: formData.get('gclid') || '',
+                gbraid: formData.get('gbraid') || '',
+                wbraid: formData.get('wbraid') || '',
+                ga_client_id: formData.get('ga_client_id') || '',
+                ga_session_id: formData.get('ga_session_id') || '',
                 landing_page: formData.get('landing_page') || window.location.href,
                 referrer: formData.get('referrer') || document.referrer || 'direct',
                 lead_source: formData.get('lead_source') || 'google_ads',

@@ -26,10 +26,25 @@ Consent Mode v2 uses the existing cookie banner (`analytics_storage`, `ad_storag
 | `experiment_view` | Homepage A/B harness (`js/ab.js`) once per session | No | No | Also sets `exp_id` / `exp_var` user properties. |
 | `estimate_click` | Estimate / contact CTA (`scwsTrackEstimateClick` or homepage helper) | No | No | Click is not a lead. |
 
-Form success also sets enhanced conversions `user_data` (`email`, `phone_number`) when those fields were collected. gtag hashes them. Do not log PII to the console.
+Form success also sets enhanced conversions `user_data` (`email`, `phone_number`) when those fields were collected. gtag hashes them. Do not log PII or click IDs to the console.
 
 Retired / never reintroduce: `click_to_call`, `seo_call_conversion`, `contact_page`, invented Ads suffixes such as `contact_form_submit`, `form_submit`, `phone_click`.
 
-## Next layer (not this PR)
+## Click IDs for Jobber-scheduled `book_job` (CRM)
 
-Booked-job / offline conversion upload from the CRM is the next measurement layer. Website tags stop at successful form submit and qualified call clicks.
+`js/utm-tracking.js` stores first-party attribution in `sessionStorage` (`scws_utm`) and hidden form fields. Website tags do **not** fire a conversion from these IDs. They ride along on the booking POST so the CRM can match a later Jobber-scheduled `book_job` / offline conversion.
+
+| Field | Source | Persist |
+| --- | --- | --- |
+| `utm_source` / `utm_medium` / `utm_campaign` / `utm_term` / `utm_content` | URL query | Yes, across pages in the session |
+| `gclid` | URL query (Google Ads) | Yes, same as UTMs |
+| `gbraid` | URL query (iOS / Privacy Sandbox) | Yes, same as UTMs |
+| `wbraid` | URL query (web-to-app) | Yes, same as UTMs |
+| `ga_client_id` | `_ga` cookie — client id after the first two dotted prefixes (`GA1.1.XXXXXXXXXX.YYYYYYYYYY` → `XXXXXXXXXX.YYYYYYYYYY`) | Cookie + copied into session/hidden field when present |
+| `ga_session_id` | `_ga_5LL1YRWT5T` (GA4 `G-5LL1YRWT5T`) | Cookie + copied into session/hidden field when present |
+
+Lead forms that POST to `https://scws-jobs.vercel.app/api/booking` include these keys in the JSON body (same names) when the hidden fields are present.
+
+## Next layer (CRM, not a site tag)
+
+Booked-job / offline conversion upload from the CRM uses the stored click IDs above. Website tags still stop at successful form submit and qualified call clicks.
