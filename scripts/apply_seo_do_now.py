@@ -229,8 +229,28 @@ def blog_canonical_url(path: Path) -> str:
     return href
 
 
+
+PERMIT_GUIDE_KEEP = {
+    "well-permit-guide-san-diego.html",
+    "well-permit-requirements-san-diego.html",
+    "well-permit-denial-appeals.html",
+    "well-permit-inspection-requirements.html",
+    "well-permit-vs-replace.html",
+    "well-permit-statistics-by-state.html",
+    "well-permits-california.html",
+    "well-permits-san-diego-county.html",
+}
+
+
+def is_programmatic_well_permit(name: str) -> bool:
+    """City/neighborhood well-permit clones. Keep the real permit guides."""
+    if name in PERMIT_GUIDE_KEEP:
+        return False
+    return name.startswith("well-permit-") and name.endswith(".html")
+
+
 def indexable_blog_urls() -> list[str]:
-    """Indexable blog URLs only: no robots noindex, no -OLD, no `name (1)` leftovers."""
+    """Indexable blog URLs only: no robots noindex, no -OLD, no permit-city junk."""
     urls: list[str] = []
     seen: set[str] = set()
     for path in sorted((ROOT / "blog").glob("*.html")):
@@ -239,6 +259,8 @@ def indexable_blog_urls() -> list[str]:
         if "-OLD" in path.name:
             continue
         if path.name.startswith("average-well-depth-"):
+            continue
+        if is_programmatic_well_permit(path.name):
             continue
         if html_is_noindex(path):
             continue
@@ -249,6 +271,7 @@ def indexable_blog_urls() -> list[str]:
             or target.name.startswith("average-well-depth-")
             or "-OLD" in target.name
             or BROKEN_NAME_RE.search(target.name)
+            or is_programmatic_well_permit(target.name)
         ):
             continue
         if url in seen:
@@ -258,8 +281,23 @@ def indexable_blog_urls() -> list[str]:
     return urls
 
 
+
+def existing_blog_lastmods() -> dict[str, str]:
+    mods: dict[str, str] = {}
+    for i in range(1, 5):
+        path = ROOT / f"sitemap-blog-{i}.xml"
+        if not path.exists():
+            continue
+        for loc, lastmod in re.findall(
+            r"<loc>([^<]+)</loc><lastmod>([^<]+)</lastmod>", path.read_text(encoding="utf-8")
+        ):
+            mods[loc] = lastmod
+    return mods
+
+
 def write_blog_sitemaps(urls: list[str], parts: int = 4) -> None:
     today = TODAY
+    lastmods = existing_blog_lastmods()
     n = max(len(urls), 1)
     size = (n + parts - 1) // parts
     chunks = [urls[i : i + size] for i in range(0, len(urls), size)] or [[]]
@@ -272,8 +310,9 @@ def write_blog_sitemaps(urls: list[str], parts: int = 4) -> None:
             '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n',
         ]
         for url in chunks[i] if i < len(chunks) else []:
+            lastmod = lastmods.get(url, today)
             lines.append(
-                f"  <url><loc>{url}</loc><lastmod>{today}</lastmod><priority>0.6</priority></url>\n"
+                f"  <url><loc>{url}</loc><lastmod>{lastmod}</lastmod><priority>0.6</priority></url>\n"
             )
         lines.append("</urlset>\n")
         path.write_text("".join(lines), encoding="utf-8")

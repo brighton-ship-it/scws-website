@@ -73,11 +73,31 @@ const blogFiles = fs.readdirSync(blogDir)
     .filter(f => f.endsWith('.html') && f !== 'index.html')
     .sort();
 
+
+const PERMIT_GUIDE_KEEP = new Set([
+    'well-permit-guide-san-diego.html',
+    'well-permit-requirements-san-diego.html',
+    'well-permit-denial-appeals.html',
+    'well-permit-inspection-requirements.html',
+    'well-permit-vs-replace.html',
+    'well-permit-statistics-by-state.html',
+    'well-permits-california.html',
+    'well-permits-san-diego-county.html',
+]);
+
+function isProgrammaticWellPermit(name) {
+    if (PERMIT_GUIDE_KEEP.has(name)) return false;
+    return name.startsWith('well-permit-') && name.endsWith('.html');
+}
+
 for (const f of blogFiles) {
     const filePath = path.join(blogDir, f);
+    if (f.includes('-OLD')) continue;
+    if (f.startsWith('average-well-depth-')) continue;
+    if (isProgrammaticWellPermit(f)) continue;
     if (!isNoindexed(filePath)) {
         const slug = f.replace('.html', '');
-        blogUrls.push({ loc: `${DOMAIN}/blog/${slug}`, priority: '0.6' });
+        blogUrls.push({ loc: `${DOMAIN}/blog/${slug}.html`, priority: '0.6' });
     }
 }
 
