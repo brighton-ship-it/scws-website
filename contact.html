@@ -328,6 +328,20 @@
                             class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent"
                             placeholder="Tell us about your well issue or project..."></textarea>
                     </div>
+                    <div class="flex items-start gap-3 text-left">
+                        <input type="checkbox" id="sms_consent" name="sms_consent" value="yes"
+                            class="mt-1 h-4 w-4 shrink-0 rounded border-gray-300 text-accent focus:ring-accent">
+                        <div>
+                            <label for="sms_consent" class="text-sm text-gray-600 leading-relaxed">
+                                I agree to receive appointment reminders, job follow-ups, and review requests by text from Southern California Well Service at the number I provided. Message frequency varies. Msg &amp; data rates may apply. Reply STOP to opt out, HELP for help. Consent is not a condition of purchase.
+                            </label>
+                            <p class="text-sm text-gray-500 mt-1">
+                                <a href="/privacy" class="underline hover:text-primary">Privacy</a>
+                                |
+                                <a href="/terms" class="underline hover:text-primary">Terms</a>
+                            </p>
+                        </div>
+                    </div>
                     <div class="text-center">
                         <button type="submit" class="bg-red-600 hover:bg-red-700 text-white font-semibold py-4 px-12 rounded-lg text-lg transition">
                             Send Request →
@@ -384,6 +398,7 @@
             <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
                 <p>© 2026 Southern California Well Service. All rights reserved.</p>
                 <p class="text-gray-500 text-sm mt-2">CSLB License #1086994 (C-57 Water Well Drilling)</p>
+                <p class="text-gray-500 text-sm mt-2"><a href="/privacy" class="hover:text-white">Privacy</a> | <a href="/terms" class="hover:text-white">Terms</a></p>
             </div>
         </div>
     </footer>
@@ -435,6 +450,7 @@
                 city: formData.get('location') || 'San Diego County',
                 service_type: serviceMap[formData.get('service')] || 'other',
                 notes: formData.get('message') || '',
+                sms_consent: formData.get('sms_consent') === 'yes' ? 'yes' : 'no',
                 source: 'website',
                 utm_source: formData.get('utm_source') || '',
                 utm_medium: formData.get('utm_medium') || '',
