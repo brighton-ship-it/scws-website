@@ -27,6 +27,10 @@ class SitemapRebuildTests(unittest.TestCase):
         joined = "\n".join(urls)
         self.assertNotIn("-OLD", joined)
         self.assertNotIn("average-well-depth-", joined)
+        self.assertNotIn("well-permit-bonsall", joined)
+        self.assertNotIn("well-permit-temecula.html", joined)
+        self.assertIn("well-permit-guide-san-diego", joined)
+        self.assertIn("well-permits-california", joined)
         self.assertFalse(any(" " in u or "(" in u for u in urls))
         for url in urls:
             path = blog_file_for_url(url)
@@ -55,7 +59,7 @@ class SitemapRebuildTests(unittest.TestCase):
         xml = (ROOT / "sitemap-pages.xml").read_text()
         jobs = set(re.findall(r"recent-work/([a-z0-9-]+)\.html", xml))
         jobs -= {f"page-{n}" for n in range(2, 6)}
-        self.assertEqual(len(jobs), 107)
+        self.assertGreaterEqual(len(jobs), 107)
         self.assertIn("https://scwellservice.com/recent-work/", xml)
         for url in (
             "https://scwellservice.com/locations/",

@@ -74,6 +74,7 @@
     .footer a { color: #e2e8f0; }
     .crumb { background: #f8fafc; border-bottom: 1px solid #e2e8f0; padding: 0.65rem 1rem; font-size: 0.9rem; color: #64748b; }
     .crumb a { color: #1f3b4d; }
+    .hero .gbp-ratings-line, .hero .gbp-ratings-line a { color: #fff; }
 </style>
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -115,7 +116,10 @@ document.getElementById('mobile-menu-btn').addEventListener('click', function ()
 <div class="crumb"><a href="/">Home</a> › Reviews</div>
 <section class="hero">
     <h1>Customer Reviews</h1>
-    <p>Read the Ramona and Anza shops on Google. We do not publish a combined star count or review total here.</p>
+    <p>Live Google ratings for each shop. We do not publish a combined star count.</p>
+    <div class="gbp-ratings" data-gbp-ratings style="margin-top:0.85rem;">
+        <p class="gbp-ratings-line"><span>Google reviews</span> <a href="https://www.google.com/maps/place/Southern+California+Well+Service/@33.0414646,-116.8702167,17z" target="_blank" rel="noopener">Ramona</a> · <a href="https://www.google.com/maps/place/57174+CA-371,+Anza,+CA+92539" target="_blank" rel="noopener">Anza</a></p>
+    </div>
     <p style="margin-top:0.75rem;">Voice <a href="tel:+17604408520" style="color:#fff;font-weight:700;">(760) 440-8520</a> · Text <a href="sms:7602195877" style="color:#fff;font-weight:700;">(760) 219-5877</a></p>
 </section>
 <div class="container">
@@ -175,7 +179,10 @@ document.getElementById('mobile-menu-btn').addEventListener('click', function ()
     </div>
     <div class="review-cta">
         <p>Find us on Google and Yelp. We do not ask for a review on this page.</p>
-        <p><a href="https://www.google.com/maps/place/Southern+California+Well+Service/@33.0414646,-116.8702167,17z" target="_blank" rel="noopener">Ramona shop on Google</a></p>
+        <div class="gbp-ratings" data-gbp-ratings>
+            <p class="gbp-ratings-line"><span>Google reviews</span> <a href="https://www.google.com/maps/place/Southern+California+Well+Service/@33.0414646,-116.8702167,17z" target="_blank" rel="noopener">Ramona</a> · <a href="https://www.google.com/maps/place/57174+CA-371,+Anza,+CA+92539" target="_blank" rel="noopener">Anza</a></p>
+        </div>
+        <p><a href="https://g.page/r/CU9X_NG3TvP2EBM/review" target="_blank" rel="noopener">Ramona Google reviews</a></p>
         <p><a href="https://www.yelp.com/biz/southern-california-well-service-ramona" target="_blank" rel="noopener">Find us on Yelp</a></p>
     </div>
     <h2>Our shops</h2>
@@ -184,11 +191,13 @@ document.getElementById('mobile-menu-btn').addEventListener('click', function ()
             <h3>Ramona Shop</h3>
             <p>1077 Main Street, Unit B, Ramona, CA 92065</p>
             <p><a href="https://www.google.com/maps/place/Southern+California+Well+Service/@33.0414646,-116.8702167,17z" target="_blank" rel="noopener">Ramona shop on Google</a></p>
+            <p><a href="https://g.page/r/CU9X_NG3TvP2EBM/review" target="_blank" rel="noopener">Ramona Google reviews</a></p>
             <p><a href="https://www.yelp.com/biz/southern-california-well-service-ramona" target="_blank" rel="noopener">Find us on Yelp</a></p>
         </div>
         <div class="location-card">
             <h3>Anza Shop</h3>
             <p>57174 CA-371 (US Hwy 79), Anza, CA 92539</p>
+            <p><a href="https://www.google.com/maps/place/57174+CA-371,+Anza,+CA+92539" target="_blank" rel="noopener">Anza shop on Google</a></p>
         </div>
     </div>
 </div>
@@ -207,5 +216,6 @@ document.getElementById('mobile-menu-btn').addEventListener('click', function ()
     <a class="cta-text" href="sms:7602195877" title="Text-only line: (760) 219-5877">Text</a>
     <a class="cta-est" href="/contact.html">Estimate</a>
 </div>
+<script src="/js/gbp-ratings.js"></script>
 </body>
 </html>
