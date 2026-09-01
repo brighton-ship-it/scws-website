@@ -3,12 +3,17 @@ Allow: /
 
 # Internal field tools and Jobber inventory live under _internal/ (not
 # emitted by GitHub Pages/Jekyll). /ops/ is published (GitHub Pages) but
-# noindex — staff scoreboard only. robots.txt is not access control.
+# noindex — staff leads scoreboard and photo audit. robots.txt is not
+# access control.
 Disallow: /public/app/
 Disallow: /public/fuel-tracker.html
 Disallow: /tools/inventory/
 Disallow: /_internal/
 Disallow: /ops/
+Disallow: /ops/photo-audit
+Disallow: /ops/photo-audit/
+Disallow: /api/photo-audit
+Disallow: /api/photo-audit-image
 Disallow: /assets/images/blog-categories/
 
 Sitemap: https://scwellservice.com/sitemap.xml

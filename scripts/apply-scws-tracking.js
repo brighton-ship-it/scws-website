@@ -12,7 +12,7 @@ var fs = require('fs');
 var path = require('path');
 
 var ROOT = path.join(__dirname, '..');
-var SKIP_DIRS = new Set(['node_modules', '.git', 'scripts', '_internal']);
+var SKIP_DIRS = new Set(['node_modules', '.git', 'scripts', '_internal', 'ops']);
 
 var MONEY_PAGES = [
   'index.html',

@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+  <meta name="robots" content="noindex, nofollow, noarchive"/>
+  <meta name="googlebot" content="noindex, nofollow, noarchive"/>
+  <meta name="referrer" content="no-referrer"/>
+  <meta name="theme-color" content="#1a5276"/>
+  <title>Photo audit (internal)</title>
+  <style>
+    :root {
+      --navy: #1a5276;
+      --navy-2: #154360;
+      --green: #1e8449;
+      --red: #c0392b;
+      --amber: #d68910;
+      --bg: #eef2f5;
+      --card: #fff;
+      --ink: #1b2833;
+      --muted: #5d6d7e;
+      --safe-b: env(safe-area-inset-bottom, 0px);
+      --safe-t: env(safe-area-inset-top, 0px);
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      min-height: 100dvh;
+    }
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: linear-gradient(135deg, var(--navy), var(--navy-2));
+      color: #fff;
+      padding: calc(12px + var(--safe-t)) 16px 12px;
+    }
+    header h1 { font-size: 1.05rem; margin: 0 0 4px; }
+    header p { margin: 0; font-size: 0.78rem; opacity: 0.88; line-height: 1.35; }
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: 10px 12px;
+      background: #fff;
+      border-bottom: 1px solid #dfe6ed;
+      position: sticky;
+      top: calc(72px + var(--safe-t));
+      z-index: 15;
+    }
+    .chip, button.chip {
+      border: 1px solid #c5d0da;
+      background: #f8fafc;
+      color: var(--ink);
+      border-radius: 999px;
+      padding: 7px 12px;
+      font-size: 0.82rem;
+      font-weight: 600;
+    }
+    .chip.active { background: var(--navy); color: #fff; border-color: var(--navy); }
+    .status { padding: 10px 16px; font-size: 0.88rem; color: var(--muted); }
+    .card {
+      background: var(--card);
+      margin: 12px;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 1px 4px rgba(16, 38, 56, 0.08);
+    }
+    .card.hidden { display: none; }
+    .photo-wrap {
+      background: #0e1a24;
+      min-height: 220px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .photo-wrap img {
+      width: 100%;
+      max-height: 62vh;
+      object-fit: contain;
+      display: block;
+    }
+    .meta { padding: 12px 14px 8px; }
+    .meta h2 { margin: 0 0 4px; font-size: 1rem; }
+    .meta .row { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin: 6px 0; }
+    .badge {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      border-radius: 6px;
+      padding: 3px 7px;
+    }
+    .badge.anza { background: #fdebd0; color: #7e5109; }
+    .badge.ramona { background: #d6eaf8; color: #1a5276; }
+    .badge.junk { background: #fadbd8; color: #922b21; }
+    .badge.keep { background: #d5f5e3; color: #145a32; }
+    .badge.reject { background: #f5b7b1; color: #7b241c; }
+    .badge.pending { background: #f4f6f7; color: #5d6d7e; }
+    .caption {
+      width: 100%;
+      border: 1px solid #d5dee6;
+      border-radius: 10px;
+      padding: 8px 10px;
+      font: inherit;
+      font-size: 0.9rem;
+      resize: vertical;
+      min-height: 52px;
+    }
+    .actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      padding: 0 14px 16px;
+    }
+    .actions button {
+      min-height: 52px;
+      border: 0;
+      border-radius: 12px;
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: #fff;
+    }
+    .keep { background: var(--green); }
+    .reject { background: var(--red); }
+    .actions button:disabled { opacity: 0.55; }
+    .gate {
+      max-width: 420px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 22px;
+      border-radius: 16px;
+      box-shadow: 0 2px 10px rgba(16, 38, 56, 0.08);
+    }
+    .gate input {
+      width: 100%;
+      min-height: 48px;
+      border: 1px solid #c5d0da;
+      border-radius: 10px;
+      padding: 10px 12px;
+      font-size: 1rem;
+      margin: 10px 0 14px;
+    }
+    .gate button {
+      width: 100%;
+      min-height: 48px;
+      border: 0;
+      border-radius: 10px;
+      background: var(--navy);
+      color: #fff;
+      font-weight: 700;
+      font-size: 1rem;
+    }
+    .policy {
+      font-size: 0.78rem;
+      color: var(--muted);
+      line-height: 1.4;
+      margin: 8px 12px 0;
+    }
+    .empty { text-align: center; padding: 40px 20px; color: var(--muted); }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Photo audit</h1>
+    <p>Keep = Recent Work + GBP eligible. Reject = never publish. Visual check first — this is not auto-post.</p>
+  </header>
+
+  <div id="gate" class="gate">
+    <p><strong>Internal only.</strong> Enter the audit key. Bookmark this page after unlock.</p>
+    <label for="key">Audit key</label>
+    <input id="key" type="password" autocomplete="current-password" enterkeyhint="go"/>
+    <button type="button" id="unlock">Open audit</button>
+    <p class="policy">Never keep notebook paper, handwritten notes, permits, WCRs, invoices, phone/Jobber screens, or customer PII. Captions are city + what’s in the photo — no last names, streets, prices, emails, or the shop phone.</p>
+  </div>
+
+  <div id="app" hidden>
+    <div class="toolbar">
+      <button type="button" class="chip active" data-days="1">Today</button>
+      <button type="button" class="chip" data-days="3">3 days</button>
+      <button type="button" class="chip" data-days="7">7 days</button>
+      <button type="button" class="chip" data-days="14">14 days</button>
+      <button type="button" class="chip" id="toggle-junk">Show junk</button>
+    </div>
+    <div class="status" id="status">Loading…</div>
+    <p class="policy">Unknown shop still goes to Ramona (Anza / high-desert → Anza). One permanently skipped job is never shown.</p>
+    <div id="list"></div>
+  </div>
+
+  <script>
+    (function () {
+      var days = 1;
+      var showJunk = false;
+      var photos = [];
+      var key = sessionStorage.getItem("photo_audit_key") || "";
+
+      function $(id) { return document.getElementById(id); }
+
+      function headers() {
+        return {
+          "Content-Type": "application/json",
+          "X-Photo-Audit-Key": key,
+          "Accept": "application/json"
+        };
+      }
+
+      function imgSrc(id) {
+        return "/api/photo-audit-image?id=" + encodeURIComponent(id) +
+          "&days=" + encodeURIComponent(String(days)) +
+          "&key=" + encodeURIComponent(key);
+      }
+
+      function escapeHtml(s) {
+        return String(s || "").replace(/[&<>"']/g, function (c) {
+          return ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c];
+        });
+      }
+
+      function visible(photo) {
+        if (photo.skipped) return false;
+        if (!showJunk && photo.junk && photo.decision !== "keep") return false;
+        return true;
+      }
+
+      function render() {
+        var list = $("list");
+        var shown = photos.filter(visible);
+        var pending = shown.filter(function (p) { return p.decision === "pending"; }).length;
+        var kept = photos.filter(function (p) { return p.decision === "keep"; }).length;
+        var rejected = photos.filter(function (p) { return p.decision === "reject"; }).length;
+        $("status").textContent = shown.length
+          ? (pending + " pending · " + kept + " kept · " + rejected + " rejected · last " + days + " day(s)")
+          : "No photos in this window. Try more days, or check Jobber secrets on Vercel.";
+        list.innerHTML = shown.map(function (p) {
+          return (
+            '<article class="card" data-id="' + escapeHtml(p.id) + '">' +
+              '<div class="photo-wrap"><img alt="" src="' + escapeHtml(imgSrc(p.id)) + '"/></div>' +
+              '<div class="meta">' +
+                '<h2>' + escapeHtml(p.title) + '</h2>' +
+                '<div class="row">' +
+                  '<span class="badge ' + escapeHtml(p.shop) + '">' + escapeHtml(p.shop) + '</span>' +
+                  '<span>' + escapeHtml(p.city) + '</span>' +
+                  '<span class="badge ' + escapeHtml(p.decision) + '">' + escapeHtml(p.decision) + '</span>' +
+                  (p.junk ? '<span class="badge junk">hidden junk</span>' : '') +
+                '</div>' +
+                '<textarea class="caption" maxlength="180">' + escapeHtml(p.caption) + '</textarea>' +
+              '</div>' +
+              '<div class="actions">' +
+                '<button type="button" class="keep" data-act="keep">Keep</button>' +
+                '<button type="button" class="reject" data-act="reject">Reject</button>' +
+              '</div>' +
+            '</article>'
+          );
+        }).join("") || '<div class="empty">Nothing to audit in this filter.</div>';
+      }
+
+      async function load() {
+        $("status").textContent = "Loading Jobber photos…";
+        try {
+          var res = await fetch("/api/photo-audit?days=" + encodeURIComponent(String(days)), {
+            headers: headers(),
+            credentials: "same-origin"
+          });
+          var data = await res.json();
+          if (res.status === 401) {
+            sessionStorage.removeItem("photo_audit_key");
+            key = "";
+            $("app").hidden = true;
+            $("gate").hidden = false;
+            return;
+          }
+          if (!res.ok) {
+            $("status").textContent = data.error || ("API error " + res.status);
+            return;
+          }
+          photos = Array.isArray(data.photos) ? data.photos : [];
+          if (data.warning && !photos.length) {
+            $("status").textContent = data.warning + " Add Jobber secrets on the Vercel scws-website project.";
+            $("list").innerHTML = "";
+            return;
+          }
+          render();
+        } catch (err) {
+          $("status").textContent = "Could not reach /api/photo-audit. Open this page on scwellservice.com (Vercel), not a static-only host.";
+        }
+      }
+
+      async function decide(id, decision, caption, shop, button) {
+        if (button) button.disabled = true;
+        try {
+          var res = await fetch("/api/photo-audit", {
+            method: "POST",
+            headers: headers(),
+            credentials: "same-origin",
+            body: JSON.stringify({ id: id, decision: decision, caption: caption, shop: shop })
+          });
+          var data = await res.json();
+          if (!res.ok) {
+            $("status").textContent = data.error || "Save failed";
+            return;
+          }
+          photos = photos.map(function (p) {
+            if (p.id !== id) return p;
+            return Object.assign({}, p, { decision: decision, caption: caption, junk: decision === "reject" ? true : p.junk });
+          });
+          render();
+        } catch (err) {
+          $("status").textContent = "Save failed — check PHOTO_AUDIT_GITHUB_TOKEN on Vercel.";
+        } finally {
+          if (button) button.disabled = false;
+        }
+      }
+
+      $("unlock").addEventListener("click", function () {
+        key = $("key").value.trim();
+        if (!key) return;
+        sessionStorage.setItem("photo_audit_key", key);
+        $("gate").hidden = true;
+        $("app").hidden = false;
+        load();
+      });
+      $("key").addEventListener("keydown", function (e) {
+        if (e.key === "Enter") $("unlock").click();
+      });
+
+      document.querySelectorAll("[data-days]").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          days = parseInt(btn.getAttribute("data-days"), 10);
+          document.querySelectorAll("[data-days]").forEach(function (b) { b.classList.remove("active"); });
+          btn.classList.add("active");
+          load();
+        });
+      });
+      $("toggle-junk").addEventListener("click", function () {
+        showJunk = !showJunk;
+        $("toggle-junk").classList.toggle("active", showJunk);
+        $("toggle-junk").textContent = showJunk ? "Hide junk" : "Show junk";
+        render();
+      });
+
+      $("list").addEventListener("click", function (e) {
+        var btn = e.target.closest("button[data-act]");
+        if (!btn) return;
+        var card = btn.closest(".card");
+        var id = card.getAttribute("data-id");
+        var photo = photos.find(function (p) { return p.id === id; });
+        var caption = card.querySelector(".caption").value;
+        decide(id, btn.getAttribute("data-act"), caption, photo && photo.shop, btn);
+      });
+
+      if (key) {
+        $("gate").hidden = true;
+        $("app").hidden = false;
+        load();
+      }
+    })();
+  </script>
+</body>
+</html>

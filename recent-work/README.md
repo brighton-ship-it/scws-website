@@ -18,6 +18,11 @@ Business / gbp-photos copies.
 Public copy is title + city/area only. No customer last names, no full street
 addresses, no prices, no Jobber URLs.
 
+**Brighton must keep a photo on the audit page before this publisher will
+use it.** Rejected photos never publish. Unreviewed photos stay unpublished.
+Phone audit: https://scwellservice.com/ops/photo-audit/ — see
+`ops/photo-audit/README.md`.
+
 ### 1. Add GitHub Actions secrets
 
 Repo → Settings → Secrets and variables → Actions.
