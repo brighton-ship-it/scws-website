@@ -162,6 +162,19 @@ async function run() {
     assert.strictEqual(clean.totals.jobs_scheduled, 1);
   });
 
+  await test('failed call-stats fetch marks call cells as not public, not Jobber stub', function () {
+    var api = load().api;
+    var period = api.emptyPeriod();
+    api.applyCallStats(period, null, 'not_public');
+    api.applyReportsLeads(period, null, 'auth_gated');
+    api.applyScoreboard(period, null, 'stub');
+    assert.strictEqual(period.sources.organic_seo.calls.status, 'not_public');
+    assert.strictEqual(period.sources.google_ads.forms.status, 'auth_gated');
+    assert.strictEqual(period.sources.gbp_anza.forms.status, 'stub');
+    assert.strictEqual(period.sources.organic_seo.jobs.status, 'stub');
+    assert.strictEqual(period.gbpCombinedCalls.status, 'not_public');
+  });
+
   await test('HTTP statuses map to live / auth-gated / stub', function () {
     var api = load().api;
     assert.strictEqual(api.classifyHttp({ status: 200 }), 'live');
@@ -213,7 +226,10 @@ async function run() {
       assert.match(joined, /\/api\/calls\/stats\?days=28/);
       assert.match(joined, /\/api\/reports\/leads\?/);
       assert.strictEqual(board.periods[7].endpoints.scoreboard, 'not_public');
+      assert.strictEqual(board.periods[7].sources.organic_seo.calls.status, 'not_public');
+      assert.strictEqual(board.periods[7].sources.organic_seo.forms.status, 'not_public');
       assert.strictEqual(board.periods[7].sources.organic_seo.jobs.status, 'stub');
+      assert.strictEqual(board.periods[7].sources.gbp_ramona.forms.status, 'stub');
     });
   });
 

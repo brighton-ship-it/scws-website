@@ -178,7 +178,15 @@
    */
   function applyCallStats(period, payload, status) {
     period.endpoints.calls_stats = status;
-    if (status !== 'live' || !payload || !payload.by_source) return period;
+    if (status !== 'live' || !payload || !payload.by_source) {
+      if (status !== 'live') {
+        SOURCE_ORDER.forEach(function (id) {
+          setMetric(period.sources[id], 'calls', null, status);
+        });
+        period.gbpCombinedCalls = emptyMetric(status);
+      }
+      return period;
+    }
     var by = payload.by_source;
     SOURCE_ORDER.forEach(function (id) {
       var def = TRACKING[id];
@@ -212,7 +220,16 @@
    */
   function applyReportsLeads(period, payload, status) {
     period.endpoints.reports_leads = status;
-    if (status !== 'live' || !payload) return period;
+    if (status !== 'live' || !payload) {
+      if (status !== 'live') {
+        SOURCE_ORDER.forEach(function (id) {
+          if (TRACKING[id].reportsKey) {
+            setMetric(period.sources[id], 'forms', null, status);
+          }
+        });
+      }
+      return period;
+    }
     var rows = payload.stats_by_source;
     if (!Array.isArray(rows)) return period;
     var byKey = {};
@@ -246,7 +263,9 @@
    */
   function applyScoreboard(period, payload, status) {
     period.endpoints.scoreboard = status;
-    if (status !== 'live' || !payload || !isPlainObject(payload.sources)) return period;
+    if (status !== 'live' || !payload || !isPlainObject(payload.sources)) {
+      return period;
+    }
     SOURCE_ORDER.forEach(function (id) {
       var src = payload.sources[id];
       if (!src) return;
