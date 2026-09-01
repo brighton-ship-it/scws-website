@@ -45,6 +45,27 @@ Retired / never reintroduce: `click_to_call`, `seo_call_conversion`, `contact_pa
 
 Lead forms that POST to `https://scws-jobs.vercel.app/api/booking` include these keys in the JSON body (same names) when the hidden fields are present.
 
+## Internal leads scoreboard
+
+Staff-only page (noindex, not in nav or sitemap):
+
+`https://scwellservice.com/ops/leads.html`
+
+Brighton scores SEO by **Jobber job scheduled** from organic site leads. Website Search Console organic and GBP (Ramona / Anza) are separate. Do not roll Maps into SEO traffic.
+
+Twilio source numbers (from scws-jobs call webhook):
+
+| Source | Number |
+| --- | --- |
+| Organic site SEO | `(760) 463-0493` |
+| GBP Ramona + Anza (one GMB number) | `(760) 279-1262` |
+| Google Ads | `(760) 331-2502` |
+| Direct | `(760) 493-7719` |
+
+The marketing site still shows voice `(760) 440-8520` and text `(760) 219-5877`. Those are not the source-tagged lines.
+
+Call counts can come from existing `GET https://scws-jobs.vercel.app/api/calls/stats?days=N` (session-auth today). Jobber jobs scheduled by source need a public no-PII `GET /api/scoreboard/leads?days=7|28` on scws-jobs. The scoreboard page ships with that stub labeled.
+
 ## Next layer (CRM, not a site tag)
 
 Booked-job / offline conversion upload from the CRM uses the stored click IDs above. Website tags still stop at successful form submit and qualified call clicks.
