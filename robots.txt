@@ -2,12 +2,13 @@ User-agent: *
 Allow: /
 
 # Internal field tools and Jobber inventory live under _internal/ (not
-# emitted by GitHub Pages/Jekyll). Keep these Disallows as a backstop
-# if a path is ever reintroduced. robots.txt is not access control.
+# emitted by GitHub Pages/Jekyll). /ops/ is published (GitHub Pages) but
+# noindex — staff scoreboard only. robots.txt is not access control.
 Disallow: /public/app/
 Disallow: /public/fuel-tracker.html
 Disallow: /tools/inventory/
 Disallow: /_internal/
+Disallow: /ops/
 Disallow: /assets/images/blog-categories/
 
 Sitemap: https://scwellservice.com/sitemap.xml
