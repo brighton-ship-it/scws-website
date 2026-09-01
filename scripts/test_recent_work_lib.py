@@ -279,14 +279,15 @@ class HtmlTests(unittest.TestCase):
             pages = paginate_projects(data["projects"])
             self.assertLessEqual(rewritten.count('class="project-card"'), PAGE_SIZE)
             self.assertTrue((Path(tmp) / "page-2.html").exists())
-            self.assertEqual(len(pages), 5)
+            expected_pages = max(1, (len(data["projects"]) + PAGE_SIZE - 1) // PAGE_SIZE)
+            self.assertEqual(len(pages), expected_pages)
         self.assertIn("7602195877", rewritten)
         self.assertIn("(760) 440-8520", rewritten)
         self.assertIn('data-job="job3174"', rewritten)
 
 
 class DryRunCliTests(unittest.TestCase):
-    def test_fixture_dry_run_exits_zero(self):
+    def test_fixture_dry_run_waits_for_audit_keep(self):
         fixture = {
             "jobs": [
                 {
@@ -310,7 +311,63 @@ class DryRunCliTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             path = Path(tmp) / "jobs.json"
             path.write_text(json.dumps(fixture))
-            code = _cli.main(["--fixture", str(path), "--dry-run"])
+            import photo_audit_lib
+
+            original = photo_audit_lib.DECISIONS_PATH
+            photo_audit_lib.DECISIONS_PATH = Path(tmp) / "decisions.json"
+            photo_audit_lib.DECISIONS_PATH.write_text(json.dumps({"version": 1, "photos": {}}))
+            try:
+                code = _cli.main(["--fixture", str(path), "--dry-run"])
+            finally:
+                photo_audit_lib.DECISIONS_PATH = original
+        self.assertEqual(code, 0)
+
+    def test_fixture_dry_run_exits_zero_when_kept(self):
+        fixture = {
+            "jobs": [
+                {
+                    "jobNumber": 8888,
+                    "title": "Pressure tank replacement",
+                    "completedAt": "2026-08-19T18:00:00Z",
+                    "instructions": "Installed a new 86-gallon tank. System tested good.",
+                    "property": {"address": {"city": "Anza"}},
+                    "noteAttachments": {
+                        "nodes": [
+                            {
+                                "fileName": "tank.jpg",
+                                "url": "https://example.com/tank.jpg",
+                                "contentType": "image/jpeg",
+                            }
+                        ]
+                    },
+                }
+            ]
+        }
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "jobs.json"
+            path.write_text(json.dumps(fixture))
+            import photo_audit_lib
+
+            original = photo_audit_lib.DECISIONS_PATH
+            photo_audit_lib.DECISIONS_PATH = Path(tmp) / "decisions.json"
+            photo_audit_lib.DECISIONS_PATH.write_text(
+                json.dumps(
+                    {
+                        "version": 1,
+                        "photos": {
+                            "job8888:1": {
+                                "decision": "keep",
+                                "shop": "anza",
+                                "caption": "Pressure tank replacement in Anza.",
+                            }
+                        },
+                    }
+                )
+            )
+            try:
+                code = _cli.main(["--fixture", str(path), "--dry-run"])
+            finally:
+                photo_audit_lib.DECISIONS_PATH = original
         self.assertEqual(code, 0)
 
     def test_missing_secrets_exits_2(self):

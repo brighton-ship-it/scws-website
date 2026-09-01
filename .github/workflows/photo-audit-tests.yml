@@ -1,0 +1,31 @@
+name: Photo audit tests
+
+on:
+  pull_request:
+  push:
+    paths:
+      - "scripts/photo_audit_lib.py"
+      - "scripts/test_photo_audit_lib.py"
+      - "scripts/publish-recent-work-from-jobber.py"
+      - "scripts/test_recent_work_lib.py"
+      - "ops/photo-audit/**"
+      - "api/photo-audit.js"
+      - "api/photo-audit-image.js"
+      - "robots.txt"
+      - "vercel.json"
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Unit tests (no secrets)
+        run: |
+          python3 -m unittest scripts/test_photo_audit_lib.py scripts/test_recent_work_lib.py -v
+          node ops/photo-audit/server-lib.test.js

@@ -46,7 +46,9 @@ jobs:
         with:
           python-version: "3.12"
       - name: Unit tests (no Jobber token needed)
-        run: python3 -m unittest scripts/test_recent_work_lib.py -v
+        run: |
+          python3 -m unittest scripts/test_recent_work_lib.py scripts/test_photo_audit_lib.py -v
+          node ops/photo-audit/server-lib.test.js
 
   publish:
     needs: test

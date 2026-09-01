@@ -26,6 +26,10 @@ Existing cards stay as-is until this command actually adds a new job.
 Photos are downloaded from Jobber note attachments — not GBP copies,
 not generated pixels. Public text is title + city/area only.
 
+A photo is published only after Brighton taps Keep on
+https://scwellservice.com/ops/photo-audit/ (see ops/photo-audit/README.md).
+Rejected and unreviewed photos are skipped. Job 3224 is never featured.
+
 See recent-work/README.md for the full checklist.
 """
 from __future__ import annotations
@@ -42,6 +46,14 @@ if str(Path(__file__).resolve().parent) not in sys.path:
     sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from jobber_recent_work import JobberError, access_token, download_bytes, fetch_jobs  # noqa: E402
+from photo_audit_lib import (  # noqa: E402
+    assign_shop,
+    kept_photo_indexes,
+    load_decisions,
+    normalize_job_id,
+    permanent_skip_reason,
+    shop_location_label,
+)
 from recent_work_lib import (  # noqa: E402
     PHOTO_DIR,
     build_project,
@@ -50,6 +62,7 @@ from recent_work_lib import (  # noqa: E402
     job_number,
     load_projects,
     merge_projects,
+    public_location,
     write_site_files,
 )
 
@@ -75,7 +88,7 @@ def save_jpeg(data: bytes, dest: Path) -> bool:
         return False
 
 
-def download_job_photos(job: dict, *, max_photos: int) -> list[str]:
+def download_job_photos(job: dict, *, max_photos: int, only_indexes: set[int] | None = None) -> list[str]:
     number = job_number(job)
     saved: list[str] = []
     token = None
@@ -84,7 +97,9 @@ def download_job_photos(job: dict, *, max_photos: int) -> list[str]:
     except JobberError:
         token = None
     for i, attachment in enumerate(collect_attachments(job), start=1):
-        if i > max_photos:
+        if only_indexes is not None and i not in only_indexes:
+            continue
+        if len(saved) >= max_photos:
             break
         filename = f"job{number}_{i}.jpg"
         dest = PHOTO_DIR / filename
@@ -153,22 +168,52 @@ def main(argv: list[str] | None = None) -> int:
             return 2
         print(f"Fetched {len(jobs)} Jobber jobs")
 
+    decisions = load_decisions()
     incoming = []
     skipped = []
     for job in jobs:
         number = job_number(job)
-        job_id = f"job{number}"
+        job_id = normalize_job_id(number)
         if job_id in taken_ids:
             skipped.append(f"{job_id} already published")
+            continue
+        skip = permanent_skip_reason(job)
+        if skip:
+            skipped.append(f"{job_id} {skip}")
             continue
         attachments = collect_attachments(job)
         if not attachments:
             skipped.append(f"{job_id} no image attachments")
             continue
+        kept = kept_photo_indexes(job_id, decisions)
+        if not kept:
+            skipped.append(f"{job_id} waiting for photo-audit keep")
+            continue
+        if not any(i in kept for i in range(1, len(attachments) + 1)):
+            skipped.append(f"{job_id} no kept photos")
+            continue
+        raw_city = ((job.get("property") or {}).get("address") or {}).get("city") or ""
+        if not public_location(raw_city):
+            shop = assign_shop(raw_city)
+            job = {
+                **job,
+                "property": {
+                    **(job.get("property") or {}),
+                    "address": {
+                        **((job.get("property") or {}).get("address") or {}),
+                        "city": shop_location_label(raw_city, shop),
+                    },
+                },
+            }
         if args.dry_run:
-            photo_files = [f"{job_id}_{i}.jpg" for i in range(1, min(len(attachments), args.max_photos) + 1)]
+            photo_files = [f"{job_id}_{i}.jpg" for i in sorted(kept)[: args.max_photos]]
         else:
-            photo_files = download_job_photos(job, max_photos=args.max_photos)
+            photo_files = download_job_photos(
+                job, max_photos=args.max_photos, only_indexes=kept
+            )
+        if not photo_files:
+            skipped.append(f"{job_id} kept photos failed to download")
+            continue
         project = build_project(job, photo_files, taken_slugs=taken_slugs)
         if not project:
             skipped.append(f"{job_id} failed public-safety / city checks")

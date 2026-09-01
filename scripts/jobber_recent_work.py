@@ -43,6 +43,13 @@ query RecentWorkJobs($first: Int!, $after: String, $filter: JobFilterAttributes)
       startAt
       endAt
       instructions
+      client {
+        firstName
+        lastName
+        emails {
+          address
+        }
+      }
       property {
         address {
           city
@@ -93,6 +100,18 @@ JOBS_QUERY_NO_VISITS = JOBS_QUERY.replace(
       }""",
     "",
 )
+
+_CLIENT_BLOCK = """
+      client {
+        firstName
+        lastName
+        emails {
+          address
+        }
+      }
+"""
+JOBS_QUERY_NO_CLIENT = JOBS_QUERY.replace(_CLIENT_BLOCK, "")
+JOBS_QUERY_NO_CLIENT_NO_VISITS = JOBS_QUERY_NO_VISITS.replace(_CLIENT_BLOCK, "")
 class JobberError(RuntimeError):
     pass
 
@@ -234,6 +253,10 @@ def _first_working_jobs_query(token: str, variables: dict[str, Any]) -> tuple[st
         _with_updated_sort(JOBS_QUERY),
         JOBS_QUERY_NO_VISITS,
         _with_updated_sort(JOBS_QUERY_NO_VISITS),
+        JOBS_QUERY_NO_CLIENT,
+        _with_updated_sort(JOBS_QUERY_NO_CLIENT),
+        JOBS_QUERY_NO_CLIENT_NO_VISITS,
+        _with_updated_sort(JOBS_QUERY_NO_CLIENT_NO_VISITS),
     ]
     last_error: JobberError | None = None
     for query in candidates:
