@@ -367,16 +367,16 @@ cities.forEach(city => {
 
             <div class="bg-primary text-white rounded-xl p-6 my-8">
                 <h2 class="text-xl font-bold mb-2">Ready to Drill a Well in ${city}?</h2>
-                <p class="text-gray-200 mb-4">Southern California Well Service has over 40 years of experience drilling wells in ${county} County. We provide honest estimates, quality workmanship, and reliable service.</p>
+                <p class="text-gray-200 mb-4">Southern California Well Service drills wells with 60+ years of family heritage in ${county} County. We provide honest estimates, quality workmanship, and reliable service.</p>
                 <a href="tel:7604408520" class="inline-block bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-lg text-center transition">📞 (760) 440-8520</a>
-                <p class="text-gray-300 text-sm mt-4">Licensed C-57 Contractor | San Diego, Riverside & San Bernardino Counties</p>
+                <p class="text-gray-300 text-sm mt-4">Licensed C-57 Contractor · CSLB #1086994 | San Diego, Riverside & San Bernardino Counties</p>
             </div>
 
         </article>
     </main>
 
     <footer>
-        <p>&copy; 2026 Southern California Well Service. Licensed C-57 Contractor.</p>
+        <p>&copy; 2026 Southern California Well Service. Licensed C-57 Contractor. CSLB #1086994.</p>
         <p>1077 Main St, Ramona, CA 92065 | <a href="tel:7604408520">(760) 440-8520</a></p>
     </footer>
 

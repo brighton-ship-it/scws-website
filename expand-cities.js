@@ -312,7 +312,7 @@ ${data.faqs.map(f => `                <div class="bg-gray-50 rounded-lg p-6">
                 <div class="flex gap-4">
                     <div class="text-accent text-3xl">✓</div>
                     <div>
-                        <h3 class="font-bold text-lg mb-2">4.9★ Google Rating</h3>
+                        <h3 class="font-bold text-lg mb-2">Licensed C-57 · CSLB #1086994</h3>
                         <p class="text-gray-700">127 five-star reviews from satisfied customers. Our reputation speaks for itself.</p>
                     </div>
                 </div>
