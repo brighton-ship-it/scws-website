@@ -1,10 +1,9 @@
 /**
  * SCWS public trust copy — one source of truth.
  *
- * CSLB: #1086994 (C-57 Water Well Drilling). Contact and the large majority
- * of pages already use this. Other numbers found in the repo (#1057049 on
- * recent-work, #1129498 on a handful of pages, #1013597 on many thin blog
- * footers) were treated as leftovers, not documented alternate licenses.
+ * CSLB: #1086994 (C-57 Water Well Drilling). Contact and published pages
+ * must use this only. Other numbers previously found in the repo (including
+ * leftover blog-footer licenses) were leftovers, not alternate licenses.
  *
  * Physical shops (not service-area labels):
  *   Ramona: 1077 Main Street, Unit B, Ramona, CA 92065
