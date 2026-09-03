@@ -2,6 +2,9 @@
 const fs = require('fs');
 const path = require('path');
 
+console.error('Disabled: do not generate new city location factory pages.');
+process.exit(1);
+
 const CITIES_DIR = '/Users/jarvis/clawd/scws-website/pages/locations/cities';
 
 const cityData = {

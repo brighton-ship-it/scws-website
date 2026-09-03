@@ -261,6 +261,30 @@ header .site-phone-cta {
   font-size: 16px;
 }
 
+.recent-jobs-cards {
+  margin: 2rem auto;
+  max-width: 80rem;
+  padding: 1.5rem 1rem 2rem;
+}
+.recent-jobs-cards h2 {
+  text-align: center;
+  color: #1f3b4d;
+  font-size: 1.75rem;
+  margin: 0 0 0.35rem;
+}
+.recent-jobs-cards .rw-lede {
+  text-align: center;
+  color: #64748b;
+  margin: 0 0 1.5rem;
+}
+.recent-jobs-cards .rw-all {
+  text-align: center;
+  margin: 1.25rem 0 0;
+}
+.recent-jobs-cards .rw-all a {
+  color: #4e9271;
+  font-weight: 600;
+}
 .recent-work-grid {
   display: grid;
   gap: 1rem;

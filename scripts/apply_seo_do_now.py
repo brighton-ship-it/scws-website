@@ -11,6 +11,8 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from recent_work_lib import (
+    apply_money_page_recent_work,
+    money_page_section_html,
     projects_for_city,
     projects_for_service,
 )
@@ -93,17 +95,11 @@ def lock_anza_nap() -> int:
 
 
 def jobs_list_html(projects: list[dict], heading: str) -> str:
-    items = []
-    for project in projects:
-        href = f"/recent-work/{project['slug']}.html"
-        label = f"{project['title']} in {project['location']}"
-        items.append(f'  <li><a href="{href}">{label}</a></li>')
-    return (
-        f'<section class="recent-jobs-links" id="recent-jobs" style="margin:2rem 0;padding:1.5rem;background:#f8fafc;border-radius:12px;">\n'
-        f"  <h2>{heading}</h2>\n"
-        f"  <ul>\n" + "\n".join(items) + "\n  </ul>\n"
-        f'  <p><a href="/recent-work/">See all recent work →</a></p>\n'
-        f"</section>\n"
+    """Homepage-style photo cards. Title + city only; real Jobber photos."""
+    return money_page_section_html(
+        projects,
+        heading,
+        "Real jobs. Real photos.",
     )
 
 
@@ -121,7 +117,13 @@ def insert_before_footer(path: Path, block: str, marker: str) -> bool:
 
 
 def add_city_and_service_links(projects: list[dict]) -> None:
+    money = apply_money_page_recent_work(projects)
+    for path in money:
+        print(f"updated money-page photo cards on {path.relative_to(ROOT)}")
+    money_set = {p.resolve() for p in money}
     for slug, city, path in CITY_PAGES:
+        if path.resolve() in money_set:
+            continue
         hits = projects_for_city(projects, city, limit=6)
         if not hits:
             print(f"no jobs for {city}")
@@ -132,6 +134,8 @@ def add_city_and_service_links(projects: list[dict]) -> None:
         else:
             print(f"skipped city jobs on {path.relative_to(ROOT)}")
     for key, label, path in SERVICE_PAGES:
+        if path.resolve() in money_set:
+            continue
         hits = projects_for_service(projects, key, limit=6)
         if not hits:
             print(f"no jobs for {key}")

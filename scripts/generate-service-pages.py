@@ -440,6 +440,10 @@ def generate_city_index(city, output_dir):
     return output_path
 
 def main():
+    raise SystemExit(
+        "Disabled: do not generate new city×topic factory pages. "
+        "Far-city templates stay on disk with robots noindex,follow."
+    )
     output_dir = Path("/Users/jarvis/clawd/scws-website/services")
     output_dir.mkdir(parents=True, exist_ok=True)
     

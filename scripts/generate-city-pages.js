@@ -8,6 +8,9 @@
 const fs = require('fs');
 const path = require('path');
 
+console.error('Disabled: do not generate new city well-depth factory pages.');
+process.exit(1);
+
 // Load city statistics
 const cityStatsPath = path.join(__dirname, 'city-well-stats.json');
 const cityStats = JSON.parse(fs.readFileSync(cityStatsPath, 'utf8'));

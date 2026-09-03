@@ -488,6 +488,179 @@ def service_page_href(project: dict[str, Any]) -> tuple[str, str] | None:
     return None
 
 
+# Curated money-page cards: real published jobs only. City-only location
+# on the card (strip "Hanson Lane area" / street parentheticals).
+MONEY_PAGE_SLUGS = {
+    "services/ramona/index.html": [
+        "ramona-pressure-switch-gauge-replacement",
+        "ramona-control-panel-contactor-replacement",
+        "ramona-two-well-system-evaluation",
+        "ramona-pressure-switch-replacement",
+        "el-cajon-well-contactor-replacement",
+        "alpine-pull-and-replace-deep-set-pump",
+    ],
+    "services/anza/index.html": [
+        "anza-pull-and-inspect-pump",
+        "anza-well-diagnostic",
+        "anza-storage-tank-float-inspection",
+        "anza-control-box-service",
+        "aguanga-pump-installation",
+        "aguanga-low-yield-well-diagnostic",
+    ],
+    "pages/services/pump-repair.html": [
+        "anza-pull-and-inspect-pump",
+        "ramona-cathedral-pump-replacement",
+        "murrieta-vfd-controller-replacement",
+        "aguanga-pump-installation",
+        "fallbrook-booster-pump-diagnostic",
+        "alpine-pull-and-replace-deep-set-pump",
+    ],
+    "pages/services/well-drilling.html": [
+        "jamul-well-production-test",
+        "aguanga-low-yield-well-diagnostic",
+        "santa-ysabel-well-bail-and-brush",
+        "ramona-two-well-system-evaluation",
+        "temecula-pull-30-hp-pump-and-motor",
+        "alpine-pull-and-replace-deep-set-pump",
+    ],
+}
+
+MONEY_PAGE_HEADINGS = {
+    "services/ramona/index.html": (
+        "Recent jobs in Ramona",
+        "Real Ramona and west San Diego jobs. Real photos.",
+    ),
+    "services/anza/index.html": (
+        "Recent jobs in Anza",
+        "Real Anza and high-desert jobs. Real photos.",
+    ),
+    "pages/services/pump-repair.html": (
+        "Recent pump jobs",
+        "Real pump, motor, and pressure jobs. Real photos.",
+    ),
+    "pages/services/well-drilling.html": (
+        "Recent well jobs",
+        "Real field work on wells we already service. New-drill cards publish here when those jobs do.",
+    ),
+}
+
+RECENT_JOBS_SECTION_RE = re.compile(
+    r'<section\b[^>]*(?:id=["\']recent-jobs["\']|class=["\'][^"\']*recent-jobs)[^>]*>.*?</section>\s*',
+    re.I | re.S,
+)
+MONEY_CARD_MARKERS = (
+    "<!-- MONEY_PAGE_RECENT_WORK_START -->",
+    "<!-- MONEY_PAGE_RECENT_WORK_END -->",
+)
+
+
+def card_city_only(location: str) -> str:
+    """Public card location: city/area name only, no street parentheticals."""
+    loc = (location or "").strip()
+    loc = re.sub(r"\s*\([^)]*\)\s*", "", loc)
+    return loc.split(",")[0].strip()
+
+
+def projects_by_slugs(
+    projects: list[dict[str, Any]], slugs: list[str]
+) -> list[dict[str, Any]]:
+    by_slug = {str(p.get("slug")): p for p in projects if p.get("slug")}
+    out: list[dict[str, Any]] = []
+    for slug in slugs:
+        project = by_slug.get(slug)
+        if not project:
+            continue
+        photos = [ph for ph in (project.get("photos") or []) if ph.get("file")]
+        if not photos:
+            continue
+        photo_path = PHOTO_DIR / photos[0]["file"]
+        if not photo_path.is_file():
+            continue
+        out.append(project)
+    return out
+
+
+def money_page_card_html(project: dict[str, Any]) -> str:
+    photos = list(project.get("photos") or [])
+    photo = photos[0] if photos else {}
+    file_name = photo.get("file") or ""
+    title = (project.get("title") or "").strip()
+    city = card_city_only(project.get("location") or "")
+    # City-only alt. Do not reuse photo alts that name a street or area.
+    alt = f"{title} in {city}" if city else title
+    slug = html.escape(project["slug"])
+    return (
+        f'<a class="recent-work-card" href="/recent-work/{slug}.html">\n'
+        f'<img src="/images/recent-work/{html.escape(file_name)}" '
+        f'alt="{html.escape(alt, quote=True)}" width="800" height="450" loading="lazy">\n'
+        f'<div class="rw-body">\n'
+        f"<h3>{html.escape(title)}</h3>\n"
+        f"<p>{html.escape(city)}</p>\n"
+        f"</div>\n"
+        f"</a>"
+    )
+
+
+def money_page_section_html(
+    projects: list[dict[str, Any]], heading: str, lede: str
+) -> str:
+    cards = "\n".join(money_page_card_html(p) for p in projects)
+    start, end = MONEY_CARD_MARKERS
+    return (
+        f"{start}\n"
+        f'<section class="recent-jobs-cards" id="recent-jobs">\n'
+        f"<h2>{html.escape(heading)}</h2>\n"
+        f'<p class="rw-lede">{html.escape(lede)}</p>\n'
+        f'<div class="recent-work-grid">\n'
+        f"{cards}\n"
+        f"</div>\n"
+        f'<p class="rw-all"><a href="/recent-work/">See all recent work →</a></p>\n'
+        f"</section>\n"
+        f"{end}\n"
+    )
+
+
+def replace_recent_jobs_section(text: str, block: str) -> str:
+    start, end = MONEY_CARD_MARKERS
+    if start in text and end in text:
+        return re.sub(
+            re.escape(start) + r".*?" + re.escape(end),
+            lambda _: block.rstrip() + "\n",
+            text,
+            count=1,
+            flags=re.S,
+        )
+    if RECENT_JOBS_SECTION_RE.search(text):
+        return RECENT_JOBS_SECTION_RE.sub(block, text, count=1)
+    match = re.search(r"<footer\b", text, re.I)
+    if match:
+        return text[: match.start()] + block + text[match.start()]
+    return text + block
+
+
+def apply_money_page_recent_work(
+    projects: list[dict[str, Any]] | None = None,
+) -> list[Path]:
+    """Wire homepage-style photo cards onto the four money pages."""
+    projects = projects if projects is not None else load_projects().get("projects", [])
+    changed: list[Path] = []
+    for rel, slugs in MONEY_PAGE_SLUGS.items():
+        path = ROOT / rel
+        if not path.is_file():
+            continue
+        hits = projects_by_slugs(projects, slugs)
+        if len(hits) < 3:
+            raise RuntimeError(f"{rel} has only {len(hits)} real photo jobs")
+        heading, lede = MONEY_PAGE_HEADINGS[rel]
+        block = money_page_section_html(hits, heading, lede)
+        original = path.read_text(encoding="utf-8")
+        updated = replace_recent_jobs_section(original, block)
+        if updated != original:
+            path.write_text(updated, encoding="utf-8")
+            changed.append(path)
+    return changed
+
+
 def projects_for_city(projects: list[dict[str, Any]], city: str, limit: int = 6) -> list[dict[str, Any]]:
     city_l = city.lower()
     hits = [p for p in projects if city_l in (p.get("location") or "").lower()]

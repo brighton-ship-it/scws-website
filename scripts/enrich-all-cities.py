@@ -229,4 +229,7 @@ def main():
     print(f"{'='*50}")
 
 if __name__ == "__main__":
+    raise SystemExit(
+        "Disabled: do not generate or enrich new city×topic factory pages."
+    )
     main()
