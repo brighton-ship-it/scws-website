@@ -2,6 +2,8 @@
 node_modules/
 *.log
 .vercel
+__pycache__/
+*.py[cod]
 assets/images/blog-images/ai-originals/
 
 # Never publish Jobber catalogs or duplicate well DBs on GitHub Pages

@@ -199,27 +199,12 @@ def create_service_page(city_slug, city_info, service_slug, service_name):
 </body>
 </html>'''
 
-# Create pages
-created = 0
-for city_slug, city_info in new_cities.items():
-    city_dir = services_dir / city_slug
-    
-    if city_dir.exists():
-        print(f"⏭️  Skipping {city_info['name']} (already exists)")
-        continue
-    
-    city_dir.mkdir(parents=True)
-    
-    # Create index
-    with open(city_dir / "index.html", "w") as f:
-        f.write(create_city_index(city_slug, city_info))
-    
-    # Create service pages
-    for service_slug, service_name in services:
-        with open(city_dir / f"{service_slug}.html", "w") as f:
-            f.write(create_service_page(city_slug, city_info, service_slug, service_name))
-    
-    print(f"✅ Created {city_info['name']} ({len(services) + 1} pages)")
-    created += 1
+def main():
+    raise SystemExit(
+        "Disabled: do not generate new city×topic factory pages. "
+        "Far-city templates stay on disk with robots noindex,follow."
+    )
 
-print(f"\n✅ Created {created} new city directories with {created * (len(services) + 1)} total pages")
+
+if __name__ == "__main__":
+    main()

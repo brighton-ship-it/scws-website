@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import importlib.util
 import json
+import re
 import sys
 import tempfile
 import unittest
@@ -12,16 +13,22 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from recent_work_lib import (
+    MONEY_PAGE_SLUGS,
     PAGE_SIZE,
+    apply_money_page_recent_work,
     build_project,
+    card_city_only,
     card_html,
     categorize_job,
     collect_attachments,
     is_public_safe_title,
     job_h1,
     jsonld_items,
+    load_projects,
     merge_projects,
+    money_page_card_html,
     paginate_projects,
+    projects_by_slugs,
     public_location,
     sanitize_public_text,
     slugify,
@@ -369,6 +376,58 @@ class DryRunCliTests(unittest.TestCase):
             finally:
                 photo_audit_lib.DECISIONS_PATH = original
         self.assertEqual(code, 0)
+
+class MoneyPageCardTests(unittest.TestCase):
+    def test_card_city_strips_street_parenthetical(self):
+        self.assertEqual(card_city_only("Ramona (Cathedral Way area)"), "Ramona")
+        self.assertEqual(card_city_only("Ramona, CA"), "Ramona")
+
+    def test_curated_slugs_exist_with_photos(self):
+        projects = load_projects()["projects"]
+        for rel, slugs in MONEY_PAGE_SLUGS.items():
+            hits = projects_by_slugs(projects, slugs)
+            self.assertGreaterEqual(len(hits), 3, rel)
+            self.assertLessEqual(len(hits), 6, rel)
+            titles = [p["title"] for p in hits]
+            self.assertEqual(len(titles), len(set(titles)), rel)
+
+    def test_card_html_has_no_pii(self):
+        project = {
+            "slug": "ramona-pressure-switch-gauge-replacement",
+            "title": "Pressure switch and gauge replacement",
+            "location": "Ramona (Hanson Lane area)",
+            "photos": [{"file": "job3175_1.jpg", "alt": "New pressure switch and gauge installed in Ramona"}],
+        }
+        html_out = money_page_card_html(project)
+        self.assertIn("recent-work-card", html_out)
+        self.assertIn("/images/recent-work/job3175_1.jpg", html_out)
+        self.assertIn("Ramona", html_out)
+        self.assertIn('alt="Pressure switch and gauge replacement in Ramona"', html_out)
+        self.assertNotIn("Hanson", html_out)
+        self.assertNotIn("Lane", html_out)
+        self.assertNotIn("$", html_out)
+
+    def test_live_money_pages_have_photo_cards(self):
+        apply_money_page_recent_work()
+        root = Path(__file__).resolve().parents[1]
+        pii = re.compile(
+            r"\b(Hanson|Cathedral Way|Highland Valley)\b|\$\d|\(\d{3}\)\s*\d{3}"
+        )
+        for rel, slugs in MONEY_PAGE_SLUGS.items():
+            html_out = (root / rel).read_text(encoding="utf-8")
+            self.assertIn('class="recent-work-card"', html_out)
+            self.assertIn('id="recent-jobs"', html_out)
+            cards = re.findall(r'class="recent-work-card"', html_out)
+            self.assertGreaterEqual(len(cards), 3, rel)
+            self.assertLessEqual(len(cards), 6, rel)
+            section = html_out.split('id="recent-jobs"', 1)[1].split("</section>", 1)[0]
+            self.assertIsNone(pii.search(section), rel)
+            for slug in slugs[:3]:
+                self.assertIn(f"/recent-work/{slug}.html", html_out)
+            self.assertIn("cta-call", html_out)
+            self.assertIn("cta-est", html_out)
+            self.assertNotIn("FLAG under 60%", html_out)
+            self.assertNotIn("1059498", html_out)
 
     def test_missing_secrets_exits_2(self):
         import os
