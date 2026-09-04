@@ -79,7 +79,7 @@ SKIP_FILE_NAMES = {
 
 _LEFTOVER_NUMS = "|".join(LEFTOVER_LICENSE_NUMBERS)
 LICENSE_TOKEN_RE = re.compile(
-    rf"(?:License|CSLB|license)\s*#\s*(?:{_LEFTOVER_NUMS})|#\s*(?:{_LEFTOVER_NUMS})",
+    rf"(?:License|CSLB|license)(?:\s*#|\s+number)\s*(?:{_LEFTOVER_NUMS})|#\s*(?:{_LEFTOVER_NUMS})",
     re.IGNORECASE,
 )
 
@@ -125,6 +125,8 @@ def replace_leftover_licenses(text: str) -> str:
 
 
 def _license_replacement(match: str) -> str:
+    if re.search(r"license number", match, re.I):
+        return f"license number {CANONICAL_CSLB}"
     if re.search(r"license|cslb", match, re.I):
         prefix = re.match(r"(License|CSLB|license)\s*#\s*", match)
         if prefix:
@@ -132,9 +134,186 @@ def _license_replacement(match: str) -> str:
     return CANONICAL_CSLB_HASH
 
 
+# Company-age leftovers that must NEVER be rewritten (well/equipment/city facts).
+KEEP_AGE_NEAR_RE = re.compile(
+    r"(?i)(?:"
+    r"wells?\s+(?:over|more than)\s+\d|"
+    r"wells?\s+(?:are|is|typically)\s+(?:over|more than|\d{2})|"
+    r"(?:over|more than)\s+(?:20|30|40)\+?\s+years\s+old|"
+    r"30\+\s*years\s+old|"
+    r"casing over|"
+    r"incorporated|"
+    r"incorporation|"
+    r"typically last|"
+    r"can last|"
+    r"may last|"
+    r"often last|"
+    r"regularly deliver|"
+    r"lifespan|"
+    r"last(?:s|ing)?\s+\d|"
+    r"Joe Fain|"
+    r"Fain Drilling|"
+    r"family heritage|"
+    r"60\+\s*Years Family"
+    r")"
+)
+
+# High-volume factory leftovers PR #48 missed (no "of" in "30+ years experience").
+FACTORY_AGE_REPLACEMENTS = [
+    (
+        "Licensed C-57 contractor, 4.9★ rated, 30+ years experience.",
+        "Licensed C-57 contractor (CSLB #1086994), founded 2020.",
+    ),
+    (
+        "Licensed C-57 contractor, 4.9★ rated, 30+ years experience",
+        "Licensed C-57 contractor (CSLB #1086994), founded 2020",
+    ),
+    (
+        "Licensed, 4.9★ rated, 30+ years experience.",
+        "Licensed C-57 (CSLB #1086994), founded 2020.",
+    ),
+    (
+        "Licensed, 4.9 star rated, 30+ years experience.",
+        "Licensed C-57 (CSLB #1086994), founded 2020.",
+    ),
+    (
+        "Licensed, 4.9★ rated, 30+ years experience",
+        "Licensed C-57 (CSLB #1086994), founded 2020",
+    ),
+    (
+        "With 30+ years experience and a 4.9★ Google rating",
+        "Founded in 2020, with 60+ years of family heritage",
+    ),
+    (
+        "With 30+ years experience and a 4.9★...",
+        "Founded in 2020, with 60+ years of family heritage...",
+    ),
+    (
+        "with 30+ years experience and a 4.9★ Google rating",
+        "founded in 2020, with 60+ years of family heritage",
+    ),
+    (
+        "Licensed C-57 contractor with 30+ years experience.",
+        "Licensed C-57 contractor (CSLB #1086994), founded 2020.",
+    ),
+    (
+        "Licensed C-57 contractor with 30+ years experience",
+        "Licensed C-57 contractor (CSLB #1086994), founded 2020",
+    ),
+    (
+        "<li><strong>30+ Years Experience:</strong>",
+        "<li><strong>Founded 2020 · 60+ Years Family Heritage:</strong>",
+    ),
+    (
+        "<span class=\"font-semibold\">40+ Years Experience</span>",
+        "<span class=\"font-semibold\">Founded 2020</span>",
+    ),
+    (
+        "Based on 40+ years of well service experience",
+        "Based on work since 2020 and 60+ years of family heritage",
+    ),
+    (
+        "licensed water well drilling contractor with 40+ years experience",
+        "licensed C-57 water well drilling contractor (CSLB #1086994), founded 2020",
+    ),
+    (
+        "brings 40+ years of well drilling experience",
+        "brings 60+ years of family heritage in well drilling",
+    ),
+    (
+        "based on 40+ years of drilling experience",
+        "based on work since 2020 and 60+ years of family heritage",
+    ),
+    (
+        "With over 40 years serving agricultural clients",
+        "Since 2020, serving agricultural clients",
+    ),
+    (
+        "has been the trusted choice for San Diego well drilling for over 40 years",
+        "has been the trusted choice for San Diego well drilling since 2020",
+    ),
+    (
+        "has served Hillcrest homeowners for over 40 years",
+        "has served Hillcrest homeowners since 2020",
+    ),
+    (
+        "As a C-57 licensed well contractor with over 40 years of experience",
+        "As a C-57 licensed well contractor (CSLB #1086994), founded in 2020",
+    ),
+    (
+        "with more than 30 years of local experience, a 4.9-star reputation",
+        "founded in 2020, with 60+ years of family heritage",
+    ),
+    (
+        "with more than 30 years of hands-on experience",
+        "founded in 2020, with 60+ years of family heritage",
+    ),
+    (
+        "with more than 30 years of local experience",
+        "founded in 2020, with 60+ years of family heritage",
+    ),
+    (
+        "with more than 30 years behind us and a 4.9-star record",
+        "founded in 2020, with 60+ years of family heritage",
+    ),
+    (
+        "with more than 30 years behind us",
+        "founded in 2020",
+    ),
+    (
+        "family-run for more than 30 years",
+        "founded in 2020",
+    ),
+    (
+        "backed by more than 30 years of experience",
+        "founded in 2020, with 60+ years of family heritage",
+    ),
+    (
+        "With more than 30 years in business, a 4.9-star reputation",
+        "Founded in 2020, with CSLB #1086994",
+    ),
+    (
+        "with more than 30 years in business",
+        "founded in 2020",
+    ),
+    (
+        "more than 30 years in the field",
+        "since 2020",
+    ),
+    (
+        "more than 30 years in <strong>San Diego County</strong>",
+        "since 2020 in <strong>San Diego County</strong>",
+    ),
+    (
+        "has more than 30 years of experience in exactly this terrain",
+        "has served this terrain since 2020",
+    ),
+    (
+        "Local expertise since 2008",
+        "Local expertise since 2020",
+    ),
+    (
+        "<strong>Local expertise since 2008</strong>",
+        "<strong>Local expertise since 2020</strong>",
+    ),
+    (
+        "specialists since 2008",
+        "specialists since 2020",
+    ),
+    (
+        "contractor since 2008",
+        "contractor since 2020",
+    ),
+    (
+        "Since '08",
+        "Founded 2020",
+    ),
+]
+
+
 def replace_company_age_claims(text: str) -> str:
     """Rewrite leftover SCWS company-age claims. Leave well/equipment/city dates."""
-    replacements = [
+    replacements = FACTORY_AGE_REPLACEMENTS + [
         (
             "with more than 30 years of experience and a 4.9-star reputation across",
             "(CSLB #1086994), founded in 2020, with 60+ years of family heritage across",
@@ -346,12 +525,440 @@ def replace_company_age_claims(text: str) -> str:
         r"\1 since 2020",
         text,
     )
+
+    # Broader leftover company-tenure lines. Skip well/equipment/city-date windows.
+    def _age_fallback(match: re.Match[str]) -> str:
+        start = max(0, match.start() - 80)
+        end = min(len(match.string), match.end() + 80)
+        window = match.string[start:end]
+        if KEEP_AGE_NEAR_RE.search(window):
+            return match.group(0)
+        token = match.group(0)
+        if re.search(r"(?i)since\s+(?:2008|'08|1985|1996|2007|1987)", token):
+            return "since 2020" if token[:1].islower() else "Since 2020"
+        if re.search(r"(?i)for\s+(?:more than|over)\s+30\s+years|for\s+30\+\s*years", token):
+            return "since 2020"
+        return "founded in 2020, with 60+ years of family heritage"
+
+    text = re.sub(
+        r"(?i)\b(?:with\s+)?30\+\s*years(?:\s+of)?\s+(?:high-desert\s+|local\s+|hands-on\s+|well\s+)?experience\b",
+        _age_fallback,
+        text,
+    )
+    text = re.sub(
+        r"(?i)\b(?:more than|over)\s+30\s+years\s+of\s+(?:local\s+|hands-on\s+|well\s+|high-desert\s+)?experience\b",
+        _age_fallback,
+        text,
+    )
+    text = re.sub(
+        r"(?i)\bfor\s+(?:more than|over)\s+30\s+years\b",
+        _age_fallback,
+        text,
+    )
+    text = re.sub(
+        r"(?i)\bfor\s+30\+\s*years\b",
+        _age_fallback,
+        text,
+    )
+    text = re.sub(
+        r"(?i)\b(?:more than|over)\s+30\s+years\s+in\s+(?:the field|business)\b",
+        "since 2020",
+        text,
+    )
+    text = re.sub(
+        r"(?i)\b40\+\s*years(?:\s+of)?\s+(?:well\s+)?(?:drilling\s+|service\s+)?experience\b",
+        _age_fallback,
+        text,
+    )
+    text = re.sub(
+        r"(?i)\bover\s+40\s+years\s+of\s+experience\b",
+        _age_fallback,
+        text,
+    )
+    text = re.sub(
+        r"(?i)(?<!incorporated in )(?<!incorporation \()\bsince\s+2008\b",
+        _age_fallback,
+        text,
+    )
+    text = re.sub(
+        r"(?i)\bsince\s+(?:1985|1996|2007|1987)\b",
+        _age_fallback,
+        text,
+    )
+    # Landing-page leftover "20+ Years Experience" as company tenure (not equipment life).
+    text = re.sub(
+        r"(?i)>20\+</div>\s*<div class=\"text-gray-600\">Years Experience</div>",
+        ">2020</div>\n                    <div class=\"text-gray-600\">Founded</div>",
+        text,
+    )
+    text = re.sub(
+        r"(?i)>20\+\s*Years Experience<",
+        ">Founded 2020<",
+        text,
+    )
+
+    # HTML-wrapped and longer leftover company-tenure lines.
+    text = re.sub(
+        r"(?i)for\s+<strong>more than 30 years</strong>",
+        "since 2020",
+        text,
+    )
+    text = re.sub(
+        r"(?i)with more than 30 years</strong> of experience",
+        "founded in 2020, with 60+ years of family heritage</strong>",
+        text,
+    )
+    text = re.sub(
+        r"(?i)with over 30 years</strong> of experience",
+        "founded in 2020, with 60+ years of family heritage</strong>",
+        text,
+    )
+    text = re.sub(
+        r"(?i)With more than 30 years and a C-57 license",
+        "Founded in 2020, with a C-57 license (CSLB #1086994)",
+        text,
+    )
+    text = re.sub(
+        r"(?i)With over 30 years and a C-57 license",
+        "Founded in 2020, with a C-57 license (CSLB #1086994)",
+        text,
+    )
+    text = re.sub(
+        r"(?i)with more than 30 years of [^.<]{0,60}?experience",
+        "founded in 2020, with 60+ years of family heritage",
+        text,
+    )
+    text = re.sub(
+        r"(?i)with over 30 years of (?:expertise|region-specific expertise|experience)",
+        "founded in 2020, with 60+ years of family heritage",
+        text,
+    )
+    text = re.sub(
+        r"(?i)(?:with |bringing )?over 30 years of [^.<]{0,40}expertise",
+        "founded in 2020, with 60+ years of family heritage",
+        text,
+    )
+    text = re.sub(
+        r"(?i)with more than 30 years in ",
+        "since 2020 in ",
+        text,
+    )
+    text = re.sub(
+        r"(?i)(?:and |with )?over 30 years (?:serving|in) ",
+        "since 2020 serving ",
+        text,
+    )
+    text = re.sub(
+        r"(?i)with over 30 years serving ",
+        "serving since 2020 in ",
+        text,
+    )
+
+    def _remaining_company_thirty(match: re.Match[str]) -> str:
+        start = max(0, match.start() - 90)
+        end = min(len(match.string), match.end() + 90)
+        window = match.string[start:end]
+        if KEEP_AGE_NEAR_RE.search(window):
+            return match.group(0)
+        # Cost-comparison math ("over 30 years, well ownership typically saves") is not company age.
+        if re.search(r"(?i)(?:well ownership|typically saves|versus city water|saves \$)", window):
+            return match.group(0)
+        token = match.group(0)
+        if re.match(r"(?i)for\b", token):
+            return "since 2020"
+        if re.search(r"(?i)drawing on|based on|built on|comes from|after|judgment", window):
+            return "since 2020"
+        return "founded in 2020"
+
+    text = re.sub(
+        r"(?i)(?:for\s+)?(?:<strong>)?(?:more than|over)\s+30\s+years(?:</strong>)?",
+        _remaining_company_thirty,
+        text,
+    )
+    text = re.sub(
+        r"(?i)Licensed C-57, 30\+\s*years in ",
+        "Licensed C-57 (CSLB #1086994), founded 2020, serving ",
+        text,
+    )
+    text = re.sub(
+        r"(?i)with 30\+\s*years in ",
+        "founded in 2020, serving ",
+        text,
+    )
+    text = re.sub(
+        r"(?i)with 30\+\s*years and,",
+        "founded in 2020,",
+        text,
+    )
+    text = re.sub(
+        r"(?i)with 30\+\s*years of local [^.<]{0,40}?experience",
+        "founded in 2020, with 60+ years of family heritage",
+        text,
+    )
+
+    def _remaining_plus_thirty(match: re.Match[str]) -> str:
+        start = max(0, match.start() - 90)
+        end = min(len(match.string), match.end() + 90)
+        window = match.string[start:end]
+        if KEEP_AGE_NEAR_RE.search(window):
+            return match.group(0)
+        if re.search(r"(?i)(?:well ownership|typically saves|versus city water|saves \$)", window):
+            return match.group(0)
+        return "founded in 2020"
+
+    text = re.sub(r"(?i)\b30\+\s*years\b", _remaining_plus_thirty, text)
+    # Spelled-out leftovers: "30-plus years" / "three decades" as company tenure.
+    text = re.sub(
+        r"(?i)(?:with\s+)?30-plus years(?:\s+of)?(?:\s+(?:desert\s+well\s+|San Diego County\s+|local\s+|hands-on\s+))?experience",
+        "founded in 2020, with 60+ years of family heritage",
+        text,
+    )
+    text = re.sub(
+        r"(?i)(?:with\s+)?30-plus years(?:\s+of)?\s+[^.<]{0,40}?experience",
+        "founded in 2020, with 60+ years of family heritage",
+        text,
+    )
+    text = re.sub(r"(?i)with 30-plus years in ", "founded in 2020, serving ", text)
+    text = re.sub(r"(?i)Licensed C-57, 30-plus years", "Licensed C-57 (CSLB #1086994), founded 2020", text)
+    text = re.sub(r"(?i)30-plus years in ", "founded in 2020, serving ", text)
+    text = re.sub(r"(?i)30-plus years of work", "work since 2020", text)
+    text = re.sub(r"(?i)\b30-plus years\b", "founded in 2020", text)
+    text = re.sub(
+        r"(?i)(?:for\s+)?(?:more than|over)\s+three decades",
+        "since 2020",
+        text,
+    )
+    text = re.sub(
+        r"(?i)(?:with\s+|across\s+|after\s+|drawing on\s+)?three decades(?:\s+of)?(?:\s+(?:hands-on\s+|local\s+|regional\s+))?experience",
+        "founded in 2020, with 60+ years of family heritage",
+        text,
+    )
+    text = re.sub(
+        r"(?i)three decades(?:\s+of)?\s+(?:work|service|serving|in the (?:field|region)|drilling)",
+        "work since 2020",
+        text,
+    )
+    text = re.sub(r"(?i)After three decades", "Since 2020", text)
+    text = re.sub(r"(?i)Across three decades serving", "Since 2020, serving", text)
+    text = re.sub(r"(?i)has spent more than three decades", "has, since 2020,", text)
+    text = re.sub(r"(?i)\bthree decades\b", "since 2020", text)
+    return text
+
+
+FACTORY_RATING_REPLACEMENTS = [
+    (
+        "• 4.9★ Rated",
+        "• CSLB #1086994",
+    ),
+    (
+        "4.9★ Rated",
+        "CSLB #1086994",
+    ),
+    (
+        "Licensed C-57, 4.9★ rated.",
+        "Licensed C-57 (CSLB #1086994).",
+    ),
+    (
+        "Licensed C-57, 4.9★ rated",
+        "Licensed C-57 (CSLB #1086994)",
+    ),
+    (
+        ", 4.9★ rated, ",
+        ", ",
+    ),
+    (
+        ", 4.9★ rated.",
+        ".",
+    ),
+    (
+        ", 4.9★ rated",
+        "",
+    ),
+    (
+        "4.9★ rated, ",
+        "",
+    ),
+    (
+        "4.9★ rated.",
+        "licensed C-57 (CSLB #1086994).",
+    ),
+    (
+        "4.9★ rated",
+        "licensed C-57 (CSLB #1086994)",
+    ),
+    (
+        "4.9 star rated, ",
+        "",
+    ),
+    (
+        "4.9 star rated",
+        "licensed C-57 (CSLB #1086994)",
+    ),
+    (
+        "<li><strong>Quality Work:</strong> 4.9★ rating on Google Reviews</li>",
+        "<li><strong>Quality Work:</strong> Licensed C-57 (CSLB #1086994)</li>",
+    ),
+    (
+        "<li><strong>4.9★ Google rating</strong> — hundreds of reviews from real customers across San Diego County</li>",
+        "<li><strong>Licensed C-57 (CSLB #1086994)</strong> — founded 2020, with 60+ years of family heritage</li>",
+    ),
+    (
+        "<li><strong>4.9★ Google rating</strong> — hundreds of reviews from San Diego and Riverside County customers</li>",
+        "<li><strong>Licensed C-57 (CSLB #1086994)</strong> — founded 2020, with 60+ years of family heritage</li>",
+    ),
+    (
+        "<li><strong>4.9★ Google rating</strong> from hundreds of verified customers</li>",
+        "<li><strong>Licensed C-57 (CSLB #1086994)</strong> — founded 2020</li>",
+    ),
+    (
+        '<p class="text-gray-600">4.9★ Google rating, hundreds of reviews</p>',
+        '<p class="text-gray-600">CSLB #1086994 · founded 2020</p>',
+    ),
+    (
+        '<p class="text-gray-600">4.9 star rating, hundreds of reviews</p>',
+        '<p class="text-gray-600">CSLB #1086994 · founded 2020</p>',
+    ),
+    (
+        "4.9★ rating on Google Reviews",
+        "CSLB #1086994",
+    ),
+    (
+        "4.9★ Google Rating (120+ reviews)",
+        "Licensed C-57 · CSLB #1086994",
+    ),
+    (
+        "4.9★ Google Rating (50+ Reviews)",
+        "Licensed C-57 · CSLB #1086994",
+    ),
+    (
+        "Google Rating (50+ Reviews)",
+        "CSLB #1086994",
+    ),
+    (
+        "✓ 4.9★ Google Rating",
+        "✓ Licensed C-57 · CSLB #1086994",
+    ),
+    (
+        "✓ 4.9-Star Rating",
+        "✓ Licensed C-57 · CSLB #1086994",
+    ),
+    (
+        "4.9 Star Rating",
+        "CSLB #1086994",
+    ),
+    (
+        "4.9★ Google rating, hundreds of reviews",
+        "CSLB #1086994 · founded 2020",
+    ),
+    (
+        "4.9 star rating, hundreds of reviews",
+        "CSLB #1086994 · founded 2020",
+    ),
+    (
+        "and a 4.9-star track record",
+        "",
+    ),
+    (
+        ", and a 4.9-star track record",
+        "",
+    ),
+    (
+        "a 4.9-star track record",
+        "CSLB #1086994",
+    ),
+    (
+        "a 4.9-star record",
+        "CSLB #1086994",
+    ),
+    (
+        ", a 4.9-star reputation,",
+        ",",
+    ),
+    (
+        " a 4.9-star reputation,",
+        ",",
+    ),
+    (
+        "a 4.9-star reputation,",
+        "CSLB #1086994,",
+    ),
+    (
+        "a 4.9-star reputation",
+        "CSLB #1086994",
+    ),
+    (
+        "our 4.9-star reputation",
+        "our C-57 license (CSLB #1086994)",
+    ),
+    (
+        "<strong>4.9-star</strong>",
+        "<strong>CSLB #1086994</strong>",
+    ),
+    (
+        "<strong>4.9 stars</strong>",
+        "<strong>CSLB #1086994</strong>",
+    ),
+    (
+        "From San Diego's 4.9★ rated well contractor.",
+        "From San Diego's licensed C-57 well contractor (CSLB #1086994).",
+    ),
+    (
+        "With 4.9★ Google rating and decades of experience,",
+        "Founded in 2020, with 60+ years of family heritage,",
+    ),
+    (
+        '<div class="text-4xl font-bold text-accent mb-2">4.9★</div>',
+        '<div class="text-4xl font-bold text-accent mb-2">2020</div>',
+    ),
+    (
+        '<div class="text-2xl font-bold text-primary">4.9★</div>',
+        '<div class="text-2xl font-bold text-primary">2020</div>',
+    ),
+    (
+        '<div class="text-3xl font-bold text-blue-600">4.9★</div>',
+        '<div class="text-3xl font-bold text-blue-600">2020</div>',
+    ),
+    (
+        '<div class="text-sm text-gray-600">Google Rating</div>',
+        '<div class="text-sm text-gray-600">Founded</div>',
+    ),
+    (
+        '<div class="text-gray-600">Google Rating</div>',
+        '<div class="text-gray-600">Founded</div>',
+    ),
+]
+
+
+def strip_fake_aggregate_rating(text: str) -> str:
+    """Drop leftover schema.org 4.9 / reviewCount 127 blocks. Do not invent a new count."""
+
+    def _drop(match: re.Match[str]) -> str:
+        block = match.group(0)
+        if re.search(r"4\.9", block) and re.search(r"127", block):
+            return ""
+        if re.search(r"reviewCount[\"']?\s*:\s*[\"']?127", block):
+            return ""
+        return block
+
+    text = re.sub(
+        r''',\s*"aggregateRating"\s*:\s*\{[^{}]*\}''',
+        _drop,
+        text,
+        flags=re.I,
+    )
+    text = re.sub(
+        r'''"aggregateRating"\s*:\s*\{[^{}]*\}\s*,?''',
+        _drop,
+        text,
+        flags=re.I,
+    )
     return text
 
 
 def replace_fake_rating_lines(text: str) -> str:
     """Drop leftover 4.9-star marketing lines. Do not invent a new combined count."""
-    replacements = [
+    text = strip_fake_aggregate_rating(text)
+    replacements = FACTORY_RATING_REPLACEMENTS + [
         (
             "Licensed C-57 contractor with 4.9★ rating.",
             "Licensed C-57 contractor (CSLB #1086994).",
@@ -455,8 +1062,31 @@ def replace_fake_rating_lines(text: str) -> str:
     ]
     for old, new in replacements:
         text = text.replace(old, new)
+    # Remaining leftover 4.9 marketing (do not invent a review count).
+    text = re.sub(
+        r"(?i),?\s*(?:and\s+)?a\s+4\.9(?:★|-star)?\s+(?:Google\s+)?(?:rating|reputation|record|track record)\b",
+        "",
+        text,
+    )
+    text = re.sub(
+        r"(?i)\b4\.9(?:★|-star)\s+(?:Google\s+)?(?:rating|rated|reputation|record|track record)\b",
+        "CSLB #1086994",
+        text,
+    )
+    # ★ is non-word, so do not require a trailing \b.
+    text = re.sub(r"(?i)4\.9★(?:\s*R(?:at(?:ed?)?)?)?(?:\.\.\.)?", "CSLB #1086994", text)
+    text = re.sub(r"(?i)\b4\.9-star\b", "CSLB #1086994", text)
+    text = re.sub(
+        r'(?i)<div class="text-3xl font-bold text-accent">CSLB #1086994</div>\s*<div class="text-sm text-gray-300">Customer Rating</div>',
+        '<div class="text-3xl font-bold text-accent">2020</div>\n                    <div class="text-sm text-gray-300">Founded</div>',
+        text,
+    )
+    text = re.sub(r"(?i)✓\s*CSLB #1086994 Customer Rating", "✓ Licensed C-57 · CSLB #1086994", text)
     text = re.sub(r"heritage and,\s+", "heritage, ", text)
     text = re.sub(r"experience and,\s+", "experience, ", text)
+    text = re.sub(r"heritage,\s+and\s+", "heritage ", text)
+    text = re.sub(r",\s*,+", ",", text)
+    text = re.sub(r",\s*\.", ".", text)
     return text
 
 
@@ -520,20 +1150,28 @@ def process_html_text(text: str, filename: str) -> str:
 
 
 def is_claim_file(path: Path) -> bool:
-    """Age/4.9 rewrites stay on blog templates + leftover landing/generator copy."""
+    """Age/4.9 rewrites stay on factory/blog/service pages. Skip homepage hero."""
     if path.suffix.lower() not in {".html", ".js"}:
+        return False
+    if path.name == "index.html" and "blog" not in path.parts and "locations" not in path.parts:
         return False
     rel = path.as_posix()
     if "/blog/" in rel or rel.startswith("blog/"):
         return True
+    if "/services/" in rel or rel.startswith("services/"):
+        return True
+    if "/pages/landing/" in rel:
+        return True
+    if "/locations/" in rel or rel.startswith("locations/"):
+        return True
     if path.name in {
         "emergency.html",
         "pump-repair.html",
+        "faq.html",
+        "cost-calculator.html",
         "expand-cities.js",
         "generate-city-pages.js",
     }:
-        return True
-    if "/pages/landing/" in rel:
         return True
     return False
 

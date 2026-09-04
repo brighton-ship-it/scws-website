@@ -297,8 +297,8 @@ def generate_page(city, service_slug, service_data, output_dir):
             <h2>Why Choose SCWS for {service_name} in {city_name}?</h2>
             <ul>
                 <li>Licensed C-57 Well Contractor</li>
-                <li>4.9★ Google Rating (120+ reviews)</li>
-                <li>Family-owned, serving {city_name} since 1987</li>
+                <li>Licensed C-57 · CSLB #1086994</li>
+                <li>Family-owned, serving {city_name} since 2020</li>
                 <li>Same-day service available</li>
                 <li>Transparent pricing, no hidden fees</li>
                 <li>Local team based in Ramona & Anza</li>
