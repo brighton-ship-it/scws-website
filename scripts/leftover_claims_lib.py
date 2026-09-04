@@ -79,7 +79,7 @@ SKIP_FILE_NAMES = {
 
 _LEFTOVER_NUMS = "|".join(LEFTOVER_LICENSE_NUMBERS)
 LICENSE_TOKEN_RE = re.compile(
-    rf"(?:License|CSLB|license)\s*#\s*(?:{_LEFTOVER_NUMS})|#\s*(?:{_LEFTOVER_NUMS})",
+    rf"(?:License|CSLB|license)(?:\s*#|\s+number)\s*(?:{_LEFTOVER_NUMS})|#\s*(?:{_LEFTOVER_NUMS})",
     re.IGNORECASE,
 )
 
@@ -125,6 +125,8 @@ def replace_leftover_licenses(text: str) -> str:
 
 
 def _license_replacement(match: str) -> str:
+    if re.search(r"license number", match, re.I):
+        return f"license number {CANONICAL_CSLB}"
     if re.search(r"license|cslb", match, re.I):
         prefix = re.match(r"(License|CSLB|license)\s*#\s*", match)
         if prefix:
@@ -135,9 +137,11 @@ def _license_replacement(match: str) -> str:
 # Company-age leftovers that must NEVER be rewritten (well/equipment/city facts).
 KEEP_AGE_NEAR_RE = re.compile(
     r"(?i)(?:"
-    r"wells?\s+(?:over|more than|are|is|typically)|"
+    r"wells?\s+(?:over|more than)\s+\d|"
+    r"wells?\s+(?:are|is|typically)\s+(?:over|more than|\d{2})|"
     r"(?:over|more than)\s+(?:20|30|40)\+?\s+years\s+old|"
-    r"casing|"
+    r"30\+\s*years\s+old|"
+    r"casing over|"
     r"incorporated|"
     r"incorporation|"
     r"typically last|"
@@ -592,6 +596,117 @@ def replace_company_age_claims(text: str) -> str:
         ">Founded 2020<",
         text,
     )
+
+    # HTML-wrapped and longer leftover company-tenure lines.
+    text = re.sub(
+        r"(?i)for\s+<strong>more than 30 years</strong>",
+        "since 2020",
+        text,
+    )
+    text = re.sub(
+        r"(?i)with more than 30 years</strong> of experience",
+        "founded in 2020, with 60+ years of family heritage</strong>",
+        text,
+    )
+    text = re.sub(
+        r"(?i)with over 30 years</strong> of experience",
+        "founded in 2020, with 60+ years of family heritage</strong>",
+        text,
+    )
+    text = re.sub(
+        r"(?i)With more than 30 years and a C-57 license",
+        "Founded in 2020, with a C-57 license (CSLB #1086994)",
+        text,
+    )
+    text = re.sub(
+        r"(?i)With over 30 years and a C-57 license",
+        "Founded in 2020, with a C-57 license (CSLB #1086994)",
+        text,
+    )
+    text = re.sub(
+        r"(?i)with more than 30 years of [^.<]{0,60}?experience",
+        "founded in 2020, with 60+ years of family heritage",
+        text,
+    )
+    text = re.sub(
+        r"(?i)with over 30 years of (?:expertise|region-specific expertise|experience)",
+        "founded in 2020, with 60+ years of family heritage",
+        text,
+    )
+    text = re.sub(
+        r"(?i)(?:with |bringing )?over 30 years of [^.<]{0,40}expertise",
+        "founded in 2020, with 60+ years of family heritage",
+        text,
+    )
+    text = re.sub(
+        r"(?i)with more than 30 years in ",
+        "since 2020 in ",
+        text,
+    )
+    text = re.sub(
+        r"(?i)(?:and |with )?over 30 years (?:serving|in) ",
+        "since 2020 serving ",
+        text,
+    )
+    text = re.sub(
+        r"(?i)with over 30 years serving ",
+        "serving since 2020 in ",
+        text,
+    )
+
+    def _remaining_company_thirty(match: re.Match[str]) -> str:
+        start = max(0, match.start() - 90)
+        end = min(len(match.string), match.end() + 90)
+        window = match.string[start:end]
+        if KEEP_AGE_NEAR_RE.search(window):
+            return match.group(0)
+        # Cost-comparison math ("over 30 years, well ownership typically saves") is not company age.
+        if re.search(r"(?i)(?:well ownership|typically saves|versus city water|saves \$)", window):
+            return match.group(0)
+        token = match.group(0)
+        if re.match(r"(?i)for\b", token):
+            return "since 2020"
+        if re.search(r"(?i)drawing on|based on|built on|comes from|after|judgment", window):
+            return "since 2020"
+        return "founded in 2020"
+
+    text = re.sub(
+        r"(?i)(?:for\s+)?(?:<strong>)?(?:more than|over)\s+30\s+years(?:</strong>)?",
+        _remaining_company_thirty,
+        text,
+    )
+    text = re.sub(
+        r"(?i)Licensed C-57, 30\+\s*years in ",
+        "Licensed C-57 (CSLB #1086994), founded 2020, serving ",
+        text,
+    )
+    text = re.sub(
+        r"(?i)with 30\+\s*years in ",
+        "founded in 2020, serving ",
+        text,
+    )
+    text = re.sub(
+        r"(?i)with 30\+\s*years and,",
+        "founded in 2020,",
+        text,
+    )
+    text = re.sub(
+        r"(?i)with 30\+\s*years of local [^.<]{0,40}?experience",
+        "founded in 2020, with 60+ years of family heritage",
+        text,
+    )
+
+    def _remaining_plus_thirty(match: re.Match[str]) -> str:
+        start = max(0, match.start() - 90)
+        end = min(len(match.string), match.end() + 90)
+        window = match.string[start:end]
+        if KEEP_AGE_NEAR_RE.search(window):
+            return match.group(0)
+        if re.search(r"(?i)(?:well ownership|typically saves|versus city water|saves \$)", window):
+            return match.group(0)
+        return "founded in 2020"
+
+    text = re.sub(r"(?i)\b30\+\s*years\b", _remaining_plus_thirty, text)
     return text
 
 
@@ -923,15 +1038,20 @@ def replace_fake_rating_lines(text: str) -> str:
         "CSLB #1086994",
         text,
     )
-    text = re.sub(r"(?i)\b4\.9★\b", "CSLB #1086994", text)
+    # ★ is non-word, so do not require a trailing \b.
+    text = re.sub(r"(?i)4\.9★(?:\s*R(?:at(?:ed?)?)?)?(?:\.\.\.)?", "CSLB #1086994", text)
     text = re.sub(r"(?i)\b4\.9-star\b", "CSLB #1086994", text)
+    text = re.sub(
+        r'(?i)<div class="text-3xl font-bold text-accent">CSLB #1086994</div>\s*<div class="text-sm text-gray-300">Customer Rating</div>',
+        '<div class="text-3xl font-bold text-accent">2020</div>\n                    <div class="text-sm text-gray-300">Founded</div>',
+        text,
+    )
+    text = re.sub(r"(?i)✓\s*CSLB #1086994 Customer Rating", "✓ Licensed C-57 · CSLB #1086994", text)
     text = re.sub(r"heritage and,\s+", "heritage, ", text)
     text = re.sub(r"experience and,\s+", "experience, ", text)
     text = re.sub(r"heritage,\s+and\s+", "heritage ", text)
-    text = re.sub(r"\s+,", ",", text)
     text = re.sub(r",\s*,+", ",", text)
     text = re.sub(r",\s*\.", ".", text)
-    text = re.sub(r" {2,}", " ", text)
     return text
 
 

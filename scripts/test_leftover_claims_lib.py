@@ -10,6 +10,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from leftover_claims_lib import (
+    CANONICAL_CSLB,
     CANONICAL_CSLB_HASH,
     PERMIT_CITY_CANONICAL,
     is_claim_file,
@@ -66,13 +67,14 @@ FAKE_SCHEMA = (
 
 class LeftoverClaimsTests(unittest.TestCase):
     def test_license_replacements(self):
-        src = "License #1013597 | CSLB #1059498 | #1129498 | #1086994.#1098473"
+        src = "License #1013597 | CSLB #1059498 | #1129498 | #1086994.#1098473 | license number 1013597"
         out = replace_leftover_licenses(src)
         self.assertNotIn("1013597", out)
         self.assertNotIn("1059498", out)
         self.assertNotIn("1129498", out)
         self.assertNotIn("1098473", out)
-        self.assertEqual(out.count(CANONICAL_CSLB_HASH), 4)
+        self.assertIn("license number 1086994", out)
+        self.assertGreaterEqual(out.count(CANONICAL_CSLB), 5)
 
     def test_keep_well_age_and_joe_fain(self):
         out = replace_company_age_claims(WELL_AGE_KEEP)
@@ -124,6 +126,41 @@ class LeftoverClaimsTests(unittest.TestCase):
         )
         self.assertNotIn("over 30 years", out)
         self.assertIn("since 2020", out)
+
+    def test_plus_years_in_county(self):
+        out = replace_company_age_claims(
+            "Licensed C-57, 30+ years in San Diego County, same-day emergency service."
+        )
+        self.assertNotIn("30+ years", out)
+        self.assertIn("1086994", out)
+        self.assertIn("2020", out)
+
+    def test_html_wrapped_company_age_and_truncated_rating(self):
+        src = (
+            "Southern California Well Service has kept private wells running "
+            "across the region for <strong>more than 30 years</strong>. "
+            "<title>Well Service Norco CA | Horse Property Well Experts • 4.9★</title>"
+        )
+        out = process_html_text(src, "well-service-norco.html")
+        self.assertNotIn("more than 30 years", out)
+        self.assertNotIn("4.9★", out)
+        self.assertIn("since 2020", out)
+        self.assertIn("1086994", out)
+
+    def test_keep_well_ownership_cost_math(self):
+        src = "Over 30 years, well ownership typically saves $25,000-$40,000 versus city water."
+        out = replace_company_age_claims(src)
+        self.assertIn("Over 30 years, well ownership typically saves", out)
+
+    def test_served_region_not_confused_with_well_is(self):
+        src = (
+            "A dependable well is everything. Southern California Well Service "
+            "has served this valley for more than 30 years as a licensed C-57 contractor."
+        )
+        out = replace_company_age_claims(src)
+        self.assertNotIn("more than 30 years", out)
+        self.assertIn("since 2020", out)
+        self.assertIn("well is everything", out)
 
     def test_fontana_factory_meta_and_body(self):
         out = process_html_text(FONTANA_SNIPPET, "well-drilling-fontana.html")
