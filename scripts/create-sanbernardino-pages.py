@@ -69,7 +69,7 @@ def create_city_index(city_slug, city_info):
                 Our <strong>Anza office</strong> serves this region with fast response times and local expertise.
             </p>
             <p class="text-gray-600 mb-4">
-                With 4.9★ Google rating and decades of experience, we're the trusted choice for residential and commercial well owners in {city_name}.
+                Founded in 2020, with 60+ years of family heritage, we're the trusted choice for residential and commercial well owners in {city_name}.
             </p>
             <div class="bg-blue-50 border-l-4 border-blue-600 p-4">
                 <p class="font-semibold text-blue-900">📍 Served by: Anza Office</p>
@@ -130,7 +130,7 @@ def create_service_page(city_slug, city_info, service_slug, service_name):
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{service_name} {city_name} CA | Licensed Pros | SCWS</title>
-    <meta name="description" content="{service_name} in {city_name}, CA. Fast, reliable service from our Anza office. Licensed C-57, 4.9★ rated. Call (760) 463-0493.">
+    <meta name="description" content="{service_name} in {city_name}, CA. Fast, reliable service from our Anza office. Licensed C-57 (CSLB #1086994), founded 2020. Call (760) 463-0493.">
     <link rel="canonical" href="https://scwellservice.com/services/{city_slug}/{service_slug}.html">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-MBHM6GR0XS"></script>
@@ -159,7 +159,7 @@ def create_service_page(city_slug, city_info, service_slug, service_name):
             
             <div class="bg-green-50 border-l-4 border-green-600 p-4 mb-4">
                 <p class="font-semibold text-green-800">✓ Licensed C-57 Water Well Contractor</p>
-                <p class="font-semibold text-green-800">✓ 4.9★ Google Rating</p>
+                <p class="font-semibold text-green-800">✓ Licensed C-57 · CSLB #1086994</p>
                 <p class="font-semibold text-green-800">✓ Fast Response from Anza Office</p>
             </div>
 
