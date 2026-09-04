@@ -707,6 +707,41 @@ def replace_company_age_claims(text: str) -> str:
         return "founded in 2020"
 
     text = re.sub(r"(?i)\b30\+\s*years\b", _remaining_plus_thirty, text)
+    # Spelled-out leftovers: "30-plus years" / "three decades" as company tenure.
+    text = re.sub(
+        r"(?i)(?:with\s+)?30-plus years(?:\s+of)?(?:\s+(?:desert\s+well\s+|San Diego County\s+|local\s+|hands-on\s+))?experience",
+        "founded in 2020, with 60+ years of family heritage",
+        text,
+    )
+    text = re.sub(
+        r"(?i)(?:with\s+)?30-plus years(?:\s+of)?\s+[^.<]{0,40}?experience",
+        "founded in 2020, with 60+ years of family heritage",
+        text,
+    )
+    text = re.sub(r"(?i)with 30-plus years in ", "founded in 2020, serving ", text)
+    text = re.sub(r"(?i)Licensed C-57, 30-plus years", "Licensed C-57 (CSLB #1086994), founded 2020", text)
+    text = re.sub(r"(?i)30-plus years in ", "founded in 2020, serving ", text)
+    text = re.sub(r"(?i)30-plus years of work", "work since 2020", text)
+    text = re.sub(r"(?i)\b30-plus years\b", "founded in 2020", text)
+    text = re.sub(
+        r"(?i)(?:for\s+)?(?:more than|over)\s+three decades",
+        "since 2020",
+        text,
+    )
+    text = re.sub(
+        r"(?i)(?:with\s+|across\s+|after\s+|drawing on\s+)?three decades(?:\s+of)?(?:\s+(?:hands-on\s+|local\s+|regional\s+))?experience",
+        "founded in 2020, with 60+ years of family heritage",
+        text,
+    )
+    text = re.sub(
+        r"(?i)three decades(?:\s+of)?\s+(?:work|service|serving|in the (?:field|region)|drilling)",
+        "work since 2020",
+        text,
+    )
+    text = re.sub(r"(?i)After three decades", "Since 2020", text)
+    text = re.sub(r"(?i)Across three decades serving", "Since 2020, serving", text)
+    text = re.sub(r"(?i)has spent more than three decades", "has, since 2020,", text)
+    text = re.sub(r"(?i)\bthree decades\b", "since 2020", text)
     return text
 
 

@@ -135,6 +135,15 @@ class LeftoverClaimsTests(unittest.TestCase):
         self.assertIn("1086994", out)
         self.assertIn("2020", out)
 
+    def test_thirty_plus_spelled_out(self):
+        out = replace_company_age_claims(
+            "We are a licensed C-57 contractor with 30-plus years of experience "
+            "because we do the work right. Across three decades serving San Diego County."
+        )
+        self.assertNotIn("30-plus years", out)
+        self.assertNotIn("three decades", out)
+        self.assertIn("2020", out)
+
     def test_html_wrapped_company_age_and_truncated_rating(self):
         src = (
             "Southern California Well Service has kept private wells running "
