@@ -6,14 +6,14 @@
 **Short Headlines (30 char max)**
 1. Well Drilling San Diego
 2. 24/7 Pump Repair Service
-3. 4.9★ Rated Well Experts
+3. Licensed C-57 Well Experts
 4. Fast Well Pump Repair
 5. Licensed Well Drillers
 6. Emergency Pump Service
 7. Water Well Specialists
 8. Pump Repair Same Day
 9. Well Service Near You
-10. Trusted Since 2010
+10. Founded 2020
 11. Free Well Estimates
 12. No Water? Call Now
 13. Expert Pump Repair
@@ -22,7 +22,7 @@
 
 **Long Headlines (90 char max)**
 1. Expert Well Drilling & Pump Repair in San Diego, Riverside & San Bernardino Counties
-2. 4.9★ Rated Well Service - Fast Response, Fair Pricing, Licensed & Insured
+2. Licensed C-57 Well Service - Fast Response, Fair Pricing, Licensed & Insured
 3. No Water? We Fix Wells & Pumps Fast - Emergency Service Available 24/7
 4. Southern California's Trusted Well Drilling & Pump Repair Specialists
 5. Professional Well Service - Drilling, Pump Repair, Water Systems & More
@@ -31,10 +31,10 @@
 
 ### Descriptions (5 required, 90 char max)
 
-1. Expert well drilling & pump repair. 4.9★ rated, fast response. Serving SD, Riverside & SB Counties.
+1. Expert well drilling & pump repair. CSLB #1086994, fast response. Serving SD, Riverside & SB Counties.
 2. No water? We're on it. Same-day pump repair, new well drilling, pressure tanks & more. Call now!
-3. Licensed & insured well contractors. Free estimates, fair pricing. Family-owned since 2010.
-4. From emergency pump repairs to new well drilling - we do it all. 4.9★ Google rating. Call today!
+3. Licensed & insured well contractors. Free estimates, fair pricing. Family-owned since 2020.
+4. From emergency pump repairs to new well drilling - we do it all. CSLB #1086994. Call today!
 5. San Diego's trusted well service. Drilling, pumps, tanks, filtration. Fast, reliable, affordable.
 
 ---
@@ -42,7 +42,7 @@
 ### Long Descriptions (1-5, 90 char each for display)
 
 **Primary (for asset group):**
-Southern California Well Service provides expert well drilling, pump repair, and water system services across San Diego, Riverside, and San Bernardino Counties. With a 4.9-star Google rating and thousands of satisfied customers, we're the region's most trusted well service company. Whether you need emergency pump repair, a new well drilled, or routine maintenance, our licensed and insured team delivers fast, reliable service at fair prices. Family-owned and operated since 2010. Call (760) 440-8520 for a free estimate.
+Southern California Well Service provides expert well drilling, pump repair, and water system services across San Diego, Riverside, and San Bernardino Counties. Founded in 2020, with 60+ years of family heritage, we're the region's trusted well service company. Whether you need emergency pump repair, a new well drilled, or routine maintenance, our licensed and insured team (CSLB #1086994) delivers fast, reliable service at fair prices. Family-owned and operated since 2020. Call (760) 440-8520 for a free estimate.
 
 ---
 

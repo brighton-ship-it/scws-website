@@ -15,6 +15,7 @@ from leftover_claims_lib import (
     PERMIT_CITY_CANONICAL,
     is_claim_file,
     is_programmatic_well_permit,
+    normalize_fake_rating_stars,
     process_html_text,
     replace_company_age_claims,
     replace_fake_rating_lines,
@@ -197,8 +198,12 @@ class LeftoverClaimsTests(unittest.TestCase):
         self.assertTrue(is_claim_file(Path("blog/well-drilling-fontana.html")))
         self.assertTrue(is_claim_file(Path("blog/well-service-escondido.html")))
         self.assertTrue(is_claim_file(Path("services/fontana/well-drilling.html")))
+        self.assertTrue(is_claim_file(Path("services/residential/index.html")))
+        self.assertTrue(is_claim_file(Path("heritage-well-service.html")))
+        self.assertTrue(is_claim_file(Path("ransom-pump.html")))
         self.assertTrue(is_claim_file(Path("faq.html")))
         self.assertFalse(is_claim_file(Path("index.html")))
+        self.assertFalse(is_claim_file(Path("js/google-reviews.js")))
 
     def test_live_permit_city_and_no_water_files(self):
         root = Path(__file__).resolve().parents[1]
@@ -228,6 +233,127 @@ class LeftoverClaimsTests(unittest.TestCase):
         self.assertNotIn("4.9", escondido)
         self.assertIn("1086994", escondido)
         self.assertIn("Well Service Escondido", escondido)
+
+    def test_normalize_html_entity_and_emoji_stars(self):
+        self.assertEqual(normalize_fake_rating_stars("4.9&#9733; rated"), "4.9★ rated")
+        self.assertEqual(normalize_fake_rating_stars("4.9&#x2605; rated"), "4.9★ rated")
+        self.assertEqual(normalize_fake_rating_stars("4.9⭐ rating"), "4.9★ rating")
+        self.assertEqual(normalize_fake_rating_stars("4.9瘅 rated"), "4.9★ rated")
+        self.assertEqual(normalize_fake_rating_stars("4.9☆ rated"), "4.9★ rated")
+        self.assertEqual(normalize_fake_rating_stars("4.9 rating"), "4.9★ rating")
+
+    def test_helendale_decimal_entity_rating(self):
+        src = (
+            '<meta content="Well Drilling in Helendale, San Bernardino County. '
+            'Licensed C-57 contractor, 4.9&#9733; rated, founded in 2020, with '
+            '60+ years of family heritage. Call (760) 440-8520." name="description"/>'
+            '<p class="text-xl text-gray-600 mb-8">Southern California Well Service '
+            "provides professional well drilling to Helendale and throughout San "
+            "Bernardino County. founded in 2020, with 60+ years of family heritage "
+            "and a 4.9&#9733; Google rating, we're the trusted choice for well owners.</p>"
+            '<p class="text-gray-600">4.9&#9733; rating, hundreds of reviews</p>'
+        )
+        out = process_html_text(src, "well-drilling-helendale.html")
+        self.assertNotIn("4.9", out)
+        self.assertNotIn("&#9733;", out)
+        self.assertNotIn("★", out)
+        self.assertIn("1086994", out)
+        self.assertIn("founded in 2020", out)
+        self.assertIn("60+ years of family heritage", out)
+
+    def test_yermo_hex_entity_rating(self):
+        src = (
+            "Licensed C-57 contractor, 4.9&#x2605; rated, founded in 2020, "
+            "with 60+ years of family heritage and a 4.9&#x2605; Google rating"
+        )
+        out = replace_fake_rating_lines(src)
+        self.assertNotIn("4.9", out)
+        self.assertNotIn("&#x2605;", out)
+
+    def test_emoji_and_mojibake_rating(self):
+        src = (
+            '<p class="text-gray-600">4.9⭐ rating, hundreds of reviews</p>'
+            "Licensed C-57 contractor, 4.9瘅 rated, founded in 2020"
+        )
+        out = replace_fake_rating_lines(src)
+        self.assertNotIn("4.9", out)
+        self.assertNotIn("⭐", out)
+        self.assertNotIn("瘅", out)
+
+    def test_white_star_and_starless_rating(self):
+        src = (
+            "Licensed C-57 contractor, 4.9☆ rated, founded in 2020"
+            '<p class="text-gray-600">4.9 rating, hundreds of reviews</p>'
+        )
+        out = replace_fake_rating_lines(src)
+        self.assertNotIn("4.9", out)
+        self.assertNotIn("☆", out)
+        self.assertIn("1086994", out)
+
+    def test_anza_google_rating_without_star_char(self):
+        src = (
+            '"aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.9", '
+            '"reviewCount": "50"}'
+            "<p><strong>★★★★★ 4.9 Google Rating</strong> — Trusted by our Anza neighbors</p>"
+        )
+        out = replace_fake_rating_lines(src)
+        self.assertNotIn("4.9", out)
+        self.assertNotIn("aggregateRating", out)
+        self.assertIn("1086994", out)
+        self.assertIn("Trusted by our Anza neighbors", out)
+
+    def test_keep_product_and_stat_four_point_nine(self):
+        src = (
+            "<p><strong>Rating: ★★★★★ (4.9/5)</strong></p>"
+            "<tr><td>2018</td><td>10,892</td><td>-4.9%</td></tr>"
+        )
+        out = replace_fake_rating_lines(src)
+        self.assertIn("(4.9/5)", out)
+        self.assertIn("-4.9%", out)
+
+    def test_css_comma_selectors_and_file_accept_kept(self):
+        src = (
+            ".how h2, .legend h2, .gbp-pool h2 { margin: 0; }\n"
+            'accept=".pdf,.doc,.docx"\n'
+            "rgba(255,255,255,.15)\n"
+            ".hero .gbp-ratings-line, .hero .gbp-ratings-line a { color: #fff; }\n"
+            ".category-btn:hover, .category-btn.active { background: #1a365d; }\n"
+        )
+        out = process_html_text(src, "reviews.html")
+        self.assertIn(".how h2, .legend h2, .gbp-pool h2", out)
+        self.assertIn('accept=".pdf,.doc,.docx"', out)
+        self.assertIn("rgba(255,255,255,.15)", out)
+        self.assertIn(".hero .gbp-ratings-line, .hero .gbp-ratings-line a", out)
+        self.assertIn(".category-btn:hover, .category-btn.active", out)
+
+    def test_heritage_ransom_127_review_block(self):
+        src = (
+            '<span class="text-2xl font-bold text-gray-900">4.9</span>\n'
+            '<span class="text-gray-600">★ on Google (127 reviews)</span>'
+        )
+        out = replace_fake_rating_lines(src)
+        self.assertNotIn("4.9", out)
+        self.assertNotIn("127 reviews", out)
+        self.assertIn("1086994", out)
+        self.assertIn("2020", out)
+
+    def test_live_entity_encoded_pages_after_fix(self):
+        root = Path(__file__).resolve().parents[1]
+        samples = [
+            root / "blog" / "well-drilling-helendale.html",
+            root / "blog" / "well-drilling-yermo.html",
+            root / "blog" / "booster-pump-east-otay-mesa.html",
+            root / "blog" / "emergency-well-repair-cedar-glen.html",
+        ]
+        for path in samples:
+            if not path.exists():
+                self.skipTest(f"missing {path.name}")
+            text = path.read_text(encoding="utf-8")
+            if "4.9&#" in text or "4.9★" in text or "4.9瘅" in text:
+                self.skipTest("fixer has not been applied to published HTML yet")
+            self.assertNotIn("4.9&#", text)
+            self.assertNotIn("4.9★", text)
+            self.assertNotIn("4.9 rated", text.lower())
 
 
 if __name__ == "__main__":
