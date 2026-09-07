@@ -747,6 +747,26 @@ def replace_company_age_claims(text: str) -> str:
 
 FACTORY_RATING_REPLACEMENTS = [
     (
+        "Family-owned, 4.9★ rated.",
+        "Family-owned, licensed C-57 (CSLB #1086994).",
+    ),
+    (
+        "founded in 2020, with 60+ years of family heritage and a 4.9★ Google rating",
+        "founded in 2020, with 60+ years of family heritage",
+    ),
+    (
+        "founded in 2020, with 60+ years of family heritage and a 4.9★...",
+        "founded in 2020, with 60+ years of family heritage...",
+    ),
+    (
+        "★★★★★ 4.9 Google Rating",
+        "CSLB #1086994",
+    ),
+    (
+        "4.9 Google Rating",
+        "CSLB #1086994",
+    ),
+    (
         "• 4.9★ Rated",
         "• CSLB #1086994",
     ),
@@ -929,12 +949,36 @@ FACTORY_RATING_REPLACEMENTS = [
 ]
 
 
+# ★ encodings PR #52 missed: decimal/hex entities, emoji/white stars, and UTF-8 mojibake.
+FAKE_RATING_STAR_RE = re.compile(
+    r"4\.9\s*(?:"
+    r"★|⭐|☆|✩|✪|✭|✮|✯|✰|⋆|∗|∘|"
+    r"&#9733;|&#x2605;|&#9734;|&#x2606;|&#x2[bB]50;|&#11088;|&star;|"
+    r"[\u0080-\uFFFF]"
+    r")",
+    re.IGNORECASE,
+)
+
+# 4.9 + optional junk (mojibake / VS16 / entity) immediately before rated/rating.
+FAKE_RATING_CLAIM_RE = re.compile(
+    r"4\.9(?:\s*(?:&#(?:x?[0-9a-f]+);|[^\w\s<>\"'/=%.-]))*\s*(?=(?:rated|rating|Google))",
+    re.IGNORECASE,
+)
+
+
+def normalize_fake_rating_stars(text: str) -> str:
+    """Map HTML-entity / emoji / mojibake stars onto ★ so later replacements match."""
+    text = FAKE_RATING_STAR_RE.sub("4.9★", text)
+    text = FAKE_RATING_CLAIM_RE.sub("4.9★ ", text)
+    return text
+
+
 def strip_fake_aggregate_rating(text: str) -> str:
     """Drop leftover schema.org 4.9 / reviewCount 127 blocks. Do not invent a new count."""
 
     def _drop(match: re.Match[str]) -> str:
         block = match.group(0)
-        if re.search(r"4\.9", block) and re.search(r"127", block):
+        if re.search(r"4\.9", block):
             return ""
         if re.search(r"reviewCount[\"']?\s*:\s*[\"']?127", block):
             return ""
@@ -957,6 +1001,7 @@ def strip_fake_aggregate_rating(text: str) -> str:
 
 def replace_fake_rating_lines(text: str) -> str:
     """Drop leftover 4.9-star marketing lines. Do not invent a new combined count."""
+    text = normalize_fake_rating_stars(text)
     text = strip_fake_aggregate_rating(text)
     replacements = FACTORY_RATING_REPLACEMENTS + [
         (
@@ -967,10 +1012,14 @@ def replace_fake_rating_lines(text: str) -> str:
             "Licensed C-57 contractor with 4.9★ rating",
             "Licensed C-57 contractor (CSLB #1086994)",
         ),
-        (
-            "4.9★ rating, hundreds of reviews",
-            "CSLB #1086994 · founded 2020",
-        ),
+    (
+        "4.9★ rating, hundreds of reviews",
+        "CSLB #1086994 · founded 2020",
+    ),
+    (
+        "4.9 rating, hundreds of reviews",
+        "CSLB #1086994 · founded 2020",
+    ),
         (
             ", 4.9-star rated,",
             ",",
@@ -1082,11 +1131,25 @@ def replace_fake_rating_lines(text: str) -> str:
         text,
     )
     text = re.sub(r"(?i)✓\s*CSLB #1086994 Customer Rating", "✓ Licensed C-57 · CSLB #1086994", text)
+    text = re.sub(
+        r'<span class="text-2xl font-bold text-gray-900">4\.9</span>\s*<span class="text-gray-600">★ on Google \(127 reviews\)</span>',
+        '<span class="text-2xl font-bold text-gray-900">2020</span>\n<span class="text-gray-600">Founded · CSLB #1086994</span>',
+        text,
+    )
     text = re.sub(r"heritage and,\s+", "heritage, ", text)
     text = re.sub(r"experience and,\s+", "experience, ", text)
     text = re.sub(r"heritage,\s+and\s+", "heritage ", text)
+    text = re.sub(r"(?i)heritage\s+and a CSLB #1086994", "heritage", text)
+    text = re.sub(r"(?i)heritage\s+and CSLB #1086994", "heritage", text)
+    text = re.sub(
+        r"CSLB #1086994 · founded 2020,\s*founded in 2020(?:\s+C-57 licensed|\s+in the field)?",
+        "CSLB #1086994 · founded 2020",
+        text,
+    )
+    text = re.sub(r"founded 2020,\s*founded in 2020\s*", "founded 2020", text)
     text = re.sub(r",\s*,+", ",", text)
-    text = re.sub(r",\s*\.", ".", text)
+    # Only collapse leftover "word, ." sentence junk — not CSS `, .class` or `.pdf,.doc`.
+    text = re.sub(r",\s+\.(?=\s|$)", ".", text)
     return text
 
 
@@ -1150,25 +1213,19 @@ def process_html_text(text: str, filename: str) -> str:
 
 
 def is_claim_file(path: Path) -> bool:
-    """Age/4.9 rewrites stay on factory/blog/service pages. Skip homepage hero."""
-    if path.suffix.lower() not in {".html", ".js"}:
+    """Age/4.9 rewrites stay off the homepage hero / GBP 4.8 widget."""
+    suffix = path.suffix.lower()
+    if suffix not in {".html", ".js"}:
         return False
-    if path.name == "index.html" and "blog" not in path.parts and "locations" not in path.parts:
+    parts = set(path.parts)
+    # Skip only the public homepage so the real Anza/GBP 4.8 widget is not rewritten.
+    if path.name == "index.html" and not parts & {"blog", "locations", "services", "pages"}:
         return False
-    rel = path.as_posix()
-    if "/blog/" in rel or rel.startswith("blog/"):
-        return True
-    if "/services/" in rel or rel.startswith("services/"):
-        return True
-    if "/pages/landing/" in rel:
-        return True
-    if "/locations/" in rel or rel.startswith("locations/"):
+    if path.name == "google-reviews.js":
+        return False
+    if suffix == ".html":
         return True
     if path.name in {
-        "emergency.html",
-        "pump-repair.html",
-        "faq.html",
-        "cost-calculator.html",
         "expand-cities.js",
         "generate-city-pages.js",
     }:
