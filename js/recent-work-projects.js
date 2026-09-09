@@ -18299,6 +18299,31 @@
         ]
     },
     {
+        "id": "job1882",
+        "slug": "rancho-santa-fe-vfd-replacement-2",
+        "title": "VFD replacement",
+        "location": "Rancho Santa Fe",
+        "date": "2026-03-18",
+        "dateLabel": "March 18, 2026",
+        "category": "pump",
+        "categoryLabel": "Pump Service",
+        "summary": "VFD replacement completed in Rancho Santa Fe.",
+        "photos": [
+            {
+                "file": "job1882_1.jpg",
+                "alt": "VFD replacement in Rancho Santa Fe"
+            },
+            {
+                "file": "job1882_2.jpg",
+                "alt": "VFD replacement in Rancho Santa Fe"
+            },
+            {
+                "file": "job1882_3.jpg",
+                "alt": "VFD replacement in Rancho Santa Fe"
+            }
+        ]
+    },
+    {
         "id": "job2077",
         "slug": "anza-well-service-18",
         "title": "Well service",
@@ -18817,6 +18842,27 @@
             {
                 "file": "job2055_3.jpg",
                 "alt": "Pressure tank replacement in Ranchita"
+            }
+        ]
+    },
+    {
+        "id": "job1967",
+        "slug": "perris-well-service-9",
+        "title": "Well service",
+        "location": "Perris",
+        "date": "2026-03-11",
+        "dateLabel": "March 11, 2026",
+        "category": "pump",
+        "categoryLabel": "Pump Service",
+        "summary": "Well service completed in Perris.",
+        "photos": [
+            {
+                "file": "job1967_1.jpg",
+                "alt": "Well service in Perris"
+            },
+            {
+                "file": "job1967_2.jpg",
+                "alt": "Well service in Perris"
             }
         ]
     },
@@ -19477,6 +19523,23 @@
         ]
     },
     {
+        "id": "job1919",
+        "slug": "valley-center-well-service-10",
+        "title": "Well service",
+        "location": "Valley Center",
+        "date": "2026-03-05",
+        "dateLabel": "March 5, 2026",
+        "category": "pump",
+        "categoryLabel": "Pump Service",
+        "summary": "Well service completed in Valley Center.",
+        "photos": [
+            {
+                "file": "job1919_1.jpg",
+                "alt": "Well service in Valley Center"
+            }
+        ]
+    },
+    {
         "id": "job2013",
         "slug": "temecula-well-service-37",
         "title": "Well service",
@@ -19497,6 +19560,1537 @@
             },
             {
                 "file": "job2013_3.jpg",
+                "alt": "Well service in Temecula"
+            }
+        ]
+    },
+    {
+        "id": "job2005",
+        "slug": "desert-hot-springs-pump-replacement",
+        "title": "Pump replacement",
+        "location": "Desert Hot Springs",
+        "date": "2026-03-04",
+        "dateLabel": "March 4, 2026",
+        "category": "pump",
+        "categoryLabel": "Pump Service",
+        "summary": "Pump replacement completed in Desert Hot Springs.",
+        "photos": [
+            {
+                "file": "job2005_1.jpg",
+                "alt": "Pump replacement in Desert Hot Springs"
+            },
+            {
+                "file": "job2005_2.jpg",
+                "alt": "Pump replacement in Desert Hot Springs"
+            },
+            {
+                "file": "job2005_3.jpg",
+                "alt": "Pump replacement in Desert Hot Springs"
+            }
+        ]
+    },
+    {
+        "id": "job2008",
+        "slug": "ramona-well-service-52",
+        "title": "Well service",
+        "location": "Ramona",
+        "date": "2026-03-04",
+        "dateLabel": "March 4, 2026",
+        "category": "pump",
+        "categoryLabel": "Pump Service",
+        "summary": "Well service completed in Ramona.",
+        "photos": [
+            {
+                "file": "job2008_1.jpg",
+                "alt": "Well service in Ramona"
+            },
+            {
+                "file": "job2008_2.jpg",
+                "alt": "Well service in Ramona"
+            }
+        ]
+    },
+    {
+        "id": "job2010",
+        "slug": "ramona-booster-service-5",
+        "title": "Booster service",
+        "location": "Ramona",
+        "date": "2026-03-03",
+        "dateLabel": "March 3, 2026",
+        "category": "pump",
+        "categoryLabel": "Pump Service",
+        "summary": "Booster service completed in Ramona.",
+        "photos": [
+            {
+                "file": "job2010_1.jpg",
+                "alt": "Booster service in Ramona"
+            }
+        ]
+    },
+    {
+        "id": "job1988",
+        "slug": "ramona-booster-service-6",
+        "title": "Booster service",
+        "location": "Ramona",
+        "date": "2026-03-03",
+        "dateLabel": "March 3, 2026",
+        "category": "pump",
+        "categoryLabel": "Pump Service",
+        "summary": "Booster service completed in Ramona.",
+        "photos": [
+            {
+                "file": "job1988_1.jpg",
+                "alt": "Booster service in Ramona"
+            },
+            {
+                "file": "job1988_2.jpg",
+                "alt": "Booster service in Ramona"
+            }
+        ]
+    },
+    {
+        "id": "job2006",
+        "slug": "el-cajon-well-service-18",
+        "title": "Well service",
+        "location": "El Cajon",
+        "date": "2026-03-03",
+        "dateLabel": "March 3, 2026",
+        "category": "pump",
+        "categoryLabel": "Pump Service",
+        "summary": "Well service completed in El Cajon.",
+        "photos": [
+            {
+                "file": "job2006_1.jpg",
+                "alt": "Well service in El Cajon"
+            },
+            {
+                "file": "job2006_2.jpg",
+                "alt": "Well service in El Cajon"
+            },
+            {
+                "file": "job2006_3.jpg",
+                "alt": "Well service in El Cajon"
+            }
+        ]
+    },
+    {
+        "id": "job2009",
+        "slug": "ramona-well-service-53",
+        "title": "Well service",
+        "location": "Ramona",
+        "date": "2026-03-03",
+        "dateLabel": "March 3, 2026",
+        "category": "pump",
+        "categoryLabel": "Pump Service",
+        "summary": "Well service completed in Ramona.",
+        "photos": [
+            {
+                "file": "job2009_1.jpg",
+                "alt": "Well service in Ramona"
+            },
+            {
+                "file": "job2009_2.jpg",
+                "alt": "Well service in Ramona"
+            },
+            {
+                "file": "job2009_3.jpg",
+                "alt": "Well service in Ramona"
+            }
+        ]
+    },
+    {
+        "id": "job1998",
+        "slug": "delzura-pull-pump",
+        "title": "Pull pump",
+        "location": "Delzura",
+        "date": "2026-03-03",
+        "dateLabel": "March 3, 2026",
+        "category": "pump",
+        "categoryLabel": "Pump Service",
+        "summary": "Pull pump completed in Delzura.",
+        "photos": [
+            {
+                "file": "job1998_1.jpg",
+                "alt": "Pull pump in Delzura"
+            },
+            {
+                "file": "job1998_2.jpg",
+                "alt": "Pull pump in Delzura"
+            },
+            {
+                "file": "job1998_3.jpg",
+                "alt": "Pull pump in Delzura"
+            }
+        ]
+    },
+    {
+        "id": "job2000",
+        "slug": "san-marcos-well-service-2",
+        "title": "Well service",
+        "location": "San Marcos",
+        "date": "2026-03-03",
+        "dateLabel": "March 3, 2026",
+        "category": "pump",
+        "categoryLabel": "Pump Service",
+        "summary": "Well service completed in San Marcos.",
+        "photos": [
+            {
+                "file": "job2000_1.jpg",
+                "alt": "Well service in San Marcos"
+            },
+            {
+                "file": "job2000_2.jpg",
+                "alt": "Well service in San Marcos"
+            }
+        ]
+    },
+    {
+        "id": "job2004",
+        "slug": "aguanga-well-service-40",
+        "title": "Well service",
+        "location": "Aguanga",
+        "date": "2026-03-03",
+        "dateLabel": "March 3, 2026",
+        "category": "pump",
+        "categoryLabel": "Pump Service",
+        "summary": "Well service completed in Aguanga.",
+        "photos": [
+            {
+                "file": "job2004_1.jpg",
+                "alt": "Well service in Aguanga"
+            },
+            {
+                "file": "job2004_2.jpg",
+                "alt": "Well service in Aguanga"
+            },
+            {
+                "file": "job2004_3.jpg",
+                "alt": "Well service in Aguanga"
+            }
+        ]
+    },
+    {
+        "id": "job1997",
+        "slug": "valley-center-well-service-11",
+        "title": "Well service",
+        "location": "Valley Center",
+        "date": "2026-03-03",
+        "dateLabel": "March 3, 2026",
+        "category": "pump",
+        "categoryLabel": "Pump Service",
+        "summary": "Well service completed in Valley Center.",
+        "photos": [
+            {
+                "file": "job1997_1.jpg",
+                "alt": "Well service in Valley Center"
+            },
+            {
+                "file": "job1997_2.jpg",
+                "alt": "Well service in Valley Center"
+            },
+            {
+                "file": "job1997_3.jpg",
+                "alt": "Well service in Valley Center"
+            }
+        ]
+    },
+    {
+        "id": "job1995",
+        "slug": "el-cajon-well-service-19",
+        "title": "Well service",
+        "location": "El Cajon",
+        "date": "2026-03-02",
+        "dateLabel": "March 2, 2026",
+        "category": "pump",
+        "categoryLabel": "Pump Service",
+        "summary": "Well service completed in El Cajon.",
+        "photos": [
+            {
+                "file": "job1995_1.jpg",
+                "alt": "Well service in El Cajon"
+            },
+            {
+                "file": "job1995_2.jpg",
+                "alt": "Well service in El Cajon"
+            },
+            {
+                "file": "job1995_3.jpg",
+                "alt": "Well service in El Cajon"
+            }
+        ]
+    },
+    {
+        "id": "job1993",
+        "slug": "poway-well-service-43",
+        "title": "Well service",
+        "location": "Poway",
+        "date": "2026-03-02",
+        "dateLabel": "March 2, 2026",
+        "category": "pump",
+        "categoryLabel": "Pump Service",
+        "summary": "Well service completed in Poway.",
+        "photos": [
+            {
+                "file": "job1993_1.jpg",
+                "alt": "Well service in Poway"
+            }
+        ]
+    },
+    {
+        "id": "job1994",
+        "slug": "ramona-well-service-54",
+        "title": "Well service",
+        "location": "Ramona",
+        "date": "2026-03-02",
+        "dateLabel": "March 2, 2026",
+        "category": "pump",
+        "categoryLabel": "Pump Service",
+        "summary": "Well service completed in Ramona.",
+        "photos": [
+            {
+                "file": "job1994_1.jpg",
+                "alt": "Well service in Ramona"
+            },
+            {
+                "file": "job1994_2.jpg",
+                "alt": "Well service in Ramona"
+            },
+            {
+                "file": "job1994_3.jpg",
+                "alt": "Well service in Ramona"
+            }
+        ]
+    },
+    {
+        "id": "job1992",
+        "slug": "mountain-center-pressure-tank-replacement-2",
+        "title": "Pressure tank replacement",
+        "location": "Mountain Center",
+        "date": "2026-03-02",
+        "dateLabel": "March 2, 2026",
+        "category": "tank",
+        "categoryLabel": "Pressure Tanks",
+        "summary": "Pressure tank replacement completed in Mountain Center.",
+        "photos": [
+            {
+                "file": "job1992_1.jpg",
+                "alt": "Pressure tank replacement in Mountain Center"
+            },
+            {
+                "file": "job1992_2.jpg",
+                "alt": "Pressure tank replacement in Mountain Center"
+            }
+        ]
+    },
+    {
+        "id": "job1983",
+        "slug": "mountain-center-well-service-4",
+        "title": "Well service",
+        "location": "Mountain Center",
+        "date": "2026-02-27",
+        "dateLabel": "February 27, 2026",
+        "category": "pump",
+        "categoryLabel": "Pump Service",
+        "summary": "Well service completed in Mountain Center.",
+        "photos": [
+            {
+                "file": "job1983_1.jpg",
+                "alt": "Well service in Mountain Center"
+            },
+            {
+                "file": "job1983_2.jpg",
+                "alt": "Well service in Mountain Center"
+            },
+            {
+                "file": "job1983_3.jpg",
+                "alt": "Well service in Mountain Center"
+            }
+        ]
+    },
+    {
+        "id": "job1918",
+        "slug": "menifee-well-service-13",
+        "title": "Well service",
+        "location": "Menifee",
+        "date": "2026-02-27",
+        "dateLabel": "February 27, 2026",
+        "category": "pump",
+        "categoryLabel": "Pump Service",
+        "summary": "Well service completed in Menifee.",
+        "photos": [
+            {
+                "file": "job1918_1.jpg",
+                "alt": "Well service in Menifee"
+            },
+            {
+                "file": "job1918_2.jpg",
+                "alt": "Well service in Menifee"
+            },
+            {
+                "file": "job1918_3.jpg",
+                "alt": "Well service in Menifee"
+            }
+        ]
+    },
+    {
+        "id": "job1991",
+        "slug": "murrieta-well-service-40",
+        "title": "Well service",
+        "location": "Murrieta",
+        "date": "2026-02-27",
+        "dateLabel": "February 27, 2026",
+        "category": "pump",
+        "categoryLabel": "Pump Service",
+        "summary": "Well service completed in Murrieta.",
+        "photos": [
+            {
+                "file": "job1991_1.jpg",
+                "alt": "Well service in Murrieta"
+            },
+            {
+                "file": "job1991_2.jpg",
+                "alt": "Well service in Murrieta"
+            },
+            {
+                "file": "job1991_3.jpg",
+                "alt": "Well service in Murrieta"
+            }
+        ]
+    },
+    {
+        "id": "job1970",
+        "slug": "ramona-well-service-55",
+        "title": "Well service",
+        "location": "Ramona",
+        "date": "2026-02-27",
+        "dateLabel": "February 27, 2026",
+        "category": "pump",
+        "categoryLabel": "Pump Service",
+        "summary": "Well service completed in Ramona.",
+        "photos": [
+            {
+                "file": "job1970_1.jpg",
+                "alt": "Well service in Ramona"
+            },
+            {
+                "file": "job1970_2.jpg",
+                "alt": "Well service in Ramona"
+            }
+        ]
+    },
+    {
+        "id": "job1971",
+        "slug": "delzura-well-service",
+        "title": "Well service",
+        "location": "Delzura",
+        "date": "2026-02-27",
+        "dateLabel": "February 27, 2026",
+        "category": "pump",
+        "categoryLabel": "Pump Service",
+        "summary": "Well service completed in Delzura.",
+        "photos": [
+            {
+                "file": "job1971_1.jpg",
+                "alt": "Well service in Delzura"
+            },
+            {
+                "file": "job1971_2.jpg",
+                "alt": "Well service in Delzura"
+            },
+            {
+                "file": "job1971_3.jpg",
+                "alt": "Well service in Delzura"
+            }
+        ]
+    },
+    {
+        "id": "job1977",
+        "slug": "desert-hot-springs-well-service-13",
+        "title": "Well service",
+        "location": "Desert Hot Springs",
+        "date": "2026-02-27",
+        "dateLabel": "February 27, 2026",
+        "category": "pump",
+        "categoryLabel": "Pump Service",
+        "summary": "Well service completed in Desert Hot Springs.",
+        "photos": [
+            {
+                "file": "job1977_1.jpg",
+                "alt": "Well service in Desert Hot Springs"
+            },
+            {
+                "file": "job1977_2.jpg",
+                "alt": "Well service in Desert Hot Springs"
+            }
+        ]
+    },
+    {
+        "id": "job1980",
+        "slug": "el-cajon-well-service-20",
+        "title": "Well service",
+        "location": "El Cajon",
+        "date": "2026-02-26",
+        "dateLabel": "February 26, 2026",
+        "category": "pump",
+        "categoryLabel": "Pump Service",
+        "summary": "Well service completed in El Cajon.",
+        "photos": [
+            {
+                "file": "job1980_1.jpg",
+                "alt": "Well service in El Cajon"
+            },
+            {
+                "file": "job1980_2.jpg",
+                "alt": "Well service in El Cajon"
+            },
+            {
+                "file": "job1980_3.jpg",
+                "alt": "Well service in El Cajon"
+            }
+        ]
+    },
+    {
+        "id": "job1974",
+        "slug": "ramona-well-service-56",
+        "title": "Well service",
+        "location": "Ramona",
+        "date": "2026-02-26",
+        "dateLabel": "February 26, 2026",
+        "category": "pump",
+        "categoryLabel": "Pump Service",
+        "summary": "Well service completed in Ramona.",
+        "photos": [
+            {
+                "file": "job1974_1.jpg",
+                "alt": "Well service in Ramona"
+            },
+            {
+                "file": "job1974_2.jpg",
+                "alt": "Well service in Ramona"
+            },
+            {
+                "file": "job1974_3.jpg",
+                "alt": "Well service in Ramona"
+            }
+        ]
+    },
+    {
+        "id": "job1975",
+        "slug": "escondido-well-service-17",
+        "title": "Well service",
+        "location": "Escondido",
+        "date": "2026-02-26",
+        "dateLabel": "February 26, 2026",
+        "category": "pump",
+        "categoryLabel": "Pump Service",
+        "summary": "Well service completed in Escondido.",
+        "photos": [
+            {
+                "file": "job1975_1.jpg",
+                "alt": "Well service in Escondido"
+            },
+            {
+                "file": "job1975_2.jpg",
+                "alt": "Well service in Escondido"
+            },
+            {
+                "file": "job1975_3.jpg",
+                "alt": "Well service in Escondido"
+            }
+        ]
+    },
+    {
+        "id": "job1964",
+        "slug": "descanso-pump-replacement-2",
+        "title": "Pump replacement",
+        "location": "Descanso",
+        "date": "2026-02-26",
+        "dateLabel": "February 26, 2026",
+        "category": "pump",
+        "categoryLabel": "Pump Service",
+        "summary": "Pump replacement completed in Descanso.",
+        "photos": [
+            {
+                "file": "job1964_1.jpg",
+                "alt": "Pump replacement in Descanso"
+            },
+            {
+                "file": "job1964_2.jpg",
+                "alt": "Pump replacement in Descanso"
+            }
+        ]
+    },
+    {
+        "id": "job1969",
+        "slug": "ramona-well-service-57",
+        "title": "Well service",
+        "location": "Ramona",
+        "date": "2026-02-25",
+        "dateLabel": "February 25, 2026",
+        "category": "pump",
+        "categoryLabel": "Pump Service",
+        "summary": "Well service completed in Ramona.",
+        "photos": [
+            {
+                "file": "job1969_1.jpg",
+                "alt": "Well service in Ramona"
+            }
+        ]
+    },
+    {
+        "id": "job1978",
+        "slug": "julian-well-service-26",
+        "title": "Well service",
+        "location": "Julian",
+        "date": "2026-02-25",
+        "dateLabel": "February 25, 2026",
+        "category": "pump",
+        "categoryLabel": "Pump Service",
+        "summary": "Well service completed in Julian.",
+        "photos": [
+            {
+                "file": "job1978_1.jpg",
+                "alt": "Well service in Julian"
+            },
+            {
+                "file": "job1978_2.jpg",
+                "alt": "Well service in Julian"
+            }
+        ]
+    },
+    {
+        "id": "job1972",
+        "slug": "el-cajon-booster-service-2",
+        "title": "Booster service",
+        "location": "El Cajon",
+        "date": "2026-02-25",
+        "dateLabel": "February 25, 2026",
+        "category": "pump",
+        "categoryLabel": "Pump Service",
+        "summary": "Booster service completed in El Cajon.",
+        "photos": [
+            {
+                "file": "job1972_1.jpg",
+                "alt": "Booster service in El Cajon"
+            }
+        ]
+    },
+    {
+        "id": "job1960",
+        "slug": "temecula-well-service-38",
+        "title": "Well service",
+        "location": "Temecula",
+        "date": "2026-02-25",
+        "dateLabel": "February 25, 2026",
+        "category": "pump",
+        "categoryLabel": "Pump Service",
+        "summary": "Well service completed in Temecula.",
+        "photos": [
+            {
+                "file": "job1960_1.jpg",
+                "alt": "Well service in Temecula"
+            },
+            {
+                "file": "job1960_2.jpg",
+                "alt": "Well service in Temecula"
+            },
+            {
+                "file": "job1960_3.jpg",
+                "alt": "Well service in Temecula"
+            }
+        ]
+    },
+    {
+        "id": "job1914",
+        "slug": "campo-well-service-3",
+        "title": "Well service",
+        "location": "Campo",
+        "date": "2026-02-25",
+        "dateLabel": "February 25, 2026",
+        "category": "pump",
+        "categoryLabel": "Pump Service",
+        "summary": "Well service completed in Campo.",
+        "photos": [
+            {
+                "file": "job1914_1.jpg",
+                "alt": "Well service in Campo"
+            },
+            {
+                "file": "job1914_2.jpg",
+                "alt": "Well service in Campo"
+            },
+            {
+                "file": "job1914_3.jpg",
+                "alt": "Well service in Campo"
+            }
+        ]
+    },
+    {
+        "id": "job1893",
+        "slug": "alpine-well-service-23",
+        "title": "Well service",
+        "location": "Alpine",
+        "date": "2026-02-25",
+        "dateLabel": "February 25, 2026",
+        "category": "pump",
+        "categoryLabel": "Pump Service",
+        "summary": "Well service completed in Alpine.",
+        "photos": [
+            {
+                "file": "job1893_1.jpg",
+                "alt": "Well service in Alpine"
+            },
+            {
+                "file": "job1893_2.jpg",
+                "alt": "Well service in Alpine"
+            },
+            {
+                "file": "job1893_3.jpg",
+                "alt": "Well service in Alpine"
+            }
+        ]
+    },
+    {
+        "id": "job1880",
+        "slug": "campo-well-service-4",
+        "title": "Well service",
+        "location": "Campo",
+        "date": "2026-02-25",
+        "dateLabel": "February 25, 2026",
+        "category": "pump",
+        "categoryLabel": "Pump Service",
+        "summary": "Well service completed in Campo.",
+        "photos": [
+            {
+                "file": "job1880_1.jpg",
+                "alt": "Well service in Campo"
+            },
+            {
+                "file": "job1880_2.jpg",
+                "alt": "Well service in Campo"
+            },
+            {
+                "file": "job1880_3.jpg",
+                "alt": "Well service in Campo"
+            }
+        ]
+    },
+    {
+        "id": "job1968",
+        "slug": "murrieta-pump-replacement-9",
+        "title": "Pump replacement",
+        "location": "Murrieta",
+        "date": "2026-02-24",
+        "dateLabel": "February 24, 2026",
+        "category": "pump",
+        "categoryLabel": "Pump Service",
+        "summary": "Pump replacement completed in Murrieta.",
+        "photos": [
+            {
+                "file": "job1968_1.jpg",
+                "alt": "Pump replacement in Murrieta"
+            },
+            {
+                "file": "job1968_2.jpg",
+                "alt": "Pump replacement in Murrieta"
+            },
+            {
+                "file": "job1968_3.jpg",
+                "alt": "Pump replacement in Murrieta"
+            }
+        ]
+    },
+    {
+        "id": "job1973",
+        "slug": "alpine-well-service-24",
+        "title": "Well service",
+        "location": "Alpine",
+        "date": "2026-02-24",
+        "dateLabel": "February 24, 2026",
+        "category": "pump",
+        "categoryLabel": "Pump Service",
+        "summary": "Well service completed in Alpine.",
+        "photos": [
+            {
+                "file": "job1973_1.jpg",
+                "alt": "Well service in Alpine"
+            },
+            {
+                "file": "job1973_2.jpg",
+                "alt": "Well service in Alpine"
+            },
+            {
+                "file": "job1973_3.jpg",
+                "alt": "Well service in Alpine"
+            }
+        ]
+    },
+    {
+        "id": "job1927",
+        "slug": "poway-well-service-44",
+        "title": "Well service",
+        "location": "Poway",
+        "date": "2026-02-24",
+        "dateLabel": "February 24, 2026",
+        "category": "pump",
+        "categoryLabel": "Pump Service",
+        "summary": "Well service completed in Poway.",
+        "photos": [
+            {
+                "file": "job1927_1.jpg",
+                "alt": "Well service in Poway"
+            }
+        ]
+    },
+    {
+        "id": "job1954",
+        "slug": "rancho-mirage-well-service-3",
+        "title": "Well service",
+        "location": "Rancho Mirage",
+        "date": "2026-02-24",
+        "dateLabel": "February 24, 2026",
+        "category": "pump",
+        "categoryLabel": "Pump Service",
+        "summary": "Well service completed in Rancho Mirage.",
+        "photos": [
+            {
+                "file": "job1954_1.jpg",
+                "alt": "Well service in Rancho Mirage"
+            }
+        ]
+    },
+    {
+        "id": "job1952",
+        "slug": "thousand-palms-well-service-3",
+        "title": "Well service",
+        "location": "Thousand Palms",
+        "date": "2026-02-24",
+        "dateLabel": "February 24, 2026",
+        "category": "pump",
+        "categoryLabel": "Pump Service",
+        "summary": "Well service completed in Thousand Palms.",
+        "photos": [
+            {
+                "file": "job1952_1.jpg",
+                "alt": "Well service in Thousand Palms"
+            },
+            {
+                "file": "job1952_2.jpg",
+                "alt": "Well service in Thousand Palms"
+            },
+            {
+                "file": "job1952_3.jpg",
+                "alt": "Well service in Thousand Palms"
+            }
+        ]
+    },
+    {
+        "id": "job1956",
+        "slug": "poway-well-service-45",
+        "title": "Well service",
+        "location": "Poway",
+        "date": "2026-02-24",
+        "dateLabel": "February 24, 2026",
+        "category": "pump",
+        "categoryLabel": "Pump Service",
+        "summary": "Well service completed in Poway.",
+        "photos": [
+            {
+                "file": "job1956_1.jpg",
+                "alt": "Well service in Poway"
+            },
+            {
+                "file": "job1956_2.jpg",
+                "alt": "Well service in Poway"
+            },
+            {
+                "file": "job1956_3.jpg",
+                "alt": "Well service in Poway"
+            }
+        ]
+    },
+    {
+        "id": "job1963",
+        "slug": "poway-pump-replacement-5",
+        "title": "Pump replacement",
+        "location": "Poway",
+        "date": "2026-02-24",
+        "dateLabel": "February 24, 2026",
+        "category": "pump",
+        "categoryLabel": "Pump Service",
+        "summary": "Pump replacement completed in Poway.",
+        "photos": [
+            {
+                "file": "job1963_1.jpg",
+                "alt": "Pump replacement in Poway"
+            },
+            {
+                "file": "job1963_2.jpg",
+                "alt": "Pump replacement in Poway"
+            }
+        ]
+    },
+    {
+        "id": "job1958",
+        "slug": "pine-valley-well-service-3",
+        "title": "Well service",
+        "location": "Pine Valley",
+        "date": "2026-02-23",
+        "dateLabel": "February 23, 2026",
+        "category": "pump",
+        "categoryLabel": "Pump Service",
+        "summary": "Well service completed in Pine Valley.",
+        "photos": [
+            {
+                "file": "job1958_1.jpg",
+                "alt": "Well service in Pine Valley"
+            },
+            {
+                "file": "job1958_2.jpg",
+                "alt": "Well service in Pine Valley"
+            },
+            {
+                "file": "job1958_3.jpg",
+                "alt": "Well service in Pine Valley"
+            }
+        ]
+    },
+    {
+        "id": "job1959",
+        "slug": "lakeside-well-service-14",
+        "title": "Well service",
+        "location": "Lakeside",
+        "date": "2026-02-23",
+        "dateLabel": "February 23, 2026",
+        "category": "pump",
+        "categoryLabel": "Pump Service",
+        "summary": "Well service completed in Lakeside.",
+        "photos": [
+            {
+                "file": "job1959_1.jpg",
+                "alt": "Well service in Lakeside"
+            },
+            {
+                "file": "job1959_2.jpg",
+                "alt": "Well service in Lakeside"
+            }
+        ]
+    },
+    {
+        "id": "job1903",
+        "slug": "poway-well-service-46",
+        "title": "Well service",
+        "location": "Poway",
+        "date": "2026-02-23",
+        "dateLabel": "February 23, 2026",
+        "category": "pump",
+        "categoryLabel": "Pump Service",
+        "summary": "Well service completed in Poway.",
+        "photos": [
+            {
+                "file": "job1903_1.jpg",
+                "alt": "Well service in Poway"
+            },
+            {
+                "file": "job1903_2.jpg",
+                "alt": "Well service in Poway"
+            },
+            {
+                "file": "job1903_3.jpg",
+                "alt": "Well service in Poway"
+            }
+        ]
+    },
+    {
+        "id": "job1949",
+        "slug": "perris-well-service-10",
+        "title": "Well service",
+        "location": "Perris",
+        "date": "2026-02-20",
+        "dateLabel": "February 20, 2026",
+        "category": "pump",
+        "categoryLabel": "Pump Service",
+        "summary": "Well service completed in Perris.",
+        "photos": [
+            {
+                "file": "job1949_1.jpg",
+                "alt": "Well service in Perris"
+            },
+            {
+                "file": "job1949_2.jpg",
+                "alt": "Well service in Perris"
+            },
+            {
+                "file": "job1949_3.jpg",
+                "alt": "Well service in Perris"
+            }
+        ]
+    },
+    {
+        "id": "job1944",
+        "slug": "lakeside-booster-service-3",
+        "title": "Booster service",
+        "location": "Lakeside",
+        "date": "2026-02-19",
+        "dateLabel": "February 19, 2026",
+        "category": "pump",
+        "categoryLabel": "Pump Service",
+        "summary": "Booster service completed in Lakeside.",
+        "photos": [
+            {
+                "file": "job1944_1.jpg",
+                "alt": "Booster service in Lakeside"
+            }
+        ]
+    },
+    {
+        "id": "job1946",
+        "slug": "lakeside-booster-service-4",
+        "title": "Booster service",
+        "location": "Lakeside",
+        "date": "2026-02-19",
+        "dateLabel": "February 19, 2026",
+        "category": "pump",
+        "categoryLabel": "Pump Service",
+        "summary": "Booster service completed in Lakeside.",
+        "photos": [
+            {
+                "file": "job1946_1.jpg",
+                "alt": "Booster service in Lakeside"
+            },
+            {
+                "file": "job1946_2.jpg",
+                "alt": "Booster service in Lakeside"
+            }
+        ]
+    },
+    {
+        "id": "job1911",
+        "slug": "julian-well-service-27",
+        "title": "Well service",
+        "location": "Julian",
+        "date": "2026-02-19",
+        "dateLabel": "February 19, 2026",
+        "category": "pump",
+        "categoryLabel": "Pump Service",
+        "summary": "Well service completed in Julian.",
+        "photos": [
+            {
+                "file": "job1911_1.jpg",
+                "alt": "Well service in Julian"
+            },
+            {
+                "file": "job1911_2.jpg",
+                "alt": "Well service in Julian"
+            },
+            {
+                "file": "job1911_3.jpg",
+                "alt": "Well service in Julian"
+            }
+        ]
+    },
+    {
+        "id": "job1934",
+        "slug": "descanso-well-service-3",
+        "title": "Well service",
+        "location": "Descanso",
+        "date": "2026-02-19",
+        "dateLabel": "February 19, 2026",
+        "category": "pump",
+        "categoryLabel": "Pump Service",
+        "summary": "Well service completed in Descanso.",
+        "photos": [
+            {
+                "file": "job1934_1.jpg",
+                "alt": "Well service in Descanso"
+            },
+            {
+                "file": "job1934_2.jpg",
+                "alt": "Well service in Descanso"
+            },
+            {
+                "file": "job1934_3.jpg",
+                "alt": "Well service in Descanso"
+            }
+        ]
+    },
+    {
+        "id": "job1941",
+        "slug": "rancho-mirage-well-service-4",
+        "title": "Well service",
+        "location": "Rancho Mirage",
+        "date": "2026-02-18",
+        "dateLabel": "February 18, 2026",
+        "category": "pump",
+        "categoryLabel": "Pump Service",
+        "summary": "Well service completed in Rancho Mirage.",
+        "photos": [
+            {
+                "file": "job1941_1.jpg",
+                "alt": "Well service in Rancho Mirage"
+            }
+        ]
+    },
+    {
+        "id": "job1925",
+        "slug": "rancho-mirage-well-service-5",
+        "title": "Well service",
+        "location": "Rancho Mirage",
+        "date": "2026-02-18",
+        "dateLabel": "February 18, 2026",
+        "category": "pump",
+        "categoryLabel": "Pump Service",
+        "summary": "Well service completed in Rancho Mirage.",
+        "photos": [
+            {
+                "file": "job1925_1.jpg",
+                "alt": "Well service in Rancho Mirage"
+            }
+        ]
+    },
+    {
+        "id": "job1940",
+        "slug": "costa-mesa-well-service",
+        "title": "Well service",
+        "location": "Costa Mesa",
+        "date": "2026-02-18",
+        "dateLabel": "February 18, 2026",
+        "category": "pump",
+        "categoryLabel": "Pump Service",
+        "summary": "Well service completed in Costa Mesa.",
+        "photos": [
+            {
+                "file": "job1940_1.jpg",
+                "alt": "Well service in Costa Mesa"
+            },
+            {
+                "file": "job1940_2.jpg",
+                "alt": "Well service in Costa Mesa"
+            },
+            {
+                "file": "job1940_3.jpg",
+                "alt": "Well service in Costa Mesa"
+            }
+        ]
+    },
+    {
+        "id": "job1939",
+        "slug": "ramona-well-service-58",
+        "title": "Well service",
+        "location": "Ramona",
+        "date": "2026-02-18",
+        "dateLabel": "February 18, 2026",
+        "category": "pump",
+        "categoryLabel": "Pump Service",
+        "summary": "Well service completed in Ramona.",
+        "photos": [
+            {
+                "file": "job1939_1.jpg",
+                "alt": "Well service in Ramona"
+            },
+            {
+                "file": "job1939_2.jpg",
+                "alt": "Well service in Ramona"
+            },
+            {
+                "file": "job1939_3.jpg",
+                "alt": "Well service in Ramona"
+            }
+        ]
+    },
+    {
+        "id": "job1937",
+        "slug": "lakeside-well-service-15",
+        "title": "Well service",
+        "location": "Lakeside",
+        "date": "2026-02-18",
+        "dateLabel": "February 18, 2026",
+        "category": "pump",
+        "categoryLabel": "Pump Service",
+        "summary": "Well service completed in Lakeside.",
+        "photos": [
+            {
+                "file": "job1937_1.jpg",
+                "alt": "Well service in Lakeside"
+            },
+            {
+                "file": "job1937_2.jpg",
+                "alt": "Well service in Lakeside"
+            },
+            {
+                "file": "job1937_3.jpg",
+                "alt": "Well service in Lakeside"
+            }
+        ]
+    },
+    {
+        "id": "job1935",
+        "slug": "ramona-pump-replacement-9",
+        "title": "Pump replacement",
+        "location": "Ramona",
+        "date": "2026-02-17",
+        "dateLabel": "February 17, 2026",
+        "category": "pump",
+        "categoryLabel": "Pump Service",
+        "summary": "Pump replacement completed in Ramona.",
+        "photos": [
+            {
+                "file": "job1935_1.jpg",
+                "alt": "Pump replacement in Ramona"
+            },
+            {
+                "file": "job1935_2.jpg",
+                "alt": "Pump replacement in Ramona"
+            },
+            {
+                "file": "job1935_3.jpg",
+                "alt": "Pump replacement in Ramona"
+            }
+        ]
+    },
+    {
+        "id": "job1936",
+        "slug": "lakeside-well-service-16",
+        "title": "Well service",
+        "location": "Lakeside",
+        "date": "2026-02-17",
+        "dateLabel": "February 17, 2026",
+        "category": "pump",
+        "categoryLabel": "Pump Service",
+        "summary": "Well service completed in Lakeside.",
+        "photos": [
+            {
+                "file": "job1936_1.jpg",
+                "alt": "Well service in Lakeside"
+            },
+            {
+                "file": "job1936_2.jpg",
+                "alt": "Well service in Lakeside"
+            },
+            {
+                "file": "job1936_3.jpg",
+                "alt": "Well service in Lakeside"
+            }
+        ]
+    },
+    {
+        "id": "job1920",
+        "slug": "aguanga-well-service-41",
+        "title": "Well service",
+        "location": "Aguanga",
+        "date": "2026-02-17",
+        "dateLabel": "February 17, 2026",
+        "category": "pump",
+        "categoryLabel": "Pump Service",
+        "summary": "Well service completed in Aguanga.",
+        "photos": [
+            {
+                "file": "job1920_1.jpg",
+                "alt": "Well service in Aguanga"
+            },
+            {
+                "file": "job1920_2.jpg",
+                "alt": "Well service in Aguanga"
+            },
+            {
+                "file": "job1920_3.jpg",
+                "alt": "Well service in Aguanga"
+            }
+        ]
+    },
+    {
+        "id": "job1932",
+        "slug": "jamul-well-service-18",
+        "title": "Well service",
+        "location": "Jamul",
+        "date": "2026-02-16",
+        "dateLabel": "February 16, 2026",
+        "category": "pump",
+        "categoryLabel": "Pump Service",
+        "summary": "Well service completed in Jamul.",
+        "photos": [
+            {
+                "file": "job1932_1.jpg",
+                "alt": "Well service in Jamul"
+            },
+            {
+                "file": "job1932_2.jpg",
+                "alt": "Well service in Jamul"
+            }
+        ]
+    },
+    {
+        "id": "job1923",
+        "slug": "hemet-pressure-tank-replacement-2",
+        "title": "Pressure tank replacement",
+        "location": "Hemet",
+        "date": "2026-02-16",
+        "dateLabel": "February 16, 2026",
+        "category": "tank",
+        "categoryLabel": "Pressure Tanks",
+        "summary": "Pressure tank replacement completed in Hemet.",
+        "photos": [
+            {
+                "file": "job1923_1.jpg",
+                "alt": "Pressure tank replacement in Hemet"
+            }
+        ]
+    },
+    {
+        "id": "job1906",
+        "slug": "ramona-well-service-59",
+        "title": "Well service",
+        "location": "Ramona",
+        "date": "2026-02-16",
+        "dateLabel": "February 16, 2026",
+        "category": "pump",
+        "categoryLabel": "Pump Service",
+        "summary": "Well service completed in Ramona.",
+        "photos": [
+            {
+                "file": "job1906_1.jpg",
+                "alt": "Well service in Ramona"
+            },
+            {
+                "file": "job1906_2.jpg",
+                "alt": "Well service in Ramona"
+            },
+            {
+                "file": "job1906_3.jpg",
+                "alt": "Well service in Ramona"
+            }
+        ]
+    },
+    {
+        "id": "job1888",
+        "slug": "san-diego-county-pump-replacement",
+        "title": "Pump replacement",
+        "location": "San Diego County",
+        "date": "2026-02-16",
+        "dateLabel": "February 16, 2026",
+        "category": "pump",
+        "categoryLabel": "Pump Service",
+        "summary": "Pump replacement completed in San Diego County.",
+        "photos": [
+            {
+                "file": "job1888_1.jpg",
+                "alt": "Pump replacement in San Diego County"
+            },
+            {
+                "file": "job1888_2.jpg",
+                "alt": "Pump replacement in San Diego County"
+            },
+            {
+                "file": "job1888_3.jpg",
+                "alt": "Pump replacement in San Diego County"
+            }
+        ]
+    },
+    {
+        "id": "job1926",
+        "slug": "winchester-pump-replacement-3",
+        "title": "Pump replacement",
+        "location": "Winchester",
+        "date": "2026-02-16",
+        "dateLabel": "February 16, 2026",
+        "category": "pump",
+        "categoryLabel": "Pump Service",
+        "summary": "Pump replacement completed in Winchester.",
+        "photos": [
+            {
+                "file": "job1926_1.jpg",
+                "alt": "Pump replacement in Winchester"
+            },
+            {
+                "file": "job1926_2.jpg",
+                "alt": "Pump replacement in Winchester"
+            },
+            {
+                "file": "job1926_3.jpg",
+                "alt": "Pump replacement in Winchester"
+            }
+        ]
+    },
+    {
+        "id": "job1931",
+        "slug": "murrieta-well-service-41",
+        "title": "Well service",
+        "location": "Murrieta",
+        "date": "2026-02-16",
+        "dateLabel": "February 16, 2026",
+        "category": "pump",
+        "categoryLabel": "Pump Service",
+        "summary": "Well service completed in Murrieta.",
+        "photos": [
+            {
+                "file": "job1931_1.jpg",
+                "alt": "Well service in Murrieta"
+            }
+        ]
+    },
+    {
+        "id": "job1929",
+        "slug": "poway-well-service-47",
+        "title": "Well service",
+        "location": "Poway",
+        "date": "2026-02-16",
+        "dateLabel": "February 16, 2026",
+        "category": "pump",
+        "categoryLabel": "Pump Service",
+        "summary": "Well service completed in Poway.",
+        "photos": [
+            {
+                "file": "job1929_1.jpg",
+                "alt": "Well service in Poway"
+            },
+            {
+                "file": "job1929_2.jpg",
+                "alt": "Well service in Poway"
+            },
+            {
+                "file": "job1929_3.jpg",
+                "alt": "Well service in Poway"
+            }
+        ]
+    },
+    {
+        "id": "job1905",
+        "slug": "ramona-well-service-60",
+        "title": "Well service",
+        "location": "Ramona",
+        "date": "2026-02-16",
+        "dateLabel": "February 16, 2026",
+        "category": "pump",
+        "categoryLabel": "Pump Service",
+        "summary": "Well service completed in Ramona.",
+        "photos": [
+            {
+                "file": "job1905_1.jpg",
+                "alt": "Well service in Ramona"
+            },
+            {
+                "file": "job1905_2.jpg",
+                "alt": "Well service in Ramona"
+            },
+            {
+                "file": "job1905_3.jpg",
+                "alt": "Well service in Ramona"
+            }
+        ]
+    },
+    {
+        "id": "job1921",
+        "slug": "ramona-well-service-61",
+        "title": "Well service",
+        "location": "Ramona",
+        "date": "2026-02-16",
+        "dateLabel": "February 16, 2026",
+        "category": "pump",
+        "categoryLabel": "Pump Service",
+        "summary": "Well service completed in Ramona.",
+        "photos": [
+            {
+                "file": "job1921_1.jpg",
+                "alt": "Well service in Ramona"
+            },
+            {
+                "file": "job1921_2.jpg",
+                "alt": "Well service in Ramona"
+            },
+            {
+                "file": "job1921_3.jpg",
+                "alt": "Well service in Ramona"
+            }
+        ]
+    },
+    {
+        "id": "job1912",
+        "slug": "borrego-springs-well-service-5",
+        "title": "Well service",
+        "location": "Borrego Springs",
+        "date": "2026-02-16",
+        "dateLabel": "February 16, 2026",
+        "category": "pump",
+        "categoryLabel": "Pump Service",
+        "summary": "Well service completed in Borrego Springs.",
+        "photos": [
+            {
+                "file": "job1912_1.jpg",
+                "alt": "Well service in Borrego Springs"
+            },
+            {
+                "file": "job1912_2.jpg",
+                "alt": "Well service in Borrego Springs"
+            },
+            {
+                "file": "job1912_3.jpg",
+                "alt": "Well service in Borrego Springs"
+            }
+        ]
+    },
+    {
+        "id": "job1896",
+        "slug": "anza-well-service-20",
+        "title": "Well service",
+        "location": "Anza",
+        "date": "2026-02-16",
+        "dateLabel": "February 16, 2026",
+        "category": "pump",
+        "categoryLabel": "Pump Service",
+        "summary": "Well service completed in Anza.",
+        "photos": [
+            {
+                "file": "job1896_1.jpg",
+                "alt": "Well service in Anza"
+            },
+            {
+                "file": "job1896_2.jpg",
+                "alt": "Well service in Anza"
+            },
+            {
+                "file": "job1896_3.jpg",
+                "alt": "Well service in Anza"
+            }
+        ]
+    },
+    {
+        "id": "job1915",
+        "slug": "aguanga-pull-pump-3",
+        "title": "Pull pump",
+        "location": "Aguanga",
+        "date": "2026-02-16",
+        "dateLabel": "February 16, 2026",
+        "category": "pump",
+        "categoryLabel": "Pump Service",
+        "summary": "Pull pump completed in Aguanga.",
+        "photos": [
+            {
+                "file": "job1915_1.jpg",
+                "alt": "Pull pump in Aguanga"
+            },
+            {
+                "file": "job1915_2.jpg",
+                "alt": "Pull pump in Aguanga"
+            },
+            {
+                "file": "job1915_3.jpg",
+                "alt": "Pull pump in Aguanga"
+            }
+        ]
+    },
+    {
+        "id": "job1917",
+        "slug": "temecula-well-service-39",
+        "title": "Well service",
+        "location": "Temecula",
+        "date": "2026-02-13",
+        "dateLabel": "February 13, 2026",
+        "category": "pump",
+        "categoryLabel": "Pump Service",
+        "summary": "Well service completed in Temecula.",
+        "photos": [
+            {
+                "file": "job1917_1.jpg",
                 "alt": "Well service in Temecula"
             }
         ]
