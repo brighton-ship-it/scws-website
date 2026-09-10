@@ -261,6 +261,55 @@ header .site-phone-cta {
   font-size: 16px;
 }
 
+/* Emergency / no-water guides: ATF Call + Text + Estimate (homepage short labels). */
+.shop-lead-cta {
+  margin: 0 0 1.25rem;
+  padding: 1rem 1.15rem;
+  border: 2px solid #1f3b4d;
+  border-radius: 12px;
+  background: #f8fafc;
+}
+.shop-lead-cta .shop-lead-kicker {
+  margin: 0 0 0.4rem;
+  font-weight: 700;
+  color: #1f3b4d;
+}
+.shop-lead-cta .shop-lead-sub {
+  margin: 0 0 0.75rem;
+  color: #334155;
+  font-size: 0.95rem;
+}
+.shop-lead-cta .shop-lead-actions,
+.shop-lead-actions {
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+.shop-lead-cta .shop-lead-actions a,
+.shop-lead-actions a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0.65rem 1.1rem;
+  border-radius: 8px;
+  font-weight: 700;
+  text-decoration: none;
+}
+.shop-lead-call {
+  background: #dc2626;
+  color: #fff !important;
+}
+.shop-lead-text {
+  background: #2563eb;
+  color: #fff !important;
+}
+.shop-lead-est {
+  background: #1f3b4d;
+  color: #fff !important;
+}
+
 .recent-jobs-cards {
   margin: 2rem auto;
   max-width: 80rem;

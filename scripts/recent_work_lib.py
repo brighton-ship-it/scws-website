@@ -523,6 +523,62 @@ MONEY_PAGE_SLUGS = {
         "temecula-pull-30-hp-pump-and-motor",
         "alpine-pull-and-replace-deep-set-pump",
     ],
+    "pages/services/emergency-well-service.html": [
+        "anza-well-diagnostic",
+        "fallbrook-booster-pump-diagnostic",
+        "valley-center-overcurrent-fault-diagnostic",
+        "aguanga-low-yield-well-diagnostic",
+        "temecula-transducer-and-pressure-tank-replacement",
+        "ramona-cathedral-pump-replacement",
+    ],
+    "services/ramona/well-pump-repair.html": [
+        "ramona-cathedral-pump-replacement",
+        "ramona-pump-diagnostic",
+        "ramona-pressure-switch-gauge-replacement",
+        "ramona-control-panel-contactor-replacement",
+        "ramona-highland-booster-motor",
+        "ramona-booster-pump-replacement",
+    ],
+    "services/ramona/well-drilling.html": [
+        "ramona-two-well-system-evaluation",
+        "jamul-well-production-test",
+        "aguanga-low-yield-well-diagnostic",
+        "santa-ysabel-well-bail-and-brush",
+        "alpine-pull-and-replace-deep-set-pump",
+        "ramona-pull-pump",
+    ],
+    "services/ramona/emergency-well-service.html": [
+        "ramona-pump-diagnostic",
+        "ramona-well-electrical-diagnostic",
+        "anza-well-diagnostic",
+        "aguanga-low-yield-well-diagnostic",
+        "valley-center-overcurrent-fault-diagnostic",
+        "ramona-cathedral-pump-replacement",
+    ],
+    "services/anza/well-pump-repair.html": [
+        "anza-pull-and-inspect-pump",
+        "anza-control-box-service",
+        "anza-pump-replacement",
+        "aguanga-pump-installation",
+        "anza-booster-service",
+        "fallbrook-booster-pump-diagnostic",
+    ],
+    "services/anza/well-drilling.html": [
+        "aguanga-low-yield-well-diagnostic",
+        "anza-well-diagnostic",
+        "jamul-well-production-test",
+        "santa-ysabel-well-bail-and-brush",
+        "ramona-two-well-system-evaluation",
+        "alpine-pull-and-replace-deep-set-pump",
+    ],
+    "services/anza/emergency-well-service.html": [
+        "anza-well-diagnostic",
+        "anza-pull-and-inspect-pump",
+        "aguanga-low-yield-well-diagnostic",
+        "fallbrook-booster-pump-diagnostic",
+        "valley-center-overcurrent-fault-diagnostic",
+        "temecula-transducer-and-pressure-tank-replacement",
+    ],
 }
 
 MONEY_PAGE_HEADINGS = {
@@ -541,6 +597,34 @@ MONEY_PAGE_HEADINGS = {
     "pages/services/well-drilling.html": (
         "Recent well jobs",
         "Real field work on wells we already service. New-drill cards publish here when those jobs do.",
+    ),
+    "pages/services/emergency-well-service.html": (
+        "Recent emergency and diagnostic jobs",
+        "Real no-water and diagnostic calls. Real photos.",
+    ),
+    "services/ramona/well-pump-repair.html": (
+        "Recent pump jobs in Ramona",
+        "Real Ramona pump and motor jobs. Real photos.",
+    ),
+    "services/ramona/well-drilling.html": (
+        "Recent well jobs near Ramona",
+        "Real well work from the Ramona shop. Real photos.",
+    ),
+    "services/ramona/emergency-well-service.html": (
+        "Recent Ramona no-water jobs",
+        "Real diagnostic and emergency calls. Real photos.",
+    ),
+    "services/anza/well-pump-repair.html": (
+        "Recent pump jobs in Anza",
+        "Real Anza and high-desert pump jobs. Real photos.",
+    ),
+    "services/anza/well-drilling.html": (
+        "Recent well jobs near Anza",
+        "Real well work from the Anza shop. Real photos.",
+    ),
+    "services/anza/emergency-well-service.html": (
+        "Recent Anza no-water jobs",
+        "Real diagnostic and emergency calls. Real photos.",
     ),
 }
 
@@ -634,14 +718,14 @@ def replace_recent_jobs_section(text: str, block: str) -> str:
         return RECENT_JOBS_SECTION_RE.sub(block, text, count=1)
     match = re.search(r"<footer\b", text, re.I)
     if match:
-        return text[: match.start()] + block + text[match.start()]
+        return text[: match.start()] + block + text[match.start() :]
     return text + block
 
 
 def apply_money_page_recent_work(
     projects: list[dict[str, Any]] | None = None,
 ) -> list[Path]:
-    """Wire homepage-style photo cards onto the four money pages."""
+    """Wire homepage-style photo cards onto shop and service money pages."""
     projects = projects if projects is not None else load_projects().get("projects", [])
     changed: list[Path] = []
     for rel, slugs in MONEY_PAGE_SLUGS.items():
