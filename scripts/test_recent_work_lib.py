@@ -27,6 +27,8 @@ from recent_work_lib import (
     load_projects,
     merge_projects,
     money_page_card_html,
+    money_page_section_html,
+    replace_recent_jobs_section,
     paginate_projects,
     projects_by_slugs,
     public_location,
@@ -390,6 +392,27 @@ class MoneyPageCardTests(unittest.TestCase):
             self.assertLessEqual(len(hits), 6, rel)
             titles = [p["title"] for p in hits]
             self.assertEqual(len(titles), len(set(titles)), rel)
+
+    def test_insert_before_footer_keeps_cta_tail(self):
+        src = (
+            "<main><p>body</p></main>\n"
+            "<footer class=\"footer\">shop</footer>\n"
+            "<div id=\"sticky-cta\"><a class=\"cta-call\" href=\"tel:+17604408520\">Call</a>"
+            "<a class=\"cta-est\" href=\"/contact.html\">Estimate</a></div>\n"
+        )
+        project = {
+            "slug": "ramona-pressure-switch-gauge-replacement",
+            "title": "Pressure switch and gauge replacement",
+            "location": "Ramona",
+            "photos": [{"file": "job3175_1.jpg"}],
+        }
+        block = money_page_section_html([project], "Recent jobs", "Real photos.")
+        out = replace_recent_jobs_section(src, block)
+        self.assertIn('id="recent-jobs"', out)
+        self.assertIn("<footer class=\"footer\">shop</footer>", out)
+        self.assertIn("cta-call", out)
+        self.assertIn("cta-est", out)
+        self.assertTrue(out.endswith("</div>\n"))
 
     def test_card_html_has_no_pii(self):
         project = {
