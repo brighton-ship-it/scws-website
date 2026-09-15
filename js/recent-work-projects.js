@@ -27744,6 +27744,14 @@
             {
                 "file": "job1575_1.jpg",
                 "alt": "Well diagnostic in Ramona"
+            },
+            {
+                "file": "job1575_2.jpg",
+                "alt": "Well diagnostic in Ramona"
+            },
+            {
+                "file": "job1575_3.jpg",
+                "alt": "Well diagnostic in Ramona"
             }
         ]
     }
