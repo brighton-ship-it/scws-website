@@ -12,7 +12,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from apply_seo_do_now import html_is_noindex, indexable_blog_urls, is_programmatic_well_permit
 from far_city_factory_lib import FAR_CITY_SLUGS, html_is_noindex as far_html_is_noindex
 from leftover_claims_lib import CANONICAL_CSLB
-from recent_work_lib import MONEY_PAGE_SLUGS, apply_money_page_recent_work
+from recent_work_lib import MONEY_PAGE_SLUGS, apply_money_page_recent_work, money_page_specs
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -119,8 +119,21 @@ class MoneyPageJobLinkTests(unittest.TestCase):
             "services/anza/well-pump-repair.html",
             "services/anza/well-drilling.html",
             "services/anza/emergency-well-service.html",
+            "services/valley-center/index.html",
+            "services/aguanga/index.html",
+            "services/temecula/index.html",
+            "services/escondido/index.html",
+            "services/julian/index.html",
         }
-        self.assertTrue(expected.issubset(MONEY_PAGE_SLUGS))
+        specs = money_page_specs()
+        self.assertTrue(expected.issubset(specs))
+        self.assertTrue(
+            {
+                "services/ramona/index.html",
+                "services/anza/index.html",
+                "pages/services/pump-repair.html",
+            }.issubset(MONEY_PAGE_SLUGS)
+        )
         for rel in expected:
             html = (ROOT / rel).read_text(encoding="utf-8")
             self.assertIn('id="recent-jobs"', html, rel)
@@ -129,6 +142,33 @@ class MoneyPageJobLinkTests(unittest.TestCase):
             self.assertLessEqual(len(cards), 6, rel)
             self.assertIn("/recent-work/", html)
             self.assertNotIn("4.9★", html.split('id="recent-jobs"', 1)[1].split("</section>", 1)[0])
+
+    def test_high_intent_pages_have_unique_depth_and_ctas(self):
+        pages = (
+            "services/ramona/index.html",
+            "services/anza/index.html",
+            "services/valley-center/index.html",
+            "services/aguanga/index.html",
+            "services/temecula/index.html",
+            "pages/services/pump-repair.html",
+            "pages/services/well-drilling.html",
+            "pages/services/emergency-well-service.html",
+            "services/ramona/well-pump-repair.html",
+            "pages/locations/cities/valley-center.html",
+        )
+        for rel in pages:
+            html = (ROOT / rel).read_text(encoding="utf-8")
+            self.assertIn('id="shop-local-note"', html, rel)
+            note = html.split('id="shop-local-note"', 1)[1].split("</section>", 1)[0]
+            words = re.findall(r"[A-Za-z0-9']+", re.sub(r"<[^>]+>", " ", note))
+            self.assertGreaterEqual(len(words), 120, rel)
+            self.assertIn("tel:+17604408520", note)
+            self.assertIn("sms:7602195877", note)
+            self.assertIn("/contact.html", note)
+            self.assertIn("1086994", note)
+            self.assertIsNone(FAKE_RATING.search(note), rel)
+            self.assertIsNone(FAKE_AGE.search(note), rel)
+            self.assertNotIn("Since 2006", html)
 
 
 class CrawlWasteTests(unittest.TestCase):

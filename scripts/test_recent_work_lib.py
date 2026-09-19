@@ -28,6 +28,8 @@ from recent_work_lib import (
     merge_projects,
     money_page_card_html,
     money_page_section_html,
+    money_page_specs,
+    pick_money_page_projects,
     replace_recent_jobs_section,
     paginate_projects,
     projects_by_slugs,
@@ -392,6 +394,19 @@ class MoneyPageCardTests(unittest.TestCase):
             self.assertLessEqual(len(hits), 6, rel)
             titles = [p["title"] for p in hits]
             self.assertEqual(len(titles), len(set(titles)), rel)
+
+    def test_catalog_picker_fills_city_pages_without_frozen_slugs(self):
+        projects = load_projects()["projects"]
+        spec = money_page_specs()["services/valley-center/index.html"]
+        hits = pick_money_page_projects(projects, spec)
+        self.assertGreaterEqual(len(hits), 3)
+        self.assertLessEqual(len(hits), 6)
+        for project in hits:
+            loc = (project.get("location") or "").lower()
+            self.assertTrue(
+                "valley center" in loc or "escondido" in loc or "pauma" in loc,
+                project.get("location"),
+            )
 
     def test_insert_before_footer_keeps_cta_tail(self):
         src = (

@@ -628,6 +628,150 @@ MONEY_PAGE_HEADINGS = {
     ),
 }
 
+# Extra money pages filled from the live catalog (city and/or service).
+# Prefer slugs stay first when listed so weekday publishes can append newer
+# matching jobs without hand-editing every city page.
+CITY_SLUG_NAMES = {
+    "ramona": "Ramona",
+    "anza": "Anza",
+    "valley-center": "Valley Center",
+    "aguanga": "Aguanga",
+    "temecula": "Temecula",
+    "escondido": "Escondido",
+    "julian": "Julian",
+    "perris": "Perris",
+    "jamul": "Jamul",
+    "murrieta": "Murrieta",
+    "alpine": "Alpine",
+    "poway": "Poway",
+    "lakeside": "Lakeside",
+    "fallbrook": "Fallbrook",
+    "el-cajon": "El Cajon",
+}
+
+NEARBY_CITIES = {
+    "Ramona": ["El Cajon", "Alpine", "Poway"],
+    "Anza": ["Aguanga"],
+    "Valley Center": ["Escondido", "Pauma Valley"],
+    "Aguanga": ["Anza", "Temecula"],
+    "Temecula": ["Murrieta", "De Luz"],
+    "Escondido": ["Valley Center", "Poway"],
+    "Julian": ["Santa Ysabel", "Ramona"],
+    "Perris": ["Menifee", "Winchester"],
+    "Jamul": ["El Cajon", "Alpine"],
+    "Murrieta": ["Temecula", "Wildomar"],
+    "Alpine": ["El Cajon", "Ramona"],
+    "Poway": ["Ramona", "Escondido"],
+    "Lakeside": ["El Cajon", "Alpine"],
+    "Fallbrook": ["Rainbow", "Bonsall"],
+}
+
+SERVICE_FILE_KEYS = {
+    "pump-repair.html": "pump-repair",
+    "well-pump-repair.html": "pump-repair",
+    "well-drilling.html": "well-drilling",
+    "emergency-well-service.html": "emergency-well-service",
+    "maintenance.html": "maintenance",
+}
+
+MONEY_PAGE_AUTO = {
+    "services/valley-center/index.html": {
+        "city": "Valley Center",
+        "heading": "Recent work in Valley Center",
+        "lede": "Jobs from Valley Center and nearby North County wells. Real photos.",
+    },
+    "services/aguanga/index.html": {
+        "city": "Aguanga",
+        "heading": "Recent work in Aguanga",
+        "lede": "Aguanga and high-desert jobs out of the Anza shop. Real photos.",
+    },
+    "services/temecula/index.html": {
+        "city": "Temecula",
+        "heading": "Recent work in Temecula",
+        "lede": "Wine Country and southwest Riverside jobs. Real photos.",
+    },
+    "services/escondido/index.html": {
+        "city": "Escondido",
+        "heading": "Recent work in Escondido",
+        "lede": "Escondido and North County well jobs. Real photos.",
+    },
+    "services/julian/index.html": {
+        "city": "Julian",
+        "heading": "Recent work in Julian",
+        "lede": "Mountain wells — Julian, Wynola, Santa Ysabel. Real photos.",
+    },
+    "services/perris/index.html": {
+        "city": "Perris",
+        "heading": "Recent work in Perris",
+        "lede": "Perris and west Riverside jobs we already ran. Real photos.",
+    },
+    "services/jamul/index.html": {
+        "city": "Jamul",
+        "heading": "Recent work in Jamul",
+        "lede": "East County jobs. Real photos.",
+    },
+    "services/murrieta/index.html": {
+        "city": "Murrieta",
+        "heading": "Recent work in Murrieta",
+        "lede": "Murrieta and southwest Riverside jobs. Real photos.",
+    },
+    "services/alpine/index.html": {
+        "city": "Alpine",
+        "heading": "Recent work in Alpine",
+        "lede": "Alpine and East County jobs. Real photos.",
+    },
+    "services/poway/index.html": {
+        "city": "Poway",
+        "heading": "Recent work in Poway",
+        "lede": "Poway well jobs we already ran. Real photos.",
+    },
+    "services/lakeside/index.html": {
+        "city": "Lakeside",
+        "heading": "Recent work in Lakeside",
+        "lede": "Lakeside and East County jobs. Real photos.",
+    },
+    "services/fallbrook/index.html": {
+        "city": "Fallbrook",
+        "heading": "Recent work in Fallbrook",
+        "lede": "Fallbrook and North County jobs. Real photos.",
+    },
+    "pages/locations/cities/ramona.html": {
+        "city": "Ramona",
+        "heading": "Recent jobs in Ramona",
+        "lede": "Work out of the Main Street shop. Real photos.",
+    },
+    "pages/locations/cities/anza.html": {
+        "city": "Anza",
+        "heading": "Recent jobs in Anza",
+        "lede": "Work out of the CA-371 shop. Real photos.",
+    },
+    "pages/locations/cities/valley-center.html": {
+        "city": "Valley Center",
+        "heading": "Recent work in Valley Center",
+        "lede": "Grove and residential wells. Real photos.",
+    },
+    "pages/locations/cities/aguanga.html": {
+        "city": "Aguanga",
+        "heading": "Recent work in Aguanga",
+        "lede": "Aguanga jobs from the Anza shop. Real photos.",
+    },
+    "pages/locations/cities/temecula.html": {
+        "city": "Temecula",
+        "heading": "Recent work in Temecula",
+        "lede": "Temecula and Wine Country jobs. Real photos.",
+    },
+    "pages/locations/cities/escondido.html": {
+        "city": "Escondido",
+        "heading": "Recent work in Escondido",
+        "lede": "Escondido well jobs. Real photos.",
+    },
+    "pages/locations/cities/julian.html": {
+        "city": "Julian",
+        "heading": "Recent work in Julian",
+        "lede": "Julian mountain well jobs. Real photos.",
+    },
+}
+
 RECENT_JOBS_SECTION_RE = re.compile(
     r'<section\b[^>]*(?:id=["\']recent-jobs["\']|class=["\'][^"\']*recent-jobs)[^>]*>.*?</section>\s*',
     re.I | re.S,
@@ -722,23 +866,147 @@ def replace_recent_jobs_section(text: str, block: str) -> str:
     return text + block
 
 
+def project_has_photo(project: dict[str, Any]) -> bool:
+    photos = [ph for ph in (project.get("photos") or []) if ph.get("file")]
+    if not photos:
+        return False
+    return (PHOTO_DIR / photos[0]["file"]).is_file()
+
+
+def infer_page_match(rel: str) -> tuple[str | None, str | None, list[str]]:
+    """Return (city, service_key, nearby) from a money-page path."""
+    parts = Path(rel).parts
+    city = None
+    service = SERVICE_FILE_KEYS.get(Path(rel).name)
+    if parts and parts[0] == "services" and len(parts) >= 2:
+        city = CITY_SLUG_NAMES.get(parts[1])
+        if Path(rel).name == "index.html":
+            service = None
+    elif (
+        len(parts) == 4
+        and parts[0] == "pages"
+        and parts[1] == "locations"
+        and parts[2] == "cities"
+    ):
+        city = CITY_SLUG_NAMES.get(Path(parts[3]).stem)
+        service = None
+    nearby = list(NEARBY_CITIES.get(city or "", []))
+    return city, service, nearby
+
+
+def money_page_specs() -> dict[str, dict[str, Any]]:
+    """Curated pages plus catalog-driven city/service pages."""
+    specs: dict[str, dict[str, Any]] = {}
+    for rel, slugs in MONEY_PAGE_SLUGS.items():
+        city, service, nearby = infer_page_match(rel)
+        heading, lede = MONEY_PAGE_HEADINGS[rel]
+        specs[rel] = {
+            "prefer": list(slugs),
+            "city": city,
+            "service": service,
+            "nearby": nearby,
+            "heading": heading,
+            "lede": lede,
+        }
+    for rel, extra in MONEY_PAGE_AUTO.items():
+        if rel in specs:
+            continue
+        city, service, nearby = infer_page_match(rel)
+        merged = {
+            "prefer": list(extra.get("prefer") or []),
+            "city": extra.get("city") or city,
+            "service": extra.get("service") or service,
+            "nearby": list(extra.get("nearby") or nearby),
+            "heading": extra.get("heading") or "Recent work",
+            "lede": extra.get("lede") or "Real jobs. Real photos.",
+        }
+        specs[rel] = merged
+    return specs
+
+
+def pick_money_page_projects(
+    projects: list[dict[str, Any]],
+    spec: dict[str, Any],
+    limit: int = 6,
+) -> list[dict[str, Any]]:
+    """Prefer listed slugs, then newest city/service matches with unique titles."""
+    picked: list[dict[str, Any]] = []
+    seen_ids: set[str] = set()
+    seen_titles: set[str] = set()
+
+    def add(project: dict[str, Any]) -> bool:
+        if len(picked) >= limit:
+            return False
+        if not project_has_photo(project):
+            return False
+        pid = str(project.get("id") or project.get("slug") or "")
+        title = (project.get("title") or "").strip().lower()
+        if not pid or pid in seen_ids:
+            return False
+        if not title or title in seen_titles:
+            return False
+        seen_ids.add(pid)
+        seen_titles.add(title)
+        picked.append(project)
+        return True
+
+    by_slug = {str(p.get("slug")): p for p in projects if p.get("slug")}
+    for slug in spec.get("prefer") or []:
+        project = by_slug.get(slug)
+        if project:
+            add(project)
+
+    city = spec.get("city")
+    service = spec.get("service")
+    city_hits = projects_for_city(projects, city, limit=80) if city else []
+    if city and service:
+        service_ids = {
+            str(p.get("id") or p.get("slug"))
+            for p in projects_for_service(projects, service, limit=120)
+        }
+        for project in city_hits:
+            if str(project.get("id") or project.get("slug")) in service_ids:
+                add(project)
+    for project in city_hits:
+        add(project)
+    if service:
+        for project in projects_for_service(projects, service, limit=120):
+            add(project)
+    for nearby in spec.get("nearby") or []:
+        for project in projects_for_city(projects, nearby, limit=40):
+            add(project)
+    return picked[:limit]
+
+
+def ensure_shop_chrome(text: str) -> str:
+    if "/css/shop-chrome.css" in text:
+        return text
+    tag = '<link rel="stylesheet" href="/css/shop-chrome.css"/>\n'
+    if re.search(r"</head>", text, re.I):
+        return re.sub(r"</head>", tag + "</head>", text, count=1, flags=re.I)
+    return tag + text
+
+
 def apply_money_page_recent_work(
     projects: list[dict[str, Any]] | None = None,
 ) -> list[Path]:
-    """Wire homepage-style photo cards onto shop and service money pages."""
+    """Wire homepage-style photo cards onto shop and service money pages.
+
+    Cards are rebuilt from recent-work/projects.json so weekday Jobber
+    publishes refresh the same blocks without hand-editing city pages.
+    """
     projects = projects if projects is not None else load_projects().get("projects", [])
     changed: list[Path] = []
-    for rel, slugs in MONEY_PAGE_SLUGS.items():
+    for rel, spec in money_page_specs().items():
         path = ROOT / rel
         if not path.is_file():
             continue
-        hits = projects_by_slugs(projects, slugs)
+        hits = pick_money_page_projects(projects, spec)
         if len(hits) < 3:
             raise RuntimeError(f"{rel} has only {len(hits)} real photo jobs")
-        heading, lede = MONEY_PAGE_HEADINGS[rel]
-        block = money_page_section_html(hits, heading, lede)
+        block = money_page_section_html(hits, spec["heading"], spec["lede"])
         original = path.read_text(encoding="utf-8")
-        updated = replace_recent_jobs_section(original, block)
+        updated = ensure_shop_chrome(replace_recent_jobs_section(original, block))
         if updated != original:
             path.write_text(updated, encoding="utf-8")
             changed.append(path)
@@ -983,3 +1251,4 @@ def write_site_files(projects: list[dict[str, Any]]) -> None:
     dump_projects_js(projects)
     update_index_html(projects)
     update_sitemap(projects)
+    apply_money_page_recent_work(projects)

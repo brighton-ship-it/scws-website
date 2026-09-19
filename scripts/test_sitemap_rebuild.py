@@ -68,8 +68,15 @@ class SitemapRebuildTests(unittest.TestCase):
             "https://scwellservice.com/pages/services/controls.html",
             "https://scwellservice.com/pages/services/water-testing.html",
             "https://scwellservice.com/pages/locations/san-diego.html",
+            "https://scwellservice.com/services/ramona/",
+            "https://scwellservice.com/services/anza/",
+            "https://scwellservice.com/services/valley-center/",
+            "https://scwellservice.com/services/temecula/",
+            "https://scwellservice.com/pages/locations/cities/valley-center.html",
         ):
             self.assertIn(url, xml)
+        self.assertNotIn("https://scwellservice.com/services/barstow/", xml)
+        self.assertNotIn("https://scwellservice.com/services/perris/", xml)
 
     def test_noindex_html_not_deleted(self):
         noindex = [
