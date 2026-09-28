@@ -23,7 +23,7 @@ Consent Mode v2 uses the existing cookie banner (`analytics_storage`, `ad_storag
 | `text_click` | Visitor taps an `sms:` link (`js/call-tracking.js`) | No | No | Never send the phone Ads label on SMS. |
 | `generate_lead` | CRM (or booking API) returns success after a real form / exit-intent submit | Yes | No Ads `send_to` on this event | Honeypot skip. Failure / non-200 does not fire. |
 | `ads_conversion_submit_lead_form` | Same success path as `generate_lead` | Yes | Ads form conversion `AW-490838730/nFeMCN_cyegcEMq1huoB` via `conversion` + `AW_FORM_SEND_TO` | Same payload as `generate_lead`. Never the phone label. |
-| `experiment_view` | Homepage A/B harness (`js/ab.js`) once per session | No | No | Also sets `exp_id` / `exp_var` user properties. |
+| `experiment_view` | Homepage A/B harness (`js/ab.js`) once per session | No | No | Also sets `exp_id` / `exp_var` user properties. Active test: `exp_homepage_form` (full form vs name/phone/emergency-first). Primary conversion stays `generate_lead`. |
 | `estimate_click` | Estimate / contact CTA (`scwsTrackEstimateClick` or homepage helper) | No | No | Click is not a lead. |
 
 Form success also sets enhanced conversions `user_data` (`email`, `phone_number`) when those fields were collected. gtag hashes them. Do not log PII or click IDs to the console.

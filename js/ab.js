@@ -8,14 +8,22 @@
  * - Expose window.scwsAb = { id, variant }
  * - No-op safely if gtag is missing (bot filter)
  *
- * Active experiment: exp_emergency_cta (homepage emergency bar only)
- *   control: red emergency top bar, Call only
- *   variant: same bar, equal Call + Text buttons
+ * Active experiment: exp_homepage_form (homepage #contact-form only)
+ *   control: today's full form (name, phone, email, address, city,
+ *            service, message, sms consent)
+ *   variant: name + phone required; service defaults to Emergency
+ *            Service; email, address, city, and message stay in the
+ *            DOM but are hidden and not required. Empty address/city
+ *            still use handleFormSubmit defaults.
+ *
+ * One experiment at a time. exp_emergency_cta is retired (no lift).
+ * The emergency bar stays Call-only in HTML — this file does not
+ * mutate it.
  */
 (function () {
   'use strict';
 
-  var EXP_ID = 'exp_emergency_cta';
+  var EXP_ID = 'exp_homepage_form';
   var COOKIE_NAME = 'scws_ab';
   var COOKIE_DAYS = 30;
   var VIEW_KEY = 'scws_ab_view';
@@ -26,10 +34,10 @@
     ads_conversion_submit_lead_form: true
   };
 
-  var VOICE_DISPLAY = '(760) 440-8520';
-  var VOICE_TEL = 'tel:7604408520';
-  var TEXT_DISPLAY = '(760) 219-5877';
-  var TEXT_SMS = 'sms:7602195877';
+  // Longer fields hidden on the variant. Left in the DOM so CRM and
+  // Formspree still receive them; handleFormSubmit supplies defaults
+  // when address/city/email/message are empty.
+  var VARIANT_HIDDEN_FIELDS = ['email', 'address', 'city', 'message'];
 
   function hasGtag() {
     return typeof window.gtag === 'function';
@@ -134,69 +142,50 @@
     } catch (e) {}
   }
 
-  function isEmergencyBar(el) {
-    if (!el || !el.querySelector) return false;
-    if (el.id === 'sticky-cta' || el.closest('#sticky-cta')) return false;
-    if (el.closest('header')) return false;
-    var text = el.textContent || '';
-    if (text.indexOf('No Water?') === -1) return false;
-    return !!el.querySelector('a[href^="tel:"]');
-  }
-
-  function findEmergencyBars() {
-    var found = [];
-    var marked = document.getElementById('scws-emergency-cta');
-    if (marked && isEmergencyBar(marked)) found.push(marked);
-
-    var nodes = document.querySelectorAll('.from-red-600, .bg-gradient-to-r');
-    for (var i = 0; i < nodes.length; i++) {
-      var el = nodes[i];
-      if (found.indexOf(el) !== -1) continue;
-      if (isEmergencyBar(el)) found.push(el);
-    }
-    return found;
-  }
-
-  function applyVariant(bar) {
-    if (!bar || bar.getAttribute('data-scws-ab') === 'applied') return;
-    bar.setAttribute('data-scws-ab', 'applied');
-    bar.setAttribute('data-scws-ab-var', assignment.variant);
-    if (assignment.variant !== 'variant') return;
-    if (bar.querySelector('a[href^="sms:"]')) return;
-
-    var callLink = bar.querySelector('a[href^="tel:"]');
-    if (!callLink) return;
-
-    // Keep the existing tel: node so Google Ads can still swap the voice number.
-    // Short labels only — long “Call (760) …” plus minWidth blows a ~390px row.
-    if (!callLink.getAttribute('href')) callLink.setAttribute('href', VOICE_TEL);
-    callLink.textContent = 'Call';
-    callLink.title = 'Call ' + VOICE_DISPLAY;
-    callLink.style.minWidth = '';
-    callLink.style.textAlign = 'center';
-
-    var textLink = callLink.cloneNode(false);
-    textLink.setAttribute('href', TEXT_SMS);
-    textLink.removeAttribute('onclick');
-    textLink.textContent = 'Text';
-    textLink.title = 'Text-only line: ' + TEXT_DISPLAY;
-    textLink.style.minWidth = '';
-    textLink.style.textAlign = 'center';
-
-    if (callLink.parentNode) {
-      callLink.parentNode.insertBefore(textLink, callLink.nextSibling);
-    }
-  }
-
   function isHomepage() {
     var path = (window.location.pathname || '/').replace(/index\.html$/, '').replace(/\/$/, '');
     return path === '' || path === '/';
   }
 
+  function hideLongField(form, name) {
+    var field = form.querySelector('[name="' + name + '"]');
+    if (!field) return;
+    field.required = false;
+    field.removeAttribute('required');
+    var wrap = field.parentElement;
+    if (!wrap || wrap === form) return;
+    wrap.classList.add('hidden');
+    wrap.setAttribute('hidden', '');
+    wrap.setAttribute('aria-hidden', 'true');
+  }
+
+  function applyEmergencyFirst(form) {
+    var service = form.querySelector('select[name="service"]');
+    if (!service) return;
+    var emergency = service.querySelector('option[value="emergency"]');
+    if (!emergency) return;
+    if (service.options[0] !== emergency) {
+      service.insertBefore(emergency, service.options[0]);
+    }
+    service.value = 'emergency';
+  }
+
+  function applyFormVariant(form) {
+    if (!form || form.getAttribute('data-scws-ab') === 'applied') return;
+    form.setAttribute('data-scws-ab', 'applied');
+    var variant = window.scwsAb && window.scwsAb.variant;
+    form.setAttribute('data-scws-ab-var', variant || '');
+    if (variant !== 'variant') return;
+
+    for (var i = 0; i < VARIANT_HIDDEN_FIELDS.length; i++) {
+      hideLongField(form, VARIANT_HIDDEN_FIELDS[i]);
+    }
+    applyEmergencyFirst(form);
+  }
+
   function applyExperiment() {
     if (!isHomepage()) return;
-    var bars = findEmergencyBars();
-    for (var i = 0; i < bars.length; i++) applyVariant(bars[i]);
+    applyFormVariant(document.getElementById('contact-form'));
   }
 
   var assignment = getAssignment();
