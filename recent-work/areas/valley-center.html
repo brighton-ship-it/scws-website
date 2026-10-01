@@ -91,6 +91,10 @@
     .project-photos.triple { grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; }
     .project-photos.triple img:first-child { grid-row: 1 / -1; }
     .project-photos img { width: 100%; height: 100%; object-fit: cover; }
+    .project-photos.empty, .photo-fallback {
+        background: linear-gradient(135deg, #1f3b4d, #4e9271);
+        min-height: 180px;
+    }
     .project-card p.text-sm.text-gray-600 {
         display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden;
     }
@@ -330,10 +334,8 @@
 </div>
 </article>
 <article class="project-card" data-category="pump" data-static="1" data-job="job2582">
-<div class="project-photos triple">
-<img src="/images/recent-work/job2582_1.jpg" alt="Well service in Valley Center" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2582_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2582_2.jpg" alt="Well service in Valley Center" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2582_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2582_3.jpg" alt="Well service in Valley Center" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2582_3.jpg')" style="cursor:pointer">
+<div class="project-photos empty">
+<div class="photo-fallback" role="img" aria-label="Field photo unavailable"></div>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -512,10 +514,9 @@
 </div>
 </article>
 <article class="project-card" data-category="pump" data-static="1" data-job="job1832">
-<div class="project-photos triple">
+<div class="project-photos double">
 <img src="/images/recent-work/job1832_1.jpg" alt="Well service in Valley Center" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1832_1.jpg')" style="cursor:pointer">
 <img src="/images/recent-work/job1832_2.jpg" alt="Well service in Valley Center" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1832_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1832_3.jpg" alt="Well service in Valley Center" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1832_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">

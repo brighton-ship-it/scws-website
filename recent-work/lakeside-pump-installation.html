@@ -101,6 +101,10 @@
     .project-photos.triple { grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; }
     .project-photos.triple img:first-child { grid-row: 1 / -1; }
     .project-photos img { width: 100%; height: 100%; object-fit: cover; }
+    .project-photos.empty, .photo-fallback {
+        background: linear-gradient(135deg, #1f3b4d, #4e9271);
+        min-height: 180px;
+    }
     .project-card p.text-sm.text-gray-600 {
         display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden;
     }

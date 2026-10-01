@@ -230,6 +230,40 @@ class HtmlTests(unittest.TestCase):
         self.assertIn("project-photos single", markup)
         self.assertIn("../images/recent-work/job4242_1.jpg", markup)
         self.assertIn("lake-elsinore-pump.html", markup)
+
+    def test_paperwork_photo_is_not_a_card_image(self):
+        from recent_work_lib import public_photos
+
+        project = {
+            "id": "job3149",
+            "slug": "ramona-well-service",
+            "title": "Well service",
+            "location": "Ramona",
+            "date": "2026-08-20",
+            "dateLabel": "August 20, 2026",
+            "category": "pump",
+            "categoryLabel": "Pump Service",
+            "summary": "Pump Service in Ramona on August 20, 2026. Job type: Well service.",
+            "photos": [
+                {"file": "job3149_1.jpg"},
+                {"file": "job3149_2.jpg"},
+                {"file": "job3149_3.jpg"},
+            ],
+        }
+        self.assertEqual(
+            [photo["file"] for photo in public_photos(project)],
+            ["job3149_2.jpg", "job3149_3.jpg"],
+        )
+        markup = card_html(project, image_prefix="/images/recent-work/")
+        self.assertNotIn("job3149_1.jpg", markup)
+        self.assertIn("job3149_2.jpg", markup)
+        self.assertIn("project-photos double", markup)
+
+        paper_only = dict(project, photos=[{"file": "job3149_1.jpg"}])
+        fallback = card_html(paper_only)
+        self.assertNotIn("job3149_1.jpg", fallback)
+        self.assertIn("photo-fallback", fallback)
+        self.assertIn("project-photos empty", fallback)
         self.assertNotIn("760-219-5877", markup)
         self.assertNotIn("(760) 440-8520", markup)
         self.assertNotIn("jobber", markup.lower())

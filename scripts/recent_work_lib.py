@@ -8,6 +8,7 @@ Public output rules (do not relax these):
 """
 from __future__ import annotations
 
+import hashlib
 import html
 import json
 import re
@@ -21,6 +22,7 @@ PROJECTS_JSON = ROOT / "recent-work" / "projects.json"
 PROJECTS_JS = ROOT / "js" / "recent-work-projects.js"
 INDEX_HTML = ROOT / "recent-work" / "index.html"
 PHOTO_DIR = ROOT / "images" / "recent-work"
+PAPERWORK_LIST = ROOT / "recent-work" / "paperwork-photos.txt"
 SITEMAP_PAGES = ROOT / "sitemap-pages.xml"
 PACIFIC = ZoneInfo("America/Los_Angeles")
 
@@ -392,24 +394,96 @@ def dump_projects_js(projects: list[dict[str, Any]]) -> None:
     )
 
 
+_PAPERWORK_NAMES: set[str] | None = None
+_PAPERWORK_HASHES: set[str] | None = None
+_MD5_CACHE: dict[str, str] = {}
+
+
+def paperwork_photo_names() -> set[str]:
+    """Filenames that must never be a hero, card, or gallery image.
+
+    The list is an audit of paper, forms, invoices, handwritten notes, shipping
+    labels, and phone screenshots. A brightness heuristic also flags white tanks
+    and motor nameplates, so those stay off this list on purpose.
+    """
+    global _PAPERWORK_NAMES
+    if _PAPERWORK_NAMES is None:
+        names: set[str] = set()
+        if PAPERWORK_LIST.is_file():
+            for line in PAPERWORK_LIST.read_text().splitlines():
+                name = line.split("#", 1)[0].strip()
+                if name:
+                    names.add(name)
+        _PAPERWORK_NAMES = names
+    return _PAPERWORK_NAMES
+
+
+def _paperwork_hashes() -> set[str]:
+    """MD5 of listed files, so a byte-identical copy under a new name is skipped."""
+    global _PAPERWORK_HASHES
+    if _PAPERWORK_HASHES is None:
+        hashes: set[str] = set()
+        for name in paperwork_photo_names():
+            digest = _photo_md5(name)
+            if digest:
+                hashes.add(digest)
+        _PAPERWORK_HASHES = hashes
+    return _PAPERWORK_HASHES
+
+
+def _photo_md5(filename: str) -> str:
+    if filename in _MD5_CACHE:
+        return _MD5_CACHE[filename]
+    path = PHOTO_DIR / filename
+    digest = hashlib.md5(path.read_bytes()).hexdigest() if path.is_file() else ""
+    _MD5_CACHE[filename] = digest
+    return digest
+
+
+def photo_is_paperwork(filename: str) -> bool:
+    name = (filename or "").strip()
+    if not name:
+        return False
+    if name in paperwork_photo_names():
+        return True
+    digest = _photo_md5(name)
+    return bool(digest) and digest in _paperwork_hashes()
+
+
+def public_photos(project: dict[str, Any]) -> list[dict[str, Any]]:
+    """Field photos only. Paperwork is skipped; order is otherwise unchanged."""
+    kept: list[dict[str, Any]] = []
+    for photo in project.get("photos") or []:
+        filename = str(photo.get("file") or "")
+        if not filename or photo_is_paperwork(filename):
+            continue
+        kept.append(photo)
+    return kept
+
+
 def card_html(
     project: dict[str, Any],
     *,
     image_prefix: str = "../images/recent-work/",
     href_prefix: str = "",
 ) -> str:
-    photos = list(project.get("photos") or [])[:3]
+    photos = public_photos(project)[:3]
     grid = {0: "empty", 1: "single", 2: "double"}.get(len(photos), "triple")
     caption = photo_caption(project)
-    img_bits = []
-    for photo in photos:
-        src = f"{image_prefix}{photo['file']}"
-        alt = html.escape(caption, quote=True)
-        img_bits.append(
-            f'<img src="{src}" alt="{alt}" width="800" height="450" loading="lazy" '
-            f'onclick="openLightbox(\'{src}\')" style="cursor:pointer">'
+    if photos:
+        img_bits = []
+        for photo in photos:
+            src = f"{image_prefix}{photo['file']}"
+            alt = html.escape(caption, quote=True)
+            img_bits.append(
+                f'<img src="{src}" alt="{alt}" width="800" height="450" loading="lazy" '
+                f'onclick="openLightbox(\'{src}\')" style="cursor:pointer">'
+            )
+        photos_html = "\n".join(img_bits)
+    else:
+        photos_html = (
+            '<div class="photo-fallback" role="img" aria-label="Field photo unavailable"></div>'
         )
-    photos_html = "\n".join(img_bits)
     title = html.escape(project["title"])
     location = html.escape(public_place_label(project.get("location") or ""))
     summary = html.escape(public_body_summary(project))
@@ -805,7 +879,7 @@ def projects_by_slugs(
         project = by_slug.get(slug)
         if not project:
             continue
-        photos = [ph for ph in (project.get("photos") or []) if ph.get("file")]
+        photos = public_photos(project)
         if not photos:
             continue
         photo_path = PHOTO_DIR / photos[0]["file"]
@@ -816,7 +890,7 @@ def projects_by_slugs(
 
 
 def money_page_card_html(project: dict[str, Any]) -> str:
-    photos = list(project.get("photos") or [])
+    photos = public_photos(project)
     photo = photos[0] if photos else {}
     file_name = photo.get("file") or ""
     title = (project.get("title") or "").strip()
@@ -824,10 +898,16 @@ def money_page_card_html(project: dict[str, Any]) -> str:
     # City-only alt. Do not reuse photo alts that name a street or area.
     alt = f"{title} in {city}" if city else title
     slug = html.escape(project["slug"])
+    if file_name:
+        media = (
+            f'<img src="/images/recent-work/{html.escape(file_name)}" '
+            f'alt="{html.escape(alt, quote=True)}" width="800" height="450" loading="lazy">'
+        )
+    else:
+        media = '<div class="photo-fallback" role="img" aria-label="Field photo unavailable"></div>'
     return (
         f'<a class="recent-work-card" href="/recent-work/{slug}.html">\n'
-        f'<img src="/images/recent-work/{html.escape(file_name)}" '
-        f'alt="{html.escape(alt, quote=True)}" width="800" height="450" loading="lazy">\n'
+        f"{media}\n"
         f'<div class="rw-body">\n'
         f"<h3>{html.escape(title)}</h3>\n"
         f"<p>{html.escape(city)}</p>\n"
@@ -874,7 +954,7 @@ def replace_recent_jobs_section(text: str, block: str) -> str:
 
 
 def project_has_photo(project: dict[str, Any]) -> bool:
-    photos = [ph for ph in (project.get("photos") or []) if ph.get("file")]
+    photos = public_photos(project)
     if not photos:
         return False
     return (PHOTO_DIR / photos[0]["file"]).is_file()

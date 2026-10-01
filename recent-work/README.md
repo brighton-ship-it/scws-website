@@ -117,6 +117,18 @@ Anything thinner is still built, so the photo and city stay available, but the p
 
 Specs (horsepower, depth, flow, brand) are printed only when that number or name is already in the job note. The generator does not invent them.
 
+## Photo gate
+
+Heroes, cards, galleries, and social images skip anything listed in `recent-work/paperwork-photos.txt`: paper, invoices, forms, handwritten notes, shipping labels, and phone screenshots. The next real field photo is used. If a job has no field photo left, the card and hero use a plain brand-color block instead of that file.
+
+The list is a visual audit. A brightness check also matches white tanks and motor nameplates, so those photos are not on the list. Notes written on a metal panel stay. A byte-identical copy of a listed photo is skipped even under a new filename.
+
+To block another photo, add its filename (one per line) and rebuild:
+
+```bash
+python3 scripts/generate-recent-work-pages.py
+```
+
 Rebuild pages, hubs, the Recent Work index, and the Recent Work sitemap entries:
 
 ```bash

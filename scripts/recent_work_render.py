@@ -20,6 +20,7 @@ from recent_work_lib import (
     job_is_indexable,
     photo_caption,
     public_body_summary,
+    public_photos,
     public_place_label,
     service_page_href,
 )
@@ -112,6 +113,10 @@ def _chrome(title: str, description: str, canonical: str, *, robots: str, og_ima
     .project-photos.triple {{ grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; }}
     .project-photos.triple img:first-child {{ grid-row: 1 / -1; }}
     .project-photos img {{ width: 100%; height: 100%; object-fit: cover; }}
+    .project-photos.empty, .photo-fallback {{
+        background: linear-gradient(135deg, #1f3b4d, #4e9271);
+        min-height: 180px;
+    }}
     .project-card p.text-sm.text-gray-600 {{
         display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden;
     }}
@@ -234,7 +239,7 @@ def render_job_page(project: dict[str, Any], *, title: str, description: str) ->
     place = public_place_label(project.get("location") or "")
     city = card_city_only(project.get("location") or "") or place
     caption = photo_caption(project)
-    photos = list(project.get("photos") or [])
+    photos = public_photos(project)
     og_image = (
         f"{SITE}/images/recent-work/{photos[0]['file']}"
         if photos
@@ -382,7 +387,7 @@ def render_city_hub(hub: dict[str, Any]) -> str:
         description = description[:167].rsplit(" ", 1)[0] + "."
     hero_photo = ""
     for project in projects:
-        photos = project.get("photos") or []
+        photos = public_photos(project)
         if photos:
             hero_photo = f"/images/recent-work/{photos[0]['file']}"
             break
