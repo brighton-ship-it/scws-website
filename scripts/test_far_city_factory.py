@@ -97,7 +97,9 @@ class NoindexApplyTests(unittest.TestCase):
 
     def test_job_pages_stay_in_pages_sitemap(self):
         xml = (ROOT / "sitemap-pages.xml").read_text(encoding="utf-8")
-        self.assertIn("recent-work/perris-pump-replacement.html", xml)
+        # Real job notes stay. Boilerplate "completed in {city}" pages do not.
+        self.assertIn("recent-work/torrey-hill-pump-replacement.html", xml)
+        self.assertNotIn("recent-work/perris-pump-replacement.html", xml)
 
 
 class GeneratorDisabledTests(unittest.TestCase):

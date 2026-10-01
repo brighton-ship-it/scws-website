@@ -13,6 +13,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from recent_work_lib import (
+    MIN_INDEXABLE_SUMMARY_WORDS,
     MONEY_PAGE_SLUGS,
     PAGE_SIZE,
     apply_money_page_recent_work,
@@ -23,6 +24,7 @@ from recent_work_lib import (
     collect_attachments,
     is_public_safe_title,
     job_h1,
+    job_is_indexable,
     jsonld_items,
     load_projects,
     merge_projects,
@@ -33,7 +35,10 @@ from recent_work_lib import (
     replace_recent_jobs_section,
     paginate_projects,
     projects_by_slugs,
+    extract_project_facts,
     public_location,
+    public_meta_descriptions,
+    public_titles,
     sanitize_public_text,
     slugify,
     trim_meta_description,
@@ -483,6 +488,62 @@ class MoneyPageCardTests(unittest.TestCase):
             for key, value in saved.items():
                 if value is not None:
                     os.environ[key] = value
+
+
+class QualityGateTests(unittest.TestCase):
+    def test_boilerplate_is_not_indexable(self):
+        project = {
+            "title": "Well service",
+            "location": "Ramona",
+            "summary": "Well service completed in Ramona.",
+            "dateLabel": "August 21, 2026",
+            "categoryLabel": "Pump Service",
+            "id": "job1",
+            "slug": "ramona-well-service",
+        }
+        self.assertFalse(job_is_indexable(project))
+        self.assertEqual(extract_project_facts(project["summary"]), [])
+
+    def test_real_note_is_indexable_and_facts_come_from_the_note(self):
+        summary = (
+            "Crew pulled a submersible pump set at 320 ft in a 354-ft well and "
+            "installed a new 2 HP Goulds motor. Amp draw was 9.4 A."
+        )
+        project = {
+            "title": "Pump replacement",
+            "location": "Ramona",
+            "summary": summary,
+            "dateLabel": "August 20, 2026",
+            "categoryLabel": "Pump Service",
+            "id": "job2",
+            "slug": "ramona-pump",
+        }
+        self.assertGreaterEqual(len(summary.split()), MIN_INDEXABLE_SUMMARY_WORDS)
+        self.assertTrue(job_is_indexable(project))
+        labels = dict(extract_project_facts(summary))
+        self.assertEqual(labels["Pump setting"], "320 ft")
+        self.assertEqual(labels["Well depth"], "354 ft")
+        self.assertEqual(labels["Pump / motor"], "2 HP")
+        self.assertIn("Goulds", labels["Equipment"])
+
+    def test_titles_are_unique(self):
+        projects = load_projects()["projects"]
+        titles = public_titles(projects)
+        descriptions = public_meta_descriptions(projects)
+        self.assertEqual(len(titles), len(set(titles.values())))
+        self.assertEqual(len(descriptions), len(set(descriptions.values())))
+        indexable = [p for p in projects if job_is_indexable(p)]
+        self.assertGreaterEqual(len(indexable), 80)
+        self.assertLess(len(indexable), 200)
+        thin = next(p for p in projects if p["slug"] == "ramona-well-service-99")
+        self.assertFalse(job_is_indexable(thin))
+        kept = next(p for p in projects if p["slug"] == "torrey-hill-pump-replacement")
+        self.assertTrue(job_is_indexable(kept))
+        self.assertIn("Torrey Hill", titles[kept["slug"]])
+        self.assertIn("SCWS", titles[kept["slug"]])
+        street = next(p for p in projects if "Hanson" in (p.get("location") or ""))
+        self.assertNotIn("Hanson", titles[street["slug"]])
+        self.assertIn("Ramona", titles[street["slug"]])
 
 
 if __name__ == "__main__":

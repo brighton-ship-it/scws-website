@@ -1,0 +1,443 @@
+#!/usr/bin/env python3
+"""HTML for Recent Work job pages and per-city hubs.
+
+Public copy is job type, city, date, and whatever the job note already says.
+No customer names, street addresses, phone numbers, or invoice details.
+"""
+from __future__ import annotations
+
+import html
+import json
+from typing import Any
+
+from recent_work_lib import (
+    card_city_only,
+    card_html,
+    city_service_href,
+    extract_project_facts,
+    hub_public_url,
+    job_h1,
+    job_is_indexable,
+    photo_caption,
+    public_body_summary,
+    public_place_label,
+    service_page_href,
+)
+
+SITE = "https://scwellservice.com"
+
+
+def _esc(value: object) -> str:
+    return html.escape(str(value or ""), quote=True)
+
+
+def _chrome(title: str, description: str, canonical: str, *, robots: str, og_image: str, json_ld: dict, body: str) -> str:
+    robots_tag = f'<meta name="robots" content="{robots}"/>\n' if robots else ""
+    return f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+<script src="/js/ga4-filter.js"></script>
+<script src="/js/cookie-consent.js"></script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-5LL1YRWT5T"></script>
+<script src="/js/scws-tracking.js"></script>
+    <script src="/js/call-tracking.js"></script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>{_esc(title)}</title>
+<meta content="{_esc(description)}" name="description"/>
+{robots_tag}<link href="{_esc(canonical)}" rel="canonical"/>
+<meta content="article" property="og:type"/>
+<meta content="{_esc(canonical)}" property="og:url"/>
+<meta content="{_esc(title)}" property="og:title"/>
+<meta content="{_esc(description)}" property="og:description"/>
+<meta content="{_esc(og_image)}" property="og:image"/>
+<link href="/images/logo-text-only-3x.png" rel="icon" type="image/png"/>
+<link href="/css/styles.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" onload="this.onload=null;this.rel='stylesheet'" rel="preload"/>
+<noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/></noscript>
+<script type="application/ld+json">
+{json.dumps(json_ld, indent=2)}
+</script>
+<style>
+    .rw-hero {{ position: relative; background: #1f3b4d; }}
+    .rw-hero img {{ width: 100%; height: 280px; object-fit: cover; display: block; }}
+    .rw-hero-copy {{
+        position: absolute; left: 0; right: 0; bottom: 0;
+        padding: 1.25rem 1.25rem 1.4rem;
+        background: linear-gradient(transparent, rgba(15, 23, 42, 0.88));
+        color: #fff;
+    }}
+    .rw-kicker {{
+        display: inline-block; background: #4e9271; color: #fff;
+        font-size: 0.75rem; font-weight: 700; letter-spacing: 0.04em;
+        text-transform: uppercase; border-radius: 999px; padding: 0.2rem 0.7rem;
+    }}
+    .rw-hero h1 {{ color: #fff; font-size: 1.7rem; line-height: 1.2; margin: 0.6rem 0 0.25rem; }}
+    .rw-hero p {{ color: rgba(255,255,255,0.9); margin: 0; }}
+    .rw-wrap {{ max-width: 1100px; margin: 0 auto; padding: 1.5rem 1rem 3rem; }}
+    .rw-grid {{ display: grid; gap: 1.5rem; }}
+    .rw-panel {{
+        background: #fff; border: 1px solid #e5e7eb; border-radius: 16px; padding: 1.25rem;
+    }}
+    .rw-panel h2 {{ color: #1f3b4d; font-size: 1.25rem; font-weight: 700; margin: 0 0 0.8rem; }}
+    .rw-facts {{ display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin: 0; }}
+    .rw-facts div {{ background: #f8fafc; border-radius: 12px; padding: 0.75rem 0.9rem; }}
+    .rw-facts dt {{ font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.04em; color: #6b7280; }}
+    .rw-facts dd {{ margin: 0.15rem 0 0; font-weight: 650; color: #1f3b4d; }}
+    .rw-facts a {{ color: #4e9271; }}
+    .rw-summary {{ color: #374151; font-size: 1.05rem; line-height: 1.7; margin: 0; }}
+    .rw-thumbs {{ display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 0.6rem; margin-top: 1rem; }}
+    .rw-thumbs img, .rw-hero img {{ cursor: pointer; }}
+    .rw-thumbs img {{ width: 100%; height: 110px; object-fit: cover; border-radius: 10px; background: #e5e7eb; }}
+    .rw-cta {{ background: #1f3b4d; color: #fff; border-radius: 16px; padding: 1.25rem; }}
+    .rw-cta h2 {{ color: #fff; font-size: 1.35rem; margin: 0 0 0.4rem; }}
+    .rw-cta p {{ color: rgba(255,255,255,0.88); margin: 0 0 1rem; }}
+    .rw-actions {{ display: flex; flex-wrap: wrap; gap: 0.6rem; }}
+    .rw-actions a {{
+        display: inline-block; border-radius: 999px; padding: 0.7rem 1rem;
+        font-weight: 700; text-decoration: none;
+    }}
+    .rw-call {{ background: #fff; color: #1f3b4d; }}
+    .rw-text {{ background: #2563eb; color: #fff; }}
+    .rw-est {{ background: #4e9271; color: #fff; }}
+    .rw-links {{ margin-top: 1rem; display: flex; flex-direction: column; gap: 0.35rem; }}
+    .rw-links a {{ color: #fff; font-weight: 600; }}
+    .rw-cards {{ display: grid; gap: 1.25rem; }}
+    .project-card {{ background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }}
+    .project-photos {{ display: grid; gap: 4px; aspect-ratio: 16/9; overflow: hidden; }}
+    .project-photos.single {{ grid-template-columns: 1fr; }}
+    .project-photos.double {{ grid-template-columns: 1fr 1fr; }}
+    .project-photos.triple {{ grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; }}
+    .project-photos.triple img:first-child {{ grid-row: 1 / -1; }}
+    .project-photos img {{ width: 100%; height: 100%; object-fit: cover; }}
+    .project-card p.text-sm.text-gray-600 {{
+        display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden;
+    }}
+    .service-badge {{
+        display: inline-block; background: #e8f4fd; color: #1a73a7; font-size: 0.75rem;
+        font-weight: 600; padding: 2px 10px; border-radius: 9999px; text-transform: uppercase;
+    }}
+    .lightbox {{ display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.9); z-index: 9999; cursor: pointer; justify-content: center; align-items: center; }}
+    .lightbox.active {{ display: flex; }}
+    .lightbox img {{ max-width: 90vw; max-height: 90vh; object-fit: contain; border-radius: 8px; }}
+    @media (min-width: 768px) {{
+        .rw-hero img {{ height: 460px; }}
+        .rw-hero h1 {{ font-size: 2.4rem; }}
+        .rw-grid {{ grid-template-columns: 1.4fr 0.8fr; align-items: start; }}
+        .rw-cards {{ grid-template-columns: 1fr 1fr; }}
+    }}
+    @media (min-width: 1024px) {{
+        .rw-cards {{ grid-template-columns: 1fr 1fr 1fr; }}
+    }}
+</style>
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+</head>
+<body class="bg-gray-50">
+<div class="bg-gradient-to-r from-red-600 to-red-700 text-white py-2.5">
+<div class="max-w-7xl mx-auto px-4 text-center flex items-center justify-center gap-2 flex-wrap">
+<span class="font-bold tracking-wide">No Water?</span>
+<span class="hidden sm:inline">Same-day emergency service available.</span>
+<a class="bg-white text-red-600 font-bold px-4 py-1 rounded-full text-sm hover:bg-red-100 transition ml-1" href="tel:7604408520">Call Now</a>
+</div>
+</div>
+<header class="bg-primary text-white sticky top-0 z-50 shadow-lg">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center py-2 gap-2">
+<a class="shrink min-w-0" href="/">
+<img width="840" height="150" alt="Southern California Well Service" class="site-logo-img" loading="lazy" src="/images/logo-text-only-3x.png"/>
+</a>
+<nav class="hidden xl:flex space-x-4 items-center">
+<a class="text-white hover:text-accent transition whitespace-nowrap" href="/#services">Services</a>
+<a class="text-white hover:text-accent transition whitespace-nowrap" href="/#areas">Service Areas</a>
+<a class="text-white hover:text-accent transition whitespace-nowrap" href="/blog/">Resources</a>
+<a class="text-white font-semibold whitespace-nowrap" href="/recent-work/">Recent Work</a>
+<a class="text-white hover:text-accent transition whitespace-nowrap" href="/faq.html">FAQ</a>
+<a class="text-white hover:text-accent transition whitespace-nowrap" href="/contact.html">Contact</a>
+<a class="text-white font-semibold hover:text-accent transition whitespace-nowrap" href="/cost-calculator.html">Free Estimate</a>
+</nav>
+<div class="flex items-center gap-2 shrink-0">
+<button class="xl:hidden text-white p-2" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" aria-label="Toggle menu">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+<a class="site-phone-cta bg-red-600 hover:bg-red-700 text-white font-semibold rounded-lg transition" href="tel:+17604408520">(760) 440-8520</a>
+</div>
+</div>
+<div class="hidden xl:hidden pb-4 space-y-2" id="mobile-menu">
+<a class="block text-white py-2" href="/#services">Services</a>
+<a class="block text-white py-2" href="/#areas">Service Areas</a>
+<a class="block text-white py-2" href="/blog/">Resources</a>
+<a class="block text-white font-semibold py-2" href="/recent-work/">Recent Work</a>
+<a class="block text-white py-2" href="/contact.html">Contact</a>
+<a class="block text-accent font-semibold py-2" href="/cost-calculator.html">Free Estimate</a>
+</div>
+</div>
+</header>
+{body}
+<footer class="bg-gray-900 text-gray-300 py-12">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div>
+<h3 class="text-white font-bold text-lg mb-4">Southern California Well Service</h3>
+<p class="text-sm">Licensed well drilling and pump service for San Diego, Riverside, and San Bernardino counties.</p>
+<p class="text-sm mt-2">CSLB License #1086994 (C-57 Water Well Drilling)</p>
+</div>
+<div>
+<h3 class="text-white font-bold mb-4">Ramona Shop</h3>
+<p class="text-sm">1077 Main Street, Unit B, Ramona, CA 92065</p>
+<p class="text-sm mt-1"><a class="hover:text-white" href="tel:7604408520">(760) 440-8520</a></p>
+</div>
+<div>
+<h3 class="text-white font-bold mb-4">Anza Shop</h3>
+<p class="text-sm">57174 CA-371 (US Hwy 79), Anza, CA 92539</p>
+<p class="text-sm mt-1"><a class="hover:text-white" href="tel:7604408520">(760) 440-8520</a></p>
+</div>
+</div>
+<div class="border-t border-gray-700 mt-8 pt-8 text-center text-sm">
+<p>© 2026 Southern California Well Service LLC. All rights reserved.</p>
+</div>
+</div>
+</footer>
+<div class="lightbox" id="lightbox" onclick="this.classList.remove('active')">
+<img alt="Project photo" id="lightbox-img" src=""/>
+</div>
+<div class="fixed bottom-0 left-0 right-0 bg-white border-t shadow-lg py-2 px-4 flex justify-center gap-2 z-[1100] lg:hidden" id="sticky-cta">
+<a class="flex-1 bg-primary text-white text-center py-2.5 rounded-full font-bold text-sm" href="tel:+17604408520">Call</a>
+<a class="flex-1 bg-blue-500 text-white text-center py-2.5 rounded-full font-bold text-sm" href="sms:7602195877" title="Text-only line: (760) 219-5877">Text Us</a>
+<a class="flex-1 bg-accent text-white text-center py-2.5 rounded-full font-bold text-sm" href="/cost-calculator.html">Free Estimate</a>
+</div>
+<script>
+    function openLightbox(src) {{
+        document.getElementById('lightbox-img').src = src;
+        document.getElementById('lightbox').classList.add('active');
+    }}
+</script>
+<script>setTimeout(function(){{var s=document.createElement("script");s.src="/js/chat-widget.js?v=5";document.body.appendChild(s)}},3000)</script>
+</body>
+</html>
+"""
+
+
+def _linked(href: str | None, label: str) -> str:
+    safe = _esc(label)
+    if not href:
+        return safe
+    return f'<a href="{_esc(href)}">{safe}</a>'
+
+
+def render_job_page(project: dict[str, Any], *, title: str, description: str) -> str:
+    slug = project["slug"]
+    canonical = f"{SITE}/recent-work/{slug}.html"
+    place = public_place_label(project.get("location") or "")
+    city = card_city_only(project.get("location") or "") or place
+    caption = photo_caption(project)
+    photos = list(project.get("photos") or [])
+    og_image = (
+        f"{SITE}/images/recent-work/{photos[0]['file']}"
+        if photos
+        else f"{SITE}/images/logo-text-only-3x.png"
+    )
+    indexable = job_is_indexable(project)
+    summary = public_body_summary(project)
+    headline = job_h1({"title": project.get("title") or "", "location": place})
+    facts = [("Service", project.get("categoryLabel") or "Well service")]
+    city_href = city_service_href(project.get("location") or "")
+    facts.append(("Area", place or city))
+    facts.append(("Date", project.get("dateLabel") or project.get("date") or ""))
+    for label, value in extract_project_facts(project.get("summary") or ""):
+        facts.append((label, value))
+    service_pair = service_page_href(project)
+    service_href = service_pair[0] if service_pair else None
+    hub_slug = None
+    from recent_work_lib import city_slug_from_location
+
+    hub_slug = city_slug_from_location(project.get("location") or "")
+    hub_href = f"/recent-work/areas/{hub_slug}.html" if hub_slug else "/recent-work/"
+
+    hero_img = ""
+    if photos:
+        src = f"/images/recent-work/{photos[0]['file']}"
+        hero_img = f'<img src="{_esc(src)}" alt="{_esc(caption)}" width="1200" height="800" onclick="openLightbox(this.src)">'
+    else:
+        hero_img = '<div style="height:240px;background:linear-gradient(135deg,#1f3b4d,#4e9271)"></div>'
+    thumbs = ""
+    if len(photos) > 1:
+        bits = []
+        for photo in photos:
+            src = f"/images/recent-work/{photo['file']}"
+            bits.append(
+                f'<img src="{_esc(src)}" alt="{_esc(caption)}" width="400" height="300" loading="lazy" onclick="openLightbox(this.src)">'
+            )
+        thumbs = f'<div class="rw-thumbs">{"".join(bits)}</div>'
+
+    fact_html = []
+    for label, value in facts:
+        shown = value
+        if label == "Service":
+            shown = _linked(service_href, str(value))
+        elif label == "Area":
+            shown = _linked(city_href, str(value))
+        elif label == "Date":
+            shown = f'<time datetime="{_esc(project.get("date"))}">{_esc(value)}</time>'
+        else:
+            shown = _esc(value)
+        fact_html.append(f"<div><dt>{_esc(label)}</dt><dd>{shown}</dd></div>")
+
+    link_bits = [
+        f'<a href="{_esc(hub_href)}">All { _esc(city or place) } jobs</a>',
+    ]
+    if city_href:
+        link_bits.append(f'<a href="{_esc(city_href)}">Well service in {_esc(city or place)}</a>')
+    if service_href and service_pair:
+        link_bits.append(f'<a href="{_esc(service_href)}">{_esc(service_pair[1].title())}</a>')
+    link_bits.append('<a href="/recent-work/">All recent work</a>')
+
+    body = f"""
+<div class="bg-white border-b">
+<div class="max-w-7xl mx-auto px-4 py-3 text-sm text-gray-500">
+<a class="hover:text-accent" href="/">Home</a> · <a class="hover:text-accent" href="/recent-work/">Recent Work</a> · <a class="hover:text-accent" href="{_esc(hub_href)}">{_esc(city or place)}</a>
+</div>
+</div>
+<section class="rw-hero">
+{hero_img}
+<div class="rw-hero-copy">
+<p><span class="rw-kicker">{_esc(project.get("categoryLabel") or "Well service")}</span></p>
+<h1>{_esc(headline)}</h1>
+<p>{_esc(place)} · {_esc(project.get("dateLabel") or "")}</p>
+</div>
+</section>
+<div class="rw-wrap">
+<div class="rw-grid">
+<div class="space-y-6">
+<section class="rw-panel">
+<h2>Project details</h2>
+<dl class="rw-facts">{"".join(fact_html)}</dl>
+</section>
+<section class="rw-panel">
+<h2>What we did</h2>
+<p class="rw-summary">{_esc(summary)}</p>
+{thumbs}
+</section>
+</div>
+<aside class="rw-cta">
+<h2>Need well service in {_esc(city or place)}?</h2>
+<p>Call the Ramona or Anza shop, text the shop line, or request an estimate. We will tell you whether it sounds like a control, a pump, or a well.</p>
+<div class="rw-actions">
+<a class="rw-call" href="tel:+17604408520">Call (760) 440-8520</a>
+<a class="rw-text" href="sms:7602195877">Text (760) 219-5877</a>
+<a class="rw-est" href="/cost-calculator.html">Free estimate</a>
+</div>
+<div class="rw-links">{"".join(link_bits)}</div>
+</aside>
+</div>
+</div>
+"""
+    json_ld = {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": headline,
+        "description": description,
+        "datePublished": project.get("date"),
+        "dateModified": project.get("date"),
+        "author": {"@type": "Organization", "name": "Southern California Well Service"},
+        "publisher": {
+            "@type": "Organization",
+            "name": "Southern California Well Service",
+            "telephone": "(760) 440-8520",
+            "logo": f"{SITE}/images/logo-text-only-3x.png",
+        },
+        "contentLocation": {"@type": "Place", "name": city or place},
+        "url": canonical,
+        "image": og_image,
+    }
+    robots = "" if indexable else "noindex, follow"
+    return _chrome(title, description, canonical, robots=robots, og_image=og_image, json_ld=json_ld, body=body)
+
+
+def render_city_hub(hub: dict[str, Any]) -> str:
+    slug = hub["slug"]
+    label = hub["label"]
+    projects = hub["projects"]
+    canonical = hub_public_url(slug)
+    city_href = None
+    from pathlib import Path
+    from recent_work_lib import ROOT
+
+    if (ROOT / "services" / slug / "index.html").exists():
+        city_href = f"/services/{slug}/"
+    elif projects:
+        city_href = city_service_href(projects[0].get("location") or "")
+    count = len(projects)
+    indexed = sum(1 for project in projects if job_is_indexable(project))
+    title = f"Recent well work in {label} | SCWS"
+    description = (
+        f"{count} recent well jobs in {label} with field photos from Southern California Well Service. "
+        f"Pump, tank, and diagnostic work. "
+        + (f"See well service in {label}." if city_href else "Call Ramona or Anza for the same work.")
+    )
+    if len(description) > 170:
+        description = description[:167].rsplit(" ", 1)[0] + "."
+    hero_photo = ""
+    for project in projects:
+        photos = project.get("photos") or []
+        if photos:
+            hero_photo = f"/images/recent-work/{photos[0]['file']}"
+            break
+    hero_img = (
+        f'<img src="{_esc(hero_photo)}" alt="{_esc("Well service in " + label)}" width="1200" height="800">'
+        if hero_photo
+        else '<div style="height:220px;background:linear-gradient(135deg,#1f3b4d,#4e9271)"></div>'
+    )
+    cards = "\n".join(
+        card_html(project, image_prefix="/images/recent-work/", href_prefix="/recent-work/")
+        for project in projects
+    )
+    service_link = ""
+    if city_href:
+        service_link = (
+            f'<a class="rw-est" href="{_esc(city_href)}">Well service in {_esc(label)}</a>'
+        )
+    body = f"""
+<div class="bg-white border-b">
+<div class="max-w-7xl mx-auto px-4 py-3 text-sm text-gray-500">
+<a class="hover:text-accent" href="/">Home</a> · <a class="hover:text-accent" href="/recent-work/">Recent Work</a> · <span class="text-gray-700">{_esc(label)}</span>
+</div>
+</div>
+<section class="rw-hero">
+{hero_img}
+<div class="rw-hero-copy">
+<p><span class="rw-kicker">{count} jobs</span></p>
+<h1>Recent work in {_esc(label)}</h1>
+<p>Real field photos from jobs we already finished. {indexed} of these have a full job note.</p>
+</div>
+</section>
+<div class="rw-wrap">
+<section class="rw-cta" style="margin-bottom:1.5rem">
+<h2>Well service in {_esc(label)}</h2>
+<p>These cards are the proof. Call, text, or book, and open the city service page for drilling, pumps, and emergency work.</p>
+<div class="rw-actions">
+<a class="rw-call" href="tel:+17604408520">Call (760) 440-8520</a>
+<a class="rw-text" href="sms:7602195877">Text (760) 219-5877</a>
+<a class="rw-est" href="/cost-calculator.html">Free estimate</a>
+{service_link}
+</div>
+</section>
+<div class="rw-cards">
+{cards}
+</div>
+</div>
+"""
+    json_ld = {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": f"Recent well work in {label}",
+        "description": description,
+        "url": canonical,
+        "about": {"@type": "Place", "name": label},
+        "publisher": {"@type": "Organization", "name": "Southern California Well Service"},
+    }
+    og = f"{SITE}{hero_photo}" if hero_photo else f"{SITE}/images/logo-text-only-3x.png"
+    return _chrome(title, description, canonical, robots="", og_image=og, json_ld=json_ld, body=body)
