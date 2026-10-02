@@ -475,7 +475,7 @@
             color: #4b5563;
             font-weight: 500;
         }
-        /* Hero kicker: compact stars + rating + on Google, Anza snapshot */
+        /* Hero kicker: combined Ramona + Anza Google rating */
         .gbp-ratings-hero {
             justify-content: center;
             margin-bottom: 1.5rem;
@@ -487,9 +487,18 @@
         }
         .gbp-ratings-hero .gbp-ratings-link {
             color: #fff;
-            gap: 0.5rem;
-            font-size: 1.125rem;
+            gap: 0.4rem 0.5rem;
+            font-size: 1.05rem;
+            line-height: 1.35;
+            max-width: 40rem;
             justify-content: inherit;
+            text-align: center;
+        }
+        @media (min-width: 1024px) {
+            .gbp-ratings-hero .gbp-ratings-link {
+                font-size: 1.125rem;
+                text-align: left;
+            }
         }
         .gbp-ratings-hero .gbp-stars {
             color: #facc15;
@@ -602,8 +611,8 @@
                       <a class="gbp-ratings-link" href="https://g.page/r/Cajtn6jSo-ONEBM" target="_blank" rel="noopener">
                         <span class="gbp-stars" aria-hidden="true">★★★★★</span>
                         <span class="gbp-ratings-score" data-gbp-heading>4.8</span>
-                        <span class="gbp-ratings-count">(94)</span>
-                        <span class="gbp-ratings-label" data-gbp-shops>on Google</span>
+                        <span class="gbp-ratings-count">from 170+ Google reviews</span>
+                        <span class="gbp-ratings-label" data-gbp-shops>across our Ramona and Anza shops</span>
                       </a>
                     </div>
                     <h1 class="text-4xl lg:text-5xl font-bold mb-6 leading-tight drop-shadow-lg">
@@ -641,7 +650,7 @@
       </div>
     </section>
 
-    <!-- Trust Badges (restored pre-PR #15 row; honest Anza Google rating) -->
+    <!-- Trust Badges (combined Google rating, verified 2026-10-02) -->
     <section class="homepage-trust bg-gray-50 py-8" aria-label="Trust stats and badges">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <!-- Stats Row -->
@@ -656,7 +665,7 @@
                 </div>
                 <div>
                     <div class="text-3xl font-bold text-primary">4.8★</div>
-                    <div class="text-gray-600">Google Rating</div>
+                    <div class="text-gray-600">170+ Google reviews</div>
                 </div>
                 <div>
                     <div class="text-3xl font-bold text-primary">24/7</div>
@@ -1020,7 +1029,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <h2 class="text-3xl lg:text-4xl font-bold text-primary mb-4">What Our Customers Say</h2>
-                <p class="text-gray-600">Read shop reviews on Google. We do not publish a combined rating here.</p>
+                <p class="text-gray-600">4.8 ★ from 170+ Google reviews across our Ramona and Anza shops.</p>
             </div>
             <!-- Review Carousel -->
             <div id="review-carousel" style="position:relative;overflow:hidden">
@@ -1500,7 +1509,7 @@
     
         <script src="js/site-info.js"></script>
         <script src="js/utm-tracking.js"></script>
-        <script src="js/gbp-ratings.js?v=6"></script>
+        <script src="js/gbp-ratings.js?v=7"></script>
 
 <!-- SCWS Live Chat Widget -->
     <script>setTimeout(function(){var s=document.createElement("script");s.src="js/chat-widget.js?v=5";document.body.appendChild(s)},3000)</script>

@@ -116,8 +116,8 @@ class GoogleReviewsWidget {
             console.error('Error fetching reviews:', error);
             // Return fallback data
             return {
-                ramona: { rating: 4.7, totalReviews: 56 },
-                anza: { rating: 4.9, totalReviews: 52 }
+                ramona: { rating: 4.7, totalReviews: 62 },
+                anza: { rating: 4.8, totalReviews: 108 }
             };
         }
     }

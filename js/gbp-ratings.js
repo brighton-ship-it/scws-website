@@ -1,21 +1,21 @@
 /**
- * Live Google Business Profile ratings for the homepage hero kicker
- * (stars + rating + count + "on Google" above the H1).
+ * Combined Google ratings for the homepage hero kicker and shared mounts.
  *
  * Fetches public JSON from the jobs app (GitHub Pages cannot hold GBP secrets).
  * Success body (from scws-jobs src/lib/gbp.ts GbpRatingsPayload):
  *   { ramona: { rating, count, url? }, anza: { rating, count, url? }, updated }
  * Failure body: { error: "gbp_unconfigured" | "gbp_unavailable" }
  *
- * Homepage widget uses the Anza listing only. Never invent a combined star count.
- * Never reuse the Ramona review URL for Anza.
+ * Visible copy is the combined Ramona + Anza figure, not a single shop:
+ *   ★★★★★  4.8  from 170+ Google reviews  across our Ramona and Anza shops
+ * The link stays the Anza GBP listing already used on the homepage.
+ * Never reuse the Ramona review URL for that href.
  *
- * Visible copy is stars + rating + count + "on Google" — no shop name.
- * When live Anza { rating, count } is present: use those numbers.
- * When the API fails, returns gbp_unconfigured / gbp_unavailable, or
- * Anza numbers are missing: show the last verified Anza listing snapshot
- * from 2026-08-20 PT (pulled from Google Business Profile API, not invented):
- *   ★★★★★  4.8  (94)  on Google, linking to the Anza GBP g.page in the mount.
+ * Verified from the Google Business Profile API on 2026-10-02:
+ *   Anza 4.8 (108), Ramona 4.7 (62), combined 170 reviews, weighted 4.76 → 4.8.
+ * The API is often unconfigured, so that snapshot is what visitors see.
+ * A live payload is used only when both shops are present and the total
+ * is at least 170, so a stale Anza-only count cannot overwrite it.
  */
 (function (root) {
   'use strict';
@@ -30,29 +30,16 @@
   // street-address Maps pin (57174 CA-371) or the Ramona g.page above.
   var ANZA_LISTING = 'https://g.page/r/Cajtn6jSo-ONEBM';
 
-  // Last verified Anza listing from GBP API on 2026-08-20 PT.
-  // Fail-state only. Not a combined Ramona+Anza score.
-  var ANZA_SNAPSHOT = { rating: 4.8, count: 94, asOf: '2026-08-20' };
+  // GBP API pull, 2026-10-02. Weighted average 4.76 displays as 4.8.
+  var SHOPS = {
+    asOf: '2026-10-02',
+    anza: { rating: 4.8, count: 108 },
+    ramona: { rating: 4.7, count: 62 }
+  };
+  var COMBINED_SNAPSHOT = { rating: 4.8, countLabel: '170+', asOf: '2026-10-02' };
 
-  var SHOP = { label: 'on Google', fallbackUrl: ANZA_LISTING };
+  var SHOP_LABEL = 'across our Ramona and Anza shops';
   var STAR_ROW = '<span class="gbp-stars" aria-hidden="true">★★★★★</span>';
-
-  function isHttpUrl(value) {
-    return typeof value === 'string' && /^https?:\/\/\S+$/i.test(value.trim());
-  }
-
-  function escapeAttr(value) {
-    return String(value)
-      .replace(/&/g, '&amp;')
-      .replace(/"/g, '&quot;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;');
-  }
-
-  function shopUrl(data) {
-    if (data && isHttpUrl(data.url)) return data.url.trim();
-    return SHOP.fallbackUrl;
-  }
 
   function hasLive(data) {
     return !!(
@@ -71,41 +58,45 @@
     return (Math.round(n * 10) / 10).toFixed(1);
   }
 
-  function formatCount(n) {
-    return String(Math.round(n));
-  }
-
-  function liveAnza(payload) {
-    return payload && typeof payload === 'object' && !payload.error && hasLive(payload.anza)
-      ? payload.anza
-      : null;
+  function combinedLive(payload) {
+    if (!payload || typeof payload !== 'object' || payload.error) return null;
+    if (!hasLive(payload.anza) || !hasLive(payload.ramona)) return null;
+    var count = payload.anza.count + payload.ramona.count;
+    if (!(count >= 170)) return null;
+    var weighted =
+      (payload.anza.rating * payload.anza.count +
+        payload.ramona.rating * payload.ramona.count) /
+      count;
+    return {
+      rating: weighted,
+      countLabel: String(Math.round(count)) + '+'
+    };
   }
 
   function headingText(payload) {
-    var data = liveAnza(payload) || ANZA_SNAPSHOT;
+    var data = combinedLive(payload) || COMBINED_SNAPSHOT;
     return formatRating(data.rating);
   }
 
   function ratedWidgetHtml(data) {
-    var url = escapeAttr(shopUrl(data));
     var rating = formatRating(data.rating);
-    var count = formatCount(data.count);
+    var countLabel = data.countLabel || COMBINED_SNAPSHOT.countLabel;
     return (
-      '<a class="gbp-ratings-link" href="' + url + '" target="_blank" rel="noopener">' +
+      '<a class="gbp-ratings-link" href="' + ANZA_LISTING + '" target="_blank" rel="noopener">' +
         STAR_ROW +
         '<span class="gbp-ratings-score" data-gbp-heading>' + rating + '</span>' +
-        '<span class="gbp-ratings-count">(' + count + ')</span>' +
-        '<span class="gbp-ratings-label" data-gbp-shops>' + SHOP.label + '</span>' +
+        '<span class="gbp-ratings-count">from ' + countLabel + ' Google reviews</span>' +
+        '<span class="gbp-ratings-label" data-gbp-shops>' + SHOP_LABEL + '</span>' +
       '</a>'
     );
   }
 
   function fallbackWidgetHtml() {
-    return ratedWidgetHtml(ANZA_SNAPSHOT);
+    return ratedWidgetHtml(COMBINED_SNAPSHOT);
   }
 
   function widgetHtml(payload) {
-    var data = liveAnza(payload);
+    var data = combinedLive(payload);
     return data ? ratedWidgetHtml(data) : fallbackWidgetHtml();
   }
 
@@ -160,12 +151,7 @@
         return res.json();
       })
       .then(function (data) {
-        if (!data || typeof data !== 'object' || data.error) {
-          throw new Error('gbp error payload');
-        }
-        if (!hasLive(data.anza)) {
-          throw new Error('no anza ratings');
-        }
+        if (!combinedLive(data)) throw new Error('no combined ratings');
         return data;
       })
       .finally(function () {
@@ -187,7 +173,8 @@
 
   root.scwsGbpRatings = {
     API_URL: API_URL,
-    ANZA_SNAPSHOT: ANZA_SNAPSHOT,
+    COMBINED_SNAPSHOT: COMBINED_SNAPSHOT,
+    SHOPS: SHOPS,
     LINKS: {
       ramonaReviews: RAMONA_REVIEWS,
       anzaListing: ANZA_LISTING
