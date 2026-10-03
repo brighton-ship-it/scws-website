@@ -103,8 +103,39 @@ python3 scripts/publish-recent-work-from-jobber.py --dry-run
 - New / updated entries in `recent-work/projects.json` (existing curated copy is kept)
 - `js/recent-work-projects.js` (same data)
 - Cards inside `recent-work/index.html` (`RECENT_WORK_CARDS_*` markers)
-- Detail pages via `scripts/generate-recent-work-pages.py`
-- New URLs appended to `sitemap-pages.xml`
+- Detail pages and per-city hubs via `scripts/generate-recent-work-pages.py`
+- Sitemap URLs in `sitemap-pages.xml` for the index, pagination, city hubs, and indexable job notes only
+
+## Index gate
+
+A job page is **indexable** only when its public summary is a real job note:
+
+- It is not the publisher boilerplate (`Something completed in City.`)
+- It is at least **15 words** (`MIN_INDEXABLE_SUMMARY_WORDS` in `scripts/recent_work_lib.py`)
+
+Anything thinner is still built, so the photo and city stay available, but the page gets `noindex, follow` and is left out of the sitemap. Those jobs show up as cards on `/recent-work/areas/{city}.html`. City hubs are indexable and link to `/services/{city}/` when that page exists.
+
+Specs (horsepower, depth, flow, brand) are printed only when that number or name is already in the job note. The generator does not invent them.
+
+## Photo gate
+
+Heroes, cards, galleries, and social images skip anything listed in `recent-work/paperwork-photos.txt`: paper, invoices, forms, handwritten notes, shipping labels, and phone screenshots. The next real field photo is used. If a job has no field photo left, the card and hero use a plain brand-color block instead of that file.
+
+The list is a visual audit. A brightness check also matches white tanks and motor nameplates, so those photos are not on the list. Notes written on a metal panel stay. A byte-identical copy of a listed photo is skipped even under a new filename.
+
+To block another photo, add its filename (one per line) and rebuild:
+
+```bash
+python3 scripts/generate-recent-work-pages.py
+```
+
+Rebuild pages, hubs, the Recent Work index, and the Recent Work sitemap entries:
+
+```bash
+python3 scripts/generate-recent-work-pages.py
+```
+
+Run the publisher first when new Jobber jobs should be added. Then run the generator so new cards use this template and the same gate.
 
 Existing job IDs are never overwritten, so the live August 2026 write-ups stay
 as written.

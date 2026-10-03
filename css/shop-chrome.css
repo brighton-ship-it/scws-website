@@ -360,6 +360,11 @@ header .site-phone-cta {
   object-fit: cover;
   display: block;
 }
+.recent-work-card .photo-fallback {
+  width: 100%;
+  height: 180px;
+  background: linear-gradient(135deg, #1f3b4d, #4e9271);
+}
 .recent-work-card .rw-body {
   padding: 0.85rem 1rem 1rem;
 }

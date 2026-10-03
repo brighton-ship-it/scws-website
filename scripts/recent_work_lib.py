@@ -8,6 +8,7 @@ Public output rules (do not relax these):
 """
 from __future__ import annotations
 
+import hashlib
 import html
 import json
 import re
@@ -21,6 +22,7 @@ PROJECTS_JSON = ROOT / "recent-work" / "projects.json"
 PROJECTS_JS = ROOT / "js" / "recent-work-projects.js"
 INDEX_HTML = ROOT / "recent-work" / "index.html"
 PHOTO_DIR = ROOT / "images" / "recent-work"
+PAPERWORK_LIST = ROOT / "recent-work" / "paperwork-photos.txt"
 SITEMAP_PAGES = ROOT / "sitemap-pages.xml"
 PACIFIC = ZoneInfo("America/Los_Angeles")
 
@@ -392,22 +394,101 @@ def dump_projects_js(projects: list[dict[str, Any]]) -> None:
     )
 
 
-def card_html(project: dict[str, Any]) -> str:
-    photos = list(project.get("photos") or [])[:3]
+_PAPERWORK_NAMES: set[str] | None = None
+_PAPERWORK_HASHES: set[str] | None = None
+_MD5_CACHE: dict[str, str] = {}
+
+
+def paperwork_photo_names() -> set[str]:
+    """Filenames that must never be a hero, card, or gallery image.
+
+    The list is an audit of paper, forms, invoices, handwritten notes, shipping
+    labels, and phone screenshots. A brightness heuristic also flags white tanks
+    and motor nameplates, so those stay off this list on purpose.
+    """
+    global _PAPERWORK_NAMES
+    if _PAPERWORK_NAMES is None:
+        names: set[str] = set()
+        if PAPERWORK_LIST.is_file():
+            for line in PAPERWORK_LIST.read_text().splitlines():
+                name = line.split("#", 1)[0].strip()
+                if name:
+                    names.add(name)
+        _PAPERWORK_NAMES = names
+    return _PAPERWORK_NAMES
+
+
+def _paperwork_hashes() -> set[str]:
+    """MD5 of listed files, so a byte-identical copy under a new name is skipped."""
+    global _PAPERWORK_HASHES
+    if _PAPERWORK_HASHES is None:
+        hashes: set[str] = set()
+        for name in paperwork_photo_names():
+            digest = _photo_md5(name)
+            if digest:
+                hashes.add(digest)
+        _PAPERWORK_HASHES = hashes
+    return _PAPERWORK_HASHES
+
+
+def _photo_md5(filename: str) -> str:
+    if filename in _MD5_CACHE:
+        return _MD5_CACHE[filename]
+    path = PHOTO_DIR / filename
+    digest = hashlib.md5(path.read_bytes()).hexdigest() if path.is_file() else ""
+    _MD5_CACHE[filename] = digest
+    return digest
+
+
+def photo_is_paperwork(filename: str) -> bool:
+    name = (filename or "").strip()
+    if not name:
+        return False
+    if name in paperwork_photo_names():
+        return True
+    digest = _photo_md5(name)
+    return bool(digest) and digest in _paperwork_hashes()
+
+
+def public_photos(project: dict[str, Any]) -> list[dict[str, Any]]:
+    """Field photos only. Paperwork is skipped; order is otherwise unchanged."""
+    kept: list[dict[str, Any]] = []
+    for photo in project.get("photos") or []:
+        filename = str(photo.get("file") or "")
+        if not filename or photo_is_paperwork(filename):
+            continue
+        kept.append(photo)
+    return kept
+
+
+def card_html(
+    project: dict[str, Any],
+    *,
+    image_prefix: str = "../images/recent-work/",
+    href_prefix: str = "",
+) -> str:
+    photos = public_photos(project)[:3]
     grid = {0: "empty", 1: "single", 2: "double"}.get(len(photos), "triple")
-    img_bits = []
-    for photo in photos:
-        src = f"../images/recent-work/{photo['file']}"
-        alt = html.escape(photo.get("alt") or project["title"], quote=True)
-        img_bits.append(
-            f'<img src="{src}" alt="{alt}" width="800" height="450" loading="lazy" '
-            f'onclick="openLightbox(\'{src}\')" style="cursor:pointer">'
+    caption = photo_caption(project)
+    if photos:
+        img_bits = []
+        for photo in photos:
+            src = f"{image_prefix}{photo['file']}"
+            alt = html.escape(caption, quote=True)
+            img_bits.append(
+                f'<img src="{src}" alt="{alt}" width="800" height="450" loading="lazy" '
+                f'onclick="openLightbox(\'{src}\')" style="cursor:pointer">'
+            )
+        photos_html = "\n".join(img_bits)
+    else:
+        photos_html = (
+            '<div class="photo-fallback" role="img" aria-label="Field photo unavailable"></div>'
         )
-    photos_html = "\n".join(img_bits)
     title = html.escape(project["title"])
-    location = html.escape(project["location"])
-    summary = html.escape(project["summary"])
+    location = html.escape(public_place_label(project.get("location") or ""))
+    summary = html.escape(public_body_summary(project))
     slug = html.escape(project["slug"])
+    href = f"{href_prefix}{slug}.html"
     return (
         f'<article class="project-card" data-category="{html.escape(project["category"])}" '
         f'data-static="1" data-job="{html.escape(project["id"])}">\n'
@@ -421,11 +502,11 @@ def card_html(project: dict[str, Any]) -> str:
         f'{html.escape(project["dateLabel"])}</time>\n'
         f"</div>\n"
         f'<h3 class="font-semibold text-gray-900 mb-1">'
-        f'<a class="hover:text-accent" href="{slug}.html">{title}</a></h3>\n'
+        f'<a class="hover:text-accent" href="{href}">{title}</a></h3>\n'
         f'<p class="text-sm text-gray-500 mb-2">📍 {location}</p>\n'
         f'<p class="text-sm text-gray-600 leading-relaxed">{summary}</p>\n'
         f'<p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" '
-        f'href="{slug}.html">View project →</a></p>\n'
+        f'href="{href}">View project →</a></p>\n'
         f"</div>\n"
         f"</article>"
     )
@@ -798,7 +879,7 @@ def projects_by_slugs(
         project = by_slug.get(slug)
         if not project:
             continue
-        photos = [ph for ph in (project.get("photos") or []) if ph.get("file")]
+        photos = public_photos(project)
         if not photos:
             continue
         photo_path = PHOTO_DIR / photos[0]["file"]
@@ -809,7 +890,7 @@ def projects_by_slugs(
 
 
 def money_page_card_html(project: dict[str, Any]) -> str:
-    photos = list(project.get("photos") or [])
+    photos = public_photos(project)
     photo = photos[0] if photos else {}
     file_name = photo.get("file") or ""
     title = (project.get("title") or "").strip()
@@ -817,10 +898,16 @@ def money_page_card_html(project: dict[str, Any]) -> str:
     # City-only alt. Do not reuse photo alts that name a street or area.
     alt = f"{title} in {city}" if city else title
     slug = html.escape(project["slug"])
+    if file_name:
+        media = (
+            f'<img src="/images/recent-work/{html.escape(file_name)}" '
+            f'alt="{html.escape(alt, quote=True)}" width="800" height="450" loading="lazy">'
+        )
+    else:
+        media = '<div class="photo-fallback" role="img" aria-label="Field photo unavailable"></div>'
     return (
         f'<a class="recent-work-card" href="/recent-work/{slug}.html">\n'
-        f'<img src="/images/recent-work/{html.escape(file_name)}" '
-        f'alt="{html.escape(alt, quote=True)}" width="800" height="450" loading="lazy">\n'
+        f"{media}\n"
         f'<div class="rw-body">\n'
         f"<h3>{html.escape(title)}</h3>\n"
         f"<p>{html.escape(city)}</p>\n"
@@ -867,7 +954,7 @@ def replace_recent_jobs_section(text: str, block: str) -> str:
 
 
 def project_has_photo(project: dict[str, Any]) -> bool:
-    photos = [ph for ph in (project.get("photos") or []) if ph.get("file")]
+    photos = public_photos(project)
     if not photos:
         return False
     return (PHOTO_DIR / photos[0]["file"]).is_file()
@@ -1164,7 +1251,7 @@ def _set_listing_head(text: str, page_num: int, total_pages: int) -> str:
 def jsonld_items(projects: list[dict[str, Any]]) -> str:
     items = []
     for i, project in enumerate(projects, start=1):
-        name = f"{project['title']} — {project['location']}"
+        name = f"{project['title']} — {public_place_label(project.get('location') or '')}"
         items.append(
             {
                 "@type": "ListItem",
@@ -1192,14 +1279,14 @@ def update_index_html(projects: list[dict[str, Any]]) -> None:
         )
     pages = paginate_projects(projects)
     total_pages = len(pages)
-    replacement = jsonld_items(projects)
     if not JSONLD_ITEMLIST_RE.search(text):
         raise RuntimeError("Could not find JSON-LD item list in recent-work/index.html")
 
     page1 = _replace_cards(text, pages[0])
     page1 = _replace_pagination(page1, 1, total_pages)
     page1 = _set_listing_head(page1, 1, total_pages)
-    page1 = JSONLD_ITEMLIST_RE.sub(lambda _: replacement, page1, count=1)
+    page1 = _replace_areas(page1, projects)
+    page1 = JSONLD_ITEMLIST_RE.sub(lambda _: jsonld_items(pages[0]), page1, count=1)
     INDEX_HTML.write_text(page1)
 
     out_dir = INDEX_HTML.parent
@@ -1220,29 +1307,317 @@ def update_index_html(projects: list[dict[str, Any]]) -> None:
         leftover.unlink()
 
 
+# Recent Work index gate.
+# A job page is indexable only when its public summary is a real job note:
+# not the publisher boilerplate ("{title} completed in {city}."), and at least
+# MIN_INDEXABLE_SUMMARY_WORDS words. Shorter or boilerplate jobs are still
+# rendered (customers can open the photo), marked noindex,follow, dropped
+# from every sitemap, and shown as cards on the city hub. Specs are never
+# invented to push a thin job over the line.
+MIN_INDEXABLE_SUMMARY_WORDS = 15
+BOILERPLATE_SUMMARY_RE = re.compile(r"^.+\scompleted in\s.+\.$", re.I)
+AREA_MARKERS = (
+    "<!-- RECENT_WORK_AREAS_START -->",
+    "<!-- RECENT_WORK_AREAS_END -->",
+)
+RECENT_WORK_URL_RE = re.compile(
+    r"  <url><loc>https://scwellservice\.com/recent-work/[^<]*</loc>.*?</url>\n?"
+)
+SITEMAP_URL_RE = re.compile(
+    r"  <url><loc>([^<]+)</loc><lastmod>[^<]*</lastmod><priority>[^<]*</priority></url>\n?"
+)
+
+
+def summary_word_count(text: str) -> int:
+    return len(re.findall(r"[A-Za-z0-9']+", text or ""))
+
+
+def normalized_summary(text: str) -> str:
+    return re.sub(r"\s+", " ", (text or "").strip())
+
+
+def is_boilerplate_summary(summary: str) -> bool:
+    return bool(BOILERPLATE_SUMMARY_RE.fullmatch(normalized_summary(summary)))
+
+
+def job_is_indexable(project: dict[str, Any]) -> bool:
+    summary = normalized_summary(project.get("summary") or "")
+    if not summary or is_boilerplate_summary(summary):
+        return False
+    return summary_word_count(summary) >= MIN_INDEXABLE_SUMMARY_WORDS
+
+
+STREET_WORD_RE = re.compile(
+    r"\b(?:St|Street|Ave|Avenue|Rd|Road|Dr|Drive|Ln|Lane|Way|Ct|Court|"
+    r"Blvd|Boulevard|Hwy|Highway|Cir|Circle|Pl|Place|Ter|Terrace|Pkwy|Parkway)\b",
+    re.I,
+)
+
+
+def public_place_label(location: str) -> str:
+    """City or area label. Drop parentheticals that name a street."""
+    loc = (location or "").strip()
+    inner = re.search(r"\(([^)]+)\)", loc)
+    if inner and (STREET_RE.search(inner.group(1)) or STREET_WORD_RE.search(inner.group(1))):
+        return card_city_only(loc) or loc
+    return loc
+
+
+def photo_caption(project: dict[str, Any]) -> str:
+    """Captions are job type + city only. No customer, street, or invoice text."""
+    title = (project.get("title") or "Well service").strip()
+    city = card_city_only(project.get("location") or "") or public_place_label(
+        project.get("location") or ""
+    )
+    return f"{title} in {city}" if city else title
+
+
+def public_body_summary(project: dict[str, Any]) -> str:
+    raw = sanitize_public_text(project.get("summary") or "")
+    if job_is_indexable(project) and raw:
+        return raw
+    place = public_place_label(project.get("location") or "") or "the service area"
+    when = (project.get("dateLabel") or project.get("date") or "").strip()
+    label = (project.get("categoryLabel") or "Well service").strip()
+    title = (project.get("title") or "Well service").strip()
+    when_bit = f" on {when}" if when else ""
+    return f"{label} in {place}{when_bit}. Job type: {title}."
+
+
+def _title_subject(project: dict[str, Any]) -> str:
+    title = (project.get("title") or "Well service").strip()
+    if title.lower() == "well service":
+        return (project.get("categoryLabel") or title).strip()
+    return title
+
+
+def job_title_base(project: dict[str, Any]) -> str:
+    subject = _title_subject(project)
+    place = public_place_label(project.get("location") or "")
+    when = (project.get("dateLabel") or project.get("date") or "").strip()
+    if place and place.lower() not in subject.lower():
+        head = f"{subject} in {place}"
+    else:
+        head = subject
+    if when:
+        head = f"{head} — {when}"
+    return head
+
+
+def public_titles(projects: list[dict[str, Any]]) -> dict[str, str]:
+    grouped: dict[str, list[dict[str, Any]]] = {}
+    for project in projects:
+        grouped.setdefault(job_title_base(project), []).append(project)
+    out: dict[str, str] = {}
+    for base, group in grouped.items():
+        if len(group) == 1:
+            out[group[0]["slug"]] = f"{base} | SCWS"
+            continue
+        for project in group:
+            number = str(project.get("id") or "").removeprefix("job")
+            out[project["slug"]] = f"{base} · job {number} | SCWS"
+    return out
+
+
+def public_meta_descriptions(projects: list[dict[str, Any]]) -> dict[str, str]:
+    seen: dict[str, str] = {}
+    out: dict[str, str] = {}
+    for project in projects:
+        place = public_place_label(project.get("location") or "")
+        when = (project.get("dateLabel") or "").strip()
+        if job_is_indexable(project):
+            desc = trim_meta_description(sanitize_public_text(project.get("summary") or ""))
+        else:
+            subject = _title_subject(project)
+            desc = trim_meta_description(
+                f"{subject} in {place} on {when}. "
+                f"{project.get('categoryLabel') or 'Well service'} with field photos "
+                "from Southern California Well Service."
+            )
+        if desc in seen:
+            number = str(project.get("id") or "").removeprefix("job")
+            desc = trim_meta_description(desc.rstrip(".") + f" Job {number}.")
+        seen[desc] = project["slug"]
+        out[project["slug"]] = desc
+    return out
+
+
+def extract_project_facts(summary: str) -> list[tuple[str, str]]:
+    """Pull specs that are actually written in the job note. Never invent any."""
+    if is_boilerplate_summary(summary):
+        return []
+    text = normalized_summary(summary)
+    if summary_word_count(text) < MIN_INDEXABLE_SUMMARY_WORDS:
+        return []
+    facts: list[tuple[str, str]] = []
+    seen: set[str] = set()
+
+    def add(label: str, value: str) -> None:
+        key = label.lower()
+        value = value.strip()
+        if not value or key in seen:
+            return
+        seen.add(key)
+        facts.append((label, value))
+
+    match = re.search(r"(\d+(?:\.\d+)?)\s*HP\b", text, re.I)
+    if match:
+        add("Pump / motor", f"{match.group(1)} HP")
+    match = re.search(r"(\d+(?:\.\d+)?)\s*GPM\b", text, re.I)
+    if match:
+        add("Flow", f"{match.group(1)} GPM")
+    match = re.search(r"(\d{3})\s*-?\s*volts?\b|(\d{3})\s*V\b", text, re.I)
+    if match:
+        volts = match.group(1) or match.group(2)
+        add("Voltage", f"{volts} V")
+    match = re.search(r"(\d+)\s*-?\s*(?:ft|feet)\s+well\b", text, re.I)
+    if match:
+        add("Well depth", f"{match.group(1)} ft")
+    match = re.search(
+        r"(?:set(?:ting)?(?: at)?|from about|from|at about)\s+(\d+)\s*(?:ft|feet)\b",
+        text,
+        re.I,
+    )
+    if match:
+        add("Pump setting", f"{match.group(1)} ft")
+    match = re.search(r"\b(\d{2}/\d{2})\b", text)
+    if match:
+        add("Pressure switch", match.group(1))
+    brands = []
+    for brand in (
+        "Goulds",
+        "Franklin Electric",
+        "Franklin",
+        "Grundfos",
+        "Pentek",
+        "Sta-Rite",
+        "Pentair",
+        "Flint and Walling",
+        "Berkley",
+    ):
+        if re.search(rf"\b{re.escape(brand)}\b", text, re.I):
+            brands.append(brand if brand != "Franklin" or "Franklin Electric" not in brands else brand)
+    # Prefer the longer Franklin Electric label over a second Franklin hit.
+    if "Franklin Electric" in brands:
+        brands = [b for b in brands if b != "Franklin"]
+    if brands:
+        add("Equipment", ", ".join(dict.fromkeys(brands)))
+    match = re.search(r"(\d+(?:\.\d+)?)\s*A\b", text)
+    if match:
+        add("Amp draw", f"{match.group(1)} A")
+    return facts
+
+
+def iter_city_hubs(projects: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    grouped: dict[str, list[dict[str, Any]]] = {}
+    for project in projects:
+        slug = city_slug_from_location(project.get("location") or "") or "area"
+        grouped.setdefault(slug, []).append(project)
+    hubs = []
+    for slug, items in grouped.items():
+        hubs.append({"slug": slug, "label": hub_label(slug, items), "projects": items})
+    hubs.sort(key=lambda hub: (-len(hub["projects"]), hub["label"].lower()))
+    return hubs
+
+
+def hub_label(slug: str, items: list[dict[str, Any]]) -> str:
+    candidates: list[str] = []
+    for project in items:
+        location = project.get("location") or ""
+        inner = re.search(r"\(([^)]+?)(?:\s+area)?\)", location)
+        if inner and slugify(inner.group(1)) == slug and not STREET_RE.search(inner.group(1)):
+            candidates.append(inner.group(1).strip())
+        city = card_city_only(location)
+        if city and slugify(city) == slug:
+            candidates.append(city)
+    if candidates:
+        return max(set(candidates), key=candidates.count)
+    cities = [card_city_only(p.get("location") or "") for p in items]
+    cities = [c for c in cities if c]
+    if cities:
+        return max(set(cities), key=cities.count)
+    return slug.replace("-", " ").title()
+
+
+def hub_public_url(slug: str) -> str:
+    return f"https://scwellservice.com/recent-work/areas/{slug}.html"
+
+
+def recent_work_sitemap_entries(projects: list[dict[str, Any]]) -> list[tuple[str, str]]:
+    entries = [("https://scwellservice.com/recent-work/", "0.6")]
+    total_pages = max(1, (len(projects) + PAGE_SIZE - 1) // PAGE_SIZE)
+    for page_num in range(2, total_pages + 1):
+        entries.append((f"https://scwellservice.com/recent-work/page-{page_num}.html", "0.4"))
+    for hub in iter_city_hubs(projects):
+        entries.append((hub_public_url(hub["slug"]), "0.6"))
+    for project in projects:
+        if job_is_indexable(project):
+            entries.append(
+                (f"https://scwellservice.com/recent-work/{project['slug']}.html", "0.5")
+            )
+    return entries
+
+
+def area_nav_html(projects: list[dict[str, Any]]) -> str:
+    hubs = iter_city_hubs(projects)
+    links = []
+    for hub in hubs:
+        label = html.escape(hub["label"])
+        count = len(hub["projects"])
+        links.append(
+            f'<a class="inline-flex items-center gap-2 bg-gray-50 border border-gray-200 '
+            f'rounded-full px-3 py-1.5 text-sm font-semibold text-primary hover:border-accent" '
+            f'href="areas/{html.escape(hub["slug"])}.html">{label} '
+            f'<span class="text-accent">{count}</span></a>'
+        )
+    return (
+        '<section class="bg-white border-b" id="recent-work-areas">\n'
+        '<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">\n'
+        '<h2 class="text-2xl font-bold text-primary mb-2">Recent work by city</h2>\n'
+        '<p class="text-gray-600 mb-4 max-w-3xl">Field photos grouped by the city we worked in. '
+        "Open a city for the job grid and a link to that city's service page. "
+        "Write-ups with a real job note are linked from the grid; short photo cards stay on the city page.</p>\n"
+        f'<div class="flex flex-wrap gap-2">\n{"".join(links)}\n</div>\n'
+        "</div>\n</section>"
+    )
+
+
+def _replace_areas(text: str, projects: list[dict[str, Any]]) -> str:
+    start, end = AREA_MARKERS
+    block = f"{start}\n{area_nav_html(projects)}\n{end}"
+    if start in text and end in text:
+        return re.sub(
+            re.escape(start) + r".*?" + re.escape(end),
+            lambda _: block,
+            text,
+            count=1,
+            flags=re.S,
+        )
+    needle = "<!-- Filters -->"
+    if needle in text:
+        return text.replace(needle, block + "\n" + needle, 1)
+    return text.replace(CARD_MARKERS[0], block + "\n" + CARD_MARKERS[0], 1)
+
+
 def update_sitemap(projects: list[dict[str, Any]]) -> None:
+    """Replace Recent Work sitemap URLs with hubs, listings, and indexable jobs."""
     if not SITEMAP_PAGES.exists():
         return
     xml = SITEMAP_PAGES.read_text()
+    xml = RECENT_WORK_URL_RE.sub("", xml)
     today = date.today().isoformat()
-    existing = set(re.findall(r"<loc>(https://scwellservice\.com/recent-work/[^<]+)</loc>", xml))
-    additions = []
-    wanted = ["https://scwellservice.com/recent-work/"]
-    total_pages = max(1, (len(projects) + PAGE_SIZE - 1) // PAGE_SIZE)
-    for page_num in range(2, total_pages + 1):
-        wanted.append(f"https://scwellservice.com/recent-work/page-{page_num}.html")
-    for project in projects:
-        wanted.append(f"https://scwellservice.com/recent-work/{project['slug']}.html")
-    for url in wanted:
-        if url in existing:
+    lines = []
+    seen: set[str] = set()
+    for url, priority in recent_work_sitemap_entries(projects):
+        if url in seen:
             continue
-        priority = "0.6" if url.rstrip("/").endswith("recent-work") or "/page-" in url else "0.5"
-        additions.append(
+        seen.add(url)
+        lines.append(
             f"  <url><loc>{url}</loc><lastmod>{today}</lastmod><priority>{priority}</priority></url>\n"
         )
-    if not additions:
+    if "</urlset>" not in xml:
         return
-    xml = xml.replace("</urlset>", "".join(additions) + "</urlset>")
+    xml = xml.replace("</urlset>", "".join(lines) + "</urlset>")
     SITEMAP_PAGES.write_text(xml)
 
 
