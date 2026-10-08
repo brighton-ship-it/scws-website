@@ -397,5 +397,64 @@ class ExpansionPageTests(unittest.TestCase):
         self.assertIn("/services/idyllwild/", mountain)
 
 
+class FinancingPageTests(unittest.TestCase):
+    def test_financing_page_states_wisetack_without_invented_terms(self):
+        html = (ROOT / "pages" / "financing.html").read_text(encoding="utf-8")
+        title = _title(html)
+        self.assertLessEqual(len(title.replace("&amp;", "&")), 60)
+        self.assertIn("well drilling financing near me", html.lower())
+        self.assertIn("https://scwellservice.com/pages/financing.html", html)
+        self.assertIn("https://www.wisetack.com/", html)
+        self.assertIn("Wisetack", html)
+        self.assertNotIn("Wisestack", html)
+        self.assertIn("qualified customers", html.lower())
+        self.assertIn("tel:+17604408520", html)
+        self.assertIn("sms:7602195877", html)
+        self.assertIn("/contact.html", html)
+        self.assertIn("1086994", html)
+        self.assertNotIn("$", html)
+        self.assertNotIn("%", html)
+        self.assertNotIn("APR", html)
+        self.assertNotIn("no credit", html.lower())
+        self.assertNotIn("credit check", html.lower())
+        self.assertFalse(html_is_noindex(ROOT / "pages" / "financing.html"))
+        types = {block.get("@type") for block in _json_ld_blocks(html)}
+        self.assertIn("Service", types)
+        self.assertIn("BreadcrumbList", types)
+        self.assertNotIn("FAQPage", types)
+        pages = (ROOT / "sitemap-pages.xml").read_text(encoding="utf-8")
+        self.assertIn("https://scwellservice.com/pages/financing.html", pages)
+        for rel in (
+            "index.html",
+            "pages/services/index.html",
+            "pages/services/well-drilling.html",
+            "pages/services/pump-repair.html",
+            "pages/services/booster-pumps.html",
+            "services/index.html",
+            "services/ramona/well-drilling.html",
+            "services/anza/well-drilling.html",
+        ):
+            self.assertIn("/pages/financing.html", (ROOT / rel).read_text(encoding="utf-8"), rel)
+
+    def test_pump_repair_cost_section_has_no_prices(self):
+        html = (ROOT / "pages" / "services" / "pump-repair.html").read_text(encoding="utf-8")
+        self.assertIn('id="pump-replacement-cost"', html)
+        section = html.split('id="pump-replacement-cost"', 1)[1].split("</section>", 1)[0]
+        self.assertIn("What affects well pump replacement cost", section)
+        for phrase in (
+            "Well depth",
+            "horsepower",
+            "gallons per minute",
+            "Wire run",
+            "control box",
+            "Pressure tank",
+            "Access and pull rig",
+            "Emergency timing",
+        ):
+            self.assertIn(phrase, section)
+        self.assertNotIn("$", section)
+        self.assertNotRegex(section, r"\$\s*\d")
+
+
 if __name__ == "__main__":
     unittest.main()
