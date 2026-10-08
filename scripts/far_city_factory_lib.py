@@ -199,9 +199,22 @@ def apply_far_city_noindex(root: Path | None = None) -> list[Path]:
 
 
 def rebuild_services_sitemap(root: Path | None = None) -> int:
-    """Keep city hubs that are still indexable. Drop noindex factory hubs."""
+    """Keep city hubs that are still indexable. Drop noindex factory hubs.
+
+    Existing lastmod values stay put. TODAY is only for hubs that were not
+    already in the sitemap.
+    """
     root = root or ROOT
     services = root / "services"
+    sitemap_path = root / "sitemap-services.xml"
+    previous: dict[str, str] = {}
+    if sitemap_path.is_file():
+        previous = dict(
+            re.findall(
+                r"<loc>([^<]+)</loc><lastmod>([^<]+)</lastmod>",
+                sitemap_path.read_text(encoding="utf-8"),
+            )
+        )
     urls: list[str] = []
     if services.is_dir():
         for city_dir in sorted(p for p in services.iterdir() if p.is_dir()):
@@ -216,9 +229,10 @@ def rebuild_services_sitemap(root: Path | None = None) -> int:
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n',
     ]
     for url in urls:
+        lastmod = previous.get(url, TODAY)
         lines.append(
-            f"  <url><loc>{url}</loc><lastmod>{TODAY}</lastmod><priority>0.7</priority></url>\n"
+            f"  <url><loc>{url}</loc><lastmod>{lastmod}</lastmod><priority>0.7</priority></url>\n"
         )
     lines.append("</urlset>\n")
-    (root / "sitemap-services.xml").write_text("".join(lines), encoding="utf-8")
+    sitemap_path.write_text("".join(lines), encoding="utf-8")
     return len(urls)

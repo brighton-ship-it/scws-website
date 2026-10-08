@@ -434,6 +434,26 @@ class MoneyPageCardTests(unittest.TestCase):
             titles = [p["title"] for p in hits]
             self.assertEqual(len(titles), len(set(titles)), rel)
 
+    def test_indexable_only_skips_noindex_jobs(self):
+        projects = load_projects()["projects"]
+        spec = {
+            "city": "Hemet",
+            "prefer": ["hemet-electrical-disconnect-replacement"],
+            "indexable_only": True,
+        }
+        hits = pick_money_page_projects(projects, spec, limit=6)
+        slugs = [p["slug"] for p in hits]
+        self.assertNotIn("hemet-electrical-disconnect-replacement", slugs)
+        self.assertIn("hemet-pressure-tank-plumbing-repair", slugs)
+        self.assertGreaterEqual(len(hits), 3)
+        open_spec = dict(spec)
+        open_spec["indexable_only"] = False
+        open_hits = pick_money_page_projects(projects, open_spec, limit=6)
+        self.assertIn(
+            "hemet-electrical-disconnect-replacement",
+            [p["slug"] for p in open_hits],
+        )
+
     def test_catalog_picker_fills_city_pages_without_frozen_slugs(self):
         projects = load_projects()["projects"]
         spec = money_page_specs()["services/valley-center/index.html"]

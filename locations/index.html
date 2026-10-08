@@ -277,6 +277,7 @@
             {name: "Aguanga", slug: "aguanga"},
             {name: "Anza", slug: "anza"},
             {name: "Idyllwild", slug: "idyllwild"},
+            {name: "Mountain Center", slug: "mountain-center", href: "/services/mountain-center/"},
             {name: "Banning", slug: "banning"},
             {name: "Beaumont", slug: "beaumont"},
             {name: "Calimesa", slug: "calimesa"},
@@ -290,7 +291,7 @@
             {name: "La Quinta", slug: "la-quinta"},
             {name: "Indio", slug: "indio"},
             {name: "Coachella", slug: "coachella"},
-            {name: "Desert Hot Springs", slug: "desert-hot-springs"},
+            {name: "Desert Hot Springs", slug: "desert-hot-springs", href: "/services/desert-hot-springs/"},
             {name: "Thousand Palms", slug: "thousand-palms"},
             {name: "Twentynine Palms", slug: "twentynine-palms"}
         ],
@@ -326,9 +327,10 @@
 
     function renderCities(containerId, cityList) {
         const container = document.getElementById(containerId);
-        container.innerHTML = cityList.map(city => 
-            `<a href="/blog/well-service-${city.slug}.html" class="city-link text-blue-600 hover:text-blue-800">${city.name}</a>`
-        ).join('');
+        container.innerHTML = cityList.map(city => {
+            const href = city.href || `/blog/well-service-${city.slug}.html`;
+            return `<a href="${href}" class="city-link text-blue-600 hover:text-blue-800">${city.name}</a>`;
+        }).join('');
     }
 
     renderCities('sd-cities', cities.sd);
