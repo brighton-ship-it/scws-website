@@ -660,6 +660,30 @@ MONEY_PAGE_SLUGS = {
         "valley-center-overcurrent-fault-diagnostic",
         "temecula-transducer-and-pressure-tank-replacement",
     ],
+    "pages/services/water-storage-tanks.html": [
+        "poway-storage-tank-replacement",
+        "escondido-storage-tank-float-repair",
+        "pine-valley-storage-tank-adapter-repair",
+        "anza-storage-tank-float-inspection",
+        "menifee-tank-float-replacement",
+        "menifee-pump-down-float-replacement",
+    ],
+    "pages/services/booster-pumps.html": [
+        "ramona-booster-pump-replacement",
+        "ramona-highland-booster-motor",
+        "ramona-booster-pump-evaluation",
+        "fallbrook-booster-pump-diagnostic",
+        "warner-springs-booster-and-tank-diagnostic",
+        "descanso-well-and-booster-plumbing-evaluation",
+    ],
+    "pages/services/pressure-tanks.html": [
+        "ramona-hanson-pressure-tank",
+        "hemet-pressure-tank-plumbing-repair",
+        "murrieta-pressure-tank-evaluation",
+        "wildomar-pressure-tank-switch-service",
+        "temecula-transducer-and-pressure-tank-replacement",
+        "warner-springs-pressure-loss-diagnostic",
+    ],
 }
 
 MONEY_PAGE_HEADINGS = {
@@ -706,6 +730,18 @@ MONEY_PAGE_HEADINGS = {
     "services/anza/emergency-well-service.html": (
         "Recent Anza no-water jobs",
         "Real diagnostic and emergency calls. Real photos.",
+    ),
+    "pages/services/water-storage-tanks.html": (
+        "Recent storage tank jobs",
+        "Real tank, float, and pad jobs. Real photos.",
+    ),
+    "pages/services/booster-pumps.html": (
+        "Recent booster jobs",
+        "Real booster pump and motor jobs. Real photos.",
+    ),
+    "pages/services/pressure-tanks.html": (
+        "Recent pressure tank jobs",
+        "Real pressure tank and switch jobs. Real photos.",
     ),
 }
 
@@ -850,6 +886,72 @@ MONEY_PAGE_AUTO = {
         "city": "Julian",
         "heading": "Recent work in Julian",
         "lede": "Julian mountain well jobs. Real photos.",
+    },
+    "services/hemet/index.html": {
+        "city": "Hemet",
+        "prefer": [
+            "hemet-deepen-pump-setting",
+            "hemet-pressure-switch-and-filter-service",
+            "hemet-pressure-tank-plumbing-repair",
+        ],
+        "indexable_only": True,
+        "heading": "Recent work in Hemet",
+        "lede": "Hemet jobs from the Anza shop. Real photos.",
+    },
+    "services/el-cajon/index.html": {
+        "city": "El Cajon",
+        "prefer": [
+            "el-cajon-check-valve-replacement",
+            "el-cajon-well-contactor-replacement",
+            "el-cajon-well-control-diagnostic",
+        ],
+        "indexable_only": True,
+        "heading": "Recent work in El Cajon",
+        "lede": "El Cajon jobs from the Ramona shop. Real photos.",
+    },
+    "services/menifee/index.html": {
+        "city": "Menifee",
+        "prefer": [
+            "menifee-pump-down-float-replacement",
+            "menifee-tank-float-replacement",
+        ],
+        "indexable_only": True,
+        "min_cards": 2,
+        "heading": "Recent work in Menifee",
+        "lede": "Menifee tank and pump jobs from the Anza shop. Real photos.",
+    },
+    "services/warner-springs/index.html": {
+        "city": "Warner Springs",
+        "prefer": [
+            "warner-springs-booster-and-tank-diagnostic",
+            "warner-springs-pressure-loss-diagnostic",
+            "warner-springs-pressure-switch-service",
+        ],
+        "indexable_only": True,
+        "heading": "Recent work in Warner Springs",
+        "lede": "Warner Springs jobs from the Ramona shop. Real photos.",
+    },
+    "services/rancho-santa-fe/index.html": {
+        "city": "Rancho Santa Fe",
+        "prefer": [
+            "rancho-santa-fe-electrical-panel-service",
+            "rancho-santa-fe-high-amp-well-diagnostic",
+            "rancho-santa-fe-pull-well-pump-and-motor",
+        ],
+        "indexable_only": True,
+        "heading": "Recent work in Rancho Santa Fe",
+        "lede": "Rancho Santa Fe jobs from the Ramona shop. Real photos.",
+    },
+    "services/santa-ysabel/index.html": {
+        "city": "Santa Ysabel",
+        "prefer": [
+            "santa-ysabel-pressure-switch-and-filter-service",
+            "santa-ysabel-well-bail-and-brush",
+        ],
+        "indexable_only": True,
+        "min_cards": 2,
+        "heading": "Recent work in Santa Ysabel",
+        "lede": "Santa Ysabel jobs from the Ramona shop. Real photos.",
     },
 }
 
@@ -1007,8 +1109,25 @@ def money_page_specs() -> dict[str, dict[str, Any]]:
             "heading": extra.get("heading") or "Recent work",
             "lede": extra.get("lede") or "Real jobs. Real photos.",
         }
+        if extra.get("indexable_only"):
+            merged["indexable_only"] = True
+        if extra.get("min_cards"):
+            merged["min_cards"] = int(extra["min_cards"])
         specs[rel] = merged
     return specs
+
+
+def project_page_is_indexable(project: dict[str, Any]) -> bool:
+    """True when the public Recent Work page exists and is not noindex."""
+    slug = str(project.get("slug") or "")
+    if not slug:
+        return False
+    path = ROOT / "recent-work" / f"{slug}.html"
+    if not path.is_file():
+        return False
+    from far_city_factory_lib import html_is_noindex
+
+    return not html_is_noindex(path)
 
 
 def pick_money_page_projects(
@@ -1025,6 +1144,8 @@ def pick_money_page_projects(
         if len(picked) >= limit:
             return False
         if not project_has_photo(project):
+            return False
+        if spec.get("indexable_only") and not project_page_is_indexable(project):
             return False
         pid = str(project.get("id") or project.get("slug") or "")
         title = (project.get("title") or "").strip().lower()
@@ -1089,7 +1210,8 @@ def apply_money_page_recent_work(
         if not path.is_file():
             continue
         hits = pick_money_page_projects(projects, spec)
-        if len(hits) < 3:
+        minimum = int(spec.get("min_cards") or 3)
+        if len(hits) < minimum:
             raise RuntimeError(f"{rel} has only {len(hits)} real photo jobs")
         block = money_page_section_html(hits, spec["heading"], spec["lede"])
         original = path.read_text(encoding="utf-8")

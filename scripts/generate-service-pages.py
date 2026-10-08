@@ -150,6 +150,19 @@ def title_case(slug):
     """Convert slug to title case."""
     return slug.replace('-', ' ').title()
 
+
+def hub_schema_script(city):
+    """Indexable hub JSON-LD. Ramona and Anza are the only LocalBusiness shops."""
+    import sys
+    from pathlib import Path as _Path
+
+    scripts = _Path(__file__).resolve().parent
+    if str(scripts) not in sys.path:
+        sys.path.insert(0, str(scripts))
+    from hub_schema_lib import schema_script
+
+    return schema_script(city)
+
 def generate_page(city, service_slug, service_data, output_dir):
     """Generate a single service page."""
     city_name = title_case(city)
@@ -362,15 +375,7 @@ def generate_city_index(city, output_dir):
     <title>Well Services in {city_name}, CA | Southern California Well Service</title>
     <link rel="canonical" href="https://scwellservice.com/services/{city}/">
     
-    <script type="application/ld+json">
-    {{
-        "@context": "https://schema.org",
-        "@type": "LocalBusiness",
-        "name": "Southern California Well Service - {city_name}",
-        "telephone": "(760) 440-8520",
-        "areaServed": "{city_name}, CA"
-    }}
-    </script>
+    {hub_schema_script(city)}
     
     <style>
         * {{ margin: 0; padding: 0; box-sizing: border-box; }}
