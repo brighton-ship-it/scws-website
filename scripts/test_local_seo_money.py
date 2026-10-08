@@ -402,6 +402,9 @@ class FinancingPageTests(unittest.TestCase):
         html = (ROOT / "pages" / "financing.html").read_text(encoding="utf-8")
         title = _title(html)
         self.assertLessEqual(len(title.replace("&amp;", "&")), 60)
+        self.assertIn("Well Drilling Financing Near Me", title)
+        self.assertIn("<h1>Well drilling financing near me</h1>", html)
+        self.assertIn("/blog/well-drilling-financing.html", html)
         self.assertIn("well drilling financing near me", html.lower())
         self.assertIn("https://scwellservice.com/pages/financing.html", html)
         self.assertIn("https://www.wisetack.com/", html)
@@ -454,6 +457,55 @@ class FinancingPageTests(unittest.TestCase):
             self.assertIn(phrase, section)
         self.assertNotIn("$", section)
         self.assertNotRegex(section, r"\$\s*\d")
+        self.assertIn(
+            "/blog/average-well-pump-replacement-cost.html#what-affects-well-pump-replacement-cost",
+            section,
+        )
+
+    def test_search_console_links_and_cost_section(self):
+        tanks = (ROOT / "pages" / "services" / "pressure-tanks.html").read_text(encoding="utf-8")
+        for href in (
+            "/blog/pressure-tank-sizing-guide.html",
+            "/blog/well-pressure-tank-sizing-guide.html",
+            "/blog/how-to-drain-pressure-tank.html",
+            "/blog/pressure-gauge-stuck-at-zero.html",
+            "/blog/well-pump-short-cycling.html",
+            "/blog/well-pressure-switch-guide.html",
+        ):
+            self.assertIn(href, tanks, href)
+            blog = (ROOT / href.lstrip("/")).read_text(encoding="utf-8")
+            self.assertIn("/pages/services/pressure-tanks.html", blog, href)
+        financing_guide = (ROOT / "blog" / "well-drilling-financing.html").read_text(encoding="utf-8")
+        self.assertIn("/pages/financing.html", financing_guide)
+        self.assertIn("Wisetack", financing_guide)
+        ranking = (ROOT / "blog" / "average-well-pump-replacement-cost.html").read_text(encoding="utf-8")
+        self.assertIn('id="what-affects-well-pump-replacement-cost"', ranking)
+        factors = ranking.split('id="what-affects-well-pump-replacement-cost"', 1)[1].split("</section>", 1)[0]
+        for phrase in (
+            "Well depth",
+            "horsepower",
+            "gallons per minute",
+            "Wire run",
+            "control box",
+            "Pressure tank",
+            "Access and pull rig",
+            "Emergency timing",
+        ):
+            self.assertIn(phrase, factors)
+        self.assertNotIn("$", factors)
+        for rel in (
+            "blog/well-pump-replacement-cost-guide.html",
+            "blog/well-pump-replacement-cost-breakdown-2026.html",
+        ):
+            self.assertIn(
+                "/blog/average-well-pump-replacement-cost.html#what-affects-well-pump-replacement-cost",
+                (ROOT / rel).read_text(encoding="utf-8"),
+                rel,
+            )
+        no_water = (ROOT / "blog" / "no-water-from-well.html").read_text(encoding="utf-8")
+        cycling = (ROOT / "blog" / "well-pump-short-cycling.html").read_text(encoding="utf-8")
+        self.assertIn("/blog/well-pump-runs-but-no-water.html", no_water)
+        self.assertIn("/blog/well-pump-runs-but-no-water.html", cycling)
 
 
 if __name__ == "__main__":
