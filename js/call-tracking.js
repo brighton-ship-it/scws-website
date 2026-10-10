@@ -81,7 +81,8 @@
         'traffic_source': source,
         'is_organic': isOrganic,
         'page_path': page,
-        'page_title': document.title
+        'page_title': document.title,
+        'call_number': (e && e.currentTarget && e.currentTarget.getAttribute('data-scws-swapped') === '1') ? '+1' + ADS_DIGITS : '+1' + MAIN_DIGITS
       }, extra));
 
       // Google Ads conversion (if from paid) — voice only
@@ -115,6 +116,112 @@
 
     // Do not send the Google Ads phone conversion on text clicks
     console.log('[SCWS Text Tracking]', source, page);
+  }
+
+
+  // ---------------------------------------------------------------------
+  // Google Ads call-number swap.
+  // Visitors who arrive from Google Ads (gclid/gbraid/wbraid or utm_medium=cpc)
+  // see the Twilio "SCWS - GOOGLE_ADS" tracking number, which forwards to the
+  // main line (760) 440-8520. Everyone else keeps the normal number.
+  // Calls to the tracking number in Twilio call logs are therefore ad calls.
+  // ---------------------------------------------------------------------
+  var MAIN_DIGITS = '7604408520';
+  var ADS_DIGITS = '7603312502';
+  var ADS_DISPLAY = '(760) 331-2502';
+  var ADS_FLAG_KEY = 'scws_ads_visitor';
+  var ADS_FLAG_TTL_MS = 30 * 24 * 60 * 60 * 1000;
+  var MAIN_TEXT_RE = /\(?760\)?[\s.\-]*440[\s.\-]*8520/g;
+  var MAIN_TEL_RE = /^tel:(?:\+?1)?[\s\-.()]*760[\s\-.()]*440[\s\-.()]*8520$/i;
+
+  function isAdsLanding() {
+    var q = window.location.search || '';
+    if (/[?&](gclid|gbraid|wbraid)=[^&]+/i.test(q)) return true;
+    var m = /[?&]utm_medium=([^&]+)/i.exec(q);
+    return !!(m && /^(cpc|ppc|paid)$/i.test(decodeURIComponent(m[1])));
+  }
+
+  function isAdsVisitor() {
+    var now = Date.now();
+    var landing = isAdsLanding();
+    try {
+      if (landing) {
+        window.localStorage.setItem(ADS_FLAG_KEY, String(now));
+        return true;
+      }
+      var t = parseInt(window.localStorage.getItem(ADS_FLAG_KEY) || '', 10);
+      return !!t && now - t < ADS_FLAG_TTL_MS;
+    } catch (e) {
+      return landing;
+    }
+  }
+
+  function swapNumbers(root) {
+    var changed = 0;
+    var links = (root.querySelectorAll ? root.querySelectorAll('a[href^="tel:"]') : []);
+    for (var i = 0; i < links.length; i++) {
+      var href = links[i].getAttribute('href') || '';
+      if (MAIN_TEL_RE.test(href)) {
+        links[i].setAttribute('href', 'tel:+1' + ADS_DIGITS);
+        links[i].setAttribute('data-scws-swapped', '1');
+        changed++;
+      }
+    }
+    var doc = root.ownerDocument || root;
+    var walker = doc.createTreeWalker(root, 4, null, false);
+    var nodes = [], n;
+    while ((n = walker.nextNode())) {
+      var p = n.parentNode && n.parentNode.nodeName;
+      if (p === 'SCRIPT' || p === 'STYLE' || p === 'NOSCRIPT' || p === 'TEXTAREA') continue;
+      MAIN_TEXT_RE.lastIndex = 0;
+      if (MAIN_TEXT_RE.test(n.nodeValue)) nodes.push(n);
+    }
+    for (var j = 0; j < nodes.length; j++) {
+      nodes[j].nodeValue = nodes[j].nodeValue.replace(MAIN_TEXT_RE, ADS_DISPLAY);
+      changed++;
+    }
+    return changed;
+  }
+
+  var adsSwapActive = false;
+  var adsSwapReported = false;
+
+  function runAdsSwap() {
+    if (!adsSwapActive || !document.body) return;
+    var changed = swapNumbers(document.body);
+    if (changed && !adsSwapReported) {
+      adsSwapReported = true;
+      try {
+        if (typeof gtag === 'function') {
+          gtag('event', 'call_number_swap', {
+            'event_category': 'engagement',
+            'swap_number': '+1' + ADS_DIGITS,
+            'page_path': getPagePath(),
+            'traffic_source': 'google_ads'
+          });
+        }
+      } catch (e) {}
+    }
+  }
+
+  function initAdsSwap() {
+    adsSwapActive = isAdsVisitor();
+    if (!adsSwapActive) return;
+    runAdsSwap();
+    var mo = new MutationObserver(function () {
+      mo.disconnect();
+      runAdsSwap();
+      mo.observe(document.body, { childList: true, subtree: true });
+    });
+    mo.observe(document.body, { childList: true, subtree: true });
+  }
+
+  window.scwsCallSwap = { swapNumbers: swapNumbers, isAdsLanding: isAdsLanding, ADS_DIGITS: ADS_DIGITS };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initAdsSwap);
+  } else {
+    initAdsSwap();
   }
 
   // Run on DOM ready
