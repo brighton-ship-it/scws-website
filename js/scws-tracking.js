@@ -121,9 +121,9 @@
     root.gtag('js', new Date());
     root.gtag('config', GA_ID);
     root.gtag('config', AW_ID);
-    root.gtag('config', AW_PHONE_SEND_TO, {
-      phone_conversion_number: PHONE_CONVERSION_NUMBER
-    });
+    // Phone swap is handled first-party in call-tracking.js (Twilio ads number),
+    // so Google's own number swap is not configured here (avoids two different numbers).
+    root.gtag('config', AW_PHONE_SEND_TO);
   }
 
   function expose() {

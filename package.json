@@ -9,7 +9,8 @@
     "test:lead-events": "node js/lead-events.test.js",
     "test:utm": "node js/utm-tracking.test.js",
     "test:scoreboard": "node js/leads-scoreboard.test.js",
-    "test:tracking": "node js/lead-events.test.js && node js/utm-tracking.test.js && node js/leads-scoreboard.test.js"
+    "test:call-swap": "node js/call-swap.test.js",
+    "test:tracking": "node js/call-swap.test.js && node js/lead-events.test.js && node js/utm-tracking.test.js && node js/leads-scoreboard.test.js"
   },
   "devDependencies": {
     "jsdom": "^28.1.0",
