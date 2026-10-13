@@ -82,7 +82,7 @@
         'is_organic': isOrganic,
         'page_path': page,
         'page_title': document.title,
-        'call_number': (e && e.currentTarget && e.currentTarget.getAttribute('data-scws-swapped') === '1') ? '+1' + ADS_DIGITS : '+1' + MAIN_DIGITS
+        'call_number': (e && e.currentTarget && e.currentTarget.getAttribute('data-scws-swapped') === '1' && swapTarget) ? '+1' + swapTarget.digits : '+1' + MAIN_DIGITS
       }, extra));
 
       // Google Ads conversion (if from paid) — voice only
@@ -120,49 +120,95 @@
 
 
   // ---------------------------------------------------------------------
-  // Google Ads call-number swap.
-  // Visitors who arrive from Google Ads (gclid/gbraid/wbraid or utm_medium=cpc)
-  // see the Twilio "SCWS - GOOGLE_ADS" tracking number, which forwards to the
-  // main line (760) 440-8520. Everyone else keeps the normal number.
-  // Calls to the tracking number in Twilio call logs are therefore ad calls.
+  // Source-based call-number swap (first-party DNI).
+  // Each visitor gets ONE source (first touch, kept 30 days in localStorage;
+  // a later Google Ads click always wins). Visible numbers follow the source:
+  //   google_ads -> (760) 331-2502  "SCWS - GOOGLE_ADS"
+  //   seo        -> (760) 463-0493  "SCWS - SEO" (organic search visitors)
+  //   gbp        -> (760) 279-1262  "SCWS - GBP_RAMONA" (website visits from the Google profile / Maps)
+  //   yelp, apple_maps, referral, direct -> main line (760) 440-8520 (no number yet / not a channel)
+  // All tracking numbers forward to the main line (recorded) and are logged by scws-jobs.
   // ---------------------------------------------------------------------
   var MAIN_DIGITS = '7604408520';
   var ADS_DIGITS = '7603312502';
   var ADS_DISPLAY = '(760) 331-2502';
+  var SOURCE_NUMBERS = {
+    google_ads: { digits: ADS_DIGITS, display: ADS_DISPLAY },
+    seo: { digits: '7604630493', display: '(760) 463-0493' },
+    gbp: { digits: '7602791262', display: '(760) 279-1262' }
+  };
   var ADS_FLAG_KEY = 'scws_ads_visitor';
-  var ADS_FLAG_TTL_MS = 30 * 24 * 60 * 60 * 1000;
+  var SRC_KEY = 'scws_src';
+  var FLAG_TTL_MS = 30 * 24 * 60 * 60 * 1000;
   var MAIN_TEXT_RE = /\(?760\)?[\s.\-]*440[\s.\-]*8520/g;
   var MAIN_TEL_RE = /^tel:(?:\+?1)?[\s\-.()]*760[\s\-.()]*440[\s\-.()]*8520$/i;
 
-  function isAdsLanding() {
-    var q = window.location.search || '';
+  function isAdsLanding(search) {
+    var q = search == null ? (window.location.search || '') : search;
     if (/[?&](gclid|gbraid|wbraid)=[^&]+/i.test(q)) return true;
     var m = /[?&]utm_medium=([^&]+)/i.exec(q);
     return !!(m && /^(cpc|ppc|paid)$/i.test(decodeURIComponent(m[1])));
   }
 
-  function isAdsVisitor() {
-    var now = Date.now();
-    var landing = isAdsLanding();
-    try {
-      if (landing) {
-        window.localStorage.setItem(ADS_FLAG_KEY, String(now));
-        return true;
-      }
-      var t = parseInt(window.localStorage.getItem(ADS_FLAG_KEY) || '', 10);
-      return !!t && now - t < ADS_FLAG_TTL_MS;
-    } catch (e) {
-      return landing;
-    }
+  function param(q, k) {
+    var m = new RegExp('[?&]' + k + '=([^&]*)', 'i').exec(q || '');
+    try { return m ? decodeURIComponent(m[1].replace(/\+/g, ' ')).toLowerCase() : ''; } catch (e) { return ''; }
   }
 
-  function swapNumbers(root) {
+  // Same rules as scws-jobs src/lib/leads/lead-channel.ts. null = no new information (e.g. internal navigation).
+  function classifyLanding(search, referrer) {
+    if (isAdsLanding(search)) return 'google_ads';
+    var src = param(search, 'utm_source'), med = param(search, 'utm_medium');
+    if (src || med) {
+      if (/^(gbp|gmb|google_business|googlebusiness|google_my_business|googlemybusiness|business_profile|maps)$/.test(src) || /^(gbp|gmb|maps|local)$/.test(med)) return 'gbp';
+      if (/yelp/.test(src)) return 'yelp';
+      if (/^(apple|apple_maps|applemaps|apple_business|maps\.apple\.com)$/.test(src)) return 'apple_maps';
+      if (med === 'organic' || (/^(google|bing|yahoo|duckduckgo)$/.test(src) && !med)) return 'seo';
+      return 'referral';
+    }
+    if (!referrer) return 'direct';
+    var host = '', path = '';
+    try { var u = new URL(referrer); host = u.hostname.toLowerCase(); path = u.pathname.toLowerCase(); } catch (e) { return 'referral'; }
+    if (/(^|\.)scwellservice\.com$/.test(host)) return null;
+    if (host === 'maps.apple.com' || /\.maps\.apple\.com$/.test(host)) return 'apple_maps';
+    if (/(^|\.)yelp\.[a-z.]+$/.test(host)) return 'yelp';
+    if (/^maps\.google\./.test(host) || (/(^|\.)google\.[a-z.]+$/.test(host) && path.indexOf('/maps') === 0) || host === 'business.google.com' || host === 'g.page') return 'gbp';
+    if (/(^|\.)(google|bing|yahoo|duckduckgo|ecosia|search\.brave)\.[a-z.]+$/.test(host)) return 'seo';
+    return 'referral';
+  }
+
+  function readJson(k) { try { return JSON.parse(window.localStorage.getItem(k) || 'null'); } catch (e) { return null; } }
+
+  // First touch wins for 30 days, except: Google Ads always wins, and a real channel replaces a stored 'direct'.
+  function visitorSource() {
+    var now = Date.now();
+    var fresh = classifyLanding(window.location.search || '', document.referrer || '');
+    var stored = readJson(SRC_KEY);
+    if (stored && !(now - stored.ts < FLAG_TTL_MS)) stored = null;
+    try {
+      var t = parseInt(window.localStorage.getItem(ADS_FLAG_KEY) || '', 10);
+      if ((!fresh || fresh === 'direct') && t && now - t < FLAG_TTL_MS && (!stored || stored.source !== 'google_ads')) fresh = 'google_ads';
+    } catch (e) {}
+    var keep = stored && fresh !== 'google_ads' && !(stored.source === 'direct' && fresh && fresh !== 'direct');
+    var rec = keep ? stored : (fresh ? { source: fresh, ts: now, referrer: (document.referrer || 'direct').slice(0, 300), landing: (window.location.origin + window.location.pathname + (window.location.search || '')).slice(0, 300) } : stored);
+    if (!rec) rec = { source: 'direct', ts: now, referrer: 'direct', landing: (window.location.origin + window.location.pathname).slice(0, 300) };
+    try {
+      window.localStorage.setItem(SRC_KEY, JSON.stringify(rec));
+      if (rec.source === 'google_ads') window.localStorage.setItem(ADS_FLAG_KEY, String(rec.ts));
+    } catch (e) {}
+    return rec;
+  }
+
+  function isAdsVisitor() { return visitorSource().source === 'google_ads'; }
+
+  function swapNumbers(root, target) {
+    target = target || SOURCE_NUMBERS.google_ads;
     var changed = 0;
     var links = (root.querySelectorAll ? root.querySelectorAll('a[href^="tel:"]') : []);
     for (var i = 0; i < links.length; i++) {
       var href = links[i].getAttribute('href') || '';
       if (MAIN_TEL_RE.test(href)) {
-        links[i].setAttribute('href', 'tel:+1' + ADS_DIGITS);
+        links[i].setAttribute('href', 'tel:+1' + target.digits);
         links[i].setAttribute('data-scws-swapped', '1');
         changed++;
       }
@@ -177,27 +223,28 @@
       if (MAIN_TEXT_RE.test(n.nodeValue)) nodes.push(n);
     }
     for (var j = 0; j < nodes.length; j++) {
-      nodes[j].nodeValue = nodes[j].nodeValue.replace(MAIN_TEXT_RE, ADS_DISPLAY);
+      nodes[j].nodeValue = nodes[j].nodeValue.replace(MAIN_TEXT_RE, target.display);
       changed++;
     }
     return changed;
   }
 
-  var adsSwapActive = false;
-  var adsSwapReported = false;
+  var visitor = null;
+  var swapTarget = null;
+  var swapReported = false;
 
-  function runAdsSwap() {
-    if (!adsSwapActive || !document.body) return;
-    var changed = swapNumbers(document.body);
-    if (changed && !adsSwapReported) {
-      adsSwapReported = true;
+  function runSwap() {
+    if (!swapTarget || !document.body) return;
+    var changed = swapNumbers(document.body, swapTarget);
+    if (changed && !swapReported) {
+      swapReported = true;
       try {
         if (typeof gtag === 'function') {
           gtag('event', 'call_number_swap', {
             'event_category': 'engagement',
-            'swap_number': '+1' + ADS_DIGITS,
+            'swap_number': '+1' + swapTarget.digits,
             'page_path': getPagePath(),
-            'traffic_source': 'google_ads'
+            'traffic_source': visitor.source
           });
         }
       } catch (e) {}
@@ -205,18 +252,50 @@
   }
 
   function initAdsSwap() {
-    adsSwapActive = isAdsVisitor();
-    if (!adsSwapActive) return;
-    runAdsSwap();
+    visitor = visitorSource();
+    swapTarget = SOURCE_NUMBERS[visitor.source] || null;
+    if (!swapTarget) return;
+    runSwap();
     var mo = new MutationObserver(function () {
       mo.disconnect();
-      runAdsSwap();
+      runSwap();
       mo.observe(document.body, { childList: true, subtree: true });
     });
     mo.observe(document.body, { childList: true, subtree: true });
   }
 
-  window.scwsCallSwap = { swapNumbers: swapNumbers, isAdsLanding: isAdsLanding, ADS_DIGITS: ADS_DIGITS };
+  // Every lead form POST to scws-jobs carries the visitor's source + first-touch referrer / landing page.
+  var LEAD_API_RE = /^https:\/\/scws-jobs\.vercel\.app\/api\/(booking|leads\/create)(\?|$)/;
+  function attributionFields() {
+    var v = visitor || visitorSource();
+    return { site_source: v.source, first_referrer: v.referrer, first_landing_page: v.landing };
+  }
+  function enrichBody(body) {
+    if (typeof body !== 'string') return body;
+    try {
+      var obj = JSON.parse(body);
+      if (!obj || typeof obj !== 'object' || Array.isArray(obj)) return body;
+      var add = attributionFields();
+      for (var k in add) if (obj[k] == null || obj[k] === '') obj[k] = add[k];
+      if (!obj.landing_page) obj.landing_page = window.location.href;
+      if (!obj.referrer) obj.referrer = document.referrer || 'direct';
+      return JSON.stringify(obj);
+    } catch (e) { return body; }
+  }
+  if (typeof window.fetch === 'function' && !window.fetch.__scwsLeadSource) {
+    var origFetch = window.fetch;
+    var wrapped = function (input, init) {
+      try {
+        var url = typeof input === 'string' ? input : (input && input.url) || '';
+        if (LEAD_API_RE.test(url) && init && init.body) init = Object.assign({}, init, { body: enrichBody(init.body) });
+      } catch (e) {}
+      return origFetch.call(this, input, init);
+    };
+    wrapped.__scwsLeadSource = true;
+    window.fetch = wrapped;
+  }
+
+  window.scwsCallSwap = { swapNumbers: swapNumbers, isAdsLanding: isAdsLanding, classifyLanding: classifyLanding, visitorSource: visitorSource, attributionFields: attributionFields, enrichBody: enrichBody, ADS_DIGITS: ADS_DIGITS, SOURCE_NUMBERS: SOURCE_NUMBERS };
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initAdsSwap);
