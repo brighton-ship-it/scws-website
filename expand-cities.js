@@ -295,7 +295,7 @@ ${data.faqs.map(f => `                <div class="bg-gray-50 rounded-lg p-6">
                     <div class="text-accent text-3xl">✓</div>
                     <div>
                         <h3 class="font-bold text-lg mb-2">Local Expertise</h3>
-                        <p class="text-gray-700">We've served ${data.name} for 20+ years. We know the geology, the regulations, and the specific challenges of this area.</p>
+                        <p class="text-gray-700">We've served ${data.name} since 2020. We know the geology, the regulations, and the specific challenges of this area.</p>
                     </div>
                 </div>
                 <div class="flex gap-4">

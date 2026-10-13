@@ -171,7 +171,7 @@ def create_service_page(city_slug, city_info, service_slug, service_name):
 
         <h2 class="text-2xl font-bold text-gray-800 mb-4">Why Choose SCWS for {service_name}?</h2>
         <ul class="list-disc list-inside text-gray-700 mb-8 space-y-2">
-            <li>Decades of experience in {city_info["county"]} County</li>
+            <li>Serving {city_info["county"]} County since 2020</li>
             <li>Fully licensed and insured</li>
             <li>Transparent pricing - no surprises</li>
             <li>Local team that knows the area</li>
