@@ -62,7 +62,22 @@ Twilio source numbers (from scws-jobs call webhook):
 | Google Ads | `(760) 331-2502` |
 | Direct | `(760) 493-7719` |
 
-The marketing site still shows voice `(760) 440-8520` and text `(760) 219-5877`. Those are not the source-tagged lines.
+### Which number a visitor sees (`js/call-tracking.js`, first-party DNI)
+
+Each visitor gets one source, first touch, kept 30 days in `localStorage.scws_src` (a later Google Ads click always wins; a real channel replaces a stored `direct`). Internal navigation never changes it.
+
+| Source | Detected by | Number shown |
+| --- | --- | --- |
+| `google_ads` | `gclid` / `gbraid` / `wbraid` or `utm_medium=cpc/ppc/paid` | `(760) 331-2502` |
+| `seo` | referrer google/bing/yahoo/duckduckgo/ecosia/brave search, or `utm_medium=organic` | `(760) 463-0493` |
+| `gbp` | `utm_source=gbp/gmb/...`, Google Maps referrer | `(760) 279-1262` |
+| `yelp` | `utm_source=yelp` or yelp.* referrer | main `(760) 440-8520` (no Yelp number yet) |
+| `apple_maps` | `utm_source=apple_maps` or maps.apple.com referrer | main `(760) 440-8520` (no Apple number yet) |
+| `referral` / `direct` | other sites / no referrer | main `(760) 440-8520` |
+
+Text `(760) 219-5877` and JSON-LD numbers are never swapped. Every lead-form POST to `scws-jobs.vercel.app/api/booking` or `/api/leads/create` gets `site_source`, `first_referrer`, `first_landing_page` (plus `landing_page`/`referrer` if missing) added by a `fetch` wrapper; scws-jobs stores the channel on `booking_requests.lead_source` and referrer/landing on the request notes. Same rules server-side: `scws-jobs/src/lib/leads/lead-channel.ts`.
+
+Verification-only submissions send `scws_test: "1"`: stored with `lead_source=test`, no staff notification, excluded from dashboards.
 
 Call counts can come from existing `GET https://scws-jobs.vercel.app/api/calls/stats?days=N` (session-auth today). Jobber jobs scheduled by source need a public no-PII `GET /api/scoreboard/leads?days=7|28` on scws-jobs. The scoreboard page ships with that stub labeled.
 
