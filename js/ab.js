@@ -6,16 +6,22 @@
  * - Set GA4 user properties exp_id and exp_var
  * - Fire experiment_view once per session
  * - Expose window.scwsAb = { id, variant }
+ * - Decorate generate_lead, call_click, text_click, and
+ *   ads_conversion_submit_lead_form with exp_id / exp_var
  * - No-op safely if gtag is missing (bot filter)
  *
- * Active experiment: exp_emergency_cta (homepage emergency bar only)
- *   control: red emergency top bar, Call only
- *   variant: same bar, equal Call + Text buttons
+ * Active experiment: exp_homepage_form (homepage #contact-form only)
+ *   control: current full form (HTML, unchanged)
+ *   variant: name, phone, and a no-water / emergency choice;
+ *            address, city, email, and message stay in the DOM but
+ *            are optional and hidden
+ *
+ * Retired: exp_emergency_cta. The homepage emergency bar stays Call-only.
  */
 (function () {
   'use strict';
 
-  var EXP_ID = 'exp_emergency_cta';
+  var EXP_ID = 'exp_homepage_form';
   var COOKIE_NAME = 'scws_ab';
   var COOKIE_DAYS = 30;
   var VIEW_KEY = 'scws_ab_view';
@@ -25,11 +31,10 @@
     text_click: true,
     ads_conversion_submit_lead_form: true
   };
+  var COLLAPSE_IDS = ['email', 'address', 'city', 'message'];
 
-  var VOICE_DISPLAY = '(760) 440-8520';
-  var VOICE_TEL = 'tel:7604408520';
-  var TEXT_DISPLAY = '(760) 219-5877';
-  var TEXT_SMS = 'sms:7602195877';
+  var assignment;
+  var gaBooted = false;
 
   function hasGtag() {
     return typeof window.gtag === 'function';
@@ -82,31 +87,44 @@
     var force = forcedVariant();
     if (existing && !force) return existing;
     var variant = force || (existing && existing.variant) || assignVariant();
-    var assignment = { id: EXP_ID, variant: variant };
+    var next = { id: EXP_ID, variant: variant };
     writeCookie(COOKIE_NAME, EXP_ID + '.' + variant, COOKIE_DAYS);
-    return assignment;
+    return next;
   }
 
   function decorateParams(params) {
     var next = params ? params : {};
-    if (next.exp_id == null) next.exp_id = assignment.id;
-    if (next.exp_var == null) next.exp_var = assignment.variant;
+    var id = assignment.id;
+    var variant = assignment.variant;
+    if (window.scwsAb && typeof window.scwsAb === 'object') {
+      if (window.scwsAb.id) id = window.scwsAb.id;
+      if (window.scwsAb.variant) variant = window.scwsAb.variant;
+    }
+    if (next.exp_id == null) next.exp_id = id;
+    if (next.exp_var == null) next.exp_var = variant;
     return next;
   }
 
-  function wrapGtag() {
-    var original = window.gtag;
-    window.gtag = function () {
-      var args = Array.prototype.slice.call(arguments);
-      try {
-        if (args[0] === 'event' && ENRICH_EVENTS[args[1]]) {
-          args[2] = decorateParams(args[2]);
-        }
-      } catch (e) {}
-      if (typeof original === 'function') {
+  function ensureWrap() {
+    if (!hasGtag()) return;
+    if (!window.gtag.__scwsAbWrapped) {
+      var original = window.gtag;
+      var wrapped = function () {
+        var args = Array.prototype.slice.call(arguments);
+        try {
+          if (args[0] === 'event' && ENRICH_EVENTS[args[1]]) {
+            args[2] = decorateParams(args[2]);
+          }
+        } catch (e) {}
         return original.apply(this, args);
-      }
-    };
+      };
+      wrapped.__scwsAbWrapped = true;
+      window.gtag = wrapped;
+    }
+    if (gaBooted) return;
+    gaBooted = true;
+    setUserProperties();
+    fireExperimentView();
   }
 
   function setUserProperties() {
@@ -134,83 +152,88 @@
     } catch (e) {}
   }
 
-  function isEmergencyBar(el) {
-    if (!el || !el.querySelector) return false;
-    if (el.id === 'sticky-cta' || el.closest('#sticky-cta')) return false;
-    if (el.closest('header')) return false;
-    var text = el.textContent || '';
-    if (text.indexOf('No Water?') === -1) return false;
-    return !!el.querySelector('a[href^="tel:"]');
-  }
-
-  function findEmergencyBars() {
-    var found = [];
-    var marked = document.getElementById('scws-emergency-cta');
-    if (marked && isEmergencyBar(marked)) found.push(marked);
-
-    var nodes = document.querySelectorAll('.from-red-600, .bg-gradient-to-r');
-    for (var i = 0; i < nodes.length; i++) {
-      var el = nodes[i];
-      if (found.indexOf(el) !== -1) continue;
-      if (isEmergencyBar(el)) found.push(el);
-    }
-    return found;
-  }
-
-  function applyVariant(bar) {
-    if (!bar || bar.getAttribute('data-scws-ab') === 'applied') return;
-    bar.setAttribute('data-scws-ab', 'applied');
-    bar.setAttribute('data-scws-ab-var', assignment.variant);
-    if (assignment.variant !== 'variant') return;
-    if (bar.querySelector('a[href^="sms:"]')) return;
-
-    var callLink = bar.querySelector('a[href^="tel:"]');
-    if (!callLink) return;
-
-    // Keep the existing tel: node so Google Ads can still swap the voice number.
-    // Short labels only — long “Call (760) …” plus minWidth blows a ~390px row.
-    if (!callLink.getAttribute('href')) callLink.setAttribute('href', VOICE_TEL);
-    callLink.textContent = 'Call';
-    callLink.title = 'Call ' + VOICE_DISPLAY;
-    callLink.style.minWidth = '';
-    callLink.style.textAlign = 'center';
-
-    var textLink = callLink.cloneNode(false);
-    textLink.setAttribute('href', TEXT_SMS);
-    textLink.removeAttribute('onclick');
-    textLink.textContent = 'Text';
-    textLink.title = 'Text-only line: ' + TEXT_DISPLAY;
-    textLink.style.minWidth = '';
-    textLink.style.textAlign = 'center';
-
-    if (callLink.parentNode) {
-      callLink.parentNode.insertBefore(textLink, callLink.nextSibling);
-    }
-  }
-
   function isHomepage() {
     var path = (window.location.pathname || '/').replace(/index\.html$/, '').replace(/\/$/, '');
     return path === '' || path === '/';
   }
 
+  function collapseOptionalField(id) {
+    var field = document.getElementById(id);
+    if (!field) return;
+    field.required = false;
+    field.removeAttribute('required');
+    var wrap = field.parentNode;
+    if (!wrap || wrap.tagName === 'FORM') return;
+    wrap.style.display = 'none';
+    wrap.setAttribute('hidden', '');
+    wrap.setAttribute('aria-hidden', 'true');
+    wrap.setAttribute('data-scws-ab-collapsed', '1');
+  }
+
+  function applyHomepageForm() {
+    if (assignment.variant !== 'variant') return;
+    var form = document.getElementById('contact-form');
+    if (!form || form.getAttribute('data-scws-ab-form') === 'applied') return;
+    form.setAttribute('data-scws-ab-form', 'applied');
+    form.setAttribute('data-scws-ab-var', 'variant');
+
+    for (var i = 0; i < COLLAPSE_IDS.length; i++) collapseOptionalField(COLLAPSE_IDS[i]);
+
+    var service = document.getElementById('service');
+    if (service) service.value = 'emergency';
+
+    var stack = form.querySelector('.space-y-4');
+    if (!stack || document.getElementById('scws-emergency-first')) return;
+
+    var box = document.createElement('div');
+    box.id = 'scws-ab-emergency';
+    box.style.cssText = 'background:#fef2f2;border:2px solid #dc2626;border-radius:0.75rem;padding:0.875rem 1rem;';
+    box.innerHTML =
+      '<label style="display:flex;align-items:flex-start;gap:0.75rem;cursor:pointer;">' +
+        '<input type="checkbox" id="scws-emergency-first" checked ' +
+          'style="margin-top:0.2rem;width:1.25rem;height:1.25rem;flex:0 0 auto;">' +
+        '<span>' +
+          '<span style="display:block;font-weight:700;color:#991b1b;">No water / emergency</span>' +
+          '<span style="display:block;font-weight:500;color:#7f1d1d;font-size:0.875rem;margin-top:0.15rem;">' +
+            'Checked sends this as emergency service (no water). Uncheck to choose a different service below.' +
+          '</span>' +
+        '</span>' +
+      '</label>';
+    stack.insertBefore(box, stack.firstChild);
+
+    var checkbox = document.getElementById('scws-emergency-first');
+    if (checkbox && service) {
+      checkbox.addEventListener('change', function () {
+        if (checkbox.checked) service.value = 'emergency';
+        else if (service.value === 'emergency') service.value = '';
+      });
+      service.addEventListener('change', function () {
+        checkbox.checked = service.value === 'emergency';
+      });
+      // Capture phase runs before the onsubmit handler reads FormData.
+      form.addEventListener('submit', function () {
+        if (checkbox.checked) service.value = 'emergency';
+      }, true);
+    }
+  }
+
   function applyExperiment() {
     if (!isHomepage()) return;
-    var bars = findEmergencyBars();
-    for (var i = 0; i < bars.length; i++) applyVariant(bars[i]);
+    applyHomepageForm();
   }
 
-  var assignment = getAssignment();
+  assignment = getAssignment();
   window.scwsAb = { id: assignment.id, variant: assignment.variant };
 
-  if (hasGtag()) {
-    wrapGtag();
-    setUserProperties();
-    fireExperimentView();
-  }
+  ensureWrap();
 
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', applyExperiment);
+    document.addEventListener('DOMContentLoaded', function () {
+      ensureWrap();
+      applyExperiment();
+    });
   } else {
     applyExperiment();
   }
+  window.addEventListener('load', ensureWrap);
 })();
