@@ -122,14 +122,14 @@ Promise.resolve()
   .then(function () {
     return test('attaches exp_id and exp_var when scwsAb exists', function () {
       var page = loadLeadEvents({
-        scwsAb: { id: 'exp_emergency_cta', variant: 'variant' }
+        scwsAb: { id: 'exp_homepage_form', variant: 'variant' }
       });
       page.window.scwsTrackLeadFormSuccess({ event_category: 'engagement' });
       var lead = findEvent(page.events, 'generate_lead')[2];
       var ads = findEvent(page.events, 'ads_conversion_submit_lead_form')[2];
-      assert.strictEqual(lead.exp_id, 'exp_emergency_cta');
+      assert.strictEqual(lead.exp_id, 'exp_homepage_form');
       assert.strictEqual(lead.exp_var, 'variant');
-      assert.strictEqual(ads.exp_id, 'exp_emergency_cta');
+      assert.strictEqual(ads.exp_id, 'exp_homepage_form');
       assert.strictEqual(ads.exp_var, 'variant');
     });
   })
@@ -275,7 +275,7 @@ Promise.resolve()
         var window = dom.window;
         window.dataLayer = [];
         window.gtag = function () { window.dataLayer.push(Array.prototype.slice.call(arguments)); };
-        window.scwsAb = { id: 'exp_emergency_cta', variant: 'control' };
+        window.scwsAb = { id: 'exp_homepage_form', variant: 'control' };
         window.alert = function () {};
         window.console.error = function () {};
         var fetches = [];
@@ -317,7 +317,7 @@ Promise.resolve()
             'ads_conversion_submit_lead_form',
             'conversion'
           ]);
-          assert.strictEqual(findEvent(page.events, 'generate_lead')[2].exp_id, 'exp_emergency_cta');
+          assert.strictEqual(findEvent(page.events, 'generate_lead')[2].exp_id, 'exp_homepage_form');
           var conv = findEvent(page.events, 'conversion');
           assert.ok(conv);
           assert.strictEqual(conv[2].send_to, 'AW-490838730/nFeMCN_cyegcEMq1huoB');
