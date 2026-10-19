@@ -59,6 +59,15 @@
   ],
   "headers": [
     {
+      "source": "/checkup(.*)",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
+    },
+    {
       "source": "/ops/:path*",
       "headers": [
         {
