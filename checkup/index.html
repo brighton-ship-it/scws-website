@@ -80,8 +80,8 @@ button{margin-top:14px;width:100%;background:#2f6b4e;color:#fff;border:0;border-
     if(!f.get('name')||!f.get('phone')||!f.get('address')||!f.get('city')){alert('Please fill in name, phone, address and city.');return;}
     btn.disabled=true;btn.textContent='Sending...';
     var ids=gaIds();
-    var body=Object.assign({customer_name:f.get('name'),phone:f.get('phone'),email:'',address:f.get('address')+(f.get('zip')?' '+f.get('zip'):''),city:f.get('city'),service_type:'inspection',
-      notes:'DM1 postcard: $99 Well & Pump Checkup (code DM1, expires 12/31/2026). '+(f.get('message')||''),
+    var body=Object.assign({customer_name:f.get('name'),phone:f.get('phone'),email:'',address:f.get('address'),city:f.get('city'),service_type:'inspection',
+      notes:'DM1 postcard: $99 Well & Pump Checkup (code DM1, expires 12/31/2026).'+(f.get('zip')?' ZIP '+f.get('zip')+'.':'')+' '+(f.get('message')||''),
       source:'website',lead_source:'direct_mail',site_source:'direct_mail',landing_page:location.href,first_landing_page:location.href,referrer:document.referrer||'direct'},utm,ids);
     if(qs.get('scws_test')==='1')body.scws_test='1';
     fetch('https://scws-jobs.vercel.app/api/booking',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(body)})
