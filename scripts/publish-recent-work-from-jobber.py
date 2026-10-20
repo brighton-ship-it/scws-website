@@ -80,8 +80,8 @@ def save_jpeg(data: bytes, dest: Path) -> bool:
     try:
         image = Image.open(BytesIO(data))
         image = image.convert("RGB")
-        image.thumbnail((1600, 1600))
-        image.save(dest, "JPEG", quality=86, optimize=True)
+        image.thumbnail((1280, 1280))
+        image.save(dest, "JPEG", quality=72, optimize=True, progressive=True)
         return True
     except Exception as exc:  # noqa: BLE001 — skip bad files, keep the run going
         print(f"  skip unreadable image {dest.name}: {exc}")

@@ -69,7 +69,8 @@ button{margin-top:14px;width:100%;background:#2f6b4e;color:#fff;border:0;border-
   var qs=new URLSearchParams(location.search);
   var utm={utm_source:qs.get('utm_source')||'directmail',utm_medium:qs.get('utm_medium')||'postcard',utm_campaign:qs.get('utm_campaign')||'dm-test1',utm_content:qs.get('utm_content')||''};
   var base={offer_code:'DM1',campaign:'dm-test1',traffic_source:'direct_mail',page_path:'/checkup'};
-  function ev(n,p){try{if(typeof gtag==='function')gtag('event',n,Object.assign({},base,p||{}));}catch(e){}}
+  var TEST=qs.get('scws_test')==='1';
+  function ev(n,p){if(TEST)return;try{if(typeof gtag==='function')gtag('event',n,Object.assign({},base,p||{}));}catch(e){}}
   window.addEventListener('load',function(){ev('dm_page_view',{came_from_qr:qs.get('utm_source')==='directmail'?1:0});});
   var tels=document.querySelectorAll('a.dm-tel');
   for(var i=0;i<tels.length;i++)tels[i].addEventListener('click',function(){ev('dm_call_click',{call_number:'+17608238910'});ev('call_click',{call_number:'+17608238910',event_category:'engagement',event_label:'/checkup'});});
@@ -81,9 +82,9 @@ button{margin-top:14px;width:100%;background:#2f6b4e;color:#fff;border:0;border-
     btn.disabled=true;btn.textContent='Sending...';
     var ids=gaIds();
     var body=Object.assign({customer_name:f.get('name'),phone:f.get('phone'),email:'',address:f.get('address'),city:f.get('city'),service_type:'inspection',
-      notes:'DM1 postcard: $99 Well & Pump Checkup (code DM1, expires 12/31/2026).'+(f.get('zip')?' ZIP '+f.get('zip')+'.':'')+' '+(f.get('message')||''),
+      zip:f.get('zip')||'',notes:'DM1 postcard: $99 Well & Pump Checkup (code DM1, expires 12/31/2026). '+(f.get('message')||''),
       source:'website',lead_source:'direct_mail',site_source:'direct_mail',landing_page:location.href,first_landing_page:location.href,referrer:document.referrer||'direct'},utm,ids);
-    if(qs.get('scws_test')==='1')body.scws_test='1';
+    if(TEST)body.scws_test='1';
     fetch('https://scws-jobs.vercel.app/api/booking',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(body)})
       .then(function(r){if(!r.ok)throw new Error('HTTP '+r.status);return r.json();})
       .then(function(){ev('dm_form_submit',{value:99,currency:'USD'});ev('generate_lead',{value:99,currency:'USD',lead_source:'direct_mail'});form.style.display='none';document.getElementById('dm-ok').style.display='block';})
