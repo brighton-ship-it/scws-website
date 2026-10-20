@@ -123,7 +123,9 @@
   // Source-based call-number swap (first-party DNI).
   // Each visitor gets ONE source (first touch, kept 30 days in localStorage;
   // a later Google Ads click always wins). Visible numbers follow the source:
-  //   google_ads -> (760) 331-2502  "SCWS - GOOGLE_ADS"
+  //   google_ads -> (760) 331-2502  "SCWS - GOOGLE_ADS" (Leads-Search-1 pump + any other / unknown campaign)
+  //     drilling campaign (utm_campaign ~ drill, or utm_id/campaignid 23533402261) -> (760) 825-0520 "SCWS - GOOGLE_ADS_DRILLING"
+  //     weekend campaign  (utm_campaign ~ weekend, or utm_id/campaignid 24368951997) -> (760) 825-6285 "SCWS - GOOGLE_ADS_WEEKEND"
   //   seo        -> (760) 463-0493  "SCWS - SEO" (organic search visitors)
   //   gbp        -> (760) 279-1262  "SCWS - GBP_RAMONA" (website visits from the Google profile / Maps)
   //   yelp, apple_maps, referral, direct -> main line (760) 440-8520 (no number yet / not a channel)
@@ -137,6 +139,25 @@
     seo: { digits: '7604630493', display: '(760) 463-0493' },
     gbp: { digits: '7602791262', display: '(760) 279-1262' }
   };
+  // Per-campaign Google Ads numbers (keyed by visitor.ads_campaign).
+  var ADS_CAMPAIGN_NUMBERS = {
+    drilling: { digits: '7608250520', display: '(760) 825-0520' },
+    weekend: { digits: '7608256285', display: '(760) 825-6285' }
+  };
+  var ADS_CAMPAIGN_IDS = { '23533402261': 'drilling', '24368951997': 'weekend', '19603168204': 'pump' };
+  // Which ads campaign a landing came from. '' = not identifiable (stays on 331-2502).
+  function adsCampaignFrom(search) {
+    var id = param(search, 'utm_id') || param(search, 'campaignid') || param(search, 'cid');
+    if (ADS_CAMPAIGN_IDS[id]) return ADS_CAMPAIGN_IDS[id];
+    var c = param(search, 'utm_campaign');
+    if (/weekend/.test(c)) return 'weekend';
+    if (/drill/.test(c)) return 'drilling';
+    if (/pump|leads-search-1|search-1/.test(c)) return 'pump';
+    return '';
+  }
+  function adsNumberFor(rec) {
+    return (rec && rec.ads_campaign && ADS_CAMPAIGN_NUMBERS[rec.ads_campaign]) || SOURCE_NUMBERS.google_ads;
+  }
   var ADS_FLAG_KEY = 'scws_ads_visitor';
   var SRC_KEY = 'scws_src';
   var FLAG_TTL_MS = 30 * 24 * 60 * 60 * 1000;
@@ -191,6 +212,11 @@
     } catch (e) {}
     var keep = stored && fresh !== 'google_ads' && !(stored.source === 'direct' && fresh && fresh !== 'direct');
     var rec = keep ? stored : (fresh ? { source: fresh, ts: now, referrer: (document.referrer || 'direct').slice(0, 300), landing: (window.location.origin + window.location.pathname + (window.location.search || '')).slice(0, 300) } : stored);
+    if (rec && rec.source === 'google_ads' && fresh === 'google_ads' && !keep) {
+      var camp = adsCampaignFrom(window.location.search || '');
+      // A new ads landing without campaign info keeps the campaign from the stored ads visit.
+      rec.ads_campaign = camp || (stored && stored.source === 'google_ads' && stored.ads_campaign) || '';
+    }
     if (!rec) rec = { source: 'direct', ts: now, referrer: 'direct', landing: (window.location.origin + window.location.pathname).slice(0, 300) };
     try {
       window.localStorage.setItem(SRC_KEY, JSON.stringify(rec));
@@ -253,7 +279,7 @@
 
   function initAdsSwap() {
     visitor = visitorSource();
-    swapTarget = SOURCE_NUMBERS[visitor.source] || null;
+    swapTarget = visitor.source === 'google_ads' ? adsNumberFor(visitor) : (SOURCE_NUMBERS[visitor.source] || null);
     if (!swapTarget) return;
     runSwap();
     var mo = new MutationObserver(function () {
@@ -268,7 +294,9 @@
   var LEAD_API_RE = /^https:\/\/scws-jobs\.vercel\.app\/api\/(booking|leads\/create)(\?|$)/;
   function attributionFields() {
     var v = visitor || visitorSource();
-    return { site_source: v.source, first_referrer: v.referrer, first_landing_page: v.landing };
+    var out = { site_source: v.source, first_referrer: v.referrer, first_landing_page: v.landing };
+    if (v.source === 'google_ads' && v.ads_campaign) out.ads_campaign = v.ads_campaign;
+    return out;
   }
   function enrichBody(body) {
     if (typeof body !== 'string') return body;
@@ -295,7 +323,7 @@
     window.fetch = wrapped;
   }
 
-  window.scwsCallSwap = { swapNumbers: swapNumbers, isAdsLanding: isAdsLanding, classifyLanding: classifyLanding, visitorSource: visitorSource, attributionFields: attributionFields, enrichBody: enrichBody, ADS_DIGITS: ADS_DIGITS, SOURCE_NUMBERS: SOURCE_NUMBERS };
+  window.scwsCallSwap = { swapNumbers: swapNumbers, isAdsLanding: isAdsLanding, classifyLanding: classifyLanding, visitorSource: visitorSource, attributionFields: attributionFields, enrichBody: enrichBody, ADS_DIGITS: ADS_DIGITS, SOURCE_NUMBERS: SOURCE_NUMBERS, ADS_CAMPAIGN_NUMBERS: ADS_CAMPAIGN_NUMBERS, adsCampaignFrom: adsCampaignFrom, adsNumberFor: adsNumberFor };
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initAdsSwap);

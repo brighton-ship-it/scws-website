@@ -65,3 +65,15 @@ assert.strictEqual(body.first_referrer, 'https://maps.apple.com/place');
 assert.ok(body.first_landing_page.startsWith('https://scwellservice.com/contact.html'));
 assert.strictEqual(dm.window.scwsCallSwap.enrichBody('a=b'), 'a=b');
 console.log('source swap tests passed');
+
+// ---- Per-campaign Google Ads numbers ----
+assert.strictEqual(num(loadRef('https://scwellservice.com/x.html?gclid=1&utm_source=google&utm_medium=cpc&utm_campaign=weekend-emergency', '')), 'tel:+17608256285');
+assert.strictEqual(num(loadRef('https://scwellservice.com/x.html?gclid=1&utm_campaign=drilling&utm_id=23533402261', '')), 'tel:+17608250520');
+assert.strictEqual(num(loadRef('https://scwellservice.com/x.html?gclid=1&utm_id=23533402261', '')), 'tel:+17608250520');
+assert.strictEqual(num(loadRef('https://scwellservice.com/x.html?gclid=1&utm_campaign=pump-search-1&utm_id=19603168204', '')), 'tel:+17603312502');
+let dc = loadRef('https://scwellservice.com/x.html?gclid=1&utm_campaign=drilling', '');
+const stored = { scws_src: dc.window.localStorage.getItem('scws_src'), scws_ads_visitor: dc.window.localStorage.getItem('scws_ads_visitor') };
+assert.strictEqual(num(loadRef('https://scwellservice.com/y.html', 'https://scwellservice.com/x.html', stored)), 'tel:+17608250520');
+assert.strictEqual(num(loadRef('https://scwellservice.com/y.html?gclid=2', '', stored)), 'tel:+17608250520');
+assert.strictEqual(dc.window.scwsCallSwap.attributionFields().ads_campaign, 'drilling');
+console.log('per-campaign ads tests passed');
