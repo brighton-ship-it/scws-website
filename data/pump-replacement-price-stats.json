@@ -1,0 +1,27 @@
+{
+ "source": "SCWS Jobber invoices, submersible pump/motor replacements, totals incl. tax; excludes warranty jobs and partial invoices under $1,500. Aggregates only.",
+ "n": 46,
+ "first": "2025-03-04",
+ "last": "2026-08-31",
+ "p10": 2258.77,
+ "p25": 3584.99,
+ "median": 5226.91,
+ "p75": 7544.2,
+ "p90": 9480.69,
+ "min": 1976.0,
+ "max": 17809.5,
+ "ramona": {
+  "n": 6,
+  "min": 2290.83,
+  "max": 7165.14,
+  "median": 5226.91
+ },
+ "anza_area": {
+  "n": 22,
+  "min": 2023.34,
+  "max": 17809.5,
+  "median": 5988.8,
+  "p25": 4998.8,
+  "p75": 8800.32
+ }
+}

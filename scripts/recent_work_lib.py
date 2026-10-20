@@ -1667,6 +1667,7 @@ def hub_public_url(slug: str) -> str:
 
 def recent_work_sitemap_entries(projects: list[dict[str, Any]]) -> list[tuple[str, str]]:
     entries = [("https://scwellservice.com/recent-work/", "0.6")]
+    entries.append(("https://scwellservice.com/recent-work/map/", "0.6"))  # job map (scripts/build_job_map.py)
     total_pages = max(1, (len(projects) + PAGE_SIZE - 1) // PAGE_SIZE)
     for page_num in range(2, total_pages + 1):
         entries.append((f"https://scwellservice.com/recent-work/page-{page_num}.html", "0.4"))

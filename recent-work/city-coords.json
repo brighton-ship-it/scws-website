@@ -1,0 +1,373 @@
+{
+ "note": "Town centroids (2-decimal, ~1 km). Public map pins are town-level only, never a customer address. Add new towns with scripts/build_job_map.py --geocode.",
+ "towns": {
+  "Aguanga": [
+   33.46,
+   -116.86
+  ],
+  "Alpine": [
+   32.84,
+   -116.77
+  ],
+  "Anza": [
+   33.58,
+   -116.7
+  ],
+  "Banning": [
+   33.93,
+   -116.88
+  ],
+  "Big Bear City": [
+   34.25,
+   -116.79
+  ],
+  "Bluejay": [
+   34.25,
+   -117.21
+  ],
+  "Bonsall": [
+   33.28,
+   -117.2
+  ],
+  "Borrego Springs": [
+   33.25,
+   -116.36
+  ],
+  "Boulevard": [
+   32.66,
+   -116.29
+  ],
+  "Caliente Springs": [
+   33.93,
+   -116.44
+  ],
+  "Campo": [
+   32.65,
+   -116.47
+  ],
+  "Carlsbad": [
+   33.14,
+   -117.33
+  ],
+  "Cathedral City": [
+   33.78,
+   -116.46
+  ],
+  "Colton": [
+   34.07,
+   -117.32
+  ],
+  "Corona": [
+   33.88,
+   -117.57
+  ],
+  "Costa Mesa": [
+   33.66,
+   -117.9
+  ],
+  "Coto de Caza": [
+   33.6,
+   -117.59
+  ],
+  "Crest": [
+   32.8,
+   -116.87
+  ],
+  "Crestline": [
+   34.25,
+   -117.29
+  ],
+  "Descanso": [
+   32.86,
+   -116.63
+  ],
+  "Desert Hot Springs": [
+   33.96,
+   -116.5
+  ],
+  "Desert Hot springs": [
+   33.96,
+   -116.5
+  ],
+  "Dulzura": [
+   32.64,
+   -116.78
+  ],
+  "El Cajon": [
+   32.79,
+   -116.96
+  ],
+  "Elfin Forest": [
+   33.08,
+   -117.18
+  ],
+  "Encinitas": [
+   33.04,
+   -117.28
+  ],
+  "Escondido": [
+   33.12,
+   -117.08
+  ],
+  "Essex": [
+   34.73,
+   -115.24
+  ],
+  "Fallbrook": [
+   33.37,
+   -117.22
+  ],
+  "Grand Terrace": [
+   34.03,
+   -117.31
+  ],
+  "Green Valley Lake": [
+   34.24,
+   -117.08
+  ],
+  "Hemet": [
+   33.75,
+   -116.97
+  ],
+  "Homeland": [
+   33.75,
+   -117.11
+  ],
+  "Idyllwild": [
+   33.74,
+   -116.72
+  ],
+  "Jamul": [
+   32.72,
+   -116.87
+  ],
+  "Joshua Tree": [
+   34.12,
+   -116.31
+  ],
+  "Julian": [
+   33.07,
+   -116.59
+  ],
+  "Jurupa Valley": [
+   33.98,
+   -117.45
+  ],
+  "La Cañada Flintridge": [
+   34.2,
+   -118.2
+  ],
+  "La Mesa": [
+   32.77,
+   -117.02
+  ],
+  "La Quinta": [
+   33.68,
+   -116.3
+  ],
+  "Lake Arrowhead": [
+   34.26,
+   -117.19
+  ],
+  "Lake Elsinore": [
+   33.67,
+   -117.33
+  ],
+  "Lake Riverside": [
+   33.51,
+   -116.81
+  ],
+  "Lakeside": [
+   32.85,
+   -116.9
+  ],
+  "Mecca": [
+   33.58,
+   -116.07
+  ],
+  "Menifee": [
+   33.69,
+   -117.18
+  ],
+  "Moreno Valley": [
+   33.94,
+   -117.23
+  ],
+  "Morongo Valley": [
+   34.07,
+   -116.56
+  ],
+  "Mountain Center": [
+   33.71,
+   -116.73
+  ],
+  "Murrieta": [
+   33.56,
+   -117.21
+  ],
+  "Norco": [
+   33.93,
+   -117.55
+  ],
+  "Nuevo": [
+   33.81,
+   -117.14
+  ],
+  "Oceanside": [
+   33.2,
+   -117.38
+  ],
+  "Ocotillo": [
+   32.74,
+   -116.01
+  ],
+  "Pala": [
+   33.37,
+   -117.08
+  ],
+  "Palm Desert": [
+   33.73,
+   -116.38
+  ],
+  "Palomar Mountain": [
+   33.32,
+   -116.88
+  ],
+  "Pauma Valley": [
+   33.3,
+   -116.98
+  ],
+  "Perris": [
+   33.78,
+   -117.23
+  ],
+  "Pine Valley": [
+   32.84,
+   -116.52
+  ],
+  "Pinon Pines": [
+   33.58,
+   -116.46
+  ],
+  "Potrero": [
+   32.62,
+   -116.6
+  ],
+  "Poway": [
+   32.96,
+   -117.04
+  ],
+  "Ramona": [
+   33.05,
+   -116.88
+  ],
+  "Ranchita": [
+   33.21,
+   -116.52
+  ],
+  "Rancho Cucamonga": [
+   34.1,
+   -117.58
+  ],
+  "Rancho Mirage": [
+   33.76,
+   -116.43
+  ],
+  "Rancho Santa Fe": [
+   33.02,
+   -117.2
+  ],
+  "Redlands": [
+   34.06,
+   -117.18
+  ],
+  "Riverside": [
+   33.98,
+   -117.37
+  ],
+  "Romoland": [
+   33.75,
+   -117.18
+  ],
+  "Running Springs": [
+   34.21,
+   -117.12
+  ],
+  "Sage": [
+   33.58,
+   -116.93
+  ],
+  "San Bernardino": [
+   34.83,
+   -116.08
+  ],
+  "San Diego": [
+   32.72,
+   -117.16
+  ],
+  "San Marcos": [
+   33.14,
+   -117.17
+  ],
+  "Santa Ysabel": [
+   33.11,
+   -116.67
+  ],
+  "Santee": [
+   32.84,
+   -116.97
+  ],
+  "Spring Valley": [
+   32.74,
+   -116.99
+  ],
+  "Temecula": [
+   33.49,
+   -117.15
+  ],
+  "Thermal": [
+   33.63,
+   -116.13
+  ],
+  "Thousand Palms": [
+   33.81,
+   -116.35
+  ],
+  "Twentynine Palms": [
+   34.14,
+   -116.05
+  ],
+  "Twin Peaks": [
+   34.24,
+   -117.23
+  ],
+  "Valley Center": [
+   33.23,
+   -117.03
+  ],
+  "Vista": [
+   33.2,
+   -117.24
+  ],
+  "Warner Springs": [
+   33.28,
+   -116.63
+  ],
+  "Whitewater": [
+   33.94,
+   -116.69
+  ],
+  "Wildomar": [
+   33.61,
+   -117.26
+  ],
+  "Winchester": [
+   33.69,
+   -117.08
+  ],
+  "Winterhaven": [
+   32.74,
+   -114.64
+  ]
+ }
+}

@@ -1,0 +1,31 @@
+# Rebuild the job map ("check-in" pins) whenever Recent Work cards change on main.
+# Writes recent-work/job-map.json, recent-work/map/index.html, and only the
+# JOB_MAP_HUB block on the Ramona/Anza hubs. Town-level pins only.
+name: Rebuild job map
+on:
+  push:
+    branches: [main]
+    paths: ["recent-work/projects.json", "recent-work/paperwork-photos.txt", "recent-work/city-coords.json", "scripts/build_job_map.py"]
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: job-map
+  cancel-in-progress: false
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python3 scripts/build_job_map.py --geocode
+      - name: Commit if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add recent-work/job-map.json recent-work/map/index.html recent-work/city-coords.json services/ramona/index.html services/anza/index.html
+          if git diff --cached --quiet; then echo "Job map up to date."; exit 0; fi
+          git commit -m "Job map: rebuild pins from Recent Work"
+          git push
