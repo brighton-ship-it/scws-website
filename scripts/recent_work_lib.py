@@ -1665,6 +1665,13 @@ def hub_public_url(slug: str) -> str:
     return f"https://scwellservice.com/recent-work/areas/{slug}.html"
 
 
+# Misspelled city hub slugs. The pages stay live as redirects to the correct
+# hub (canonical + meta refresh) but must never be listed in the sitemap.
+SITEMAP_EXCLUDED_HUB_SLUGS = frozenset(
+    {"desert-hot-sprongs", "delzura", "hamul", "marietta", "owonga"}
+)
+
+
 def recent_work_sitemap_entries(projects: list[dict[str, Any]]) -> list[tuple[str, str]]:
     entries = [("https://scwellservice.com/recent-work/", "0.6")]
     entries.append(("https://scwellservice.com/recent-work/map/", "0.6"))  # job map (scripts/build_job_map.py)
@@ -1672,6 +1679,8 @@ def recent_work_sitemap_entries(projects: list[dict[str, Any]]) -> list[tuple[st
     for page_num in range(2, total_pages + 1):
         entries.append((f"https://scwellservice.com/recent-work/page-{page_num}.html", "0.4"))
     for hub in iter_city_hubs(projects):
+        if hub["slug"] in SITEMAP_EXCLUDED_HUB_SLUGS:
+            continue
         entries.append((hub_public_url(hub["slug"]), "0.6"))
     for project in projects:
         if job_is_indexable(project):
