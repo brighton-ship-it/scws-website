@@ -5,6 +5,7 @@ Public copy is job type, city, date, and whatever the job note already says.
 No customer names, street addresses, phone numbers, or invoice details.
 """
 from __future__ import annotations
+import re
 
 import html
 import json
@@ -362,6 +363,34 @@ def render_job_page(project: dict[str, Any], *, title: str, description: str) ->
     return _chrome(title, description, canonical, robots=robots, og_image=og_image, json_ld=json_ld, body=body)
 
 
+
+# Misspelled Jobber city slugs: keep the page reachable but canonicalize and
+# redirect to the correct hub (GitHub Pages has no server-side 301s).
+TYPO_HUB_ALIASES = {
+    "desert-hot-sprongs": "desert-hot-springs",
+    "delzura": "dulzura",
+    "hamul": "jamul",
+    "marietta": "murrieta",
+    "owonga": "aguanga",
+}
+
+
+def apply_typo_hub_alias(slug: str, page: str) -> str:
+    target = TYPO_HUB_ALIASES.get(slug)
+    if not target or "scws-typo-alias" in page:
+        return page
+    url = f"https://scwellservice.com/recent-work/areas/{target}.html"
+    page = re.sub(r'<link href="[^"]*" rel="canonical"/>', f'<link href="{url}" rel="canonical"/>', page, count=1)
+    page = re.sub(r'<meta content="[^"]*" property="og:url"/>', f'<meta content="{url}" property="og:url"/>', page, count=1)
+    head = (f'<!-- scws-typo-alias -->\n<meta http-equiv="refresh" content="0; url=/recent-work/areas/{target}.html"/>\n'
+            f'<script>location.replace("/recent-work/areas/{target}.html");</script>\n')
+    page = page.replace("<meta charset=\"utf-8\"/>", "<meta charset=\"utf-8\"/>\n" + head, 1)
+    page = page.replace("<body", f'<body data-typo-alias="{target}"', 1)
+    note = f'<p style="padding:1rem;background:#fff8e1">This page moved to <a href="/recent-work/areas/{target}.html">/recent-work/areas/{target}.html</a>.</p>'
+    page = re.sub(r'(<body[^>]*>)', lambda m: m.group(1) + "\n" + note, page, count=1)
+    return page
+
+
 def render_city_hub(hub: dict[str, Any]) -> str:
     slug = hub["slug"]
     label = hub["label"]
@@ -445,4 +474,4 @@ def render_city_hub(hub: dict[str, Any]) -> str:
         "publisher": {"@type": "Organization", "name": "Southern California Well Service"},
     }
     og = f"{SITE}{hero_photo}" if hero_photo else f"{SITE}/images/logo-text-only-3x.png"
-    return _chrome(title, description, canonical, robots="", og_image=og, json_ld=json_ld, body=body)
+    return apply_typo_hub_alias(slug, _chrome(title, description, canonical, robots="", og_image=og, json_ld=json_ld, body=body))
