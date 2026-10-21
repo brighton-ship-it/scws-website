@@ -1,0 +1,387 @@
+/* Town and service pages load Tailwind (the play CDN or Tailwind 2.2).
+   Preflight sets h1–h6 to font-size: inherit and font-weight: inherit, and an
+   inline * { margin: 0; padding: 0 } strips heading space and list padding.
+   overflow-x: hidden then clips the markers, so the page reads as a wall of
+   text. These rules restore the homepage type scale (primary #1f3b4d, accent
+   #4e9271) and card layout. Class selectors beat preflight element selectors. */
+
+main.city-landing,
+main.service-page {
+  background: #f8fafc;
+  color: #1e293b;
+  display: block;
+}
+
+.city-landing h2,
+.service-page h2,
+.town-extras h2,
+.hub-depth h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1.25;
+  color: #1f3b4d;
+  margin: 0 0 0.75rem;
+}
+
+.city-landing h3,
+.service-page h3,
+.town-extras h3,
+.hub-depth h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: #1f3b4d;
+  margin: 0 0 0.45rem;
+}
+
+.city-landing h4,
+.service-page h4 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #1f3b4d;
+  margin: 0 0 0.4rem;
+}
+
+.city-landing .hero,
+.service-page .hero {
+  background: linear-gradient(135deg, #1f3b4d 0%, #0f172a 100%);
+  color: #fff;
+  padding: 2.75rem 1.25rem 2.25rem;
+  text-align: center;
+}
+
+.city-landing .hero h1,
+.service-page .hero h1 {
+  font-size: clamp(1.85rem, 6vw, 2.75rem);
+  font-weight: 800;
+  line-height: 1.15;
+  color: #fff;
+  margin: 0 0 0.75rem;
+}
+
+.city-landing .hero p,
+.service-page .hero p {
+  color: #e2e8f0;
+  font-size: 1.05rem;
+  line-height: 1.55;
+  max-width: 40rem;
+  margin: 0.35rem auto 0;
+}
+
+.city-landing .hero .cta-button,
+.service-page .hero .cta-button,
+a.scws-book-online {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0.85rem 0.35rem 0;
+  min-height: 44px;
+  padding: 0.85rem 1.25rem;
+  border-radius: 8px;
+  font-weight: 700;
+  text-decoration: none;
+  line-height: 1.2;
+}
+
+.city-landing .hero .cta-button,
+.service-page .hero .cta-button {
+  background: #dc2626;
+  color: #fff;
+}
+
+a.scws-book-online {
+  background: #4e9271;
+  color: #fff;
+}
+
+.city-landing .city-overview,
+.city-landing .why-choose-scws,
+.city-landing .common-problems,
+.city-landing .service-area-map,
+.city-landing .contact-cta,
+.service-page .content {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1.35rem 1rem 0.35rem;
+}
+
+.city-landing .city-overview > p,
+.city-landing .why-choose-scws p,
+.city-landing .common-problems > p,
+.city-landing .service-area-map > p,
+.service-page .content > p {
+  line-height: 1.65;
+  margin: 0 0 0.85rem;
+  color: #334155;
+}
+
+.city-landing ul,
+.city-landing ol,
+.service-page ul,
+.service-page ol,
+.town-extras ul,
+.hub-depth ul {
+  margin: 0.4rem 0 0.9rem;
+  padding-left: 1.25rem;
+}
+
+.city-landing ul,
+.service-page ul,
+.town-extras ul,
+.hub-depth ul {
+  list-style: disc;
+}
+
+.city-landing ol,
+.service-page ol {
+  list-style: decimal;
+}
+
+.city-landing li,
+.service-page li,
+.town-extras li,
+.hub-depth li {
+  margin: 0.35rem 0;
+  line-height: 1.55;
+}
+
+.city-landing .service-area-info,
+.city-landing .local-geology,
+.service-page .local-geology,
+.city-landing .why-choose-scws,
+.city-landing .common-problems,
+.city-landing .service-area-map {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
+}
+
+.city-landing .service-area-info,
+.city-landing .local-geology,
+.service-page .local-geology {
+  padding: 1.15rem 1.15rem 0.35rem;
+  margin: 1rem 0;
+}
+
+.city-landing .service-area-info {
+  border-top: 4px solid #4e9271;
+}
+
+.city-landing .local-geology,
+.service-page .local-geology {
+  border-top: 4px solid #1f3b4d;
+}
+
+.city-landing .why-choose-scws,
+.city-landing .common-problems,
+.city-landing .service-area-map {
+  padding: 1.25rem 1.15rem 0.5rem;
+  margin: 1rem auto;
+}
+
+.city-landing .services-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1rem;
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 1.5rem 1rem 0.5rem;
+}
+
+.city-landing .services-grid > h2 {
+  grid-column: 1 / -1;
+  margin: 0 0 0.25rem;
+}
+
+.city-landing .service-card {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 1.15rem 1.15rem 1rem;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.06);
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  color: #1e293b;
+  text-decoration: none;
+}
+
+.city-landing .service-card h3 {
+  margin-top: 0;
+}
+
+.city-landing .service-card h3 a {
+  color: #1f3b4d;
+  text-decoration: none;
+}
+
+.city-landing .service-card p {
+  color: #334155;
+  margin: 0 0 0.75rem;
+  line-height: 1.55;
+}
+
+.city-landing .learn-more {
+  color: #3d7a5c;
+  font-weight: 700;
+  text-decoration: none;
+  margin-top: auto;
+}
+
+.city-landing .contact-cta {
+  background: #1f3b4d;
+  color: #fff;
+  border-radius: 16px;
+  text-align: center;
+  padding: 1.75rem 1.25rem;
+  margin: 1.5rem 1rem;
+}
+
+.city-landing .contact-cta h2,
+.city-landing .contact-cta p,
+.city-landing .contact-cta a {
+  color: #fff;
+}
+
+.city-landing .contact-cta .phone-large,
+.city-landing .contact-cta .phone-large a {
+  font-size: 1.75rem;
+  font-weight: 800;
+  text-decoration: none;
+  margin: 0.25rem 0 0.75rem;
+}
+
+.town-extras,
+.hub-depth {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1.25rem 1rem 0.25rem;
+}
+
+.town-rating,
+.town-reviews,
+.hub-shop-card,
+.hub-costs,
+.hub-faq,
+.review-card {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
+  padding: 1.15rem 1.15rem 0.9rem;
+  margin: 0 0 1rem;
+}
+
+.town-stars {
+  color: #f59e0b;
+  letter-spacing: 0.08em;
+  font-size: 1.15rem;
+  margin: 0 0 0.35rem;
+}
+
+.town-rating p,
+.review-card p,
+.hub-shop-card p,
+.hub-costs p,
+.hub-faq p {
+  margin: 0 0 0.65rem;
+  line-height: 1.6;
+  color: #334155;
+}
+
+.town-rating a,
+.town-reviews a,
+.hub-depth a,
+.town-extras a {
+  color: #1f3b4d;
+  font-weight: 700;
+}
+
+.reviews-list {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.review-card .reviewer {
+  font-weight: 700;
+  color: #1f3b4d;
+}
+
+.review-card .review-meta {
+  color: #64748b;
+  font-size: 0.9rem;
+  margin: 0.15rem 0 0.45rem;
+}
+
+.hub-coming-soon {
+  display: inline-block;
+  background: #fef3c7;
+  color: #92400e;
+  font-weight: 700;
+  border-radius: 999px;
+  padding: 0.15rem 0.65rem;
+  font-size: 0.85rem;
+}
+
+.hub-map iframe {
+  width: 100%;
+  height: 280px;
+  border: 0;
+  border-radius: 12px;
+  margin: 0.5rem 0 0.75rem;
+}
+
+.hub-faq details {
+  border-top: 1px solid #e2e8f0;
+  padding: 0.75rem 0;
+}
+
+.hub-faq summary {
+  font-weight: 700;
+  color: #1f3b4d;
+  cursor: pointer;
+}
+
+.service-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0.5rem 0 1rem;
+  padding: 0;
+  list-style: none;
+}
+
+.service-links li {
+  margin: 0;
+}
+
+.service-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0.45rem 0.8rem;
+  border-radius: 999px;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  text-decoration: none;
+}
+
+@media (min-width: 720px) {
+  .city-landing .services-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .reviews-list {
+    grid-template-columns: 1fr 1fr;
+  }
+  .hub-map iframe {
+    height: 360px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .city-landing .services-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
