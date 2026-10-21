@@ -1,8 +1,10 @@
 # Publish Recent Work cards from Jobber.
 #
 # How to run: Actions → "Publish Recent Work from Jobber" → Run workflow.
-# Required secrets (repo Settings → Secrets): JOBBER_ACCESS_TOKEN
-#   or JOBBER_CLIENT_ID + JOBBER_CLIENT_SECRET + JOBBER_REFRESH_TOKEN.
+# Required secret (repo Settings → Secrets): JOBBER_MCP_RECENT_WORK_KEY —
+#   a read-only key for the Production Jobber MCP (scws-jobs, search_jobs/get_job only).
+#   Jobber OAuth is never used or refreshed from Actions: the scws-jobs app is the
+#   single writer of the Jobber token store.
 # Opens a PR to main. Does not push to main. See recent-work/README.md.
 name: Publish Recent Work from Jobber
 
@@ -47,7 +49,7 @@ jobs:
           python-version: "3.12"
       - name: Unit tests (no Jobber token needed)
         run: |
-          python3 -m unittest scripts/test_recent_work_lib.py scripts/test_photo_audit_lib.py -v
+          python3 -m unittest scripts/test_recent_work_lib.py scripts/test_photo_audit_lib.py scripts/test_jobber_mcp_mode.py -v
           node ops/photo-audit/server-lib.test.js
 
   publish:
@@ -65,31 +67,19 @@ jobs:
 
       - name: Check Jobber secrets
         env:
-          JOBBER_ACCESS_TOKEN: ${{ secrets.JOBBER_ACCESS_TOKEN }}
-          JOBBER_CLIENT_ID: ${{ secrets.JOBBER_CLIENT_ID }}
-          JOBBER_CLIENT_SECRET: ${{ secrets.JOBBER_CLIENT_SECRET }}
-          JOBBER_REFRESH_TOKEN: ${{ secrets.JOBBER_REFRESH_TOKEN }}
+          JOBBER_MCP_RECENT_WORK_KEY: ${{ secrets.JOBBER_MCP_RECENT_WORK_KEY }}
         run: |
-          if [ -n "$JOBBER_ACCESS_TOKEN" ]; then
-            echo "Using JOBBER_ACCESS_TOKEN"
+          if [ -n "$JOBBER_MCP_RECENT_WORK_KEY" ]; then
+            echo "Using read-only Production Jobber MCP (no OAuth refresh from Actions)"
             exit 0
           fi
-          if [ -n "$JOBBER_CLIENT_ID" ] && [ -n "$JOBBER_CLIENT_SECRET" ] && [ -n "$JOBBER_REFRESH_TOKEN" ]; then
-            echo "Using Jobber refresh-token flow"
-            exit 0
-          fi
-          echo "Missing Jobber secrets."
-          echo "Add JOBBER_ACCESS_TOKEN, or JOBBER_CLIENT_ID + JOBBER_CLIENT_SECRET + JOBBER_REFRESH_TOKEN."
-          echo "See recent-work/README.md"
+          echo "Missing JOBBER_MCP_RECENT_WORK_KEY (read-only Production Jobber MCP key)."
+          echo "Do not add Jobber OAuth / refresh tokens here. See recent-work/README.md"
           exit 1
 
       - name: Pull Jobber jobs and write cards
         env:
-          JOBBER_ACCESS_TOKEN: ${{ secrets.JOBBER_ACCESS_TOKEN }}
-          JOBBER_CLIENT_ID: ${{ secrets.JOBBER_CLIENT_ID }}
-          JOBBER_CLIENT_SECRET: ${{ secrets.JOBBER_CLIENT_SECRET }}
-          JOBBER_REFRESH_TOKEN: ${{ secrets.JOBBER_REFRESH_TOKEN }}
-          JOBBER_GRAPHQL_VERSION: ${{ secrets.JOBBER_GRAPHQL_VERSION }}
+          JOBBER_MCP_RECENT_WORK_KEY: ${{ secrets.JOBBER_MCP_RECENT_WORK_KEY }}
         run: |
           DAYS="${{ github.event.inputs.days || '75' }}"
           LIMIT="${{ github.event.inputs.limit || '40' }}"
