@@ -187,3 +187,10 @@ job1973_3.jpg
 job1977_2.jpg
 job2645_2.jpg
 job2660_1.jpg
+
+# License plates, a customer carport, and a phone photo-library screenshot
+job3082_1.jpg
+job3082_2.jpg
+job3093_1.jpg
+job3093_2.jpg
+job2852_1.jpg

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-10-21T18:50:00Z",
+  "updatedAt": "2026-10-21T19:30:00Z",
   "photos": {
     "job1856:1": {
       "decision": "reject",
@@ -1238,6 +1238,46 @@
       "decision": "reject",
       "at": "2026-10-21T18:50:00Z",
       "jobId": "job2660",
+      "shop": "ramona",
+      "caption": "",
+      "reason": "pii-paperwork-or-screen"
+    },
+    "job3082:1": {
+      "decision": "reject",
+      "at": "2026-10-21T19:30:00Z",
+      "jobId": "job3082",
+      "shop": "ramona",
+      "caption": "",
+      "reason": "pii-paperwork-or-screen"
+    },
+    "job3082:2": {
+      "decision": "reject",
+      "at": "2026-10-21T19:30:00Z",
+      "jobId": "job3082",
+      "shop": "ramona",
+      "caption": "",
+      "reason": "pii-paperwork-or-screen"
+    },
+    "job3093:1": {
+      "decision": "reject",
+      "at": "2026-10-21T19:30:00Z",
+      "jobId": "job3093",
+      "shop": "ramona",
+      "caption": "",
+      "reason": "pii-paperwork-or-screen"
+    },
+    "job3093:2": {
+      "decision": "reject",
+      "at": "2026-10-21T19:30:00Z",
+      "jobId": "job3093",
+      "shop": "ramona",
+      "caption": "",
+      "reason": "pii-paperwork-or-screen"
+    },
+    "job2852:1": {
+      "decision": "reject",
+      "at": "2026-10-21T19:30:00Z",
+      "jobId": "job2852",
       "shop": "ramona",
       "caption": "",
       "reason": "pii-paperwork-or-screen"
