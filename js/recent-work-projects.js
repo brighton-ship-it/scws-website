@@ -7657,7 +7657,9 @@
         "photos": [
             {
                 "file": "job2660_1.jpg",
-                "alt": "Well service in Dulzura"
+                "alt": "Well service in Dulzura",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             },
             {
                 "file": "job2660_2.jpg",
@@ -8262,7 +8264,9 @@
             },
             {
                 "file": "job2645_2.jpg",
-                "alt": "Well service in Joshua Tree"
+                "alt": "Well service in Joshua Tree",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             },
             {
                 "file": "job2645_3.jpg",
@@ -20265,7 +20269,9 @@
             },
             {
                 "file": "job1977_2.jpg",
-                "alt": "Well service in Desert Hot Springs"
+                "alt": "Well service in Desert Hot Springs",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             }
         ]
     },
@@ -20633,7 +20639,9 @@
             },
             {
                 "file": "job1973_3.jpg",
-                "alt": "Well service in Alpine"
+                "alt": "Well service in Alpine",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             }
         ]
     },
@@ -21420,7 +21428,9 @@
         "photos": [
             {
                 "file": "job1915_1.jpg",
-                "alt": "Pull pump in Aguanga"
+                "alt": "Pull pump in Aguanga",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             },
             {
                 "file": "job1915_2.jpg",
@@ -21690,7 +21700,9 @@
             },
             {
                 "file": "job1879_2.jpg",
-                "alt": "Well service in Boulevard"
+                "alt": "Well service in Boulevard",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             },
             {
                 "file": "job1879_3.jpg",
@@ -21805,7 +21817,9 @@
             },
             {
                 "file": "job1902_2.jpg",
-                "alt": "Well service in Ramona"
+                "alt": "Well service in Ramona",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             },
             {
                 "file": "job1902_3.jpg",
@@ -21951,7 +21965,9 @@
         "photos": [
             {
                 "file": "job1891_1.jpg",
-                "alt": "Well service in Lakeside"
+                "alt": "Well service in Lakeside",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             },
             {
                 "file": "job1891_2.jpg",
@@ -22128,7 +22144,9 @@
             },
             {
                 "file": "job1884_2.jpg",
-                "alt": "Well diagnostic in Poway"
+                "alt": "Well diagnostic in Poway",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             },
             {
                 "file": "job1884_3.jpg",
@@ -22249,7 +22267,9 @@
         "photos": [
             {
                 "file": "job1871_1.jpg",
-                "alt": "Booster service in Ramona"
+                "alt": "Booster service in Ramona",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             },
             {
                 "file": "job1871_2.jpg",
@@ -23042,7 +23062,9 @@
             },
             {
                 "file": "job1834_2.jpg",
-                "alt": "Well service in Ramona"
+                "alt": "Well service in Ramona",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             },
             {
                 "file": "job1834_3.jpg",
@@ -23333,7 +23355,9 @@
         "photos": [
             {
                 "file": "job1816_1.jpg",
-                "alt": "Well service in Poway"
+                "alt": "Well service in Poway",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             },
             {
                 "file": "job1816_2.jpg",
@@ -23504,7 +23528,9 @@
         "photos": [
             {
                 "file": "job1802_1.jpg",
-                "alt": "Well service in Idyllwild"
+                "alt": "Well service in Idyllwild",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             }
         ]
     },
@@ -23604,7 +23630,9 @@
             },
             {
                 "file": "job1803_3.jpg",
-                "alt": "Well service in Ramona"
+                "alt": "Well service in Ramona",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             }
         ]
     },
@@ -24001,7 +24029,9 @@
             },
             {
                 "file": "job1775_2.jpg",
-                "alt": "Well service in Lakeside"
+                "alt": "Well service in Lakeside",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             },
             {
                 "file": "job1775_3.jpg",
@@ -24351,7 +24381,9 @@
             },
             {
                 "file": "job1762_2.jpg",
-                "alt": "Well service in Anza"
+                "alt": "Well service in Anza",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             },
             {
                 "file": "job1762_3.jpg",
@@ -25248,7 +25280,9 @@
             },
             {
                 "file": "job1716_2.jpg",
-                "alt": "Well service in Ramona"
+                "alt": "Well service in Ramona",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             },
             {
                 "file": "job1716_3.jpg",
@@ -25327,7 +25361,9 @@
             },
             {
                 "file": "job1714_2.jpg",
-                "alt": "Well service in Poway"
+                "alt": "Well service in Poway",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             },
             {
                 "file": "job1714_3.jpg",
@@ -28525,7 +28561,9 @@
         "photos": [
             {
                 "file": "job1534_1.jpg",
-                "alt": "Well service in Desert Hot Springs"
+                "alt": "Well service in Desert Hot Springs",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             },
             {
                 "file": "job1534_2.jpg",
@@ -28581,11 +28619,15 @@
             },
             {
                 "file": "job1533_2.jpg",
-                "alt": "Well service in Ramona"
+                "alt": "Well service in Ramona",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             },
             {
                 "file": "job1533_3.jpg",
-                "alt": "Well service in Ramona"
+                "alt": "Well service in Ramona",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             }
         ]
     },
