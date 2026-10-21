@@ -3,6 +3,52 @@
   "note": "Public copy only. No customer names, street addresses, prices, or Jobber URLs.",
   "projects": [
     {
+      "id": "job3598",
+      "slug": "vista-booster-motor-float-replacement",
+      "title": "Booster motor and top float replacement",
+      "location": "Vista",
+      "date": "2026-10-20",
+      "dateLabel": "October 20, 2026",
+      "category": "pump",
+      "categoryLabel": "Pump Service",
+      "summary": "A storage tank in Vista needed a new booster motor and a new top float. We swapped both and ran about 50 feet of fresh wire in conduit out to the float.",
+      "photos": [
+        {
+          "file": "job3598_1.jpg",
+          "alt": "Storage tanks and booster controls after the motor and float replacement in Vista"
+        },
+        {
+          "file": "job3598_2.jpg",
+          "alt": "Storage tank with new float wiring in Vista"
+        }
+      ]
+    },
+    {
+      "id": "job3631",
+      "slug": "murrieta-pump-motor-replacement",
+      "title": "Well pump and motor replacement",
+      "location": "Murrieta",
+      "date": "2026-10-20",
+      "dateLabel": "October 20, 2026",
+      "category": "pump",
+      "categoryLabel": "Pump Service",
+      "summary": "Iron had clogged the old pump and the pipe nipple on top of a well in Murrieta. We pulled it, cleared the line, and set a new 2 HP, 15 GPM pump and motor under warranty that tested at 23 gallons a minute.",
+      "photos": [
+        {
+          "file": "job3631_1.jpg",
+          "alt": "Storage tank and new plumbing after the well pump replacement in Murrieta"
+        },
+        {
+          "file": "job3631_2.jpg",
+          "alt": "New tank fill plumbing in Murrieta"
+        },
+        {
+          "file": "job3631_3.jpg",
+          "alt": "Pump controls at the storage tank in Murrieta"
+        }
+      ]
+    },
+    {
       "id": "job3168",
       "slug": "el-cajon-well-service",
       "title": "Well service",
