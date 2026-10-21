@@ -3,11 +3,13 @@
 from __future__ import annotations
 
 import importlib.util
+import io
 import json
 import re
 import sys
 import tempfile
 import unittest
+from contextlib import redirect_stdout
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -357,7 +359,7 @@ class HtmlTests(unittest.TestCase):
 
 
 class DryRunCliTests(unittest.TestCase):
-    def test_fixture_dry_run_publishes_unreviewed_field_photo(self):
+    def test_fixture_dry_run_skips_unreviewed_field_photo(self):
         fixture = {
             "jobs": [
                 {
@@ -386,11 +388,16 @@ class DryRunCliTests(unittest.TestCase):
             original = photo_audit_lib.DECISIONS_PATH
             photo_audit_lib.DECISIONS_PATH = Path(tmp) / "decisions.json"
             photo_audit_lib.DECISIONS_PATH.write_text(json.dumps({"version": 1, "photos": {}}))
+            buf = io.StringIO()
             try:
-                code = _cli.main(["--fixture", str(path), "--dry-run"])
+                with redirect_stdout(buf):
+                    code = _cli.main(["--fixture", str(path), "--dry-run"])
             finally:
                 photo_audit_lib.DECISIONS_PATH = original
+        out = buf.getvalue()
         self.assertEqual(code, 0)
+        self.assertIn("New publishable jobs: 0", out)
+        self.assertIn("waiting for photo-audit keep", out)
 
     def test_fixture_dry_run_exits_zero_when_kept(self):
         fixture = {

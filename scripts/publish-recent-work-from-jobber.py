@@ -26,10 +26,10 @@ Existing cards stay as-is until this command actually adds a new job.
 Photos are downloaded from Jobber note attachments — not GBP copies,
 not generated pixels. Public text is title + city/area only.
 
-Rejected photos and permanent-skip jobs stay off the site. Job 3224 is never
-featured. A field photo that has not been reviewed yet is published so the
-Monday run keeps adding finished jobs. Paperwork is still dropped later by
-recent-work/paperwork-photos.txt. Keep on the photo audit is optional.
+A photo is published only after Brighton taps Keep on
+https://scwellservice.com/ops/photo-audit/. Rejected photos, unreviewed
+photos, and permanent-skip jobs stay off the site. Job 3224 is never
+featured. Paperwork listed in recent-work/paperwork-photos.txt is dropped too.
 
 See recent-work/README.md for the full checklist.
 """
@@ -193,13 +193,12 @@ def main(argv: list[str] | None = None) -> int:
             continue
         kept = kept_photo_indexes(job_id, decisions)
         rejected = rejected_photo_indexes(job_id, decisions)
-        if kept:
-            chosen = {i for i in kept if i not in rejected and i <= len(attachments)}
-        else:
-            # Unreviewed field photos still publish. Explicit rejects never do.
-            chosen = {i for i in range(1, len(attachments) + 1) if i not in rejected}
+        if not kept:
+            skipped.append(f"{job_id} waiting for photo-audit keep")
+            continue
+        chosen = {i for i in kept if i not in rejected and i <= len(attachments)}
         if not chosen:
-            skipped.append(f"{job_id} no publishable photos")
+            skipped.append(f"{job_id} no kept photos")
             continue
         raw_city = ((job.get("property") or {}).get("address") or {}).get("city") or ""
         if not public_location(raw_city):
