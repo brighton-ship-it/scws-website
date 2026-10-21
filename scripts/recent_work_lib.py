@@ -158,22 +158,46 @@ def is_public_safe_title(title: str) -> bool:
     return bool(PUBLIC_TITLE_RE.search(t))
 
 
+_GENERIC_TITLE_RE = re.compile(r"^(?:well\s+service|service\s+call|service)$", re.I)
+
+
 def clean_public_title(title: str) -> str:
-    """Turn a Jobber title into public copy. Drops job numbers and customer words."""
+    """Turn a Jobber title into public copy. Drops job numbers and internal notes.
+
+    Site visits are not public titles. Generic "Well service" leftovers are
+    returned empty so the publisher skips the job instead of posting boilerplate.
+    """
     raw = (title or "").strip()
+    if re.search(r"\bsite\s+visits?\b", raw, re.I):
+        return ""
     text = re.sub(r"\bjob\s*#?\s*\d+\b", " ", raw, flags=re.I)
     text = re.sub(r"\bplease call\b.*", " ", text, flags=re.I)
+    text = re.sub(r"\bcall\s+with\s+eta\b", " ", text, flags=re.I)
+    text = re.sub(r"\(\s*no\s*charge\s*\)", " ", text, flags=re.I)
+    text = re.sub(r"\bat\s+\d*\s*ft\b", " ", text, flags=re.I)
+    text = re.sub(r"\b\d{1,2}:\d{2}\s*(?:[ap]\.?m\.?)?\b", " ", text, flags=re.I)
+    text = re.sub(r"\b\d{1,2}\s*[ap]\.?m\.?\b", " ", text, flags=re.I)
+    text = re.sub(
+        r"\b(?:jan|feb|mar|apr|may|jun|jul|aug|sep|sept|oct|nov|dec)[a-z]*\.?\s+\d{1,2}(?:,\s*\d{4})?\b",
+        " ",
+        text,
+        flags=re.I,
+    )
+    text = re.sub(r"\b\d{1,2}[/-]\d{1,2}(?:[/-]\d{2,4})?\b", " ", text)
     text = re.sub(r"\b(?:his|her|their|customer'?s?)\b", " ", text, flags=re.I)
     text = re.sub(r"@\s*well\s*#?\s*\d+", " ", text, flags=re.I)
+    text = re.sub(r"(?:\s*[-–—/]\s*|\s+)\(?[A-Z]{2,3}\)?\s*$", " ", text)
     text = re.sub(r"\s+", " ", text).strip(" -–—,;/")
+    if _GENERIC_TITLE_RE.match(text):
+        return ""
     if is_public_safe_title(text):
         return text
     shorter = re.sub(r"~?\b\d{3,5}\b", " ", text)
     shorter = re.sub(r"\s+", " ", shorter).strip(" -–—,;@/")
+    if _GENERIC_TITLE_RE.match(shorter):
+        return ""
     if is_public_safe_title(shorter):
         return shorter
-    if re.search(r"service call|site walk|job walk|system check|site visit", raw, re.I):
-        return "Well service"
     if re.search(r"\bvideo\b", raw, re.I):
         return "Well video survey"
     if re.search(r"\bleak\b", raw, re.I):
@@ -352,8 +376,11 @@ def build_project(
     *,
     taken_slugs: Iterable[str],
 ) -> dict[str, Any] | None:
-    title = clean_public_title(sanitize_public_text((job.get("title") or "").strip()))
-    if not is_public_safe_title(title):
+    raw_title = (job.get("title") or "").strip()
+    if re.search(r"\bsite\s+visits?\b", raw_title, re.I):
+        return None
+    title = clean_public_title(sanitize_public_text(raw_title))
+    if not title or not is_public_safe_title(title):
         return None
     city = public_location(((job.get("property") or {}).get("address") or {}).get("city"))
     if city and (city.islower() or city.isupper()):

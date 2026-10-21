@@ -76,7 +76,12 @@ class SanitizeTests(unittest.TestCase):
     def test_clean_title_drops_customer_words_and_keeps_service_calls(self):
         from recent_work_lib import clean_public_title
 
-        self.assertEqual(clean_public_title("Service Call Please call with ETA"), "Well service")
+        self.assertEqual(clean_public_title("Service Call Please call with ETA"), "")
+        self.assertEqual(clean_public_title("Site Visit Storage Tank"), "")
+        self.assertEqual(
+            clean_public_title("Pull pump at 400 ft ( no charge) 8:30 AM BS"),
+            "Pull pump",
+        )
         self.assertNotIn("His", clean_public_title("Set His Power Pole"))
         self.assertIn("Pump", clean_public_title("Replace Pump, Motor & Control – Job #3625"))
         self.assertNotIn("3625", clean_public_title("Replace Pump, Motor & Control – Job #3625"))
@@ -136,6 +141,19 @@ class ProjectBuildTests(unittest.TestCase):
         self.assertIsNone(build_project(no_city, ["job1_1.jpg"], taken_slugs=[]))
         bad_title = dict(base, title="Customer follow-up")
         self.assertIsNone(build_project(bad_title, ["job1_1.jpg"], taken_slugs=[]))
+        site_visit = dict(base, title="Site Visit Storage Tank", jobNumber=3635)
+        self.assertIsNone(build_project(site_visit, ["job3635_1.jpg"], taken_slugs=[]))
+        generic = dict(base, title="Well service")
+        self.assertIsNone(build_project(generic, ["job1_1.jpg"], taken_slugs=[]))
+
+    def test_completed_at_uses_pacific_calendar_day(self):
+        from recent_work_lib import format_date_label, parse_jobber_dt
+
+        # job 3616 completed 2026-10-21 01:27 UTC, which is still October 20 in California.
+        self.assertEqual(
+            format_date_label(None, parse_jobber_dt("2026-10-21T01:27:11Z")),
+            ("2026-10-20", "October 20, 2026"),
+        )
 
     def test_merge_keeps_existing_copy(self):
         existing = [
