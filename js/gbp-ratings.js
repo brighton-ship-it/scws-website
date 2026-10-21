@@ -7,15 +7,15 @@
  * Failure body: { error: "gbp_unconfigured" | "gbp_unavailable" }
  *
  * Visible copy is the combined Ramona + Anza figure, not a single shop:
- *   ★★★★★  4.8  from 170+ Google reviews  across our Ramona and Anza shops
+ *   ★★★★★  4.8  from 175 Google reviews  across our Ramona and Anza shops
  * The link stays the Anza GBP listing already used on the homepage.
  * Never reuse the Ramona review URL for that href.
  *
- * Verified from the Google Business Profile API on 2026-10-02:
- *   Anza 4.8 (108), Ramona 4.7 (62), combined 170 reviews, weighted 4.76 → 4.8.
+ * Live Google Business Profile counts on 2026-10-21:
+ *   Ramona 4.7 (62), Anza 4.8 (113), combined 175, weighted about 4.76 → 4.8.
  * The API is often unconfigured, so that snapshot is what visitors see.
  * A live payload is used only when both shops are present and the total
- * is at least 170, so a stale Anza-only count cannot overwrite it.
+ * is at least 175, so an older 170-review pull cannot overwrite it.
  */
 (function (root) {
   'use strict';
@@ -30,13 +30,13 @@
   // street-address Maps pin (57174 CA-371) or the Ramona g.page above.
   var ANZA_LISTING = 'https://g.page/r/Cajtn6jSo-ONEBM';
 
-  // GBP API pull, 2026-10-02. Weighted average 4.76 displays as 4.8.
+  // Live counts, 2026-10-21. Weighted average about 4.76 displays as 4.8.
   var SHOPS = {
-    asOf: '2026-10-02',
-    anza: { rating: 4.8, count: 108 },
+    asOf: '2026-10-21',
+    anza: { rating: 4.8, count: 113 },
     ramona: { rating: 4.7, count: 62 }
   };
-  var COMBINED_SNAPSHOT = { rating: 4.8, countLabel: '170+', asOf: '2026-10-02' };
+  var COMBINED_SNAPSHOT = { rating: 4.8, countLabel: '175', asOf: '2026-10-21' };
 
   var SHOP_LABEL = 'across our Ramona and Anza shops';
   var STAR_ROW = '<span class="gbp-stars" aria-hidden="true">★★★★★</span>';
@@ -62,14 +62,14 @@
     if (!payload || typeof payload !== 'object' || payload.error) return null;
     if (!hasLive(payload.anza) || !hasLive(payload.ramona)) return null;
     var count = payload.anza.count + payload.ramona.count;
-    if (!(count >= 170)) return null;
+    if (!(count >= 175)) return null;
     var weighted =
       (payload.anza.rating * payload.anza.count +
         payload.ramona.rating * payload.ramona.count) /
       count;
     return {
       rating: weighted,
-      countLabel: String(Math.round(count)) + '+'
+      countLabel: String(Math.round(count))
     };
   }
 
