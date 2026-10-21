@@ -113,10 +113,6 @@
         "summary": "Replace Wire completed in Murrieta.",
         "photos": [
             {
-                "file": "job3668_1.jpg",
-                "alt": "Replace Wire in Murrieta"
-            },
-            {
                 "file": "job3668_2.jpg",
                 "alt": "Replace Wire in Murrieta"
             }
@@ -375,10 +371,6 @@
         "categoryLabel": "Pump Service",
         "summary": "Well service completed in Murrieta.",
         "photos": [
-            {
-                "file": "job3601_1.jpg",
-                "alt": "Well service in Murrieta"
-            },
             {
                 "file": "job3601_2.jpg",
                 "alt": "Well service in Murrieta"
@@ -935,10 +927,6 @@
         "categoryLabel": "Pump Service",
         "summary": "8\" Locking Cap completed in Temecula.",
         "photos": [
-            {
-                "file": "job3485_1.jpg",
-                "alt": "8\" Locking Cap in Temecula"
-            },
             {
                 "file": "job3485_2.jpg",
                 "alt": "8\" Locking Cap in Temecula"
@@ -1822,31 +1810,6 @@
         ]
     },
     {
-        "id": "job3470",
-        "slug": "ramona-pump-motor-and-controller-estimate-18-gpm-3-hp",
-        "title": "Pump, Motor & Controller Estimate (18 GPM / 3 HP)",
-        "location": "Ramona",
-        "date": "2026-10-01",
-        "dateLabel": "October 1, 2026",
-        "category": "pump",
-        "categoryLabel": "Pump Service",
-        "summary": "Pump, Motor & Controller Estimate (18 GPM / 3 HP) completed in Ramona.",
-        "photos": [
-            {
-                "file": "job3470_1.jpg",
-                "alt": "Pump, Motor & Controller Estimate (18 GPM / 3 HP) in Ramona"
-            },
-            {
-                "file": "job3470_2.jpg",
-                "alt": "Pump, Motor & Controller Estimate (18 GPM / 3 HP) in Ramona"
-            },
-            {
-                "file": "job3470_3.jpg",
-                "alt": "Pump, Motor & Controller Estimate (18 GPM / 3 HP) in Ramona"
-            }
-        ]
-    },
-    {
         "id": "job3492",
         "slug": "pala-well-service-8",
         "title": "Well service",
@@ -2568,10 +2531,6 @@
         "summary": "Pull & Inspect Pump & Motor completed in Ramona.",
         "photos": [
             {
-                "file": "job3435_1.jpg",
-                "alt": "Pull & Inspect Pump & Motor in Ramona"
-            },
-            {
                 "file": "job3435_2.jpg",
                 "alt": "Pull & Inspect Pump & Motor in Ramona"
             },
@@ -2764,14 +2723,6 @@
         "summary": "Replace Booster Motor completed in Murrieta.",
         "photos": [
             {
-                "file": "job3423_1.jpg",
-                "alt": "Replace Booster Motor in Murrieta"
-            },
-            {
-                "file": "job3423_2.jpg",
-                "alt": "Replace Booster Motor in Murrieta"
-            },
-            {
                 "file": "job3423_3.jpg",
                 "alt": "Replace Booster Motor in Murrieta"
             }
@@ -2859,10 +2810,6 @@
         "categoryLabel": "Pump Service",
         "summary": "Well service completed in Murrieta.",
         "photos": [
-            {
-                "file": "job3416_1.jpg",
-                "alt": "Well service in Murrieta"
-            },
             {
                 "file": "job3416_2.jpg",
                 "alt": "Well service in Murrieta"
@@ -3385,14 +3332,6 @@
         "categoryLabel": "Pressure Tanks",
         "summary": "Fire Tank w/ Remote Hydrant completed in Temecula.",
         "photos": [
-            {
-                "file": "job2905_1.jpg",
-                "alt": "Fire Tank w/ Remote Hydrant in Temecula"
-            },
-            {
-                "file": "job2905_2.jpg",
-                "alt": "Fire Tank w/ Remote Hydrant in Temecula"
-            },
             {
                 "file": "job2905_3.jpg",
                 "alt": "Fire Tank w/ Remote Hydrant in Temecula"
@@ -6517,10 +6456,6 @@
         "categoryLabel": "Pump Service",
         "summary": "Well service completed in Fallbrook.",
         "photos": [
-            {
-                "file": "job3193_1.jpg",
-                "alt": "Well service in Fallbrook"
-            },
             {
                 "file": "job3193_2.jpg",
                 "alt": "Well service in Fallbrook"
@@ -22434,10 +22369,6 @@
         "photos": [
             {
                 "file": "job2235_1.jpg",
-                "alt": "Well service in Wildomar"
-            },
-            {
-                "file": "job2235_2.jpg",
                 "alt": "Well service in Wildomar"
             },
             {

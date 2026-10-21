@@ -46,3 +46,20 @@ job2806_1.jpg
 job2806_2.jpg
 job2931_1.jpg
 job2951_1.jpg
+
+# Customer PII pulled 2026-10-21 (handwritten notes, GPS, house numbers,
+# invoices, fire-inspection docs, competitor sign). Files deleted.
+job2235_2.jpg
+job2905_1.jpg
+job2905_2.jpg
+job3193_1.jpg
+job3416_1.jpg
+job3423_1.jpg
+job3423_2.jpg
+job3435_1.jpg
+job3470_1.jpg
+job3470_2.jpg
+job3470_3.jpg
+job3485_1.jpg
+job3601_1.jpg
+job3668_1.jpg
