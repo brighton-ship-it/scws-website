@@ -511,11 +511,11 @@ def photo_is_paperwork(filename: str) -> bool:
 
 
 def public_photos(project: dict[str, Any]) -> list[dict[str, Any]]:
-    """Field photos only. Paperwork is skipped; order is otherwise unchanged."""
+    """Field photos only. Excluded and paperwork photos are never republished."""
     kept: list[dict[str, Any]] = []
     for photo in project.get("photos") or []:
         filename = str(photo.get("file") or "")
-        if not filename or photo_is_paperwork(filename):
+        if not filename or photo.get("excluded") or photo_is_paperwork(filename):
             continue
         kept.append(photo)
     return kept

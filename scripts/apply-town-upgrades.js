@@ -128,16 +128,52 @@ function loadReviews() {
   return by;
 }
 
+function loadKeptPhotoKeys() {
+  const kept = {};
+  try {
+    const decisions = JSON.parse(read('ops/photo-audit/decisions.json'));
+    const photos = decisions.photos || {};
+    Object.keys(photos).forEach(function (key) {
+      if (String((photos[key] || {}).decision || '').toLowerCase() === 'keep') kept[key.toLowerCase()] = 1;
+    });
+  } catch (e) {}
+  return kept;
+}
+function loadPaperworkNames() {
+  const names = {};
+  try {
+    read('recent-work/paperwork-photos.txt').split(/\n/).forEach(function (line) {
+      const name = line.replace(/#.*/, '').trim();
+      if (name) names[name] = 1;
+    });
+  } catch (e) {}
+  return names;
+}
+function keptPhoto(job, kept, paperwork) {
+  const photos = job.photos || [];
+  for (let i = 0; i < photos.length; i++) {
+    const photo = photos[i];
+    const file = photo && photo.file;
+    if (!file || photo.excluded || paperwork[file]) continue;
+    const match = String(file).match(/^(job\d+)_(\d+)\./i);
+    const key = match ? (match[1].toLowerCase() + ':' + match[2]) : '';
+    if (!key || !kept[key]) continue;
+    if (!exists('images/recent-work/' + file)) continue;
+    return photo;
+  }
+  return null;
+}
 function jobCards(jobs, limit) {
+  const kept = loadKeptPhotoKeys();
+  const paperwork = loadPaperworkNames();
   const cards = [];
   for (const job of jobs.slice(0, limit)) {
     if (!job.slug || !exists('recent-work/' + job.slug + '.html')) continue;
-    const photo = job.photos && job.photos[0];
+    const photo = keptPhoto(job, kept, paperwork);
     const file = photo && photo.file;
-    const imgOk = file && exists('images/recent-work/' + file);
-    const img = imgOk
+    const img = file
       ? '<img src="/images/recent-work/' + esc(file) + '" alt="' + esc(photo.alt || job.title) + '" width="800" height="450" loading="lazy">'
-      : '<div class="photo-fallback" role="img" aria-label="' + esc(job.title) + '"></div>';
+      : '';
     cards.push(
       '<a class="recent-work-card" href="/recent-work/' + esc(job.slug) + '.html">\n' +
       img + '\n<div class="rw-body">\n<h3>' + esc(job.title) + '</h3>\n<p>' + esc(job.location) + '</p>\n</div>\n</a>'
