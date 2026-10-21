@@ -92,8 +92,11 @@ function townNameFrom(html, dirSlug) {
   if (m) return m[1].replace(/&amp;/g, '&').trim();
   return dirSlug.split('-').map(function (w) { return w.charAt(0).toUpperCase() + w.slice(1); }).join(' ');
 }
-function isTownIndex(html) {
-  return /<h1[^>]*>\s*Well Services in /i.test(html);
+const SKIP_INDEX = { agricultural: 1, commercial: 1, hoa: 1, residential: 1, vineyard: 1, 'san-diego': 1 };
+function isTownIndex(html, dirSlug) {
+  if (SKIP_INDEX[dirSlug]) return false;
+  if (/http-equiv="refresh"/i.test(html)) return false;
+  return /<h1[\s>]/i.test(html);
 }
 
 function loadProjects() {
@@ -282,7 +285,6 @@ function upsertExtras(html, block) {
 function ensureHubLink(html, townSlug, town) {
   const href = '/recent-work/areas/' + townSlug + '.html';
   if (!exists('recent-work/areas/' + townSlug + '.html')) return html;
-  if (html.includes(href)) return html;
   const needle = '<p class="rw-all"><a href="/recent-work/">See all recent work →</a></p>';
   if (!html.includes(needle)) return html;
   return html.replace(
@@ -315,7 +317,7 @@ function applyExtras() {
     const index = path.join(dir, name, 'index.html');
     if (!fs.existsSync(index)) continue;
     let html = fs.readFileSync(index, 'utf8');
-    if (!isTownIndex(html)) continue;
+    if (!isTownIndex(html, name)) continue;
     const town = townNameFrom(html, name);
     const jobs = byJob[name] || [];
     const reviews = (byReview[name] && byReview[name].reviews) || [];
@@ -330,6 +332,10 @@ function applyExtras() {
       const cards = jobCards(jobs, 6);
       if (cards) html = replaceGrid(html, cards);
       html = ensureHubLink(html, name, town);
+      html = html.replace(
+        /(<section class="recent-jobs-cards"[^>]*>\s*<h2>)[^<]*(<\/h2>)/,
+        '$1Recent jobs in ' + esc(town) + '$2'
+      );
     }
     fs.writeFileSync(index, html);
     n++;

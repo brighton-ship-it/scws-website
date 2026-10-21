@@ -94,6 +94,36 @@
 </script>
 <link rel="stylesheet" href="/css/shop-chrome.css"/>
 <link rel="stylesheet" href="/css/city-pages.css"/>
+<!-- AggregateRating from js/gbp-ratings.js snapshot 2026-10-02: Anza 4.8 (108) + Ramona 4.7 (62) = 170 reviews, displayed 4.8. -->
+<script type="application/ld+json" id="town-aggregate-rating">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://scwellservice.com/#reviews",
+  "name": "Southern California Well Service",
+  "telephone": "+1-760-440-8520",
+  "url": "https://scwellservice.com/",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.8",
+    "reviewCount": "170",
+    "bestRating": "5",
+    "worstRating": "1"
+  },
+  "review": [
+    {
+      "@type": "Review",
+      "author": {
+        "@type": "Person",
+        "name": "Doug Skidmore"
+      },
+      "reviewBody": "The team was very knowledgeable and helpful.  The work they performed was done quickly and efficiently.",
+      "datePublished": "2026-03-29",
+      "name": "Google review, Fallbrook"
+    }
+  ]
+}
+</script>
 </head>
 <body class="shop-page">
 <header class="bg-primary text-white sticky top-0 z-50 shadow-lg shop-header">
@@ -140,6 +170,28 @@ document.getElementById('mobile-menu-btn').addEventListener('click', function ()
             <p>Expert well drilling, pump repair, and water treatment for decomposed granite and weathered gabbroic rock wells</p>
             <a href="tel:7604408520" class="cta-button">Call (760) 440-8520</a>
           </section>
+<!-- TOWN_PAGE_EXTRAS_START -->
+<section class="town-extras" id="town-extras">
+<div class="town-rating">
+<p class="town-stars" aria-hidden="true">★★★★★</p>
+<p><strong>4.8</strong> from 170+ Google reviews across our Ramona and Anza shops.</p>
+<p><a href="/reviews/">Read our Google reviews</a></p>
+<p><a href="https://g.page/r/CU9X_NG3TvP2EBM/review" target="_blank" rel="noopener">Ramona Google reviews</a> · <a href="https://g.page/r/Cajtn6jSo-ONEBM" target="_blank" rel="noopener">Anza Google reviews</a></p>
+</div>
+<div class="town-reviews">
+<h2>Reviews</h2>
+<div class="reviews-list">
+<article class="review-card">
+<div class="reviewer">Doug Skidmore</div>
+<div class="review-meta">Fallbrook · 2026-03-29</div>
+<p class="review-text">The team was very knowledgeable and helpful.  The work they performed was done quickly and efficiently.</p>
+</article>
+</div>
+<p><a href="/reviews/">All reviews</a></p>
+</div>
+</section>
+<!-- TOWN_PAGE_EXTRAS_END -->
+
 
           <section class="city-overview">
             <h2>Well Service in Fallbrook</h2>
@@ -285,11 +337,11 @@ document.getElementById('mobile-menu-btn').addEventListener('click', function ()
       
 <!-- MONEY_PAGE_RECENT_WORK_START -->
 <section class="recent-jobs-cards" id="recent-jobs">
-<h2>Recent work in Fallbrook</h2>
+<h2>Recent jobs in Fallbrook</h2>
 <p class="rw-lede">Fallbrook and North County jobs. Real photos.</p>
 <div class="recent-work-grid">
 <a class="recent-work-card" href="/recent-work/fallbrook-booster-pump-diagnostic.html">
-<img src="/images/recent-work/job3172_1.jpg" alt="Booster pump diagnostic in Fallbrook" width="800" height="450" loading="lazy">
+<img src="/images/recent-work/job3172_1.jpg" alt="3 HP booster pump diagnostic in Fallbrook" width="800" height="450" loading="lazy">
 <div class="rw-body">
 <h3>Booster pump diagnostic</h3>
 <p>Fallbrook</p>
@@ -303,7 +355,21 @@ document.getElementById('mobile-menu-btn').addEventListener('click', function ()
 </div>
 </a>
 <a class="recent-work-card" href="/recent-work/fallbrook-well-service.html">
-<div class="photo-fallback" role="img" aria-label="Field photo unavailable"></div>
+<img src="/images/recent-work/job2931_1.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy">
+<div class="rw-body">
+<h3>Well service</h3>
+<p>Fallbrook</p>
+</div>
+</a>
+<a class="recent-work-card" href="/recent-work/fallbrook-well-service-2.html">
+<img src="/images/recent-work/job2852_1.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy">
+<div class="rw-body">
+<h3>Well service</h3>
+<p>Fallbrook</p>
+</div>
+</a>
+<a class="recent-work-card" href="/recent-work/fallbrook-well-service-3.html">
+<img src="/images/recent-work/job2806_1.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy">
 <div class="rw-body">
 <h3>Well service</h3>
 <p>Fallbrook</p>
@@ -316,22 +382,8 @@ document.getElementById('mobile-menu-btn').addEventListener('click', function ()
 <p>Fallbrook</p>
 </div>
 </a>
-<a class="recent-work-card" href="/recent-work/fallbrook-pump-installation.html">
-<img src="/images/recent-work/job2769_1.jpg" alt="Pump installation in Fallbrook" width="800" height="450" loading="lazy">
-<div class="rw-body">
-<h3>Pump installation</h3>
-<p>Fallbrook</p>
 </div>
-</a>
-<a class="recent-work-card" href="/recent-work/fallbrook-pressure-tank-replacement.html">
-<img src="/images/recent-work/job1771_1.jpg" alt="Pressure tank replacement in Fallbrook" width="800" height="450" loading="lazy">
-<div class="rw-body">
-<h3>Pressure tank replacement</h3>
-<p>Fallbrook</p>
-</div>
-</a>
-</div>
-<p class="rw-all"><a href="/recent-work/">See all recent work →</a></p>
+<p class="rw-all"><a href="/recent-work/areas/fallbrook.html">Recent work in Fallbrook</a> · <a href="/recent-work/">See all recent work →</a></p>
 </section>
 <!-- MONEY_PAGE_RECENT_WORK_END -->
 
