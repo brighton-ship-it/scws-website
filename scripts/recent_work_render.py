@@ -356,7 +356,7 @@ def render_job_page(project: dict[str, Any], *, title: str, description: str) ->
 <h2>Need well service in {_esc(city or place)}?</h2>
 <p>Call the Ramona or Anza shop, text the shop line, or request an estimate. We will tell you whether it sounds like a control, a pump, or a well.</p>
 <div class="rw-actions">
-<a class="rw-call" href="tel:+17604630493">Call (760) 463-0493</a>
+<a class="rw-call" href="tel:+17604408520">Call (760) 440-8520</a>
 <a class="rw-text" href="sms:7602195877">Text (760) 219-5877</a>
 <a class="rw-est" href="/cost-calculator.html">Free estimate</a>
 </div>
@@ -395,7 +395,7 @@ def render_job_page(project: dict[str, Any], *, title: str, description: str) ->
         "provider": {
             "@type": "HomeAndConstructionBusiness",
             "name": "Southern California Well Service",
-            "telephone": "+1-760-463-0493",
+            "telephone": "(760) 440-8520",
             "url": f"{SITE}/",
         },
     }
@@ -533,7 +533,7 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 <h2>Well service in {_esc(label)}</h2>
 <p>These cards are the proof. Call, text, or book, and open the city service page for drilling, pumps, and emergency work.</p>
 <div class="rw-actions">
-<a class="rw-call" href="tel:+17604630493">Call (760) 463-0493</a>
+<a class="rw-call" href="tel:+17604408520">Call (760) 440-8520</a>
 <a class="rw-text" href="sms:7602195877">Text (760) 219-5877</a>
 <a class="rw-est" href="/cost-calculator.html">Free estimate</a>
 {service_link}

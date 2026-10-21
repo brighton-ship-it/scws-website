@@ -32,7 +32,7 @@
     pins.forEach(function (p) {
       var img = p.photo ? '<img src="/images/recent-work/' + esc(p.photo) + '" alt="' + esc(p.title + ' in ' + p.town) + '" width="240" height="150" loading="lazy" decoding="async" style="width:240px;height:150px;object-fit:cover;border-radius:6px;display:block;margin-bottom:6px">' : '';
       var town = p.serviceHref ? '<a href="' + esc(p.serviceHref) + '">' + esc(p.town) + ' well service</a>' : esc(p.town);
-      var html = img + '<strong>' + esc(p.title) + '</strong><br>' + esc(p.category || '') + '<br>' + town + ' · ' + esc(p.dateLabel) + '<br><a href="/recent-work/' + esc(p.slug) + '.html">See the job →</a><br><a href="tel:+17604630493">Call (760) 463-0493</a>';
+      var html = img + '<strong>' + esc(p.title) + '</strong><br>' + esc(p.category || '') + '<br>' + town + ' · ' + esc(p.dateLabel) + '<br><a href="/recent-work/' + esc(p.slug) + '.html">See the job →</a><br><a href="tel:+17604408520">Call (760) 440-8520</a>';
       L.circleMarker([p.lat, p.lng], {
         radius: 7,
         color: '#fff',

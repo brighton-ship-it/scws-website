@@ -108,9 +108,9 @@ PUBLIC_TITLE_RE = re.compile(
     r"leak|plumb|valve|float|vfd|generator|hydrant|cap\b|produc|evaluat",
     re.I,
 )
-# Organic-search tracking line. Header and text numbers stay on the shop lines.
-SEO_PHONE_DISPLAY = "(760) 463-0493"
-SEO_PHONE_TEL = "+17604630493"
+# Shop voice line. call-tracking.js swaps this for organic and ads visitors.
+SHOP_PHONE_DISPLAY = "(760) 440-8520"
+SHOP_PHONE_TEL = "+17604408520"
 FILTER_MARKERS = (
     "<!-- RECENT_WORK_FILTERS_START -->",
     "<!-- RECENT_WORK_FILTERS_END -->",
@@ -1489,7 +1489,7 @@ def listing_filters_html(projects: list[dict[str, Any]]) -> str:
         'aria-label="Filter by town">\n'
         + "\n".join(options)
         + "\n</select></label>\n"
-        '<a class="filter-btn shrink-0" href="tel:+17604630493">Call (760) 463-0493</a>\n'
+        f'<a class="filter-btn shrink-0" href="tel:{SHOP_PHONE_TEL}">Call {SHOP_PHONE_DISPLAY}</a>\n'
         "</div>\n</section>"
     )
 

@@ -45,7 +45,7 @@ def create_city_index(city_slug, city_info):
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Well Service {city_name} CA | Pump Repair & Drilling | SCWS</title>
-    <meta name="description" content="Professional well services in {city_name}, CA. Well pump repair, drilling, water testing & treatment. Served by our Anza office. Call (760) 463-0493.">
+    <meta name="description" content="Professional well services in {city_name}, CA. Well pump repair, drilling, water testing & treatment. Served by our Anza office. Call (760) 440-8520.">
     <link rel="canonical" href="https://scwellservice.com/services/{city_slug}/">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-MBHM6GR0XS"></script>
@@ -56,7 +56,7 @@ def create_city_index(city_slug, city_info):
     <header class="bg-blue-900 text-white py-4">
         <div class="max-w-6xl mx-auto px-4 flex justify-between items-center">
             <a href="/" class="text-2xl font-bold">SC Well Service</a>
-            <a href="tel:7604630493" class="bg-red-600 px-4 py-2 rounded font-semibold hover:bg-red-700">(760) 463-0493</a>
+            <a href="tel:7604408520" class="bg-red-600 px-4 py-2 rounded font-semibold hover:bg-red-700">(760) 440-8520</a>
         </div>
     </header>
 
@@ -108,8 +108,8 @@ def create_city_index(city_slug, city_info):
         <div class="bg-red-50 border border-red-200 rounded-lg p-6 text-center">
             <h3 class="text-xl font-bold text-red-800 mb-2">Need Well Service in {city_name}?</h3>
             <p class="text-gray-700 mb-4">Call now for fast, professional service from our Anza team.</p>
-            <a href="tel:7604630493" class="inline-block bg-red-600 text-white font-bold py-3 px-8 rounded-lg hover:bg-red-700 transition">
-                📞 (760) 463-0493
+            <a href="tel:7604408520" class="inline-block bg-red-600 text-white font-bold py-3 px-8 rounded-lg hover:bg-red-700 transition">
+                📞 (760) 440-8520
             </a>
         </div>
     </main>
@@ -130,7 +130,7 @@ def create_service_page(city_slug, city_info, service_slug, service_name):
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{service_name} {city_name} CA | Licensed Pros | SCWS</title>
-    <meta name="description" content="{service_name} in {city_name}, CA. Fast, reliable service from our Anza office. Licensed C-57 (CSLB #1086994), founded 2020. Call (760) 463-0493.">
+    <meta name="description" content="{service_name} in {city_name}, CA. Fast, reliable service from our Anza office. Licensed C-57 (CSLB #1086994), founded 2020. Call (760) 440-8520.">
     <link rel="canonical" href="https://scwellservice.com/services/{city_slug}/{service_slug}.html">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-MBHM6GR0XS"></script>
@@ -140,7 +140,7 @@ def create_service_page(city_slug, city_info, service_slug, service_name):
     <header class="bg-blue-900 text-white py-4">
         <div class="max-w-6xl mx-auto px-4 flex justify-between items-center">
             <a href="/" class="text-2xl font-bold">SC Well Service</a>
-            <a href="tel:7604630493" class="bg-red-600 px-4 py-2 rounded font-semibold hover:bg-red-700">(760) 463-0493</a>
+            <a href="tel:7604408520" class="bg-red-600 px-4 py-2 rounded font-semibold hover:bg-red-700">(760) 440-8520</a>
         </div>
     </header>
 
@@ -181,8 +181,8 @@ def create_service_page(city_slug, city_info, service_slug, service_name):
         <div class="bg-red-50 border border-red-200 rounded-lg p-6 text-center">
             <h3 class="text-xl font-bold text-red-800 mb-2">Get {service_name} in {city_name}</h3>
             <p class="text-gray-700 mb-4">Call now for a free estimate.</p>
-            <a href="tel:7604630493" class="inline-block bg-red-600 text-white font-bold py-3 px-8 rounded-lg hover:bg-red-700 transition">
-                📞 (760) 463-0493
+            <a href="tel:7604408520" class="inline-block bg-red-600 text-white font-bold py-3 px-8 rounded-lg hover:bg-red-700 transition">
+                📞 (760) 440-8520
             </a>
         </div>
         
