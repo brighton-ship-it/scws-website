@@ -1478,11 +1478,15 @@
       "photos": [
         {
           "file": "job3093_1.jpg",
-          "alt": "Low-yield well diagnostic in Aguanga"
+          "alt": "Low-yield well diagnostic in Aguanga",
+          "excluded": true,
+          "excludeReason": "pii-paperwork-or-screen"
         },
         {
           "file": "job3093_2.jpg",
-          "alt": "Low-yield well diagnostic detail in Aguanga"
+          "alt": "Low-yield well diagnostic detail in Aguanga",
+          "excluded": true,
+          "excludeReason": "pii-paperwork-or-screen"
         }
       ]
     },
@@ -1770,11 +1774,15 @@
       "photos": [
         {
           "file": "job3082_1.jpg",
-          "alt": "Well service in Aguanga"
+          "alt": "Well service in Aguanga",
+          "excluded": true,
+          "excludeReason": "pii-paperwork-or-screen"
         },
         {
           "file": "job3082_2.jpg",
-          "alt": "Well service in Aguanga"
+          "alt": "Well service in Aguanga",
+          "excluded": true,
+          "excludeReason": "pii-paperwork-or-screen"
         },
         {
           "file": "job3082_3.jpg",
@@ -4010,7 +4018,9 @@
       "photos": [
         {
           "file": "job2852_1.jpg",
-          "alt": "Well service in Fallbrook"
+          "alt": "Well service in Fallbrook",
+          "excluded": true,
+          "excludeReason": "pii-paperwork-or-screen"
         }
       ]
     },
