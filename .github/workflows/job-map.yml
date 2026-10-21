@@ -5,7 +5,7 @@ name: Rebuild job map
 on:
   push:
     branches: [main]
-    paths: ["recent-work/projects.json", "recent-work/paperwork-photos.txt", "recent-work/city-coords.json", "scripts/build_job_map.py"]
+    paths: ["recent-work/projects.json", "recent-work/paperwork-photos.txt", "recent-work/city-coords.json", "scripts/build_job_map.py", "scripts/recent_work_lib.py", "js/job-map.js"]
   workflow_dispatch:
 permissions:
   contents: write

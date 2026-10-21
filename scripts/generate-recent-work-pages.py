@@ -9,6 +9,7 @@ and indexable job notes are sitemap URLs with a self-canonical.
 """
 from __future__ import annotations
 
+import subprocess
 import sys
 from pathlib import Path
 
@@ -62,6 +63,7 @@ def main() -> None:
     if INDEX_HTML.exists():
         update_index_html(projects)
     update_sitemap(projects)
+    subprocess.run([sys.executable, str(ROOT / "scripts" / "build_job_map.py")], check=False)
     from apply_technical_seo import refresh_sitemap_index_lastmod
 
     refresh_sitemap_index_lastmod()

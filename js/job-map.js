@@ -22,11 +22,24 @@
     var pins = data.pins.filter(function (p) { return !rad || km(c[0], c[1], p.lat, p.lng) <= rad; });
     var map = L.map(el, { scrollWheelZoom: false }).setView(c, zoom);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 15, attribution: '&copy; OpenStreetMap contributors' }).addTo(map);
+    var colors = {
+      'Pump Service': '#c53030',
+      'Pressure Tanks': '#2b6cb0',
+      'Well Drilling': '#2f855a',
+      'Water Quality': '#6b46c1',
+      'Maintenance': '#c05621'
+    };
     pins.forEach(function (p) {
-      var img = p.photo ? '<img src="/images/recent-work/' + esc(p.photo) + '" alt="' + esc(p.title + ' in ' + p.town) + '" width="200" height="130" loading="lazy" style="width:200px;height:130px;object-fit:cover;border-radius:6px;display:block;margin-bottom:6px">' : '';
-      L.circleMarker([p.lat, p.lng], { radius: 6, color: '#fff', weight: 1.5, fillColor: '#c53030', fillOpacity: 0.9 })
-        .bindPopup(img + '<strong>' + esc(p.title) + '</strong><br>' + esc(p.town) + ' · ' + esc(p.dateLabel) + '<br><a href="/recent-work/' + esc(p.slug) + '.html">See the job →</a>')
-        .addTo(map);
+      var img = p.photo ? '<img src="/images/recent-work/' + esc(p.photo) + '" alt="' + esc(p.title + ' in ' + p.town) + '" width="240" height="150" loading="lazy" decoding="async" style="width:240px;height:150px;object-fit:cover;border-radius:6px;display:block;margin-bottom:6px">' : '';
+      var town = p.serviceHref ? '<a href="' + esc(p.serviceHref) + '">' + esc(p.town) + ' well service</a>' : esc(p.town);
+      var html = img + '<strong>' + esc(p.title) + '</strong><br>' + esc(p.category || '') + '<br>' + town + ' · ' + esc(p.dateLabel) + '<br><a href="/recent-work/' + esc(p.slug) + '.html">See the job →</a><br><a href="tel:+17604630493">Call (760) 463-0493</a>';
+      L.circleMarker([p.lat, p.lng], {
+        radius: 7,
+        color: '#fff',
+        weight: 1.5,
+        fillColor: colors[p.category] || '#c53030',
+        fillOpacity: 0.92
+      }).bindPopup(html, { maxWidth: 260 }).addTo(map);
     });
     var cnt = el.parentNode.querySelector('.scws-job-map-count');
     if (cnt) cnt.textContent = pins.length + ' completed jobs on the map';

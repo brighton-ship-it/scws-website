@@ -9,13 +9,13 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
 <title>Recent well work in Hemet | SCWS</title>
-<meta content="27 recent well jobs in Hemet with field photos from Southern California Well Service. Pump, tank, and diagnostic work. See well service in Hemet." name="description"/>
+<meta content="34 recent well jobs in Hemet with field photos from Southern California Well Service. Pump, tank, and diagnostic work. See well service in Hemet." name="description"/>
 <link href="https://scwellservice.com/recent-work/areas/hemet.html" rel="canonical"/>
 <meta content="article" property="og:type"/>
 <meta content="https://scwellservice.com/recent-work/areas/hemet.html" property="og:url"/>
 <meta content="Recent well work in Hemet | SCWS" property="og:title"/>
-<meta content="27 recent well jobs in Hemet with field photos from Southern California Well Service. Pump, tank, and diagnostic work. See well service in Hemet." property="og:description"/>
-<meta content="https://scwellservice.com/images/recent-work/job3155_1.jpg" property="og:image"/>
+<meta content="34 recent well jobs in Hemet with field photos from Southern California Well Service. Pump, tank, and diagnostic work. See well service in Hemet." property="og:description"/>
+<meta content="https://scwellservice.com/images/recent-work/job3658_1.jpg" property="og:image"/>
 <link href="/images/logo-text-only-3x.png" rel="icon" type="image/png"/>
 <link href="/css/styles.css" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
@@ -27,7 +27,7 @@
   "@context": "https://schema.org",
   "@type": "CollectionPage",
   "name": "Recent well work in Hemet",
-  "description": "27 recent well jobs in Hemet with field photos from Southern California Well Service. Pump, tank, and diagnostic work. See well service in Hemet.",
+  "description": "34 recent well jobs in Hemet with field photos from Southern California Well Service. Pump, tank, and diagnostic work. See well service in Hemet.",
   "url": "https://scwellservice.com/recent-work/areas/hemet.html",
   "about": {
     "@type": "Place",
@@ -83,6 +83,11 @@
     .rw-est { background: #4e9271; color: #fff; }
     .rw-links { margin-top: 1rem; display: flex; flex-direction: column; gap: 0.35rem; }
     .rw-links a { color: #fff; font-weight: 600; }
+    .filter-btn {
+        padding: 6px 14px; border-radius: 999px; border: 1px solid #ddd; background: #fff;
+        font-size: 0.875rem; cursor: pointer;
+    }
+    .filter-btn.active { background: #1a73a7; color: #fff; border-color: #1a73a7; }
     .rw-cards { display: grid; gap: 1.25rem; }
     .project-card { background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
     .project-photos { display: grid; gap: 4px; aspect-ratio: 16/9; overflow: hidden; }
@@ -90,6 +95,9 @@
     .project-photos.double { grid-template-columns: 1fr 1fr; }
     .project-photos.triple { grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; }
     .project-photos.triple img:first-child { grid-row: 1 / -1; }
+    .project-photos picture { display: block; width: 100%; height: 100%; min-height: 0; }
+    .project-photos.triple img:first-child,
+    .project-photos.triple picture:first-child { grid-row: 1 / -1; }
     .project-photos img { width: 100%; height: 100%; object-fit: cover; }
     .project-photos.empty, .photo-fallback {
         background: linear-gradient(135deg, #1f3b4d, #4e9271);
@@ -166,9 +174,9 @@
 </div>
 </div>
 <section class="rw-hero">
-<img src="/images/recent-work/job3155_1.jpg" alt="Well service in Hemet" width="1200" height="800">
+<img src="/images/recent-work/job3658_1.jpg" alt="Well service in Hemet" width="1200" height="800" fetchpriority="high" decoding="async" sizes="100vw">
 <div class="rw-hero-copy">
-<p><span class="rw-kicker">27 jobs</span></p>
+<p><span class="rw-kicker">34 jobs</span></p>
 <h1>Recent work in Hemet</h1>
 <p>Real field photos from jobs we already finished. 3 of these have a full job note.</p>
 </div>
@@ -178,17 +186,155 @@
 <h2>Well service in Hemet</h2>
 <p>These cards are the proof. Call, text, or book, and open the city service page for drilling, pumps, and emergency work.</p>
 <div class="rw-actions">
-<a class="rw-call" href="tel:+17604408520">Call (760) 440-8520</a>
+<a class="rw-call" href="tel:+17604630493">Call (760) 463-0493</a>
 <a class="rw-text" href="sms:7602195877">Text (760) 219-5877</a>
 <a class="rw-est" href="/cost-calculator.html">Free estimate</a>
 <a class="rw-est" href="/services/hemet/">Well service in Hemet</a>
 </div>
 </section>
+
+<div class="flex gap-2 overflow-x-auto" id="hub-filters" style="margin:0 0 1rem">
+<button class="filter-btn active" data-filter="all" type="button">All services</button>
+<button class="filter-btn" data-filter="pump" type="button">Pump Service</button>
+<button class="filter-btn" data-filter="drilling" type="button">Well Drilling</button>
+<button class="filter-btn" data-filter="tank" type="button">Pressure Tanks</button>
+<button class="filter-btn" data-filter="water-quality" type="button">Water Quality</button>
+<button class="filter-btn" data-filter="maintenance" type="button">Maintenance</button>
+</div>
+<script>
+document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    document.querySelectorAll('#hub-filters .filter-btn').forEach(function (b) { b.classList.remove('active'); });
+    btn.classList.add('active');
+    var filter = btn.getAttribute('data-filter');
+    document.querySelectorAll('.project-card').forEach(function (card) {
+      card.style.display = (filter === 'all' || card.getAttribute('data-category') === filter) ? '' : 'none';
+    });
+  });
+});
+</script>
+
 <div class="rw-cards">
-<article class="project-card" data-category="tank" data-static="1" data-job="job3155">
+<article class="project-card" data-category="pump" data-town="hemet" data-static="1" data-job="job3658">
+<div class="project-photos triple">
+<img src="/images/recent-work/job3658_1.jpg" alt="Well service in Hemet" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3658_1.jpg')" style="cursor:pointer">
+<picture><source srcset="/images/recent-work/job3658_2.webp" type="image/webp"><img src="/images/recent-work/job3658_2.jpg" alt="Well service in Hemet" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3658_2.jpg')" style="cursor:pointer"></picture>
+<picture><source srcset="/images/recent-work/job3658_3.webp" type="image/webp"><img src="/images/recent-work/job3658_3.jpg" alt="Well service in Hemet" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3658_3.jpg')" style="cursor:pointer"></picture>
+</div>
+<div class="p-4">
+<div class="flex items-center justify-between mb-2 gap-2">
+<span class="service-badge">Pump Service</span>
+<time class="text-xs text-gray-400" datetime="2026-10-19">October 19, 2026</time>
+</div>
+<h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/hemet-well-service-16.html">Well service</a></h3>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/hemet/">Hemet</a></p>
+<p class="text-sm text-gray-600 leading-relaxed">Pump Service in Hemet on October 19, 2026. Job type: Well service.</p>
+<p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/hemet-well-service-16.html">View project →</a></p>
+</div>
+</article>
+<article class="project-card" data-category="tank" data-town="hemet" data-static="1" data-job="job3370">
 <div class="project-photos double">
-<img src="/images/recent-work/job3155_1.jpg" alt="Pressure tank plumbing repair in Hemet" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job3155_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job3155_2.jpg" alt="Pressure tank plumbing repair in Hemet" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job3155_2.jpg')" style="cursor:pointer">
+<picture><source srcset="/images/recent-work/job3370_1.webp" type="image/webp"><img src="/images/recent-work/job3370_1.jpg" alt="Replace Pressure Tanks in Hemet" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3370_1.jpg')" style="cursor:pointer"></picture>
+<picture><source srcset="/images/recent-work/job3370_2.webp" type="image/webp"><img src="/images/recent-work/job3370_2.jpg" alt="Replace Pressure Tanks in Hemet" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3370_2.jpg')" style="cursor:pointer"></picture>
+</div>
+<div class="p-4">
+<div class="flex items-center justify-between mb-2 gap-2">
+<span class="service-badge">Pressure Tanks</span>
+<time class="text-xs text-gray-400" datetime="2026-09-15">September 15, 2026</time>
+</div>
+<h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/hemet-replace-pressure-tanks.html">Replace Pressure Tanks</a></h3>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/hemet/">Hemet</a></p>
+<p class="text-sm text-gray-600 leading-relaxed">Pressure Tanks in Hemet on September 15, 2026. Job type: Replace Pressure Tanks.</p>
+<p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/hemet-replace-pressure-tanks.html">View project →</a></p>
+</div>
+</article>
+<article class="project-card" data-category="pump" data-town="hemet" data-static="1" data-job="job3323">
+<div class="project-photos triple">
+<picture><source srcset="/images/recent-work/job3323_1.webp" type="image/webp"><img src="/images/recent-work/job3323_1.jpg" alt="Pull &amp; Replace Pump &amp; Motor in Hemet" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3323_1.jpg')" style="cursor:pointer"></picture>
+<picture><source srcset="/images/recent-work/job3323_2.webp" type="image/webp"><img src="/images/recent-work/job3323_2.jpg" alt="Pull &amp; Replace Pump &amp; Motor in Hemet" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3323_2.jpg')" style="cursor:pointer"></picture>
+<picture><source srcset="/images/recent-work/job3323_3.webp" type="image/webp"><img src="/images/recent-work/job3323_3.jpg" alt="Pull &amp; Replace Pump &amp; Motor in Hemet" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3323_3.jpg')" style="cursor:pointer"></picture>
+</div>
+<div class="p-4">
+<div class="flex items-center justify-between mb-2 gap-2">
+<span class="service-badge">Pump Service</span>
+<time class="text-xs text-gray-400" datetime="2026-09-14">September 14, 2026</time>
+</div>
+<h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/hemet-pull-and-replace-pump-and-motor-2.html">Pull &amp; Replace Pump &amp; Motor</a></h3>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/hemet/">Hemet</a></p>
+<p class="text-sm text-gray-600 leading-relaxed">Pump Service in Hemet on September 14, 2026. Job type: Pull &amp; Replace Pump &amp; Motor.</p>
+<p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/hemet-pull-and-replace-pump-and-motor-2.html">View project →</a></p>
+</div>
+</article>
+<article class="project-card" data-category="pump" data-town="hemet" data-static="1" data-job="job3341">
+<div class="project-photos triple">
+<picture><source srcset="/images/recent-work/job3341_1.webp" type="image/webp"><img src="/images/recent-work/job3341_1.jpg" alt="Pull &amp; Replace Pump &amp; Motor in Hemet" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3341_1.jpg')" style="cursor:pointer"></picture>
+<picture><source srcset="/images/recent-work/job3341_2.webp" type="image/webp"><img src="/images/recent-work/job3341_2.jpg" alt="Pull &amp; Replace Pump &amp; Motor in Hemet" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3341_2.jpg')" style="cursor:pointer"></picture>
+<picture><source srcset="/images/recent-work/job3341_3.webp" type="image/webp"><img src="/images/recent-work/job3341_3.jpg" alt="Pull &amp; Replace Pump &amp; Motor in Hemet" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3341_3.jpg')" style="cursor:pointer"></picture>
+</div>
+<div class="p-4">
+<div class="flex items-center justify-between mb-2 gap-2">
+<span class="service-badge">Pump Service</span>
+<time class="text-xs text-gray-400" datetime="2026-09-11">September 11, 2026</time>
+</div>
+<h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/hemet-pull-and-replace-pump-and-motor.html">Pull &amp; Replace Pump &amp; Motor</a></h3>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/hemet/">Hemet</a></p>
+<p class="text-sm text-gray-600 leading-relaxed">Pump Service in Hemet on September 11, 2026. Job type: Pull &amp; Replace Pump &amp; Motor.</p>
+<p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/hemet-pull-and-replace-pump-and-motor.html">View project →</a></p>
+</div>
+</article>
+<article class="project-card" data-category="pump" data-town="hemet" data-static="1" data-job="job3283">
+<div class="project-photos triple">
+<picture><source srcset="/images/recent-work/job3283_1.webp" type="image/webp"><img src="/images/recent-work/job3283_1.jpg" alt="Well service in Hemet" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3283_1.jpg')" style="cursor:pointer"></picture>
+<picture><source srcset="/images/recent-work/job3283_2.webp" type="image/webp"><img src="/images/recent-work/job3283_2.jpg" alt="Well service in Hemet" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3283_2.jpg')" style="cursor:pointer"></picture>
+<picture><source srcset="/images/recent-work/job3283_3.webp" type="image/webp"><img src="/images/recent-work/job3283_3.jpg" alt="Well service in Hemet" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3283_3.jpg')" style="cursor:pointer"></picture>
+</div>
+<div class="p-4">
+<div class="flex items-center justify-between mb-2 gap-2">
+<span class="service-badge">Pump Service</span>
+<time class="text-xs text-gray-400" datetime="2026-09-04">September 4, 2026</time>
+</div>
+<h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/hemet-well-service-17.html">Well service</a></h3>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/hemet/">Hemet</a></p>
+<p class="text-sm text-gray-600 leading-relaxed">Pump Service in Hemet on September 4, 2026. Job type: Well service.</p>
+<p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/hemet-well-service-17.html">View project →</a></p>
+</div>
+</article>
+<article class="project-card" data-category="pump" data-town="hemet" data-static="1" data-job="job3285">
+<div class="project-photos single">
+<picture><source srcset="/images/recent-work/job3285_1.webp" type="image/webp"><img src="/images/recent-work/job3285_1.jpg" alt="Replace Booster in Hemet" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3285_1.jpg')" style="cursor:pointer"></picture>
+</div>
+<div class="p-4">
+<div class="flex items-center justify-between mb-2 gap-2">
+<span class="service-badge">Pump Service</span>
+<time class="text-xs text-gray-400" datetime="2026-09-02">September 2, 2026</time>
+</div>
+<h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/hemet-replace-booster.html">Replace Booster</a></h3>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/hemet/">Hemet</a></p>
+<p class="text-sm text-gray-600 leading-relaxed">Pump Service in Hemet on September 2, 2026. Job type: Replace Booster.</p>
+<p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/hemet-replace-booster.html">View project →</a></p>
+</div>
+</article>
+<article class="project-card" data-category="pump" data-town="hemet" data-static="1" data-job="job3277">
+<div class="project-photos triple">
+<picture><source srcset="/images/recent-work/job3277_1.webp" type="image/webp"><img src="/images/recent-work/job3277_1.jpg" alt="Well service in Hemet" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3277_1.jpg')" style="cursor:pointer"></picture>
+<picture><source srcset="/images/recent-work/job3277_2.webp" type="image/webp"><img src="/images/recent-work/job3277_2.jpg" alt="Well service in Hemet" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3277_2.jpg')" style="cursor:pointer"></picture>
+<img src="/images/recent-work/job3277_3.jpg" alt="Well service in Hemet" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3277_3.jpg')" style="cursor:pointer">
+</div>
+<div class="p-4">
+<div class="flex items-center justify-between mb-2 gap-2">
+<span class="service-badge">Pump Service</span>
+<time class="text-xs text-gray-400" datetime="2026-09-02">September 2, 2026</time>
+</div>
+<h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/hemet-well-service-18.html">Well service</a></h3>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/hemet/">Hemet</a></p>
+<p class="text-sm text-gray-600 leading-relaxed">Pump Service in Hemet on September 2, 2026. Job type: Well service.</p>
+<p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/hemet-well-service-18.html">View project →</a></p>
+</div>
+</article>
+<article class="project-card" data-category="tank" data-town="hemet" data-static="1" data-job="job3155">
+<div class="project-photos double">
+<img src="/images/recent-work/job3155_1.jpg" alt="Pressure tank plumbing repair in Hemet" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3155_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job3155_2.jpg" alt="Pressure tank plumbing repair in Hemet" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3155_2.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -196,15 +342,15 @@
 <time class="text-xs text-gray-400" datetime="2026-08-20">August 20, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/hemet-pressure-tank-plumbing-repair.html">Pressure tank plumbing repair</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Hemet</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/hemet/">Hemet</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Repaired a hole in the pressure-tank piping and replaced a rotting union with stainless 1-1/4 inch fittings.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/hemet-pressure-tank-plumbing-repair.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="maintenance" data-static="1" data-job="job3072">
+<article class="project-card" data-category="maintenance" data-town="hemet" data-static="1" data-job="job3072">
 <div class="project-photos double">
-<img src="/images/recent-work/job3072_1.jpg" alt="Electrical disconnect replacement in Hemet" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job3072_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job3072_2.jpg" alt="Electrical disconnect replacement in Hemet" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job3072_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job3072_1.jpg" alt="Electrical disconnect replacement in Hemet" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3072_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job3072_2.jpg" alt="Electrical disconnect replacement in Hemet" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3072_2.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -212,15 +358,15 @@
 <time class="text-xs text-gray-400" datetime="2026-08-10">August 10, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/hemet-electrical-disconnect-replacement.html">Electrical disconnect replacement</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Hemet</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/hemet/">Hemet</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Maintenance in Hemet on August 10, 2026. Job type: Electrical disconnect replacement.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/hemet-electrical-disconnect-replacement.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="water-quality" data-static="1" data-job="job3062">
+<article class="project-card" data-category="water-quality" data-town="hemet" data-static="1" data-job="job3062">
 <div class="project-photos double">
-<img src="/images/recent-work/job3062_1.jpg" alt="Pressure switch and filter service in Hemet" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job3062_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job3062_2.jpg" alt="Pressure switch and filter service in Hemet" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job3062_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job3062_1.jpg" alt="Pressure switch and filter service in Hemet" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3062_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job3062_2.jpg" alt="Pressure switch and filter service in Hemet" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3062_2.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -228,15 +374,15 @@
 <time class="text-xs text-gray-400" datetime="2026-08-10">August 10, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/hemet-pressure-switch-and-filter-service.html">Pressure switch and filter service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Hemet</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/hemet/">Hemet</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Replaced a failed 30/50 pressure switch, bypassed a leaking iron filter so the tank could fill, and installed a new tank float valve.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/hemet-pressure-switch-and-filter-service.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job3056">
+<article class="project-card" data-category="pump" data-town="hemet" data-static="1" data-job="job3056">
 <div class="project-photos double">
-<img src="/images/recent-work/job3056_1.jpg" alt="Deepen pump setting in Hemet" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job3056_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job3056_2.jpg" alt="Deepen pump setting in Hemet" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job3056_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job3056_1.jpg" alt="Deepen pump setting in Hemet" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3056_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job3056_2.jpg" alt="Deepen pump setting in Hemet" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3056_2.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -244,16 +390,16 @@
 <time class="text-xs text-gray-400" datetime="2026-08-05">August 5, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/hemet-deepen-pump-setting.html">Deepen pump setting</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Hemet</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/hemet/">Hemet</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Lowered the pump 60 feet with three sticks of 1-1/4 inch drop pipe and new sub cable. The well was running when we left.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/hemet-deepen-pump-setting.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job3046">
+<article class="project-card" data-category="pump" data-town="hemet" data-static="1" data-job="job3046">
 <div class="project-photos triple">
-<img src="/images/recent-work/job3046_1.jpg" alt="Well service in Hemet" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job3046_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job3046_2.jpg" alt="Well service in Hemet" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job3046_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job3046_3.jpg" alt="Well service in Hemet" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job3046_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job3046_1.jpg" alt="Well service in Hemet" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3046_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job3046_2.jpg" alt="Well service in Hemet" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3046_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job3046_3.jpg" alt="Well service in Hemet" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3046_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -261,16 +407,16 @@
 <time class="text-xs text-gray-400" datetime="2026-08-03">August 3, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/hemet-well-service.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Hemet</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/hemet/">Hemet</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Hemet on August 3, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/hemet-well-service.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job3035">
+<article class="project-card" data-category="pump" data-town="hemet" data-static="1" data-job="job3035">
 <div class="project-photos triple">
-<img src="/images/recent-work/job3035_1.jpg" alt="Well service in Hemet" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job3035_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job3035_2.jpg" alt="Well service in Hemet" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job3035_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job3035_3.jpg" alt="Well service in Hemet" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job3035_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job3035_1.jpg" alt="Well service in Hemet" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3035_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job3035_2.jpg" alt="Well service in Hemet" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3035_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job3035_3.jpg" alt="Well service in Hemet" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3035_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -278,15 +424,15 @@
 <time class="text-xs text-gray-400" datetime="2026-08-03">August 3, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/hemet-well-service-2.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Hemet</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/hemet/">Hemet</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Hemet on August 3, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/hemet-well-service-2.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job2915">
+<article class="project-card" data-category="pump" data-town="hemet" data-static="1" data-job="job2915">
 <div class="project-photos double">
-<img src="/images/recent-work/job2915_1.jpg" alt="Well service in Hemet" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2915_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2915_2.jpg" alt="Well service in Hemet" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2915_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2915_1.jpg" alt="Well service in Hemet" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2915_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2915_2.jpg" alt="Well service in Hemet" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2915_2.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -294,16 +440,16 @@
 <time class="text-xs text-gray-400" datetime="2026-07-20">July 20, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/hemet-well-service-3.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Hemet</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/hemet/">Hemet</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Hemet on July 20, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/hemet-well-service-3.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job2685">
+<article class="project-card" data-category="pump" data-town="hemet" data-static="1" data-job="job2685">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2685_1.jpg" alt="Well service in Hemet" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2685_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2685_2.jpg" alt="Well service in Hemet" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2685_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2685_3.jpg" alt="Well service in Hemet" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2685_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2685_1.jpg" alt="Well service in Hemet" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2685_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2685_2.jpg" alt="Well service in Hemet" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2685_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2685_3.jpg" alt="Well service in Hemet" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2685_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -311,16 +457,16 @@
 <time class="text-xs text-gray-400" datetime="2026-06-19">June 19, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/hemet-well-service-4.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Hemet</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/hemet/">Hemet</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Hemet on June 19, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/hemet-well-service-4.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job2663">
+<article class="project-card" data-category="pump" data-town="hemet" data-static="1" data-job="job2663">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2663_1.jpg" alt="Well service in Hemet" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2663_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2663_2.jpg" alt="Well service in Hemet" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2663_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2663_3.jpg" alt="Well service in Hemet" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2663_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2663_1.jpg" alt="Well service in Hemet" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2663_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2663_2.jpg" alt="Well service in Hemet" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2663_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2663_3.jpg" alt="Well service in Hemet" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2663_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -328,16 +474,16 @@
 <time class="text-xs text-gray-400" datetime="2026-06-15">June 15, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/hemet-well-service-5.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Hemet</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/hemet/">Hemet</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Hemet on June 15, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/hemet-well-service-5.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job2635">
+<article class="project-card" data-category="pump" data-town="hemet" data-static="1" data-job="job2635">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2635_1.jpg" alt="Well service in Hemet" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2635_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2635_2.jpg" alt="Well service in Hemet" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2635_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2635_3.jpg" alt="Well service in Hemet" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2635_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2635_1.jpg" alt="Well service in Hemet" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2635_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2635_2.jpg" alt="Well service in Hemet" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2635_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2635_3.jpg" alt="Well service in Hemet" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2635_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -345,16 +491,16 @@
 <time class="text-xs text-gray-400" datetime="2026-06-11">June 11, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/hemet-well-service-6.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Hemet</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/hemet/">Hemet</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Hemet on June 11, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/hemet-well-service-6.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job2421">
+<article class="project-card" data-category="pump" data-town="hemet" data-static="1" data-job="job2421">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2421_1.jpg" alt="Pull pump in Hemet" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2421_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2421_2.jpg" alt="Pull pump in Hemet" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2421_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2421_3.jpg" alt="Pull pump in Hemet" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2421_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2421_1.jpg" alt="Pull pump in Hemet" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2421_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2421_2.jpg" alt="Pull pump in Hemet" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2421_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2421_3.jpg" alt="Pull pump in Hemet" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2421_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -362,16 +508,16 @@
 <time class="text-xs text-gray-400" datetime="2026-06-04">June 4, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/hemet-pull-pump.html">Pull pump</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Hemet</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/hemet/">Hemet</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Hemet on June 4, 2026. Job type: Pull pump.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/hemet-pull-pump.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job2554">
+<article class="project-card" data-category="pump" data-town="hemet" data-static="1" data-job="job2554">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2554_1.jpg" alt="Well service in Hemet" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2554_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2554_2.jpg" alt="Well service in Hemet" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2554_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2554_3.jpg" alt="Well service in Hemet" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2554_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2554_1.jpg" alt="Well service in Hemet" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2554_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2554_2.jpg" alt="Well service in Hemet" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2554_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2554_3.jpg" alt="Well service in Hemet" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2554_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -379,15 +525,15 @@
 <time class="text-xs text-gray-400" datetime="2026-06-02">June 2, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/hemet-well-service-7.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Hemet</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/hemet/">Hemet</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Hemet on June 2, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/hemet-well-service-7.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="tank" data-static="1" data-job="job2513">
+<article class="project-card" data-category="tank" data-town="hemet" data-static="1" data-job="job2513">
 <div class="project-photos double">
-<img src="/images/recent-work/job2513_1.jpg" alt="Pressure switch replacement in Hemet" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2513_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2513_2.jpg" alt="Pressure switch replacement in Hemet" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2513_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2513_1.jpg" alt="Pressure switch replacement in Hemet" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2513_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2513_2.jpg" alt="Pressure switch replacement in Hemet" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2513_2.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -395,16 +541,16 @@
 <time class="text-xs text-gray-400" datetime="2026-05-22">May 22, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/hemet-pressure-switch-replacement.html">Pressure switch replacement</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Hemet</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/hemet/">Hemet</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pressure Tanks in Hemet on May 22, 2026. Job type: Pressure switch replacement.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/hemet-pressure-switch-replacement.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job2404">
+<article class="project-card" data-category="pump" data-town="hemet" data-static="1" data-job="job2404">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2404_1.jpg" alt="Control box in Hemet" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2404_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2404_2.jpg" alt="Control box in Hemet" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2404_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2404_3.jpg" alt="Control box in Hemet" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2404_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2404_1.jpg" alt="Control box in Hemet" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2404_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2404_2.jpg" alt="Control box in Hemet" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2404_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2404_3.jpg" alt="Control box in Hemet" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2404_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -412,16 +558,16 @@
 <time class="text-xs text-gray-400" datetime="2026-05-12">May 12, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/hemet-control-box.html">Control box</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Hemet</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/hemet/">Hemet</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Hemet on May 12, 2026. Job type: Control box.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/hemet-control-box.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job2415">
+<article class="project-card" data-category="pump" data-town="hemet" data-static="1" data-job="job2415">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2415_1.jpg" alt="Booster service in Hemet" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2415_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2415_2.jpg" alt="Booster service in Hemet" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2415_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2415_3.jpg" alt="Booster service in Hemet" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2415_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2415_1.jpg" alt="Booster service in Hemet" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2415_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2415_2.jpg" alt="Booster service in Hemet" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2415_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2415_3.jpg" alt="Booster service in Hemet" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2415_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -429,16 +575,16 @@
 <time class="text-xs text-gray-400" datetime="2026-05-07">May 7, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/hemet-booster-service.html">Booster service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Hemet</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/hemet/">Hemet</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Hemet on May 7, 2026. Job type: Booster service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/hemet-booster-service.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="tank" data-static="1" data-job="job2413">
+<article class="project-card" data-category="tank" data-town="hemet" data-static="1" data-job="job2413">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2413_1.jpg" alt="Pressure tank replacement in Hemet" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2413_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2413_2.jpg" alt="Pressure tank replacement in Hemet" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2413_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2413_3.jpg" alt="Pressure tank replacement in Hemet" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2413_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2413_1.jpg" alt="Pressure tank replacement in Hemet" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2413_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2413_2.jpg" alt="Pressure tank replacement in Hemet" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2413_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2413_3.jpg" alt="Pressure tank replacement in Hemet" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2413_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -446,16 +592,16 @@
 <time class="text-xs text-gray-400" datetime="2026-05-07">May 7, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/hemet-pressure-tank-replacement.html">Pressure tank replacement</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Hemet</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/hemet/">Hemet</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pressure Tanks in Hemet on May 7, 2026. Job type: Pressure tank replacement.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/hemet-pressure-tank-replacement.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job2414">
+<article class="project-card" data-category="pump" data-town="hemet" data-static="1" data-job="job2414">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2414_1.jpg" alt="Well service in Hemet" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2414_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2414_2.jpg" alt="Well service in Hemet" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2414_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2414_3.jpg" alt="Well service in Hemet" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2414_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2414_1.jpg" alt="Well service in Hemet" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2414_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2414_2.jpg" alt="Well service in Hemet" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2414_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2414_3.jpg" alt="Well service in Hemet" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2414_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -463,15 +609,15 @@
 <time class="text-xs text-gray-400" datetime="2026-05-06">May 6, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/hemet-well-service-8.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Hemet</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/hemet/">Hemet</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Hemet on May 6, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/hemet-well-service-8.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job2373">
+<article class="project-card" data-category="pump" data-town="hemet" data-static="1" data-job="job2373">
 <div class="project-photos double">
-<img src="/images/recent-work/job2373_1.jpg" alt="Well service in Hemet" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2373_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2373_2.jpg" alt="Well service in Hemet" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2373_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2373_1.jpg" alt="Well service in Hemet" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2373_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2373_2.jpg" alt="Well service in Hemet" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2373_2.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -479,16 +625,16 @@
 <time class="text-xs text-gray-400" datetime="2026-04-30">April 30, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/hemet-well-service-9.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Hemet</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/hemet/">Hemet</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Hemet on April 30, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/hemet-well-service-9.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job2363">
+<article class="project-card" data-category="pump" data-town="hemet" data-static="1" data-job="job2363">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2363_1.jpg" alt="Well service in Hemet" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2363_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2363_2.jpg" alt="Well service in Hemet" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2363_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2363_3.jpg" alt="Well service in Hemet" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2363_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2363_1.jpg" alt="Well service in Hemet" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2363_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2363_2.jpg" alt="Well service in Hemet" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2363_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2363_3.jpg" alt="Well service in Hemet" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2363_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -496,16 +642,16 @@
 <time class="text-xs text-gray-400" datetime="2026-04-29">April 29, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/hemet-well-service-10.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Hemet</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/hemet/">Hemet</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Hemet on April 29, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/hemet-well-service-10.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job2156">
+<article class="project-card" data-category="pump" data-town="hemet" data-static="1" data-job="job2156">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2156_1.jpg" alt="Well service in Hemet" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2156_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2156_2.jpg" alt="Well service in Hemet" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2156_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2156_3.jpg" alt="Well service in Hemet" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2156_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2156_1.jpg" alt="Well service in Hemet" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2156_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2156_2.jpg" alt="Well service in Hemet" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2156_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2156_3.jpg" alt="Well service in Hemet" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2156_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -513,14 +659,14 @@
 <time class="text-xs text-gray-400" datetime="2026-03-30">March 30, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/hemet-well-service-11.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Hemet</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/hemet/">Hemet</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Hemet on March 30, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/hemet-well-service-11.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="tank" data-static="1" data-job="job1923">
+<article class="project-card" data-category="tank" data-town="hemet" data-static="1" data-job="job1923">
 <div class="project-photos single">
-<img src="/images/recent-work/job1923_1.jpg" alt="Pressure tank replacement in Hemet" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1923_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1923_1.jpg" alt="Pressure tank replacement in Hemet" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1923_1.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -528,15 +674,15 @@
 <time class="text-xs text-gray-400" datetime="2026-02-16">February 16, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/hemet-pressure-tank-replacement-2.html">Pressure tank replacement</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Hemet</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/hemet/">Hemet</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pressure Tanks in Hemet on February 16, 2026. Job type: Pressure tank replacement.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/hemet-pressure-tank-replacement-2.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job1810">
+<article class="project-card" data-category="pump" data-town="hemet" data-static="1" data-job="job1810">
 <div class="project-photos double">
-<img src="/images/recent-work/job1810_1.jpg" alt="Pump replacement in Hemet" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1810_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1810_2.jpg" alt="Pump replacement in Hemet" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1810_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1810_1.jpg" alt="Pump replacement in Hemet" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1810_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1810_2.jpg" alt="Pump replacement in Hemet" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1810_2.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -544,16 +690,16 @@
 <time class="text-xs text-gray-400" datetime="2026-01-27">January 27, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/hemet-pump-replacement.html">Pump replacement</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Hemet</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/hemet/">Hemet</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Hemet on January 27, 2026. Job type: Pump replacement.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/hemet-pump-replacement.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job1813">
+<article class="project-card" data-category="pump" data-town="hemet" data-static="1" data-job="job1813">
 <div class="project-photos triple">
-<img src="/images/recent-work/job1813_1.jpg" alt="Well service in Hemet" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1813_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1813_2.jpg" alt="Well service in Hemet" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1813_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1813_3.jpg" alt="Well service in Hemet" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1813_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1813_1.jpg" alt="Well service in Hemet" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1813_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1813_2.jpg" alt="Well service in Hemet" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1813_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1813_3.jpg" alt="Well service in Hemet" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1813_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -561,16 +707,16 @@
 <time class="text-xs text-gray-400" datetime="2026-01-26">January 26, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/hemet-well-service-12.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Hemet</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/hemet/">Hemet</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Hemet on January 26, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/hemet-well-service-12.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job1755">
+<article class="project-card" data-category="pump" data-town="hemet" data-static="1" data-job="job1755">
 <div class="project-photos triple">
-<img src="/images/recent-work/job1755_1.jpg" alt="Well service in Hemet" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1755_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1755_2.jpg" alt="Well service in Hemet" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1755_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1755_3.jpg" alt="Well service in Hemet" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1755_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1755_1.jpg" alt="Well service in Hemet" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1755_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1755_2.jpg" alt="Well service in Hemet" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1755_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1755_3.jpg" alt="Well service in Hemet" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1755_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -578,16 +724,16 @@
 <time class="text-xs text-gray-400" datetime="2026-01-14">January 14, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/hemet-well-service-13.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Hemet</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/hemet/">Hemet</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Hemet on January 14, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/hemet-well-service-13.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="tank" data-static="1" data-job="job1742">
+<article class="project-card" data-category="tank" data-town="hemet" data-static="1" data-job="job1742">
 <div class="project-photos triple">
-<img src="/images/recent-work/job1742_1.jpg" alt="Pressure tank replacement in Hemet" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1742_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1742_2.jpg" alt="Pressure tank replacement in Hemet" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1742_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1742_3.jpg" alt="Pressure tank replacement in Hemet" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1742_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1742_1.jpg" alt="Pressure tank replacement in Hemet" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1742_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1742_2.jpg" alt="Pressure tank replacement in Hemet" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1742_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1742_3.jpg" alt="Pressure tank replacement in Hemet" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1742_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -595,16 +741,16 @@
 <time class="text-xs text-gray-400" datetime="2026-01-13">January 13, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/hemet-pressure-tank-replacement-3.html">Pressure tank replacement</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Hemet</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/hemet/">Hemet</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pressure Tanks in Hemet on January 13, 2026. Job type: Pressure tank replacement.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/hemet-pressure-tank-replacement-3.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job1536">
+<article class="project-card" data-category="pump" data-town="hemet" data-static="1" data-job="job1536">
 <div class="project-photos triple">
-<img src="/images/recent-work/job1536_1.jpg" alt="Well service in Hemet" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1536_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1536_2.jpg" alt="Well service in Hemet" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1536_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1536_3.jpg" alt="Well service in Hemet" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1536_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1536_1.jpg" alt="Well service in Hemet" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1536_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1536_2.jpg" alt="Well service in Hemet" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1536_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1536_3.jpg" alt="Well service in Hemet" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1536_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -612,16 +758,16 @@
 <time class="text-xs text-gray-400" datetime="2025-12-03">December 3, 2025</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/hemet-well-service-14.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Hemet</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/hemet/">Hemet</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Hemet on December 3, 2025. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/hemet-well-service-14.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job1416">
+<article class="project-card" data-category="pump" data-town="hemet" data-static="1" data-job="job1416">
 <div class="project-photos triple">
-<img src="/images/recent-work/job1416_1.jpg" alt="Well service in Hemet" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1416_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1416_2.jpg" alt="Well service in Hemet" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1416_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1416_3.jpg" alt="Well service in Hemet" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1416_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1416_1.jpg" alt="Well service in Hemet" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1416_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1416_2.jpg" alt="Well service in Hemet" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1416_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1416_3.jpg" alt="Well service in Hemet" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1416_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -629,7 +775,7 @@
 <time class="text-xs text-gray-400" datetime="2025-11-06">November 6, 2025</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/hemet-well-service-15.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Hemet</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/hemet/">Hemet</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Hemet on November 6, 2025. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/hemet-well-service-15.html">View project →</a></p>
 </div>

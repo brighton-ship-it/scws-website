@@ -9,13 +9,13 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
 <title>Recent well work in Fallbrook | SCWS</title>
-<meta content="27 recent well jobs in Fallbrook with field photos from Southern California Well Service. Pump, tank, and diagnostic work. See well service in Fallbrook." name="description"/>
+<meta content="38 recent well jobs in Fallbrook with field photos from Southern California Well Service. Pump, tank, and diagnostic work. See well service in Fallbrook." name="description"/>
 <link href="https://scwellservice.com/recent-work/areas/fallbrook.html" rel="canonical"/>
 <meta content="article" property="og:type"/>
 <meta content="https://scwellservice.com/recent-work/areas/fallbrook.html" property="og:url"/>
 <meta content="Recent well work in Fallbrook | SCWS" property="og:title"/>
-<meta content="27 recent well jobs in Fallbrook with field photos from Southern California Well Service. Pump, tank, and diagnostic work. See well service in Fallbrook." property="og:description"/>
-<meta content="https://scwellservice.com/images/recent-work/job3172_1.jpg" property="og:image"/>
+<meta content="38 recent well jobs in Fallbrook with field photos from Southern California Well Service. Pump, tank, and diagnostic work. See well service in Fallbrook." property="og:description"/>
+<meta content="https://scwellservice.com/images/recent-work/job3632_1.jpg" property="og:image"/>
 <link href="/images/logo-text-only-3x.png" rel="icon" type="image/png"/>
 <link href="/css/styles.css" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
@@ -27,7 +27,7 @@
   "@context": "https://schema.org",
   "@type": "CollectionPage",
   "name": "Recent well work in Fallbrook",
-  "description": "27 recent well jobs in Fallbrook with field photos from Southern California Well Service. Pump, tank, and diagnostic work. See well service in Fallbrook.",
+  "description": "38 recent well jobs in Fallbrook with field photos from Southern California Well Service. Pump, tank, and diagnostic work. See well service in Fallbrook.",
   "url": "https://scwellservice.com/recent-work/areas/fallbrook.html",
   "about": {
     "@type": "Place",
@@ -83,6 +83,11 @@
     .rw-est { background: #4e9271; color: #fff; }
     .rw-links { margin-top: 1rem; display: flex; flex-direction: column; gap: 0.35rem; }
     .rw-links a { color: #fff; font-weight: 600; }
+    .filter-btn {
+        padding: 6px 14px; border-radius: 999px; border: 1px solid #ddd; background: #fff;
+        font-size: 0.875rem; cursor: pointer;
+    }
+    .filter-btn.active { background: #1a73a7; color: #fff; border-color: #1a73a7; }
     .rw-cards { display: grid; gap: 1.25rem; }
     .project-card { background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
     .project-photos { display: grid; gap: 4px; aspect-ratio: 16/9; overflow: hidden; }
@@ -90,6 +95,9 @@
     .project-photos.double { grid-template-columns: 1fr 1fr; }
     .project-photos.triple { grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; }
     .project-photos.triple img:first-child { grid-row: 1 / -1; }
+    .project-photos picture { display: block; width: 100%; height: 100%; min-height: 0; }
+    .project-photos.triple img:first-child,
+    .project-photos.triple picture:first-child { grid-row: 1 / -1; }
     .project-photos img { width: 100%; height: 100%; object-fit: cover; }
     .project-photos.empty, .photo-fallback {
         background: linear-gradient(135deg, #1f3b4d, #4e9271);
@@ -166,9 +174,9 @@
 </div>
 </div>
 <section class="rw-hero">
-<img src="/images/recent-work/job3172_1.jpg" alt="Well service in Fallbrook" width="1200" height="800">
+<picture><source srcset="/images/recent-work/job3632_1.webp" type="image/webp"><img src="/images/recent-work/job3632_1.jpg" alt="Well service in Fallbrook" width="1200" height="800" fetchpriority="high" decoding="async" sizes="100vw"></picture>
 <div class="rw-hero-copy">
-<p><span class="rw-kicker">27 jobs</span></p>
+<p><span class="rw-kicker">38 jobs</span></p>
 <h1>Recent work in Fallbrook</h1>
 <p>Real field photos from jobs we already finished. 3 of these have a full job note.</p>
 </div>
@@ -178,17 +186,223 @@
 <h2>Well service in Fallbrook</h2>
 <p>These cards are the proof. Call, text, or book, and open the city service page for drilling, pumps, and emergency work.</p>
 <div class="rw-actions">
-<a class="rw-call" href="tel:+17604408520">Call (760) 440-8520</a>
+<a class="rw-call" href="tel:+17604630493">Call (760) 463-0493</a>
 <a class="rw-text" href="sms:7602195877">Text (760) 219-5877</a>
 <a class="rw-est" href="/cost-calculator.html">Free estimate</a>
 <a class="rw-est" href="/services/fallbrook/">Well service in Fallbrook</a>
 </div>
 </section>
+
+<div class="flex gap-2 overflow-x-auto" id="hub-filters" style="margin:0 0 1rem">
+<button class="filter-btn active" data-filter="all" type="button">All services</button>
+<button class="filter-btn" data-filter="pump" type="button">Pump Service</button>
+<button class="filter-btn" data-filter="drilling" type="button">Well Drilling</button>
+<button class="filter-btn" data-filter="tank" type="button">Pressure Tanks</button>
+<button class="filter-btn" data-filter="water-quality" type="button">Water Quality</button>
+<button class="filter-btn" data-filter="maintenance" type="button">Maintenance</button>
+</div>
+<script>
+document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    document.querySelectorAll('#hub-filters .filter-btn').forEach(function (b) { b.classList.remove('active'); });
+    btn.classList.add('active');
+    var filter = btn.getAttribute('data-filter');
+    document.querySelectorAll('.project-card').forEach(function (card) {
+      card.style.display = (filter === 'all' || card.getAttribute('data-category') === filter) ? '' : 'none';
+    });
+  });
+});
+</script>
+
 <div class="rw-cards">
-<article class="project-card" data-category="pump" data-static="1" data-job="job3172">
+<article class="project-card" data-category="pump" data-town="fallbrook" data-static="1" data-job="job3632">
 <div class="project-photos double">
-<img src="/images/recent-work/job3172_1.jpg" alt="Booster pump diagnostic in Fallbrook" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job3172_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job3172_2.jpg" alt="Booster pump diagnostic in Fallbrook" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job3172_2.jpg')" style="cursor:pointer">
+<picture><source srcset="/images/recent-work/job3632_1.webp" type="image/webp"><img src="/images/recent-work/job3632_1.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3632_1.jpg')" style="cursor:pointer"></picture>
+<picture><source srcset="/images/recent-work/job3632_2.webp" type="image/webp"><img src="/images/recent-work/job3632_2.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3632_2.jpg')" style="cursor:pointer"></picture>
+</div>
+<div class="p-4">
+<div class="flex items-center justify-between mb-2 gap-2">
+<span class="service-badge">Pump Service</span>
+<time class="text-xs text-gray-400" datetime="2026-10-16">October 16, 2026</time>
+</div>
+<h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/fallbrook-well-service-24.html">Well service</a></h3>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/fallbrook/">Fallbrook</a></p>
+<p class="text-sm text-gray-600 leading-relaxed">Pump Service in Fallbrook on October 16, 2026. Job type: Well service.</p>
+<p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/fallbrook-well-service-24.html">View project →</a></p>
+</div>
+</article>
+<article class="project-card" data-category="tank" data-town="fallbrook" data-static="1" data-job="job3561">
+<div class="project-photos double">
+<picture><source srcset="/images/recent-work/job3561_1.webp" type="image/webp"><img src="/images/recent-work/job3561_1.jpg" alt="Replace Pressure Tank in Fallbrook" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3561_1.jpg')" style="cursor:pointer"></picture>
+<picture><source srcset="/images/recent-work/job3561_2.webp" type="image/webp"><img src="/images/recent-work/job3561_2.jpg" alt="Replace Pressure Tank in Fallbrook" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3561_2.jpg')" style="cursor:pointer"></picture>
+</div>
+<div class="p-4">
+<div class="flex items-center justify-between mb-2 gap-2">
+<span class="service-badge">Pressure Tanks</span>
+<time class="text-xs text-gray-400" datetime="2026-10-08">October 8, 2026</time>
+</div>
+<h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/fallbrook-replace-pressure-tank.html">Replace Pressure Tank</a></h3>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/fallbrook/">Fallbrook</a></p>
+<p class="text-sm text-gray-600 leading-relaxed">Pressure Tanks in Fallbrook on October 8, 2026. Job type: Replace Pressure Tank.</p>
+<p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/fallbrook-replace-pressure-tank.html">View project →</a></p>
+</div>
+</article>
+<article class="project-card" data-category="tank" data-town="fallbrook" data-static="1" data-job="job3493">
+<div class="project-photos triple">
+<img src="/images/recent-work/job3493_1.jpg" alt="Add Pressure Tank &amp; Cleanup Plumbing in Fallbrook" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3493_1.jpg')" style="cursor:pointer">
+<picture><source srcset="/images/recent-work/job3493_2.webp" type="image/webp"><img src="/images/recent-work/job3493_2.jpg" alt="Add Pressure Tank &amp; Cleanup Plumbing in Fallbrook" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3493_2.jpg')" style="cursor:pointer"></picture>
+<picture><source srcset="/images/recent-work/job3493_3.webp" type="image/webp"><img src="/images/recent-work/job3493_3.jpg" alt="Add Pressure Tank &amp; Cleanup Plumbing in Fallbrook" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3493_3.jpg')" style="cursor:pointer"></picture>
+</div>
+<div class="p-4">
+<div class="flex items-center justify-between mb-2 gap-2">
+<span class="service-badge">Pressure Tanks</span>
+<time class="text-xs text-gray-400" datetime="2026-10-01">October 1, 2026</time>
+</div>
+<h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/fallbrook-add-pressure-tank-and-cleanup-plumbing.html">Add Pressure Tank &amp; Cleanup Plumbing</a></h3>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/fallbrook/">Fallbrook</a></p>
+<p class="text-sm text-gray-600 leading-relaxed">Pressure Tanks in Fallbrook on October 1, 2026. Job type: Add Pressure Tank &amp; Cleanup Plumbing.</p>
+<p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/fallbrook-add-pressure-tank-and-cleanup-plumbing.html">View project →</a></p>
+</div>
+</article>
+<article class="project-card" data-category="pump" data-town="fallbrook" data-static="1" data-job="job3475">
+<div class="project-photos triple">
+<img src="/images/recent-work/job3475_1.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3475_1.jpg')" style="cursor:pointer">
+<picture><source srcset="/images/recent-work/job3475_2.webp" type="image/webp"><img src="/images/recent-work/job3475_2.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3475_2.jpg')" style="cursor:pointer"></picture>
+<picture><source srcset="/images/recent-work/job3475_3.webp" type="image/webp"><img src="/images/recent-work/job3475_3.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3475_3.jpg')" style="cursor:pointer"></picture>
+</div>
+<div class="p-4">
+<div class="flex items-center justify-between mb-2 gap-2">
+<span class="service-badge">Pump Service</span>
+<time class="text-xs text-gray-400" datetime="2026-09-30">September 30, 2026</time>
+</div>
+<h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/fallbrook-well-service-23.html">Well service</a></h3>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/fallbrook/">Fallbrook</a></p>
+<p class="text-sm text-gray-600 leading-relaxed">Pump Service in Fallbrook on September 30, 2026. Job type: Well service.</p>
+<p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/fallbrook-well-service-23.html">View project →</a></p>
+</div>
+</article>
+<article class="project-card" data-category="pump" data-town="fallbrook" data-static="1" data-job="job3431">
+<div class="project-photos triple">
+<picture><source srcset="/images/recent-work/job3431_1.webp" type="image/webp"><img src="/images/recent-work/job3431_1.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3431_1.jpg')" style="cursor:pointer"></picture>
+<picture><source srcset="/images/recent-work/job3431_2.webp" type="image/webp"><img src="/images/recent-work/job3431_2.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3431_2.jpg')" style="cursor:pointer"></picture>
+<picture><source srcset="/images/recent-work/job3431_3.webp" type="image/webp"><img src="/images/recent-work/job3431_3.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3431_3.jpg')" style="cursor:pointer"></picture>
+</div>
+<div class="p-4">
+<div class="flex items-center justify-between mb-2 gap-2">
+<span class="service-badge">Pump Service</span>
+<time class="text-xs text-gray-400" datetime="2026-09-25">September 25, 2026</time>
+</div>
+<h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/fallbrook-well-service-25.html">Well service</a></h3>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/fallbrook/">Fallbrook</a></p>
+<p class="text-sm text-gray-600 leading-relaxed">Pump Service in Fallbrook on September 25, 2026. Job type: Well service.</p>
+<p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/fallbrook-well-service-25.html">View project →</a></p>
+</div>
+</article>
+<article class="project-card" data-category="pump" data-town="fallbrook" data-static="1" data-job="job3426">
+<div class="project-photos triple">
+<picture><source srcset="/images/recent-work/job3426_1.webp" type="image/webp"><img src="/images/recent-work/job3426_1.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3426_1.jpg')" style="cursor:pointer"></picture>
+<picture><source srcset="/images/recent-work/job3426_2.webp" type="image/webp"><img src="/images/recent-work/job3426_2.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3426_2.jpg')" style="cursor:pointer"></picture>
+<img src="/images/recent-work/job3426_3.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3426_3.jpg')" style="cursor:pointer">
+</div>
+<div class="p-4">
+<div class="flex items-center justify-between mb-2 gap-2">
+<span class="service-badge">Pump Service</span>
+<time class="text-xs text-gray-400" datetime="2026-09-24">September 24, 2026</time>
+</div>
+<h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/fallbrook-well-service-22.html">Well service</a></h3>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/fallbrook/">Fallbrook</a></p>
+<p class="text-sm text-gray-600 leading-relaxed">Pump Service in Fallbrook on September 24, 2026. Job type: Well service.</p>
+<p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/fallbrook-well-service-22.html">View project →</a></p>
+</div>
+</article>
+<article class="project-card" data-category="pump" data-town="fallbrook" data-static="1" data-job="job3338">
+<div class="project-photos triple">
+<picture><source srcset="/images/recent-work/job3338_1.webp" type="image/webp"><img src="/images/recent-work/job3338_1.jpg" alt="Replace 3AS50 Controller &amp; Valve in Fallbrook" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3338_1.jpg')" style="cursor:pointer"></picture>
+<img src="/images/recent-work/job3338_2.jpg" alt="Replace 3AS50 Controller &amp; Valve in Fallbrook" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3338_2.jpg')" style="cursor:pointer">
+<picture><source srcset="/images/recent-work/job3338_3.webp" type="image/webp"><img src="/images/recent-work/job3338_3.jpg" alt="Replace 3AS50 Controller &amp; Valve in Fallbrook" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3338_3.jpg')" style="cursor:pointer"></picture>
+</div>
+<div class="p-4">
+<div class="flex items-center justify-between mb-2 gap-2">
+<span class="service-badge">Pump Service</span>
+<time class="text-xs text-gray-400" datetime="2026-09-14">September 14, 2026</time>
+</div>
+<h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/fallbrook-replace-3as50-controller-and-valve.html">Replace 3AS50 Controller &amp; Valve</a></h3>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/fallbrook/">Fallbrook</a></p>
+<p class="text-sm text-gray-600 leading-relaxed">Pump Service in Fallbrook on September 14, 2026. Job type: Replace 3AS50 Controller &amp; Valve.</p>
+<p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/fallbrook-replace-3as50-controller-and-valve.html">View project →</a></p>
+</div>
+</article>
+<article class="project-card" data-category="pump" data-town="fallbrook" data-static="1" data-job="job3308">
+<div class="project-photos double">
+<img src="/images/recent-work/job3308_1.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3308_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job3308_2.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3308_2.jpg')" style="cursor:pointer">
+</div>
+<div class="p-4">
+<div class="flex items-center justify-between mb-2 gap-2">
+<span class="service-badge">Pump Service</span>
+<time class="text-xs text-gray-400" datetime="2026-09-09">September 9, 2026</time>
+</div>
+<h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/fallbrook-well-service-20.html">Well service</a></h3>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/fallbrook/">Fallbrook</a></p>
+<p class="text-sm text-gray-600 leading-relaxed">Pump Service in Fallbrook on September 9, 2026. Job type: Well service.</p>
+<p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/fallbrook-well-service-20.html">View project →</a></p>
+</div>
+</article>
+<article class="project-card" data-category="pump" data-town="fallbrook" data-static="1" data-job="job3270">
+<div class="project-photos triple">
+<picture><source srcset="/images/recent-work/job3270_1.webp" type="image/webp"><img src="/images/recent-work/job3270_1.jpg" alt="Valve Repair in Fallbrook" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3270_1.jpg')" style="cursor:pointer"></picture>
+<picture><source srcset="/images/recent-work/job3270_2.webp" type="image/webp"><img src="/images/recent-work/job3270_2.jpg" alt="Valve Repair in Fallbrook" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3270_2.jpg')" style="cursor:pointer"></picture>
+<img src="/images/recent-work/job3270_3.jpg" alt="Valve Repair in Fallbrook" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3270_3.jpg')" style="cursor:pointer">
+</div>
+<div class="p-4">
+<div class="flex items-center justify-between mb-2 gap-2">
+<span class="service-badge">Pump Service</span>
+<time class="text-xs text-gray-400" datetime="2026-09-04">September 4, 2026</time>
+</div>
+<h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/fallbrook-valve-repair.html">Valve Repair</a></h3>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/fallbrook/">Fallbrook</a></p>
+<p class="text-sm text-gray-600 leading-relaxed">Pump Service in Fallbrook on September 4, 2026. Job type: Valve Repair.</p>
+<p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/fallbrook-valve-repair.html">View project →</a></p>
+</div>
+</article>
+<article class="project-card" data-category="pump" data-town="fallbrook" data-static="1" data-job="job3201">
+<div class="project-photos triple">
+<img src="/images/recent-work/job3201_1.jpg" alt="Replace Booster in Fallbrook" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3201_1.jpg')" style="cursor:pointer">
+<picture><source srcset="/images/recent-work/job3201_2.webp" type="image/webp"><img src="/images/recent-work/job3201_2.jpg" alt="Replace Booster in Fallbrook" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3201_2.jpg')" style="cursor:pointer"></picture>
+<picture><source srcset="/images/recent-work/job3201_3.webp" type="image/webp"><img src="/images/recent-work/job3201_3.jpg" alt="Replace Booster in Fallbrook" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3201_3.jpg')" style="cursor:pointer"></picture>
+</div>
+<div class="p-4">
+<div class="flex items-center justify-between mb-2 gap-2">
+<span class="service-badge">Pump Service</span>
+<time class="text-xs text-gray-400" datetime="2026-08-28">August 28, 2026</time>
+</div>
+<h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/fallbrook-replace-booster.html">Replace Booster</a></h3>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/fallbrook/">Fallbrook</a></p>
+<p class="text-sm text-gray-600 leading-relaxed">Pump Service in Fallbrook on August 28, 2026. Job type: Replace Booster.</p>
+<p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/fallbrook-replace-booster.html">View project →</a></p>
+</div>
+</article>
+<article class="project-card" data-category="pump" data-town="fallbrook" data-static="1" data-job="job3193">
+<div class="project-photos triple">
+<picture><source srcset="/images/recent-work/job3193_1.webp" type="image/webp"><img src="/images/recent-work/job3193_1.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3193_1.jpg')" style="cursor:pointer"></picture>
+<picture><source srcset="/images/recent-work/job3193_2.webp" type="image/webp"><img src="/images/recent-work/job3193_2.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3193_2.jpg')" style="cursor:pointer"></picture>
+<img src="/images/recent-work/job3193_3.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3193_3.jpg')" style="cursor:pointer">
+</div>
+<div class="p-4">
+<div class="flex items-center justify-between mb-2 gap-2">
+<span class="service-badge">Pump Service</span>
+<time class="text-xs text-gray-400" datetime="2026-08-24">August 24, 2026</time>
+</div>
+<h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/fallbrook-well-service-21.html">Well service</a></h3>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/fallbrook/">Fallbrook</a></p>
+<p class="text-sm text-gray-600 leading-relaxed">Pump Service in Fallbrook on August 24, 2026. Job type: Well service.</p>
+<p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/fallbrook-well-service-21.html">View project →</a></p>
+</div>
+</article>
+<article class="project-card" data-category="pump" data-town="fallbrook" data-static="1" data-job="job3172">
+<div class="project-photos double">
+<img src="/images/recent-work/job3172_1.jpg" alt="Booster pump diagnostic in Fallbrook" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3172_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job3172_2.jpg" alt="Booster pump diagnostic in Fallbrook" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3172_2.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -196,15 +410,15 @@
 <time class="text-xs text-gray-400" datetime="2026-08-20">August 20, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/fallbrook-booster-pump-diagnostic.html">Booster pump diagnostic</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Fallbrook</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/fallbrook/">Fallbrook</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Inspected a 3 HP booster that was overheating and not building pressure. Confirmed the pump end had failed and needed replacement.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/fallbrook-booster-pump-diagnostic.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job2927">
+<article class="project-card" data-category="pump" data-town="fallbrook" data-static="1" data-job="job2927">
 <div class="project-photos double">
-<img src="/images/recent-work/job2927_1.jpg" alt="VFD diagnostic in Fallbrook" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2927_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2927_2.jpg" alt="VFD diagnostic in Fallbrook" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2927_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2927_1.jpg" alt="VFD diagnostic in Fallbrook" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2927_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2927_2.jpg" alt="VFD diagnostic in Fallbrook" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2927_2.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -212,12 +426,12 @@
 <time class="text-xs text-gray-400" datetime="2026-07-23">July 23, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/fallbrook-vfd-diagnostic.html">VFD diagnostic</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Fallbrook</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/fallbrook/">Fallbrook</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Diagnosed a 5 HP subdrive that faulted on undervoltage before it could start. Incoming power checked out, pointing to a failed drive.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/fallbrook-vfd-diagnostic.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job2931">
+<article class="project-card" data-category="pump" data-town="fallbrook" data-static="1" data-job="job2931">
 <div class="project-photos empty">
 <div class="photo-fallback" role="img" aria-label="Field photo unavailable"></div>
 </div>
@@ -227,14 +441,14 @@
 <time class="text-xs text-gray-400" datetime="2026-07-22">July 22, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/fallbrook-well-service.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Fallbrook</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/fallbrook/">Fallbrook</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Fallbrook on July 22, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/fallbrook-well-service.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job2852">
+<article class="project-card" data-category="pump" data-town="fallbrook" data-static="1" data-job="job2852">
 <div class="project-photos single">
-<img src="/images/recent-work/job2852_1.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2852_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2852_1.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2852_1.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -242,14 +456,14 @@
 <time class="text-xs text-gray-400" datetime="2026-07-17">July 17, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/fallbrook-well-service-2.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Fallbrook</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/fallbrook/">Fallbrook</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Fallbrook on July 17, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/fallbrook-well-service-2.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job2806">
+<article class="project-card" data-category="pump" data-town="fallbrook" data-static="1" data-job="job2806">
 <div class="project-photos single">
-<img src="/images/recent-work/job2806_3.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2806_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2806_3.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2806_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -257,15 +471,15 @@
 <time class="text-xs text-gray-400" datetime="2026-07-13">July 13, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/fallbrook-well-service-3.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Fallbrook</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/fallbrook/">Fallbrook</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Fallbrook on July 13, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/fallbrook-well-service-3.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="tank" data-static="1" data-job="job2816">
+<article class="project-card" data-category="tank" data-town="fallbrook" data-static="1" data-job="job2816">
 <div class="project-photos double">
-<img src="/images/recent-work/job2816_1.jpg" alt="Tank float inspection in Fallbrook" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2816_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2816_2.jpg" alt="Tank float inspection in Fallbrook" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2816_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2816_1.jpg" alt="Tank float inspection in Fallbrook" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2816_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2816_2.jpg" alt="Tank float inspection in Fallbrook" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2816_2.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -273,16 +487,16 @@
 <time class="text-xs text-gray-400" datetime="2026-07-08">July 8, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/fallbrook-tank-float-inspection.html">Tank float inspection</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Fallbrook</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/fallbrook/">Fallbrook</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Found a broken float ball on a small fire-sprinkler tank that was overflowing. The shared well and pressure system were running normally.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/fallbrook-tank-float-inspection.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job2769">
+<article class="project-card" data-category="pump" data-town="fallbrook" data-static="1" data-job="job2769">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2769_1.jpg" alt="Pump installation in Fallbrook" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2769_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2769_2.jpg" alt="Pump installation in Fallbrook" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2769_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2769_3.jpg" alt="Pump installation in Fallbrook" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2769_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2769_1.jpg" alt="Pump installation in Fallbrook" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2769_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2769_2.jpg" alt="Pump installation in Fallbrook" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2769_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2769_3.jpg" alt="Pump installation in Fallbrook" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2769_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -290,15 +504,15 @@
 <time class="text-xs text-gray-400" datetime="2026-07-02">July 2, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/fallbrook-pump-installation.html">Pump installation</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Fallbrook</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/fallbrook/">Fallbrook</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Fallbrook on July 2, 2026. Job type: Pump installation.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/fallbrook-pump-installation.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job2351">
+<article class="project-card" data-category="pump" data-town="fallbrook" data-static="1" data-job="job2351">
 <div class="project-photos double">
-<img src="/images/recent-work/job2351_1.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2351_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2351_2.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2351_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2351_1.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2351_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2351_2.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2351_2.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -306,16 +520,16 @@
 <time class="text-xs text-gray-400" datetime="2026-04-29">April 29, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/fallbrook-well-service-4.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Fallbrook</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/fallbrook/">Fallbrook</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Fallbrook on April 29, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/fallbrook-well-service-4.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job2204">
+<article class="project-card" data-category="pump" data-town="fallbrook" data-static="1" data-job="job2204">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2204_1.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2204_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2204_2.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2204_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2204_3.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2204_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2204_1.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2204_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2204_2.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2204_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2204_3.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2204_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -323,16 +537,16 @@
 <time class="text-xs text-gray-400" datetime="2026-04-10">April 10, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/fallbrook-well-service-5.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Fallbrook</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/fallbrook/">Fallbrook</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Fallbrook on April 10, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/fallbrook-well-service-5.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job2170">
+<article class="project-card" data-category="pump" data-town="fallbrook" data-static="1" data-job="job2170">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2170_1.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2170_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2170_2.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2170_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2170_3.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2170_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2170_1.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2170_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2170_2.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2170_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2170_3.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2170_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -340,16 +554,16 @@
 <time class="text-xs text-gray-400" datetime="2026-03-31">March 31, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/fallbrook-well-service-6.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Fallbrook</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/fallbrook/">Fallbrook</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Fallbrook on March 31, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/fallbrook-well-service-6.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job2058">
+<article class="project-card" data-category="pump" data-town="fallbrook" data-static="1" data-job="job2058">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2058_1.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2058_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2058_2.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2058_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2058_3.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2058_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2058_1.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2058_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2058_2.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2058_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2058_3.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2058_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -357,16 +571,16 @@
 <time class="text-xs text-gray-400" datetime="2026-03-12">March 12, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/fallbrook-well-service-7.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Fallbrook</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/fallbrook/">Fallbrook</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Fallbrook on March 12, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/fallbrook-well-service-7.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job2042">
+<article class="project-card" data-category="pump" data-town="fallbrook" data-static="1" data-job="job2042">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2042_1.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2042_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2042_2.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2042_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2042_3.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2042_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2042_1.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2042_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2042_2.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2042_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2042_3.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2042_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -374,16 +588,16 @@
 <time class="text-xs text-gray-400" datetime="2026-03-10">March 10, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/fallbrook-well-service-8.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Fallbrook</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/fallbrook/">Fallbrook</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Fallbrook on March 10, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/fallbrook-well-service-8.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job1999">
+<article class="project-card" data-category="pump" data-town="fallbrook" data-static="1" data-job="job1999">
 <div class="project-photos triple">
-<img src="/images/recent-work/job1999_1.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1999_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1999_2.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1999_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1999_3.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1999_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1999_1.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1999_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1999_2.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1999_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1999_3.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1999_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -391,16 +605,16 @@
 <time class="text-xs text-gray-400" datetime="2026-03-08">March 8, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/fallbrook-well-service-9.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Fallbrook</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/fallbrook/">Fallbrook</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Fallbrook on March 8, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/fallbrook-well-service-9.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job2029">
+<article class="project-card" data-category="pump" data-town="fallbrook" data-static="1" data-job="job2029">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2029_1.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2029_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2029_2.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2029_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2029_3.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2029_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2029_1.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2029_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2029_2.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2029_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2029_3.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2029_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -408,16 +622,16 @@
 <time class="text-xs text-gray-400" datetime="2026-03-06">March 6, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/fallbrook-well-service-10.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Fallbrook</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/fallbrook/">Fallbrook</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Fallbrook on March 6, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/fallbrook-well-service-10.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job2022">
+<article class="project-card" data-category="pump" data-town="fallbrook" data-static="1" data-job="job2022">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2022_1.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2022_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2022_2.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2022_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2022_3.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2022_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2022_1.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2022_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2022_2.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2022_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2022_3.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2022_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -425,16 +639,16 @@
 <time class="text-xs text-gray-400" datetime="2026-03-05">March 5, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/fallbrook-well-service-11.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Fallbrook</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/fallbrook/">Fallbrook</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Fallbrook on March 5, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/fallbrook-well-service-11.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job1867">
+<article class="project-card" data-category="pump" data-town="fallbrook" data-static="1" data-job="job1867">
 <div class="project-photos triple">
-<img src="/images/recent-work/job1867_1.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1867_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1867_2.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1867_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1867_3.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1867_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1867_1.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1867_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1867_2.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1867_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1867_3.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1867_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -442,16 +656,16 @@
 <time class="text-xs text-gray-400" datetime="2026-02-06">February 6, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/fallbrook-well-service-12.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Fallbrook</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/fallbrook/">Fallbrook</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Fallbrook on February 6, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/fallbrook-well-service-12.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="tank" data-static="1" data-job="job1771">
+<article class="project-card" data-category="tank" data-town="fallbrook" data-static="1" data-job="job1771">
 <div class="project-photos triple">
-<img src="/images/recent-work/job1771_1.jpg" alt="Pressure tank replacement in Fallbrook" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1771_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1771_2.jpg" alt="Pressure tank replacement in Fallbrook" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1771_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1771_3.jpg" alt="Pressure tank replacement in Fallbrook" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1771_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1771_1.jpg" alt="Pressure tank replacement in Fallbrook" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1771_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1771_2.jpg" alt="Pressure tank replacement in Fallbrook" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1771_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1771_3.jpg" alt="Pressure tank replacement in Fallbrook" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1771_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -459,16 +673,16 @@
 <time class="text-xs text-gray-400" datetime="2026-01-20">January 20, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/fallbrook-pressure-tank-replacement.html">Pressure tank replacement</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Fallbrook</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/fallbrook/">Fallbrook</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pressure Tanks in Fallbrook on January 20, 2026. Job type: Pressure tank replacement.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/fallbrook-pressure-tank-replacement.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job1745">
+<article class="project-card" data-category="pump" data-town="fallbrook" data-static="1" data-job="job1745">
 <div class="project-photos triple">
-<img src="/images/recent-work/job1745_1.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1745_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1745_2.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1745_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1745_3.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1745_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1745_1.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1745_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1745_2.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1745_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1745_3.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1745_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -476,16 +690,16 @@
 <time class="text-xs text-gray-400" datetime="2026-01-14">January 14, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/fallbrook-well-service-13.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Fallbrook</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/fallbrook/">Fallbrook</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Fallbrook on January 14, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/fallbrook-well-service-13.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job1709">
+<article class="project-card" data-category="pump" data-town="fallbrook" data-static="1" data-job="job1709">
 <div class="project-photos triple">
-<img src="/images/recent-work/job1709_1.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1709_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1709_2.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1709_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1709_3.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1709_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1709_1.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1709_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1709_2.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1709_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1709_3.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1709_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -493,16 +707,16 @@
 <time class="text-xs text-gray-400" datetime="2026-01-05">January 5, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/fallbrook-well-service-14.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Fallbrook</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/fallbrook/">Fallbrook</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Fallbrook on January 5, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/fallbrook-well-service-14.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job1605">
+<article class="project-card" data-category="pump" data-town="fallbrook" data-static="1" data-job="job1605">
 <div class="project-photos triple">
-<img src="/images/recent-work/job1605_1.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1605_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1605_2.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1605_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1605_3.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1605_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1605_1.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1605_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1605_2.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1605_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1605_3.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1605_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -510,15 +724,15 @@
 <time class="text-xs text-gray-400" datetime="2025-12-12">December 12, 2025</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/fallbrook-well-service-15.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Fallbrook</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/fallbrook/">Fallbrook</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Fallbrook on December 12, 2025. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/fallbrook-well-service-15.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job1515">
+<article class="project-card" data-category="pump" data-town="fallbrook" data-static="1" data-job="job1515">
 <div class="project-photos double">
-<img src="/images/recent-work/job1515_1.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1515_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1515_2.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1515_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1515_1.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1515_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1515_2.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1515_2.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -526,16 +740,16 @@
 <time class="text-xs text-gray-400" datetime="2025-11-20">November 20, 2025</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/fallbrook-well-service-16.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Fallbrook</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/fallbrook/">Fallbrook</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Fallbrook on November 20, 2025. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/fallbrook-well-service-16.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job1474">
+<article class="project-card" data-category="pump" data-town="fallbrook" data-static="1" data-job="job1474">
 <div class="project-photos triple">
-<img src="/images/recent-work/job1474_1.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1474_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1474_2.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1474_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1474_3.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1474_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1474_1.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1474_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1474_2.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1474_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1474_3.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1474_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -543,16 +757,16 @@
 <time class="text-xs text-gray-400" datetime="2025-11-12">November 12, 2025</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/fallbrook-well-service-17.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Fallbrook</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/fallbrook/">Fallbrook</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Fallbrook on November 12, 2025. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/fallbrook-well-service-17.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job1392">
+<article class="project-card" data-category="pump" data-town="fallbrook" data-static="1" data-job="job1392">
 <div class="project-photos triple">
-<img src="/images/recent-work/job1392_1.jpg" alt="Pump replacement in Fallbrook" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1392_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1392_2.jpg" alt="Pump replacement in Fallbrook" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1392_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1392_3.jpg" alt="Pump replacement in Fallbrook" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1392_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1392_1.jpg" alt="Pump replacement in Fallbrook" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1392_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1392_2.jpg" alt="Pump replacement in Fallbrook" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1392_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1392_3.jpg" alt="Pump replacement in Fallbrook" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1392_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -560,15 +774,15 @@
 <time class="text-xs text-gray-400" datetime="2025-10-29">October 29, 2025</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/fallbrook-pump-replacement.html">Pump replacement</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Fallbrook</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/fallbrook/">Fallbrook</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Fallbrook on October 29, 2025. Job type: Pump replacement.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/fallbrook-pump-replacement.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="tank" data-static="1" data-job="job1373">
+<article class="project-card" data-category="tank" data-town="fallbrook" data-static="1" data-job="job1373">
 <div class="project-photos double">
-<img src="/images/recent-work/job1373_1.jpg" alt="Pressure tank replacement in Fallbrook" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1373_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1373_2.jpg" alt="Pressure tank replacement in Fallbrook" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1373_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1373_1.jpg" alt="Pressure tank replacement in Fallbrook" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1373_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1373_2.jpg" alt="Pressure tank replacement in Fallbrook" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1373_2.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -576,16 +790,16 @@
 <time class="text-xs text-gray-400" datetime="2025-10-28">October 28, 2025</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/fallbrook-pressure-tank-replacement-2.html">Pressure tank replacement</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Fallbrook</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/fallbrook/">Fallbrook</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pressure Tanks in Fallbrook on October 28, 2025. Job type: Pressure tank replacement.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/fallbrook-pressure-tank-replacement-2.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job1355">
+<article class="project-card" data-category="pump" data-town="fallbrook" data-static="1" data-job="job1355">
 <div class="project-photos triple">
-<img src="/images/recent-work/job1355_1.jpg" alt="VFD replacement in Fallbrook" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1355_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1355_2.jpg" alt="VFD replacement in Fallbrook" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1355_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1355_3.jpg" alt="VFD replacement in Fallbrook" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1355_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1355_1.jpg" alt="VFD replacement in Fallbrook" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1355_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1355_2.jpg" alt="VFD replacement in Fallbrook" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1355_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1355_3.jpg" alt="VFD replacement in Fallbrook" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1355_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -593,16 +807,16 @@
 <time class="text-xs text-gray-400" datetime="2025-10-28">October 28, 2025</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/fallbrook-vfd-replacement.html">VFD replacement</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Fallbrook</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/fallbrook/">Fallbrook</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Fallbrook on October 28, 2025. Job type: VFD replacement.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/fallbrook-vfd-replacement.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job1339">
+<article class="project-card" data-category="pump" data-town="fallbrook" data-static="1" data-job="job1339">
 <div class="project-photos triple">
-<img src="/images/recent-work/job1339_1.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1339_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1339_2.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1339_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1339_3.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1339_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1339_1.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1339_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1339_2.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1339_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1339_3.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1339_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -610,16 +824,16 @@
 <time class="text-xs text-gray-400" datetime="2025-10-22">October 22, 2025</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/fallbrook-well-service-18.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Fallbrook</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/fallbrook/">Fallbrook</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Fallbrook on October 22, 2025. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/fallbrook-well-service-18.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job1362">
+<article class="project-card" data-category="pump" data-town="fallbrook" data-static="1" data-job="job1362">
 <div class="project-photos triple">
-<img src="/images/recent-work/job1362_1.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1362_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1362_2.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1362_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1362_3.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1362_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1362_1.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1362_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1362_2.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1362_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1362_3.jpg" alt="Well service in Fallbrook" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1362_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -627,7 +841,7 @@
 <time class="text-xs text-gray-400" datetime="2025-10-21">October 21, 2025</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/fallbrook-well-service-19.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Fallbrook</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/fallbrook/">Fallbrook</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Fallbrook on October 21, 2025. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/fallbrook-well-service-19.html">View project →</a></p>
 </div>

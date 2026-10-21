@@ -9,13 +9,13 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
 <title>Recent well work in Julian | SCWS</title>
-<meta content="55 recent well jobs in Julian with field photos from Southern California Well Service. Pump, tank, and diagnostic work. See well service in Julian." name="description"/>
+<meta content="67 recent well jobs in Julian with field photos from Southern California Well Service. Pump, tank, and diagnostic work. See well service in Julian." name="description"/>
 <link href="https://scwellservice.com/recent-work/areas/julian.html" rel="canonical"/>
 <meta content="article" property="og:type"/>
 <meta content="https://scwellservice.com/recent-work/areas/julian.html" property="og:url"/>
 <meta content="Recent well work in Julian | SCWS" property="og:title"/>
-<meta content="55 recent well jobs in Julian with field photos from Southern California Well Service. Pump, tank, and diagnostic work. See well service in Julian." property="og:description"/>
-<meta content="https://scwellservice.com/images/recent-work/job3078_1.jpg" property="og:image"/>
+<meta content="67 recent well jobs in Julian with field photos from Southern California Well Service. Pump, tank, and diagnostic work. See well service in Julian." property="og:description"/>
+<meta content="https://scwellservice.com/images/recent-work/job3616_1.jpg" property="og:image"/>
 <link href="/images/logo-text-only-3x.png" rel="icon" type="image/png"/>
 <link href="/css/styles.css" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
@@ -27,7 +27,7 @@
   "@context": "https://schema.org",
   "@type": "CollectionPage",
   "name": "Recent well work in Julian",
-  "description": "55 recent well jobs in Julian with field photos from Southern California Well Service. Pump, tank, and diagnostic work. See well service in Julian.",
+  "description": "67 recent well jobs in Julian with field photos from Southern California Well Service. Pump, tank, and diagnostic work. See well service in Julian.",
   "url": "https://scwellservice.com/recent-work/areas/julian.html",
   "about": {
     "@type": "Place",
@@ -83,6 +83,11 @@
     .rw-est { background: #4e9271; color: #fff; }
     .rw-links { margin-top: 1rem; display: flex; flex-direction: column; gap: 0.35rem; }
     .rw-links a { color: #fff; font-weight: 600; }
+    .filter-btn {
+        padding: 6px 14px; border-radius: 999px; border: 1px solid #ddd; background: #fff;
+        font-size: 0.875rem; cursor: pointer;
+    }
+    .filter-btn.active { background: #1a73a7; color: #fff; border-color: #1a73a7; }
     .rw-cards { display: grid; gap: 1.25rem; }
     .project-card { background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
     .project-photos { display: grid; gap: 4px; aspect-ratio: 16/9; overflow: hidden; }
@@ -90,6 +95,9 @@
     .project-photos.double { grid-template-columns: 1fr 1fr; }
     .project-photos.triple { grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; }
     .project-photos.triple img:first-child { grid-row: 1 / -1; }
+    .project-photos picture { display: block; width: 100%; height: 100%; min-height: 0; }
+    .project-photos.triple img:first-child,
+    .project-photos.triple picture:first-child { grid-row: 1 / -1; }
     .project-photos img { width: 100%; height: 100%; object-fit: cover; }
     .project-photos.empty, .photo-fallback {
         background: linear-gradient(135deg, #1f3b4d, #4e9271);
@@ -166,9 +174,9 @@
 </div>
 </div>
 <section class="rw-hero">
-<img src="/images/recent-work/job3078_1.jpg" alt="Well service in Julian" width="1200" height="800">
+<picture><source srcset="/images/recent-work/job3616_1.webp" type="image/webp"><img src="/images/recent-work/job3616_1.jpg" alt="Well service in Julian" width="1200" height="800" fetchpriority="high" decoding="async" sizes="100vw"></picture>
 <div class="rw-hero-copy">
-<p><span class="rw-kicker">55 jobs</span></p>
+<p><span class="rw-kicker">67 jobs</span></p>
 <h1>Recent work in Julian</h1>
 <p>Real field photos from jobs we already finished. 2 of these have a full job note.</p>
 </div>
@@ -178,17 +186,243 @@
 <h2>Well service in Julian</h2>
 <p>These cards are the proof. Call, text, or book, and open the city service page for drilling, pumps, and emergency work.</p>
 <div class="rw-actions">
-<a class="rw-call" href="tel:+17604408520">Call (760) 440-8520</a>
+<a class="rw-call" href="tel:+17604630493">Call (760) 463-0493</a>
 <a class="rw-text" href="sms:7602195877">Text (760) 219-5877</a>
 <a class="rw-est" href="/cost-calculator.html">Free estimate</a>
 <a class="rw-est" href="/services/julian/">Well service in Julian</a>
 </div>
 </section>
+
+<div class="flex gap-2 overflow-x-auto" id="hub-filters" style="margin:0 0 1rem">
+<button class="filter-btn active" data-filter="all" type="button">All services</button>
+<button class="filter-btn" data-filter="pump" type="button">Pump Service</button>
+<button class="filter-btn" data-filter="drilling" type="button">Well Drilling</button>
+<button class="filter-btn" data-filter="tank" type="button">Pressure Tanks</button>
+<button class="filter-btn" data-filter="water-quality" type="button">Water Quality</button>
+<button class="filter-btn" data-filter="maintenance" type="button">Maintenance</button>
+</div>
+<script>
+document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    document.querySelectorAll('#hub-filters .filter-btn').forEach(function (b) { b.classList.remove('active'); });
+    btn.classList.add('active');
+    var filter = btn.getAttribute('data-filter');
+    document.querySelectorAll('.project-card').forEach(function (card) {
+      card.style.display = (filter === 'all' || card.getAttribute('data-category') === filter) ? '' : 'none';
+    });
+  });
+});
+</script>
+
 <div class="rw-cards">
-<article class="project-card" data-category="maintenance" data-static="1" data-job="job3078">
+<article class="project-card" data-category="pump" data-town="julian" data-static="1" data-job="job3616">
+<div class="project-photos triple">
+<picture><source srcset="/images/recent-work/job3616_1.webp" type="image/webp"><img src="/images/recent-work/job3616_1.jpg" alt="Booster Upgrade in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3616_1.jpg')" style="cursor:pointer"></picture>
+<picture><source srcset="/images/recent-work/job3616_2.webp" type="image/webp"><img src="/images/recent-work/job3616_2.jpg" alt="Booster Upgrade in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3616_2.jpg')" style="cursor:pointer"></picture>
+<picture><source srcset="/images/recent-work/job3616_3.webp" type="image/webp"><img src="/images/recent-work/job3616_3.jpg" alt="Booster Upgrade in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3616_3.jpg')" style="cursor:pointer"></picture>
+</div>
+<div class="p-4">
+<div class="flex items-center justify-between mb-2 gap-2">
+<span class="service-badge">Pump Service</span>
+<time class="text-xs text-gray-400" datetime="2026-10-21">October 21, 2026</time>
+</div>
+<h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/julian-booster-upgrade.html">Booster Upgrade</a></h3>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/julian/">Julian</a></p>
+<p class="text-sm text-gray-600 leading-relaxed">Pump Service in Julian on October 21, 2026. Job type: Booster Upgrade.</p>
+<p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/julian-booster-upgrade.html">View project →</a></p>
+</div>
+</article>
+<article class="project-card" data-category="pump" data-town="julian" data-static="1" data-job="job3621">
+<div class="project-photos triple">
+<picture><source srcset="/images/recent-work/job3621_1.webp" type="image/webp"><img src="/images/recent-work/job3621_1.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3621_1.jpg')" style="cursor:pointer"></picture>
+<picture><source srcset="/images/recent-work/job3621_2.webp" type="image/webp"><img src="/images/recent-work/job3621_2.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3621_2.jpg')" style="cursor:pointer"></picture>
+<picture><source srcset="/images/recent-work/job3621_3.webp" type="image/webp"><img src="/images/recent-work/job3621_3.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3621_3.jpg')" style="cursor:pointer"></picture>
+</div>
+<div class="p-4">
+<div class="flex items-center justify-between mb-2 gap-2">
+<span class="service-badge">Pump Service</span>
+<time class="text-xs text-gray-400" datetime="2026-10-16">October 16, 2026</time>
+</div>
+<h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/julian-well-service-48.html">Well service</a></h3>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/julian/">Julian</a></p>
+<p class="text-sm text-gray-600 leading-relaxed">Pump Service in Julian on October 16, 2026. Job type: Well service.</p>
+<p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/julian-well-service-48.html">View project →</a></p>
+</div>
+</article>
+<article class="project-card" data-category="pump" data-town="julian" data-static="1" data-job="job3535">
+<div class="project-photos triple">
+<img src="/images/recent-work/job3535_1.jpg" alt="Fish for Dropped Pump in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3535_1.jpg')" style="cursor:pointer">
+<picture><source srcset="/images/recent-work/job3535_2.webp" type="image/webp"><img src="/images/recent-work/job3535_2.jpg" alt="Fish for Dropped Pump in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3535_2.jpg')" style="cursor:pointer"></picture>
+<img src="/images/recent-work/job3535_3.jpg" alt="Fish for Dropped Pump in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3535_3.jpg')" style="cursor:pointer">
+</div>
+<div class="p-4">
+<div class="flex items-center justify-between mb-2 gap-2">
+<span class="service-badge">Pump Service</span>
+<time class="text-xs text-gray-400" datetime="2026-10-15">October 15, 2026</time>
+</div>
+<h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/julian-fish-for-dropped-pump-2.html">Fish for Dropped Pump</a></h3>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/julian/">Julian</a></p>
+<p class="text-sm text-gray-600 leading-relaxed">Pump Service in Julian on October 15, 2026. Job type: Fish for Dropped Pump.</p>
+<p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/julian-fish-for-dropped-pump-2.html">View project →</a></p>
+</div>
+</article>
+<article class="project-card" data-category="pump" data-town="julian" data-static="1" data-job="job3574">
+<div class="project-photos triple">
+<picture><source srcset="/images/recent-work/job3574_1.webp" type="image/webp"><img src="/images/recent-work/job3574_1.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3574_1.jpg')" style="cursor:pointer"></picture>
+<picture><source srcset="/images/recent-work/job3574_2.webp" type="image/webp"><img src="/images/recent-work/job3574_2.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3574_2.jpg')" style="cursor:pointer"></picture>
+<picture><source srcset="/images/recent-work/job3574_3.webp" type="image/webp"><img src="/images/recent-work/job3574_3.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3574_3.jpg')" style="cursor:pointer"></picture>
+</div>
+<div class="p-4">
+<div class="flex items-center justify-between mb-2 gap-2">
+<span class="service-badge">Pump Service</span>
+<time class="text-xs text-gray-400" datetime="2026-10-09">October 9, 2026</time>
+</div>
+<h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/julian-well-service-49.html">Well service</a></h3>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/julian/">Julian</a></p>
+<p class="text-sm text-gray-600 leading-relaxed">Pump Service in Julian on October 9, 2026. Job type: Well service.</p>
+<p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/julian-well-service-49.html">View project →</a></p>
+</div>
+</article>
+<article class="project-card" data-category="pump" data-town="julian" data-static="1" data-job="job3362">
+<div class="project-photos triple">
+<picture><source srcset="/images/recent-work/job3362_1.webp" type="image/webp"><img src="/images/recent-work/job3362_1.jpg" alt="Replace Booster in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3362_1.jpg')" style="cursor:pointer"></picture>
+<picture><source srcset="/images/recent-work/job3362_2.webp" type="image/webp"><img src="/images/recent-work/job3362_2.jpg" alt="Replace Booster in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3362_2.jpg')" style="cursor:pointer"></picture>
+<picture><source srcset="/images/recent-work/job3362_3.webp" type="image/webp"><img src="/images/recent-work/job3362_3.jpg" alt="Replace Booster in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3362_3.jpg')" style="cursor:pointer"></picture>
+</div>
+<div class="p-4">
+<div class="flex items-center justify-between mb-2 gap-2">
+<span class="service-badge">Pump Service</span>
+<time class="text-xs text-gray-400" datetime="2026-10-06">October 6, 2026</time>
+</div>
+<h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/julian-replace-booster.html">Replace Booster</a></h3>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/julian/">Julian</a></p>
+<p class="text-sm text-gray-600 leading-relaxed">Pump Service in Julian on October 6, 2026. Job type: Replace Booster.</p>
+<p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/julian-replace-booster.html">View project →</a></p>
+</div>
+</article>
+<article class="project-card" data-category="pump" data-town="julian" data-static="1" data-job="job3382">
+<div class="project-photos triple">
+<picture><source srcset="/images/recent-work/job3382_1.webp" type="image/webp"><img src="/images/recent-work/job3382_1.jpg" alt="Fish for Dropped Pump in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3382_1.jpg')" style="cursor:pointer"></picture>
+<img src="/images/recent-work/job3382_2.jpg" alt="Fish for Dropped Pump in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3382_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job3382_3.jpg" alt="Fish for Dropped Pump in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3382_3.jpg')" style="cursor:pointer">
+</div>
+<div class="p-4">
+<div class="flex items-center justify-between mb-2 gap-2">
+<span class="service-badge">Pump Service</span>
+<time class="text-xs text-gray-400" datetime="2026-09-25">September 25, 2026</time>
+</div>
+<h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/julian-fish-for-dropped-pump-3.html">Fish for Dropped Pump</a></h3>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/julian/">Julian</a></p>
+<p class="text-sm text-gray-600 leading-relaxed">Pump Service in Julian on September 25, 2026. Job type: Fish for Dropped Pump.</p>
+<p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/julian-fish-for-dropped-pump-3.html">View project →</a></p>
+</div>
+</article>
+<article class="project-card" data-category="pump" data-town="julian" data-static="1" data-job="job3421">
+<div class="project-photos triple">
+<img src="/images/recent-work/job3421_1.jpg" alt="Pull &amp; Replace Pump &amp; Motor in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3421_1.jpg')" style="cursor:pointer">
+<picture><source srcset="/images/recent-work/job3421_2.webp" type="image/webp"><img src="/images/recent-work/job3421_2.jpg" alt="Pull &amp; Replace Pump &amp; Motor in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3421_2.jpg')" style="cursor:pointer"></picture>
+<picture><source srcset="/images/recent-work/job3421_3.webp" type="image/webp"><img src="/images/recent-work/job3421_3.jpg" alt="Pull &amp; Replace Pump &amp; Motor in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3421_3.jpg')" style="cursor:pointer"></picture>
+</div>
+<div class="p-4">
+<div class="flex items-center justify-between mb-2 gap-2">
+<span class="service-badge">Pump Service</span>
+<time class="text-xs text-gray-400" datetime="2026-09-25">September 25, 2026</time>
+</div>
+<h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/julian-pull-and-replace-pump-and-motor.html">Pull &amp; Replace Pump &amp; Motor</a></h3>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/julian/">Julian</a></p>
+<p class="text-sm text-gray-600 leading-relaxed">Pump Service in Julian on September 25, 2026. Job type: Pull &amp; Replace Pump &amp; Motor.</p>
+<p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/julian-pull-and-replace-pump-and-motor.html">View project →</a></p>
+</div>
+</article>
+<article class="project-card" data-category="pump" data-town="julian" data-static="1" data-job="job3312">
+<div class="project-photos triple">
+<picture><source srcset="/images/recent-work/job3312_1.webp" type="image/webp"><img src="/images/recent-work/job3312_1.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3312_1.jpg')" style="cursor:pointer"></picture>
+<picture><source srcset="/images/recent-work/job3312_2.webp" type="image/webp"><img src="/images/recent-work/job3312_2.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3312_2.jpg')" style="cursor:pointer"></picture>
+<picture><source srcset="/images/recent-work/job3312_3.webp" type="image/webp"><img src="/images/recent-work/job3312_3.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3312_3.jpg')" style="cursor:pointer"></picture>
+</div>
+<div class="p-4">
+<div class="flex items-center justify-between mb-2 gap-2">
+<span class="service-badge">Pump Service</span>
+<time class="text-xs text-gray-400" datetime="2026-09-16">September 16, 2026</time>
+</div>
+<h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/julian-well-service-46.html">Well service</a></h3>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/julian/">Julian</a></p>
+<p class="text-sm text-gray-600 leading-relaxed">Pump Service in Julian on September 16, 2026. Job type: Well service.</p>
+<p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/julian-well-service-46.html">View project →</a></p>
+</div>
+</article>
+<article class="project-card" data-category="pump" data-town="julian" data-static="1" data-job="job3345">
+<div class="project-photos triple">
+<picture><source srcset="/images/recent-work/job3345_1.webp" type="image/webp"><img src="/images/recent-work/job3345_1.jpg" alt="Fish for Dropped Pump in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3345_1.jpg')" style="cursor:pointer"></picture>
+<img src="/images/recent-work/job3345_2.jpg" alt="Fish for Dropped Pump in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3345_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job3345_3.jpg" alt="Fish for Dropped Pump in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3345_3.jpg')" style="cursor:pointer">
+</div>
+<div class="p-4">
+<div class="flex items-center justify-between mb-2 gap-2">
+<span class="service-badge">Pump Service</span>
+<time class="text-xs text-gray-400" datetime="2026-09-15">September 15, 2026</time>
+</div>
+<h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/julian-fish-for-dropped-pump.html">Fish for Dropped Pump</a></h3>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/julian/">Julian</a></p>
+<p class="text-sm text-gray-600 leading-relaxed">Pump Service in Julian on September 15, 2026. Job type: Fish for Dropped Pump.</p>
+<p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/julian-fish-for-dropped-pump.html">View project →</a></p>
+</div>
+</article>
+<article class="project-card" data-category="pump" data-town="julian" data-static="1" data-job="job3263">
+<div class="project-photos triple">
+<picture><source srcset="/images/recent-work/job3263_1.webp" type="image/webp"><img src="/images/recent-work/job3263_1.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3263_1.jpg')" style="cursor:pointer"></picture>
+<picture><source srcset="/images/recent-work/job3263_2.webp" type="image/webp"><img src="/images/recent-work/job3263_2.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3263_2.jpg')" style="cursor:pointer"></picture>
+<picture><source srcset="/images/recent-work/job3263_3.webp" type="image/webp"><img src="/images/recent-work/job3263_3.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3263_3.jpg')" style="cursor:pointer"></picture>
+</div>
+<div class="p-4">
+<div class="flex items-center justify-between mb-2 gap-2">
+<span class="service-badge">Pump Service</span>
+<time class="text-xs text-gray-400" datetime="2026-09-08">September 8, 2026</time>
+</div>
+<h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/julian-well-service-47.html">Well service</a></h3>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/julian/">Julian</a></p>
+<p class="text-sm text-gray-600 leading-relaxed">Pump Service in Julian on September 8, 2026. Job type: Well service.</p>
+<p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/julian-well-service-47.html">View project →</a></p>
+</div>
+</article>
+<article class="project-card" data-category="tank" data-town="julian" data-static="1" data-job="job3271">
+<div class="project-photos triple">
+<picture><source srcset="/images/recent-work/job3271_1.webp" type="image/webp"><img src="/images/recent-work/job3271_1.jpg" alt="Replace 5K Steel w/ 5K Poly Tank &amp; Pressure Tank in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3271_1.jpg')" style="cursor:pointer"></picture>
+<picture><source srcset="/images/recent-work/job3271_2.webp" type="image/webp"><img src="/images/recent-work/job3271_2.jpg" alt="Replace 5K Steel w/ 5K Poly Tank &amp; Pressure Tank in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3271_2.jpg')" style="cursor:pointer"></picture>
+<picture><source srcset="/images/recent-work/job3271_3.webp" type="image/webp"><img src="/images/recent-work/job3271_3.jpg" alt="Replace 5K Steel w/ 5K Poly Tank &amp; Pressure Tank in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3271_3.jpg')" style="cursor:pointer"></picture>
+</div>
+<div class="p-4">
+<div class="flex items-center justify-between mb-2 gap-2">
+<span class="service-badge">Pressure Tanks</span>
+<time class="text-xs text-gray-400" datetime="2026-09-04">September 4, 2026</time>
+</div>
+<h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/julian-replace-5k-steel-w-5k-poly-tank-and-pressure-tank.html">Replace 5K Steel w/ 5K Poly Tank &amp; Pressure Tank</a></h3>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/julian/">Julian</a></p>
+<p class="text-sm text-gray-600 leading-relaxed">Pressure Tanks in Julian on September 4, 2026. Job type: Replace 5K Steel w/ 5K Poly Tank &amp; Pressure Tank.</p>
+<p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/julian-replace-5k-steel-w-5k-poly-tank-and-pressure-tank.html">View project →</a></p>
+</div>
+</article>
+<article class="project-card" data-category="pump" data-town="julian" data-static="1" data-job="job3284">
+<div class="project-photos triple">
+<picture><source srcset="/images/recent-work/job3284_1.webp" type="image/webp"><img src="/images/recent-work/job3284_1.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3284_1.jpg')" style="cursor:pointer"></picture>
+<picture><source srcset="/images/recent-work/job3284_2.webp" type="image/webp"><img src="/images/recent-work/job3284_2.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3284_2.jpg')" style="cursor:pointer"></picture>
+<picture><source srcset="/images/recent-work/job3284_3.webp" type="image/webp"><img src="/images/recent-work/job3284_3.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3284_3.jpg')" style="cursor:pointer"></picture>
+</div>
+<div class="p-4">
+<div class="flex items-center justify-between mb-2 gap-2">
+<span class="service-badge">Pump Service</span>
+<time class="text-xs text-gray-400" datetime="2026-09-02">September 2, 2026</time>
+</div>
+<h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/julian-well-service-45.html">Well service</a></h3>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/julian/">Julian</a></p>
+<p class="text-sm text-gray-600 leading-relaxed">Pump Service in Julian on September 2, 2026. Job type: Well service.</p>
+<p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/julian-well-service-45.html">View project →</a></p>
+</div>
+</article>
+<article class="project-card" data-category="maintenance" data-town="julian" data-static="1" data-job="job3078">
 <div class="project-photos double">
-<img src="/images/recent-work/job3078_1.jpg" alt="Flow meter bypass in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job3078_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job3078_2.jpg" alt="Flow meter bypass in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job3078_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job3078_1.jpg" alt="Flow meter bypass in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3078_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job3078_2.jpg" alt="Flow meter bypass in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3078_2.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -196,15 +430,15 @@
 <time class="text-xs text-gray-400" datetime="2026-08-10">August 10, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/julian-flow-meter-bypass.html">Flow meter bypass</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Julian</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/julian/">Julian</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">A new flow meter kept clogging and starving the storage tank. Installed a temporary PVC bypass so the tank could fill again.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/julian-flow-meter-bypass.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job3038">
+<article class="project-card" data-category="pump" data-town="julian" data-static="1" data-job="job3038">
 <div class="project-photos double">
-<img src="/images/recent-work/job3038_1.jpg" alt="Pressure switch service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job3038_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job3038_2.jpg" alt="Pressure switch service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job3038_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job3038_1.jpg" alt="Pressure switch service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3038_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job3038_2.jpg" alt="Pressure switch service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3038_2.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -212,16 +446,16 @@
 <time class="text-xs text-gray-400" datetime="2026-08-04">August 4, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/julian-pressure-switch-service.html">Pressure switch service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Julian</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/julian/">Julian</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Took apart the pressure switch to clear contacts and confirm the nipple was open. The well stayed on its normal cycle after the cleaning.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/julian-pressure-switch-service.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job2541">
+<article class="project-card" data-category="pump" data-town="julian" data-static="1" data-job="job2541">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2541_1.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2541_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2541_2.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2541_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2541_3.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2541_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2541_1.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2541_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2541_2.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2541_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2541_3.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2541_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -229,16 +463,16 @@
 <time class="text-xs text-gray-400" datetime="2026-06-19">June 19, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/julian-well-service.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Julian</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/julian/">Julian</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Julian on June 19, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/julian-well-service.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job2659">
+<article class="project-card" data-category="pump" data-town="julian" data-static="1" data-job="job2659">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2659_1.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2659_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2659_2.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2659_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2659_3.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2659_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2659_1.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2659_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2659_2.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2659_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2659_3.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2659_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -246,16 +480,16 @@
 <time class="text-xs text-gray-400" datetime="2026-06-18">June 18, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/julian-well-service-2.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Julian</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/julian/">Julian</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Julian on June 18, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/julian-well-service-2.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job2646">
+<article class="project-card" data-category="pump" data-town="julian" data-static="1" data-job="job2646">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2646_1.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2646_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2646_2.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2646_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2646_3.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2646_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2646_1.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2646_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2646_2.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2646_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2646_3.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2646_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -263,16 +497,16 @@
 <time class="text-xs text-gray-400" datetime="2026-06-12">June 12, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/julian-well-service-3.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Julian</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/julian/">Julian</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Julian on June 12, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/julian-well-service-3.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job2558">
+<article class="project-card" data-category="pump" data-town="julian" data-static="1" data-job="job2558">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2558_1.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2558_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2558_2.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2558_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2558_3.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2558_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2558_1.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2558_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2558_2.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2558_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2558_3.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2558_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -280,16 +514,16 @@
 <time class="text-xs text-gray-400" datetime="2026-06-05">June 5, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/julian-well-service-4.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Julian</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/julian/">Julian</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Julian on June 5, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/julian-well-service-4.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job2575">
+<article class="project-card" data-category="pump" data-town="julian" data-static="1" data-job="job2575">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2575_1.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2575_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2575_2.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2575_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2575_3.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2575_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2575_1.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2575_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2575_2.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2575_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2575_3.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2575_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -297,16 +531,16 @@
 <time class="text-xs text-gray-400" datetime="2026-06-04">June 4, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/julian-well-service-5.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Julian</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/julian/">Julian</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Julian on June 4, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/julian-well-service-5.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job2553">
+<article class="project-card" data-category="pump" data-town="julian" data-static="1" data-job="job2553">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2553_1.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2553_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2553_2.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2553_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2553_3.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2553_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2553_1.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2553_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2553_2.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2553_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2553_3.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2553_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -314,16 +548,16 @@
 <time class="text-xs text-gray-400" datetime="2026-05-29">May 29, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/julian-well-service-6.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Julian</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/julian/">Julian</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Julian on May 29, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/julian-well-service-6.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job2490">
+<article class="project-card" data-category="pump" data-town="julian" data-static="1" data-job="job2490">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2490_1.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2490_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2490_2.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2490_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2490_3.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2490_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2490_1.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2490_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2490_2.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2490_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2490_3.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2490_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -331,16 +565,16 @@
 <time class="text-xs text-gray-400" datetime="2026-05-20">May 20, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/julian-well-service-7.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Julian</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/julian/">Julian</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Julian on May 20, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/julian-well-service-7.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job2425">
+<article class="project-card" data-category="pump" data-town="julian" data-static="1" data-job="job2425">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2425_1.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2425_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2425_2.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2425_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2425_3.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2425_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2425_1.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2425_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2425_2.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2425_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2425_3.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2425_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -348,16 +582,16 @@
 <time class="text-xs text-gray-400" datetime="2026-05-18">May 18, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/julian-well-service-8.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Julian</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/julian/">Julian</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Julian on May 18, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/julian-well-service-8.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job2322">
+<article class="project-card" data-category="pump" data-town="julian" data-static="1" data-job="job2322">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2322_1.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2322_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2322_2.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2322_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2322_3.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2322_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2322_1.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2322_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2322_2.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2322_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2322_3.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2322_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -365,16 +599,16 @@
 <time class="text-xs text-gray-400" datetime="2026-04-30">April 30, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/julian-well-service-9.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Julian</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/julian/">Julian</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Julian on April 30, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/julian-well-service-9.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job2341">
+<article class="project-card" data-category="pump" data-town="julian" data-static="1" data-job="job2341">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2341_1.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2341_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2341_2.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2341_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2341_3.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2341_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2341_1.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2341_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2341_2.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2341_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2341_3.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2341_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -382,16 +616,16 @@
 <time class="text-xs text-gray-400" datetime="2026-04-29">April 29, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/julian-well-service-10.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Julian</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/julian/">Julian</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Julian on April 29, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/julian-well-service-10.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job2335">
+<article class="project-card" data-category="pump" data-town="julian" data-static="1" data-job="job2335">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2335_1.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2335_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2335_2.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2335_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2335_3.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2335_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2335_1.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2335_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2335_2.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2335_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2335_3.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2335_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -399,15 +633,15 @@
 <time class="text-xs text-gray-400" datetime="2026-04-24">April 24, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/julian-well-service-11.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Julian</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/julian/">Julian</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Julian on April 24, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/julian-well-service-11.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job2338">
+<article class="project-card" data-category="pump" data-town="julian" data-static="1" data-job="job2338">
 <div class="project-photos double">
-<img src="/images/recent-work/job2338_1.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2338_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2338_2.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2338_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2338_1.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2338_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2338_2.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2338_2.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -415,16 +649,16 @@
 <time class="text-xs text-gray-400" datetime="2026-04-24">April 24, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/julian-well-service-12.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Julian</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/julian/">Julian</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Julian on April 24, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/julian-well-service-12.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job2340">
+<article class="project-card" data-category="pump" data-town="julian" data-static="1" data-job="job2340">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2340_1.jpg" alt="Pump replacement in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2340_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2340_2.jpg" alt="Pump replacement in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2340_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2340_3.jpg" alt="Pump replacement in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2340_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2340_1.jpg" alt="Pump replacement in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2340_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2340_2.jpg" alt="Pump replacement in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2340_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2340_3.jpg" alt="Pump replacement in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2340_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -432,16 +666,16 @@
 <time class="text-xs text-gray-400" datetime="2026-04-24">April 24, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/julian-pump-replacement.html">Pump replacement</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Julian</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/julian/">Julian</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Julian on April 24, 2026. Job type: Pump replacement.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/julian-pump-replacement.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job2337">
+<article class="project-card" data-category="pump" data-town="julian" data-static="1" data-job="job2337">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2337_1.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2337_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2337_2.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2337_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2337_3.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2337_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2337_1.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2337_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2337_2.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2337_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2337_3.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2337_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -449,16 +683,16 @@
 <time class="text-xs text-gray-400" datetime="2026-04-23">April 23, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/julian-well-service-13.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Julian</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/julian/">Julian</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Julian on April 23, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/julian-well-service-13.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job2234">
+<article class="project-card" data-category="pump" data-town="julian" data-static="1" data-job="job2234">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2234_1.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2234_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2234_2.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2234_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2234_3.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2234_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2234_1.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2234_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2234_2.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2234_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2234_3.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2234_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -466,16 +700,16 @@
 <time class="text-xs text-gray-400" datetime="2026-04-10">April 10, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/julian-well-service-14.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Julian</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/julian/">Julian</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Julian on April 10, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/julian-well-service-14.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job2015">
+<article class="project-card" data-category="pump" data-town="julian" data-static="1" data-job="job2015">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2015_1.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2015_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2015_2.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2015_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2015_3.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2015_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2015_1.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2015_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2015_2.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2015_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2015_3.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2015_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -483,16 +717,16 @@
 <time class="text-xs text-gray-400" datetime="2026-04-10">April 10, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/julian-well-service-20.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Julian</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/julian/">Julian</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Julian on April 10, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/julian-well-service-20.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job2228">
+<article class="project-card" data-category="pump" data-town="julian" data-static="1" data-job="job2228">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2228_1.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2228_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2228_2.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2228_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2228_3.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2228_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2228_1.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2228_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2228_2.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2228_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2228_3.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2228_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -500,16 +734,16 @@
 <time class="text-xs text-gray-400" datetime="2026-04-07">April 7, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/julian-well-service-15.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Julian</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/julian/">Julian</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Julian on April 7, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/julian-well-service-15.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job2176">
+<article class="project-card" data-category="pump" data-town="julian" data-static="1" data-job="job2176">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2176_1.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2176_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2176_2.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2176_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2176_3.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2176_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2176_1.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2176_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2176_2.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2176_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2176_3.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2176_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -517,16 +751,16 @@
 <time class="text-xs text-gray-400" datetime="2026-03-30">March 30, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/julian-well-service-16.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Julian</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/julian/">Julian</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Julian on March 30, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/julian-well-service-16.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job2136">
+<article class="project-card" data-category="pump" data-town="julian" data-static="1" data-job="job2136">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2136_1.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2136_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2136_2.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2136_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2136_3.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2136_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2136_1.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2136_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2136_2.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2136_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2136_3.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2136_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -534,16 +768,16 @@
 <time class="text-xs text-gray-400" datetime="2026-03-30">March 30, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/julian-well-service-17.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Julian</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/julian/">Julian</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Julian on March 30, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/julian-well-service-17.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="tank" data-static="1" data-job="job2063">
+<article class="project-card" data-category="tank" data-town="julian" data-static="1" data-job="job2063">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2063_1.jpg" alt="Pressure tank replacement in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2063_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2063_2.jpg" alt="Pressure tank replacement in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2063_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2063_3.jpg" alt="Pressure tank replacement in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2063_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2063_1.jpg" alt="Pressure tank replacement in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2063_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2063_2.jpg" alt="Pressure tank replacement in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2063_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2063_3.jpg" alt="Pressure tank replacement in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2063_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -551,16 +785,16 @@
 <time class="text-xs text-gray-400" datetime="2026-03-26">March 26, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/julian-pressure-tank-replacement.html">Pressure tank replacement</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Julian</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/julian/">Julian</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pressure Tanks in Julian on March 26, 2026. Job type: Pressure tank replacement.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/julian-pressure-tank-replacement.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job2085">
+<article class="project-card" data-category="pump" data-town="julian" data-static="1" data-job="job2085">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2085_1.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2085_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2085_2.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2085_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2085_3.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2085_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2085_1.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2085_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2085_2.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2085_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2085_3.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2085_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -568,16 +802,16 @@
 <time class="text-xs text-gray-400" datetime="2026-03-24">March 24, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/julian-well-service-18.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Julian</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/julian/">Julian</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Julian on March 24, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/julian-well-service-18.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job2081">
+<article class="project-card" data-category="pump" data-town="julian" data-static="1" data-job="job2081">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2081_1.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2081_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2081_2.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2081_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2081_3.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2081_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2081_1.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2081_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2081_2.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2081_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2081_3.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2081_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -585,16 +819,16 @@
 <time class="text-xs text-gray-400" datetime="2026-03-20">March 20, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/julian-well-service-19.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Julian</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/julian/">Julian</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Julian on March 20, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/julian-well-service-19.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job2094">
+<article class="project-card" data-category="pump" data-town="julian" data-static="1" data-job="job2094">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2094_1.jpg" alt="Pump replacement in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2094_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2094_2.jpg" alt="Pump replacement in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2094_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2094_3.jpg" alt="Pump replacement in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2094_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2094_1.jpg" alt="Pump replacement in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2094_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2094_2.jpg" alt="Pump replacement in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2094_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2094_3.jpg" alt="Pump replacement in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2094_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -602,14 +836,14 @@
 <time class="text-xs text-gray-400" datetime="2026-03-18">March 18, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/julian-pump-replacement-2.html">Pump replacement</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Julian</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/julian/">Julian</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Julian on March 18, 2026. Job type: Pump replacement.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/julian-pump-replacement-2.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job2076">
+<article class="project-card" data-category="pump" data-town="julian" data-static="1" data-job="job2076">
 <div class="project-photos single">
-<img src="/images/recent-work/job2076_1.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2076_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2076_1.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2076_1.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -617,15 +851,15 @@
 <time class="text-xs text-gray-400" datetime="2026-03-17">March 17, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/julian-well-service-21.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Julian</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/julian/">Julian</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Julian on March 17, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/julian-well-service-21.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job2069">
+<article class="project-card" data-category="pump" data-town="julian" data-static="1" data-job="job2069">
 <div class="project-photos double">
-<img src="/images/recent-work/job2069_1.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2069_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2069_2.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2069_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2069_1.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2069_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2069_2.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2069_2.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -633,16 +867,16 @@
 <time class="text-xs text-gray-400" datetime="2026-03-17">March 17, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/julian-well-service-22.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Julian</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/julian/">Julian</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Julian on March 17, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/julian-well-service-22.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job2074">
+<article class="project-card" data-category="pump" data-town="julian" data-static="1" data-job="job2074">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2074_1.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2074_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2074_2.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2074_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2074_3.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2074_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2074_1.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2074_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2074_2.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2074_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2074_3.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2074_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -650,16 +884,16 @@
 <time class="text-xs text-gray-400" datetime="2026-03-17">March 17, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/julian-well-service-23.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Julian</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/julian/">Julian</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Julian on March 17, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/julian-well-service-23.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job2001">
+<article class="project-card" data-category="pump" data-town="julian" data-static="1" data-job="job2001">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2001_1.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2001_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2001_2.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2001_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2001_3.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2001_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2001_1.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2001_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2001_2.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2001_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2001_3.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2001_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -667,14 +901,14 @@
 <time class="text-xs text-gray-400" datetime="2026-03-10">March 10, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/julian-well-service-24.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Julian</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/julian/">Julian</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Julian on March 10, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/julian-well-service-24.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job2032">
+<article class="project-card" data-category="pump" data-town="julian" data-static="1" data-job="job2032">
 <div class="project-photos single">
-<img src="/images/recent-work/job2032_1.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2032_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2032_1.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2032_1.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -682,15 +916,15 @@
 <time class="text-xs text-gray-400" datetime="2026-03-10">March 10, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/julian-well-service-25.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Julian</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/julian/">Julian</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Julian on March 10, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/julian-well-service-25.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job1978">
+<article class="project-card" data-category="pump" data-town="julian" data-static="1" data-job="job1978">
 <div class="project-photos double">
-<img src="/images/recent-work/job1978_1.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1978_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1978_2.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1978_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1978_1.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1978_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1978_2.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1978_2.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -698,16 +932,16 @@
 <time class="text-xs text-gray-400" datetime="2026-02-25">February 25, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/julian-well-service-26.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Julian</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/julian/">Julian</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Julian on February 25, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/julian-well-service-26.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job1911">
+<article class="project-card" data-category="pump" data-town="julian" data-static="1" data-job="job1911">
 <div class="project-photos triple">
-<img src="/images/recent-work/job1911_1.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1911_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1911_2.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1911_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1911_3.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1911_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1911_1.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1911_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1911_2.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1911_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1911_3.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1911_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -715,16 +949,16 @@
 <time class="text-xs text-gray-400" datetime="2026-02-19">February 19, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/julian-well-service-27.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Julian</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/julian/">Julian</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Julian on February 19, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/julian-well-service-27.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job1913">
+<article class="project-card" data-category="pump" data-town="julian" data-static="1" data-job="job1913">
 <div class="project-photos triple">
-<img src="/images/recent-work/job1913_1.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1913_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1913_2.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1913_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1913_3.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1913_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1913_1.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1913_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1913_2.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1913_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1913_3.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1913_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -732,16 +966,16 @@
 <time class="text-xs text-gray-400" datetime="2026-02-13">February 13, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/julian-well-service-28.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Julian</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/julian/">Julian</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Julian on February 13, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/julian-well-service-28.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="tank" data-static="1" data-job="job1887">
+<article class="project-card" data-category="tank" data-town="julian" data-static="1" data-job="job1887">
 <div class="project-photos triple">
-<img src="/images/recent-work/job1887_1.jpg" alt="Pressure tank replacement in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1887_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1887_2.jpg" alt="Pressure tank replacement in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1887_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1887_3.jpg" alt="Pressure tank replacement in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1887_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1887_1.jpg" alt="Pressure tank replacement in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1887_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1887_2.jpg" alt="Pressure tank replacement in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1887_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1887_3.jpg" alt="Pressure tank replacement in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1887_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -749,16 +983,16 @@
 <time class="text-xs text-gray-400" datetime="2026-02-11">February 11, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/julian-pressure-tank-replacement-2.html">Pressure tank replacement</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Julian</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/julian/">Julian</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pressure Tanks in Julian on February 11, 2026. Job type: Pressure tank replacement.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/julian-pressure-tank-replacement-2.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job1860">
+<article class="project-card" data-category="pump" data-town="julian" data-static="1" data-job="job1860">
 <div class="project-photos triple">
-<img src="/images/recent-work/job1860_1.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1860_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1860_2.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1860_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1860_3.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1860_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1860_1.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1860_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1860_2.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1860_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1860_3.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1860_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -766,16 +1000,16 @@
 <time class="text-xs text-gray-400" datetime="2026-02-11">February 11, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/julian-well-service-29.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Julian</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/julian/">Julian</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Julian on February 11, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/julian-well-service-29.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job1895">
+<article class="project-card" data-category="pump" data-town="julian" data-static="1" data-job="job1895">
 <div class="project-photos triple">
-<img src="/images/recent-work/job1895_1.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1895_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1895_2.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1895_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1895_3.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1895_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1895_1.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1895_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1895_2.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1895_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1895_3.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1895_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -783,14 +1017,14 @@
 <time class="text-xs text-gray-400" datetime="2026-02-10">February 10, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/julian-well-service-30.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Julian</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/julian/">Julian</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Julian on February 10, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/julian-well-service-30.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job1779">
+<article class="project-card" data-category="pump" data-town="julian" data-static="1" data-job="job1779">
 <div class="project-photos single">
-<img src="/images/recent-work/job1779_1.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1779_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1779_1.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1779_1.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -798,16 +1032,16 @@
 <time class="text-xs text-gray-400" datetime="2026-02-05">February 5, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/julian-well-service-32.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Julian</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/julian/">Julian</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Julian on February 5, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/julian-well-service-32.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job1811">
+<article class="project-card" data-category="pump" data-town="julian" data-static="1" data-job="job1811">
 <div class="project-photos triple">
-<img src="/images/recent-work/job1811_1.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1811_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1811_2.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1811_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1811_3.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1811_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1811_1.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1811_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1811_2.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1811_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1811_3.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1811_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -815,15 +1049,15 @@
 <time class="text-xs text-gray-400" datetime="2026-02-03">February 3, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/julian-well-service-31.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Julian</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/julian/">Julian</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Julian on February 3, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/julian-well-service-31.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job1619">
+<article class="project-card" data-category="pump" data-town="julian" data-static="1" data-job="job1619">
 <div class="project-photos double">
-<img src="/images/recent-work/job1619_1.jpg" alt="Booster service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1619_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1619_2.jpg" alt="Booster service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1619_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1619_1.jpg" alt="Booster service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1619_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1619_2.jpg" alt="Booster service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1619_2.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -831,16 +1065,16 @@
 <time class="text-xs text-gray-400" datetime="2025-12-12">December 12, 2025</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/julian-booster-service.html">Booster service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Julian</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/julian/">Julian</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Julian on December 12, 2025. Job type: Booster service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/julian-booster-service.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job1593">
+<article class="project-card" data-category="pump" data-town="julian" data-static="1" data-job="job1593">
 <div class="project-photos triple">
-<img src="/images/recent-work/job1593_1.jpg" alt="Pump replacement in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1593_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1593_2.jpg" alt="Pump replacement in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1593_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1593_3.jpg" alt="Pump replacement in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1593_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1593_1.jpg" alt="Pump replacement in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1593_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1593_2.jpg" alt="Pump replacement in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1593_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1593_3.jpg" alt="Pump replacement in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1593_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -848,16 +1082,16 @@
 <time class="text-xs text-gray-400" datetime="2025-12-11">December 11, 2025</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/julian-pump-replacement-3.html">Pump replacement</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Julian</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/julian/">Julian</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Julian on December 11, 2025. Job type: Pump replacement.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/julian-pump-replacement-3.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job1590">
+<article class="project-card" data-category="pump" data-town="julian" data-static="1" data-job="job1590">
 <div class="project-photos triple">
-<img src="/images/recent-work/job1590_1.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1590_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1590_2.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1590_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1590_3.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1590_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1590_1.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1590_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1590_2.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1590_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1590_3.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1590_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -865,16 +1099,16 @@
 <time class="text-xs text-gray-400" datetime="2025-12-11">December 11, 2025</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/julian-well-service-33.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Julian</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/julian/">Julian</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Julian on December 11, 2025. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/julian-well-service-33.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job1612">
+<article class="project-card" data-category="pump" data-town="julian" data-static="1" data-job="job1612">
 <div class="project-photos triple">
-<img src="/images/recent-work/job1612_1.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1612_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1612_2.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1612_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1612_3.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1612_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1612_1.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1612_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1612_2.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1612_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1612_3.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1612_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -882,16 +1116,16 @@
 <time class="text-xs text-gray-400" datetime="2025-12-11">December 11, 2025</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/julian-well-service-34.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Julian</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/julian/">Julian</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Julian on December 11, 2025. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/julian-well-service-34.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job1566">
+<article class="project-card" data-category="pump" data-town="julian" data-static="1" data-job="job1566">
 <div class="project-photos triple">
-<img src="/images/recent-work/job1566_1.jpg" alt="Booster service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1566_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1566_2.jpg" alt="Booster service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1566_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1566_3.jpg" alt="Booster service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1566_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1566_1.jpg" alt="Booster service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1566_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1566_2.jpg" alt="Booster service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1566_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1566_3.jpg" alt="Booster service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1566_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -899,16 +1133,16 @@
 <time class="text-xs text-gray-400" datetime="2025-12-04">December 4, 2025</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/julian-booster-service-2.html">Booster service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Julian</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/julian/">Julian</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Julian on December 4, 2025. Job type: Booster service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/julian-booster-service-2.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job1580">
+<article class="project-card" data-category="pump" data-town="julian" data-static="1" data-job="job1580">
 <div class="project-photos triple">
-<img src="/images/recent-work/job1580_1.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1580_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1580_2.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1580_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1580_3.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1580_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1580_1.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1580_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1580_2.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1580_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1580_3.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1580_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -916,16 +1150,16 @@
 <time class="text-xs text-gray-400" datetime="2025-12-04">December 4, 2025</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/julian-well-service-35.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Julian</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/julian/">Julian</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Julian on December 4, 2025. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/julian-well-service-35.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job1570">
+<article class="project-card" data-category="pump" data-town="julian" data-static="1" data-job="job1570">
 <div class="project-photos triple">
-<img src="/images/recent-work/job1570_1.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1570_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1570_2.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1570_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1570_3.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1570_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1570_1.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1570_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1570_2.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1570_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1570_3.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1570_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -933,16 +1167,16 @@
 <time class="text-xs text-gray-400" datetime="2025-12-02">December 2, 2025</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/julian-well-service-36.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Julian</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/julian/">Julian</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Julian on December 2, 2025. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/julian-well-service-36.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job1507">
+<article class="project-card" data-category="pump" data-town="julian" data-static="1" data-job="job1507">
 <div class="project-photos triple">
-<img src="/images/recent-work/job1507_1.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1507_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1507_2.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1507_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1507_3.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1507_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1507_1.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1507_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1507_2.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1507_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1507_3.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1507_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -950,16 +1184,16 @@
 <time class="text-xs text-gray-400" datetime="2025-11-18">November 18, 2025</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/julian-well-service-37.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Julian</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/julian/">Julian</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Julian on November 18, 2025. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/julian-well-service-37.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job1447">
+<article class="project-card" data-category="pump" data-town="julian" data-static="1" data-job="job1447">
 <div class="project-photos triple">
-<img src="/images/recent-work/job1447_1.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1447_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1447_2.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1447_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1447_3.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1447_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1447_1.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1447_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1447_2.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1447_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1447_3.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1447_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -967,16 +1201,16 @@
 <time class="text-xs text-gray-400" datetime="2025-11-07">November 7, 2025</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/julian-well-service-38.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Julian</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/julian/">Julian</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Julian on November 7, 2025. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/julian-well-service-38.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="tank" data-static="1" data-job="job1446">
+<article class="project-card" data-category="tank" data-town="julian" data-static="1" data-job="job1446">
 <div class="project-photos triple">
-<img src="/images/recent-work/job1446_1.jpg" alt="Pressure tank replacement in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1446_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1446_2.jpg" alt="Pressure tank replacement in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1446_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1446_3.jpg" alt="Pressure tank replacement in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1446_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1446_1.jpg" alt="Pressure tank replacement in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1446_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1446_2.jpg" alt="Pressure tank replacement in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1446_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1446_3.jpg" alt="Pressure tank replacement in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1446_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -984,16 +1218,16 @@
 <time class="text-xs text-gray-400" datetime="2025-11-07">November 7, 2025</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/julian-pressure-tank-replacement-3.html">Pressure tank replacement</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Julian</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/julian/">Julian</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pressure Tanks in Julian on November 7, 2025. Job type: Pressure tank replacement.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/julian-pressure-tank-replacement-3.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job1448">
+<article class="project-card" data-category="pump" data-town="julian" data-static="1" data-job="job1448">
 <div class="project-photos triple">
-<img src="/images/recent-work/job1448_1.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1448_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1448_2.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1448_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1448_3.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1448_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1448_1.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1448_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1448_2.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1448_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1448_3.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1448_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -1001,15 +1235,15 @@
 <time class="text-xs text-gray-400" datetime="2025-11-07">November 7, 2025</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/julian-well-service-39.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Julian</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/julian/">Julian</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Julian on November 7, 2025. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/julian-well-service-39.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job1430">
+<article class="project-card" data-category="pump" data-town="julian" data-static="1" data-job="job1430">
 <div class="project-photos double">
-<img src="/images/recent-work/job1430_1.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1430_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1430_2.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1430_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1430_1.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1430_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1430_2.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1430_2.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -1017,16 +1251,16 @@
 <time class="text-xs text-gray-400" datetime="2025-11-04">November 4, 2025</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/julian-well-service-40.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Julian</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/julian/">Julian</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Julian on November 4, 2025. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/julian-well-service-40.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job1419">
+<article class="project-card" data-category="pump" data-town="julian" data-static="1" data-job="job1419">
 <div class="project-photos triple">
-<img src="/images/recent-work/job1419_1.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1419_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1419_2.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1419_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1419_3.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1419_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1419_1.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1419_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1419_2.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1419_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1419_3.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1419_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -1034,16 +1268,16 @@
 <time class="text-xs text-gray-400" datetime="2025-11-04">November 4, 2025</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/julian-well-service-41.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Julian</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/julian/">Julian</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Julian on November 4, 2025. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/julian-well-service-41.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job1336">
+<article class="project-card" data-category="pump" data-town="julian" data-static="1" data-job="job1336">
 <div class="project-photos triple">
-<img src="/images/recent-work/job1336_1.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1336_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1336_2.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1336_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1336_3.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1336_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1336_1.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1336_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1336_2.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1336_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1336_3.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1336_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -1051,16 +1285,16 @@
 <time class="text-xs text-gray-400" datetime="2025-10-22">October 22, 2025</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/julian-well-service-42.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Julian</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/julian/">Julian</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Julian on October 22, 2025. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/julian-well-service-42.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job1187">
+<article class="project-card" data-category="pump" data-town="julian" data-static="1" data-job="job1187">
 <div class="project-photos triple">
-<img src="/images/recent-work/job1187_1.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1187_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1187_2.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1187_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1187_3.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1187_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1187_1.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1187_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1187_2.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1187_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1187_3.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1187_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -1068,16 +1302,16 @@
 <time class="text-xs text-gray-400" datetime="2025-10-22">October 22, 2025</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/julian-well-service-43.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Julian</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/julian/">Julian</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Julian on October 22, 2025. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/julian-well-service-43.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job1244">
+<article class="project-card" data-category="pump" data-town="julian" data-static="1" data-job="job1244">
 <div class="project-photos triple">
-<img src="/images/recent-work/job1244_1.jpg" alt="Pump replacement in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1244_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1244_2.jpg" alt="Pump replacement in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1244_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1244_3.jpg" alt="Pump replacement in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1244_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1244_1.jpg" alt="Pump replacement in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1244_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1244_2.jpg" alt="Pump replacement in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1244_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1244_3.jpg" alt="Pump replacement in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1244_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -1085,16 +1319,16 @@
 <time class="text-xs text-gray-400" datetime="2025-10-10">October 10, 2025</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/julian-pump-replacement-4.html">Pump replacement</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Julian</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/julian/">Julian</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Julian on October 10, 2025. Job type: Pump replacement.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/julian-pump-replacement-4.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job1226">
+<article class="project-card" data-category="pump" data-town="julian" data-static="1" data-job="job1226">
 <div class="project-photos triple">
-<img src="/images/recent-work/job1226_1.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1226_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1226_2.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1226_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1226_3.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1226_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1226_1.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1226_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1226_2.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1226_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1226_3.jpg" alt="Well service in Julian" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1226_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -1102,7 +1336,7 @@
 <time class="text-xs text-gray-400" datetime="2025-10-08">October 8, 2025</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/julian-well-service-44.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Julian</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/julian/">Julian</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Julian on October 8, 2025. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/julian-well-service-44.html">View project →</a></p>
 </div>

@@ -10,9 +10,11 @@ Writes:
 --geocode looks up towns missing from recent-work/city-coords.json (Nominatim, town centroid,
 rounded to 2 decimals). Safe to re-run; output is deterministic.
 """
-import hashlib, html, json, os, re, sys, time, urllib.parse, urllib.request
+import hashlib, html, json, math, os, re, sys, time, urllib.parse, urllib.request
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from recent_work_lib import city_service_href, public_photos  # noqa: E402
 P = lambda *a: os.path.join(ROOT, *a)
 FIX = {'desert hot sprongs': 'Desert Hot Springs', 'desert hot springs': 'Desert Hot Springs', 'delzura': 'Dulzura',
        'hamul': 'Jamul', 'idyllwild-pine cove': 'Idyllwild'}
@@ -30,7 +32,16 @@ def norm(s):
 
 def jitter(key):
     h = hashlib.sha1(key.encode()).digest()
-    return ((h[0] / 255) - 0.5) * 0.024, ((h[1] / 255) - 0.5) * 0.024  # about +/-1.3 km, stays town-level
+    return ((h[0] / 255) - 0.5) * 0.008, ((h[1] / 255) - 0.5) * 0.008
+
+
+def town_offset(index, count):
+    """Spread pins inside the town so they don't stack on one pixel. Still not an address."""
+    if count <= 1:
+        return 0.0, 0.0
+    angle = index * 2.399963229728653
+    radius = 0.003 + 0.011 * math.sqrt((index + 1) / count)  # about 0.3–1.4 km
+    return math.sin(angle) * radius, math.cos(angle) * radius
 
 
 def geocode(name):
@@ -75,18 +86,25 @@ def build_pins(do_geo):
         cc['towns'] = dict(sorted(towns.items()))
         json.dump(cc, open(cpath, 'w'), indent=1, ensure_ascii=False)
         missing = [t for t in missing if t not in towns]
-    pins = []
+    grouped = {}
     for p in projects:
         t = norm(p['location'])
         if not t or t not in towns or not os.path.exists(P('recent-work', p['slug'] + '.html')):
             continue
-        dy, dx = jitter(p['id'])
-        photo = next((ph['file'] for ph in p.get('photos') or [] if ph['file'] not in bad
-                      and os.path.exists(P('images', 'recent-work', ph['file']))), None)
-        pins.append({'id': p['id'], 'slug': p['slug'], 'title': p['title'], 'town': t,
-                     'lat': round(towns[t][0] + dy, 3), 'lng': round(towns[t][1] + dx, 3),
-                     'date': p['date'], 'dateLabel': p['dateLabel'], 'category': p['categoryLabel'],
-                     'photo': photo})
+        grouped.setdefault(t, []).append(p)
+    pins = []
+    for t, group in grouped.items():
+        group.sort(key=lambda p: p['id'])
+        for index, p in enumerate(group):
+            dy, dx = town_offset(index, len(group))
+            jy, jx = jitter(p['id'])
+            photo = next((ph['file'] for ph in public_photos(p) if ph.get('file') not in bad
+                          and os.path.exists(P('images', 'recent-work', ph['file']))), None)
+            href = city_service_href(p.get('location') or t)
+            pins.append({'id': p['id'], 'slug': p['slug'], 'title': p['title'], 'town': t,
+                         'lat': round(towns[t][0] + dy + jy, 5), 'lng': round(towns[t][1] + dx + jx, 5),
+                         'date': p['date'], 'dateLabel': p['dateLabel'], 'category': p['categoryLabel'],
+                         'serviceHref': href, 'photo': photo})
     pins.sort(key=lambda x: (x['date'], x['id']), reverse=True)
     if missing:
         print('towns without coords (not pinned):', ', '.join(missing), file=sys.stderr)
@@ -150,7 +168,8 @@ def page(pins):
 </div>
 <main class="jm-wrap">
 <h1>Well job map</h1>
-<p>Every red dot is a finished SCWS job: pump pulls, pressure tanks, switches, boosters, and diagnostics across {towns} towns. Pins are placed by town, never at a customer's house. Tap a pin for the field photo and write-up.</p>
+<p>Every dot is a finished SCWS job: pump pulls, pressure tanks, switches, boosters, and diagnostics across {towns} towns. Pins are spread inside the town, never at a customer's house. Tap a pin for the field photo and write-up.</p>
+<p><a class="bg-white text-primary font-bold" href="tel:+17604630493" style="display:inline-block;background:#fff;color:#1a365d;font-weight:700;padding:8px 14px;border-radius:999px">Call (760) 463-0493</a></p>
 <p class="scws-job-map-count" style="font-weight:600">{n} completed jobs on the map</p>
 <div class="scws-job-map" data-center="33.25,-116.85" data-zoom="9"></div>
 <p style="margin-top:14px">Shops: <a href="/services/ramona/">Ramona well pump repair</a> · <a href="/services/anza/">Anza well pump repair</a> · <a href="/recent-work/">All recent work</a></p>

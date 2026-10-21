@@ -83,6 +83,11 @@
     .rw-est { background: #4e9271; color: #fff; }
     .rw-links { margin-top: 1rem; display: flex; flex-direction: column; gap: 0.35rem; }
     .rw-links a { color: #fff; font-weight: 600; }
+    .filter-btn {
+        padding: 6px 14px; border-radius: 999px; border: 1px solid #ddd; background: #fff;
+        font-size: 0.875rem; cursor: pointer;
+    }
+    .filter-btn.active { background: #1a73a7; color: #fff; border-color: #1a73a7; }
     .rw-cards { display: grid; gap: 1.25rem; }
     .project-card { background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
     .project-photos { display: grid; gap: 4px; aspect-ratio: 16/9; overflow: hidden; }
@@ -90,6 +95,9 @@
     .project-photos.double { grid-template-columns: 1fr 1fr; }
     .project-photos.triple { grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; }
     .project-photos.triple img:first-child { grid-row: 1 / -1; }
+    .project-photos picture { display: block; width: 100%; height: 100%; min-height: 0; }
+    .project-photos.triple img:first-child,
+    .project-photos.triple picture:first-child { grid-row: 1 / -1; }
     .project-photos img { width: 100%; height: 100%; object-fit: cover; }
     .project-photos.empty, .photo-fallback {
         background: linear-gradient(135deg, #1f3b4d, #4e9271);
@@ -166,7 +174,7 @@
 </div>
 </div>
 <section class="rw-hero">
-<img src="/images/recent-work/job3019_1.jpg" alt="Well service in Palomar Mountain" width="1200" height="800">
+<img src="/images/recent-work/job3019_1.jpg" alt="Well service in Palomar Mountain" width="1200" height="800" fetchpriority="high" decoding="async" sizes="100vw">
 <div class="rw-hero-copy">
 <p><span class="rw-kicker">7 jobs</span></p>
 <h1>Recent work in Palomar Mountain</h1>
@@ -178,16 +186,38 @@
 <h2>Well service in Palomar Mountain</h2>
 <p>These cards are the proof. Call, text, or book, and open the city service page for drilling, pumps, and emergency work.</p>
 <div class="rw-actions">
-<a class="rw-call" href="tel:+17604408520">Call (760) 440-8520</a>
+<a class="rw-call" href="tel:+17604630493">Call (760) 463-0493</a>
 <a class="rw-text" href="sms:7602195877">Text (760) 219-5877</a>
 <a class="rw-est" href="/cost-calculator.html">Free estimate</a>
 
 </div>
 </section>
+
+<div class="flex gap-2 overflow-x-auto" id="hub-filters" style="margin:0 0 1rem">
+<button class="filter-btn active" data-filter="all" type="button">All services</button>
+<button class="filter-btn" data-filter="pump" type="button">Pump Service</button>
+<button class="filter-btn" data-filter="drilling" type="button">Well Drilling</button>
+<button class="filter-btn" data-filter="tank" type="button">Pressure Tanks</button>
+<button class="filter-btn" data-filter="water-quality" type="button">Water Quality</button>
+<button class="filter-btn" data-filter="maintenance" type="button">Maintenance</button>
+</div>
+<script>
+document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    document.querySelectorAll('#hub-filters .filter-btn').forEach(function (b) { b.classList.remove('active'); });
+    btn.classList.add('active');
+    var filter = btn.getAttribute('data-filter');
+    document.querySelectorAll('.project-card').forEach(function (card) {
+      card.style.display = (filter === 'all' || card.getAttribute('data-category') === filter) ? '' : 'none';
+    });
+  });
+});
+</script>
+
 <div class="rw-cards">
-<article class="project-card" data-category="pump" data-static="1" data-job="job3019">
+<article class="project-card" data-category="pump" data-town="palomar-mountain" data-static="1" data-job="job3019">
 <div class="project-photos single">
-<img src="/images/recent-work/job3019_1.jpg" alt="Mechanical seal replacement in Palomar Mountain" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job3019_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job3019_1.jpg" alt="Mechanical seal replacement in Palomar Mountain" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3019_1.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -195,16 +225,16 @@
 <time class="text-xs text-gray-400" datetime="2026-08-11">August 11, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/palomar-mountain-mechanical-seal-replacement.html">Mechanical seal replacement</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Palomar Mountain</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/recent-work/areas/palomar-mountain.html">Palomar Mountain</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Palomar Mountain on August 11, 2026. Job type: Mechanical seal replacement.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/palomar-mountain-mechanical-seal-replacement.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job2030">
+<article class="project-card" data-category="pump" data-town="palomar-mountain" data-static="1" data-job="job2030">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2030_1.jpg" alt="Well service in Palomar Mountain" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2030_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2030_2.jpg" alt="Well service in Palomar Mountain" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2030_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2030_3.jpg" alt="Well service in Palomar Mountain" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2030_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2030_1.jpg" alt="Well service in Palomar Mountain" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2030_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2030_2.jpg" alt="Well service in Palomar Mountain" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2030_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2030_3.jpg" alt="Well service in Palomar Mountain" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2030_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -212,14 +242,14 @@
 <time class="text-xs text-gray-400" datetime="2026-07-02">July 2, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/palomar-mountain-well-service-2.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Palomar Mountain</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/recent-work/areas/palomar-mountain.html">Palomar Mountain</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Palomar Mountain on July 2, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/palomar-mountain-well-service-2.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="tank" data-static="1" data-job="job2741">
+<article class="project-card" data-category="tank" data-town="palomar-mountain" data-static="1" data-job="job2741">
 <div class="project-photos single">
-<img src="/images/recent-work/job2741_1.jpg" alt="Pressure tank replacement in Palomar Mountain" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2741_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2741_1.jpg" alt="Pressure tank replacement in Palomar Mountain" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2741_1.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -227,14 +257,14 @@
 <time class="text-xs text-gray-400" datetime="2026-06-30">June 30, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/palomar-mountain-pressure-tank-replacement.html">Pressure tank replacement</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Palomar Mountain</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/recent-work/areas/palomar-mountain.html">Palomar Mountain</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pressure Tanks in Palomar Mountain on June 30, 2026. Job type: Pressure tank replacement.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/palomar-mountain-pressure-tank-replacement.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job2732">
+<article class="project-card" data-category="pump" data-town="palomar-mountain" data-static="1" data-job="job2732">
 <div class="project-photos single">
-<img src="/images/recent-work/job2732_1.jpg" alt="Well service in Palomar Mountain" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2732_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2732_1.jpg" alt="Well service in Palomar Mountain" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2732_1.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -242,16 +272,16 @@
 <time class="text-xs text-gray-400" datetime="2026-06-29">June 29, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/palomar-mountain-well-service.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Palomar Mountain</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/recent-work/areas/palomar-mountain.html">Palomar Mountain</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Palomar Mountain on June 29, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/palomar-mountain-well-service.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job2559">
+<article class="project-card" data-category="pump" data-town="palomar-mountain" data-static="1" data-job="job2559">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2559_1.jpg" alt="Well service in Palomar Mountain" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2559_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2559_2.jpg" alt="Well service in Palomar Mountain" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2559_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2559_3.jpg" alt="Well service in Palomar Mountain" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2559_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2559_1.jpg" alt="Well service in Palomar Mountain" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2559_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2559_2.jpg" alt="Well service in Palomar Mountain" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2559_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2559_3.jpg" alt="Well service in Palomar Mountain" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2559_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -259,16 +289,16 @@
 <time class="text-xs text-gray-400" datetime="2026-06-02">June 2, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/palomar-mountain-well-service-3.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Palomar Mountain</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/recent-work/areas/palomar-mountain.html">Palomar Mountain</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Palomar Mountain on June 2, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/palomar-mountain-well-service-3.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job2028">
+<article class="project-card" data-category="pump" data-town="palomar-mountain" data-static="1" data-job="job2028">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2028_1.jpg" alt="Booster service in Palomar Mountain" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2028_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2028_2.jpg" alt="Booster service in Palomar Mountain" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2028_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2028_3.jpg" alt="Booster service in Palomar Mountain" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2028_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2028_1.jpg" alt="Booster service in Palomar Mountain" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2028_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2028_2.jpg" alt="Booster service in Palomar Mountain" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2028_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2028_3.jpg" alt="Booster service in Palomar Mountain" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2028_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -276,16 +306,16 @@
 <time class="text-xs text-gray-400" datetime="2026-03-19">March 19, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/palomar-mountain-booster-service.html">Booster service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Palomar Mountain</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/recent-work/areas/palomar-mountain.html">Palomar Mountain</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Palomar Mountain on March 19, 2026. Job type: Booster service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/palomar-mountain-booster-service.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job2025">
+<article class="project-card" data-category="pump" data-town="palomar-mountain" data-static="1" data-job="job2025">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2025_1.jpg" alt="Well service in Palomar Mountain" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2025_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2025_2.jpg" alt="Well service in Palomar Mountain" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2025_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2025_3.jpg" alt="Well service in Palomar Mountain" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2025_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2025_1.jpg" alt="Well service in Palomar Mountain" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2025_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2025_2.jpg" alt="Well service in Palomar Mountain" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2025_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2025_3.jpg" alt="Well service in Palomar Mountain" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2025_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -293,7 +323,7 @@
 <time class="text-xs text-gray-400" datetime="2026-03-05">March 5, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/palomar-mountain-well-service-4.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Palomar Mountain</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/recent-work/areas/palomar-mountain.html">Palomar Mountain</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Palomar Mountain on March 5, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/palomar-mountain-well-service-4.html">View project →</a></p>
 </div>

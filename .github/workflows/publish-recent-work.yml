@@ -12,15 +12,15 @@ on:
       days:
         description: Look back this many days for completed Jobber jobs
         required: false
-        default: "21"
+        default: "75"
       limit:
         description: Max new jobs to add
         required: false
-        default: "8"
+        default: "40"
       pages:
-        description: Max Jobber GraphQL pages to walk (default 3; use 80+ for a historical backfill)
+        description: Max Jobber GraphQL pages to walk (default 20; use 80+ for a historical backfill)
         required: false
-        default: "3"
+        default: "20"
       page_size:
         description: Jobs per GraphQL page (default 20)
         required: false
@@ -91,9 +91,9 @@ jobs:
           JOBBER_REFRESH_TOKEN: ${{ secrets.JOBBER_REFRESH_TOKEN }}
           JOBBER_GRAPHQL_VERSION: ${{ secrets.JOBBER_GRAPHQL_VERSION }}
         run: |
-          DAYS="${{ github.event.inputs.days || '21' }}"
-          LIMIT="${{ github.event.inputs.limit || '8' }}"
-          PAGES="${{ github.event.inputs.pages || '3' }}"
+          DAYS="${{ github.event.inputs.days || '75' }}"
+          LIMIT="${{ github.event.inputs.limit || '40' }}"
+          PAGES="${{ github.event.inputs.pages || '20' }}"
           PAGE_SIZE="${{ github.event.inputs.page_size || '20' }}"
           python3 scripts/publish-recent-work-from-jobber.py --days "$DAYS" --limit "$LIMIT" --pages "$PAGES" --page-size "$PAGE_SIZE"
           python3 scripts/generate-recent-work-pages.py

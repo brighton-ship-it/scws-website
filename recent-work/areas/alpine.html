@@ -9,13 +9,13 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
 <title>Recent well work in Alpine | SCWS</title>
-<meta content="47 recent well jobs in Alpine with field photos from Southern California Well Service. Pump, tank, and diagnostic work. See well service in Alpine." name="description"/>
+<meta content="55 recent well jobs in Alpine with field photos from Southern California Well Service. Pump, tank, and diagnostic work. See well service in Alpine." name="description"/>
 <link href="https://scwellservice.com/recent-work/areas/alpine.html" rel="canonical"/>
 <meta content="article" property="og:type"/>
 <meta content="https://scwellservice.com/recent-work/areas/alpine.html" property="og:url"/>
 <meta content="Recent well work in Alpine | SCWS" property="og:title"/>
-<meta content="47 recent well jobs in Alpine with field photos from Southern California Well Service. Pump, tank, and diagnostic work. See well service in Alpine." property="og:description"/>
-<meta content="https://scwellservice.com/images/recent-work/job3091_1.jpg" property="og:image"/>
+<meta content="55 recent well jobs in Alpine with field photos from Southern California Well Service. Pump, tank, and diagnostic work. See well service in Alpine." property="og:description"/>
+<meta content="https://scwellservice.com/images/recent-work/job3635_1.jpg" property="og:image"/>
 <link href="/images/logo-text-only-3x.png" rel="icon" type="image/png"/>
 <link href="/css/styles.css" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
@@ -27,7 +27,7 @@
   "@context": "https://schema.org",
   "@type": "CollectionPage",
   "name": "Recent well work in Alpine",
-  "description": "47 recent well jobs in Alpine with field photos from Southern California Well Service. Pump, tank, and diagnostic work. See well service in Alpine.",
+  "description": "55 recent well jobs in Alpine with field photos from Southern California Well Service. Pump, tank, and diagnostic work. See well service in Alpine.",
   "url": "https://scwellservice.com/recent-work/areas/alpine.html",
   "about": {
     "@type": "Place",
@@ -83,6 +83,11 @@
     .rw-est { background: #4e9271; color: #fff; }
     .rw-links { margin-top: 1rem; display: flex; flex-direction: column; gap: 0.35rem; }
     .rw-links a { color: #fff; font-weight: 600; }
+    .filter-btn {
+        padding: 6px 14px; border-radius: 999px; border: 1px solid #ddd; background: #fff;
+        font-size: 0.875rem; cursor: pointer;
+    }
+    .filter-btn.active { background: #1a73a7; color: #fff; border-color: #1a73a7; }
     .rw-cards { display: grid; gap: 1.25rem; }
     .project-card { background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
     .project-photos { display: grid; gap: 4px; aspect-ratio: 16/9; overflow: hidden; }
@@ -90,6 +95,9 @@
     .project-photos.double { grid-template-columns: 1fr 1fr; }
     .project-photos.triple { grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; }
     .project-photos.triple img:first-child { grid-row: 1 / -1; }
+    .project-photos picture { display: block; width: 100%; height: 100%; min-height: 0; }
+    .project-photos.triple img:first-child,
+    .project-photos.triple picture:first-child { grid-row: 1 / -1; }
     .project-photos img { width: 100%; height: 100%; object-fit: cover; }
     .project-photos.empty, .photo-fallback {
         background: linear-gradient(135deg, #1f3b4d, #4e9271);
@@ -166,9 +174,9 @@
 </div>
 </div>
 <section class="rw-hero">
-<img src="/images/recent-work/job3091_1.jpg" alt="Well service in Alpine" width="1200" height="800">
+<picture><source srcset="/images/recent-work/job3635_1.webp" type="image/webp"><img src="/images/recent-work/job3635_1.jpg" alt="Well service in Alpine" width="1200" height="800" fetchpriority="high" decoding="async" sizes="100vw"></picture>
 <div class="rw-hero-copy">
-<p><span class="rw-kicker">47 jobs</span></p>
+<p><span class="rw-kicker">55 jobs</span></p>
 <h1>Recent work in Alpine</h1>
 <p>Real field photos from jobs we already finished. 3 of these have a full job note.</p>
 </div>
@@ -178,16 +186,169 @@
 <h2>Well service in Alpine</h2>
 <p>These cards are the proof. Call, text, or book, and open the city service page for drilling, pumps, and emergency work.</p>
 <div class="rw-actions">
-<a class="rw-call" href="tel:+17604408520">Call (760) 440-8520</a>
+<a class="rw-call" href="tel:+17604630493">Call (760) 463-0493</a>
 <a class="rw-text" href="sms:7602195877">Text (760) 219-5877</a>
 <a class="rw-est" href="/cost-calculator.html">Free estimate</a>
 <a class="rw-est" href="/services/alpine/">Well service in Alpine</a>
 </div>
 </section>
+
+<div class="flex gap-2 overflow-x-auto" id="hub-filters" style="margin:0 0 1rem">
+<button class="filter-btn active" data-filter="all" type="button">All services</button>
+<button class="filter-btn" data-filter="pump" type="button">Pump Service</button>
+<button class="filter-btn" data-filter="drilling" type="button">Well Drilling</button>
+<button class="filter-btn" data-filter="tank" type="button">Pressure Tanks</button>
+<button class="filter-btn" data-filter="water-quality" type="button">Water Quality</button>
+<button class="filter-btn" data-filter="maintenance" type="button">Maintenance</button>
+</div>
+<script>
+document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    document.querySelectorAll('#hub-filters .filter-btn').forEach(function (b) { b.classList.remove('active'); });
+    btn.classList.add('active');
+    var filter = btn.getAttribute('data-filter');
+    document.querySelectorAll('.project-card').forEach(function (card) {
+      card.style.display = (filter === 'all' || card.getAttribute('data-category') === filter) ? '' : 'none';
+    });
+  });
+});
+</script>
+
 <div class="rw-cards">
-<article class="project-card" data-category="pump" data-static="1" data-job="job3091">
+<article class="project-card" data-category="tank" data-town="alpine" data-static="1" data-job="job3635">
+<div class="project-photos triple">
+<picture><source srcset="/images/recent-work/job3635_1.webp" type="image/webp"><img src="/images/recent-work/job3635_1.jpg" alt="Site Visit Storage Tank in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3635_1.jpg')" style="cursor:pointer"></picture>
+<picture><source srcset="/images/recent-work/job3635_2.webp" type="image/webp"><img src="/images/recent-work/job3635_2.jpg" alt="Site Visit Storage Tank in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3635_2.jpg')" style="cursor:pointer"></picture>
+<picture><source srcset="/images/recent-work/job3635_3.webp" type="image/webp"><img src="/images/recent-work/job3635_3.jpg" alt="Site Visit Storage Tank in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3635_3.jpg')" style="cursor:pointer"></picture>
+</div>
+<div class="p-4">
+<div class="flex items-center justify-between mb-2 gap-2">
+<span class="service-badge">Pressure Tanks</span>
+<time class="text-xs text-gray-400" datetime="2026-10-21">October 21, 2026</time>
+</div>
+<h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/alpine-site-visit-storage-tank.html">Site Visit Storage Tank</a></h3>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/alpine/">Alpine</a></p>
+<p class="text-sm text-gray-600 leading-relaxed">Pressure Tanks in Alpine on October 21, 2026. Job type: Site Visit Storage Tank.</p>
+<p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/alpine-site-visit-storage-tank.html">View project →</a></p>
+</div>
+</article>
+<article class="project-card" data-category="tank" data-town="alpine" data-static="1" data-job="job3610">
+<div class="project-photos double">
+<picture><source srcset="/images/recent-work/job3610_1.webp" type="image/webp"><img src="/images/recent-work/job3610_1.jpg" alt="Turn up pressure in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3610_1.jpg')" style="cursor:pointer"></picture>
+<picture><source srcset="/images/recent-work/job3610_2.webp" type="image/webp"><img src="/images/recent-work/job3610_2.jpg" alt="Turn up pressure in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3610_2.jpg')" style="cursor:pointer"></picture>
+</div>
+<div class="p-4">
+<div class="flex items-center justify-between mb-2 gap-2">
+<span class="service-badge">Pressure Tanks</span>
+<time class="text-xs text-gray-400" datetime="2026-10-16">October 16, 2026</time>
+</div>
+<h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/alpine-turn-up-pressure.html">Turn up pressure</a></h3>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/alpine/">Alpine</a></p>
+<p class="text-sm text-gray-600 leading-relaxed">Pressure Tanks in Alpine on October 16, 2026. Job type: Turn up pressure.</p>
+<p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/alpine-turn-up-pressure.html">View project →</a></p>
+</div>
+</article>
+<article class="project-card" data-category="tank" data-town="alpine" data-static="1" data-job="job3606">
+<div class="project-photos triple">
+<img src="/images/recent-work/job3606_1.jpg" alt="Replace Galvanized Storage Tank w/ Gal Poly Tank in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3606_1.jpg')" style="cursor:pointer">
+<picture><source srcset="/images/recent-work/job3606_2.webp" type="image/webp"><img src="/images/recent-work/job3606_2.jpg" alt="Replace Galvanized Storage Tank w/ Gal Poly Tank in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3606_2.jpg')" style="cursor:pointer"></picture>
+<picture><source srcset="/images/recent-work/job3606_3.webp" type="image/webp"><img src="/images/recent-work/job3606_3.jpg" alt="Replace Galvanized Storage Tank w/ Gal Poly Tank in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3606_3.jpg')" style="cursor:pointer"></picture>
+</div>
+<div class="p-4">
+<div class="flex items-center justify-between mb-2 gap-2">
+<span class="service-badge">Pressure Tanks</span>
+<time class="text-xs text-gray-400" datetime="2026-10-16">October 16, 2026</time>
+</div>
+<h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/alpine-replace-galvanized-storage-tank-w-gal-poly-tank.html">Replace Galvanized Storage Tank w/ Gal Poly Tank</a></h3>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/alpine/">Alpine</a></p>
+<p class="text-sm text-gray-600 leading-relaxed">Pressure Tanks in Alpine on October 16, 2026. Job type: Replace Galvanized Storage Tank w/ Gal Poly Tank.</p>
+<p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/alpine-replace-galvanized-storage-tank-w-gal-poly-tank.html">View project →</a></p>
+</div>
+</article>
+<article class="project-card" data-category="tank" data-town="alpine" data-static="1" data-job="job3547">
+<div class="project-photos double">
+<picture><source srcset="/images/recent-work/job3547_1.webp" type="image/webp"><img src="/images/recent-work/job3547_1.jpg" alt="2nd Pressure Tank in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3547_1.jpg')" style="cursor:pointer"></picture>
+<picture><source srcset="/images/recent-work/job3547_2.webp" type="image/webp"><img src="/images/recent-work/job3547_2.jpg" alt="2nd Pressure Tank in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3547_2.jpg')" style="cursor:pointer"></picture>
+</div>
+<div class="p-4">
+<div class="flex items-center justify-between mb-2 gap-2">
+<span class="service-badge">Pressure Tanks</span>
+<time class="text-xs text-gray-400" datetime="2026-10-09">October 9, 2026</time>
+</div>
+<h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/alpine-2nd-pressure-tank.html">2nd Pressure Tank</a></h3>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/alpine/">Alpine</a></p>
+<p class="text-sm text-gray-600 leading-relaxed">Pressure Tanks in Alpine on October 9, 2026. Job type: 2nd Pressure Tank.</p>
+<p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/alpine-2nd-pressure-tank.html">View project →</a></p>
+</div>
+</article>
+<article class="project-card" data-category="pump" data-town="alpine" data-static="1" data-job="job3528">
 <div class="project-photos single">
-<img src="/images/recent-work/job3091_1.jpg" alt="Control and float rewire in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job3091_1.jpg')" style="cursor:pointer">
+<picture><source srcset="/images/recent-work/job3528_1.webp" type="image/webp"><img src="/images/recent-work/job3528_1.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3528_1.jpg')" style="cursor:pointer"></picture>
+</div>
+<div class="p-4">
+<div class="flex items-center justify-between mb-2 gap-2">
+<span class="service-badge">Pump Service</span>
+<time class="text-xs text-gray-400" datetime="2026-10-09">October 9, 2026</time>
+</div>
+<h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/alpine-well-service-40.html">Well service</a></h3>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/alpine/">Alpine</a></p>
+<p class="text-sm text-gray-600 leading-relaxed">Pump Service in Alpine on October 9, 2026. Job type: Well service.</p>
+<p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/alpine-well-service-40.html">View project →</a></p>
+</div>
+</article>
+<article class="project-card" data-category="tank" data-town="alpine" data-static="1" data-job="job3265">
+<div class="project-photos double">
+<picture><source srcset="/images/recent-work/job3265_1.webp" type="image/webp"><img src="/images/recent-work/job3265_1.jpg" alt="Replace pressure tank in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3265_1.jpg')" style="cursor:pointer"></picture>
+<picture><source srcset="/images/recent-work/job3265_2.webp" type="image/webp"><img src="/images/recent-work/job3265_2.jpg" alt="Replace pressure tank in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3265_2.jpg')" style="cursor:pointer"></picture>
+</div>
+<div class="p-4">
+<div class="flex items-center justify-between mb-2 gap-2">
+<span class="service-badge">Pressure Tanks</span>
+<time class="text-xs text-gray-400" datetime="2026-09-10">September 10, 2026</time>
+</div>
+<h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/alpine-replace-pressure-tank.html">Replace pressure tank</a></h3>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/alpine/">Alpine</a></p>
+<p class="text-sm text-gray-600 leading-relaxed">Pressure Tanks in Alpine on September 10, 2026. Job type: Replace pressure tank.</p>
+<p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/alpine-replace-pressure-tank.html">View project →</a></p>
+</div>
+</article>
+<article class="project-card" data-category="pump" data-town="alpine" data-static="1" data-job="job3231">
+<div class="project-photos triple">
+<picture><source srcset="/images/recent-work/job3231_1.webp" type="image/webp"><img src="/images/recent-work/job3231_1.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3231_1.jpg')" style="cursor:pointer"></picture>
+<picture><source srcset="/images/recent-work/job3231_2.webp" type="image/webp"><img src="/images/recent-work/job3231_2.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3231_2.jpg')" style="cursor:pointer"></picture>
+<picture><source srcset="/images/recent-work/job3231_3.webp" type="image/webp"><img src="/images/recent-work/job3231_3.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3231_3.jpg')" style="cursor:pointer"></picture>
+</div>
+<div class="p-4">
+<div class="flex items-center justify-between mb-2 gap-2">
+<span class="service-badge">Pump Service</span>
+<time class="text-xs text-gray-400" datetime="2026-08-31">August 31, 2026</time>
+</div>
+<h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/alpine-well-service-39.html">Well service</a></h3>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/alpine/">Alpine</a></p>
+<p class="text-sm text-gray-600 leading-relaxed">Pump Service in Alpine on August 31, 2026. Job type: Well service.</p>
+<p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/alpine-well-service-39.html">View project →</a></p>
+</div>
+</article>
+<article class="project-card" data-category="pump" data-town="alpine" data-static="1" data-job="job3183">
+<div class="project-photos triple">
+<picture><source srcset="/images/recent-work/job3183_1.webp" type="image/webp"><img src="/images/recent-work/job3183_1.jpg" alt="leak on electrical box in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3183_1.jpg')" style="cursor:pointer"></picture>
+<picture><source srcset="/images/recent-work/job3183_2.webp" type="image/webp"><img src="/images/recent-work/job3183_2.jpg" alt="leak on electrical box in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3183_2.jpg')" style="cursor:pointer"></picture>
+<picture><source srcset="/images/recent-work/job3183_3.webp" type="image/webp"><img src="/images/recent-work/job3183_3.jpg" alt="leak on electrical box in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3183_3.jpg')" style="cursor:pointer"></picture>
+</div>
+<div class="p-4">
+<div class="flex items-center justify-between mb-2 gap-2">
+<span class="service-badge">Pump Service</span>
+<time class="text-xs text-gray-400" datetime="2026-08-24">August 24, 2026</time>
+</div>
+<h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/alpine-leak-on-electrical-box.html">leak on electrical box</a></h3>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/alpine/">Alpine</a></p>
+<p class="text-sm text-gray-600 leading-relaxed">Pump Service in Alpine on August 24, 2026. Job type: leak on electrical box.</p>
+<p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/alpine-leak-on-electrical-box.html">View project →</a></p>
+</div>
+</article>
+<article class="project-card" data-category="pump" data-town="alpine" data-static="1" data-job="job3091">
+<div class="project-photos single">
+<img src="/images/recent-work/job3091_1.jpg" alt="Control and float rewire in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3091_1.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -195,15 +356,15 @@
 <time class="text-xs text-gray-400" datetime="2026-08-17">August 17, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/alpine-control-and-float-rewire.html">Control and float rewire</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Alpine</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/alpine/">Alpine</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Replaced a burned 240-volt well relay and simplified the float wiring so the well and booster each have their own control. System was back in service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/alpine-control-and-float-rewire.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job3060">
+<article class="project-card" data-category="pump" data-town="alpine" data-static="1" data-job="job3060">
 <div class="project-photos double">
-<img src="/images/recent-work/job3060_1.jpg" alt="Pull and replace deep-set pump in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job3060_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job3060_2.jpg" alt="Pull and replace deep-set pump in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job3060_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job3060_1.jpg" alt="Pull and replace deep-set pump in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3060_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job3060_2.jpg" alt="Pull and replace deep-set pump in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3060_2.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -211,16 +372,16 @@
 <time class="text-xs text-gray-400" datetime="2026-08-06">August 6, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/alpine-pull-and-replace-deep-set-pump.html">Pull and replace deep-set pump</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Alpine</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/alpine/">Alpine</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pulled a sludge-packed pump from about 621 feet and set a new 2 HP Goulds. Fitted a new control box and recalibrated the pump saver.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/alpine-pull-and-replace-deep-set-pump.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job3048">
+<article class="project-card" data-category="pump" data-town="alpine" data-static="1" data-job="job3048">
 <div class="project-photos triple">
-<img src="/images/recent-work/job3048_1.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job3048_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job3048_2.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job3048_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job3048_3.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job3048_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job3048_1.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3048_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job3048_2.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3048_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job3048_3.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3048_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -228,16 +389,16 @@
 <time class="text-xs text-gray-400" datetime="2026-08-04">August 4, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/alpine-well-service.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Alpine</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/alpine/">Alpine</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Alpine on August 4, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/alpine-well-service.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job2781">
+<article class="project-card" data-category="pump" data-town="alpine" data-static="1" data-job="job2781">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2781_1.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2781_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2781_2.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2781_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2781_3.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2781_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2781_1.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2781_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2781_2.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2781_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2781_3.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2781_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -245,16 +406,16 @@
 <time class="text-xs text-gray-400" datetime="2026-08-04">August 4, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/alpine-well-service-2.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Alpine</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/alpine/">Alpine</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Alpine on August 4, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/alpine-well-service-2.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job3003">
+<article class="project-card" data-category="pump" data-town="alpine" data-static="1" data-job="job3003">
 <div class="project-photos triple">
-<img src="/images/recent-work/job3003_1.jpg" alt="Pump replacement in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job3003_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job3003_2.jpg" alt="Pump replacement in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job3003_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job3003_3.jpg" alt="Pump replacement in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job3003_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job3003_1.jpg" alt="Pump replacement in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3003_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job3003_2.jpg" alt="Pump replacement in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3003_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job3003_3.jpg" alt="Pump replacement in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3003_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -262,15 +423,15 @@
 <time class="text-xs text-gray-400" datetime="2026-07-30">July 30, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/alpine-pump-replacement.html">Pump replacement</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Alpine</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/alpine/">Alpine</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Alpine on July 30, 2026. Job type: Pump replacement.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/alpine-pump-replacement.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job2996">
+<article class="project-card" data-category="pump" data-town="alpine" data-static="1" data-job="job2996">
 <div class="project-photos double">
-<img src="/images/recent-work/job2996_1.jpg" alt="Run capacitor replacement in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2996_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2996_2.jpg" alt="Run capacitor replacement in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2996_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2996_1.jpg" alt="Run capacitor replacement in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2996_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2996_2.jpg" alt="Run capacitor replacement in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2996_2.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -278,16 +439,16 @@
 <time class="text-xs text-gray-400" datetime="2026-07-29">July 29, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/alpine-run-capacitor-replacement.html">Run capacitor replacement</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Alpine</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/alpine/">Alpine</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Replaced a burned run capacitor after overcurrent trips. The well started and ran normally; set a 50-minute pump-saver off time.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/alpine-run-capacitor-replacement.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job2751">
+<article class="project-card" data-category="pump" data-town="alpine" data-static="1" data-job="job2751">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2751_1.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2751_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2751_2.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2751_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2751_3.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2751_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2751_1.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2751_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2751_2.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2751_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2751_3.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2751_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -295,16 +456,16 @@
 <time class="text-xs text-gray-400" datetime="2026-07-13">July 13, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/alpine-well-service-4.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Alpine</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/alpine/">Alpine</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Alpine on July 13, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/alpine-well-service-4.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job2755">
+<article class="project-card" data-category="pump" data-town="alpine" data-static="1" data-job="job2755">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2755_1.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2755_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2755_2.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2755_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2755_3.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2755_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2755_1.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2755_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2755_2.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2755_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2755_3.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2755_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -312,16 +473,16 @@
 <time class="text-xs text-gray-400" datetime="2026-07-13">July 13, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/alpine-well-service-3.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Alpine</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/alpine/">Alpine</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Alpine on July 13, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/alpine-well-service-3.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job2750">
+<article class="project-card" data-category="pump" data-town="alpine" data-static="1" data-job="job2750">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2750_1.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2750_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2750_2.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2750_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2750_3.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2750_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2750_1.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2750_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2750_2.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2750_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2750_3.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2750_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -329,16 +490,16 @@
 <time class="text-xs text-gray-400" datetime="2026-07-07">July 7, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/alpine-well-service-5.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Alpine</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/alpine/">Alpine</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Alpine on July 7, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/alpine-well-service-5.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job2789">
+<article class="project-card" data-category="pump" data-town="alpine" data-static="1" data-job="job2789">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2789_1.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2789_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2789_2.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2789_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2789_3.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2789_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2789_1.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2789_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2789_2.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2789_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2789_3.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2789_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -346,16 +507,16 @@
 <time class="text-xs text-gray-400" datetime="2026-07-07">July 7, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/alpine-well-service-6.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Alpine</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/alpine/">Alpine</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Alpine on July 7, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/alpine-well-service-6.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job2764">
+<article class="project-card" data-category="pump" data-town="alpine" data-static="1" data-job="job2764">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2764_1.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2764_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2764_2.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2764_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2764_3.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2764_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2764_1.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2764_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2764_2.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2764_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2764_3.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2764_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -363,16 +524,16 @@
 <time class="text-xs text-gray-400" datetime="2026-07-02">July 2, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/alpine-well-service-7.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Alpine</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/alpine/">Alpine</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Alpine on July 2, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/alpine-well-service-7.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job2737">
+<article class="project-card" data-category="pump" data-town="alpine" data-static="1" data-job="job2737">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2737_1.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2737_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2737_2.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2737_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2737_3.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2737_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2737_1.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2737_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2737_2.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2737_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2737_3.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2737_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -380,16 +541,16 @@
 <time class="text-xs text-gray-400" datetime="2026-07-02">July 2, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/alpine-well-service-8.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Alpine</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/alpine/">Alpine</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Alpine on July 2, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/alpine-well-service-8.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job2740">
+<article class="project-card" data-category="pump" data-town="alpine" data-static="1" data-job="job2740">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2740_1.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2740_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2740_2.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2740_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2740_3.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2740_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2740_1.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2740_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2740_2.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2740_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2740_3.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2740_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -397,16 +558,16 @@
 <time class="text-xs text-gray-400" datetime="2026-06-30">June 30, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/alpine-well-service-9.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Alpine</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/alpine/">Alpine</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Alpine on June 30, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/alpine-well-service-9.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job2718">
+<article class="project-card" data-category="pump" data-town="alpine" data-static="1" data-job="job2718">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2718_1.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2718_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2718_2.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2718_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2718_3.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2718_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2718_1.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2718_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2718_2.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2718_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2718_3.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2718_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -414,16 +575,16 @@
 <time class="text-xs text-gray-400" datetime="2026-06-24">June 24, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/alpine-well-service-10.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Alpine</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/alpine/">Alpine</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Alpine on June 24, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/alpine-well-service-10.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job2677">
+<article class="project-card" data-category="pump" data-town="alpine" data-static="1" data-job="job2677">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2677_1.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2677_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2677_2.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2677_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2677_3.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2677_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2677_1.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2677_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2677_2.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2677_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2677_3.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2677_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -431,16 +592,16 @@
 <time class="text-xs text-gray-400" datetime="2026-06-23">June 23, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/alpine-well-service-11.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Alpine</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/alpine/">Alpine</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Alpine on June 23, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/alpine-well-service-11.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job2634">
+<article class="project-card" data-category="pump" data-town="alpine" data-static="1" data-job="job2634">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2634_1.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2634_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2634_2.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2634_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2634_3.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2634_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2634_1.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2634_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2634_2.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2634_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2634_3.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2634_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -448,16 +609,16 @@
 <time class="text-xs text-gray-400" datetime="2026-06-11">June 11, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/alpine-well-service-12.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Alpine</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/alpine/">Alpine</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Alpine on June 11, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/alpine-well-service-12.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job2354">
+<article class="project-card" data-category="pump" data-town="alpine" data-static="1" data-job="job2354">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2354_1.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2354_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2354_2.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2354_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2354_3.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2354_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2354_1.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2354_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2354_2.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2354_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2354_3.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2354_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -465,16 +626,16 @@
 <time class="text-xs text-gray-400" datetime="2026-05-29">May 29, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/alpine-well-service-13.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Alpine</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/alpine/">Alpine</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Alpine on May 29, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/alpine-well-service-13.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job2268">
+<article class="project-card" data-category="pump" data-town="alpine" data-static="1" data-job="job2268">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2268_1.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2268_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2268_2.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2268_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2268_3.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2268_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2268_1.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2268_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2268_2.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2268_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2268_3.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2268_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -482,16 +643,16 @@
 <time class="text-xs text-gray-400" datetime="2026-04-14">April 14, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/alpine-well-service-14.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Alpine</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/alpine/">Alpine</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Alpine on April 14, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/alpine-well-service-14.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job2246">
+<article class="project-card" data-category="pump" data-town="alpine" data-static="1" data-job="job2246">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2246_1.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2246_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2246_2.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2246_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2246_3.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2246_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2246_1.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2246_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2246_2.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2246_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2246_3.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2246_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -499,16 +660,16 @@
 <time class="text-xs text-gray-400" datetime="2026-04-10">April 10, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/alpine-well-service-15.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Alpine</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/alpine/">Alpine</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Alpine on April 10, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/alpine-well-service-15.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job2239">
+<article class="project-card" data-category="pump" data-town="alpine" data-static="1" data-job="job2239">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2239_1.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2239_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2239_2.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2239_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2239_3.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2239_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2239_1.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2239_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2239_2.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2239_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2239_3.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2239_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -516,16 +677,16 @@
 <time class="text-xs text-gray-400" datetime="2026-04-09">April 9, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/alpine-well-service-16.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Alpine</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/alpine/">Alpine</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Alpine on April 9, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/alpine-well-service-16.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job2230">
+<article class="project-card" data-category="pump" data-town="alpine" data-static="1" data-job="job2230">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2230_1.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2230_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2230_2.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2230_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2230_3.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2230_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2230_1.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2230_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2230_2.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2230_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2230_3.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2230_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -533,14 +694,14 @@
 <time class="text-xs text-gray-400" datetime="2026-04-09">April 9, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/alpine-well-service-17.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Alpine</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/alpine/">Alpine</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Alpine on April 9, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/alpine-well-service-17.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job2193">
+<article class="project-card" data-category="pump" data-town="alpine" data-static="1" data-job="job2193">
 <div class="project-photos single">
-<img src="/images/recent-work/job2193_1.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2193_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2193_1.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2193_1.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -548,16 +709,16 @@
 <time class="text-xs text-gray-400" datetime="2026-04-02">April 2, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/alpine-well-service-18.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Alpine</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/alpine/">Alpine</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Alpine on April 2, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/alpine-well-service-18.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job2166">
+<article class="project-card" data-category="pump" data-town="alpine" data-static="1" data-job="job2166">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2166_1.jpg" alt="Pump replacement in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2166_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2166_2.jpg" alt="Pump replacement in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2166_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2166_3.jpg" alt="Pump replacement in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2166_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2166_1.jpg" alt="Pump replacement in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2166_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2166_2.jpg" alt="Pump replacement in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2166_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2166_3.jpg" alt="Pump replacement in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2166_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -565,16 +726,16 @@
 <time class="text-xs text-gray-400" datetime="2026-03-31">March 31, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/alpine-pump-replacement-2.html">Pump replacement</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Alpine</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/alpine/">Alpine</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Alpine on March 31, 2026. Job type: Pump replacement.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/alpine-pump-replacement-2.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job2150">
+<article class="project-card" data-category="pump" data-town="alpine" data-static="1" data-job="job2150">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2150_1.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2150_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2150_2.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2150_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2150_3.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2150_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2150_1.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2150_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2150_2.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2150_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2150_3.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2150_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -582,16 +743,16 @@
 <time class="text-xs text-gray-400" datetime="2026-03-27">March 27, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/alpine-well-service-19.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Alpine</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/alpine/">Alpine</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Alpine on March 27, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/alpine-well-service-19.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job2134">
+<article class="project-card" data-category="pump" data-town="alpine" data-static="1" data-job="job2134">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2134_1.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2134_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2134_2.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2134_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2134_3.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2134_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2134_1.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2134_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2134_2.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2134_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2134_3.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2134_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -599,16 +760,16 @@
 <time class="text-xs text-gray-400" datetime="2026-03-24">March 24, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/alpine-well-service-20.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Alpine</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/alpine/">Alpine</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Alpine on March 24, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/alpine-well-service-20.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job2065">
+<article class="project-card" data-category="pump" data-town="alpine" data-static="1" data-job="job2065">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2065_1.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2065_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2065_2.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2065_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2065_3.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2065_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2065_1.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2065_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2065_2.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2065_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2065_3.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2065_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -616,16 +777,16 @@
 <time class="text-xs text-gray-400" datetime="2026-03-20">March 20, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/alpine-well-service-21.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Alpine</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/alpine/">Alpine</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Alpine on March 20, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/alpine-well-service-21.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job1987">
+<article class="project-card" data-category="pump" data-town="alpine" data-static="1" data-job="job1987">
 <div class="project-photos triple">
-<img src="/images/recent-work/job1987_1.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1987_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1987_2.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1987_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1987_3.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1987_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1987_1.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1987_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1987_2.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1987_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1987_3.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1987_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -633,16 +794,16 @@
 <time class="text-xs text-gray-400" datetime="2026-03-05">March 5, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/alpine-well-service-22.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Alpine</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/alpine/">Alpine</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Alpine on March 5, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/alpine-well-service-22.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job1893">
+<article class="project-card" data-category="pump" data-town="alpine" data-static="1" data-job="job1893">
 <div class="project-photos triple">
-<img src="/images/recent-work/job1893_1.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1893_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1893_2.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1893_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1893_3.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1893_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1893_1.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1893_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1893_2.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1893_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1893_3.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1893_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -650,14 +811,14 @@
 <time class="text-xs text-gray-400" datetime="2026-02-25">February 25, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/alpine-well-service-23.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Alpine</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/alpine/">Alpine</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Alpine on February 25, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/alpine-well-service-23.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job1752">
+<article class="project-card" data-category="pump" data-town="alpine" data-static="1" data-job="job1752">
 <div class="project-photos single">
-<img src="/images/recent-work/job1752_1.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1752_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1752_1.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1752_1.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -665,16 +826,16 @@
 <time class="text-xs text-gray-400" datetime="2026-02-25">February 25, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/alpine-well-service-26.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Alpine</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/alpine/">Alpine</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Alpine on February 25, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/alpine-well-service-26.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job1973">
+<article class="project-card" data-category="pump" data-town="alpine" data-static="1" data-job="job1973">
 <div class="project-photos triple">
-<img src="/images/recent-work/job1973_1.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1973_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1973_2.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1973_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1973_3.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1973_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1973_1.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1973_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1973_2.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1973_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1973_3.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1973_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -682,16 +843,16 @@
 <time class="text-xs text-gray-400" datetime="2026-02-24">February 24, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/alpine-well-service-24.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Alpine</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/alpine/">Alpine</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Alpine on February 24, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/alpine-well-service-24.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job1877">
+<article class="project-card" data-category="pump" data-town="alpine" data-static="1" data-job="job1877">
 <div class="project-photos triple">
-<img src="/images/recent-work/job1877_1.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1877_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1877_2.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1877_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1877_3.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1877_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1877_1.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1877_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1877_2.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1877_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1877_3.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1877_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -699,16 +860,16 @@
 <time class="text-xs text-gray-400" datetime="2026-02-10">February 10, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/alpine-well-service-25.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Alpine</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/alpine/">Alpine</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Alpine on February 10, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/alpine-well-service-25.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job1768">
+<article class="project-card" data-category="pump" data-town="alpine" data-static="1" data-job="job1768">
 <div class="project-photos triple">
-<img src="/images/recent-work/job1768_1.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1768_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1768_2.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1768_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1768_3.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1768_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1768_1.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1768_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1768_2.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1768_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1768_3.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1768_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -716,16 +877,16 @@
 <time class="text-xs text-gray-400" datetime="2026-01-16">January 16, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/alpine-well-service-27.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Alpine</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/alpine/">Alpine</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Alpine on January 16, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/alpine-well-service-27.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job1685">
+<article class="project-card" data-category="pump" data-town="alpine" data-static="1" data-job="job1685">
 <div class="project-photos triple">
-<img src="/images/recent-work/job1685_1.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1685_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1685_2.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1685_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1685_3.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1685_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1685_1.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1685_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1685_2.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1685_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1685_3.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1685_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -733,15 +894,15 @@
 <time class="text-xs text-gray-400" datetime="2025-12-31">December 31, 2025</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/alpine-well-service-28.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Alpine</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/alpine/">Alpine</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Alpine on December 31, 2025. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/alpine-well-service-28.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job1674">
+<article class="project-card" data-category="pump" data-town="alpine" data-static="1" data-job="job1674">
 <div class="project-photos double">
-<img src="/images/recent-work/job1674_1.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1674_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1674_2.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1674_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1674_1.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1674_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1674_2.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1674_2.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -749,16 +910,16 @@
 <time class="text-xs text-gray-400" datetime="2025-12-31">December 31, 2025</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/alpine-well-service-29.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Alpine</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/alpine/">Alpine</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Alpine on December 31, 2025. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/alpine-well-service-29.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job1585">
+<article class="project-card" data-category="pump" data-town="alpine" data-static="1" data-job="job1585">
 <div class="project-photos triple">
-<img src="/images/recent-work/job1585_1.jpg" alt="Pump replacement in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1585_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1585_2.jpg" alt="Pump replacement in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1585_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1585_3.jpg" alt="Pump replacement in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1585_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1585_1.jpg" alt="Pump replacement in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1585_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1585_2.jpg" alt="Pump replacement in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1585_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1585_3.jpg" alt="Pump replacement in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1585_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -766,15 +927,15 @@
 <time class="text-xs text-gray-400" datetime="2025-12-31">December 31, 2025</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/alpine-pump-replacement-3.html">Pump replacement</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Alpine</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/alpine/">Alpine</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Alpine on December 31, 2025. Job type: Pump replacement.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/alpine-pump-replacement-3.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job1624">
+<article class="project-card" data-category="pump" data-town="alpine" data-static="1" data-job="job1624">
 <div class="project-photos double">
-<img src="/images/recent-work/job1624_1.jpg" alt="Booster service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1624_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1624_2.jpg" alt="Booster service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1624_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1624_1.jpg" alt="Booster service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1624_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1624_2.jpg" alt="Booster service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1624_2.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -782,16 +943,16 @@
 <time class="text-xs text-gray-400" datetime="2025-12-17">December 17, 2025</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/alpine-booster-service.html">Booster service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Alpine</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/alpine/">Alpine</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Alpine on December 17, 2025. Job type: Booster service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/alpine-booster-service.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job1600">
+<article class="project-card" data-category="pump" data-town="alpine" data-static="1" data-job="job1600">
 <div class="project-photos triple">
-<img src="/images/recent-work/job1600_1.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1600_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1600_2.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1600_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1600_3.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1600_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1600_1.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1600_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1600_2.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1600_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1600_3.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1600_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -799,16 +960,16 @@
 <time class="text-xs text-gray-400" datetime="2025-12-10">December 10, 2025</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/alpine-well-service-30.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Alpine</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/alpine/">Alpine</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Alpine on December 10, 2025. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/alpine-well-service-30.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job1577">
+<article class="project-card" data-category="pump" data-town="alpine" data-static="1" data-job="job1577">
 <div class="project-photos triple">
-<img src="/images/recent-work/job1577_1.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1577_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1577_2.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1577_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1577_3.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1577_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1577_1.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1577_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1577_2.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1577_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1577_3.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1577_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -816,16 +977,16 @@
 <time class="text-xs text-gray-400" datetime="2025-12-04">December 4, 2025</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/alpine-well-service-31.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Alpine</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/alpine/">Alpine</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Alpine on December 4, 2025. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/alpine-well-service-31.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job1554">
+<article class="project-card" data-category="pump" data-town="alpine" data-static="1" data-job="job1554">
 <div class="project-photos triple">
-<img src="/images/recent-work/job1554_1.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1554_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1554_2.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1554_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1554_3.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1554_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1554_1.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1554_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1554_2.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1554_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1554_3.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1554_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -833,16 +994,16 @@
 <time class="text-xs text-gray-400" datetime="2025-12-03">December 3, 2025</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/alpine-well-service-32.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Alpine</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/alpine/">Alpine</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Alpine on December 3, 2025. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/alpine-well-service-32.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job1555">
+<article class="project-card" data-category="pump" data-town="alpine" data-static="1" data-job="job1555">
 <div class="project-photos triple">
-<img src="/images/recent-work/job1555_1.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1555_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1555_2.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1555_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1555_3.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1555_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1555_1.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1555_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1555_2.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1555_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1555_3.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1555_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -850,16 +1011,16 @@
 <time class="text-xs text-gray-400" datetime="2025-12-03">December 3, 2025</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/alpine-well-service-33.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Alpine</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/alpine/">Alpine</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Alpine on December 3, 2025. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/alpine-well-service-33.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job1488">
+<article class="project-card" data-category="pump" data-town="alpine" data-static="1" data-job="job1488">
 <div class="project-photos triple">
-<img src="/images/recent-work/job1488_1.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1488_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1488_2.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1488_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1488_3.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1488_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1488_1.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1488_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1488_2.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1488_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1488_3.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1488_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -867,16 +1028,16 @@
 <time class="text-xs text-gray-400" datetime="2025-11-13">November 13, 2025</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/alpine-well-service-34.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Alpine</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/alpine/">Alpine</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Alpine on November 13, 2025. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/alpine-well-service-34.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job1412">
+<article class="project-card" data-category="pump" data-town="alpine" data-static="1" data-job="job1412">
 <div class="project-photos triple">
-<img src="/images/recent-work/job1412_1.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1412_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1412_2.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1412_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1412_3.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1412_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1412_1.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1412_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1412_2.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1412_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1412_3.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1412_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -884,16 +1045,16 @@
 <time class="text-xs text-gray-400" datetime="2025-11-04">November 4, 2025</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/alpine-well-service-35.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Alpine</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/alpine/">Alpine</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Alpine on November 4, 2025. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/alpine-well-service-35.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job1393">
+<article class="project-card" data-category="pump" data-town="alpine" data-static="1" data-job="job1393">
 <div class="project-photos triple">
-<img src="/images/recent-work/job1393_1.jpg" alt="Booster service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1393_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1393_2.jpg" alt="Booster service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1393_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1393_3.jpg" alt="Booster service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1393_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1393_1.jpg" alt="Booster service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1393_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1393_2.jpg" alt="Booster service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1393_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1393_3.jpg" alt="Booster service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1393_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -901,16 +1062,16 @@
 <time class="text-xs text-gray-400" datetime="2025-10-29">October 29, 2025</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/alpine-booster-service-2.html">Booster service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Alpine</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/alpine/">Alpine</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Alpine on October 29, 2025. Job type: Booster service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/alpine-booster-service-2.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job1375">
+<article class="project-card" data-category="pump" data-town="alpine" data-static="1" data-job="job1375">
 <div class="project-photos triple">
-<img src="/images/recent-work/job1375_1.jpg" alt="Pump replacement in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1375_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1375_2.jpg" alt="Pump replacement in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1375_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1375_3.jpg" alt="Pump replacement in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1375_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1375_1.jpg" alt="Pump replacement in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1375_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1375_2.jpg" alt="Pump replacement in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1375_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1375_3.jpg" alt="Pump replacement in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1375_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -918,15 +1079,15 @@
 <time class="text-xs text-gray-400" datetime="2025-10-24">October 24, 2025</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/alpine-pump-replacement-4.html">Pump replacement</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Alpine</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/alpine/">Alpine</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Alpine on October 24, 2025. Job type: Pump replacement.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/alpine-pump-replacement-4.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job1370">
+<article class="project-card" data-category="pump" data-town="alpine" data-static="1" data-job="job1370">
 <div class="project-photos double">
-<img src="/images/recent-work/job1370_1.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1370_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1370_2.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1370_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1370_1.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1370_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1370_2.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1370_2.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -934,16 +1095,16 @@
 <time class="text-xs text-gray-400" datetime="2025-10-23">October 23, 2025</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/alpine-well-service-36.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Alpine</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/alpine/">Alpine</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Alpine on October 23, 2025. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/alpine-well-service-36.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job1351">
+<article class="project-card" data-category="pump" data-town="alpine" data-static="1" data-job="job1351">
 <div class="project-photos triple">
-<img src="/images/recent-work/job1351_1.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1351_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1351_2.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1351_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1351_3.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1351_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1351_1.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1351_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1351_2.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1351_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1351_3.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1351_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -951,16 +1112,16 @@
 <time class="text-xs text-gray-400" datetime="2025-10-21">October 21, 2025</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/alpine-well-service-37.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Alpine</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/alpine/">Alpine</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Alpine on October 21, 2025. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/alpine-well-service-37.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job1246">
+<article class="project-card" data-category="pump" data-town="alpine" data-static="1" data-job="job1246">
 <div class="project-photos triple">
-<img src="/images/recent-work/job1246_1.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1246_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1246_2.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1246_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1246_3.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1246_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1246_1.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1246_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1246_2.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1246_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1246_3.jpg" alt="Well service in Alpine" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1246_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -968,7 +1129,7 @@
 <time class="text-xs text-gray-400" datetime="2025-10-16">October 16, 2025</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/alpine-well-service-38.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Alpine</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/alpine/">Alpine</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Alpine on October 16, 2025. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/alpine-well-service-38.html">View project →</a></p>
 </div>

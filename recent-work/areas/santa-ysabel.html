@@ -9,13 +9,13 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
 <title>Recent well work in Santa Ysabel | SCWS</title>
-<meta content="10 recent well jobs in Santa Ysabel with field photos from Southern California Well Service. Pump, tank, and diagnostic work. See well service in Santa Ysabel." name="description"/>
+<meta content="15 recent well jobs in Santa Ysabel with field photos from Southern California Well Service. Pump, tank, and diagnostic work. See well service in Santa Ysabel." name="description"/>
 <link href="https://scwellservice.com/recent-work/areas/santa-ysabel.html" rel="canonical"/>
 <meta content="article" property="og:type"/>
 <meta content="https://scwellservice.com/recent-work/areas/santa-ysabel.html" property="og:url"/>
 <meta content="Recent well work in Santa Ysabel | SCWS" property="og:title"/>
-<meta content="10 recent well jobs in Santa Ysabel with field photos from Southern California Well Service. Pump, tank, and diagnostic work. See well service in Santa Ysabel." property="og:description"/>
-<meta content="https://scwellservice.com/images/recent-work/job3085_1.jpg" property="og:image"/>
+<meta content="15 recent well jobs in Santa Ysabel with field photos from Southern California Well Service. Pump, tank, and diagnostic work. See well service in Santa Ysabel." property="og:description"/>
+<meta content="https://scwellservice.com/images/recent-work/job3608_1.jpg" property="og:image"/>
 <link href="/images/logo-text-only-3x.png" rel="icon" type="image/png"/>
 <link href="/css/styles.css" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
@@ -27,7 +27,7 @@
   "@context": "https://schema.org",
   "@type": "CollectionPage",
   "name": "Recent well work in Santa Ysabel",
-  "description": "10 recent well jobs in Santa Ysabel with field photos from Southern California Well Service. Pump, tank, and diagnostic work. See well service in Santa Ysabel.",
+  "description": "15 recent well jobs in Santa Ysabel with field photos from Southern California Well Service. Pump, tank, and diagnostic work. See well service in Santa Ysabel.",
   "url": "https://scwellservice.com/recent-work/areas/santa-ysabel.html",
   "about": {
     "@type": "Place",
@@ -83,6 +83,11 @@
     .rw-est { background: #4e9271; color: #fff; }
     .rw-links { margin-top: 1rem; display: flex; flex-direction: column; gap: 0.35rem; }
     .rw-links a { color: #fff; font-weight: 600; }
+    .filter-btn {
+        padding: 6px 14px; border-radius: 999px; border: 1px solid #ddd; background: #fff;
+        font-size: 0.875rem; cursor: pointer;
+    }
+    .filter-btn.active { background: #1a73a7; color: #fff; border-color: #1a73a7; }
     .rw-cards { display: grid; gap: 1.25rem; }
     .project-card { background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
     .project-photos { display: grid; gap: 4px; aspect-ratio: 16/9; overflow: hidden; }
@@ -90,6 +95,9 @@
     .project-photos.double { grid-template-columns: 1fr 1fr; }
     .project-photos.triple { grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; }
     .project-photos.triple img:first-child { grid-row: 1 / -1; }
+    .project-photos picture { display: block; width: 100%; height: 100%; min-height: 0; }
+    .project-photos.triple img:first-child,
+    .project-photos.triple picture:first-child { grid-row: 1 / -1; }
     .project-photos img { width: 100%; height: 100%; object-fit: cover; }
     .project-photos.empty, .photo-fallback {
         background: linear-gradient(135deg, #1f3b4d, #4e9271);
@@ -166,9 +174,9 @@
 </div>
 </div>
 <section class="rw-hero">
-<img src="/images/recent-work/job3085_1.jpg" alt="Well service in Santa Ysabel" width="1200" height="800">
+<picture><source srcset="/images/recent-work/job3608_1.webp" type="image/webp"><img src="/images/recent-work/job3608_1.jpg" alt="Well service in Santa Ysabel" width="1200" height="800" fetchpriority="high" decoding="async" sizes="100vw"></picture>
 <div class="rw-hero-copy">
-<p><span class="rw-kicker">10 jobs</span></p>
+<p><span class="rw-kicker">15 jobs</span></p>
 <h1>Recent work in Santa Ysabel</h1>
 <p>Real field photos from jobs we already finished. 2 of these have a full job note.</p>
 </div>
@@ -178,16 +186,123 @@
 <h2>Well service in Santa Ysabel</h2>
 <p>These cards are the proof. Call, text, or book, and open the city service page for drilling, pumps, and emergency work.</p>
 <div class="rw-actions">
-<a class="rw-call" href="tel:+17604408520">Call (760) 440-8520</a>
+<a class="rw-call" href="tel:+17604630493">Call (760) 463-0493</a>
 <a class="rw-text" href="sms:7602195877">Text (760) 219-5877</a>
 <a class="rw-est" href="/cost-calculator.html">Free estimate</a>
 <a class="rw-est" href="/services/santa-ysabel/">Well service in Santa Ysabel</a>
 </div>
 </section>
+
+<div class="flex gap-2 overflow-x-auto" id="hub-filters" style="margin:0 0 1rem">
+<button class="filter-btn active" data-filter="all" type="button">All services</button>
+<button class="filter-btn" data-filter="pump" type="button">Pump Service</button>
+<button class="filter-btn" data-filter="drilling" type="button">Well Drilling</button>
+<button class="filter-btn" data-filter="tank" type="button">Pressure Tanks</button>
+<button class="filter-btn" data-filter="water-quality" type="button">Water Quality</button>
+<button class="filter-btn" data-filter="maintenance" type="button">Maintenance</button>
+</div>
+<script>
+document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    document.querySelectorAll('#hub-filters .filter-btn').forEach(function (b) { b.classList.remove('active'); });
+    btn.classList.add('active');
+    var filter = btn.getAttribute('data-filter');
+    document.querySelectorAll('.project-card').forEach(function (card) {
+      card.style.display = (filter === 'all' || card.getAttribute('data-category') === filter) ? '' : 'none';
+    });
+  });
+});
+</script>
+
 <div class="rw-cards">
-<article class="project-card" data-category="maintenance" data-static="1" data-job="job3085">
+<article class="project-card" data-category="pump" data-town="santa-ysabel" data-static="1" data-job="job3608">
+<div class="project-photos triple">
+<picture><source srcset="/images/recent-work/job3608_1.webp" type="image/webp"><img src="/images/recent-work/job3608_1.jpg" alt="Leak where we just made a repair in Santa Ysabel" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3608_1.jpg')" style="cursor:pointer"></picture>
+<picture><source srcset="/images/recent-work/job3608_2.webp" type="image/webp"><img src="/images/recent-work/job3608_2.jpg" alt="Leak where we just made a repair in Santa Ysabel" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3608_2.jpg')" style="cursor:pointer"></picture>
+<picture><source srcset="/images/recent-work/job3608_3.webp" type="image/webp"><img src="/images/recent-work/job3608_3.jpg" alt="Leak where we just made a repair in Santa Ysabel" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3608_3.jpg')" style="cursor:pointer"></picture>
+</div>
+<div class="p-4">
+<div class="flex items-center justify-between mb-2 gap-2">
+<span class="service-badge">Pump Service</span>
+<time class="text-xs text-gray-400" datetime="2026-10-16">October 16, 2026</time>
+</div>
+<h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/santa-ysabel-leak-where-we-just-made-a-repair.html">Leak where we just made a repair</a></h3>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/santa-ysabel/">Santa Ysabel</a></p>
+<p class="text-sm text-gray-600 leading-relaxed">Pump Service in Santa Ysabel on October 16, 2026. Job type: Leak where we just made a repair.</p>
+<p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/santa-ysabel-leak-where-we-just-made-a-repair.html">View project →</a></p>
+</div>
+</article>
+<article class="project-card" data-category="pump" data-town="santa-ysabel" data-static="1" data-job="job3501">
+<div class="project-photos triple">
+<picture><source srcset="/images/recent-work/job3501_1.webp" type="image/webp"><img src="/images/recent-work/job3501_1.jpg" alt="Replace Booster Pump in Santa Ysabel" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3501_1.jpg')" style="cursor:pointer"></picture>
+<picture><source srcset="/images/recent-work/job3501_2.webp" type="image/webp"><img src="/images/recent-work/job3501_2.jpg" alt="Replace Booster Pump in Santa Ysabel" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3501_2.jpg')" style="cursor:pointer"></picture>
+<picture><source srcset="/images/recent-work/job3501_3.webp" type="image/webp"><img src="/images/recent-work/job3501_3.jpg" alt="Replace Booster Pump in Santa Ysabel" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3501_3.jpg')" style="cursor:pointer"></picture>
+</div>
+<div class="p-4">
+<div class="flex items-center justify-between mb-2 gap-2">
+<span class="service-badge">Pump Service</span>
+<time class="text-xs text-gray-400" datetime="2026-10-01">October 1, 2026</time>
+</div>
+<h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/santa-ysabel-replace-booster-pump.html">Replace Booster Pump</a></h3>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/santa-ysabel/">Santa Ysabel</a></p>
+<p class="text-sm text-gray-600 leading-relaxed">Pump Service in Santa Ysabel on October 1, 2026. Job type: Replace Booster Pump.</p>
+<p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/santa-ysabel-replace-booster-pump.html">View project →</a></p>
+</div>
+</article>
+<article class="project-card" data-category="pump" data-town="santa-ysabel" data-static="1" data-job="job3477">
+<div class="project-photos triple">
+<picture><source srcset="/images/recent-work/job3477_1.webp" type="image/webp"><img src="/images/recent-work/job3477_1.jpg" alt="Well service in Santa Ysabel" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3477_1.jpg')" style="cursor:pointer"></picture>
+<picture><source srcset="/images/recent-work/job3477_2.webp" type="image/webp"><img src="/images/recent-work/job3477_2.jpg" alt="Well service in Santa Ysabel" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3477_2.jpg')" style="cursor:pointer"></picture>
+<picture><source srcset="/images/recent-work/job3477_3.webp" type="image/webp"><img src="/images/recent-work/job3477_3.jpg" alt="Well service in Santa Ysabel" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3477_3.jpg')" style="cursor:pointer"></picture>
+</div>
+<div class="p-4">
+<div class="flex items-center justify-between mb-2 gap-2">
+<span class="service-badge">Pump Service</span>
+<time class="text-xs text-gray-400" datetime="2026-09-30">September 30, 2026</time>
+</div>
+<h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/santa-ysabel-well-service-10.html">Well service</a></h3>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/santa-ysabel/">Santa Ysabel</a></p>
+<p class="text-sm text-gray-600 leading-relaxed">Pump Service in Santa Ysabel on September 30, 2026. Job type: Well service.</p>
+<p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/santa-ysabel-well-service-10.html">View project →</a></p>
+</div>
+</article>
+<article class="project-card" data-category="pump" data-town="santa-ysabel" data-static="1" data-job="job3411">
+<div class="project-photos triple">
+<picture><source srcset="/images/recent-work/job3411_1.webp" type="image/webp"><img src="/images/recent-work/job3411_1.jpg" alt="Well service in Santa Ysabel" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3411_1.jpg')" style="cursor:pointer"></picture>
+<picture><source srcset="/images/recent-work/job3411_2.webp" type="image/webp"><img src="/images/recent-work/job3411_2.jpg" alt="Well service in Santa Ysabel" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3411_2.jpg')" style="cursor:pointer"></picture>
+<picture><source srcset="/images/recent-work/job3411_3.webp" type="image/webp"><img src="/images/recent-work/job3411_3.jpg" alt="Well service in Santa Ysabel" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3411_3.jpg')" style="cursor:pointer"></picture>
+</div>
+<div class="p-4">
+<div class="flex items-center justify-between mb-2 gap-2">
+<span class="service-badge">Pump Service</span>
+<time class="text-xs text-gray-400" datetime="2026-09-18">September 18, 2026</time>
+</div>
+<h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/santa-ysabel-well-service-8.html">Well service</a></h3>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/santa-ysabel/">Santa Ysabel</a></p>
+<p class="text-sm text-gray-600 leading-relaxed">Pump Service in Santa Ysabel on September 18, 2026. Job type: Well service.</p>
+<p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/santa-ysabel-well-service-8.html">View project →</a></p>
+</div>
+</article>
+<article class="project-card" data-category="pump" data-town="santa-ysabel" data-static="1" data-job="job3387">
+<div class="project-photos triple">
+<img src="/images/recent-work/job3387_1.jpg" alt="Well service in Santa Ysabel" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3387_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job3387_2.jpg" alt="Well service in Santa Ysabel" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3387_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job3387_3.jpg" alt="Well service in Santa Ysabel" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3387_3.jpg')" style="cursor:pointer">
+</div>
+<div class="p-4">
+<div class="flex items-center justify-between mb-2 gap-2">
+<span class="service-badge">Pump Service</span>
+<time class="text-xs text-gray-400" datetime="2026-09-17">September 17, 2026</time>
+</div>
+<h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/santa-ysabel-well-service-9.html">Well service</a></h3>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/santa-ysabel/">Santa Ysabel</a></p>
+<p class="text-sm text-gray-600 leading-relaxed">Pump Service in Santa Ysabel on September 17, 2026. Job type: Well service.</p>
+<p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/santa-ysabel-well-service-9.html">View project →</a></p>
+</div>
+</article>
+<article class="project-card" data-category="maintenance" data-town="santa-ysabel" data-static="1" data-job="job3085">
 <div class="project-photos single">
-<img src="/images/recent-work/job3085_1.jpg" alt="Well bail and brush in Santa Ysabel" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job3085_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job3085_1.jpg" alt="Well bail and brush in Santa Ysabel" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3085_1.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -195,15 +310,15 @@
 <time class="text-xs text-gray-400" datetime="2026-08-13">August 13, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/santa-ysabel-well-bail-and-brush.html">Well bail and brush</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Santa Ysabel</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/santa-ysabel/">Santa Ysabel</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Bailed gravel and drill mud and brushed the 4-1/2 inch liner. Replaced the above-ground check valve and pumped the well back into service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/santa-ysabel-well-bail-and-brush.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="water-quality" data-static="1" data-job="job2993">
+<article class="project-card" data-category="water-quality" data-town="santa-ysabel" data-static="1" data-job="job2993">
 <div class="project-photos double">
-<img src="/images/recent-work/job2993_1.jpg" alt="Pressure switch and filter service in Santa Ysabel" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2993_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2993_2.jpg" alt="Pressure switch and filter service in Santa Ysabel" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2993_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2993_1.jpg" alt="Pressure switch and filter service in Santa Ysabel" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2993_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2993_2.jpg" alt="Pressure switch and filter service in Santa Ysabel" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2993_2.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -211,16 +326,16 @@
 <time class="text-xs text-gray-400" datetime="2026-07-29">July 29, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/santa-ysabel-pressure-switch-and-filter-service.html">Pressure switch and filter service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Santa Ysabel</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/santa-ysabel/">Santa Ysabel</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Unclogged house connections and the pressure-switch port on a high-iron well. Confirmed the well and booster were running; the storage tank is due for replacement.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/santa-ysabel-pressure-switch-and-filter-service.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job2345">
+<article class="project-card" data-category="pump" data-town="santa-ysabel" data-static="1" data-job="job2345">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2345_1.jpg" alt="Well service in Santa Ysabel" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2345_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2345_2.jpg" alt="Well service in Santa Ysabel" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2345_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2345_3.jpg" alt="Well service in Santa Ysabel" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2345_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2345_1.jpg" alt="Well service in Santa Ysabel" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2345_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2345_2.jpg" alt="Well service in Santa Ysabel" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2345_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2345_3.jpg" alt="Well service in Santa Ysabel" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2345_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -228,16 +343,16 @@
 <time class="text-xs text-gray-400" datetime="2026-04-24">April 24, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/santa-ysabel-well-service.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Santa Ysabel</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/santa-ysabel/">Santa Ysabel</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Santa Ysabel on April 24, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/santa-ysabel-well-service.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job1866">
+<article class="project-card" data-category="pump" data-town="santa-ysabel" data-static="1" data-job="job1866">
 <div class="project-photos triple">
-<img src="/images/recent-work/job1866_1.jpg" alt="Well service in Santa Ysabel" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1866_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1866_2.jpg" alt="Well service in Santa Ysabel" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1866_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1866_3.jpg" alt="Well service in Santa Ysabel" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1866_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1866_1.jpg" alt="Well service in Santa Ysabel" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1866_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1866_2.jpg" alt="Well service in Santa Ysabel" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1866_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1866_3.jpg" alt="Well service in Santa Ysabel" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1866_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -245,15 +360,15 @@
 <time class="text-xs text-gray-400" datetime="2026-02-05">February 5, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/santa-ysabel-well-service-2.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Santa Ysabel</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/santa-ysabel/">Santa Ysabel</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Santa Ysabel on February 5, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/santa-ysabel-well-service-2.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job1843">
+<article class="project-card" data-category="pump" data-town="santa-ysabel" data-static="1" data-job="job1843">
 <div class="project-photos double">
-<img src="/images/recent-work/job1843_1.jpg" alt="Well service in Santa Ysabel" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1843_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1843_2.jpg" alt="Well service in Santa Ysabel" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1843_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1843_1.jpg" alt="Well service in Santa Ysabel" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1843_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1843_2.jpg" alt="Well service in Santa Ysabel" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1843_2.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -261,15 +376,15 @@
 <time class="text-xs text-gray-400" datetime="2026-02-03">February 3, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/santa-ysabel-well-service-3.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Santa Ysabel</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/santa-ysabel/">Santa Ysabel</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Santa Ysabel on February 3, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/santa-ysabel-well-service-3.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job1663">
+<article class="project-card" data-category="pump" data-town="santa-ysabel" data-static="1" data-job="job1663">
 <div class="project-photos double">
-<img src="/images/recent-work/job1663_1.jpg" alt="Well service in Santa Ysabel" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1663_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1663_2.jpg" alt="Well service in Santa Ysabel" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1663_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1663_1.jpg" alt="Well service in Santa Ysabel" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1663_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1663_2.jpg" alt="Well service in Santa Ysabel" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1663_2.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -277,16 +392,16 @@
 <time class="text-xs text-gray-400" datetime="2025-12-19">December 19, 2025</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/santa-ysabel-well-service-4.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Santa Ysabel</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/santa-ysabel/">Santa Ysabel</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Santa Ysabel on December 19, 2025. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/santa-ysabel-well-service-4.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job1640">
+<article class="project-card" data-category="pump" data-town="santa-ysabel" data-static="1" data-job="job1640">
 <div class="project-photos triple">
-<img src="/images/recent-work/job1640_1.jpg" alt="Well service in Santa Ysabel" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1640_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1640_2.jpg" alt="Well service in Santa Ysabel" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1640_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1640_3.jpg" alt="Well service in Santa Ysabel" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1640_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1640_1.jpg" alt="Well service in Santa Ysabel" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1640_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1640_2.jpg" alt="Well service in Santa Ysabel" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1640_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1640_3.jpg" alt="Well service in Santa Ysabel" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1640_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -294,16 +409,16 @@
 <time class="text-xs text-gray-400" datetime="2025-12-19">December 19, 2025</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/santa-ysabel-well-service-5.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Santa Ysabel</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/santa-ysabel/">Santa Ysabel</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Santa Ysabel on December 19, 2025. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/santa-ysabel-well-service-5.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job1545">
+<article class="project-card" data-category="pump" data-town="santa-ysabel" data-static="1" data-job="job1545">
 <div class="project-photos triple">
-<img src="/images/recent-work/job1545_1.jpg" alt="Pump replacement in Santa Ysabel" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1545_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1545_2.jpg" alt="Pump replacement in Santa Ysabel" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1545_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1545_3.jpg" alt="Pump replacement in Santa Ysabel" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1545_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1545_1.jpg" alt="Pump replacement in Santa Ysabel" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1545_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1545_2.jpg" alt="Pump replacement in Santa Ysabel" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1545_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1545_3.jpg" alt="Pump replacement in Santa Ysabel" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1545_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -311,16 +426,16 @@
 <time class="text-xs text-gray-400" datetime="2025-11-25">November 25, 2025</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/santa-ysabel-pump-replacement.html">Pump replacement</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Santa Ysabel</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/santa-ysabel/">Santa Ysabel</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Santa Ysabel on November 25, 2025. Job type: Pump replacement.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/santa-ysabel-pump-replacement.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job1496">
+<article class="project-card" data-category="pump" data-town="santa-ysabel" data-static="1" data-job="job1496">
 <div class="project-photos triple">
-<img src="/images/recent-work/job1496_1.jpg" alt="Well service in Santa Ysabel" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1496_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1496_2.jpg" alt="Well service in Santa Ysabel" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1496_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1496_3.jpg" alt="Well service in Santa Ysabel" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1496_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1496_1.jpg" alt="Well service in Santa Ysabel" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1496_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1496_2.jpg" alt="Well service in Santa Ysabel" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1496_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1496_3.jpg" alt="Well service in Santa Ysabel" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1496_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -328,16 +443,16 @@
 <time class="text-xs text-gray-400" datetime="2025-11-20">November 20, 2025</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/santa-ysabel-well-service-6.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Santa Ysabel</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/santa-ysabel/">Santa Ysabel</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Santa Ysabel on November 20, 2025. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/santa-ysabel-well-service-6.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job1489">
+<article class="project-card" data-category="pump" data-town="santa-ysabel" data-static="1" data-job="job1489">
 <div class="project-photos triple">
-<img src="/images/recent-work/job1489_1.jpg" alt="Well service in Santa Ysabel" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1489_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1489_2.jpg" alt="Well service in Santa Ysabel" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1489_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1489_3.jpg" alt="Well service in Santa Ysabel" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1489_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1489_1.jpg" alt="Well service in Santa Ysabel" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1489_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1489_2.jpg" alt="Well service in Santa Ysabel" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1489_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1489_3.jpg" alt="Well service in Santa Ysabel" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1489_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -345,7 +460,7 @@
 <time class="text-xs text-gray-400" datetime="2025-11-14">November 14, 2025</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/santa-ysabel-well-service-7.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Santa Ysabel</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/santa-ysabel/">Santa Ysabel</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Santa Ysabel on November 14, 2025. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/santa-ysabel-well-service-7.html">View project →</a></p>
 </div>

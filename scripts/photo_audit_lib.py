@@ -385,6 +385,22 @@ def build_queue(
     return items
 
 
+def rejected_photo_indexes(job_id: str, decisions: dict[str, Any] | None = None) -> set[int]:
+    decisions = decisions or load_decisions()
+    rejected: set[int] = set()
+    prefix = f"{job_id}:"
+    for key, row in (decisions.get("photos") or {}).items():
+        if not str(key).startswith(prefix):
+            continue
+        if str((row or {}).get("decision") or "") != "reject":
+            continue
+        try:
+            rejected.add(int(str(key).split(":")[1]))
+        except (IndexError, ValueError):
+            continue
+    return rejected
+
+
 def kept_photo_indexes(job_id: str, decisions: dict[str, Any] | None = None) -> set[int]:
     decisions = decisions or load_decisions()
     kept: set[int] = set()

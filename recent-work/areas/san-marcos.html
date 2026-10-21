@@ -9,13 +9,13 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
 <title>Recent well work in San Marcos | SCWS</title>
-<meta content="5 recent well jobs in San Marcos with field photos from Southern California Well Service. Pump, tank, and diagnostic work. See well service in San Marcos." name="description"/>
+<meta content="7 recent well jobs in San Marcos with field photos from Southern California Well Service. Pump, tank, and diagnostic work. See well service in San Marcos." name="description"/>
 <link href="https://scwellservice.com/recent-work/areas/san-marcos.html" rel="canonical"/>
 <meta content="article" property="og:type"/>
 <meta content="https://scwellservice.com/recent-work/areas/san-marcos.html" property="og:url"/>
 <meta content="Recent well work in San Marcos | SCWS" property="og:title"/>
-<meta content="5 recent well jobs in San Marcos with field photos from Southern California Well Service. Pump, tank, and diagnostic work. See well service in San Marcos." property="og:description"/>
-<meta content="https://scwellservice.com/images/recent-work/job2608_1.jpg" property="og:image"/>
+<meta content="7 recent well jobs in San Marcos with field photos from Southern California Well Service. Pump, tank, and diagnostic work. See well service in San Marcos." property="og:description"/>
+<meta content="https://scwellservice.com/images/recent-work/job3619_1.jpg" property="og:image"/>
 <link href="/images/logo-text-only-3x.png" rel="icon" type="image/png"/>
 <link href="/css/styles.css" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
@@ -27,7 +27,7 @@
   "@context": "https://schema.org",
   "@type": "CollectionPage",
   "name": "Recent well work in San Marcos",
-  "description": "5 recent well jobs in San Marcos with field photos from Southern California Well Service. Pump, tank, and diagnostic work. See well service in San Marcos.",
+  "description": "7 recent well jobs in San Marcos with field photos from Southern California Well Service. Pump, tank, and diagnostic work. See well service in San Marcos.",
   "url": "https://scwellservice.com/recent-work/areas/san-marcos.html",
   "about": {
     "@type": "Place",
@@ -83,6 +83,11 @@
     .rw-est { background: #4e9271; color: #fff; }
     .rw-links { margin-top: 1rem; display: flex; flex-direction: column; gap: 0.35rem; }
     .rw-links a { color: #fff; font-weight: 600; }
+    .filter-btn {
+        padding: 6px 14px; border-radius: 999px; border: 1px solid #ddd; background: #fff;
+        font-size: 0.875rem; cursor: pointer;
+    }
+    .filter-btn.active { background: #1a73a7; color: #fff; border-color: #1a73a7; }
     .rw-cards { display: grid; gap: 1.25rem; }
     .project-card { background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
     .project-photos { display: grid; gap: 4px; aspect-ratio: 16/9; overflow: hidden; }
@@ -90,6 +95,9 @@
     .project-photos.double { grid-template-columns: 1fr 1fr; }
     .project-photos.triple { grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; }
     .project-photos.triple img:first-child { grid-row: 1 / -1; }
+    .project-photos picture { display: block; width: 100%; height: 100%; min-height: 0; }
+    .project-photos.triple img:first-child,
+    .project-photos.triple picture:first-child { grid-row: 1 / -1; }
     .project-photos img { width: 100%; height: 100%; object-fit: cover; }
     .project-photos.empty, .photo-fallback {
         background: linear-gradient(135deg, #1f3b4d, #4e9271);
@@ -166,9 +174,9 @@
 </div>
 </div>
 <section class="rw-hero">
-<img src="/images/recent-work/job2608_1.jpg" alt="Well service in San Marcos" width="1200" height="800">
+<picture><source srcset="/images/recent-work/job3619_1.webp" type="image/webp"><img src="/images/recent-work/job3619_1.jpg" alt="Well service in San Marcos" width="1200" height="800" fetchpriority="high" decoding="async" sizes="100vw"></picture>
 <div class="rw-hero-copy">
-<p><span class="rw-kicker">5 jobs</span></p>
+<p><span class="rw-kicker">7 jobs</span></p>
 <h1>Recent work in San Marcos</h1>
 <p>Real field photos from jobs we already finished. 0 of these have a full job note.</p>
 </div>
@@ -178,18 +186,72 @@
 <h2>Well service in San Marcos</h2>
 <p>These cards are the proof. Call, text, or book, and open the city service page for drilling, pumps, and emergency work.</p>
 <div class="rw-actions">
-<a class="rw-call" href="tel:+17604408520">Call (760) 440-8520</a>
+<a class="rw-call" href="tel:+17604630493">Call (760) 463-0493</a>
 <a class="rw-text" href="sms:7602195877">Text (760) 219-5877</a>
 <a class="rw-est" href="/cost-calculator.html">Free estimate</a>
 <a class="rw-est" href="/services/san-marcos/">Well service in San Marcos</a>
 </div>
 </section>
+
+<div class="flex gap-2 overflow-x-auto" id="hub-filters" style="margin:0 0 1rem">
+<button class="filter-btn active" data-filter="all" type="button">All services</button>
+<button class="filter-btn" data-filter="pump" type="button">Pump Service</button>
+<button class="filter-btn" data-filter="drilling" type="button">Well Drilling</button>
+<button class="filter-btn" data-filter="tank" type="button">Pressure Tanks</button>
+<button class="filter-btn" data-filter="water-quality" type="button">Water Quality</button>
+<button class="filter-btn" data-filter="maintenance" type="button">Maintenance</button>
+</div>
+<script>
+document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    document.querySelectorAll('#hub-filters .filter-btn').forEach(function (b) { b.classList.remove('active'); });
+    btn.classList.add('active');
+    var filter = btn.getAttribute('data-filter');
+    document.querySelectorAll('.project-card').forEach(function (card) {
+      card.style.display = (filter === 'all' || card.getAttribute('data-category') === filter) ? '' : 'none';
+    });
+  });
+});
+</script>
+
 <div class="rw-cards">
-<article class="project-card" data-category="pump" data-static="1" data-job="job2608">
+<article class="project-card" data-category="pump" data-town="san-marcos" data-static="1" data-job="job3619">
+<div class="project-photos single">
+<picture><source srcset="/images/recent-work/job3619_1.webp" type="image/webp"><img src="/images/recent-work/job3619_1.jpg" alt="Well service in San Marcos" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3619_1.jpg')" style="cursor:pointer"></picture>
+</div>
+<div class="p-4">
+<div class="flex items-center justify-between mb-2 gap-2">
+<span class="service-badge">Pump Service</span>
+<time class="text-xs text-gray-400" datetime="2026-10-16">October 16, 2026</time>
+</div>
+<h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/san-marcos-well-service-3.html">Well service</a></h3>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/san-marcos/">San Marcos</a></p>
+<p class="text-sm text-gray-600 leading-relaxed">Pump Service in San Marcos on October 16, 2026. Job type: Well service.</p>
+<p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/san-marcos-well-service-3.html">View project →</a></p>
+</div>
+</article>
+<article class="project-card" data-category="pump" data-town="san-marcos" data-static="1" data-job="job3537">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2608_1.jpg" alt="Pump replacement in San Marcos" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2608_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2608_2.jpg" alt="Pump replacement in San Marcos" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2608_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2608_3.jpg" alt="Pump replacement in San Marcos" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2608_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job3537_1.jpg" alt="Well service in San Marcos" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3537_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job3537_2.jpg" alt="Well service in San Marcos" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3537_2.jpg')" style="cursor:pointer">
+<picture><source srcset="/images/recent-work/job3537_3.webp" type="image/webp"><img src="/images/recent-work/job3537_3.jpg" alt="Well service in San Marcos" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3537_3.jpg')" style="cursor:pointer"></picture>
+</div>
+<div class="p-4">
+<div class="flex items-center justify-between mb-2 gap-2">
+<span class="service-badge">Pump Service</span>
+<time class="text-xs text-gray-400" datetime="2026-10-08">October 8, 2026</time>
+</div>
+<h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/san-marcos-well-service-4.html">Well service</a></h3>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/san-marcos/">San Marcos</a></p>
+<p class="text-sm text-gray-600 leading-relaxed">Pump Service in San Marcos on October 8, 2026. Job type: Well service.</p>
+<p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/san-marcos-well-service-4.html">View project →</a></p>
+</div>
+</article>
+<article class="project-card" data-category="pump" data-town="san-marcos" data-static="1" data-job="job2608">
+<div class="project-photos triple">
+<img src="/images/recent-work/job2608_1.jpg" alt="Pump replacement in San Marcos" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2608_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2608_2.jpg" alt="Pump replacement in San Marcos" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2608_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2608_3.jpg" alt="Pump replacement in San Marcos" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2608_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -197,16 +259,16 @@
 <time class="text-xs text-gray-400" datetime="2026-06-10">June 10, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/san-marcos-pump-replacement.html">Pump replacement</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 San Marcos</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/san-marcos/">San Marcos</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in San Marcos on June 10, 2026. Job type: Pump replacement.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/san-marcos-pump-replacement.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job2537">
+<article class="project-card" data-category="pump" data-town="san-marcos" data-static="1" data-job="job2537">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2537_1.jpg" alt="Well service in San Marcos" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2537_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2537_2.jpg" alt="Well service in San Marcos" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2537_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2537_3.jpg" alt="Well service in San Marcos" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2537_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2537_1.jpg" alt="Well service in San Marcos" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2537_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2537_2.jpg" alt="Well service in San Marcos" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2537_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2537_3.jpg" alt="Well service in San Marcos" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2537_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -214,15 +276,15 @@
 <time class="text-xs text-gray-400" datetime="2026-05-27">May 27, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/san-marcos-well-service.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 San Marcos</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/san-marcos/">San Marcos</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in San Marcos on May 27, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/san-marcos-well-service.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job2000">
+<article class="project-card" data-category="pump" data-town="san-marcos" data-static="1" data-job="job2000">
 <div class="project-photos double">
-<img src="/images/recent-work/job2000_1.jpg" alt="Well service in San Marcos" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2000_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2000_2.jpg" alt="Well service in San Marcos" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2000_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2000_1.jpg" alt="Well service in San Marcos" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2000_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2000_2.jpg" alt="Well service in San Marcos" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2000_2.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -230,16 +292,16 @@
 <time class="text-xs text-gray-400" datetime="2026-03-03">March 3, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/san-marcos-well-service-2.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 San Marcos</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/san-marcos/">San Marcos</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in San Marcos on March 3, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/san-marcos-well-service-2.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job1842">
+<article class="project-card" data-category="pump" data-town="san-marcos" data-static="1" data-job="job1842">
 <div class="project-photos triple">
-<img src="/images/recent-work/job1842_1.jpg" alt="Pull pump in San Marcos" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1842_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1842_2.jpg" alt="Pull pump in San Marcos" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1842_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1842_3.jpg" alt="Pull pump in San Marcos" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1842_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1842_1.jpg" alt="Pull pump in San Marcos" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1842_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1842_2.jpg" alt="Pull pump in San Marcos" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1842_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1842_3.jpg" alt="Pull pump in San Marcos" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1842_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -247,16 +309,16 @@
 <time class="text-xs text-gray-400" datetime="2026-02-05">February 5, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/san-marcos-pull-pump.html">Pull pump</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 San Marcos</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/san-marcos/">San Marcos</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in San Marcos on February 5, 2026. Job type: Pull pump.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/san-marcos-pull-pump.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="tank" data-static="1" data-job="job1825">
+<article class="project-card" data-category="tank" data-town="san-marcos" data-static="1" data-job="job1825">
 <div class="project-photos triple">
-<img src="/images/recent-work/job1825_1.jpg" alt="Pressure tank replacement in San Marcos" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1825_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1825_2.jpg" alt="Pressure tank replacement in San Marcos" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1825_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1825_3.jpg" alt="Pressure tank replacement in San Marcos" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1825_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1825_1.jpg" alt="Pressure tank replacement in San Marcos" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1825_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1825_2.jpg" alt="Pressure tank replacement in San Marcos" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1825_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1825_3.jpg" alt="Pressure tank replacement in San Marcos" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1825_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -264,7 +326,7 @@
 <time class="text-xs text-gray-400" datetime="2026-01-29">January 29, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/san-marcos-pressure-tank-replacement.html">Pressure tank replacement</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 San Marcos</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/san-marcos/">San Marcos</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pressure Tanks in San Marcos on January 29, 2026. Job type: Pressure tank replacement.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/san-marcos-pressure-tank-replacement.html">View project →</a></p>
 </div>

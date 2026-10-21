@@ -49,6 +49,27 @@
   "image": "https://scwellservice.com/images/recent-work/job1732_1.jpg"
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Booster service in Temecula",
+  "serviceType": "Pump Service",
+  "description": "Booster service in Temecula on January 14, 2026. Pump Service with field photos from Southern California Well Service Job 1732.",
+  "url": "https://scwellservice.com/recent-work/temecula-booster-service-5.html",
+  "image": "https://scwellservice.com/images/recent-work/job1732_1.jpg",
+  "areaServed": {
+    "@type": "City",
+    "name": "Temecula"
+  },
+  "provider": {
+    "@type": "HomeAndConstructionBusiness",
+    "name": "Southern California Well Service",
+    "telephone": "+1-760-463-0493",
+    "url": "https://scwellservice.com/"
+  }
+}
+</script>
 <style>
     .rw-hero { position: relative; background: #1f3b4d; }
     .rw-hero img { width: 100%; height: 280px; object-fit: cover; display: block; }
@@ -93,6 +114,11 @@
     .rw-est { background: #4e9271; color: #fff; }
     .rw-links { margin-top: 1rem; display: flex; flex-direction: column; gap: 0.35rem; }
     .rw-links a { color: #fff; font-weight: 600; }
+    .filter-btn {
+        padding: 6px 14px; border-radius: 999px; border: 1px solid #ddd; background: #fff;
+        font-size: 0.875rem; cursor: pointer;
+    }
+    .filter-btn.active { background: #1a73a7; color: #fff; border-color: #1a73a7; }
     .rw-cards { display: grid; gap: 1.25rem; }
     .project-card { background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
     .project-photos { display: grid; gap: 4px; aspect-ratio: 16/9; overflow: hidden; }
@@ -100,6 +126,9 @@
     .project-photos.double { grid-template-columns: 1fr 1fr; }
     .project-photos.triple { grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; }
     .project-photos.triple img:first-child { grid-row: 1 / -1; }
+    .project-photos picture { display: block; width: 100%; height: 100%; min-height: 0; }
+    .project-photos.triple img:first-child,
+    .project-photos.triple picture:first-child { grid-row: 1 / -1; }
     .project-photos img { width: 100%; height: 100%; object-fit: cover; }
     .project-photos.empty, .photo-fallback {
         background: linear-gradient(135deg, #1f3b4d, #4e9271);
@@ -176,7 +205,7 @@
 </div>
 </div>
 <section class="rw-hero">
-<img src="/images/recent-work/job1732_1.jpg" alt="Booster service in Temecula" width="1200" height="800" onclick="openLightbox(this.src)">
+<img src="/images/recent-work/job1732_1.jpg" alt="Booster service in Temecula" width="1200" height="800" fetchpriority="high" decoding="async" sizes="100vw" onclick="openLightbox('/images/recent-work/job1732_1.jpg')" style="cursor:pointer">
 <div class="rw-hero-copy">
 <p><span class="rw-kicker">Pump Service</span></p>
 <h1>Booster service in Temecula</h1>
@@ -193,14 +222,14 @@
 <section class="rw-panel">
 <h2>What we did</h2>
 <p class="rw-summary">Pump Service in Temecula on January 14, 2026. Job type: Booster service.</p>
-<div class="rw-thumbs"><img src="/images/recent-work/job1732_1.jpg" alt="Booster service in Temecula" width="400" height="300" loading="lazy" onclick="openLightbox(this.src)"><img src="/images/recent-work/job1732_2.jpg" alt="Booster service in Temecula" width="400" height="300" loading="lazy" onclick="openLightbox(this.src)"><img src="/images/recent-work/job1732_3.jpg" alt="Booster service in Temecula" width="400" height="300" loading="lazy" onclick="openLightbox(this.src)"></div>
+<div class="rw-thumbs"><img src="/images/recent-work/job1732_2.jpg" alt="Booster service in Temecula" width="400" height="300" loading="lazy" decoding="async" sizes="140px" onclick="openLightbox('/images/recent-work/job1732_2.jpg')" style="cursor:pointer"><img src="/images/recent-work/job1732_3.jpg" alt="Booster service in Temecula" width="400" height="300" loading="lazy" decoding="async" sizes="140px" onclick="openLightbox('/images/recent-work/job1732_3.jpg')" style="cursor:pointer"></div>
 </section>
 </div>
 <aside class="rw-cta">
 <h2>Need well service in Temecula?</h2>
 <p>Call the Ramona or Anza shop, text the shop line, or request an estimate. We will tell you whether it sounds like a control, a pump, or a well.</p>
 <div class="rw-actions">
-<a class="rw-call" href="tel:+17604408520">Call (760) 440-8520</a>
+<a class="rw-call" href="tel:+17604630493">Call (760) 463-0493</a>
 <a class="rw-text" href="sms:7602195877">Text (760) 219-5877</a>
 <a class="rw-est" href="/cost-calculator.html">Free estimate</a>
 </div>

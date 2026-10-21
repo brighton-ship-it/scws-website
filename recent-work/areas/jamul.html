@@ -9,13 +9,13 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
 <title>Recent well work in Jamul | SCWS</title>
-<meta content="33 recent well jobs in Jamul with field photos from Southern California Well Service. Pump, tank, and diagnostic work. See well service in Jamul." name="description"/>
+<meta content="40 recent well jobs in Jamul with field photos from Southern California Well Service. Pump, tank, and diagnostic work. See well service in Jamul." name="description"/>
 <link href="https://scwellservice.com/recent-work/areas/jamul.html" rel="canonical"/>
 <meta content="article" property="og:type"/>
 <meta content="https://scwellservice.com/recent-work/areas/jamul.html" property="og:url"/>
 <meta content="Recent well work in Jamul | SCWS" property="og:title"/>
-<meta content="33 recent well jobs in Jamul with field photos from Southern California Well Service. Pump, tank, and diagnostic work. See well service in Jamul." property="og:description"/>
-<meta content="https://scwellservice.com/images/recent-work/job3124_1.jpg" property="og:image"/>
+<meta content="40 recent well jobs in Jamul with field photos from Southern California Well Service. Pump, tank, and diagnostic work. See well service in Jamul." property="og:description"/>
+<meta content="https://scwellservice.com/images/recent-work/job3502_1.jpg" property="og:image"/>
 <link href="/images/logo-text-only-3x.png" rel="icon" type="image/png"/>
 <link href="/css/styles.css" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
@@ -27,7 +27,7 @@
   "@context": "https://schema.org",
   "@type": "CollectionPage",
   "name": "Recent well work in Jamul",
-  "description": "33 recent well jobs in Jamul with field photos from Southern California Well Service. Pump, tank, and diagnostic work. See well service in Jamul.",
+  "description": "40 recent well jobs in Jamul with field photos from Southern California Well Service. Pump, tank, and diagnostic work. See well service in Jamul.",
   "url": "https://scwellservice.com/recent-work/areas/jamul.html",
   "about": {
     "@type": "Place",
@@ -83,6 +83,11 @@
     .rw-est { background: #4e9271; color: #fff; }
     .rw-links { margin-top: 1rem; display: flex; flex-direction: column; gap: 0.35rem; }
     .rw-links a { color: #fff; font-weight: 600; }
+    .filter-btn {
+        padding: 6px 14px; border-radius: 999px; border: 1px solid #ddd; background: #fff;
+        font-size: 0.875rem; cursor: pointer;
+    }
+    .filter-btn.active { background: #1a73a7; color: #fff; border-color: #1a73a7; }
     .rw-cards { display: grid; gap: 1.25rem; }
     .project-card { background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
     .project-photos { display: grid; gap: 4px; aspect-ratio: 16/9; overflow: hidden; }
@@ -90,6 +95,9 @@
     .project-photos.double { grid-template-columns: 1fr 1fr; }
     .project-photos.triple { grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; }
     .project-photos.triple img:first-child { grid-row: 1 / -1; }
+    .project-photos picture { display: block; width: 100%; height: 100%; min-height: 0; }
+    .project-photos.triple img:first-child,
+    .project-photos.triple picture:first-child { grid-row: 1 / -1; }
     .project-photos img { width: 100%; height: 100%; object-fit: cover; }
     .project-photos.empty, .photo-fallback {
         background: linear-gradient(135deg, #1f3b4d, #4e9271);
@@ -166,9 +174,9 @@
 </div>
 </div>
 <section class="rw-hero">
-<img src="/images/recent-work/job3124_1.jpg" alt="Well service in Jamul" width="1200" height="800">
+<picture><source srcset="/images/recent-work/job3502_1.webp" type="image/webp"><img src="/images/recent-work/job3502_1.jpg" alt="Well service in Jamul" width="1200" height="800" fetchpriority="high" decoding="async" sizes="100vw"></picture>
 <div class="rw-hero-copy">
-<p><span class="rw-kicker">33 jobs</span></p>
+<p><span class="rw-kicker">40 jobs</span></p>
 <h1>Recent work in Jamul</h1>
 <p>Real field photos from jobs we already finished. 5 of these have a full job note.</p>
 </div>
@@ -178,17 +186,155 @@
 <h2>Well service in Jamul</h2>
 <p>These cards are the proof. Call, text, or book, and open the city service page for drilling, pumps, and emergency work.</p>
 <div class="rw-actions">
-<a class="rw-call" href="tel:+17604408520">Call (760) 440-8520</a>
+<a class="rw-call" href="tel:+17604630493">Call (760) 463-0493</a>
 <a class="rw-text" href="sms:7602195877">Text (760) 219-5877</a>
 <a class="rw-est" href="/cost-calculator.html">Free estimate</a>
 <a class="rw-est" href="/services/jamul/">Well service in Jamul</a>
 </div>
 </section>
+
+<div class="flex gap-2 overflow-x-auto" id="hub-filters" style="margin:0 0 1rem">
+<button class="filter-btn active" data-filter="all" type="button">All services</button>
+<button class="filter-btn" data-filter="pump" type="button">Pump Service</button>
+<button class="filter-btn" data-filter="drilling" type="button">Well Drilling</button>
+<button class="filter-btn" data-filter="tank" type="button">Pressure Tanks</button>
+<button class="filter-btn" data-filter="water-quality" type="button">Water Quality</button>
+<button class="filter-btn" data-filter="maintenance" type="button">Maintenance</button>
+</div>
+<script>
+document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    document.querySelectorAll('#hub-filters .filter-btn').forEach(function (b) { b.classList.remove('active'); });
+    btn.classList.add('active');
+    var filter = btn.getAttribute('data-filter');
+    document.querySelectorAll('.project-card').forEach(function (card) {
+      card.style.display = (filter === 'all' || card.getAttribute('data-category') === filter) ? '' : 'none';
+    });
+  });
+});
+</script>
+
 <div class="rw-cards">
-<article class="project-card" data-category="pump" data-static="1" data-job="job3124">
+<article class="project-card" data-category="pump" data-town="jamul" data-static="1" data-job="job3502">
+<div class="project-photos triple">
+<picture><source srcset="/images/recent-work/job3502_1.webp" type="image/webp"><img src="/images/recent-work/job3502_1.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3502_1.jpg')" style="cursor:pointer"></picture>
+<picture><source srcset="/images/recent-work/job3502_2.webp" type="image/webp"><img src="/images/recent-work/job3502_2.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3502_2.jpg')" style="cursor:pointer"></picture>
+<picture><source srcset="/images/recent-work/job3502_3.webp" type="image/webp"><img src="/images/recent-work/job3502_3.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3502_3.jpg')" style="cursor:pointer"></picture>
+</div>
+<div class="p-4">
+<div class="flex items-center justify-between mb-2 gap-2">
+<span class="service-badge">Pump Service</span>
+<time class="text-xs text-gray-400" datetime="2026-10-01">October 1, 2026</time>
+</div>
+<h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/jamul-well-service-22.html">Well service</a></h3>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/jamul/">Jamul</a></p>
+<p class="text-sm text-gray-600 leading-relaxed">Pump Service in Jamul on October 1, 2026. Job type: Well service.</p>
+<p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/jamul-well-service-22.html">View project →</a></p>
+</div>
+</article>
+<article class="project-card" data-category="pump" data-town="jamul" data-static="1" data-job="job3433">
+<div class="project-photos triple">
+<img src="/images/recent-work/job3433_1.jpg" alt="Install in Jamul" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3433_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job3433_2.jpg" alt="Install in Jamul" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3433_2.jpg')" style="cursor:pointer">
+<picture><source srcset="/images/recent-work/job3433_3.webp" type="image/webp"><img src="/images/recent-work/job3433_3.jpg" alt="Install in Jamul" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3433_3.jpg')" style="cursor:pointer"></picture>
+</div>
+<div class="p-4">
+<div class="flex items-center justify-between mb-2 gap-2">
+<span class="service-badge">Pump Service</span>
+<time class="text-xs text-gray-400" datetime="2026-09-28">September 28, 2026</time>
+</div>
+<h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/jamul-install.html">Install</a></h3>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/jamul/">Jamul</a></p>
+<p class="text-sm text-gray-600 leading-relaxed">Pump Service in Jamul on September 28, 2026. Job type: Install.</p>
+<p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/jamul-install.html">View project →</a></p>
+</div>
+</article>
+<article class="project-card" data-category="pump" data-town="jamul" data-static="1" data-job="job3391">
+<div class="project-photos triple">
+<picture><source srcset="/images/recent-work/job3391_1.webp" type="image/webp"><img src="/images/recent-work/job3391_1.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3391_1.jpg')" style="cursor:pointer"></picture>
+<picture><source srcset="/images/recent-work/job3391_2.webp" type="image/webp"><img src="/images/recent-work/job3391_2.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3391_2.jpg')" style="cursor:pointer"></picture>
+<picture><source srcset="/images/recent-work/job3391_3.webp" type="image/webp"><img src="/images/recent-work/job3391_3.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3391_3.jpg')" style="cursor:pointer"></picture>
+</div>
+<div class="p-4">
+<div class="flex items-center justify-between mb-2 gap-2">
+<span class="service-badge">Pump Service</span>
+<time class="text-xs text-gray-400" datetime="2026-09-16">September 16, 2026</time>
+</div>
+<h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/jamul-well-service-21.html">Well service</a></h3>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/jamul/">Jamul</a></p>
+<p class="text-sm text-gray-600 leading-relaxed">Pump Service in Jamul on September 16, 2026. Job type: Well service.</p>
+<p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/jamul-well-service-21.html">View project →</a></p>
+</div>
+</article>
+<article class="project-card" data-category="maintenance" data-town="jamul" data-static="1" data-job="job3328">
+<div class="project-photos triple">
+<img src="/images/recent-work/job3328_1.jpg" alt="Well Inspection 8:31 am 9/8/26 SS in Jamul" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3328_1.jpg')" style="cursor:pointer">
+<picture><source srcset="/images/recent-work/job3328_2.webp" type="image/webp"><img src="/images/recent-work/job3328_2.jpg" alt="Well Inspection 8:31 am 9/8/26 SS in Jamul" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3328_2.jpg')" style="cursor:pointer"></picture>
+<picture><source srcset="/images/recent-work/job3328_3.webp" type="image/webp"><img src="/images/recent-work/job3328_3.jpg" alt="Well Inspection 8:31 am 9/8/26 SS in Jamul" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3328_3.jpg')" style="cursor:pointer"></picture>
+</div>
+<div class="p-4">
+<div class="flex items-center justify-between mb-2 gap-2">
+<span class="service-badge">Maintenance</span>
+<time class="text-xs text-gray-400" datetime="2026-09-11">September 11, 2026</time>
+</div>
+<h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/jamul-well-inspection-8-31-am-9-8-26-ss.html">Well Inspection 8:31 am 9/8/26 SS</a></h3>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/jamul/">Jamul</a></p>
+<p class="text-sm text-gray-600 leading-relaxed">Maintenance in Jamul on September 11, 2026. Job type: Well Inspection 8:31 am 9/8/26 SS.</p>
+<p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/jamul-well-inspection-8-31-am-9-8-26-ss.html">View project →</a></p>
+</div>
+</article>
+<article class="project-card" data-category="pump" data-town="jamul" data-static="1" data-job="job3276">
+<div class="project-photos single">
+<picture><source srcset="/images/recent-work/job3276_1.webp" type="image/webp"><img src="/images/recent-work/job3276_1.jpg" alt="Pull &amp; Replace Pump Deepen Pump Setting 100&#x27; w/ Existing Drop Pipe in Jamul" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3276_1.jpg')" style="cursor:pointer"></picture>
+</div>
+<div class="p-4">
+<div class="flex items-center justify-between mb-2 gap-2">
+<span class="service-badge">Pump Service</span>
+<time class="text-xs text-gray-400" datetime="2026-09-02">September 2, 2026</time>
+</div>
+<h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/jamul-pull-and-replace-pump-deepen-pump-setting-100-w-existing-drop-pipe.html">Pull &amp; Replace Pump Deepen Pump Setting 100&#x27; w/ Existing Drop Pipe</a></h3>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/jamul/">Jamul</a></p>
+<p class="text-sm text-gray-600 leading-relaxed">Pump Service in Jamul on September 2, 2026. Job type: Pull &amp; Replace Pump Deepen Pump Setting 100&#x27; w/ Existing Drop Pipe.</p>
+<p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/jamul-pull-and-replace-pump-deepen-pump-setting-100-w-existing-drop-pipe.html">View project →</a></p>
+</div>
+</article>
+<article class="project-card" data-category="pump" data-town="jamul" data-static="1" data-job="job3230">
 <div class="project-photos double">
-<img src="/images/recent-work/job3124_1.jpg" alt="Pull and inspect well pump in Jamul" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job3124_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job3124_2.jpg" alt="Pull and inspect well pump in Jamul" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job3124_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job3230_1.jpg" alt="Brush &amp; Bail Well in Jamul" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3230_1.jpg')" style="cursor:pointer">
+<picture><source srcset="/images/recent-work/job3230_2.webp" type="image/webp"><img src="/images/recent-work/job3230_2.jpg" alt="Brush &amp; Bail Well in Jamul" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3230_2.jpg')" style="cursor:pointer"></picture>
+</div>
+<div class="p-4">
+<div class="flex items-center justify-between mb-2 gap-2">
+<span class="service-badge">Pump Service</span>
+<time class="text-xs text-gray-400" datetime="2026-08-27">August 27, 2026</time>
+</div>
+<h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/jamul-brush-and-bail-well.html">Brush &amp; Bail Well</a></h3>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/jamul/">Jamul</a></p>
+<p class="text-sm text-gray-600 leading-relaxed">Pump Service in Jamul on August 27, 2026. Job type: Brush &amp; Bail Well.</p>
+<p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/jamul-brush-and-bail-well.html">View project →</a></p>
+</div>
+</article>
+<article class="project-card" data-category="pump" data-town="jamul" data-static="1" data-job="job3153">
+<div class="project-photos triple">
+<picture><source srcset="/images/recent-work/job3153_1.webp" type="image/webp"><img src="/images/recent-work/job3153_1.jpg" alt="Pull well pump and video log well. in Jamul" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3153_1.jpg')" style="cursor:pointer"></picture>
+<picture><source srcset="/images/recent-work/job3153_2.webp" type="image/webp"><img src="/images/recent-work/job3153_2.jpg" alt="Pull well pump and video log well. in Jamul" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3153_2.jpg')" style="cursor:pointer"></picture>
+<picture><source srcset="/images/recent-work/job3153_3.webp" type="image/webp"><img src="/images/recent-work/job3153_3.jpg" alt="Pull well pump and video log well. in Jamul" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3153_3.jpg')" style="cursor:pointer"></picture>
+</div>
+<div class="p-4">
+<div class="flex items-center justify-between mb-2 gap-2">
+<span class="service-badge">Pump Service</span>
+<time class="text-xs text-gray-400" datetime="2026-08-27">August 27, 2026</time>
+</div>
+<h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/jamul-pull-well-pump-and-video-log-well.html">Pull well pump and video log well.</a></h3>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/jamul/">Jamul</a></p>
+<p class="text-sm text-gray-600 leading-relaxed">Pump Service in Jamul on August 27, 2026. Job type: Pull well pump and video log well..</p>
+<p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/jamul-pull-well-pump-and-video-log-well.html">View project →</a></p>
+</div>
+</article>
+<article class="project-card" data-category="pump" data-town="jamul" data-static="1" data-job="job3124">
+<div class="project-photos double">
+<img src="/images/recent-work/job3124_1.jpg" alt="Pull and inspect well pump in Jamul" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3124_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job3124_2.jpg" alt="Pull and inspect well pump in Jamul" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3124_2.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -196,16 +342,16 @@
 <time class="text-xs text-gray-400" datetime="2026-08-20">August 20, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/jamul-pull-and-inspect-well-pump.html">Pull and inspect well pump</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Jamul</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/jamul/">Jamul</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pulled a 1.5 HP pump from about 756 feet. The wire had blown apart; pump, motor, pipe, and control box all need replacement.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/jamul-pull-and-inspect-well-pump.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job2814">
+<article class="project-card" data-category="pump" data-town="jamul" data-static="1" data-job="job2814">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2814_1.jpg" alt="Pump replacement in Jamul" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2814_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2814_2.jpg" alt="Pump replacement in Jamul" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2814_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2814_3.jpg" alt="Pump replacement in Jamul" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2814_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2814_1.jpg" alt="Pump replacement in Jamul" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2814_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2814_2.jpg" alt="Pump replacement in Jamul" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2814_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2814_3.jpg" alt="Pump replacement in Jamul" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2814_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -213,15 +359,15 @@
 <time class="text-xs text-gray-400" datetime="2026-08-19">August 19, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/jamul-pump-replacement.html">Pump replacement</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Jamul</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/jamul/">Jamul</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Jamul on August 19, 2026. Job type: Pump replacement.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/jamul-pump-replacement.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job3116">
+<article class="project-card" data-category="pump" data-town="jamul" data-static="1" data-job="job3116">
 <div class="project-photos double">
-<img src="/images/recent-work/job3116_1.jpg" alt="Pull and replace pump and motor in Jamul" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job3116_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job3116_2.jpg" alt="Pull and replace pump and motor in Jamul" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job3116_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job3116_1.jpg" alt="Pull and replace pump and motor in Jamul" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3116_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job3116_2.jpg" alt="Pull and replace pump and motor in Jamul" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3116_2.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -229,15 +375,15 @@
 <time class="text-xs text-gray-400" datetime="2026-08-13">August 13, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/jamul-pull-and-replace-pump-and-motor.html">Pull and replace pump and motor</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Jamul</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/jamul/">Jamul</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Replaced the pump, motor, drop pipe, and control box at an 80-foot setting. Cycled the system three times — pressure and amps were in range.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/jamul-pull-and-replace-pump-and-motor.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="maintenance" data-static="1" data-job="job3111">
+<article class="project-card" data-category="maintenance" data-town="jamul" data-static="1" data-job="job3111">
 <div class="project-photos double">
-<img src="/images/recent-work/job3111_1.jpg" alt="Overload diagnostic in Jamul" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job3111_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job3111_2.jpg" alt="Overload diagnostic in Jamul" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job3111_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job3111_1.jpg" alt="Overload diagnostic in Jamul" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3111_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job3111_2.jpg" alt="Overload diagnostic in Jamul" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3111_2.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -245,14 +391,14 @@
 <time class="text-xs text-gray-400" datetime="2026-08-13">August 13, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/jamul-overload-diagnostic.html">Overload diagnostic</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Jamul</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/jamul/">Jamul</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Diagnosed high-amp overload trips on a 1.5 HP well that feeds storage. The submersible cable needs a ground and the pump should be pulled.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/jamul-overload-diagnostic.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="maintenance" data-static="1" data-job="job3105">
+<article class="project-card" data-category="maintenance" data-town="jamul" data-static="1" data-job="job3105">
 <div class="project-photos single">
-<img src="/images/recent-work/job3105_1.jpg" alt="Well production test in Jamul" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job3105_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job3105_1.jpg" alt="Well production test in Jamul" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3105_1.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -260,15 +406,15 @@
 <time class="text-xs text-gray-400" datetime="2026-08-13">August 13, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/jamul-well-production-test.html">Well production test</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Jamul</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/jamul/">Jamul</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Ran timed bucket tests on a 1.5 HP well set at 481 feet. Recalibrated the pump saver so the well has enough recovery time between cycles.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/jamul-well-production-test.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job3108">
+<article class="project-card" data-category="pump" data-town="jamul" data-static="1" data-job="job3108">
 <div class="project-photos double">
-<img src="/images/recent-work/job3108_1.jpg" alt="Pump diagnostic in Jamul" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job3108_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job3108_2.jpg" alt="Pump diagnostic in Jamul" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job3108_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job3108_1.jpg" alt="Pump diagnostic in Jamul" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3108_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job3108_2.jpg" alt="Pump diagnostic in Jamul" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3108_2.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -276,16 +422,16 @@
 <time class="text-xs text-gray-400" datetime="2026-08-12">August 12, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/jamul-pump-diagnostic.html">Pump diagnostic</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Jamul</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/jamul/">Jamul</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Found high amp draw and a near-short on the submersible cable. Recommended a pull-and-replace with new wire and a pump saver.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/jamul-pump-diagnostic.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job3016">
+<article class="project-card" data-category="pump" data-town="jamul" data-static="1" data-job="job3016">
 <div class="project-photos triple">
-<img src="/images/recent-work/job3016_1.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job3016_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job3016_2.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job3016_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job3016_3.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job3016_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job3016_1.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3016_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job3016_2.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3016_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job3016_3.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3016_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -293,16 +439,16 @@
 <time class="text-xs text-gray-400" datetime="2026-08-03">August 3, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/jamul-well-service.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Jamul</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/jamul/">Jamul</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Jamul on August 3, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/jamul-well-service.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job3008">
+<article class="project-card" data-category="pump" data-town="jamul" data-static="1" data-job="job3008">
 <div class="project-photos triple">
-<img src="/images/recent-work/job3008_1.jpg" alt="Pump replacement in Jamul" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job3008_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job3008_2.jpg" alt="Pump replacement in Jamul" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job3008_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job3008_3.jpg" alt="Pump replacement in Jamul" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job3008_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job3008_1.jpg" alt="Pump replacement in Jamul" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3008_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job3008_2.jpg" alt="Pump replacement in Jamul" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3008_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job3008_3.jpg" alt="Pump replacement in Jamul" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3008_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -310,14 +456,14 @@
 <time class="text-xs text-gray-400" datetime="2026-08-02">August 2, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/jamul-pump-replacement-2.html">Pump replacement</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Jamul</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/jamul/">Jamul</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Jamul on August 2, 2026. Job type: Pump replacement.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/jamul-pump-replacement-2.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job3031">
+<article class="project-card" data-category="pump" data-town="jamul" data-static="1" data-job="job3031">
 <div class="project-photos single">
-<img src="/images/recent-work/job3031_1.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job3031_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job3031_1.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3031_1.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -325,12 +471,12 @@
 <time class="text-xs text-gray-400" datetime="2026-08-02">August 2, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/jamul-well-service-2.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Jamul</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/jamul/">Jamul</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Jamul on August 2, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/jamul-well-service-2.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job2951">
+<article class="project-card" data-category="pump" data-town="jamul" data-static="1" data-job="job2951">
 <div class="project-photos empty">
 <div class="photo-fallback" role="img" aria-label="Field photo unavailable"></div>
 </div>
@@ -340,16 +486,16 @@
 <time class="text-xs text-gray-400" datetime="2026-07-27">July 27, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/jamul-well-service-3.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Jamul</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/jamul/">Jamul</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Jamul on July 27, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/jamul-well-service-3.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job2897">
+<article class="project-card" data-category="pump" data-town="jamul" data-static="1" data-job="job2897">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2897_1.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2897_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2897_2.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2897_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2897_3.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2897_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2897_1.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2897_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2897_2.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2897_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2897_3.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2897_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -357,16 +503,16 @@
 <time class="text-xs text-gray-400" datetime="2026-07-22">July 22, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/jamul-well-service-4.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Jamul</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/jamul/">Jamul</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Jamul on July 22, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/jamul-well-service-4.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job2738">
+<article class="project-card" data-category="pump" data-town="jamul" data-static="1" data-job="job2738">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2738_1.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2738_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2738_2.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2738_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2738_3.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2738_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2738_1.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2738_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2738_2.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2738_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2738_3.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2738_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -374,16 +520,16 @@
 <time class="text-xs text-gray-400" datetime="2026-07-13">July 13, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/jamul-well-service-5.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Jamul</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/jamul/">Jamul</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Jamul on July 13, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/jamul-well-service-5.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job2765">
+<article class="project-card" data-category="pump" data-town="jamul" data-static="1" data-job="job2765">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2765_1.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2765_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2765_2.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2765_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2765_3.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2765_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2765_1.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2765_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2765_2.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2765_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2765_3.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2765_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -391,16 +537,16 @@
 <time class="text-xs text-gray-400" datetime="2026-07-08">July 8, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/jamul-well-service-6.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Jamul</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/jamul/">Jamul</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Jamul on July 8, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/jamul-well-service-6.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job2787">
+<article class="project-card" data-category="pump" data-town="jamul" data-static="1" data-job="job2787">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2787_1.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2787_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2787_2.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2787_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2787_3.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2787_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2787_1.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2787_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2787_2.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2787_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2787_3.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2787_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -408,16 +554,16 @@
 <time class="text-xs text-gray-400" datetime="2026-07-07">July 7, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/jamul-well-service-7.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Jamul</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/jamul/">Jamul</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Jamul on July 7, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/jamul-well-service-7.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job2636">
+<article class="project-card" data-category="pump" data-town="jamul" data-static="1" data-job="job2636">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2636_1.jpg" alt="Pump replacement in Jamul" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2636_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2636_2.jpg" alt="Pump replacement in Jamul" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2636_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2636_3.jpg" alt="Pump replacement in Jamul" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2636_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2636_1.jpg" alt="Pump replacement in Jamul" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2636_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2636_2.jpg" alt="Pump replacement in Jamul" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2636_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2636_3.jpg" alt="Pump replacement in Jamul" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2636_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -425,16 +571,16 @@
 <time class="text-xs text-gray-400" datetime="2026-06-15">June 15, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/jamul-pump-replacement-3.html">Pump replacement</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Jamul</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/jamul/">Jamul</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Jamul on June 15, 2026. Job type: Pump replacement.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/jamul-pump-replacement-3.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job2628">
+<article class="project-card" data-category="pump" data-town="jamul" data-static="1" data-job="job2628">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2628_1.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2628_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2628_2.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2628_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2628_3.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2628_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2628_1.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2628_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2628_2.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2628_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2628_3.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2628_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -442,15 +588,15 @@
 <time class="text-xs text-gray-400" datetime="2026-06-10">June 10, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/jamul-well-service-8.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Jamul</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/jamul/">Jamul</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Jamul on June 10, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/jamul-well-service-8.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job2571">
+<article class="project-card" data-category="pump" data-town="jamul" data-static="1" data-job="job2571">
 <div class="project-photos double">
-<img src="/images/recent-work/job2571_2.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2571_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2571_3.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2571_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2571_2.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2571_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2571_3.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2571_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -458,16 +604,16 @@
 <time class="text-xs text-gray-400" datetime="2026-06-03">June 3, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/jamul-well-service-9.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Jamul</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/jamul/">Jamul</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Jamul on June 3, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/jamul-well-service-9.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job2375">
+<article class="project-card" data-category="pump" data-town="jamul" data-static="1" data-job="job2375">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2375_1.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2375_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2375_2.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2375_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2375_3.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2375_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2375_1.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2375_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2375_2.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2375_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2375_3.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2375_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -475,16 +621,16 @@
 <time class="text-xs text-gray-400" datetime="2026-05-05">May 5, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/jamul-well-service-10.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Jamul</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/jamul/">Jamul</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Jamul on May 5, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/jamul-well-service-10.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job2348">
+<article class="project-card" data-category="pump" data-town="jamul" data-static="1" data-job="job2348">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2348_1.jpg" alt="Booster service in Jamul" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2348_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2348_2.jpg" alt="Booster service in Jamul" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2348_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2348_3.jpg" alt="Booster service in Jamul" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2348_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2348_1.jpg" alt="Booster service in Jamul" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2348_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2348_2.jpg" alt="Booster service in Jamul" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2348_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2348_3.jpg" alt="Booster service in Jamul" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2348_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -492,16 +638,16 @@
 <time class="text-xs text-gray-400" datetime="2026-05-05">May 5, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/jamul-booster-service.html">Booster service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Jamul</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/jamul/">Jamul</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Jamul on May 5, 2026. Job type: Booster service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/jamul-booster-service.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job2383">
+<article class="project-card" data-category="pump" data-town="jamul" data-static="1" data-job="job2383">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2383_1.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2383_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2383_2.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2383_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2383_3.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2383_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2383_1.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2383_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2383_2.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2383_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2383_3.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2383_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -509,15 +655,15 @@
 <time class="text-xs text-gray-400" datetime="2026-05-01">May 1, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/jamul-well-service-2-2.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Jamul</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/jamul/">Jamul</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Jamul on May 1, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/jamul-well-service-2-2.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job2321">
+<article class="project-card" data-category="pump" data-town="jamul" data-static="1" data-job="job2321">
 <div class="project-photos double">
-<img src="/images/recent-work/job2321_1.jpg" alt="Pump replacement in Jamul" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2321_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2321_2.jpg" alt="Pump replacement in Jamul" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2321_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2321_1.jpg" alt="Pump replacement in Jamul" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2321_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2321_2.jpg" alt="Pump replacement in Jamul" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2321_2.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -525,16 +671,16 @@
 <time class="text-xs text-gray-400" datetime="2026-04-24">April 24, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/jamul-pump-replacement-4.html">Pump replacement</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Jamul</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/jamul/">Jamul</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Jamul on April 24, 2026. Job type: Pump replacement.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/jamul-pump-replacement-4.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job2325">
+<article class="project-card" data-category="pump" data-town="jamul" data-static="1" data-job="job2325">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2325_1.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2325_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2325_2.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2325_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2325_3.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2325_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2325_1.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2325_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2325_2.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2325_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2325_3.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2325_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -542,16 +688,16 @@
 <time class="text-xs text-gray-400" datetime="2026-04-22">April 22, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/jamul-well-service-11.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Jamul</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/jamul/">Jamul</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Jamul on April 22, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/jamul-well-service-11.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job2292">
+<article class="project-card" data-category="pump" data-town="jamul" data-static="1" data-job="job2292">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2292_1.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2292_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2292_2.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2292_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2292_3.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2292_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2292_1.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2292_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2292_2.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2292_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2292_3.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2292_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -559,16 +705,16 @@
 <time class="text-xs text-gray-400" datetime="2026-04-21">April 21, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/jamul-well-service-13.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Jamul</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/jamul/">Jamul</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Jamul on April 21, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/jamul-well-service-13.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job2266">
+<article class="project-card" data-category="pump" data-town="jamul" data-static="1" data-job="job2266">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2266_1.jpg" alt="Pump replacement in Jamul" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2266_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2266_2.jpg" alt="Pump replacement in Jamul" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2266_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2266_3.jpg" alt="Pump replacement in Jamul" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2266_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2266_1.jpg" alt="Pump replacement in Jamul" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2266_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2266_2.jpg" alt="Pump replacement in Jamul" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2266_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2266_3.jpg" alt="Pump replacement in Jamul" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2266_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -576,16 +722,16 @@
 <time class="text-xs text-gray-400" datetime="2026-04-20">April 20, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/jamul-pump-replacement-5.html">Pump replacement</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Jamul</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/jamul/">Jamul</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Jamul on April 20, 2026. Job type: Pump replacement.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/jamul-pump-replacement-5.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job2288">
+<article class="project-card" data-category="pump" data-town="jamul" data-static="1" data-job="job2288">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2288_1.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2288_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2288_2.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2288_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2288_3.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2288_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2288_1.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2288_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2288_2.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2288_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2288_3.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2288_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -593,16 +739,16 @@
 <time class="text-xs text-gray-400" datetime="2026-04-17">April 17, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/jamul-well-service-12.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Jamul</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/jamul/">Jamul</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Jamul on April 17, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/jamul-well-service-12.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job2276">
+<article class="project-card" data-category="pump" data-town="jamul" data-static="1" data-job="job2276">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2276_1.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2276_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2276_2.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2276_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2276_3.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2276_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2276_1.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2276_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2276_2.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2276_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2276_3.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2276_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -610,16 +756,16 @@
 <time class="text-xs text-gray-400" datetime="2026-04-17">April 17, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/jamul-well-service-14.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Jamul</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/jamul/">Jamul</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Jamul on April 17, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/jamul-well-service-14.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job2261">
+<article class="project-card" data-category="pump" data-town="jamul" data-static="1" data-job="job2261">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2261_1.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2261_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2261_2.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2261_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2261_3.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2261_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2261_1.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2261_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2261_2.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2261_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2261_3.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2261_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -627,16 +773,16 @@
 <time class="text-xs text-gray-400" datetime="2026-04-13">April 13, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/jamul-well-service-15.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Jamul</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/jamul/">Jamul</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Jamul on April 13, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/jamul-well-service-15.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job2098">
+<article class="project-card" data-category="pump" data-town="jamul" data-static="1" data-job="job2098">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2098_1.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2098_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2098_2.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2098_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2098_3.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2098_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2098_1.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2098_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2098_2.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2098_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2098_3.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2098_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -644,16 +790,16 @@
 <time class="text-xs text-gray-400" datetime="2026-03-18">March 18, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/jamul-well-service-16.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Jamul</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/jamul/">Jamul</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Jamul on March 18, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/jamul-well-service-16.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job2051">
+<article class="project-card" data-category="pump" data-town="jamul" data-static="1" data-job="job2051">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2051_1.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2051_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2051_2.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2051_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2051_3.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2051_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2051_1.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2051_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2051_2.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2051_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2051_3.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2051_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -661,15 +807,15 @@
 <time class="text-xs text-gray-400" datetime="2026-03-11">March 11, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/jamul-well-service-17.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Jamul</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/jamul/">Jamul</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Jamul on March 11, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/jamul-well-service-17.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job1932">
+<article class="project-card" data-category="pump" data-town="jamul" data-static="1" data-job="job1932">
 <div class="project-photos double">
-<img src="/images/recent-work/job1932_1.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1932_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1932_2.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1932_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1932_1.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1932_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1932_2.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1932_2.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -677,16 +823,16 @@
 <time class="text-xs text-gray-400" datetime="2026-02-16">February 16, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/jamul-well-service-18.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Jamul</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/jamul/">Jamul</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Jamul on February 16, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/jamul-well-service-18.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job1597">
+<article class="project-card" data-category="pump" data-town="jamul" data-static="1" data-job="job1597">
 <div class="project-photos triple">
-<img src="/images/recent-work/job1597_1.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1597_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1597_2.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1597_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1597_3.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1597_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1597_1.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1597_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1597_2.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1597_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1597_3.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1597_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -694,16 +840,16 @@
 <time class="text-xs text-gray-400" datetime="2025-12-11">December 11, 2025</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/jamul-well-service-19.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Jamul</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/jamul/">Jamul</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Jamul on December 11, 2025. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/jamul-well-service-19.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job1422">
+<article class="project-card" data-category="pump" data-town="jamul" data-static="1" data-job="job1422">
 <div class="project-photos triple">
-<img src="/images/recent-work/job1422_1.jpg" alt="Well diagnostic in Jamul" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1422_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1422_2.jpg" alt="Well diagnostic in Jamul" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1422_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1422_3.jpg" alt="Well diagnostic in Jamul" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1422_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1422_1.jpg" alt="Well diagnostic in Jamul" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1422_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1422_2.jpg" alt="Well diagnostic in Jamul" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1422_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1422_3.jpg" alt="Well diagnostic in Jamul" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1422_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -711,16 +857,16 @@
 <time class="text-xs text-gray-400" datetime="2025-11-17">November 17, 2025</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/jamul-well-diagnostic.html">Well diagnostic</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Jamul</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/jamul/">Jamul</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Jamul on November 17, 2025. Job type: Well diagnostic.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/jamul-well-diagnostic.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job1408">
+<article class="project-card" data-category="pump" data-town="jamul" data-static="1" data-job="job1408">
 <div class="project-photos triple">
-<img src="/images/recent-work/job1408_1.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1408_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1408_2.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1408_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1408_3.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1408_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1408_1.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1408_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1408_2.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1408_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1408_3.jpg" alt="Well service in Jamul" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1408_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -728,7 +874,7 @@
 <time class="text-xs text-gray-400" datetime="2025-11-06">November 6, 2025</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/jamul-well-service-20.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Jamul</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/jamul/">Jamul</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Jamul on November 6, 2025. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/jamul-well-service-20.html">View project →</a></p>
 </div>

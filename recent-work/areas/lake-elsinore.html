@@ -9,13 +9,13 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
 <title>Recent well work in Lake Elsinore | SCWS</title>
-<meta content="5 recent well jobs in Lake Elsinore with field photos from Southern California Well Service. Pump, tank, and diagnostic work. See well service in Lake Elsinore." name="description"/>
+<meta content="6 recent well jobs in Lake Elsinore with field photos from Southern California Well Service. Pump, tank, and diagnostic work. See well service in Lake Elsinore." name="description"/>
 <link href="https://scwellservice.com/recent-work/areas/lake-elsinore.html" rel="canonical"/>
 <meta content="article" property="og:type"/>
 <meta content="https://scwellservice.com/recent-work/areas/lake-elsinore.html" property="og:url"/>
 <meta content="Recent well work in Lake Elsinore | SCWS" property="og:title"/>
-<meta content="5 recent well jobs in Lake Elsinore with field photos from Southern California Well Service. Pump, tank, and diagnostic work. See well service in Lake Elsinore." property="og:description"/>
-<meta content="https://scwellservice.com/images/recent-work/job3141_1.jpg" property="og:image"/>
+<meta content="6 recent well jobs in Lake Elsinore with field photos from Southern California Well Service. Pump, tank, and diagnostic work. See well service in Lake Elsinore." property="og:description"/>
+<meta content="https://scwellservice.com/images/recent-work/job3236_1.jpg" property="og:image"/>
 <link href="/images/logo-text-only-3x.png" rel="icon" type="image/png"/>
 <link href="/css/styles.css" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
@@ -27,7 +27,7 @@
   "@context": "https://schema.org",
   "@type": "CollectionPage",
   "name": "Recent well work in Lake Elsinore",
-  "description": "5 recent well jobs in Lake Elsinore with field photos from Southern California Well Service. Pump, tank, and diagnostic work. See well service in Lake Elsinore.",
+  "description": "6 recent well jobs in Lake Elsinore with field photos from Southern California Well Service. Pump, tank, and diagnostic work. See well service in Lake Elsinore.",
   "url": "https://scwellservice.com/recent-work/areas/lake-elsinore.html",
   "about": {
     "@type": "Place",
@@ -83,6 +83,11 @@
     .rw-est { background: #4e9271; color: #fff; }
     .rw-links { margin-top: 1rem; display: flex; flex-direction: column; gap: 0.35rem; }
     .rw-links a { color: #fff; font-weight: 600; }
+    .filter-btn {
+        padding: 6px 14px; border-radius: 999px; border: 1px solid #ddd; background: #fff;
+        font-size: 0.875rem; cursor: pointer;
+    }
+    .filter-btn.active { background: #1a73a7; color: #fff; border-color: #1a73a7; }
     .rw-cards { display: grid; gap: 1.25rem; }
     .project-card { background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
     .project-photos { display: grid; gap: 4px; aspect-ratio: 16/9; overflow: hidden; }
@@ -90,6 +95,9 @@
     .project-photos.double { grid-template-columns: 1fr 1fr; }
     .project-photos.triple { grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; }
     .project-photos.triple img:first-child { grid-row: 1 / -1; }
+    .project-photos picture { display: block; width: 100%; height: 100%; min-height: 0; }
+    .project-photos.triple img:first-child,
+    .project-photos.triple picture:first-child { grid-row: 1 / -1; }
     .project-photos img { width: 100%; height: 100%; object-fit: cover; }
     .project-photos.empty, .photo-fallback {
         background: linear-gradient(135deg, #1f3b4d, #4e9271);
@@ -166,9 +174,9 @@
 </div>
 </div>
 <section class="rw-hero">
-<img src="/images/recent-work/job3141_1.jpg" alt="Well service in Lake Elsinore" width="1200" height="800">
+<picture><source srcset="/images/recent-work/job3236_1.webp" type="image/webp"><img src="/images/recent-work/job3236_1.jpg" alt="Well service in Lake Elsinore" width="1200" height="800" fetchpriority="high" decoding="async" sizes="100vw"></picture>
 <div class="rw-hero-copy">
-<p><span class="rw-kicker">5 jobs</span></p>
+<p><span class="rw-kicker">6 jobs</span></p>
 <h1>Recent work in Lake Elsinore</h1>
 <p>Real field photos from jobs we already finished. 2 of these have a full job note.</p>
 </div>
@@ -178,17 +186,56 @@
 <h2>Well service in Lake Elsinore</h2>
 <p>These cards are the proof. Call, text, or book, and open the city service page for drilling, pumps, and emergency work.</p>
 <div class="rw-actions">
-<a class="rw-call" href="tel:+17604408520">Call (760) 440-8520</a>
+<a class="rw-call" href="tel:+17604630493">Call (760) 463-0493</a>
 <a class="rw-text" href="sms:7602195877">Text (760) 219-5877</a>
 <a class="rw-est" href="/cost-calculator.html">Free estimate</a>
 <a class="rw-est" href="/services/lake-elsinore/">Well service in Lake Elsinore</a>
 </div>
 </section>
+
+<div class="flex gap-2 overflow-x-auto" id="hub-filters" style="margin:0 0 1rem">
+<button class="filter-btn active" data-filter="all" type="button">All services</button>
+<button class="filter-btn" data-filter="pump" type="button">Pump Service</button>
+<button class="filter-btn" data-filter="drilling" type="button">Well Drilling</button>
+<button class="filter-btn" data-filter="tank" type="button">Pressure Tanks</button>
+<button class="filter-btn" data-filter="water-quality" type="button">Water Quality</button>
+<button class="filter-btn" data-filter="maintenance" type="button">Maintenance</button>
+</div>
+<script>
+document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    document.querySelectorAll('#hub-filters .filter-btn').forEach(function (b) { b.classList.remove('active'); });
+    btn.classList.add('active');
+    var filter = btn.getAttribute('data-filter');
+    document.querySelectorAll('.project-card').forEach(function (card) {
+      card.style.display = (filter === 'all' || card.getAttribute('data-category') === filter) ? '' : 'none';
+    });
+  });
+});
+</script>
+
 <div class="rw-cards">
-<article class="project-card" data-category="pump" data-static="1" data-job="job3141">
+<article class="project-card" data-category="pump" data-town="lake-elsinore" data-static="1" data-job="job3236">
+<div class="project-photos triple">
+<picture><source srcset="/images/recent-work/job3236_1.webp" type="image/webp"><img src="/images/recent-work/job3236_1.jpg" alt="Pull &amp; Replace Pump &amp; Motor in Lake Elsinore" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3236_1.jpg')" style="cursor:pointer"></picture>
+<picture><source srcset="/images/recent-work/job3236_2.webp" type="image/webp"><img src="/images/recent-work/job3236_2.jpg" alt="Pull &amp; Replace Pump &amp; Motor in Lake Elsinore" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3236_2.jpg')" style="cursor:pointer"></picture>
+<picture><source srcset="/images/recent-work/job3236_3.webp" type="image/webp"><img src="/images/recent-work/job3236_3.jpg" alt="Pull &amp; Replace Pump &amp; Motor in Lake Elsinore" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3236_3.jpg')" style="cursor:pointer"></picture>
+</div>
+<div class="p-4">
+<div class="flex items-center justify-between mb-2 gap-2">
+<span class="service-badge">Pump Service</span>
+<time class="text-xs text-gray-400" datetime="2026-08-28">August 28, 2026</time>
+</div>
+<h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/lake-elsinore-pull-and-replace-pump-and-motor.html">Pull &amp; Replace Pump &amp; Motor</a></h3>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/lake-elsinore/">Lake Elsinore</a></p>
+<p class="text-sm text-gray-600 leading-relaxed">Pump Service in Lake Elsinore on August 28, 2026. Job type: Pull &amp; Replace Pump &amp; Motor.</p>
+<p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/lake-elsinore-pull-and-replace-pump-and-motor.html">View project →</a></p>
+</div>
+</article>
+<article class="project-card" data-category="pump" data-town="lake-elsinore" data-static="1" data-job="job3141">
 <div class="project-photos double">
-<img src="/images/recent-work/job3141_1.jpg" alt="Pull &amp; replace pump and motor in Lake Elsinore" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job3141_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job3141_2.jpg" alt="Pull &amp; replace pump and motor in Lake Elsinore" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job3141_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job3141_1.jpg" alt="Pull &amp; replace pump and motor in Lake Elsinore" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3141_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job3141_2.jpg" alt="Pull &amp; replace pump and motor in Lake Elsinore" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3141_2.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -196,15 +243,15 @@
 <time class="text-xs text-gray-400" datetime="2026-08-18">August 18, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/lake-elsinore-pump-replacement.html">Pull &amp; replace pump and motor</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Lake Elsinore</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/lake-elsinore/">Lake Elsinore</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pulled the failed unit and installed a new Goulds 18GS30 submersible pump with matching motor and wire. System restored.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/lake-elsinore-pump-replacement.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job3135">
+<article class="project-card" data-category="pump" data-town="lake-elsinore" data-static="1" data-job="job3135">
 <div class="project-photos double">
-<img src="/images/recent-work/job3135_1.jpg" alt="Deep-set well service in Lake Elsinore" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job3135_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job3135_2.jpg" alt="Deep-set well service in Lake Elsinore" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job3135_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job3135_1.jpg" alt="Deep-set well service in Lake Elsinore" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3135_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job3135_2.jpg" alt="Deep-set well service in Lake Elsinore" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3135_2.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -212,14 +259,14 @@
 <time class="text-xs text-gray-400" datetime="2026-08-14">August 14, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/lake-elsinore-deep-set-well-service.html">Deep-set well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Lake Elsinore</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/lake-elsinore/">Lake Elsinore</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">On-site service for a 3 HP, 18 GPM deep-set well with -inch pipe at about 281 feet.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/lake-elsinore-deep-set-well-service.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job2701">
+<article class="project-card" data-category="pump" data-town="lake-elsinore" data-static="1" data-job="job2701">
 <div class="project-photos single">
-<img src="/images/recent-work/job2701_1.jpg" alt="Pump replacement in Lake Elsinore" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2701_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2701_1.jpg" alt="Pump replacement in Lake Elsinore" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2701_1.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -227,15 +274,15 @@
 <time class="text-xs text-gray-400" datetime="2026-06-23">June 23, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/lake-elsinore-pump-replacement-2.html">Pump replacement</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Lake Elsinore</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/lake-elsinore/">Lake Elsinore</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Lake Elsinore on June 23, 2026. Job type: Pump replacement.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/lake-elsinore-pump-replacement-2.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job2669">
+<article class="project-card" data-category="pump" data-town="lake-elsinore" data-static="1" data-job="job2669">
 <div class="project-photos double">
-<img src="/images/recent-work/job2669_1.jpg" alt="Pull pump in Lake Elsinore" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2669_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2669_3.jpg" alt="Pull pump in Lake Elsinore" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2669_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2669_1.jpg" alt="Pull pump in Lake Elsinore" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2669_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2669_3.jpg" alt="Pull pump in Lake Elsinore" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2669_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -243,16 +290,16 @@
 <time class="text-xs text-gray-400" datetime="2026-06-19">June 19, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/lake-elsinore-pull-pump.html">Pull pump</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Lake Elsinore</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/lake-elsinore/">Lake Elsinore</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Lake Elsinore on June 19, 2026. Job type: Pull pump.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/lake-elsinore-pull-pump.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job1508">
+<article class="project-card" data-category="pump" data-town="lake-elsinore" data-static="1" data-job="job1508">
 <div class="project-photos triple">
-<img src="/images/recent-work/job1508_1.jpg" alt="Well service in Lake Elsinore" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1508_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1508_2.jpg" alt="Well service in Lake Elsinore" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1508_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1508_3.jpg" alt="Well service in Lake Elsinore" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1508_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1508_1.jpg" alt="Well service in Lake Elsinore" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1508_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1508_2.jpg" alt="Well service in Lake Elsinore" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1508_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1508_3.jpg" alt="Well service in Lake Elsinore" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1508_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -260,7 +307,7 @@
 <time class="text-xs text-gray-400" datetime="2025-11-19">November 19, 2025</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/lake-elsinore-well-service.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Lake Elsinore</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/lake-elsinore/">Lake Elsinore</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Lake Elsinore on November 19, 2025. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/lake-elsinore-well-service.html">View project →</a></p>
 </div>

@@ -9,13 +9,13 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
 <title>Recent well work in Pine Valley | SCWS</title>
-<meta content="6 recent well jobs in Pine Valley with field photos from Southern California Well Service. Pump, tank, and diagnostic work. See well service in Pine Valley." name="description"/>
+<meta content="8 recent well jobs in Pine Valley with field photos from Southern California Well Service. Pump, tank, and diagnostic work. See well service in Pine Valley." name="description"/>
 <link href="https://scwellservice.com/recent-work/areas/pine-valley.html" rel="canonical"/>
 <meta content="article" property="og:type"/>
 <meta content="https://scwellservice.com/recent-work/areas/pine-valley.html" property="og:url"/>
 <meta content="Recent well work in Pine Valley | SCWS" property="og:title"/>
-<meta content="6 recent well jobs in Pine Valley with field photos from Southern California Well Service. Pump, tank, and diagnostic work. See well service in Pine Valley." property="og:description"/>
-<meta content="https://scwellservice.com/images/recent-work/job3058_1.jpg" property="og:image"/>
+<meta content="8 recent well jobs in Pine Valley with field photos from Southern California Well Service. Pump, tank, and diagnostic work. See well service in Pine Valley." property="og:description"/>
+<meta content="https://scwellservice.com/images/recent-work/job3218_1.jpg" property="og:image"/>
 <link href="/images/logo-text-only-3x.png" rel="icon" type="image/png"/>
 <link href="/css/styles.css" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
@@ -27,7 +27,7 @@
   "@context": "https://schema.org",
   "@type": "CollectionPage",
   "name": "Recent well work in Pine Valley",
-  "description": "6 recent well jobs in Pine Valley with field photos from Southern California Well Service. Pump, tank, and diagnostic work. See well service in Pine Valley.",
+  "description": "8 recent well jobs in Pine Valley with field photos from Southern California Well Service. Pump, tank, and diagnostic work. See well service in Pine Valley.",
   "url": "https://scwellservice.com/recent-work/areas/pine-valley.html",
   "about": {
     "@type": "Place",
@@ -83,6 +83,11 @@
     .rw-est { background: #4e9271; color: #fff; }
     .rw-links { margin-top: 1rem; display: flex; flex-direction: column; gap: 0.35rem; }
     .rw-links a { color: #fff; font-weight: 600; }
+    .filter-btn {
+        padding: 6px 14px; border-radius: 999px; border: 1px solid #ddd; background: #fff;
+        font-size: 0.875rem; cursor: pointer;
+    }
+    .filter-btn.active { background: #1a73a7; color: #fff; border-color: #1a73a7; }
     .rw-cards { display: grid; gap: 1.25rem; }
     .project-card { background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
     .project-photos { display: grid; gap: 4px; aspect-ratio: 16/9; overflow: hidden; }
@@ -90,6 +95,9 @@
     .project-photos.double { grid-template-columns: 1fr 1fr; }
     .project-photos.triple { grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; }
     .project-photos.triple img:first-child { grid-row: 1 / -1; }
+    .project-photos picture { display: block; width: 100%; height: 100%; min-height: 0; }
+    .project-photos.triple img:first-child,
+    .project-photos.triple picture:first-child { grid-row: 1 / -1; }
     .project-photos img { width: 100%; height: 100%; object-fit: cover; }
     .project-photos.empty, .photo-fallback {
         background: linear-gradient(135deg, #1f3b4d, #4e9271);
@@ -166,9 +174,9 @@
 </div>
 </div>
 <section class="rw-hero">
-<img src="/images/recent-work/job3058_1.jpg" alt="Well service in Pine Valley" width="1200" height="800">
+<picture><source srcset="/images/recent-work/job3218_1.webp" type="image/webp"><img src="/images/recent-work/job3218_1.jpg" alt="Well service in Pine Valley" width="1200" height="800" fetchpriority="high" decoding="async" sizes="100vw"></picture>
 <div class="rw-hero-copy">
-<p><span class="rw-kicker">6 jobs</span></p>
+<p><span class="rw-kicker">8 jobs</span></p>
 <h1>Recent work in Pine Valley</h1>
 <p>Real field photos from jobs we already finished. 2 of these have a full job note.</p>
 </div>
@@ -178,17 +186,72 @@
 <h2>Well service in Pine Valley</h2>
 <p>These cards are the proof. Call, text, or book, and open the city service page for drilling, pumps, and emergency work.</p>
 <div class="rw-actions">
-<a class="rw-call" href="tel:+17604408520">Call (760) 440-8520</a>
+<a class="rw-call" href="tel:+17604630493">Call (760) 463-0493</a>
 <a class="rw-text" href="sms:7602195877">Text (760) 219-5877</a>
 <a class="rw-est" href="/cost-calculator.html">Free estimate</a>
 <a class="rw-est" href="/services/pine-valley/">Well service in Pine Valley</a>
 </div>
 </section>
+
+<div class="flex gap-2 overflow-x-auto" id="hub-filters" style="margin:0 0 1rem">
+<button class="filter-btn active" data-filter="all" type="button">All services</button>
+<button class="filter-btn" data-filter="pump" type="button">Pump Service</button>
+<button class="filter-btn" data-filter="drilling" type="button">Well Drilling</button>
+<button class="filter-btn" data-filter="tank" type="button">Pressure Tanks</button>
+<button class="filter-btn" data-filter="water-quality" type="button">Water Quality</button>
+<button class="filter-btn" data-filter="maintenance" type="button">Maintenance</button>
+</div>
+<script>
+document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    document.querySelectorAll('#hub-filters .filter-btn').forEach(function (b) { b.classList.remove('active'); });
+    btn.classList.add('active');
+    var filter = btn.getAttribute('data-filter');
+    document.querySelectorAll('.project-card').forEach(function (card) {
+      card.style.display = (filter === 'all' || card.getAttribute('data-category') === filter) ? '' : 'none';
+    });
+  });
+});
+</script>
+
 <div class="rw-cards">
-<article class="project-card" data-category="maintenance" data-static="1" data-job="job3058">
+<article class="project-card" data-category="pump" data-town="pine-valley" data-static="1" data-job="job3218">
+<div class="project-photos triple">
+<picture><source srcset="/images/recent-work/job3218_1.webp" type="image/webp"><img src="/images/recent-work/job3218_1.jpg" alt="Install O-Ring on 4&quot; Bung in Pine Valley" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3218_1.jpg')" style="cursor:pointer"></picture>
+<picture><source srcset="/images/recent-work/job3218_2.webp" type="image/webp"><img src="/images/recent-work/job3218_2.jpg" alt="Install O-Ring on 4&quot; Bung in Pine Valley" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3218_2.jpg')" style="cursor:pointer"></picture>
+<picture><source srcset="/images/recent-work/job3218_3.webp" type="image/webp"><img src="/images/recent-work/job3218_3.jpg" alt="Install O-Ring on 4&quot; Bung in Pine Valley" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3218_3.jpg')" style="cursor:pointer"></picture>
+</div>
+<div class="p-4">
+<div class="flex items-center justify-between mb-2 gap-2">
+<span class="service-badge">Pump Service</span>
+<time class="text-xs text-gray-400" datetime="2026-08-26">August 26, 2026</time>
+</div>
+<h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/pine-valley-install-o-ring-on-4-bung.html">Install O-Ring on 4&quot; Bung</a></h3>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/pine-valley/">Pine Valley</a></p>
+<p class="text-sm text-gray-600 leading-relaxed">Pump Service in Pine Valley on August 26, 2026. Job type: Install O-Ring on 4&quot; Bung.</p>
+<p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/pine-valley-install-o-ring-on-4-bung.html">View project →</a></p>
+</div>
+</article>
+<article class="project-card" data-category="pump" data-town="pine-valley" data-static="1" data-job="job3166">
 <div class="project-photos double">
-<img src="/images/recent-work/job3058_1.jpg" alt="Well production test in Pine Valley" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job3058_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job3058_2.jpg" alt="Well production test in Pine Valley" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job3058_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job3166_1.jpg" alt="Well service in Pine Valley" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3166_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job3166_2.jpg" alt="Well service in Pine Valley" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3166_2.jpg')" style="cursor:pointer">
+</div>
+<div class="p-4">
+<div class="flex items-center justify-between mb-2 gap-2">
+<span class="service-badge">Pump Service</span>
+<time class="text-xs text-gray-400" datetime="2026-08-25">August 25, 2026</time>
+</div>
+<h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/pine-valley-well-service-4.html">Well service</a></h3>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/pine-valley/">Pine Valley</a></p>
+<p class="text-sm text-gray-600 leading-relaxed">Pump Service in Pine Valley on August 25, 2026. Job type: Well service.</p>
+<p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/pine-valley-well-service-4.html">View project →</a></p>
+</div>
+</article>
+<article class="project-card" data-category="maintenance" data-town="pine-valley" data-static="1" data-job="job3058">
+<div class="project-photos double">
+<img src="/images/recent-work/job3058_1.jpg" alt="Well production test in Pine Valley" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3058_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job3058_2.jpg" alt="Well production test in Pine Valley" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3058_2.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -196,15 +259,15 @@
 <time class="text-xs text-gray-400" datetime="2026-08-06">August 6, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/pine-valley-well-production-test.html">Well production test</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Pine Valley</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/pine-valley/">Pine Valley</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Ran production tests on a three-quarter HP well that kept tripping on dry-well. Recalibrated the pump saver so off-time matches the well&#x27;s recovery.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/pine-valley-well-production-test.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="tank" data-static="1" data-job="job2893">
+<article class="project-card" data-category="tank" data-town="pine-valley" data-static="1" data-job="job2893">
 <div class="project-photos double">
-<img src="/images/recent-work/job2893_1.jpg" alt="Storage tank adapter repair in Pine Valley" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2893_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2893_2.jpg" alt="Storage tank adapter repair in Pine Valley" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2893_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2893_1.jpg" alt="Storage tank adapter repair in Pine Valley" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2893_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2893_2.jpg" alt="Storage tank adapter repair in Pine Valley" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2893_2.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -212,15 +275,15 @@
 <time class="text-xs text-gray-400" datetime="2026-07-20">July 20, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/pine-valley-storage-tank-adapter-repair.html">Storage tank adapter repair</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Pine Valley</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/pine-valley/">Pine Valley</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Replaced a leaking 4-inch tank adapter and resealed the fitting so the storage tank would hold.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/pine-valley-storage-tank-adapter-repair.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job2683">
+<article class="project-card" data-category="pump" data-town="pine-valley" data-static="1" data-job="job2683">
 <div class="project-photos double">
-<img src="/images/recent-work/job2683_1.jpg" alt="Well service in Pine Valley" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2683_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2683_3.jpg" alt="Well service in Pine Valley" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2683_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2683_1.jpg" alt="Well service in Pine Valley" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2683_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2683_3.jpg" alt="Well service in Pine Valley" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2683_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -228,15 +291,15 @@
 <time class="text-xs text-gray-400" datetime="2026-06-19">June 19, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/pine-valley-well-service.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Pine Valley</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/pine-valley/">Pine Valley</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Pine Valley on June 19, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/pine-valley-well-service.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job2600">
+<article class="project-card" data-category="pump" data-town="pine-valley" data-static="1" data-job="job2600">
 <div class="project-photos double">
-<img src="/images/recent-work/job2600_1.jpg" alt="Pump replacement in Pine Valley" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2600_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2600_2.jpg" alt="Pump replacement in Pine Valley" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2600_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2600_1.jpg" alt="Pump replacement in Pine Valley" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2600_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2600_2.jpg" alt="Pump replacement in Pine Valley" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2600_2.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -244,16 +307,16 @@
 <time class="text-xs text-gray-400" datetime="2026-06-05">June 5, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/pine-valley-pump-replacement.html">Pump replacement</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Pine Valley</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/pine-valley/">Pine Valley</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Pine Valley on June 5, 2026. Job type: Pump replacement.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/pine-valley-pump-replacement.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job2126">
+<article class="project-card" data-category="pump" data-town="pine-valley" data-static="1" data-job="job2126">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2126_1.jpg" alt="Well service in Pine Valley" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2126_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2126_2.jpg" alt="Well service in Pine Valley" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2126_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2126_3.jpg" alt="Well service in Pine Valley" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job2126_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2126_1.jpg" alt="Well service in Pine Valley" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2126_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2126_2.jpg" alt="Well service in Pine Valley" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2126_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job2126_3.jpg" alt="Well service in Pine Valley" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2126_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -261,16 +324,16 @@
 <time class="text-xs text-gray-400" datetime="2026-04-27">April 27, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/pine-valley-well-service-2.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Pine Valley</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/pine-valley/">Pine Valley</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Pine Valley on April 27, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/pine-valley-well-service-2.html">View project →</a></p>
 </div>
 </article>
-<article class="project-card" data-category="pump" data-static="1" data-job="job1958">
+<article class="project-card" data-category="pump" data-town="pine-valley" data-static="1" data-job="job1958">
 <div class="project-photos triple">
-<img src="/images/recent-work/job1958_1.jpg" alt="Well service in Pine Valley" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1958_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1958_2.jpg" alt="Well service in Pine Valley" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1958_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1958_3.jpg" alt="Well service in Pine Valley" width="800" height="450" loading="lazy" onclick="openLightbox('/images/recent-work/job1958_3.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1958_1.jpg" alt="Well service in Pine Valley" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1958_1.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1958_2.jpg" alt="Well service in Pine Valley" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1958_2.jpg')" style="cursor:pointer">
+<img src="/images/recent-work/job1958_3.jpg" alt="Well service in Pine Valley" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1958_3.jpg')" style="cursor:pointer">
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -278,7 +341,7 @@
 <time class="text-xs text-gray-400" datetime="2026-02-23">February 23, 2026</time>
 </div>
 <h3 class="font-semibold text-gray-900 mb-1"><a class="hover:text-accent" href="/recent-work/pine-valley-well-service-3.html">Well service</a></h3>
-<p class="text-sm text-gray-500 mb-2">📍 Pine Valley</p>
+<p class="text-sm text-gray-500 mb-2">📍 <a href="/services/pine-valley/">Pine Valley</a></p>
 <p class="text-sm text-gray-600 leading-relaxed">Pump Service in Pine Valley on February 23, 2026. Job type: Well service.</p>
 <p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" href="/recent-work/pine-valley-well-service-3.html">View project →</a></p>
 </div>

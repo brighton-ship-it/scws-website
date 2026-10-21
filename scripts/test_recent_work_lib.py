@@ -71,6 +71,23 @@ class SanitizeTests(unittest.TestCase):
         self.assertEqual(public_location("123 Oak Ln"), "")
         self.assertEqual(public_location(""), "")
 
+    def test_clean_title_drops_customer_words_and_keeps_service_calls(self):
+        from recent_work_lib import clean_public_title
+
+        self.assertEqual(clean_public_title("Service Call Please call with ETA"), "Well service")
+        self.assertNotIn("His", clean_public_title("Set His Power Pole"))
+        self.assertIn("Pump", clean_public_title("Replace Pump, Motor & Control – Job #3625"))
+        self.assertNotIn("3625", clean_public_title("Replace Pump, Motor & Control – Job #3625"))
+
+    def test_safeguards_stay(self):
+        from recent_work_lib import SITEMAP_EXCLUDED_HUB_SLUGS
+        from recent_work_render import TYPO_HUB_ALIASES
+
+        self.assertIn("owonga", SITEMAP_EXCLUDED_HUB_SLUGS)
+        self.assertIn("marietta", SITEMAP_EXCLUDED_HUB_SLUGS)
+        self.assertEqual(TYPO_HUB_ALIASES["owonga"], "aguanga")
+        self.assertEqual(TYPO_HUB_ALIASES["marietta"], "murrieta")
+
     def test_public_safe_title(self):
         self.assertTrue(is_public_safe_title("Pull & replace pump and motor"))
         self.assertFalse(is_public_safe_title("Smith residence"))
@@ -293,7 +310,6 @@ class HtmlTests(unittest.TestCase):
         self.assertIn(CARD_MARKERS[1], text)
         self.assertLessEqual(text.count('class="project-card"'), PAGE_SIZE)
         self.assertGreaterEqual(text.count('class="project-card"'), 1)
-        self.assertIn("job3174", text)
         self.assertIn("7602195877", text)
         self.assertIn("(760) 440-8520", text)
         listing_text = "\n".join(
@@ -331,13 +347,17 @@ class HtmlTests(unittest.TestCase):
             self.assertTrue((Path(tmp) / "page-2.html").exists())
             expected_pages = max(1, (len(data["projects"]) + PAGE_SIZE - 1) // PAGE_SIZE)
             self.assertEqual(len(pages), expected_pages)
-        self.assertIn("7602195877", rewritten)
-        self.assertIn("(760) 440-8520", rewritten)
-        self.assertIn('data-job="job3174"', rewritten)
+            self.assertIn("7602195877", rewritten)
+            self.assertIn("(760) 440-8520", rewritten)
+            rewritten_listing = rewritten + "\n".join(
+                page.read_text() for page in Path(tmp).glob("page-*.html")
+            )
+            self.assertIn('data-job="job3174"', rewritten_listing)
+            self.assertIn('data-town=', rewritten)
 
 
 class DryRunCliTests(unittest.TestCase):
-    def test_fixture_dry_run_waits_for_audit_keep(self):
+    def test_fixture_dry_run_publishes_unreviewed_field_photo(self):
         fixture = {
             "jobs": [
                 {

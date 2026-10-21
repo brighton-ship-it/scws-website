@@ -104,8 +104,16 @@ CATEGORY_LABELS = {
 
 PUBLIC_TITLE_RE = re.compile(
     r"pump|well|tank|motor|drill|filter|treatment|inspect|maintenance|"
-    r"wire|controller|booster|chlorin|pressure|install|repair|replace",
+    r"wire|controller|booster|chlorin|pressure|install|repair|replace|"
+    r"leak|plumb|valve|float|vfd|generator|hydrant|cap\b|produc|evaluat",
     re.I,
+)
+# Organic-search tracking line. Header and text numbers stay on the shop lines.
+SEO_PHONE_DISPLAY = "(760) 463-0493"
+SEO_PHONE_TEL = "+17604630493"
+FILTER_MARKERS = (
+    "<!-- RECENT_WORK_FILTERS_START -->",
+    "<!-- RECENT_WORK_FILTERS_END -->",
 )
 
 
@@ -148,6 +156,29 @@ def is_public_safe_title(title: str) -> bool:
     if PRICE_RE.search(t):
         return False
     return bool(PUBLIC_TITLE_RE.search(t))
+
+
+def clean_public_title(title: str) -> str:
+    """Turn a Jobber title into public copy. Drops job numbers and customer words."""
+    raw = (title or "").strip()
+    text = re.sub(r"\bjob\s*#?\s*\d+\b", " ", raw, flags=re.I)
+    text = re.sub(r"\bplease call\b.*", " ", text, flags=re.I)
+    text = re.sub(r"\b(?:his|her|their|customer'?s?)\b", " ", text, flags=re.I)
+    text = re.sub(r"@\s*well\s*#?\s*\d+", " ", text, flags=re.I)
+    text = re.sub(r"\s+", " ", text).strip(" -–—,;/")
+    if is_public_safe_title(text):
+        return text
+    shorter = re.sub(r"~?\b\d{3,5}\b", " ", text)
+    shorter = re.sub(r"\s+", " ", shorter).strip(" -–—,;@/")
+    if is_public_safe_title(shorter):
+        return shorter
+    if re.search(r"service call|site walk|job walk|system check|site visit", raw, re.I):
+        return "Well service"
+    if re.search(r"\bvideo\b", raw, re.I):
+        return "Well video survey"
+    if re.search(r"\bleak\b", raw, re.I):
+        return "Well leak repair"
+    return shorter
 
 
 def sanitize_public_text(text: str, *, fallback: str = "") -> str:
@@ -321,10 +352,12 @@ def build_project(
     *,
     taken_slugs: Iterable[str],
 ) -> dict[str, Any] | None:
-    title = sanitize_public_text((job.get("title") or "").strip())
+    title = clean_public_title(sanitize_public_text((job.get("title") or "").strip()))
     if not is_public_safe_title(title):
         return None
     city = public_location(((job.get("property") or {}).get("address") or {}).get("city"))
+    if city and (city.islower() or city.isupper()):
+        city = city.title()
     if not city:
         return None
     if not photo_files:
@@ -461,6 +494,35 @@ def public_photos(project: dict[str, Any]) -> list[dict[str, Any]]:
     return kept
 
 
+def responsive_photo_html(
+    filename: str,
+    alt: str,
+    *,
+    prefix: str,
+    lazy: bool = True,
+    width: int = 800,
+    height: int = 450,
+    sizes: str = "(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw",
+    lightbox: bool = True,
+) -> str:
+    """JPEG with a WebP source when the sibling file exists. Width and height are set."""
+    jpg = f"{prefix}{filename}"
+    alt_e = html.escape(alt, quote=True)
+    loading = ' loading="lazy"' if lazy else ' fetchpriority="high"'
+    click = f" onclick=\"openLightbox('{jpg}')\" style=\"cursor:pointer\"" if lightbox else ""
+    img = (
+        f'<img src="{jpg}" alt="{alt_e}" width="{width}" height="{height}"{loading} '
+        f'decoding="async" sizes="{sizes}"{click}>'
+    )
+    webp_name = str(Path(filename).with_suffix(".webp"))
+    webp_path = PHOTO_DIR / webp_name
+    jpg_path = PHOTO_DIR / filename
+    if webp_path.is_file() and jpg_path.is_file() and webp_path.stat().st_size < jpg_path.stat().st_size:
+        webp = f"{prefix}{webp_name}"
+        return f'<picture><source srcset="{webp}" type="image/webp">{img}</picture>'
+    return img
+
+
 def card_html(
     project: dict[str, Any],
     *,
@@ -471,26 +533,34 @@ def card_html(
     grid = {0: "empty", 1: "single", 2: "double"}.get(len(photos), "triple")
     caption = photo_caption(project)
     if photos:
-        img_bits = []
-        for photo in photos:
-            src = f"{image_prefix}{photo['file']}"
-            alt = html.escape(caption, quote=True)
-            img_bits.append(
-                f'<img src="{src}" alt="{alt}" width="800" height="450" loading="lazy" '
-                f'onclick="openLightbox(\'{src}\')" style="cursor:pointer">'
-            )
+        img_bits = [
+            responsive_photo_html(photo["file"], caption, prefix=image_prefix)
+            for photo in photos
+        ]
         photos_html = "\n".join(img_bits)
     else:
         photos_html = (
             '<div class="photo-fallback" role="img" aria-label="Field photo unavailable"></div>'
         )
     title = html.escape(project["title"])
-    location = html.escape(public_place_label(project.get("location") or ""))
+    place = public_place_label(project.get("location") or "")
+    city = card_city_only(project.get("location") or "") or place
+    town_slug = city_slug_from_location(project.get("location") or "")
+    service_href = city_service_href(project.get("location") or "")
+    if service_href:
+        location_html = f'<a href="{html.escape(service_href)}">{html.escape(city)}</a>'
+    elif town_slug:
+        location_html = (
+            f'<a href="{href_prefix}areas/{html.escape(town_slug)}.html">{html.escape(city)}</a>'
+        )
+    else:
+        location_html = html.escape(place)
     summary = html.escape(public_body_summary(project))
     slug = html.escape(project["slug"])
     href = f"{href_prefix}{slug}.html"
     return (
         f'<article class="project-card" data-category="{html.escape(project["category"])}" '
+        f'data-town="{html.escape(town_slug)}" '
         f'data-static="1" data-job="{html.escape(project["id"])}">\n'
         f'<div class="project-photos {grid}">\n'
         f"{photos_html}\n"
@@ -503,7 +573,7 @@ def card_html(
         f"</div>\n"
         f'<h3 class="font-semibold text-gray-900 mb-1">'
         f'<a class="hover:text-accent" href="{href}">{title}</a></h3>\n'
-        f'<p class="text-sm text-gray-500 mb-2">📍 {location}</p>\n'
+        f'<p class="text-sm text-gray-500 mb-2">📍 {location_html}</p>\n'
         f'<p class="text-sm text-gray-600 leading-relaxed">{summary}</p>\n'
         f'<p class="mt-3"><a class="text-accent text-sm font-semibold hover:underline" '
         f'href="{href}">View project →</a></p>\n'
@@ -1391,6 +1461,53 @@ def jsonld_items(projects: list[dict[str, Any]]) -> str:
     )
 
 
+def listing_filters_html(projects: list[dict[str, Any]]) -> str:
+    """Service buttons plus a town menu. Town choices open that city's hub."""
+    buttons = [
+        '<button class="filter-btn active" data-filter="all" type="button">All services</button>',
+        '<button class="filter-btn" data-filter="pump" type="button">Pump Service</button>',
+        '<button class="filter-btn" data-filter="drilling" type="button">Well Drilling</button>',
+        '<button class="filter-btn" data-filter="tank" type="button">Pressure Tanks</button>',
+        '<button class="filter-btn" data-filter="water-quality" type="button">Water Quality</button>',
+        '<button class="filter-btn" data-filter="maintenance" type="button">Maintenance</button>',
+    ]
+    options = ['<option value="">All towns</option>']
+    for hub in iter_city_hubs(projects):
+        if hub["slug"] in SITEMAP_EXCLUDED_HUB_SLUGS:
+            continue
+        label = html.escape(hub["label"])
+        slug = html.escape(hub["slug"])
+        options.append(
+            f'<option value="areas/{slug}.html">{label} ({len(hub["projects"])})</option>'
+        )
+    return (
+        '<section class="sticky top-[72px] z-40 bg-white border-b shadow-sm" id="recent-work-filters">\n'
+        '<div class="max-w-7xl mx-auto px-4 py-3 flex gap-2 overflow-x-auto items-center" id="filters">\n'
+        + "\n".join(buttons)
+        + '\n<label class="text-sm text-gray-600 flex items-center gap-2 shrink-0">'
+        'Town <select id="town-filter" class="border border-gray-300 rounded-full px-3 py-1 text-sm" '
+        'aria-label="Filter by town">\n'
+        + "\n".join(options)
+        + "\n</select></label>\n"
+        '<a class="filter-btn shrink-0" href="tel:+17604630493">Call (760) 463-0493</a>\n'
+        "</div>\n</section>"
+    )
+
+
+def _replace_filters(text: str, projects: list[dict[str, Any]]) -> str:
+    start, end = FILTER_MARKERS
+    block = f"{start}\n{listing_filters_html(projects)}\n{end}"
+    if start in text and end in text:
+        return re.sub(
+            re.escape(start) + r".*?" + re.escape(end),
+            lambda _: block,
+            text,
+            count=1,
+            flags=re.S,
+        )
+    return text
+
+
 def update_index_html(projects: list[dict[str, Any]]) -> None:
     text = INDEX_HTML.read_text()
     start, end = CARD_MARKERS
@@ -1408,6 +1525,7 @@ def update_index_html(projects: list[dict[str, Any]]) -> None:
     page1 = _replace_pagination(page1, 1, total_pages)
     page1 = _set_listing_head(page1, 1, total_pages)
     page1 = _replace_areas(page1, projects)
+    page1 = _replace_filters(page1, projects)
     page1 = JSONLD_ITEMLIST_RE.sub(lambda _: jsonld_items(pages[0]), page1, count=1)
     INDEX_HTML.write_text(page1)
 

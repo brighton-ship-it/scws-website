@@ -23,6 +23,7 @@ from recent_work_lib import (
     public_body_summary,
     public_photos,
     public_place_label,
+    responsive_photo_html,
     service_page_href,
 )
 
@@ -33,8 +34,13 @@ def _esc(value: object) -> str:
     return html.escape(str(value or ""), quote=True)
 
 
-def _chrome(title: str, description: str, canonical: str, *, robots: str, og_image: str, json_ld: dict, body: str) -> str:
+def _chrome(title: str, description: str, canonical: str, *, robots: str, og_image: str, json_ld: dict, body: str, extra_json_ld: dict | None = None) -> str:
     robots_tag = f'<meta name="robots" content="{robots}"/>\n' if robots else ""
+    ld_blocks = [json_ld] + ([extra_json_ld] if extra_json_ld else [])
+    ld_html = "\n".join(
+        '<script type="application/ld+json">\n' + json.dumps(block, indent=2) + "\n</script>"
+        for block in ld_blocks
+    )
     return f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -59,9 +65,7 @@ def _chrome(title: str, description: str, canonical: str, *, robots: str, og_ima
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" onload="this.onload=null;this.rel='stylesheet'" rel="preload"/>
 <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/></noscript>
-<script type="application/ld+json">
-{json.dumps(json_ld, indent=2)}
-</script>
+{ld_html}
 <style>
     .rw-hero {{ position: relative; background: #1f3b4d; }}
     .rw-hero img {{ width: 100%; height: 280px; object-fit: cover; display: block; }}
@@ -106,6 +110,11 @@ def _chrome(title: str, description: str, canonical: str, *, robots: str, og_ima
     .rw-est {{ background: #4e9271; color: #fff; }}
     .rw-links {{ margin-top: 1rem; display: flex; flex-direction: column; gap: 0.35rem; }}
     .rw-links a {{ color: #fff; font-weight: 600; }}
+    .filter-btn {{
+        padding: 6px 14px; border-radius: 999px; border: 1px solid #ddd; background: #fff;
+        font-size: 0.875rem; cursor: pointer;
+    }}
+    .filter-btn.active {{ background: #1a73a7; color: #fff; border-color: #1a73a7; }}
     .rw-cards {{ display: grid; gap: 1.25rem; }}
     .project-card {{ background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }}
     .project-photos {{ display: grid; gap: 4px; aspect-ratio: 16/9; overflow: hidden; }}
@@ -113,6 +122,9 @@ def _chrome(title: str, description: str, canonical: str, *, robots: str, og_ima
     .project-photos.double {{ grid-template-columns: 1fr 1fr; }}
     .project-photos.triple {{ grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; }}
     .project-photos.triple img:first-child {{ grid-row: 1 / -1; }}
+    .project-photos picture {{ display: block; width: 100%; height: 100%; min-height: 0; }}
+    .project-photos.triple img:first-child,
+    .project-photos.triple picture:first-child {{ grid-row: 1 / -1; }}
     .project-photos img {{ width: 100%; height: 100%; object-fit: cover; }}
     .project-photos.empty, .photo-fallback {{
         background: linear-gradient(135deg, #1f3b4d, #4e9271);
@@ -265,18 +277,30 @@ def render_job_page(project: dict[str, Any], *, title: str, description: str) ->
 
     hero_img = ""
     if photos:
-        src = f"/images/recent-work/{photos[0]['file']}"
-        hero_img = f'<img src="{_esc(src)}" alt="{_esc(caption)}" width="1200" height="800" onclick="openLightbox(this.src)">'
+        hero_img = responsive_photo_html(
+            photos[0]["file"],
+            caption,
+            prefix="/images/recent-work/",
+            lazy=False,
+            width=1200,
+            height=800,
+            sizes="100vw",
+        )
     else:
         hero_img = '<div style="height:240px;background:linear-gradient(135deg,#1f3b4d,#4e9271)"></div>'
     thumbs = ""
     if len(photos) > 1:
-        bits = []
-        for photo in photos:
-            src = f"/images/recent-work/{photo['file']}"
-            bits.append(
-                f'<img src="{_esc(src)}" alt="{_esc(caption)}" width="400" height="300" loading="lazy" onclick="openLightbox(this.src)">'
+        bits = [
+            responsive_photo_html(
+                photo["file"],
+                caption,
+                prefix="/images/recent-work/",
+                width=400,
+                height=300,
+                sizes="140px",
             )
+            for photo in photos[1:]
+        ]
         thumbs = f'<div class="rw-thumbs">{"".join(bits)}</div>'
 
     fact_html = []
@@ -332,7 +356,7 @@ def render_job_page(project: dict[str, Any], *, title: str, description: str) ->
 <h2>Need well service in {_esc(city or place)}?</h2>
 <p>Call the Ramona or Anza shop, text the shop line, or request an estimate. We will tell you whether it sounds like a control, a pump, or a well.</p>
 <div class="rw-actions">
-<a class="rw-call" href="tel:+17604408520">Call (760) 440-8520</a>
+<a class="rw-call" href="tel:+17604630493">Call (760) 463-0493</a>
 <a class="rw-text" href="sms:7602195877">Text (760) 219-5877</a>
 <a class="rw-est" href="/cost-calculator.html">Free estimate</a>
 </div>
@@ -359,8 +383,33 @@ def render_job_page(project: dict[str, Any], *, title: str, description: str) ->
         "url": canonical,
         "image": og_image,
     }
+    service_ld = {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": headline,
+        "serviceType": project.get("categoryLabel") or "Well service",
+        "description": description,
+        "url": canonical,
+        "image": og_image,
+        "areaServed": {"@type": "City", "name": city or place or "Southern California"},
+        "provider": {
+            "@type": "HomeAndConstructionBusiness",
+            "name": "Southern California Well Service",
+            "telephone": "+1-760-463-0493",
+            "url": f"{SITE}/",
+        },
+    }
     robots = "" if indexable else "noindex, follow"
-    return _chrome(title, description, canonical, robots=robots, og_image=og_image, json_ld=json_ld, body=body)
+    return _chrome(
+        title,
+        description,
+        canonical,
+        robots=robots,
+        og_image=og_image,
+        json_ld=json_ld,
+        extra_json_ld=service_ld,
+        body=body,
+    )
 
 
 
@@ -421,10 +470,41 @@ def render_city_hub(hub: dict[str, Any]) -> str:
             hero_photo = f"/images/recent-work/{photos[0]['file']}"
             break
     hero_img = (
-        f'<img src="{_esc(hero_photo)}" alt="{_esc("Well service in " + label)}" width="1200" height="800">'
+        responsive_photo_html(
+            hero_photo.rsplit("/", 1)[-1],
+            "Well service in " + label,
+            prefix="/images/recent-work/",
+            lazy=False,
+            width=1200,
+            height=800,
+            sizes="100vw",
+            lightbox=False,
+        )
         if hero_photo
         else '<div style="height:220px;background:linear-gradient(135deg,#1f3b4d,#4e9271)"></div>'
     )
+    service_filters = """
+<div class="flex gap-2 overflow-x-auto" id="hub-filters" style="margin:0 0 1rem">
+<button class="filter-btn active" data-filter="all" type="button">All services</button>
+<button class="filter-btn" data-filter="pump" type="button">Pump Service</button>
+<button class="filter-btn" data-filter="drilling" type="button">Well Drilling</button>
+<button class="filter-btn" data-filter="tank" type="button">Pressure Tanks</button>
+<button class="filter-btn" data-filter="water-quality" type="button">Water Quality</button>
+<button class="filter-btn" data-filter="maintenance" type="button">Maintenance</button>
+</div>
+<script>
+document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    document.querySelectorAll('#hub-filters .filter-btn').forEach(function (b) { b.classList.remove('active'); });
+    btn.classList.add('active');
+    var filter = btn.getAttribute('data-filter');
+    document.querySelectorAll('.project-card').forEach(function (card) {
+      card.style.display = (filter === 'all' || card.getAttribute('data-category') === filter) ? '' : 'none';
+    });
+  });
+});
+</script>
+"""
     cards = "\n".join(
         card_html(project, image_prefix="/images/recent-work/", href_prefix="/recent-work/")
         for project in projects
@@ -453,12 +533,13 @@ def render_city_hub(hub: dict[str, Any]) -> str:
 <h2>Well service in {_esc(label)}</h2>
 <p>These cards are the proof. Call, text, or book, and open the city service page for drilling, pumps, and emergency work.</p>
 <div class="rw-actions">
-<a class="rw-call" href="tel:+17604408520">Call (760) 440-8520</a>
+<a class="rw-call" href="tel:+17604630493">Call (760) 463-0493</a>
 <a class="rw-text" href="sms:7602195877">Text (760) 219-5877</a>
 <a class="rw-est" href="/cost-calculator.html">Free estimate</a>
 {service_link}
 </div>
 </section>
+{service_filters}
 <div class="rw-cards">
 {cards}
 </div>

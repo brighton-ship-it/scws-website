@@ -26,9 +26,10 @@ Existing cards stay as-is until this command actually adds a new job.
 Photos are downloaded from Jobber note attachments — not GBP copies,
 not generated pixels. Public text is title + city/area only.
 
-A photo is published only after Brighton taps Keep on
-https://scwellservice.com/ops/photo-audit/ (see ops/photo-audit/README.md).
-Rejected and unreviewed photos are skipped. Job 3224 is never featured.
+Rejected photos and permanent-skip jobs stay off the site. Job 3224 is never
+featured. A field photo that has not been reviewed yet is published so the
+Monday run keeps adding finished jobs. Paperwork is still dropped later by
+recent-work/paperwork-photos.txt. Keep on the photo audit is optional.
 
 See recent-work/README.md for the full checklist.
 """
@@ -52,6 +53,7 @@ from photo_audit_lib import (  # noqa: E402
     load_decisions,
     normalize_job_id,
     permanent_skip_reason,
+    rejected_photo_indexes,
     shop_location_label,
 )
 from recent_work_lib import (  # noqa: E402
@@ -82,6 +84,10 @@ def save_jpeg(data: bytes, dest: Path) -> bool:
         image = image.convert("RGB")
         image.thumbnail((1280, 1280))
         image.save(dest, "JPEG", quality=72, optimize=True, progressive=True)
+        try:
+            image.save(dest.with_suffix(".webp"), "WEBP", quality=72, method=4)
+        except Exception:
+            pass
         return True
     except Exception as exc:  # noqa: BLE001 — skip bad files, keep the run going
         print(f"  skip unreadable image {dest.name}: {exc}")
@@ -186,11 +192,14 @@ def main(argv: list[str] | None = None) -> int:
             skipped.append(f"{job_id} no image attachments")
             continue
         kept = kept_photo_indexes(job_id, decisions)
-        if not kept:
-            skipped.append(f"{job_id} waiting for photo-audit keep")
-            continue
-        if not any(i in kept for i in range(1, len(attachments) + 1)):
-            skipped.append(f"{job_id} no kept photos")
+        rejected = rejected_photo_indexes(job_id, decisions)
+        if kept:
+            chosen = {i for i in kept if i not in rejected and i <= len(attachments)}
+        else:
+            # Unreviewed field photos still publish. Explicit rejects never do.
+            chosen = {i for i in range(1, len(attachments) + 1) if i not in rejected}
+        if not chosen:
+            skipped.append(f"{job_id} no publishable photos")
             continue
         raw_city = ((job.get("property") or {}).get("address") or {}).get("city") or ""
         if not public_location(raw_city):
@@ -206,10 +215,10 @@ def main(argv: list[str] | None = None) -> int:
                 },
             }
         if args.dry_run:
-            photo_files = [f"{job_id}_{i}.jpg" for i in sorted(kept)[: args.max_photos]]
+            photo_files = [f"{job_id}_{i}.jpg" for i in sorted(chosen)[: args.max_photos]]
         else:
             photo_files = download_job_photos(
-                job, max_photos=args.max_photos, only_indexes=kept
+                job, max_photos=args.max_photos, only_indexes=chosen
             )
         if not photo_files:
             skipped.append(f"{job_id} kept photos failed to download")
