@@ -693,7 +693,7 @@ function newTownPage(meta, jobs, reviews) {
     '<h1>Well Services in ' + esc(meta.name) + ', CA</h1>\n' +
     '<p>' + jobs.length + ' photographed jobs in ' + esc(meta.name) + ', ' + esc(meta.county) + ', from ' + esc(span) + '.</p>\n' +
     '<a class="cta-button" href="' + PHONE_TEL + '">Call ' + PHONE_DISPLAY + '</a>\n' +
-    '<a id="scws-book-online" class="scws-book-online" href="/contact.html">Book online</a>\n' +
+    '<a id="scws-book-online" class="scws-book-online" href="https://clienthub.getjobber.com/hubs/7c569177-85d0-4bac-9c7f-e2afe6652ee1/public/requests/1604593/new" target="_blank" rel="noopener">Book online</a>\n' +
     '</section>\n<section class="city-overview">\n' +
     '<h2>Well service in ' + esc(meta.name) + '</h2>\n' +
     '<p>' + esc(localTownLead(meta, jobs, span, mix)) + '</p>\n' +
@@ -721,7 +721,7 @@ function newTownPage(meta, jobs, reviews) {
     '</div></section>\n' +
     '<div class="contact-cta"><h2>Call SCWS for ' + esc(meta.name) + '</h2>\n' +
     '<p class="phone-large"><a href="' + PHONE_TEL + '">' + PHONE_DISPLAY + '</a></p>\n' +
-    '<p><a id="scws-book-online-cta" class="scws-book-online" href="/contact.html">Book online</a></p>\n' +
+    '<p><a id="scws-book-online-cta" class="scws-book-online" href="https://clienthub.getjobber.com/hubs/7c569177-85d0-4bac-9c7f-e2afe6652ee1/public/requests/1604593/new" target="_blank" rel="noopener">Book online</a></p>\n' +
     '<p>Licensed C-57 · CSLB #1086994</p></div>\n' +
     '</main>\n' +
     '<footer class="shop-footer-nap" style="background:#0f172a;color:#94a3b8;padding:2rem 1rem;">\n' +
