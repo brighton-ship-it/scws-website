@@ -3414,7 +3414,9 @@
             },
             {
                 "file": "job2921_2.jpg",
-                "alt": "Well service in Anza"
+                "alt": "Well service in Anza",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             }
         ]
     },
@@ -3431,7 +3433,9 @@
         "photos": [
             {
                 "file": "job2900_1.jpg",
-                "alt": "Well service in El Cajon"
+                "alt": "Well service in El Cajon",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             }
         ]
     },

@@ -289,12 +289,13 @@ class HtmlTests(unittest.TestCase):
         }
         self.assertEqual(
             [photo["file"] for photo in public_photos(project)],
-            ["job3149_2.jpg", "job3149_3.jpg"],
+            ["job3149_2.jpg"],
         )
         markup = card_html(project, image_prefix="/images/recent-work/")
         self.assertNotIn("job3149_1.jpg", markup)
+        self.assertNotIn("job3149_3.jpg", markup)
         self.assertIn("job3149_2.jpg", markup)
-        self.assertIn("project-photos double", markup)
+        self.assertIn("project-photos single", markup)
 
         paper_only = dict(project, photos=[{"file": "job3149_1.jpg"}])
         fallback = card_html(paper_only)
@@ -552,6 +553,7 @@ class MoneyPageCardTests(unittest.TestCase):
     def test_live_money_pages_have_photo_cards(self):
         apply_money_page_recent_work()
         root = Path(__file__).resolve().parents[1]
+        projects = load_projects()["projects"]
         pii = re.compile(
             r"\b(Hanson|Cathedral Way|Highland Valley)\b|\$\d|\(\d{3}\)\s*\d{3}"
         )
@@ -564,7 +566,11 @@ class MoneyPageCardTests(unittest.TestCase):
             self.assertLessEqual(len(cards), 6, rel)
             section = html_out.split('id="recent-jobs"', 1)[1].split("</section>", 1)[0]
             self.assertIsNone(pii.search(section), rel)
+            # A preferred slug with no public field photo is left off the card row.
+            photo_slugs = {p["slug"] for p in projects_by_slugs(projects, slugs)}
             for slug in slugs[:3]:
+                if slug not in photo_slugs:
+                    continue
                 self.assertIn(f"/recent-work/{slug}.html", html_out)
             self.assertIn("cta-call", html_out)
             self.assertIn("cta-est", html_out)
