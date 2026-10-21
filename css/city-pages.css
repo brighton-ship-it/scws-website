@@ -10,6 +10,7 @@ main.service-page {
   background: #f8fafc;
   color: #1e293b;
   display: block;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
 .city-landing h2,

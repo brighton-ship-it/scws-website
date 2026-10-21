@@ -269,7 +269,7 @@ function extrasHtml(town, jobs, reviews, includeJobs) {
     jobsBlock =
       '<section class="recent-jobs-cards" id="recent-jobs">\n' +
       '<h2>Recent jobs in ' + esc(town) + '</h2>\n' +
-      '<p class="rw-lede">' + (cards ? 'Latest photographed jobs filed in ' + esc(town) + '.' : 'No photographed job is filed under ' + esc(town) + ' yet.') + '</p>\n' +
+      '<p class="rw-lede">' + (cards ? 'Latest photographed jobs in ' + esc(town) + '.' : 'No photographed job in ' + esc(town) + ' yet.') + '</p>\n' +
       (cards ? '<div class="recent-work-grid">\n' + cards + '\n</div>\n' : '') +
       '<p class="rw-all"><a href="' + areaHref + '">Recent work in ' + esc(town) + '</a> · <a href="/recent-work/">All recent work</a></p>\n' +
       '</section>\n';
@@ -610,6 +610,22 @@ const NEW_TOWNS = [
   { slug: 'ocotillo', name: 'Ocotillo', county: 'Imperial County' }
 ];
 
+const LOCAL_LEADS = {
+  pala: 'Pala sits in the Peninsular Ranges of northern San Diego County, where private wells draw from decomposed granite and fractured crystalline bedrock. Completion reports for 155 wells in Pala put the average depth at 390 feet and the median at 271 feet, from 20 feet to 2,774 feet.',
+  dulzura: 'Dulzura\'s ground mixes granite, metavolcanic rock, decomposed granite, and ribbons of alluvium along creeks such as Dulzura Creek, so well depth varies widely. Completion reports for 101 wells put the average at 513 feet and the median at 470 feet, from 52 feet to 1,300 feet.',
+  potrero: 'Potrero is north of the Tecate border crossing, in the fractured granitic bedrock of the Peninsular Ranges. Completion reports for 105 wells put the average depth at 511 feet and the median at 480 feet, with the deepest at 1,600 feet.',
+  'palomar-mountain': 'Almost every home on Palomar Mountain depends on a private well drilled into granite. Completion reports for 119 wells there put the average depth at 386 feet and the median at 365 feet, with the deepest at 1,055 feet.',
+  'thousand-palms': 'Thousand Palms is in the Coachella Valley of Riverside County, between Palm Desert and Indio. Groundwater here is stored in alluvial sand and gravel washed out of the surrounding mountains, not in the fractured granite of the mountain backcountry.',
+  norco: 'Norco sits in the Santa Ana River valley in western Riverside County. Much of the valley floor is sand and gravel alluvium, and wells finished in that material draw water through the spaces between grains rather than through cracks in rock. Completion reports for 264 wells in Norco put the average depth at 87 feet and the median at 50 feet.',
+  'big-bear-city': 'Big Bear City wells tap Bear Valley groundwater that lives largely in fractures in hard granite, fed by snowmelt and rain. Completion reports for 160 wells put both the average and the median at 200 feet, from 18 feet to 810 feet.',
+  ocotillo: 'Ocotillo is in Imperial County, in the desert along Interstate 8 west of El Centro, between the Jacumba Mountains and the Yuha Desert. Wells here are finished in desert basin fill or in rock where the mountains meet the basin.'
+};
+
+function localTownLead(meta, jobs, span, mix) {
+  const local = LOCAL_LEADS[meta.slug] || (meta.name + ' is in ' + meta.county + '.');
+  return local + ' From ' + span + ' we finished ' + jobs.length + ' jobs (' + mix + '). Call ' + PHONE_DISPLAY + '. CSLB #1086994. Shops are in Ramona (1077 Main Street, Unit B) and Anza (57174 CA-371).';
+}
+
 function newTownPage(meta, jobs, reviews) {
   const cards = jobCards(jobs, 6);
   const titles = [];
@@ -680,8 +696,8 @@ function newTownPage(meta, jobs, reviews) {
     '<a id="scws-book-online" class="scws-book-online" href="/contact.html">Book online</a>\n' +
     '</section>\n<section class="city-overview">\n' +
     '<h2>Well service in ' + esc(meta.name) + '</h2>\n' +
-    '<p>Southern California Well Service has ' + jobs.length + ' finished jobs filed under ' + esc(meta.name) + ' in the public recent-work set, dated ' + esc(span) + '. The mix is ' + esc(mix) + '. Shops are in Ramona (1077 Main Street, Unit B) and Anza (57174 CA-371). Voice ' + PHONE_DISPLAY + '. CSLB #1086994.</p>\n' +
-    (richHtml ? '<h3>Job notes from the field</h3>\n<ul>\n' + richHtml + '\n</ul>\n' : '<p>Each card below is a finished visit: the job title, the date, and the field photo.</p>\n') +
+    '<p>' + esc(localTownLead(meta, jobs, span, mix)) + '</p>\n' +
+    (richHtml ? '<h3>Job notes from the field</h3>\n<ul>\n' + richHtml + '\n</ul>\n' : '<p>The cards below are those visits.</p>\n') +
     '<h3>Services</h3>\n<ul class="service-links">\n' +
     '<li><a href="/pages/services/well-drilling.html">Well drilling</a></li>\n' +
     '<li><a href="/pages/services/pump-repair.html">Pump repair</a></li>\n' +
