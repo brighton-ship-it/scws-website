@@ -376,7 +376,7 @@ function hubBlock(which) {
     shop =
       '<section class="hub-shop-card" id="murrieta-shop">\n' +
       '<h2>Murrieta shop <span class="hub-coming-soon">Coming soon</span></h2>\n' +
-      '<p>There is no Murrieta shop address yet. Do not use a street address for a Murrieta location.</p>\n' +
+      '<p>A Murrieta shop is coming soon. There is no Murrieta street address yet.</p>\n' +
       '<p>Murrieta jobs are covered from the Anza shop at 57174 CA-371 (US Hwy 79), Anza, CA 92539. Voice <a href="' + PHONE_TEL + '">' + PHONE_DISPLAY + '</a>. Text <a href="' + TEXT_SMS + '">' + TEXT_DISPLAY + '</a>.</p>\n' +
       '<div class="hub-map">\n' +
       '<iframe title="Map of the Anza shop, which covers Murrieta until a Murrieta shop opens" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=57174%20CA-371%20Anza%20CA%2092539&amp;z=15&amp;output=embed"></iframe>\n' +
@@ -402,7 +402,7 @@ function hubBlock(which) {
     '<h2>Questions about the ' + faqTown + ' shop</h2>\n' +
     '<details open><summary>Which phone number is the voice line?</summary><p>Call <a href="' + PHONE_TEL + '">' + PHONE_DISPLAY + '</a>. Text <a href="' + TEXT_SMS + '">' + TEXT_DISPLAY + '</a> is text-only. CSLB #1086994 (C-57).</p></details>\n' +
     '<details><summary>Where do the published price ranges come from?</summary><p>The ranges in the cost section are copied from the cost calculator already on this site. Pump-replacement figures already on the Ramona and Anza pages, where present, are invoice ranges and stay on those pages.</p></details>\n' +
-    '<details><summary>How do I book?</summary><p><a href="/contact.html">Book online</a> uses the estimate form. A Jobber online request link is not in the site or scws-jobs.</p></details>\n' +
+    '<details><summary>How do I book?</summary><p><a href="/contact.html">Book online</a> opens the estimate form. Call <a href="' + PHONE_TEL + '">' + PHONE_DISPLAY + '</a> if you would rather talk to the shop.</p></details>\n' +
     '</section>\n';
   return '<!-- HUB_DEPTH_START -->\n<section class="hub-depth" id="hub-depth">\n' + shop + cost + faq + placeholders + '</section>\n<!-- HUB_DEPTH_END -->\n';
 }
@@ -512,7 +512,7 @@ function reviewsPage(list) {
     '<h2>Shops</h2>\n' +
     '<p><strong>Ramona:</strong> 1077 Main Street, Unit B, Ramona, CA 92065</p>\n' +
     '<p><strong>Anza:</strong> 57174 CA-371 (US Hwy 79), Anza, CA 92539</p>\n' +
-    '<p>CSLB #1086994 (C-57). The pages/reviews.html URL is unchanged.</p>\n' +
+    '<p>CSLB #1086994 (C-57).</p>\n' +
     '</div>\n</section>\n</main>\n' +
     '<footer class="shop-footer-nap" style="background:#0f172a;color:#94a3b8;padding:2rem 1rem;">\n' +
     '<p>Voice <a href="' + PHONE_TEL + '">' + PHONE_DISPLAY + '</a> · Text <a href="' + TEXT_SMS + '">' + TEXT_DISPLAY + '</a></p>\n' +
@@ -656,7 +656,7 @@ function newTownPage(meta, jobs, reviews) {
     '</section>\n<section class="city-overview">\n' +
     '<h2>Well service in ' + esc(meta.name) + '</h2>\n' +
     '<p>Southern California Well Service has ' + jobs.length + ' finished jobs filed under ' + esc(meta.name) + ' in the public recent-work set, dated ' + esc(span) + '. The mix is ' + esc(mix) + '. Shops are in Ramona (1077 Main Street, Unit B) and Anza (57174 CA-371). Voice ' + PHONE_DISPLAY + '. CSLB #1086994.</p>\n' +
-    (richHtml ? '<h3>Job notes from the field</h3>\n<ul>\n' + richHtml + '\n</ul>\n' : '<p>The job cards below use the public title, date, and field photo for each visit. Summaries that only say the work was completed are left as published.</p>\n') +
+    (richHtml ? '<h3>Job notes from the field</h3>\n<ul>\n' + richHtml + '\n</ul>\n' : '<p>Each card below is a finished visit: the job title, the date, and the field photo.</p>\n') +
     '<h3>Services</h3>\n<ul class="service-links">\n' +
     '<li><a href="/pages/services/well-drilling.html">Well drilling</a></li>\n' +
     '<li><a href="/pages/services/pump-repair.html">Pump repair</a></li>\n' +
