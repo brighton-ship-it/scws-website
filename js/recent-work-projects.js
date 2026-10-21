@@ -165,7 +165,9 @@
         "photos": [
             {
                 "file": "job3184_1.jpg",
-                "alt": "Pull and inspect pump in Anza"
+                "alt": "Pull and inspect pump in Anza",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             }
         ]
     },
@@ -283,7 +285,9 @@
             },
             {
                 "file": "job3172_2.jpg",
-                "alt": "Booster pump inspection detail in Fallbrook"
+                "alt": "Booster pump inspection detail in Fallbrook",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             }
         ]
     },
@@ -418,8 +422,7 @@
         "photos": [
             {
                 "file": "job3149_1.jpg",
-                "alt": "Well service in Ramona"
-            ,
+                "alt": "Well service in Ramona",
                 "excluded": true,
                 "excludeReason": "pii-paperwork-or-screen"
             },
@@ -429,7 +432,9 @@
             },
             {
                 "file": "job3149_3.jpg",
-                "alt": "Well service in Ramona"
+                "alt": "Well service in Ramona",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             }
         ]
     },
@@ -446,7 +451,9 @@
         "photos": [
             {
                 "file": "job3169_1.jpg",
-                "alt": "Pressure tank and switch service in Wildomar"
+                "alt": "Pressure tank and switch service in Wildomar",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             },
             {
                 "file": "job3169_2.jpg",
@@ -1144,7 +1151,9 @@
             },
             {
                 "file": "job3085_2.jpg",
-                "alt": "Well bail and brush detail in Santa Ysabel"
+                "alt": "Well bail and brush detail in Santa Ysabel",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             }
         ]
     },
@@ -1682,7 +1691,9 @@
             },
             {
                 "file": "job3075_2.jpg",
-                "alt": "Contactor replacement and diagnostic detail in Pauma Valley"
+                "alt": "Contactor replacement and diagnostic detail in Pauma Valley",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             }
         ]
     },
@@ -3114,7 +3125,9 @@
         "photos": [
             {
                 "file": "job2951_1.jpg",
-                "alt": "Well service in Jamul"
+                "alt": "Well service in Jamul",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             }
         ]
     },
@@ -3177,8 +3190,7 @@
         "photos": [
             {
                 "file": "job2940_1.jpg",
-                "alt": "Well service in El Cajon"
-            ,
+                "alt": "Well service in El Cajon",
                 "excluded": true,
                 "excludeReason": "pii-paperwork-or-screen"
             }
@@ -3402,7 +3414,9 @@
             },
             {
                 "file": "job2921_2.jpg",
-                "alt": "Well service in Anza"
+                "alt": "Well service in Anza",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             }
         ]
     },
@@ -3419,7 +3433,9 @@
         "photos": [
             {
                 "file": "job2900_1.jpg",
-                "alt": "Well service in El Cajon"
+                "alt": "Well service in El Cajon",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             }
         ]
     },
@@ -3503,8 +3519,7 @@
         "photos": [
             {
                 "file": "job2931_1.jpg",
-                "alt": "Well service in Fallbrook"
-            ,
+                "alt": "Well service in Fallbrook",
                 "excluded": true,
                 "excludeReason": "pii-paperwork-or-screen"
             }
@@ -3678,8 +3693,7 @@
         "photos": [
             {
                 "file": "job2783_1.jpg",
-                "alt": "Well service in Lakeside"
-            ,
+                "alt": "Well service in Lakeside",
                 "excluded": true,
                 "excludeReason": "pii-paperwork-or-screen"
             }
@@ -3840,7 +3854,9 @@
             },
             {
                 "file": "job2850_2.jpg",
-                "alt": "Well and tank evaluation detail in Poway"
+                "alt": "Well and tank evaluation detail in Poway",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             }
         ]
     },
@@ -3928,8 +3944,7 @@
         "photos": [
             {
                 "file": "job2871_1.jpg",
-                "alt": "Well service in Lakeside"
-            ,
+                "alt": "Well service in Lakeside",
                 "excluded": true,
                 "excludeReason": "pii-paperwork-or-screen"
             }
@@ -4015,18 +4030,21 @@
         "photos": [
             {
                 "file": "job2860_1.jpg",
-                "alt": "Well service in Lakeside"
-            ,
+                "alt": "Well service in Lakeside",
                 "excluded": true,
                 "excludeReason": "pii-paperwork-or-screen"
             },
             {
                 "file": "job2860_2.jpg",
-                "alt": "Well service in Lakeside"
+                "alt": "Well service in Lakeside",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             },
             {
                 "file": "job2860_3.jpg",
-                "alt": "Well service in Lakeside"
+                "alt": "Well service in Lakeside",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             }
         ]
     },
@@ -4060,14 +4078,15 @@
         "photos": [
             {
                 "file": "job2810_1.jpg",
-                "alt": "Well service in Winchester"
-            ,
+                "alt": "Well service in Winchester",
                 "excluded": true,
                 "excludeReason": "pii-paperwork-or-screen"
             },
             {
                 "file": "job2810_2.jpg",
-                "alt": "Well service in Winchester"
+                "alt": "Well service in Winchester",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             }
         ]
     },
@@ -4180,11 +4199,15 @@
             },
             {
                 "file": "job2870_2.jpg",
-                "alt": "Well service in Temecula"
+                "alt": "Well service in Temecula",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             },
             {
                 "file": "job2870_3.jpg",
-                "alt": "Well service in Temecula"
+                "alt": "Well service in Temecula",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             }
         ]
     },
@@ -4247,7 +4270,9 @@
         "photos": [
             {
                 "file": "job2855_1.jpg",
-                "alt": "Well service in San Diego"
+                "alt": "Well service in San Diego",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             }
         ]
     },
@@ -4281,14 +4306,15 @@
         "photos": [
             {
                 "file": "job2872_1.jpg",
-                "alt": "Well service in Winchester"
-            ,
+                "alt": "Well service in Winchester",
                 "excluded": true,
                 "excludeReason": "pii-paperwork-or-screen"
             },
             {
                 "file": "job2872_2.jpg",
-                "alt": "Well service in Winchester"
+                "alt": "Well service in Winchester",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             }
         ]
     },
@@ -4493,14 +4519,15 @@
         "photos": [
             {
                 "file": "job2806_1.jpg",
-                "alt": "Well service in Fallbrook"
-            ,
+                "alt": "Well service in Fallbrook",
                 "excluded": true,
                 "excludeReason": "pii-paperwork-or-screen"
             },
             {
                 "file": "job2806_2.jpg",
-                "alt": "Well service in Fallbrook"
+                "alt": "Well service in Fallbrook",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             },
             {
                 "file": "job2806_3.jpg",
@@ -4546,7 +4573,9 @@
         "photos": [
             {
                 "file": "job2845_1.jpg",
-                "alt": "Well service in Perris"
+                "alt": "Well service in Perris",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             }
         ]
     },
@@ -4984,7 +5013,9 @@
             },
             {
                 "file": "job2760_2.jpg",
-                "alt": "Well service in San Diego"
+                "alt": "Well service in San Diego",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             },
             {
                 "file": "job2760_3.jpg",
@@ -5318,7 +5349,9 @@
         "photos": [
             {
                 "file": "job2800_1.jpg",
-                "alt": "Well service in Valley Center"
+                "alt": "Well service in Valley Center",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             },
             {
                 "file": "job2800_2.jpg",
@@ -5856,7 +5889,9 @@
         "photos": [
             {
                 "file": "job2030_1.jpg",
-                "alt": "Well service in Palomar Mountain"
+                "alt": "Well service in Palomar Mountain",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             },
             {
                 "file": "job2030_2.jpg",
@@ -6261,7 +6296,9 @@
             },
             {
                 "file": "job2742_2.jpg",
-                "alt": "Pump replacement in Murrieta"
+                "alt": "Pump replacement in Murrieta",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             },
             {
                 "file": "job2742_3.jpg",
@@ -6399,7 +6436,9 @@
         "photos": [
             {
                 "file": "job2739_1.jpg",
-                "alt": "Well service in Murrieta"
+                "alt": "Well service in Murrieta",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             },
             {
                 "file": "job2739_2.jpg",
@@ -6545,7 +6584,9 @@
         "photos": [
             {
                 "file": "job2715_1.jpg",
-                "alt": "Pull pump in Poway"
+                "alt": "Pull pump in Poway",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             },
             {
                 "file": "job2715_2.jpg",
@@ -6775,11 +6816,15 @@
         "photos": [
             {
                 "file": "job2694_1.jpg",
-                "alt": "Well service in Ramona"
+                "alt": "Well service in Ramona",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             },
             {
                 "file": "job2694_2.jpg",
-                "alt": "Well service in Ramona"
+                "alt": "Well service in Ramona",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             },
             {
                 "file": "job2694_3.jpg",
@@ -7274,7 +7319,9 @@
         "photos": [
             {
                 "file": "job2607_1.jpg",
-                "alt": "Well service in Desert Hot Springs"
+                "alt": "Well service in Desert Hot Springs",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             },
             {
                 "file": "job2607_3.jpg",
@@ -7295,11 +7342,15 @@
         "photos": [
             {
                 "file": "job2670_1.jpg",
-                "alt": "Well service in Homeland"
+                "alt": "Well service in Homeland",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             },
             {
                 "file": "job2670_2.jpg",
-                "alt": "Well service in Homeland"
+                "alt": "Well service in Homeland",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             },
             {
                 "file": "job2670_3.jpg",
@@ -7475,15 +7526,21 @@
         "photos": [
             {
                 "file": "job2582_1.jpg",
-                "alt": "Well service in Valley Center"
+                "alt": "Well service in Valley Center",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             },
             {
                 "file": "job2582_2.jpg",
-                "alt": "Well service in Valley Center"
+                "alt": "Well service in Valley Center",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             },
             {
                 "file": "job2582_3.jpg",
-                "alt": "Well service in Valley Center"
+                "alt": "Well service in Valley Center",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             }
         ]
     },
@@ -8693,7 +8750,9 @@
             },
             {
                 "file": "job2623_2.jpg",
-                "alt": "Well service in Winchester"
+                "alt": "Well service in Winchester",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             }
         ]
     },
@@ -8881,7 +8940,9 @@
         "photos": [
             {
                 "file": "job2583_1.jpg",
-                "alt": "Pump replacement in Temecula"
+                "alt": "Pump replacement in Temecula",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             },
             {
                 "file": "job2583_2.jpg",
@@ -9365,7 +9426,9 @@
         "photos": [
             {
                 "file": "job2571_1.jpg",
-                "alt": "Well service in Jamul"
+                "alt": "Well service in Jamul",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             },
             {
                 "file": "job2571_2.jpg",
@@ -9507,7 +9570,9 @@
             },
             {
                 "file": "job2566_2.jpg",
-                "alt": "Well service in Murrieta"
+                "alt": "Well service in Murrieta",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             },
             {
                 "file": "job2566_3.jpg",
@@ -9528,7 +9593,9 @@
         "photos": [
             {
                 "file": "job2559_1.jpg",
-                "alt": "Well service in Palomar Mountain"
+                "alt": "Well service in Palomar Mountain",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             },
             {
                 "file": "job2559_2.jpg",
@@ -10024,7 +10091,9 @@
         "photos": [
             {
                 "file": "job2496_1.jpg",
-                "alt": "Well service in Temecula"
+                "alt": "Well service in Temecula",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             },
             {
                 "file": "job2496_2.jpg",
@@ -10220,11 +10289,15 @@
             },
             {
                 "file": "job2527_2.jpg",
-                "alt": "Well service in Temecula"
+                "alt": "Well service in Temecula",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             },
             {
                 "file": "job2527_3.jpg",
-                "alt": "Well service in Temecula"
+                "alt": "Well service in Temecula",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             }
         ]
     },
@@ -10312,7 +10385,9 @@
             },
             {
                 "file": "job2518_3.jpg",
-                "alt": "Well service in Temecula"
+                "alt": "Well service in Temecula",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             }
         ]
     },
@@ -10333,7 +10408,9 @@
             },
             {
                 "file": "job2494_2.jpg",
-                "alt": "Well service in Winchester"
+                "alt": "Well service in Winchester",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             }
         ]
     },
@@ -10354,7 +10431,9 @@
             },
             {
                 "file": "job2408_2.jpg",
-                "alt": "Pump replacement in Winchester"
+                "alt": "Pump replacement in Winchester",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             }
         ]
     },
@@ -11018,7 +11097,9 @@
         "photos": [
             {
                 "file": "job2482_1.jpg",
-                "alt": "Well service in Temecula"
+                "alt": "Well service in Temecula",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             },
             {
                 "file": "job2482_2.jpg",
@@ -12647,7 +12728,9 @@
         "photos": [
             {
                 "file": "job2298_1.jpg",
-                "alt": "Well service in Palm Desert"
+                "alt": "Well service in Palm Desert",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             },
             {
                 "file": "job2298_2.jpg",
@@ -12893,7 +12976,9 @@
             },
             {
                 "file": "job2374_3.jpg",
-                "alt": "Well service in Ramona"
+                "alt": "Well service in Ramona",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             }
         ]
     },
@@ -13052,7 +13137,9 @@
         "photos": [
             {
                 "file": "job2363_1.jpg",
-                "alt": "Well service in Hemet"
+                "alt": "Well service in Hemet",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             },
             {
                 "file": "job2363_2.jpg",
@@ -13127,7 +13214,9 @@
         "photos": [
             {
                 "file": "job2350_1.jpg",
-                "alt": "Well service in Poway"
+                "alt": "Well service in Poway",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             },
             {
                 "file": "job2350_2.jpg",
@@ -13202,11 +13291,15 @@
             },
             {
                 "file": "job2355_2.jpg",
-                "alt": "Well service in Murrieta"
+                "alt": "Well service in Murrieta",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             },
             {
                 "file": "job2355_3.jpg",
-                "alt": "Well service in Murrieta"
+                "alt": "Well service in Murrieta",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             }
         ]
     },
@@ -13578,7 +13671,9 @@
         "photos": [
             {
                 "file": "job2323_1.jpg",
-                "alt": "Pull pump in Poway"
+                "alt": "Pull pump in Poway",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             },
             {
                 "file": "job2323_2.jpg",
@@ -13607,7 +13702,9 @@
             },
             {
                 "file": "job2338_2.jpg",
-                "alt": "Well service in Julian"
+                "alt": "Well service in Julian",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             }
         ]
     },
@@ -13624,7 +13721,9 @@
         "photos": [
             {
                 "file": "job2340_1.jpg",
-                "alt": "Pump replacement in Julian"
+                "alt": "Pump replacement in Julian",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             },
             {
                 "file": "job2340_2.jpg",
@@ -13649,7 +13748,9 @@
         "photos": [
             {
                 "file": "job2297_1.jpg",
-                "alt": "Well service in Palm Desert"
+                "alt": "Well service in Palm Desert",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             },
             {
                 "file": "job2297_2.jpg",
@@ -13849,7 +13950,9 @@
         "photos": [
             {
                 "file": "job2286_1.jpg",
-                "alt": "Pump replacement in Temecula"
+                "alt": "Pump replacement in Temecula",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             }
         ]
     },
@@ -13895,7 +13998,9 @@
             },
             {
                 "file": "job2320_2.jpg",
-                "alt": "Well service in Ramona"
+                "alt": "Well service in Ramona",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             },
             {
                 "file": "job2320_3.jpg",
@@ -14367,7 +14472,9 @@
         "photos": [
             {
                 "file": "job2291_1.jpg",
-                "alt": "Well service in Desert Hot Springs"
+                "alt": "Well service in Desert Hot Springs",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             },
             {
                 "file": "job2291_2.jpg",
@@ -14855,7 +14962,9 @@
         "photos": [
             {
                 "file": "job2260_1.jpg",
-                "alt": "Well service in Desert Hot Springs"
+                "alt": "Well service in Desert Hot Springs",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             },
             {
                 "file": "job2260_2.jpg",
@@ -15193,7 +15302,9 @@
             },
             {
                 "file": "job2256_3.jpg",
-                "alt": "Well service in Ramona"
+                "alt": "Well service in Ramona",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             }
         ]
     },
@@ -15314,7 +15425,9 @@
             },
             {
                 "file": "job2252_2.jpg",
-                "alt": "Well service in Aguanga"
+                "alt": "Well service in Aguanga",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             },
             {
                 "file": "job2252_3.jpg",
@@ -15385,7 +15498,9 @@
         "photos": [
             {
                 "file": "job2247_1.jpg",
-                "alt": "Well service in Menifee"
+                "alt": "Well service in Menifee",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             },
             {
                 "file": "job2247_2.jpg",
@@ -15635,7 +15750,9 @@
         "photos": [
             {
                 "file": "job2217_1.jpg",
-                "alt": "Pull pump in Caliente Springs"
+                "alt": "Pull pump in Caliente Springs",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             },
             {
                 "file": "job2217_2.jpg",
@@ -15710,7 +15827,9 @@
             },
             {
                 "file": "job2015_2.jpg",
-                "alt": "Well service in Julian"
+                "alt": "Well service in Julian",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             },
             {
                 "file": "job2015_3.jpg",
@@ -15952,7 +16071,9 @@
         "photos": [
             {
                 "file": "job2112_1.jpg",
-                "alt": "Pump replacement in Anza"
+                "alt": "Pump replacement in Anza",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             },
             {
                 "file": "job2112_2.jpg",
@@ -16002,7 +16123,9 @@
         "photos": [
             {
                 "file": "job2209_1.jpg",
-                "alt": "Pump replacement in Ocotillo"
+                "alt": "Pump replacement in Ocotillo",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             },
             {
                 "file": "job2209_2.jpg",
@@ -16670,7 +16793,9 @@
         "photos": [
             {
                 "file": "job2191_1.jpg",
-                "alt": "Well service in Palm Desert"
+                "alt": "Well service in Palm Desert",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             },
             {
                 "file": "job2191_2.jpg",
@@ -16724,7 +16849,9 @@
             },
             {
                 "file": "job2180_2.jpg",
-                "alt": "Well service in Escondido"
+                "alt": "Well service in Escondido",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             },
             {
                 "file": "job2180_3.jpg",
@@ -16820,7 +16947,9 @@
         "photos": [
             {
                 "file": "job2172_1.jpg",
-                "alt": "Well service in Palm Desert"
+                "alt": "Well service in Palm Desert",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             },
             {
                 "file": "job2172_2.jpg",
@@ -16991,7 +17120,9 @@
             },
             {
                 "file": "job2143_3.jpg",
-                "alt": "Well service in Escondido"
+                "alt": "Well service in Escondido",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             }
         ]
     },
@@ -17254,7 +17385,9 @@
             },
             {
                 "file": "job2158_2.jpg",
-                "alt": "Well service in Ramona"
+                "alt": "Well service in Ramona",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             },
             {
                 "file": "job2158_3.jpg",
@@ -17571,7 +17704,9 @@
             },
             {
                 "file": "job2085_3.jpg",
-                "alt": "Well service in Julian"
+                "alt": "Well service in Julian",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             }
         ]
     },
@@ -17813,7 +17948,9 @@
         "photos": [
             {
                 "file": "job2065_1.jpg",
-                "alt": "Well service in Alpine"
+                "alt": "Well service in Alpine",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             },
             {
                 "file": "job2065_2.jpg",
@@ -18455,7 +18592,9 @@
         "photos": [
             {
                 "file": "job2076_1.jpg",
-                "alt": "Well service in Julian"
+                "alt": "Well service in Julian",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             }
         ]
     },
@@ -18501,7 +18640,9 @@
             },
             {
                 "file": "job2062_3.jpg",
-                "alt": "Well service in Rancho Santa Fe"
+                "alt": "Well service in Rancho Santa Fe",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             }
         ]
     },
@@ -18572,7 +18713,9 @@
             },
             {
                 "file": "job2003_3.jpg",
-                "alt": "Well service in Ramona"
+                "alt": "Well service in Ramona",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             }
         ]
     },
@@ -19671,15 +19814,21 @@
         "photos": [
             {
                 "file": "job2005_1.jpg",
-                "alt": "Pump replacement in Desert Hot Springs"
+                "alt": "Pump replacement in Desert Hot Springs",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             },
             {
                 "file": "job2005_2.jpg",
-                "alt": "Pump replacement in Desert Hot Springs"
+                "alt": "Pump replacement in Desert Hot Springs",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             },
             {
                 "file": "job2005_3.jpg",
-                "alt": "Pump replacement in Desert Hot Springs"
+                "alt": "Pump replacement in Desert Hot Springs",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             }
         ]
     },
@@ -19830,7 +19979,9 @@
         "photos": [
             {
                 "file": "job2000_1.jpg",
-                "alt": "Well service in San Marcos"
+                "alt": "Well service in San Marcos",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             },
             {
                 "file": "job2000_2.jpg",
@@ -21533,7 +21684,9 @@
         "photos": [
             {
                 "file": "job1879_1.jpg",
-                "alt": "Well service in Boulevard"
+                "alt": "Well service in Boulevard",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             },
             {
                 "file": "job1879_2.jpg",
@@ -21541,7 +21694,9 @@
             },
             {
                 "file": "job1879_3.jpg",
-                "alt": "Well service in Boulevard"
+                "alt": "Well service in Boulevard",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             }
         ]
     },
@@ -21804,7 +21959,9 @@
             },
             {
                 "file": "job1891_3.jpg",
-                "alt": "Well service in Lakeside"
+                "alt": "Well service in Lakeside",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             }
         ]
     },
@@ -22313,8 +22470,7 @@
         "photos": [
             {
                 "file": "job1856_1.jpg",
-                "alt": "Well service in Redlands"
-            ,
+                "alt": "Well service in Redlands",
                 "excluded": true,
                 "excludeReason": "pii-paperwork-or-screen"
             }
@@ -22583,7 +22739,9 @@
             },
             {
                 "file": "job1843_3.jpg",
-                "alt": "Well service in Santa Ysabel"
+                "alt": "Well service in Santa Ysabel",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             }
         ]
     },
@@ -22963,7 +23121,9 @@
             },
             {
                 "file": "job1832_3.jpg",
-                "alt": "Well service in Valley Center"
+                "alt": "Well service in Valley Center",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             }
         ]
     },
@@ -23411,11 +23571,15 @@
         "photos": [
             {
                 "file": "job1785_1.jpg",
-                "alt": "Pump replacement in El Cajon"
+                "alt": "Pump replacement in El Cajon",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             },
             {
                 "file": "job1785_2.jpg",
-                "alt": "Pump replacement in El Cajon"
+                "alt": "Pump replacement in El Cajon",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             }
         ]
     },
@@ -24617,7 +24781,9 @@
             },
             {
                 "file": "job1749_2.jpg",
-                "alt": "Well service in El Cajon"
+                "alt": "Well service in El Cajon",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             },
             {
                 "file": "job1749_3.jpg",
@@ -24909,7 +25075,9 @@
         "photos": [
             {
                 "file": "job1727_1.jpg",
-                "alt": "Pump replacement in Anza"
+                "alt": "Pump replacement in Anza",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             },
             {
                 "file": "job1727_2.jpg",
@@ -24959,7 +25127,9 @@
             },
             {
                 "file": "job1696_3.jpg",
-                "alt": "Well service in Temecula"
+                "alt": "Well service in Temecula",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             }
         ]
     },
@@ -25005,7 +25175,9 @@
             },
             {
                 "file": "job1717_2.jpg",
-                "alt": "Pressure tank replacement in Desert Hot Springs"
+                "alt": "Pressure tank replacement in Desert Hot Springs",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             },
             {
                 "file": "job1717_3.jpg",
@@ -25097,11 +25269,15 @@
         "photos": [
             {
                 "file": "job1314_1.jpg",
-                "alt": "Pull pump in Ramona"
+                "alt": "Pull pump in Ramona",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             },
             {
                 "file": "job1314_2.jpg",
-                "alt": "Pull pump in Ramona"
+                "alt": "Pull pump in Ramona",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             },
             {
                 "file": "job1314_3.jpg",
@@ -25494,7 +25670,9 @@
             },
             {
                 "file": "job1459_2.jpg",
-                "alt": "Well service in Valley Center"
+                "alt": "Well service in Valley Center",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             },
             {
                 "file": "job1459_3.jpg",
@@ -26062,7 +26240,9 @@
         "photos": [
             {
                 "file": "job1663_1.jpg",
-                "alt": "Well service in Santa Ysabel"
+                "alt": "Well service in Santa Ysabel",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             },
             {
                 "file": "job1663_2.jpg",
@@ -26893,11 +27073,15 @@
         "photos": [
             {
                 "file": "job1589_1.jpg",
-                "alt": "Well service in Lakeside"
+                "alt": "Well service in Lakeside",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             },
             {
                 "file": "job1589_2.jpg",
-                "alt": "Well service in Lakeside"
+                "alt": "Well service in Lakeside",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             },
             {
                 "file": "job1589_3.jpg",
@@ -27385,7 +27569,9 @@
             },
             {
                 "file": "job1595_2.jpg",
-                "alt": "Well service in Ramona"
+                "alt": "Well service in Ramona",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             }
         ]
     },
@@ -28308,15 +28494,21 @@
         "photos": [
             {
                 "file": "job1530_1.jpg",
-                "alt": "Well service in Desert Hot Springs"
+                "alt": "Well service in Desert Hot Springs",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             },
             {
                 "file": "job1530_2.jpg",
-                "alt": "Well service in Desert Hot Springs"
+                "alt": "Well service in Desert Hot Springs",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             },
             {
                 "file": "job1530_3.jpg",
-                "alt": "Well service in Desert Hot Springs"
+                "alt": "Well service in Desert Hot Springs",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             }
         ]
     },
@@ -28337,7 +28529,9 @@
             },
             {
                 "file": "job1534_2.jpg",
-                "alt": "Well service in Desert Hot Springs"
+                "alt": "Well service in Desert Hot Springs",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             },
             {
                 "file": "job1534_3.jpg",
@@ -28458,11 +28652,15 @@
         "photos": [
             {
                 "file": "job1541_1.jpg",
-                "alt": "Well service in Poway"
+                "alt": "Well service in Poway",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             },
             {
                 "file": "job1541_2.jpg",
-                "alt": "Well service in Poway"
+                "alt": "Well service in Poway",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             }
         ]
     },
@@ -28680,7 +28878,9 @@
         "photos": [
             {
                 "file": "job1520_1.jpg",
-                "alt": "Well service in San Diego County"
+                "alt": "Well service in San Diego County",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             }
         ]
     },
@@ -29110,7 +29310,9 @@
             },
             {
                 "file": "job1498_2.jpg",
-                "alt": "Booster service in Aguanga"
+                "alt": "Booster service in Aguanga",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             },
             {
                 "file": "job1498_3.jpg",
@@ -29314,7 +29516,9 @@
             },
             {
                 "file": "job1488_3.jpg",
-                "alt": "Well service in Alpine"
+                "alt": "Well service in Alpine",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             }
         ]
     },
@@ -29398,7 +29602,9 @@
             },
             {
                 "file": "job1472_3.jpg",
-                "alt": "Well service in Campo"
+                "alt": "Well service in Campo",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             }
         ]
     },
@@ -29586,11 +29792,15 @@
         "photos": [
             {
                 "file": "job1348_1.jpg",
-                "alt": "Well service in Murrieta"
+                "alt": "Well service in Murrieta",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             },
             {
                 "file": "job1348_2.jpg",
-                "alt": "Well service in Murrieta"
+                "alt": "Well service in Murrieta",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             }
         ]
     },
@@ -30032,7 +30242,9 @@
             },
             {
                 "file": "job1443_2.jpg",
-                "alt": "Well service in Escondido"
+                "alt": "Well service in Escondido",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             }
         ]
     },
@@ -30404,7 +30616,9 @@
             },
             {
                 "file": "job1430_2.jpg",
-                "alt": "Well service in Julian"
+                "alt": "Well service in Julian",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             }
         ]
     },
@@ -30784,7 +30998,9 @@
             },
             {
                 "file": "job1392_2.jpg",
-                "alt": "Pump replacement in Fallbrook"
+                "alt": "Pump replacement in Fallbrook",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             },
             {
                 "file": "job1392_3.jpg",
@@ -31252,11 +31468,15 @@
             },
             {
                 "file": "job1366_2.jpg",
-                "alt": "Pressure tank replacement in Poway"
+                "alt": "Pressure tank replacement in Poway",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             },
             {
                 "file": "job1366_3.jpg",
-                "alt": "Pressure tank replacement in Poway"
+                "alt": "Pressure tank replacement in Poway",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             }
         ]
     },
@@ -31390,7 +31610,9 @@
             },
             {
                 "file": "job1346_2.jpg",
-                "alt": "Well service in Anza"
+                "alt": "Well service in Anza",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             },
             {
                 "file": "job1346_3.jpg",
@@ -31511,11 +31733,15 @@
         "photos": [
             {
                 "file": "job1302_1.jpg",
-                "alt": "Well service in Poway"
+                "alt": "Well service in Poway",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             },
             {
                 "file": "job1302_2.jpg",
-                "alt": "Well service in Poway"
+                "alt": "Well service in Poway",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             },
             {
                 "file": "job1302_3.jpg",
@@ -31586,7 +31812,9 @@
         "photos": [
             {
                 "file": "job1187_1.jpg",
-                "alt": "Well service in Julian"
+                "alt": "Well service in Julian",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             },
             {
                 "file": "job1187_2.jpg",
@@ -31690,7 +31918,9 @@
             },
             {
                 "file": "job1359_2.jpg",
-                "alt": "Well service in San Diego County"
+                "alt": "Well service in San Diego County",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             },
             {
                 "file": "job1359_3.jpg",
@@ -32534,7 +32764,9 @@
             },
             {
                 "file": "job1277_3.jpg",
-                "alt": "Well service in Anza"
+                "alt": "Well service in Anza",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             }
         ]
     },
