@@ -7,7 +7,20 @@
 var fs = require('fs');
 var path = require('path');
 var assert = require('assert');
+var crypto = require('crypto');
 var { JSDOM } = require('jsdom');
+
+function nodeSha256(value) {
+  return crypto.createHash('sha256').update(value, 'utf8').digest('hex');
+}
+
+function installWebCrypto(window) {
+  Object.defineProperty(window, 'crypto', {
+    value: globalThis.crypto,
+    configurable: true
+  });
+  window.TextEncoder = TextEncoder;
+}
 
 var leadEventsSrc = fs.readFileSync(path.join(__dirname, 'lead-events.js'), 'utf8');
 var trackingSrc = fs.readFileSync(path.join(__dirname, 'scws-tracking.js'), 'utf8');
@@ -256,7 +269,8 @@ Promise.resolve()
 
       var contactHtml = fs.readFileSync(path.join(__dirname, '..', 'contact.html'), 'utf8');
       assert.match(contactHtml, /scws-tracking\.js|phone_conversion_number/);
-      assert.match(trackingSrc, /phone_conversion_number/);
+      assert.match(trackingSrc, /PHONE_CONVERSION_NUMBER/);
+      assert.doesNotMatch(trackingSrc, /['"]phone_conversion_number['"]/);
     });
   })
   .then(function () {
@@ -278,6 +292,7 @@ Promise.resolve()
         window.scwsAb = { id: 'exp_emergency_cta', variant: 'control' };
         window.alert = function () {};
         window.console.error = function () {};
+        installWebCrypto(window);
         var fetches = [];
         window.fetch = function (url) {
           fetches.push(String(url));
@@ -309,7 +324,17 @@ Promise.resolve()
       home.window.handleFormSubmit(new home.window.Event('submit', { bubbles: true, cancelable: true }));
       contact.window.handleFormSubmit(new contact.window.Event('submit', { bubbles: true, cancelable: true }));
 
-      return Promise.resolve().then(function () { return Promise.resolve(); }).then(function () {
+      return new Promise(function (resolve, reject) {
+        var left = 50;
+        (function tick() {
+          var ready = [home, contact].every(function (page) {
+            return !!findEvent(page.events, 'conversion');
+          });
+          if (ready) return resolve();
+          if (left-- <= 0) return reject(new Error('timed out waiting for form conversion'));
+          setTimeout(tick, 10);
+        })();
+      }).then(function () {
         [home, contact].forEach(function (page) {
           assert.ok(page.fetches.some(function (url) { return /api\/booking/.test(url); }));
           assert.deepStrictEqual(eventNames(page.events), [
@@ -331,8 +356,15 @@ Promise.resolve()
           });
           var userData = page.events.find(function (e) { return e[0] === 'set' && e[1] === 'user_data'; });
           assert.ok(userData, 'enhanced conversions user_data should be set');
-          assert.strictEqual(userData[2].email, 'test@example.com');
-          assert.strictEqual(userData[2].phone_number, '7605550100');
+          assert.strictEqual(userData[2].sha256_email_address, nodeSha256('test@example.com'));
+          assert.strictEqual(userData[2].sha256_phone_number, nodeSha256('+17605550100'));
+          assert.strictEqual(userData[2].email, undefined);
+          assert.strictEqual(userData[2].phone_number, undefined);
+          var setAt = page.events.indexOf(userData);
+          var leadAt = page.events.findIndex(function (e) {
+            return e[0] === 'event' && e[1] === 'generate_lead';
+          });
+          assert.ok(setAt !== -1 && setAt < leadAt);
         });
       });
     });
@@ -346,28 +378,133 @@ Promise.resolve()
     });
   })
   .then(function () {
-    return test('enhanced user_data is set when email and phone are provided', function () {
+    return test('enhanced user_data is SHA-256 of normalized email and E.164 phone before the conversion', function () {
+      var cases = [
+        {
+          user: { email: 'lead@example.com', phone: '7604408520' },
+          email: 'lead@example.com',
+          phone: '+17604408520'
+        },
+        {
+          user: { email: '  J.ane.Doe@Gmail.com ', phone: '(760) 440-8520' },
+          email: 'janedoe@gmail.com',
+          phone: '+17604408520'
+        },
+        {
+          user: { email: 'Jane.Doe@googlemail.com', phone_number: '1-760-440-8520' },
+          email: 'janedoe@googlemail.com',
+          phone: '+17604408520'
+        },
+        {
+          user: { email: 'Jane.Doe@Example.com', phone: '+1 760.440.8520' },
+          email: 'jane.doe@example.com',
+          phone: '+17604408520'
+        },
+        {
+          user: { email: 'j.ane+ads@gmail.com', phone: '+17604408520' },
+          email: 'jane+ads@gmail.com',
+          phone: '+17604408520'
+        }
+      ];
+      var chain = Promise.resolve();
+      cases.forEach(function (item) {
+        chain = chain.then(function () {
+          var page = loadLeadEvents({ bootstrap: true });
+          installWebCrypto(page.window);
+          var logs = [];
+          page.window.console.log = function () {
+            logs.push(Array.prototype.slice.call(arguments).join(' '));
+          };
+          return page.window.scwsTrackLeadFormSuccess(
+            { event_category: 'engagement', value: 150 },
+            item.user
+          ).then(function () {
+            var userData = page.events.find(function (e) { return e[0] === 'set' && e[1] === 'user_data'; });
+            assert.ok(userData);
+            assert.strictEqual(userData[2].sha256_email_address, nodeSha256(item.email));
+            assert.strictEqual(userData[2].sha256_phone_number, nodeSha256(item.phone));
+            assert.strictEqual(userData[2].email, undefined);
+            assert.strictEqual(userData[2].phone_number, undefined);
+            var setAt = page.events.indexOf(userData);
+            var leadAt = page.events.findIndex(function (e) {
+              return e[0] === 'event' && e[1] === 'generate_lead';
+            });
+            assert.ok(setAt !== -1 && setAt < leadAt);
+            assert.deepStrictEqual(eventNames(page.events), [
+              'generate_lead',
+              'ads_conversion_submit_lead_form',
+              'conversion'
+            ]);
+            var conv = findEvent(page.events, 'conversion');
+            assert.ok(conv);
+            assert.strictEqual(conv[2].send_to, 'AW-490838730/nFeMCN_cyegcEMq1huoB');
+            assert.strictEqual(conv[2].value, 150);
+            page.events.forEach(function (evt) {
+              assert.ok(!evt[2] || evt[2].send_to !== 'AW-490838730/aFiRCMDlofAbEMq1huoB');
+              assert.ok(!evt[2] || evt[2].send_to !== 'AW-490838730/contact_form_submit');
+              assert.ok(!evt[2] || evt[2].send_to !== 'AW-490838730/form_submit');
+            });
+            logs.forEach(function (line) {
+              assert.doesNotMatch(line, /janedoe|jane\.doe|lead@example|7604408520|17604408520/i);
+            });
+          });
+        });
+      });
+      return chain;
+    });
+  })
+  .then(function () {
+    return test('falls back to normalized email and E.164 phone when hashing is unavailable', function () {
       var page = loadLeadEvents({ bootstrap: true });
+      assert.ok(!page.window.crypto.subtle);
       page.window.scwsTrackLeadFormSuccess(
         { event_category: 'engagement', value: 150 },
-        { email: 'lead@example.com', phone: '7604408520' }
+        { email: '  Lead@Example.com ', phone: '(760) 440-8520' }
       );
       var userData = page.events.find(function (e) { return e[0] === 'set' && e[1] === 'user_data'; });
       assert.ok(userData);
       assert.strictEqual(userData[2].email, 'lead@example.com');
-      assert.strictEqual(userData[2].phone_number, '7604408520');
+      assert.strictEqual(userData[2].phone_number, '+17604408520');
+      assert.strictEqual(userData[2].sha256_email_address, undefined);
+      assert.strictEqual(userData[2].sha256_phone_number, undefined);
+      var setAt = page.events.indexOf(userData);
+      var leadAt = page.events.findIndex(function (e) {
+        return e[0] === 'event' && e[1] === 'generate_lead';
+      });
+      assert.ok(setAt !== -1 && setAt < leadAt);
       assert.deepStrictEqual(eventNames(page.events), [
         'generate_lead',
         'ads_conversion_submit_lead_form',
         'conversion'
       ]);
-      var conv = findEvent(page.events, 'conversion');
-      assert.ok(conv);
-      assert.strictEqual(conv[2].send_to, 'AW-490838730/nFeMCN_cyegcEMq1huoB');
-      page.events.forEach(function (evt) {
-        assert.ok(!evt[2] || evt[2].send_to !== 'AW-490838730/aFiRCMDlofAbEMq1huoB');
-        assert.ok(!evt[2] || evt[2].send_to !== 'AW-490838730/contact_form_submit');
-        assert.ok(!evt[2] || evt[2].send_to !== 'AW-490838730/form_submit');
+      assert.strictEqual(findEvent(page.events, 'conversion')[2].send_to, 'AW-490838730/nFeMCN_cyegcEMq1huoB');
+    });
+  })
+  .then(function () {
+    return test('digest failure still sets normalized user_data and fires the form conversion', function () {
+      var page = loadLeadEvents({ bootstrap: true });
+      Object.defineProperty(page.window, 'crypto', {
+        value: {
+          subtle: {
+            digest: function () { return Promise.reject(new Error('unavailable')); }
+          }
+        },
+        configurable: true
+      });
+      return page.window.scwsTrackLeadFormSuccess(
+        { event_category: 'engagement' },
+        { email: 'J.ane.Doe@Gmail.com', phone: '12345' }
+      ).then(function () {
+        var userData = page.events.find(function (e) { return e[0] === 'set' && e[1] === 'user_data'; });
+        assert.ok(userData);
+        assert.strictEqual(userData[2].email, 'janedoe@gmail.com');
+        assert.strictEqual(userData[2].phone_number, undefined);
+        assert.deepStrictEqual(eventNames(page.events), [
+          'generate_lead',
+          'ads_conversion_submit_lead_form',
+          'conversion'
+        ]);
+        assert.strictEqual(findEvent(page.events, 'conversion')[2].send_to, 'AW-490838730/nFeMCN_cyegcEMq1huoB');
       });
     });
   })

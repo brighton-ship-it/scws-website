@@ -26,7 +26,7 @@ Consent Mode v2 uses the existing cookie banner (`analytics_storage`, `ad_storag
 | `experiment_view` | Homepage A/B harness (`js/ab.js`) once per session | No | No | Also sets `exp_id` / `exp_var` user properties. |
 | `estimate_click` | Estimate / contact CTA (`scwsTrackEstimateClick` or homepage helper) | No | No | Click is not a lead. |
 
-Form success also sets enhanced conversions `user_data` (`email`, `phone_number`) when those fields were collected. gtag hashes them. Do not log PII or click IDs to the console.
+Form success normalizes email (trim, lowercase, and remove dots in the local part for `gmail.com` and `googlemail.com`) and US phone numbers to E.164 (`+1XXXXXXXXXX`), SHA-256 hex-hashes them with `crypto.subtle`, and sets `user_data` (`sha256_email_address`, `sha256_phone_number`) before the conversion fires. If hashing is unavailable, it sets the plain normalized `email` and `phone_number` instead. Do not log PII or click IDs to the console.
 
 Retired / never reintroduce: `click_to_call`, `seo_call_conversion`, `contact_page`, invented Ads suffixes such as `contact_form_submit`, `form_submit`, `phone_click`.
 

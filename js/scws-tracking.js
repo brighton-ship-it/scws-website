@@ -8,7 +8,10 @@
  * (forwarding-number replacement on the voice tel: node).
  *
  * Form leads: window.scwsTrackLeadFormSuccess(params, user)
- *   - sets enhanced-conversions user_data (email, phone_number) when provided
+ *   - normalizes email and US phone, SHA-256 hex-hashes them with crypto.subtle,
+ *     and sets user_data {sha256_email_address, sha256_phone_number} before
+ *     the conversion fires
+ *   - falls back to plain normalized email / phone_number if hashing is unavailable
  *   - fires generate_lead + ads_conversion_submit_lead_form
  *   - attaches exp_id / exp_var from window.scwsAb
  *   - NEVER send_to the phone/call label
@@ -62,16 +65,104 @@
     return String(value).replace(/^\s+|\s+$/g, '');
   }
 
-  function setEnhancedUserData(user) {
-    if (!user || typeof user !== 'object') return;
-    if (typeof root.gtag !== 'function') return;
-    var email = trimValue(user.email);
-    var phone = trimValue(user.phone_number || user.phone);
-    if (!email && !phone) return;
+  // Lowercase, trim, and drop dots in the local part for gmail.com / googlemail.com.
+  function normalizeEmail(value) {
+    var email = trimValue(value).toLowerCase();
+    if (!email) return '';
+    var at = email.indexOf('@');
+    if (at === -1) return email;
+    var local = email.slice(0, at);
+    var domain = email.slice(at + 1);
+    if (domain === 'gmail.com' || domain === 'googlemail.com') {
+      local = local.replace(/\./g, '');
+    }
+    return local + '@' + domain;
+  }
+
+  // US numbers only: 10 digits, or 11 digits with a leading 1, as +1XXXXXXXXXX.
+  function normalizeUsPhone(value) {
+    var digits = trimValue(value).replace(/\D/g, '');
+    if (!digits) return '';
+    if (digits.length === 11 && digits.charAt(0) === '1') {
+      digits = digits.slice(1);
+    }
+    if (digits.length !== 10) return '';
+    return '+1' + digits;
+  }
+
+  function hashingAvailable() {
+    try {
+      return !!(
+        root.crypto &&
+        root.crypto.subtle &&
+        typeof root.crypto.subtle.digest === 'function' &&
+        typeof root.TextEncoder === 'function'
+      );
+    } catch (err) {
+      return false;
+    }
+  }
+
+  function sha256Hex(text) {
+    var bytes = new root.TextEncoder().encode(text);
+    return root.crypto.subtle.digest('SHA-256', bytes).then(function (buffer) {
+      var view = new Uint8Array(buffer);
+      var hex = '';
+      for (var i = 0; i < view.length; i++) {
+        var pair = view[i].toString(16);
+        hex += pair.length < 2 ? '0' + pair : pair;
+      }
+      return hex;
+    });
+  }
+
+  function plainUserData(email, phone) {
     var userData = {};
     if (email) userData.email = email;
     if (phone) userData.phone_number = phone;
-    root.gtag('set', 'user_data', userData);
+    return userData;
+  }
+
+  // Resolves after user_data is set. Returns null when the set is synchronous
+  // (no identifiers, or hashing is unavailable and the plain values were set).
+  function setEnhancedUserData(user) {
+    if (!user || typeof user !== 'object') return null;
+    if (typeof root.gtag !== 'function') return null;
+    var email = normalizeEmail(user.email);
+    var phone = normalizeUsPhone(user.phone_number || user.phone);
+    if (!email && !phone) return null;
+
+    if (!hashingAvailable()) {
+      root.gtag('set', 'user_data', plainUserData(email, phone));
+      return null;
+    }
+
+    try {
+      var jobs = [];
+      if (email) {
+        jobs.push(sha256Hex(email).then(function (hex) {
+          return { key: 'sha256_email_address', value: hex };
+        }));
+      }
+      if (phone) {
+        jobs.push(sha256Hex(phone).then(function (hex) {
+          return { key: 'sha256_phone_number', value: hex };
+        }));
+      }
+
+      return Promise.all(jobs).then(function (parts) {
+        var userData = {};
+        for (var i = 0; i < parts.length; i++) {
+          userData[parts[i].key] = parts[i].value;
+        }
+        root.gtag('set', 'user_data', userData);
+      }).catch(function () {
+        root.gtag('set', 'user_data', plainUserData(email, phone));
+      });
+    } catch (err) {
+      root.gtag('set', 'user_data', plainUserData(email, phone));
+      return null;
+    }
   }
 
   function isPhoneSendTo(value) {
@@ -84,24 +175,30 @@
     ensureGtag();
     if (typeof root.gtag !== 'function') return;
 
-    setEnhancedUserData(user);
+    function fire() {
+      var payload = assign({ event_category: 'engagement' }, params);
+      if (isPhoneSendTo(payload.send_to)) delete payload.send_to;
+      var ab = abParams();
+      if (payload.exp_id == null && ab.exp_id) payload.exp_id = ab.exp_id;
+      if (payload.exp_var == null && ab.exp_var) payload.exp_var = ab.exp_var;
 
-    var payload = assign({ event_category: 'engagement' }, params);
-    if (isPhoneSendTo(payload.send_to)) delete payload.send_to;
-    var ab = abParams();
-    if (payload.exp_id == null && ab.exp_id) payload.exp_id = ab.exp_id;
-    if (payload.exp_var == null && ab.exp_var) payload.exp_var = ab.exp_var;
+      root.gtag('event', 'generate_lead', payload);
+      root.gtag('event', 'ads_conversion_submit_lead_form', payload);
 
-    root.gtag('event', 'generate_lead', payload);
-    root.gtag('event', 'ads_conversion_submit_lead_form', payload);
-
-    if (AW_FORM_SEND_TO) {
-      var adsPayload = assign({}, payload);
-      adsPayload.send_to = AW_FORM_SEND_TO;
-      if (!isPhoneSendTo(adsPayload.send_to)) {
-        root.gtag('event', 'conversion', adsPayload);
+      if (AW_FORM_SEND_TO) {
+        var adsPayload = assign({}, payload);
+        adsPayload.send_to = AW_FORM_SEND_TO;
+        if (!isPhoneSendTo(adsPayload.send_to)) {
+          root.gtag('event', 'conversion', adsPayload);
+        }
       }
     }
+
+    var pending = setEnhancedUserData(user);
+    if (pending && typeof pending.then === 'function') {
+      return pending.then(fire);
+    }
+    fire();
   }
 
   function trackEstimateClick(params) {
