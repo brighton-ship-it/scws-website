@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-10-21T18:25:23Z",
+  "updatedAt": "2026-10-21T18:50:00Z",
   "photos": {
     "job1856:1": {
       "decision": "reject",
@@ -1070,6 +1070,174 @@
       "decision": "reject",
       "at": "2026-10-21T18:40:00Z",
       "jobId": "job2921",
+      "shop": "ramona",
+      "caption": "",
+      "reason": "pii-paperwork-or-screen"
+    },
+    "job1533:2": {
+      "decision": "reject",
+      "at": "2026-10-21T18:50:00Z",
+      "jobId": "job1533",
+      "shop": "ramona",
+      "caption": "",
+      "reason": "pii-paperwork-or-screen"
+    },
+    "job1533:3": {
+      "decision": "reject",
+      "at": "2026-10-21T18:50:00Z",
+      "jobId": "job1533",
+      "shop": "ramona",
+      "caption": "",
+      "reason": "pii-paperwork-or-screen"
+    },
+    "job1534:1": {
+      "decision": "reject",
+      "at": "2026-10-21T18:50:00Z",
+      "jobId": "job1534",
+      "shop": "ramona",
+      "caption": "",
+      "reason": "pii-paperwork-or-screen"
+    },
+    "job1714:2": {
+      "decision": "reject",
+      "at": "2026-10-21T18:50:00Z",
+      "jobId": "job1714",
+      "shop": "ramona",
+      "caption": "",
+      "reason": "pii-paperwork-or-screen"
+    },
+    "job1716:2": {
+      "decision": "reject",
+      "at": "2026-10-21T18:50:00Z",
+      "jobId": "job1716",
+      "shop": "ramona",
+      "caption": "",
+      "reason": "pii-paperwork-or-screen"
+    },
+    "job1762:2": {
+      "decision": "reject",
+      "at": "2026-10-21T18:50:00Z",
+      "jobId": "job1762",
+      "shop": "ramona",
+      "caption": "",
+      "reason": "pii-paperwork-or-screen"
+    },
+    "job1775:2": {
+      "decision": "reject",
+      "at": "2026-10-21T18:50:00Z",
+      "jobId": "job1775",
+      "shop": "ramona",
+      "caption": "",
+      "reason": "pii-paperwork-or-screen"
+    },
+    "job1802:1": {
+      "decision": "reject",
+      "at": "2026-10-21T18:50:00Z",
+      "jobId": "job1802",
+      "shop": "ramona",
+      "caption": "",
+      "reason": "pii-paperwork-or-screen"
+    },
+    "job1803:3": {
+      "decision": "reject",
+      "at": "2026-10-21T18:50:00Z",
+      "jobId": "job1803",
+      "shop": "ramona",
+      "caption": "",
+      "reason": "pii-paperwork-or-screen"
+    },
+    "job1816:1": {
+      "decision": "reject",
+      "at": "2026-10-21T18:50:00Z",
+      "jobId": "job1816",
+      "shop": "ramona",
+      "caption": "",
+      "reason": "pii-paperwork-or-screen"
+    },
+    "job1834:2": {
+      "decision": "reject",
+      "at": "2026-10-21T18:50:00Z",
+      "jobId": "job1834",
+      "shop": "ramona",
+      "caption": "",
+      "reason": "pii-paperwork-or-screen"
+    },
+    "job1871:1": {
+      "decision": "reject",
+      "at": "2026-10-21T18:50:00Z",
+      "jobId": "job1871",
+      "shop": "ramona",
+      "caption": "",
+      "reason": "pii-paperwork-or-screen"
+    },
+    "job1879:2": {
+      "decision": "reject",
+      "at": "2026-10-21T18:50:00Z",
+      "jobId": "job1879",
+      "shop": "ramona",
+      "caption": "",
+      "reason": "pii-paperwork-or-screen"
+    },
+    "job1884:2": {
+      "decision": "reject",
+      "at": "2026-10-21T18:50:00Z",
+      "jobId": "job1884",
+      "shop": "ramona",
+      "caption": "",
+      "reason": "pii-paperwork-or-screen"
+    },
+    "job1891:1": {
+      "decision": "reject",
+      "at": "2026-10-21T18:50:00Z",
+      "jobId": "job1891",
+      "shop": "ramona",
+      "caption": "",
+      "reason": "pii-paperwork-or-screen"
+    },
+    "job1902:2": {
+      "decision": "reject",
+      "at": "2026-10-21T18:50:00Z",
+      "jobId": "job1902",
+      "shop": "ramona",
+      "caption": "",
+      "reason": "pii-paperwork-or-screen"
+    },
+    "job1915:1": {
+      "decision": "reject",
+      "at": "2026-10-21T18:50:00Z",
+      "jobId": "job1915",
+      "shop": "ramona",
+      "caption": "",
+      "reason": "pii-paperwork-or-screen"
+    },
+    "job1973:3": {
+      "decision": "reject",
+      "at": "2026-10-21T18:50:00Z",
+      "jobId": "job1973",
+      "shop": "ramona",
+      "caption": "",
+      "reason": "pii-paperwork-or-screen"
+    },
+    "job1977:2": {
+      "decision": "reject",
+      "at": "2026-10-21T18:50:00Z",
+      "jobId": "job1977",
+      "shop": "ramona",
+      "caption": "",
+      "reason": "pii-paperwork-or-screen"
+    },
+    "job2645:2": {
+      "decision": "reject",
+      "at": "2026-10-21T18:50:00Z",
+      "jobId": "job2645",
+      "shop": "ramona",
+      "caption": "",
+      "reason": "pii-paperwork-or-screen"
+    },
+    "job2660:1": {
+      "decision": "reject",
+      "at": "2026-10-21T18:50:00Z",
+      "jobId": "job2660",
       "shop": "ramona",
       "caption": "",
       "reason": "pii-paperwork-or-screen"
