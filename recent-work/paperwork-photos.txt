@@ -63,3 +63,7 @@ job3470_3.jpg
 job3485_1.jpg
 job3601_1.jpg
 job3668_1.jpg
+
+# QA 2026-10-21: paperwork, screens, forms, or notes. Never republish.
+job1856_1.jpg
+job2860_1.jpg

@@ -419,6 +419,9 @@
             {
                 "file": "job3149_1.jpg",
                 "alt": "Well service in Ramona"
+            ,
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             },
             {
                 "file": "job3149_2.jpg",
@@ -3175,6 +3178,9 @@
             {
                 "file": "job2940_1.jpg",
                 "alt": "Well service in El Cajon"
+            ,
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             }
         ]
     },
@@ -3498,6 +3504,9 @@
             {
                 "file": "job2931_1.jpg",
                 "alt": "Well service in Fallbrook"
+            ,
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             }
         ]
     },
@@ -3670,6 +3679,9 @@
             {
                 "file": "job2783_1.jpg",
                 "alt": "Well service in Lakeside"
+            ,
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             }
         ]
     },
@@ -3917,6 +3929,9 @@
             {
                 "file": "job2871_1.jpg",
                 "alt": "Well service in Lakeside"
+            ,
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             }
         ]
     },
@@ -4001,6 +4016,9 @@
             {
                 "file": "job2860_1.jpg",
                 "alt": "Well service in Lakeside"
+            ,
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             },
             {
                 "file": "job2860_2.jpg",
@@ -4043,6 +4061,9 @@
             {
                 "file": "job2810_1.jpg",
                 "alt": "Well service in Winchester"
+            ,
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             },
             {
                 "file": "job2810_2.jpg",
@@ -4261,6 +4282,9 @@
             {
                 "file": "job2872_1.jpg",
                 "alt": "Well service in Winchester"
+            ,
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             },
             {
                 "file": "job2872_2.jpg",
@@ -4470,6 +4494,9 @@
             {
                 "file": "job2806_1.jpg",
                 "alt": "Well service in Fallbrook"
+            ,
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             },
             {
                 "file": "job2806_2.jpg",
@@ -22287,6 +22314,9 @@
             {
                 "file": "job1856_1.jpg",
                 "alt": "Well service in Redlands"
+            ,
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             }
         ]
     },
