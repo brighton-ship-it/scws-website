@@ -19,7 +19,7 @@ function snapshotWidgetInner() {
     '<a class="gbp-ratings-link" href="' + ANZA_GBP + '" target="_blank" rel="noopener">' +
       '<span class="gbp-stars" aria-hidden="true">★★★★★</span>' +
       '<span class="gbp-ratings-score" data-gbp-heading>4.8</span>' +
-      '<span class="gbp-ratings-count">from 170+ Google reviews</span>' +
+      '<span class="gbp-ratings-count">from 175 Google reviews</span>' +
       '<span class="gbp-ratings-label" data-gbp-shops>across our Ramona and Anza shops</span>' +
     '</a>'
   );
@@ -33,7 +33,7 @@ function assertCombinedSnapshot(html, heading) {
   assert.strictEqual(heading, '4.8');
   assert.match(html, /★★★★★/);
   assert.match(html, /gbp-ratings-score[^>]*>4\.8</);
-  assert.match(html, /from 170\+ Google reviews/);
+  assert.match(html, /from 175 Google reviews/);
   assert.match(html, /across our Ramona and Anza shops/);
   assert.match(html, /g\.page\/r\/Cajtn6jSo-ONEBM/);
   assert.doesNotMatch(html, /Cajtn6jSo-ONEBM\/review/);
@@ -81,11 +81,11 @@ async function run() {
   assert.doesNotMatch(src, /127/);
   assert.doesNotMatch(src, /count:\s*94/);
   assert.match(src, /rating:\s*4\.8/);
-  assert.match(src, /count:\s*108/);
+  assert.match(src, /count:\s*113/);
   assert.match(src, /rating:\s*4\.7/);
   assert.match(src, /count:\s*62/);
-  assert.match(src, /170\+/);
-  assert.match(src, /2026-10-02/);
+  assert.match(src, /countLabel: '175'/);
+  assert.match(src, /2026-10-21/);
   assert.match(src, /scws-jobs\.vercel\.app\/api\/gbp-ratings/);
   assert.match(src, /g\.page\/r\/CU9X_NG3TvP2EBM\/review/);
   assert.match(src, /g\.page\/r\/Cajtn6jSo-ONEBM/);
@@ -109,10 +109,9 @@ async function run() {
   var trustBlock = indexHtml.slice(trustIdx, whyIdx);
   assert.match(trustBlock, /60\+/);
   assert.match(trustBlock, /Years Family Heritage/);
-  assert.match(trustBlock, /16,000\+/);
-  assert.match(trustBlock, /Customers Served/);
+  assert.match(trustBlock, /Founded/);
   assert.match(trustBlock, /text-3xl font-bold text-primary">4\.8★</);
-  assert.match(trustBlock, /170\+ Google reviews/);
+  assert.match(trustBlock, /175 Google reviews/);
   assert.match(trustBlock, /24\/7/);
   assert.match(trustBlock, /Emergency Service/);
   assert.match(trustBlock, /Licensed &amp; Insured/);
@@ -131,7 +130,7 @@ async function run() {
   assert.doesNotMatch(indexHtml, /Read us on Google/);
   assert.doesNotMatch(indexHtml, /do not publish a combined rating/i);
   assert.doesNotMatch(indexHtml, /\(94\)/);
-  assert.match(indexHtml, /4\.8 ★ from 170\+ Google reviews across our Ramona and Anza shops\./);
+  assert.match(indexHtml, /about 4\.8 ★ from 175 Google reviews across our Ramona and Anza shops\./);
 
   var whyEnd = indexHtml.indexOf('<!-- Services Section -->');
   var whyBlock = indexHtml.slice(whyIdx, whyEnd > whyIdx ? whyEnd : indexHtml.length);
@@ -156,7 +155,7 @@ async function run() {
   var liveWin = loadWidget(function () {
     return jsonResponse({
       ramona: { rating: 4.7, count: 62, url: 'https://example.com/ramona' },
-      anza: { rating: 4.8, count: 108 },
+      anza: { rating: 4.8, count: 113 },
       updated: '2026-10-02T15:00:00Z'
     });
   });
@@ -225,10 +224,10 @@ async function run() {
   assert.doesNotMatch(api.LINKS.anzaListing, /\/review/);
   assert.doesNotMatch(api.LINKS.anzaListing, /57174/);
   assert.strictEqual(api.COMBINED_SNAPSHOT.rating, 4.8);
-  assert.strictEqual(api.COMBINED_SNAPSHOT.countLabel, '170+');
-  assert.strictEqual(api.COMBINED_SNAPSHOT.asOf, '2026-10-02');
+  assert.strictEqual(api.COMBINED_SNAPSHOT.countLabel, '175');
+  assert.strictEqual(api.COMBINED_SNAPSHOT.asOf, '2026-10-21');
   assert.strictEqual(api.SHOPS.anza.rating, 4.8);
-  assert.strictEqual(api.SHOPS.anza.count, 108);
+  assert.strictEqual(api.SHOPS.anza.count, 113);
   assert.strictEqual(api.SHOPS.ramona.rating, 4.7);
   assert.strictEqual(api.SHOPS.ramona.count, 62);
 
@@ -247,7 +246,7 @@ async function run() {
     anza: { rating: 4.8, count: 120, url: 'https://example.com/anza' },
     updated: '2026-11-01T00:00:00Z'
   });
-  assert.match(newer, /from 190\+ Google reviews/);
+  assert.match(newer, /from 190 Google reviews/);
   assert.match(newer, /gbp-ratings-score[^>]*>4\.8</);
   assert.match(newer, /g\.page\/r\/Cajtn6jSo-ONEBM/);
   assert.doesNotMatch(newer, /https:\/\/example.com\/anza/);

@@ -17,8 +17,8 @@ const ROOT = path.join(__dirname, '..');
 const MODE = process.argv[2] || 'all';
 
 const RATING = '4.8';
-const REVIEW_COUNT = '170';
-const REVIEW_COUNT_LABEL = '170+';
+const REVIEW_COUNT = '175';
+const REVIEW_COUNT_LABEL = '175';
 const RAMONA_GBP = 'https://g.page/r/CU9X_NG3TvP2EBM/review';
 const ANZA_GBP = 'https://g.page/r/Cajtn6jSo-ONEBM';
 const PHONE_DISPLAY = '(760) 440-8520';
@@ -238,20 +238,11 @@ function ratingSchema(extraReviews) {
   return JSON.stringify(node, null, 2).replace(/</g, '\\u003c');
 }
 
-function upsertSchema(html, reviews) {
-  const block =
-    '<!-- AggregateRating from js/gbp-ratings.js snapshot 2026-10-02: Anza 4.8 (108) + Ramona 4.7 (62) = 170 reviews, displayed 4.8. -->\n' +
-    '<script type="application/ld+json" id="town-aggregate-rating">\n' +
-    ratingSchema(reviews) +
-    '\n</script>\n';
-  if (html.includes('id="town-aggregate-rating"')) {
-    return html.replace(
-      /<!-- AggregateRating from js\/gbp-ratings\.js[\s\S]*?<script type="application\/ld\+json" id="town-aggregate-rating">[\s\S]*?<\/script>\n?/,
-      block
-    );
-  }
-  if (!html.includes('</head>')) return html;
-  return html.replace('</head>', block + '</head>');
+function upsertSchema(html) {
+  return html.replace(
+    /<!-- AggregateRating from js\/gbp-ratings\.js[\s\S]*?<script type="application\/ld\+json" id="town-aggregate-rating">[\s\S]*?<\/script>\n?/,
+    ''
+  );
 }
 
 function reviewCards(list, town) {
@@ -291,7 +282,7 @@ function extrasHtml(town, jobs, reviews, includeJobs) {
     '<section class="town-extras" id="town-extras">\n' +
     '<div class="town-rating">\n' +
     '<p class="town-stars" aria-hidden="true">★★★★★</p>\n' +
-    '<p><strong>' + RATING + '</strong> from ' + REVIEW_COUNT_LABEL + ' Google reviews across our Ramona and Anza shops.</p>\n' +
+    '<p>About <strong>' + RATING + '</strong> from ' + REVIEW_COUNT_LABEL + ' Google reviews across our Ramona and Anza shops. Ramona is 4.7 from 62. Anza is 4.8 from 113.</p>\n' +
     '<p><a href="/reviews/">Read our Google reviews</a></p>\n' +
     '<p><a href="' + RAMONA_GBP + '" target="_blank" rel="noopener">Ramona Google reviews</a> · <a href="' + ANZA_GBP + '" target="_blank" rel="noopener">Anza Google reviews</a></p>\n' +
     '</div>\n' +
@@ -507,14 +498,14 @@ function reviewsPage(list) {
     '<meta charset="utf-8"/>\n' +
     '<meta name="viewport" content="width=device-width, initial-scale=1.0"/>\n' +
     '<title>Customer Reviews | Southern California Well Service</title>\n' +
-    '<meta name="description" content="Southern California Well Service is rated 4.8 from 170+ Google reviews across the Ramona and Anza shops. Read the reviews we have on file. Call (760) 440-8520."/>\n' +
+    '<meta name="description" content="Southern California Well Service is about 4.8 from 175 Google reviews. Ramona is 4.7 from 62. Anza is 4.8 from 113. Call (760) 440-8520."/>\n' +
     '<link rel="canonical" href="https://scwellservice.com/reviews/"/>\n' +
     '<meta property="og:title" content="Customer Reviews | Southern California Well Service"/>\n' +
-    '<meta property="og:description" content="4.8 from 170+ Google reviews across the Ramona and Anza shops."/>\n' +
+    '<meta property="og:description" content="About 4.8 from 175 Google reviews. Ramona 4.7 from 62. Anza 4.8 from 113."/>\n' +
     '<meta property="og:image" content="https://www.scwellservice.com/images/logo-text-only-3x.png"/>\n' +
     '<link rel="stylesheet" href="/css/shop-chrome.css"/>\n' +
     '<link rel="stylesheet" href="/css/city-pages.css"/>\n' +
-    '<!-- AggregateRating from js/gbp-ratings.js snapshot 2026-10-02: Anza 4.8 (108) + Ramona 4.7 (62) = 170 reviews, displayed 4.8. -->\n' +
+    '<!-- Combined Google rating: Ramona 4.7/62 and Anza 4.8/113, 175 reviews, about 4.8. -->\n' +
     '<script type="application/ld+json" id="town-aggregate-rating">\n' + schema + '\n</script>\n' +
     '</head>\n<body class="shop-page">\n' +
     '<div id="scws-emergency-cta"><span>🚨 No Water?</span> <a href="' + PHONE_TEL + '">Call Now →</a></div>\n' +
@@ -531,14 +522,14 @@ function reviewsPage(list) {
     '<script>document.getElementById("mobile-menu-btn").addEventListener("click",function(){var m=document.getElementById("mobile-menu");m.hidden=!m.hidden;});</script>\n' +
     '<main class="city-landing">\n' +
     '<section class="hero">\n<h1>Customer Reviews</h1>\n' +
-    '<p><strong>' + RATING + '</strong> from ' + REVIEW_COUNT_LABEL + ' Google reviews across our Ramona and Anza shops.</p>\n' +
+    '<p>About <strong>' + RATING + '</strong> from ' + REVIEW_COUNT_LABEL + ' Google reviews across our Ramona and Anza shops. Ramona is 4.7 from 62. Anza is 4.8 from 113.</p>\n' +
     '<a class="cta-button" href="' + PHONE_TEL + '">Call ' + PHONE_DISPLAY + '</a>\n' +
     '<a id="scws-book-online" class="scws-book-online" href="/contact.html">Book online</a>\n' +
     '</section>\n' +
     '<section class="town-extras">\n' +
     '<div class="town-rating">\n' +
     '<p class="town-stars" aria-hidden="true">★★★★★</p>\n' +
-    '<p>The 4.8 / 170 figure is the combined Ramona (4.7 from 62) and Anza (4.8 from 108) snapshot stored in js/gbp-ratings.js on 2026-10-02. It is not a per-town rating.</p>\n' +
+    '<p>Ramona is 4.7 from 62 Google reviews. Anza is 4.8 from 113. Together that is 175 reviews, about 4.8.</p>\n' +
     '<p><a href="' + RAMONA_GBP + '" target="_blank" rel="noopener">Ramona Google reviews</a> · <a href="' + ANZA_GBP + '" target="_blank" rel="noopener">Anza Google reviews</a></p>\n' +
     '<p>Voice <a href="' + PHONE_TEL + '">' + PHONE_DISPLAY + '</a> · Text <a href="' + TEXT_SMS + '">' + TEXT_DISPLAY + '</a></p>\n' +
     '</div>\n' +
@@ -669,8 +660,6 @@ function newTownPage(meta, jobs, reviews) {
     '<meta property="og:image" content="https://www.scwellservice.com/images/logo-text-only-3x.png"/>\n' +
     '<link rel="stylesheet" href="/css/shop-chrome.css"/>\n<link rel="stylesheet" href="/css/city-pages.css"/>\n' +
     '<script type="application/ld+json">\n' + JSON.stringify(serviceSchema, null, 2).replace(/</g, '\\u003c') + '\n</script>\n' +
-    '<!-- AggregateRating from js/gbp-ratings.js snapshot 2026-10-02: Anza 4.8 (108) + Ramona 4.7 (62) = 170 reviews, displayed 4.8. -->\n' +
-    '<script type="application/ld+json" id="town-aggregate-rating">\n' + ratingSchema(schemaReviews) + '\n</script>\n' +
     '</head>\n<body class="shop-page" style="padding-bottom:80px">\n' +
     '<div class="bg-gradient-to-r from-red-600 to-red-700 text-white py-2.5" style="background:linear-gradient(90deg,#dc2626,#b91c1c);color:#fff;text-align:center;padding:0.6rem 1rem;">\n' +
     '<span style="font-weight:700;">🚨 No Water?</span> <a href="' + PHONE_TEL + '" style="color:#fff;font-weight:700;">Call Now →</a></div>\n' +
@@ -709,7 +698,7 @@ function newTownPage(meta, jobs, reviews) {
     '</section>\n' +
     '<section class="town-extras">\n<div class="town-rating">\n' +
     '<p class="town-stars" aria-hidden="true">★★★★★</p>\n' +
-    '<p><strong>' + RATING + '</strong> from ' + REVIEW_COUNT_LABEL + ' Google reviews across our Ramona and Anza shops.</p>\n' +
+    '<p>About <strong>' + RATING + '</strong> from ' + REVIEW_COUNT_LABEL + ' Google reviews across our Ramona and Anza shops. Ramona is 4.7 from 62. Anza is 4.8 from 113.</p>\n' +
     '<p><a href="/reviews/">Read our Google reviews</a></p>\n' +
     '</div>\n<div class="town-reviews"><h2>Reviews</h2>\n' + reviewBlock +
     '<p><a href="' + RAMONA_GBP + '" target="_blank" rel="noopener">Ramona Google reviews</a> · <a href="' + ANZA_GBP + '" target="_blank" rel="noopener">Anza Google reviews</a></p>\n' +
