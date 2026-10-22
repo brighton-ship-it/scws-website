@@ -71,11 +71,25 @@ class HubSchemaUnitTests(unittest.TestCase):
         cajon = hub_schema("el-cajon")
         dhs = hub_schema("desert-hot-springs")
         mountain = hub_schema("mountain-center")
+        assigned = [
+            (hub_schema(slug), city, shop)
+            for slug, city, shop in (
+                ("dulzura", "Dulzura", "Ramona"),
+                ("pala", "Pala", "Ramona"),
+                ("palomar-mountain", "Palomar Mountain", "Ramona"),
+                ("potrero", "Potrero", "Ramona"),
+                ("ocotillo", "Ocotillo", "Ramona"),
+                ("norco", "Norco", "Anza"),
+                ("thousand-palms", "Thousand Palms", "Anza"),
+                ("big-bear-city", "Big Bear City", "Anza"),
+            )
+        ]
         for block, city, shop_city in (
             (hemet, "Hemet", "Anza"),
             (cajon, "El Cajon", "Ramona"),
             (dhs, "Desert Hot Springs", "Anza"),
             (mountain, "Mountain Center", "Anza"),
+            *assigned,
         ):
             self.assertEqual(block["@type"], "Service", city)
             self.assertEqual(block["areaServed"]["name"], city)

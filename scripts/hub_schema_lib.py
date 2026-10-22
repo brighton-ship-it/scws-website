@@ -30,6 +30,17 @@ SPEC_SHOP = {
     "warner-springs": "ramona",
     "rancho-santa-fe": "ramona",
     "santa-ysabel": "ramona",
+    # Indexable hubs with no hyperlocal nearest_office. Page copy names both
+    # shops, so the shop follows county: Ramona for San Diego County and
+    # Ocotillo, Anza for Riverside, San Bernardino, and the Coachella desert.
+    "dulzura": "ramona",
+    "pala": "ramona",
+    "palomar-mountain": "ramona",
+    "potrero": "ramona",
+    "ocotillo": "ramona",
+    "norco": "anza",
+    "thousand-palms": "anza",
+    "big-bear-city": "anza",
 }
 
 SHOPS = {
