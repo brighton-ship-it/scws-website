@@ -47,7 +47,7 @@ SHOPS = {
     "ramona": {
         "id": f"{SITE}/#ramona-shop",
         "name": "Southern California Well Service — Ramona Shop",
-        "street": "1077 Main St Unit B",
+        "street": "1077 Main St, Unit B",
         "locality": "Ramona",
         "postal": "92065",
         "lat": "33.0425",
@@ -56,7 +56,7 @@ SHOPS = {
     "anza": {
         "id": f"{SITE}/#anza-shop",
         "name": "Southern California Well Service — Anza Shop",
-        "street": "57174 CA-371 (US Hwy 79)",
+        "street": "57174 CA-371",
         "locality": "Anza",
         "postal": "92539",
         "lat": "33.5539",

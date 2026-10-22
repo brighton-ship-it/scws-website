@@ -20,8 +20,8 @@ with open('city-hyperlocal-data.json', 'r') as f:
 city_data.pop('_meta', None)
 
 # Office addresses for Google Maps
-RAMONA_OFFICE = "1077 Main St, Ramona, CA 92065"
-ANZA_OFFICE = "57174 US Highway 79, Anza, CA 92539"
+RAMONA_OFFICE = "1077 Main St, Unit B, Ramona, CA 92065"
+ANZA_OFFICE = "57174 CA-371, Anza, CA 92539"
 
 def get_maps_embed(city_name, nearest_office):
     """Generate Google Maps embed for directions"""

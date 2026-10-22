@@ -374,15 +374,15 @@ function hubBlock(which) {
   const shops = {
     ramona: {
       title: 'Ramona shop',
-      address: '1077 Main Street, Unit B, Ramona, CA 92065',
-      map: '1077 Main Street Unit B, Ramona, CA 92065',
-      note: 'This is the Ramona shop. The Anza shop is at 57174 CA-371 (US Hwy 79), Anza, CA 92539.'
+      address: '1077 Main St, Unit B, Ramona, CA 92065',
+      map: '1077 Main St, Unit B, Ramona, CA 92065',
+      note: 'This is the Ramona shop. The Anza shop is at 57174 CA-371, Anza, CA 92539.'
     },
     anza: {
       title: 'Anza shop',
-      address: '57174 CA-371 (US Hwy 79), Anza, CA 92539',
+      address: '57174 CA-371, Anza, CA 92539',
       map: '57174 CA-371, Anza, CA 92539',
-      note: 'This is the Anza shop. The Ramona shop is at 1077 Main Street, Unit B, Ramona, CA 92065.'
+      note: 'This is the Anza shop. The Ramona shop is at 1077 Main St, Unit B, Ramona, CA 92065.'
     }
   };
   const ranges = CALCULATOR_RANGES.map(function (row) {
@@ -404,9 +404,9 @@ function hubBlock(which) {
       '<section class="hub-shop-card" id="murrieta-shop">\n' +
       '<h2>Murrieta shop <span class="hub-coming-soon">Coming soon</span></h2>\n' +
       '<p>A Murrieta shop is coming soon. There is no Murrieta street address yet.</p>\n' +
-      '<p>Murrieta jobs are covered from the Anza shop at 57174 CA-371 (US Hwy 79), Anza, CA 92539. Voice <a href="' + PHONE_TEL + '">' + PHONE_DISPLAY + '</a>. Text <a href="' + TEXT_SMS + '">' + TEXT_DISPLAY + '</a>.</p>\n' +
+      '<p>Murrieta jobs are covered from the Anza shop at 57174 CA-371, Anza, CA 92539. Voice <a href="' + PHONE_TEL + '">' + PHONE_DISPLAY + '</a>. Text <a href="' + TEXT_SMS + '">' + TEXT_DISPLAY + '</a>.</p>\n' +
       '<div class="hub-map">\n' +
-      '<iframe title="Map of the Anza shop, which covers Murrieta until a Murrieta shop opens" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=57174%20CA-371%20Anza%20CA%2092539&amp;z=15&amp;output=embed"></iframe>\n' +
+      '<iframe title="Map of the Anza shop, which covers Murrieta until a Murrieta shop opens" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=57174%20CA-371%2C%20Anza%2C%20CA%2092539&amp;z=15&amp;output=embed"></iframe>\n' +
       '</div>\n' +
       '<p><a href="/services/anza/">Anza shop page</a> · <a href="/services/murrieta/well-pump-repair.html">Pump repair in Murrieta</a> · <a href="/services/murrieta/well-drilling.html">Well drilling in Murrieta</a> · <a href="/services/murrieta/water-treatment.html">Water treatment in Murrieta</a></p>\n' +
       '</section>\n';
@@ -537,13 +537,13 @@ function reviewsPage(list) {
     '<div class="reviews-list">\n' + cards + '\n</div>\n' +
     '<div class="town-reviews">\n' +
     '<h2>Shops</h2>\n' +
-    '<p><strong>Ramona:</strong> 1077 Main Street, Unit B, Ramona, CA 92065</p>\n' +
-    '<p><strong>Anza:</strong> 57174 CA-371 (US Hwy 79), Anza, CA 92539</p>\n' +
+    '<p><strong>Ramona:</strong> 1077 Main St, Unit B, Ramona, CA 92065</p>\n' +
+    '<p><strong>Anza:</strong> 57174 CA-371, Anza, CA 92539</p>\n' +
     '<p>CSLB #1086994 (C-57).</p>\n' +
     '</div>\n</section>\n</main>\n' +
     '<footer class="shop-footer-nap" style="background:#0f172a;color:#94a3b8;padding:2rem 1rem;">\n' +
     '<p>Voice <a href="' + PHONE_TEL + '">' + PHONE_DISPLAY + '</a> · Text <a href="' + TEXT_SMS + '">' + TEXT_DISPLAY + '</a></p>\n' +
-    '<p>1077 Main Street, Unit B, Ramona, CA 92065 · 57174 CA-371 (US Hwy 79), Anza, CA 92539</p>\n' +
+    '<p>1077 Main St, Unit B, Ramona, CA 92065 · 57174 CA-371, Anza, CA 92539</p>\n' +
     '<p><a href="/">Home</a> · <a href="/pages/service-area.html">Service areas</a> · <a href="/contact.html">Contact</a></p>\n' +
     '</footer>\n' +
     '<div id="sticky-cta"><a class="cta-call" href="' + PHONE_TEL + '">Call</a><a class="cta-text" href="' + TEXT_SMS + '">Text</a><a class="cta-est" href="/contact.html">Estimate</a></div>\n' +
@@ -623,7 +623,7 @@ const LOCAL_LEADS = {
 
 function localTownLead(meta, jobs, span, mix) {
   const local = LOCAL_LEADS[meta.slug] || (meta.name + ' is in ' + meta.county + '.');
-  return local + ' From ' + span + ' we finished ' + jobs.length + ' jobs (' + mix + '). Call ' + PHONE_DISPLAY + '. CSLB #1086994. Shops are in Ramona (1077 Main Street, Unit B) and Anza (57174 CA-371).';
+  return local + ' From ' + span + ' we finished ' + jobs.length + ' jobs (' + mix + '). Call ' + PHONE_DISPLAY + '. CSLB #1086994. Shops are in Ramona (1077 Main St, Unit B, Ramona, CA 92065) and Anza (57174 CA-371, Anza, CA 92539).';
 }
 
 function newTownPage(meta, jobs, reviews) {
@@ -726,7 +726,7 @@ function newTownPage(meta, jobs, reviews) {
     '</main>\n' +
     '<footer class="shop-footer-nap" style="background:#0f172a;color:#94a3b8;padding:2rem 1rem;">\n' +
     '<p>Voice <a href="' + PHONE_TEL + '">' + PHONE_DISPLAY + '</a> · Text <a href="' + TEXT_SMS + '">' + TEXT_DISPLAY + '</a></p>\n' +
-    '<p>1077 Main Street, Unit B, Ramona, CA 92065 · 57174 CA-371 (US Hwy 79), Anza, CA 92539</p>\n' +
+    '<p>1077 Main St, Unit B, Ramona, CA 92065 · 57174 CA-371, Anza, CA 92539</p>\n' +
     '<p><a href="/pages/service-area.html">Service areas</a> · <a href="/reviews/">Reviews</a></p>\n' +
     '</footer>\n' +
     '<div id="sticky-cta"><a class="cta-call" href="' + PHONE_TEL + '">Call</a><a class="cta-text" href="' + TEXT_SMS + '">Text</a><a class="cta-est" href="/contact.html">Estimate</a></div>\n' +

@@ -41,7 +41,7 @@ DEPTH_HTML = {
     "services/ramona/index.html": note(
         "From the Ramona shop on Main Street",
         [
-            "The Ramona shop is at 1077 Main Street, Unit B — same town as San Diego Country Estates, Dye Road, and the Mussey Grade properties we pull pumps on most weeks. SCWS started in 2020. The crew still works these granite and Santiago Peak wells the old way: show up, test the system, and tell you what actually failed before anyone talks about a new pump.",
+            "The Ramona shop is at 1077 Main St, Unit B, Ramona, CA 92065 — same town as San Diego Country Estates, Dye Road, and the Mussey Grade properties we pull pumps on most weeks. SCWS started in 2020. The crew still works these granite and Santiago Peak wells the old way: show up, test the system, and tell you what actually failed before anyone talks about a new pump.",
             "A lot of Ramona calls start the same way. Pressure switch chatters. Tank short-cycles. No water after a power blink. Country Estates houses from the 80s and 90s still run original controls next to a 300-foot setting. We keep contactors, 40/60 switches, and common drop-pipe fittings on the truck because the drive back to town wastes the afternoon when a family is already on bottled water.",
             "Iron and manganese stain fixtures here. That is not a sales pitch for a filter package — it is why we look at the pressure tank bladder and the control box before we assume the submersible died. If the well is tired in late summer, we say so. If it is a melted switch, we replace the switch.",
             "Need us today? Call the voice line or text the text-only number. Ask for the Ramona shop. We will tell you if we can roll same-day or if Anza has to cover.",
@@ -51,7 +51,7 @@ DEPTH_HTML = {
     "services/anza/index.html": note(
         "Anza shop on CA-371",
         [
-            "The Anza shop sits at 57174 CA-371 (US Hwy 79). That is the high-desert yard — Terwilliger, Cahuilla, Thomas Mountain, and the Aguanga wells that are closer to us than to Ramona. Founded 2020. Same C-57 license as the Main Street shop. Different dirt.",
+            "The Anza shop sits at 57174 CA-371, Anza, CA 92539. That is the high-desert yard — Terwilliger, Cahuilla, Thomas Mountain, and the Aguanga wells that are closer to us than to Ramona. Founded 2020. Same C-57 license as the Main Street shop. Different dirt.",
             "Anza wells are often shallower than Ramona granite holes and still beat up equipment. Dust, hard water, storage tanks on hillsides, float switches that stick after a windy week. We pull and inspect a lot of pumps here because “no water” on a ranch is usually a control or a hole in the drop pipe, not a brand-new drill.",
             "If you are in Anza proper and the house is dry, call or text. Do not wait for a weekday office hour if the stock is out of water — we answer the phone after 5. Tell us whether you have a storage tank and a booster. That changes what we load.",
             "We are not inventing an old Anza drilling company. SCWS is the 2020 shop that bought the local routes and still runs trucks from this highway.",
@@ -187,7 +187,7 @@ DEPTH_HTML = {
     "pages/locations/cities/ramona.html": note(
         "Ramona is the Main Street shop",
         [
-            "This location page is the same company as /services/ramona/ — Southern California Well Service, 1077 Main Street, Unit B, Ramona, CA 92065. Founded 2020. Not a second contractor. Not a 20-year franchise.",
+            "This location page is the same company as /services/ramona/ — Southern California Well Service, 1077 Main St, Unit B, Ramona, CA 92065. Founded 2020. Not a second contractor. Not a 20-year franchise.",
             "If you found this URL from a search, use it to call or text and then look at Recent Work. The job photos are the local proof. Geology and neighborhoods — Country Estates, Woodson, Barona, Dye Road — are on the city service hub. We are not going to paste a fake review count here.",
             "Need a pump, a well look, or a dry-house call? Voice (760) 440-8520. Text (760) 219-5877. CSLB #1086994. If you are standing in a dry kitchen in Ramona, start with the voice line. If you can send a photo of the tank gauge, use the text line.",
         ],
@@ -214,7 +214,7 @@ DEPTH_HTML = {
     "pages/locations/cities/anza.html": note(
         "Anza is the second shop, not a pin on a map",
         [
-            "57174 CA-371 (US Hwy 79), Anza, CA 92539 is a real yard. If you searched “well service Anza” and landed here, that is the address to put in the truck GPS. Ramona is the other shop. Same license, same phones.",
+            "57174 CA-371, Anza, CA 92539 is a real yard. If you searched “well service Anza” and landed here, that is the address to put in the truck GPS. Ramona is the other shop. Same license, same phones.",
             "High-desert wells, tanks, and after-hours ranch calls are why this location exists. Founded 2020. Family heritage in the trade. No invented company-age story. Terwilliger and Aguanga are on the same radio.",
             "Voice (760) 440-8520. Text (760) 219-5877. CSLB #1086994. Longer Anza page: <a href=\"/services/anza/\">well services in Anza</a>. If you need a pump pull and you already have a tank on the hill, say so — that is most of the Anza tickets we publish.",
         ],
@@ -223,7 +223,7 @@ DEPTH_HTML = {
     "services/hemet/index.html": note(
         "Hemet runs out of the Anza yard",
         [
-            "Hemet does not have an SCWS storefront. The shop is 57174 CA-371 (US Hwy 79), Anza, CA 92539. Florida Avenue, East Hemet, Diamond Valley, and the Sage side of the valley are calls we already run: service calls, pressure tanks and switches, controls, and some drilling. If you searched for a Hemet well company and landed here, you found the Anza crew.",
+            "Hemet does not have an SCWS storefront. The shop is 57174 CA-371, Anza, CA 92539. Florida Avenue, East Hemet, Diamond Valley, and the Sage side of the valley are calls we already run: service calls, pressure tanks and switches, controls, and some drilling. If you searched for a Hemet well company and landed here, you found the Anza crew.",
             "A Hemet pressure problem is often the tank or the switch, not a dead pump. We have already done pressure-tank plumbing, a pressure switch and filter, and a deepen-the-setting job when the pump was not deep enough. Those are on Recent Work with field photos. Storage-tank floats are the same trucks. See <a href=\"/pages/services/pressure-tanks.html\">pressure tanks and switches</a> and <a href=\"/pages/services/water-storage-tanks.html\">storage tanks and float switches</a>.",
             "Founded 2020. CSLB C-57 #1086994. Tell us whether the house is dry or the pump will not shut off. That is enough to load the truck from Anza. The Anza hub is <a href=\"/services/anza/\">here</a>. Area proof: <a href=\"/recent-work/areas/hemet.html\">Hemet recent work</a>.",
         ],
@@ -232,7 +232,7 @@ DEPTH_HTML = {
     "services/el-cajon/index.html": note(
         "El Cajon wells from the Ramona shop",
         [
-            "El Cajon is Ramona-shop work. The address is 1077 Main St Unit B, Ramona, CA 92065, not a yard in El Cajon. The calls we publish are service calls, controls and contactors, wire and check valves, and pressure tanks. A contactor that welds shut looks like a pump that will not stop. A check valve that fails looks like the pump is weak.",
+            "El Cajon is Ramona-shop work. The address is 1077 Main St, Unit B, Ramona, CA 92065, not a yard in El Cajon. The calls we publish are service calls, controls and contactors, wire and check valves, and pressure tanks. A contactor that welds shut looks like a pump that will not stop. A check valve that fails looks like the pump is weak.",
             "We already have an El Cajon check-valve job, a contactor replacement, and a control diagnostic on Recent Work. Start there if you want to see the truck work before you call. Pressure-tank work on this route is the same crew: <a href=\"/pages/services/pressure-tanks.html\">pressure tanks and switches</a>. Controls live on <a href=\"/pages/services/controls.html\">the controls page</a>.",
             "Founded 2020. CSLB C-57 #1086994. Voice (760) 440-8520. Text (760) 219-5877. If you are between El Cajon and Alpine or Lakeside, say the cross street. Area page: <a href=\"/recent-work/areas/el-cajon.html\">El Cajon recent work</a>. Ramona hub: <a href=\"/services/ramona/\">Ramona shop</a>.",
         ],
@@ -243,7 +243,7 @@ DEPTH_HTML = {
         [
             "Menifee is closer to the Anza shop on CA-371 than to Main Street. The work is service calls, pressure tanks, and pump or motor replacement. Two jobs we already published are a pump-down float and a tank float. Those are storage-tank failures: the pump will not start, or it will not stop. That is not a Menifee storefront. It is the Anza truck.",
             "If the float is the problem, read <a href=\"/pages/services/water-storage-tanks.html\">water storage tanks and float switches</a> before you assume the submersible died. Pressure tanks are the other half of a short-cycling house: <a href=\"/pages/services/pressure-tanks.html\">pressure tanks and switches</a>. Pump pulls are <a href=\"/pages/services/pump-repair.html\">pump repair</a>.",
-            "Founded 2020. CSLB C-57 #1086994. Anza shop: 57174 CA-371 (US Hwy 79), Anza, CA 92539. Tell us if you have a storage tank on the pad. Area page: <a href=\"/recent-work/areas/menifee.html\">Menifee recent work</a>.",
+            "Founded 2020. CSLB C-57 #1086994. Anza shop: 57174 CA-371, Anza, CA 92539. Tell us if you have a storage tank on the pad. Area page: <a href=\"/recent-work/areas/menifee.html\">Menifee recent work</a>.",
         ],
         "Menifee float and pump cards are below.",
     ),
@@ -252,14 +252,14 @@ DEPTH_HTML = {
         [
             "Warner Springs is Ramona-shop country along Highway 79, not an Anza ticket. The calls are service, controls, flow tests, and some drilling. A booster and a storage tank on the same parcel is a normal Warner Springs diagnostic. Lost pressure is often the switch or the tank, which we would rather say on the phone than sell a pull.",
             "Recent Work already has a booster-and-tank diagnostic, a pressure-loss diagnostic, and a pressure-switch job. Those photos are the local proof. Related pages: <a href=\"/pages/services/booster-pumps.html\">booster pumps</a> and <a href=\"/pages/services/pressure-tanks.html\">pressure tanks and switches</a>.",
-            "The Ramona shop is 1077 Main St Unit B, Ramona, CA 92065. Founded 2020. CSLB C-57 #1086994. If the ranch gate is locked, put the combo in the first text. Area page: <a href=\"/recent-work/areas/warner-springs.html\">Warner Springs recent work</a>.",
+            "The Ramona shop is 1077 Main St, Unit B, Ramona, CA 92065. Founded 2020. CSLB C-57 #1086994. If the ranch gate is locked, put the combo in the first text. Area page: <a href=\"/recent-work/areas/warner-springs.html\">Warner Springs recent work</a>.",
         ],
         "Warner Springs cards below are jobs we already finished.",
     ),
     "services/rancho-santa-fe/index.html": note(
         "Rancho Santa Fe pumps and panels, from Ramona",
         [
-            "Rancho Santa Fe does not get a fake local shop. The crew comes from 1077 Main St Unit B, Ramona, CA 92065. The work is service calls, controls, boosters, and pump or motor replacement. We have published an electrical panel job, a high-amp diagnostic, and a pull of the well pump and motor. High amp draw is a reason to stop and test, not a reason to order a motor over the phone.",
+            "Rancho Santa Fe does not get a fake local shop. The crew comes from 1077 Main St, Unit B, Ramona, CA 92065. The work is service calls, controls, boosters, and pump or motor replacement. We have published an electrical panel job, a high-amp diagnostic, and a pull of the well pump and motor. High amp draw is a reason to stop and test, not a reason to order a motor over the phone.",
             "Boosters on estate tanks are a separate ticket from the submersible in the hole. Say which one is dead. <a href=\"/pages/services/booster-pumps.html\">Booster pump repair</a> and <a href=\"/pages/services/pump-repair.html\">well pump repair</a> are the two pages. Controls: <a href=\"/pages/services/controls.html\">pump controls</a>.",
             "Founded 2020. CSLB C-57 #1086994. Voice (760) 440-8520. Text (760) 219-5877. Area page: <a href=\"/recent-work/areas/rancho-santa-fe.html\">Rancho Santa Fe recent work</a>.",
         ],
@@ -269,7 +269,7 @@ DEPTH_HTML = {
         "Santa Ysabel pump and switch work",
         [
             "Santa Ysabel is on the Ramona shop route with Julian, up Highway 78. The calls are service, pump and motor replacement, and controls. We have published a pressure switch and filter job and a bail-and-brush on the well. A switch that iced or burned is a different morning than a pump that has to come out of the hole.",
-            "If the complaint is no pressure, start with <a href=\"/pages/services/pressure-tanks.html\">pressure tanks and switches</a>. If the pump has to be pulled, that is <a href=\"/pages/services/pump-repair.html\">pump repair</a>. The Ramona shop is 1077 Main St Unit B, Ramona, CA 92065. Anza does not normally roll this grade.",
+            "If the complaint is no pressure, start with <a href=\"/pages/services/pressure-tanks.html\">pressure tanks and switches</a>. If the pump has to be pulled, that is <a href=\"/pages/services/pump-repair.html\">pump repair</a>. The Ramona shop is 1077 Main St, Unit B, Ramona, CA 92065. Anza does not normally roll this grade.",
             "Founded 2020. CSLB C-57 #1086994. Text the gate code if the place is vacant. Area page: <a href=\"/recent-work/areas/santa-ysabel.html\">Santa Ysabel recent work</a>. Julian hub, same shop: <a href=\"/services/julian/\">Julian well service</a>.",
         ],
         "Santa Ysabel cards below are real jobs.",
@@ -277,16 +277,16 @@ DEPTH_HTML = {
     "services/desert-hot-springs/index.html": note(
         "Desert Hot Springs is an Anza route",
         [
-            "There is no shop in Desert Hot Springs. The yard is 57174 CA-371 (US Hwy 79), Anza, CA 92539. The work is service calls and diagnostics, wire and drop pipe, check valves and well seals, pump and motor replacement, pressure tanks and switches, and a little drilling. Rancho Mirage, Palm Desert, La Quinta, Thousand Palms, and Thermal are towns on the same stretch where we have already worked. Those are Recent Work area pages, not extra city hubs.",
+            "There is no shop in Desert Hot Springs. The yard is 57174 CA-371, Anza, CA 92539. The work is service calls and diagnostics, wire and drop pipe, check valves and well seals, pump and motor replacement, pressure tanks and switches, and a little drilling. Rancho Mirage, Palm Desert, La Quinta, Thousand Palms, and Thermal are towns on the same stretch where we have already worked. Those are Recent Work area pages, not extra city hubs.",
             "A Thermal pressure-switch job is published because that is the kind of ticket this valley produces. If you are in Desert Hot Springs and the pump will not start, say so. If the tank is full and the house is dry, say that too. <a href=\"/pages/services/pressure-tanks.html\">Pressure tanks</a> and <a href=\"/pages/services/pump-repair.html\">pump repair</a> are the matching service pages. The Anza hub is <a href=\"/services/anza/\">here</a>.",
-            "Founded 2020. CSLB C-57 #1086994. Voice (760) 440-8520. Text (760) 219-5877. Ramona is the other shop, at 1077 Main St Unit B. It is the long way for this valley.",
+            "Founded 2020. CSLB C-57 #1086994. Voice (760) 440-8520. Text (760) 219-5877. Ramona is the other shop, at 1077 Main St, Unit B, Ramona, CA 92065. It is the long way for this valley.",
         ],
         'Coachella Valley proof: <a href="/recent-work/areas/desert-hot-springs.html">Desert Hot Springs recent work</a>.',
     ),
     "services/mountain-center/index.html": note(
         "Mountain Center, same Anza shop as Idyllwild",
         [
-            "Mountain Center is the grade between Hemet and Idyllwild. The shop is Anza: 57174 CA-371 (US Hwy 79), Anza, CA 92539. Calls are service, pressure tank and switch replacement, pump and motor replacement, and controls. Idyllwild and Pine Cove are the next community on the same route. The Idyllwild hub is <a href=\"/services/idyllwild/\">here</a>.",
+            "Mountain Center is the grade between Hemet and Idyllwild. The shop is Anza: 57174 CA-371, Anza, CA 92539. Calls are service, pressure tank and switch replacement, pump and motor replacement, and controls. Idyllwild and Pine Cove are the next community on the same route. The Idyllwild hub is <a href=\"/services/idyllwild/\">here</a>.",
             "A pressure tank on a cabin and a pump that has to come out are different jobs. Tell us which one you think you have, and whether the well house can freeze. <a href=\"/pages/services/pressure-tanks.html\">Pressure tanks and switches</a> and <a href=\"/pages/services/pump-repair.html\">pump repair</a> cover those two. Storage tanks: <a href=\"/pages/services/water-storage-tanks.html\">float switches and tanks</a>.",
             "Founded 2020. CSLB C-57 #1086994. Text (760) 219-5877 if you cannot talk. Put the gate combo in the first message. Area pages: <a href=\"/recent-work/areas/mountain-center.html\">Mountain Center</a> and <a href=\"/recent-work/areas/idyllwild.html\">Idyllwild</a>.",
         ],
@@ -297,7 +297,7 @@ DEPTH_HTML = {
         [
             "We do not sell a tank from a photo of an empty pad. The first question is whether the float failed or the pump failed. A pump-up float that sticks leaves the tank empty. A pump-down float that sticks leaves the pump running. Float weights and ball floats do the same thing when they hang up. That is the job we see most.",
             "When the tank itself is done, we deliver and remove them, including 3,000 gallon PVC tanks and 5,000 and 10,000 gallon tanks. Pads are the 24x24x3 pads, with a gravel ring when the ground needs it. Bulkhead fittings and epoxy are the leaks at the tank wall. If a booster and a tank are both wrong, we diagnose the pair. The booster page is <a href=\"/pages/services/booster-pumps.html\">here</a>.",
-            "Two shops. Ramona at 1077 Main St Unit B. Anza at 57174 CA-371 (US Hwy 79). Founded 2020. CSLB C-57 #1086994. The guide is <a href=\"/blog/water-storage-tank-guide.html\">the storage tank article</a>. The cards below are finished jobs.",
+            "Two shops. Ramona at 1077 Main St, Unit B, Ramona, CA 92065. Anza at 57174 CA-371, Anza, CA 92539. Founded 2020. CSLB C-57 #1086994. The guide is <a href=\"/blog/water-storage-tank-guide.html\">the storage tank article</a>. The cards below are finished jobs.",
         ],
         "Field photos of tank and float jobs are in the cards below.",
     ),
@@ -305,7 +305,7 @@ DEPTH_HTML = {
         "Booster calls are not well pulls",
         [
             "A full storage tank and a dry house is a booster ticket. A locked motor, a weeping mechanical seal, or a constant-pressure package that faulted are the jobs we replace and diagnose. Three-phase booster motors are in that mix. We do not list model numbers. Brands we already service are on the <a href=\"/pages/brands-we-service.html\">brands page</a>: Franklin Electric, Grundfos, Goulds, Pentair, and the others named there.",
-            "Say whether the tank has water before we roll. That is the whole load-out. Ramona shop: 1077 Main St Unit B, Ramona, CA 92065. Anza shop: 57174 CA-371 (US Hwy 79), Anza, CA 92539. Founded 2020. CSLB C-57 #1086994. If the well pump is the thing that died, that is <a href=\"/pages/services/pump-repair.html\">pump repair</a>, not this page.",
+            "Say whether the tank has water before we roll. That is the whole load-out. Ramona shop: 1077 Main St, Unit B, Ramona, CA 92065. Anza shop: 57174 CA-371, Anza, CA 92539. Founded 2020. CSLB C-57 #1086994. If the well pump is the thing that died, that is <a href=\"/pages/services/pump-repair.html\">pump repair</a>, not this page.",
             "Constant-pressure packages get a transducer and a drive, not a guess. Pressure tanks next to the booster are <a href=\"/pages/services/pressure-tanks.html\">their own page</a>. The cards below are booster jobs we already finished.",
         ],
         "Booster field photos are in the cards below.",
@@ -315,7 +315,7 @@ DEPTH_HTML = {
         [
             "A pump that starts and stops every few seconds is often a waterlogged pressure tank, not a dead motor. We replace tanks, replace or adjust pressure switches, and repair the plumbing at the tank tee. On a constant-pressure system the transducer and the tank get replaced together when both are done. Lost pressure gets a diagnostic before anyone talks about a new submersible.",
             "Read <a href=\"/blog/how-to-check-pressure-tank.html\">how to check a pressure tank</a> and <a href=\"/blog/bladder-tank-vs-pressure-tank.html\">bladder tank versus pressure tank</a> if you want the background. Sizing, draining, a stuck gauge, short-cycling, and the switch itself stay on the guides: <a href=\"/blog/pressure-tank-sizing-guide.html\">pressure tank sizing</a>, <a href=\"/blog/well-pressure-tank-sizing-guide.html\">well pressure tank sizing</a>, <a href=\"/blog/how-to-drain-pressure-tank.html\">how to drain a pressure tank</a>, <a href=\"/blog/pressure-gauge-stuck-at-zero.html\">pressure gauge stuck at zero</a>, <a href=\"/blog/well-pump-short-cycling.html\">well pump short cycling</a>, and <a href=\"/blog/well-pressure-switch-guide.html\">the pressure switch guide</a>. This page is the service call. Storage tanks with floats are a different piece of equipment: <a href=\"/pages/services/water-storage-tanks.html\">water storage tanks</a>.",
-            "Ramona shop, 1077 Main St Unit B, Ramona, CA 92065. Anza shop, 57174 CA-371 (US Hwy 79), Anza, CA 92539. Founded 2020. CSLB C-57 #1086994. Voice (760) 440-8520. Text (760) 219-5877. Tell us what the gauge is doing.",
+            "Ramona shop, 1077 Main St, Unit B, Ramona, CA 92065. Anza shop, 57174 CA-371, Anza, CA 92539. Founded 2020. CSLB C-57 #1086994. Voice (760) 440-8520. Text (760) 219-5877. Tell us what the gauge is doing.",
         ],
         "Pressure tank and switch photos are in the cards below.",
     ),
@@ -345,7 +345,7 @@ H1_FIXES = [
     (
         ROOT / "pages/locations/cities/ramona.html",
         "We're based right here in Ramona — your founded in 2020",
-        "Based at 1077 Main Street, Unit B — founded 2020",
+        "Based at 1077 Main St, Unit B, Ramona, CA 92065 — founded 2020",
     ),
 ]
 

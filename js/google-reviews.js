@@ -17,8 +17,8 @@ const GOOGLE_REVIEWS_CONFIG = {
     
     // Place IDs for your locations
     places: {
-        ramona: 'ChIJnVbrUVH7_YARQO2fqNKjo40', // 1077 Main St, Ramona
-        anza: 'ChIJj4LVzZgR24ARH4bwK2fOYc4'    // 57174 CA-371 (US Hwy 79), Anza, CA 92539
+        ramona: 'ChIJnVbrUVH7_YARQO2fqNKjo40', // 1077 Main St, Unit B, Ramona, CA 92065
+        anza: 'ChIJj4LVzZgR24ARH4bwK2fOYc4'    // 57174 CA-371, Anza, CA 92539
     },
     
     // Display mode: 'highest', 'average', or 'both'

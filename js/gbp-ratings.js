@@ -27,7 +27,7 @@
   var RAMONA_REVIEWS = 'https://g.page/r/CU9X_NG3TvP2EBM/review';
   // Anza Google Business Profile (g.page). This is the listing, not a
   // write-a-review dump — do not append /review. Do not replace this with the
-  // street-address Maps pin (57174 CA-371) or the Ramona g.page above.
+  // street-address Maps pin (57174 CA-371, Anza, CA 92539) or the Ramona g.page above.
   var ANZA_LISTING = 'https://g.page/r/Cajtn6jSo-ONEBM';
 
   // Live counts, 2026-10-21. Weighted average about 4.76 displays as 4.8.

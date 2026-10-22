@@ -69,7 +69,7 @@ HEADER = """<body class="shop-page" style="padding-bottom:80px">
 TAIL = """<footer class="footer shop-footer-nap" style="background:#0f172a;color:#94a3b8;padding:2rem 1rem;">
 <p><strong style="color:#fff;">Southern California Well Service</strong></p>
 <p>Voice <a href="tel:+17604408520">(760) 440-8520</a> · Text <a href="sms:7602195877">(760) 219-5877</a></p>
-<p>1077 Main St Unit B, Ramona, CA 92065 · 57174 CA-371 (US Hwy 79), Anza, CA 92539</p>
+<p>1077 Main St, Unit B, Ramona, CA 92065 · 57174 CA-371, Anza, CA 92539</p>
 <p>Founded 2020 · CSLB License #1086994 (C-57)</p>
 </footer>
 <div id="sticky-cta">
@@ -137,7 +137,7 @@ def _service_schema(name: str, service_type: str, url: str, description: str) ->
             "address": [
                 {
                     "@type": "PostalAddress",
-                    "streetAddress": "1077 Main St Unit B",
+                    "streetAddress": "1077 Main St, Unit B",
                     "addressLocality": "Ramona",
                     "addressRegion": "CA",
                     "postalCode": "92065",
@@ -145,7 +145,7 @@ def _service_schema(name: str, service_type: str, url: str, description: str) ->
                 },
                 {
                     "@type": "PostalAddress",
-                    "streetAddress": "57174 CA-371 (US Hwy 79)",
+                    "streetAddress": "57174 CA-371",
                     "addressLocality": "Anza",
                     "addressRegion": "CA",
                     "postalCode": "92539",
@@ -293,7 +293,7 @@ def write_service_pages() -> None:
 <h2>What we do</h2>
 <p>We replace pump-up and pump-down float switches, float weights, and ball floats. We set tank pads — the 24x24x3 pads we actually use — plus gravel rings, bulkhead fittings, and epoxy where a fitting weeps. We deliver and remove tanks, including 3,000 gallon PVC tanks and 5,000 and 10,000 gallon tanks.</p>
 <h2>When to call</h2>
-<p>Call or text when the pump runs on and the tank is full, or the tank is empty and the pump will not start. Say whether a booster sits between the tank and the house. That changes what we load. Southern California Well Service was founded in 2020. CSLB C-57 #1086994. Ramona shop: 1077 Main St Unit B, Ramona, CA 92065. Anza shop: 57174 CA-371 (US Hwy 79), Anza, CA 92539.</p>
+<p>Call or text when the pump runs on and the tank is full, or the tank is empty and the pump will not start. Say whether a booster sits between the tank and the house. That changes what we load. Southern California Well Service was founded in 2020. CSLB C-57 #1086994. Ramona shop: 1077 Main St, Unit B, Ramona, CA 92065. Anza shop: 57174 CA-371, Anza, CA 92539.</p>
 <h2>Related pages</h2>
 <ul>
 <li><a href="/blog/water-storage-tank-guide.html">Water storage tank guide</a></li>
@@ -345,7 +345,7 @@ def write_service_pages() -> None:
 <h2>What we do</h2>
 <p>Replacement, motor replacement, diagnostics, mechanical seals, and constant-pressure booster packages. Brands we already service are on the <a href="/pages/brands-we-service.html">brands page</a>: Franklin Electric, Grundfos, Goulds, Pentair, and the others listed there. No model numbers from a phone description.</p>
 <h2>When to call</h2>
-<p>Tell us whether the storage tank has water. That decides if we load a booster or a well pump. Voice (760) 440-8520. Text (760) 219-5877. Founded 2020. CSLB C-57 #1086994. Ramona: 1077 Main St Unit B, Ramona, CA 92065. Anza: 57174 CA-371 (US Hwy 79), Anza, CA 92539.</p>
+<p>Tell us whether the storage tank has water. That decides if we load a booster or a well pump. Voice (760) 440-8520. Text (760) 219-5877. Founded 2020. CSLB C-57 #1086994. Ramona: 1077 Main St, Unit B, Ramona, CA 92065. Anza: 57174 CA-371, Anza, CA 92539.</p>
 <h2>Related pages</h2>
 <ul>
 <li><a href="/pages/services/pump-repair.html">Well pump repair</a></li>
@@ -458,12 +458,12 @@ def write_city_hubs() -> None:
         "Desert Hot Springs Well Service | Anza Shop",
         "Well service in Desert Hot Springs from the Anza shop. Pumps, pressure tanks, wire, and diagnostics, plus nearby Coachella Valley towns we have already worked. Call (760) 440-8520.",
         "Desert Hot Springs well service from the Anza shop",
-        "Desert Hot Springs is Anza-shop country. There is no SCWS storefront in the Coachella Valley. The trucks come from 57174 CA-371 (US Hwy 79), Anza, CA 92539.",
+        "Desert Hot Springs is Anza-shop country. There is no SCWS storefront in the Coachella Valley. The trucks come from 57174 CA-371, Anza, CA 92539.",
         """
 <section>
 <h2>The work we actually do here</h2>
 <p>Calls are mostly service and diagnostics. The rest is wire, drop pipe, check valves, and well seals; pump and motor replacement; pressure tank and pressure switch replacement; and a little drilling. If the house is dry, say whether you hear the pump and whether a storage tank is in the yard. That is the difference between a control ticket and a pull.</p>
-<p>Southern California Well Service was founded in 2020. CSLB C-57 #1086994. Voice (760) 440-8520. Text (760) 219-5877. The other shop is Ramona, at 1077 Main St Unit B, Ramona, CA 92065. Desert Hot Springs rolls from Anza.</p>
+<p>Southern California Well Service was founded in 2020. CSLB C-57 #1086994. Voice (760) 440-8520. Text (760) 219-5877. The other shop is Ramona, at 1077 Main St, Unit B, Ramona, CA 92065. Desert Hot Springs rolls from Anza.</p>
 </section>
 <section>
 <h2>Nearby Coachella Valley towns we have worked</h2>
@@ -501,7 +501,7 @@ def write_city_hubs() -> None:
 <section>
 <h2>The work we actually do here</h2>
 <p>Service calls, pressure tank and pressure switch replacement, pump and motor replacement, and controls. Idyllwild and Pine Cove are the same Anza route. If the cabin is vacant, text the gate combo and whether the well house has heat. A frozen switch and a dead motor are different loads.</p>
-<p>Founded 2020. CSLB C-57 #1086994. Voice (760) 440-8520. Text (760) 219-5877. Anza shop: 57174 CA-371 (US Hwy 79), Anza, CA 92539. Ramona shop: 1077 Main St Unit B, Ramona, CA 92065.</p>
+<p>Founded 2020. CSLB C-57 #1086994. Voice (760) 440-8520. Text (760) 219-5877. Anza shop: 57174 CA-371, Anza, CA 92539. Ramona shop: 1077 Main St, Unit B, Ramona, CA 92065.</p>
 </section>
 <section>
 <h2>Idyllwild and Pine Cove</h2>

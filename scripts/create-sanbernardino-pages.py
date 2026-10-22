@@ -73,7 +73,7 @@ def create_city_index(city_slug, city_info):
             </p>
             <div class="bg-blue-50 border-l-4 border-blue-600 p-4">
                 <p class="font-semibold text-blue-900">📍 Served by: Anza Office</p>
-                <p class="text-gray-600">57174 US Highway 79, Anza, CA 92539</p>
+                <p class="text-gray-600">57174 CA-371, Anza, CA 92539</p>
             </div>
         </div>
 
@@ -165,7 +165,7 @@ def create_service_page(city_slug, city_info, service_slug, service_name):
 
             <div class="bg-blue-50 border-l-4 border-blue-600 p-4">
                 <p class="font-semibold text-blue-900">📍 Served by: Anza Office</p>
-                <p class="text-gray-600">57174 US Highway 79, Anza, CA 92539</p>
+                <p class="text-gray-600">57174 CA-371, Anza, CA 92539</p>
             </div>
         </div>
 
