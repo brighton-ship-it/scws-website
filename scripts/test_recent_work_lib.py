@@ -649,6 +649,17 @@ class QualityGateTests(unittest.TestCase):
         street = next(p for p in projects if "Hanson" in (p.get("location") or ""))
         self.assertNotIn("Hanson", titles[street["slug"]])
         self.assertIn("Ramona", titles[street["slug"]])
+        thin_desc = descriptions[thin["slug"]]
+        self.assertNotIn("field photos", thin_desc)
+        self.assertIn("Ramona shop", thin_desc)
+        self.assertNotIn("Hanson", descriptions[street["slug"]])
+        page = Path(__file__).resolve().parents[1] / "recent-work" / "lakeside-pull-pump.html"
+        html = page.read_text(encoding="utf-8")
+        self.assertIn("<!-- JOB_DETAILS_START -->", html)
+        self.assertIn("<h2>Project details</h2>", html)
+        self.assertIn("1077 Main St, Unit B, Ramona, CA 92065", html)
+        self.assertNotIn("with field photos", html)
+        self.assertNotIn("463-0493", html)
 
 
 if __name__ == "__main__":
