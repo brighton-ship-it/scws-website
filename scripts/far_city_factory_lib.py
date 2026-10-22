@@ -197,11 +197,26 @@ def apply_far_city_noindex(root: Path | None = None) -> list[Path]:
     return changed
 
 
-def rebuild_services_sitemap(root: Path | None = None) -> int:
-    """Keep city hubs that are still indexable. Drop noindex factory hubs.
+# Town × service pages that stay in the sitemap when the file is indexable.
+# Far-city and other noindex copies of these names are left out.
+TOWN_SERVICE_PAGES = (
+    "booster-pump.html",
+    "emergency-well-service.html",
+    "pressure-tank.html",
+    "water-testing.html",
+    "water-treatment.html",
+    "well-drilling.html",
+    "well-inspection.html",
+    "well-pump-repair.html",
+)
 
-    Existing lastmod values stay put. TODAY is only for hubs that were not
-    already in the sitemap.
+
+def rebuild_services_sitemap(root: Path | None = None) -> int:
+    """Keep indexable city hubs and their indexable service pages.
+
+    Noindex hubs and noindex town×service pages are dropped. Existing
+    lastmod values stay put. TODAY is only for URLs that were not already
+    in the sitemap.
     """
     root = root or ROOT
     services = root / "services"
@@ -214,24 +229,33 @@ def rebuild_services_sitemap(root: Path | None = None) -> int:
                 sitemap_path.read_text(encoding="utf-8"),
             )
         )
-    urls: list[str] = []
+    hubs: list[str] = []
+    service_urls: list[str] = []
     if services.is_dir():
         for city_dir in sorted(p for p in services.iterdir() if p.is_dir()):
             index = city_dir / "index.html"
-            if not index.is_file():
-                continue
-            if html_is_noindex(index):
-                continue
-            urls.append(f"https://scwellservice.com/services/{city_dir.name}/")
+            if index.is_file() and not html_is_noindex(index):
+                hubs.append(f"https://scwellservice.com/services/{city_dir.name}/")
+            for name in TOWN_SERVICE_PAGES:
+                page = city_dir / name
+                if page.is_file() and not html_is_noindex(page):
+                    service_urls.append(
+                        f"https://scwellservice.com/services/{city_dir.name}/{name}"
+                    )
     lines = [
         '<?xml version="1.0" encoding="UTF-8"?>\n',
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n',
     ]
-    for url in urls:
+    for url in hubs:
         lastmod = previous.get(url, TODAY)
         lines.append(
             f"  <url><loc>{url}</loc><lastmod>{lastmod}</lastmod><priority>0.7</priority></url>\n"
         )
+    for url in service_urls:
+        lastmod = previous.get(url, TODAY)
+        lines.append(
+            f"  <url><loc>{url}</loc><lastmod>{lastmod}</lastmod><priority>0.6</priority></url>\n"
+        )
     lines.append("</urlset>\n")
     sitemap_path.write_text("".join(lines), encoding="utf-8")
-    return len(urls)
+    return len(hubs) + len(service_urls)

@@ -99,6 +99,24 @@ class NoindexApplyTests(unittest.TestCase):
             path = ROOT / "services" / slug / "index.html"
             self.assertTrue(html_is_noindex(path), slug)
             self.assertNotIn(f"/services/{slug}/", xml)
+        # Indexable town × service pages (8 services × 47 towns). Noindex copies stay out.
+        self.assertIn("https://scwellservice.com/services/temecula/well-drilling.html", xml)
+        self.assertIn("https://scwellservice.com/services/ramona/water-testing.html", xml)
+        self.assertIn("https://scwellservice.com/services/winchester/well-pump-repair.html", xml)
+        self.assertEqual(xml.count("/well-drilling.html"), 47)
+        self.assertEqual(xml.count("/water-treatment.html"), 47)
+        self.assertNotIn("https://scwellservice.com/services/barstow/well-drilling.html", xml)
+        self.assertNotIn("https://scwellservice.com/services/perris/well-drilling.html", xml)
+        pages = (ROOT / "sitemap-pages.xml").read_text(encoding="utf-8")
+        for url in (
+            "https://scwellservice.com/water-treatment.html",
+            "https://scwellservice.com/pages/service-area.html",
+            "https://scwellservice.com/pages/locations/riverside.html",
+            "https://scwellservice.com/pages/maintenance-program.html",
+            "https://scwellservice.com/pages/services/",
+            "https://scwellservice.com/pages/estimate.html",
+        ):
+            self.assertIn(url, pages)
 
     def test_apply_does_not_delete_files(self):
         before = {p for p in (ROOT / "services" / "barstow").glob("*.html")}
