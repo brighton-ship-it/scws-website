@@ -79,3 +79,61 @@ assert.strictEqual(num(loadRef('https://scwellservice.com/y.html', 'https://scwe
 assert.strictEqual(num(loadRef('https://scwellservice.com/y.html?gclid=2', '', stored)), 'tel:+17608250520');
 assert.strictEqual(dc.window.scwsCallSwap.attributionFields().ads_campaign, 'drilling');
 console.log('per-campaign ads tests passed');
+
+// ---- Click source: gclid / gbraid / wbraid and a stored Ads visitor ----
+const PHONE_SEND_TO = 'AW-490838730/aFiRCMDlofAbEMq1huoB';
+function clickTrack(dm, selector) {
+  const events = [];
+  dm.window.gtag = function () { events.push(Array.prototype.slice.call(arguments)); };
+  dm.window.document.querySelector(selector).dispatchEvent(new dm.window.MouseEvent('click', { bubbles: true }));
+  return events;
+}
+function named(events, name) {
+  return events.find((e) => e[0] === 'event' && e[1] === name);
+}
+function assertAdsCall(dm, label) {
+  const events = clickTrack(dm, '#a');
+  const call = named(events, 'call_click');
+  const conv = named(events, 'conversion');
+  assert.ok(call, label + ' call_click');
+  assert.strictEqual(call[2].traffic_source, 'google_ads', label);
+  assert.strictEqual(call[2].is_organic, false, label);
+  assert.ok(conv, label + ' conversion');
+  assert.strictEqual(conv[2].send_to, PHONE_SEND_TO, label);
+  assert.strictEqual(num(dm), 'tel:+17603312502', label);
+}
+for (const key of ['gclid', 'gbraid', 'wbraid']) {
+  assertAdsCall(loadRef('https://scwellservice.com/blog/x.html?' + key + '=only', ''), key + '-only');
+}
+let sessionAds = loadRef('https://scwellservice.com/blog/x.html', '');
+sessionAds.window.sessionStorage.setItem('scws_utm', JSON.stringify({ gbraid: 'stored-click' }));
+let sessionEvents = clickTrack(sessionAds, '#a');
+assert.strictEqual(named(sessionEvents, 'call_click')[2].traffic_source, 'google_ads');
+assert.strictEqual(named(sessionEvents, 'conversion')[2].send_to, PHONE_SEND_TO);
+const adsRec = JSON.stringify({ source: 'google_ads', ts: Date.now(), referrer: 'https://www.google.com/', landing: 'https://scwellservice.com/?gclid=prior' });
+assertAdsCall(loadRef('https://scwellservice.com/blog/x.html', '', { scws_src: adsRec }), 'returning-ads');
+let legacy = loadRef('https://scwellservice.com/blog/x.html', '', { scws_ads_visitor: String(Date.now()) });
+assertAdsCall(legacy, 'legacy-ads-flag');
+let adsBeatsUtm = loadRef('https://scwellservice.com/blog/x.html', '', { scws_src: adsRec });
+adsBeatsUtm.window.sessionStorage.setItem('scws_utm', JSON.stringify({ utm_source: 'newsletter', utm_medium: 'email' }));
+assertAdsCall(adsBeatsUtm, 'stored-ads-beats-utm');
+let cpcOnly = loadRef('https://scwellservice.com/x.html', '');
+cpcOnly.window.sessionStorage.setItem('scws_utm', JSON.stringify({ utm_source: 'google', utm_medium: 'cpc' }));
+assert.strictEqual(named(clickTrack(cpcOnly, '#a'), 'call_click')[2].traffic_source, 'google_ads');
+let organic = loadRef('https://scwellservice.com/x.html', 'https://www.google.com/search?q=well+pump');
+let organicEvents = clickTrack(organic, '#a');
+assert.strictEqual(named(organicEvents, 'call_click')[2].traffic_source, 'google/organic');
+assert.strictEqual(named(organicEvents, 'call_click')[2].is_organic, true);
+assert.strictEqual(named(organicEvents, 'conversion'), undefined);
+assert.strictEqual(num(organic), 'tel:+17604630493');
+let direct = loadRef('https://scwellservice.com/x.html', '');
+let directEvents = clickTrack(direct, '#a');
+assert.strictEqual(named(directEvents, 'call_click')[2].traffic_source, 'direct');
+assert.strictEqual(named(directEvents, 'conversion'), undefined);
+assert.strictEqual(num(direct), 'tel:7604408520');
+let sms = loadRef('https://scwellservice.com/x.html?gclid=only', '');
+let smsEvents = clickTrack(sms, '#s');
+assert.strictEqual(named(smsEvents, 'text_click')[2].traffic_source, 'google_ads');
+assert.strictEqual(named(smsEvents, 'conversion'), undefined);
+assert.strictEqual(named(smsEvents, 'call_click'), undefined);
+console.log('click source tests passed');
