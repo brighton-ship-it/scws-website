@@ -258,6 +258,14 @@
   var visitor = null;
   var swapTarget = null;
   var swapReported = false;
+  var swapInited = false;
+
+  // Tel links stay hidden (css #scws-phone-ready) until this runs, including
+  // the no-swap path, so a visitor never sees or taps the wrong number.
+  function revealPhones() {
+    var root = document.documentElement;
+    if (root && root.classList) root.classList.add('scws-phones-ready');
+  }
 
   function runSwap() {
     if (!swapTarget || !document.body) return;
@@ -278,16 +286,27 @@
   }
 
   function initAdsSwap() {
-    visitor = visitorSource();
-    swapTarget = visitor.source === 'google_ads' ? adsNumberFor(visitor) : (SOURCE_NUMBERS[visitor.source] || null);
-    if (!swapTarget) return;
-    runSwap();
-    var mo = new MutationObserver(function () {
-      mo.disconnect();
-      runSwap();
-      mo.observe(document.body, { childList: true, subtree: true });
-    });
-    mo.observe(document.body, { childList: true, subtree: true });
+    if (!document.body) return;
+    if (swapInited) {
+      revealPhones();
+      return;
+    }
+    swapInited = true;
+    try {
+      visitor = visitorSource();
+      swapTarget = visitor.source === 'google_ads' ? adsNumberFor(visitor) : (SOURCE_NUMBERS[visitor.source] || null);
+      if (swapTarget) {
+        runSwap();
+        var mo = new MutationObserver(function () {
+          mo.disconnect();
+          runSwap();
+          mo.observe(document.body, { childList: true, subtree: true });
+        });
+        mo.observe(document.body, { childList: true, subtree: true });
+      }
+    } finally {
+      revealPhones();
+    }
   }
 
   // Every lead form POST to scws-jobs carries the visitor's source + first-touch referrer / landing page.

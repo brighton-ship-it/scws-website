@@ -4,9 +4,33 @@
 <head>
 <script src="/js/ga4-filter.js"></script>
 <script src="/js/cookie-consent.js"></script>
-<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-5LL1YRWT5T"></script>
-<script src="/js/scws-tracking.js"></script>
-<script src="/js/call-tracking.js"></script>
+<link rel="preconnect" href="https://www.googletagmanager.com">
+<link rel="preconnect" href="https://www.google-analytics.com">
+<link rel="preconnect" href="https://googleads.g.doubleclick.net">
+<style id="scws-phone-ready">html:not(.scws-phones-ready) a[href^="tel:"]{visibility:hidden !important;pointer-events:none !important}</style>
+<noscript><style>a[href^="tel:"]{visibility:visible !important}</style></noscript>
+<script>setTimeout(function(){if(!window.scwsCallTracking)document.documentElement.classList.add("scws-phones-ready")},12000);</script>
+<script>
+(function(){
+  if (window.__scwsGtagLoading) return;
+  window.__scwsGtagLoading = true;
+  var id = 'G-5LL1YRWT5T';
+  function load(){
+    if (window.__scwsGtagLoaded) return;
+    window.__scwsGtagLoaded = true;
+    var s = document.createElement("script");
+    s.async = true;
+    s.src = "https://www.googletagmanager.com/gtag/js?id=" + id;
+    document.head.appendChild(s);
+  }
+  if (window.requestIdleCallback) requestIdleCallback(load, {timeout: 1200});
+  else setTimeout(load, 1);
+  addEventListener("pointerdown", load, {once: true, passive: true});
+  addEventListener("keydown", load, {once: true, passive: true});
+})();
+</script>
+<script  src="/js/scws-tracking.js" defer></script>
+<script  src="/js/call-tracking.js" defer></script>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <meta content="Expert well pump repair, water well drilling & maintenance in Anza, CA. Same-day service, fair pricing. Call (760) 440-8520 for free estimate." name="description"/><meta content="https://www.scwellservice.com/images/logo-text-only-3x.png" property="og:image"/><meta content="1200" property="og:image:width"/><meta content="630" property="og:image:height"/><meta content="Anza Well Pump Repair & Drilling | 24/7 | SCWS" property="og:title"/><meta content="Expert well pump repair, water well drilling & maintenance in Anza, CA. Same-day service, fair pricing. Call (760) 440-8520 for free estimate." property="og:description"/>
@@ -416,48 +440,55 @@
 <!-- MONEY_PAGE_RECENT_WORK_START -->
 <section class="recent-jobs-cards" id="recent-jobs">
 <h2>Recent jobs in Anza</h2>
-<p class="rw-lede">Real Anza and high-desert jobs.</p>
+<p class="rw-lede">Real Anza and high-desert jobs. Real photos.</p>
 <div class="recent-work-grid">
-<a class="recent-work-card" href="/recent-work/anza-pull-and-inspect-pump.html">
-<div class="rw-body">
-<h3>Pull and inspect pump</h3>
-<p>Anza</p>
-</div>
-</a>
 <a class="recent-work-card" href="/recent-work/anza-well-diagnostic.html">
+<img src="/images/recent-work/job3178_1.jpg" alt="Well diagnostic in Anza" width="800" height="450" loading="lazy">
 <div class="rw-body">
 <h3>Well diagnostic</h3>
 <p>Anza</p>
 </div>
 </a>
-<a class="recent-work-card" href="/recent-work/anza-pull-inspect-pump-drop-pipe.html">
-<div class="rw-body">
-<h3>Pull and inspect pump</h3>
-<p>Anza</p>
-</div>
-</a>
-<a class="recent-work-card" href="/recent-work/anza-well-service.html">
-<div class="rw-body">
-<h3>Well service</h3>
-<p>Anza</p>
-</div>
-</a>
 <a class="recent-work-card" href="/recent-work/anza-storage-tank-float-inspection.html">
+<img src="/images/recent-work/job3044_1.jpg" alt="Storage tank float inspection in Anza" width="800" height="450" loading="lazy">
 <div class="rw-body">
 <h3>Storage tank float inspection</h3>
 <p>Anza</p>
 </div>
 </a>
 <a class="recent-work-card" href="/recent-work/anza-control-box-service.html">
+<img src="/images/recent-work/job3037_1.jpg" alt="Control box service in Anza" width="800" height="450" loading="lazy">
 <div class="rw-body">
 <h3>Control box service</h3>
 <p>Anza</p>
 </div>
 </a>
+<a class="recent-work-card" href="/recent-work/aguanga-pump-installation.html">
+<img src="/images/recent-work/job3174_1.jpg" alt="New pump &amp; motor installation in Aguanga" width="800" height="450" loading="lazy">
+<div class="rw-body">
+<h3>New pump &amp; motor installation</h3>
+<p>Aguanga</p>
 </div>
-<p class="rw-all"><a href="/recent-work/areas/anza.html">Recent work in Anza</a> · <a href="/recent-work/">See all recent work →</a></p>
+</a>
+<a class="recent-work-card" href="/recent-work/anza-pull-inspect-pump-drop-pipe.html">
+<img src="/images/recent-work/job3122_1.jpg" alt="Pull and inspect pump in Anza" width="800" height="450" loading="lazy">
+<div class="rw-body">
+<h3>Pull and inspect pump</h3>
+<p>Anza</p>
+</div>
+</a>
+<a class="recent-work-card" href="/recent-work/anza-well-service.html">
+<img src="/images/recent-work/job3051_1.jpg" alt="Well service in Anza" width="800" height="450" loading="lazy">
+<div class="rw-body">
+<h3>Well service</h3>
+<p>Anza</p>
+</div>
+</a>
+</div>
+<p class="rw-all"><a href="/recent-work/">See all recent work →</a></p>
 </section>
 <!-- MONEY_PAGE_RECENT_WORK_END -->
+
 
 
 <!-- JOB_MAP_HUB_START -->

@@ -11,9 +11,33 @@
 <link href="../css/styles.css" rel="stylesheet"/>
 <script src="/js/ga4-filter.js"></script>
 <script src="/js/cookie-consent.js"></script>
-<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-5LL1YRWT5T"></script>
-<script src="/js/scws-tracking.js"></script>
-    <script src="/js/call-tracking.js"></script>
+<link rel="preconnect" href="https://www.googletagmanager.com">
+<link rel="preconnect" href="https://www.google-analytics.com">
+<link rel="preconnect" href="https://googleads.g.doubleclick.net">
+<style id="scws-phone-ready">html:not(.scws-phones-ready) a[href^="tel:"]{visibility:hidden !important;pointer-events:none !important}</style>
+<noscript><style>a[href^="tel:"]{visibility:visible !important}</style></noscript>
+<script>setTimeout(function(){if(!window.scwsCallTracking)document.documentElement.classList.add("scws-phones-ready")},12000);</script>
+<script>
+(function(){
+  if (window.__scwsGtagLoading) return;
+  window.__scwsGtagLoading = true;
+  var id = 'G-5LL1YRWT5T';
+  function load(){
+    if (window.__scwsGtagLoaded) return;
+    window.__scwsGtagLoaded = true;
+    var s = document.createElement("script");
+    s.async = true;
+    s.src = "https://www.googletagmanager.com/gtag/js?id=" + id;
+    document.head.appendChild(s);
+  }
+  if (window.requestIdleCallback) requestIdleCallback(load, {timeout: 1200});
+  else setTimeout(load, 1);
+  addEventListener("pointerdown", load, {once: true, passive: true});
+  addEventListener("keydown", load, {once: true, passive: true});
+})();
+</script>
+<script  src="/js/scws-tracking.js" defer></script>
+    <script  src="/js/call-tracking.js" defer></script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Why Your Well Water Suddenly Turned Brown", "description": "Well water turned brown suddenly? Could be sediment disturbance, iron bacteria, or well problems. Learn causes and whether it's safe to use.", "author": {"@type": "Organization", "name": "Southern California Well Service"}, "publisher": {"@type": "Organization", "name": "Southern California Well Service", "logo": {"@type": "ImageObject", "url": "https://scwellservice.com/images/logo-text-only-3x.png"}}, "datePublished": "2026-02-15"}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type": "Question", "name": "Is brown well water safe to drink?", "acceptedAnswer": {"@type": "Answer", "text": "Iron itself isn't harmful at typical levels, but brown water should be tested before drinking. Bacteria, sediment, or other contaminants may accompany the discoloration."}},
             {"@type": "Question", "name": "Why is my well water brown only in the morning?", "acceptedAnswer": {"@type": "Answer", "text": "Water sitting in pipes overnight allows iron to oxidize. First-draw water often looks worse. If it clears after running, a water softener or iron filter typically solves this."}},

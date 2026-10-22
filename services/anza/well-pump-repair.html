@@ -4,9 +4,33 @@
 <head>
 <script src="/js/ga4-filter.js"></script>
 <script src="/js/cookie-consent.js"></script>
-<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-5LL1YRWT5T"></script>
-<script src="/js/scws-tracking.js"></script>
-<script src="/js/call-tracking.js"></script>
+<link rel="preconnect" href="https://www.googletagmanager.com">
+<link rel="preconnect" href="https://www.google-analytics.com">
+<link rel="preconnect" href="https://googleads.g.doubleclick.net">
+<style id="scws-phone-ready">html:not(.scws-phones-ready) a[href^="tel:"]{visibility:hidden !important;pointer-events:none !important}</style>
+<noscript><style>a[href^="tel:"]{visibility:visible !important}</style></noscript>
+<script>setTimeout(function(){if(!window.scwsCallTracking)document.documentElement.classList.add("scws-phones-ready")},12000);</script>
+<script>
+(function(){
+  if (window.__scwsGtagLoading) return;
+  window.__scwsGtagLoading = true;
+  var id = 'G-5LL1YRWT5T';
+  function load(){
+    if (window.__scwsGtagLoaded) return;
+    window.__scwsGtagLoaded = true;
+    var s = document.createElement("script");
+    s.async = true;
+    s.src = "https://www.googletagmanager.com/gtag/js?id=" + id;
+    document.head.appendChild(s);
+  }
+  if (window.requestIdleCallback) requestIdleCallback(load, {timeout: 1200});
+  else setTimeout(load, 1);
+  addEventListener("pointerdown", load, {once: true, passive: true});
+  addEventListener("keydown", load, {once: true, passive: true});
+})();
+</script>
+<script  src="/js/scws-tracking.js" defer></script>
+<script  src="/js/call-tracking.js" defer></script>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <meta content="Expert well pump repair services in Anza, CA. Licensed C-57 contractor. $200 - $2,500. Call (760) 440-8520." name="description"/><meta content="https://www.scwellservice.com/images/logo-text-only-3x.png" property="og:image"/><meta content="1200" property="og:image:width"/><meta content="630" property="og:image:height"/><meta content="Well Pump Repair Anza | Licensed Well Contractor" property="og:title"/><meta content="Expert well pump repair services in Anza, CA. Licensed C-57 contractor. $200 - $2,500. Call (760) 440-8520." property="og:description"/>
@@ -293,48 +317,55 @@
 <!-- MONEY_PAGE_RECENT_WORK_START -->
 <section class="recent-jobs-cards" id="recent-jobs">
 <h2>Recent pump jobs in Anza</h2>
-<p class="rw-lede">Real Anza and high-desert pump jobs.</p>
+<p class="rw-lede">Real Anza and high-desert pump jobs. Real photos.</p>
 <div class="recent-work-grid">
-<a class="recent-work-card" href="/recent-work/anza-pull-and-inspect-pump.html">
-<div class="rw-body">
-<h3>Pull and inspect pump</h3>
-<p>Anza</p>
-</div>
-</a>
 <a class="recent-work-card" href="/recent-work/anza-control-box-service.html">
+<img src="/images/recent-work/job3037_1.jpg" alt="Control box service in Anza" width="800" height="450" loading="lazy">
 <div class="rw-body">
 <h3>Control box service</h3>
 <p>Anza</p>
 </div>
 </a>
 <a class="recent-work-card" href="/recent-work/anza-pump-replacement.html">
+<img src="/images/recent-work/job2112_2.jpg" alt="Pump replacement in Anza" width="800" height="450" loading="lazy">
 <div class="rw-body">
 <h3>Pump replacement</h3>
 <p>Anza</p>
 </div>
 </a>
 <a class="recent-work-card" href="/recent-work/aguanga-pump-installation.html">
+<img src="/images/recent-work/job3174_1.jpg" alt="New pump &amp; motor installation in Aguanga" width="800" height="450" loading="lazy">
 <div class="rw-body">
 <h3>New pump &amp; motor installation</h3>
 <p>Aguanga</p>
 </div>
 </a>
 <a class="recent-work-card" href="/recent-work/anza-booster-service.html">
+<img src="/images/recent-work/job2275_1.jpg" alt="Booster service in Anza" width="800" height="450" loading="lazy">
 <div class="rw-body">
 <h3>Booster service</h3>
 <p>Anza</p>
 </div>
 </a>
 <a class="recent-work-card" href="/recent-work/fallbrook-booster-pump-diagnostic.html">
+<img src="/images/recent-work/job3172_1.jpg" alt="Booster pump diagnostic in Fallbrook" width="800" height="450" loading="lazy">
 <div class="rw-body">
 <h3>Booster pump diagnostic</h3>
 <p>Fallbrook</p>
+</div>
+</a>
+<a class="recent-work-card" href="/recent-work/anza-pull-inspect-pump-drop-pipe.html">
+<img src="/images/recent-work/job3122_1.jpg" alt="Pull and inspect pump in Anza" width="800" height="450" loading="lazy">
+<div class="rw-body">
+<h3>Pull and inspect pump</h3>
+<p>Anza</p>
 </div>
 </a>
 </div>
 <p class="rw-all"><a href="/recent-work/">See all recent work →</a></p>
 </section>
 <!-- MONEY_PAGE_RECENT_WORK_END -->
+
 
 
 

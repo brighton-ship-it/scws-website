@@ -13,9 +13,33 @@
 <meta property="og:image" content="https://scwellservice.com/images/logo-text-only-3x.png"/>
 <script src="/js/ga4-filter.js"></script>
 <script src="/js/cookie-consent.js"></script>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-5LL1YRWT5T"></script>
-<script src="/js/scws-tracking.js"></script>
-<script src="/js/call-tracking.js"></script>
+<link rel="preconnect" href="https://www.googletagmanager.com">
+<link rel="preconnect" href="https://www.google-analytics.com">
+<link rel="preconnect" href="https://googleads.g.doubleclick.net">
+<style id="scws-phone-ready">html:not(.scws-phones-ready) a[href^="tel:"]{visibility:hidden !important;pointer-events:none !important}</style>
+<noscript><style>a[href^="tel:"]{visibility:visible !important}</style></noscript>
+<script>setTimeout(function(){if(!window.scwsCallTracking)document.documentElement.classList.add("scws-phones-ready")},12000);</script>
+<script>
+(function(){
+  if (window.__scwsGtagLoading) return;
+  window.__scwsGtagLoading = true;
+  var id = 'G-5LL1YRWT5T';
+  function load(){
+    if (window.__scwsGtagLoaded) return;
+    window.__scwsGtagLoaded = true;
+    var s = document.createElement("script");
+    s.async = true;
+    s.src = "https://www.googletagmanager.com/gtag/js?id=" + id;
+    document.head.appendChild(s);
+  }
+  if (window.requestIdleCallback) requestIdleCallback(load, {timeout: 1200});
+  else setTimeout(load, 1);
+  addEventListener("pointerdown", load, {once: true, passive: true});
+  addEventListener("keydown", load, {once: true, passive: true});
+})();
+</script>
+<script  src="/js/scws-tracking.js" defer></script>
+<script  src="/js/call-tracking.js" defer></script>
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
 tailwind.config = { theme: { extend: { colors: { primary: '#1f3b4d', accent: '#4e9271' } } } }
@@ -230,39 +254,45 @@ tailwind.config = { theme: { extend: { colors: { primary: '#1f3b4d', accent: '#4
 <!-- MONEY_PAGE_RECENT_WORK_START -->
 <section class="recent-jobs-cards" id="recent-jobs">
 <h2>Recent storage tank jobs</h2>
-<p class="rw-lede">Real tank, float, and pad jobs.</p>
+<p class="rw-lede">Real tank, float, and pad jobs. Real photos.</p>
 <div class="recent-work-grid">
 <a class="recent-work-card" href="/recent-work/poway-storage-tank-replacement.html">
+<img src="/images/recent-work/job2990_1.jpg" alt="Storage tank replacement in Poway" width="800" height="450" loading="lazy">
 <div class="rw-body">
 <h3>Storage tank replacement</h3>
 <p>Poway</p>
 </div>
 </a>
 <a class="recent-work-card" href="/recent-work/escondido-storage-tank-float-repair.html">
+<img src="/images/recent-work/job2854_1.jpg" alt="Storage tank float repair in Escondido" width="800" height="450" loading="lazy">
 <div class="rw-body">
 <h3>Storage tank float repair</h3>
 <p>Escondido</p>
 </div>
 </a>
 <a class="recent-work-card" href="/recent-work/pine-valley-storage-tank-adapter-repair.html">
+<img src="/images/recent-work/job2893_1.jpg" alt="Storage tank adapter repair in Pine Valley" width="800" height="450" loading="lazy">
 <div class="rw-body">
 <h3>Storage tank adapter repair</h3>
 <p>Pine Valley</p>
 </div>
 </a>
 <a class="recent-work-card" href="/recent-work/anza-storage-tank-float-inspection.html">
+<img src="/images/recent-work/job3044_1.jpg" alt="Storage tank float inspection in Anza" width="800" height="450" loading="lazy">
 <div class="rw-body">
 <h3>Storage tank float inspection</h3>
 <p>Anza</p>
 </div>
 </a>
 <a class="recent-work-card" href="/recent-work/menifee-tank-float-replacement.html">
+<img src="/images/recent-work/job2878_1.jpg" alt="Tank float replacement in Menifee" width="800" height="450" loading="lazy">
 <div class="rw-body">
 <h3>Tank float replacement</h3>
 <p>Menifee</p>
 </div>
 </a>
 <a class="recent-work-card" href="/recent-work/menifee-pump-down-float-replacement.html">
+<img src="/images/recent-work/job2997_1.jpg" alt="Pump-down float replacement in Menifee" width="800" height="450" loading="lazy">
 <div class="rw-body">
 <h3>Pump-down float replacement</h3>
 <p>Menifee</p>
@@ -272,6 +302,7 @@ tailwind.config = { theme: { extend: { colors: { primary: '#1f3b4d', accent: '#4
 <p class="rw-all"><a href="/recent-work/">See all recent work →</a></p>
 </section>
 <!-- MONEY_PAGE_RECENT_WORK_END -->
+
 
 
 
