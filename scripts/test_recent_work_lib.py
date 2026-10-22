@@ -19,7 +19,6 @@ from recent_work_lib import (
     MIN_INDEXABLE_SUMMARY_WORDS,
     MONEY_PAGE_SLUGS,
     PAGE_SIZE,
-    apply_money_page_recent_work,
     build_project,
     card_city_only,
     card_html,
@@ -477,9 +476,32 @@ class MoneyPageCardTests(unittest.TestCase):
         for rel, slugs in MONEY_PAGE_SLUGS.items():
             hits = projects_by_slugs(projects, slugs)
             self.assertGreaterEqual(len(hits), 3, rel)
-            self.assertLessEqual(len(hits), 6, rel)
+            self.assertLessEqual(len(hits), max(6, len(slugs)), rel)
             titles = [p["title"] for p in hits]
-            self.assertEqual(len(titles), len(set(titles)), rel)
+            dupes = sorted({title for title in titles if titles.count(title) > 1})
+            if rel == "services/ramona/index.html":
+                self.assertEqual(dupes, ["Well service"])
+            else:
+                self.assertEqual(dupes, [], rel)
+
+    def test_ramona_hub_rebuild_keeps_restored_and_neighbor_cards(self):
+        projects = load_projects()["projects"]
+        spec = money_page_specs()["services/ramona/index.html"]
+        hits = pick_money_page_projects(projects, spec)
+        slugs = [p["slug"] for p in hits]
+        self.assertEqual(
+            slugs,
+            [
+                "ramona-pressure-switch-gauge-replacement",
+                "ramona-control-panel-contactor-replacement",
+                "ramona-two-well-system-evaluation",
+                "ramona-pressure-switch-replacement",
+                "el-cajon-well-contactor-replacement",
+                "alpine-pull-and-replace-deep-set-pump",
+                "ramona-well-service",
+                "ramona-well-service-2",
+            ],
+        )
 
     def test_indexable_only_skips_noindex_jobs(self):
         projects = load_projects()["projects"]
@@ -552,31 +574,32 @@ class MoneyPageCardTests(unittest.TestCase):
         self.assertNotIn("$", html_out)
 
     def test_live_money_pages_have_photo_cards(self):
-        apply_money_page_recent_work()
         root = Path(__file__).resolve().parents[1]
         projects = load_projects()["projects"]
         pii = re.compile(
             r"\b(Hanson|Cathedral Way|Highland Valley)\b|\$\d|\(\d{3}\)\s*\d{3}"
         )
+        before = {rel: (root / rel).read_bytes() for rel in MONEY_PAGE_SLUGS}
         for rel, slugs in MONEY_PAGE_SLUGS.items():
             html_out = (root / rel).read_text(encoding="utf-8")
             self.assertIn('class="recent-work-card"', html_out)
             self.assertIn('id="recent-jobs"', html_out)
             cards = re.findall(r'class="recent-work-card"', html_out)
             self.assertGreaterEqual(len(cards), 3, rel)
-            self.assertLessEqual(len(cards), 6, rel)
+            self.assertLessEqual(len(cards), max(6, len(slugs)), rel)
             section = html_out.split('id="recent-jobs"', 1)[1].split("</section>", 1)[0]
             self.assertIsNone(pii.search(section), rel)
             # A preferred slug with no public field photo is left off the card row.
-            photo_slugs = {p["slug"] for p in projects_by_slugs(projects, slugs)}
-            for slug in slugs[:3]:
-                if slug not in photo_slugs:
-                    continue
-                self.assertIn(f"/recent-work/{slug}.html", html_out)
+            # Every curated slug that does have a photo has to stay on the page.
+            photo_slugs = [p["slug"] for p in projects_by_slugs(projects, slugs)]
+            for slug in photo_slugs:
+                self.assertIn(f"/recent-work/{slug}.html", section, rel)
             self.assertIn("cta-call", html_out)
             self.assertIn("cta-est", html_out)
             self.assertNotIn("FLAG under 60%", html_out)
             self.assertNotIn("1059498", html_out)
+        after = {rel: (root / rel).read_bytes() for rel in MONEY_PAGE_SLUGS}
+        self.assertEqual(before, after)
 
     def test_missing_secrets_exits_2(self):
         import os
