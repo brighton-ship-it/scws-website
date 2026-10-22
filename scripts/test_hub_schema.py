@@ -63,6 +63,16 @@ class HubSchemaUnitTests(unittest.TestCase):
         self.assertEqual(anza["address"]["postalCode"], "92539")
         self.assertEqual(ramona["hasCredential"]["identifier"], "1086994")
         self.assertEqual(anza["hasCredential"]["identifier"], "1086994")
+        for shop in (ramona, anza):
+            spec = shop["openingHoursSpecification"]
+            self.assertEqual(len(spec), 1)
+            self.assertEqual(spec[0]["opens"], "07:00")
+            self.assertEqual(spec[0]["closes"], "17:00")
+            self.assertEqual(
+                spec[0]["dayOfWeek"],
+                ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+            )
+        self.assertEqual(ramona["openingHoursSpecification"], anza["openingHoursSpecification"])
         self.assertNotIn(" - ", ramona["name"])
         self.assertNotIn(" - ", anza["name"])
 
@@ -96,6 +106,18 @@ class HubSchemaUnitTests(unittest.TestCase):
             self.assertEqual(block["provider"]["@type"], "LocalBusiness")
             self.assertEqual(block["provider"]["address"]["addressLocality"], shop_city)
             self.assertNotRegex(block["provider"]["name"], FAKE_CITY_BUSINESS)
+            self.assertEqual(
+                block["provider"]["openingHoursSpecification"][0]["opens"],
+                "07:00",
+            )
+            self.assertEqual(
+                block["provider"]["openingHoursSpecification"][0]["closes"],
+                "17:00",
+            )
+            self.assertEqual(
+                len(block["provider"]["openingHoursSpecification"][0]["dayOfWeek"]),
+                7,
+            )
 
     def test_replace_is_idempotent_and_parses(self):
         src = """<head>
