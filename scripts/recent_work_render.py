@@ -12,9 +12,11 @@ import json
 from typing import Any
 
 from recent_work_lib import (
+    ROOT,
     card_city_only,
     card_html,
     city_service_href,
+    city_slug_from_location,
     extract_project_facts,
     hub_public_url,
     job_h1,
@@ -246,6 +248,94 @@ def _linked(href: str | None, label: str) -> str:
     return f'<a href="{_esc(href)}">{safe}</a>'
 
 
+def _town_service_name(project: dict[str, Any]) -> str | None:
+    """Town × service filename when the job category supports one. File must exist."""
+    title = project.get("title") or ""
+    text = f"{title} {project.get('summary') or ''}"
+    category = project.get("category") or ""
+    if re.search(r"\bbooster\b", title, re.I):
+        name = "booster-pump.html"
+    elif category == "tank":
+        name = "pressure-tank.html"
+    elif category == "water-quality":
+        if re.search(r"\b(?:filter|treatment|spin-down|sand separator|softener)\b", text, re.I):
+            name = "water-treatment.html"
+        else:
+            name = "water-testing.html"
+    elif category == "maintenance":
+        if re.search(r"\b(?:production tests?|production check|wellhead inspection|inspected the wellhead)\b", text, re.I):
+            name = "well-inspection.html"
+        else:
+            name = "emergency-well-service.html"
+    elif category == "pump":
+        name = "well-pump-repair.html"
+    else:
+        return None
+    return name
+
+
+def job_details_section(project: dict[str, Any]) -> str:
+    """Factual job block. Shop, specs, and links come only from records we already have."""
+    from hub_schema_lib import SHOPS, serving_shop
+
+    place = public_place_label(project.get("location") or "")
+    city = card_city_only(project.get("location") or "") or place or "the service area"
+    slug = city_slug_from_location(project.get("location") or "")
+    city_href = city_service_href(project.get("location") or "")
+    service_pair = service_page_href(project)
+    facts = extract_project_facts(project.get("summary") or "")
+    if facts:
+        spec_text = "; ".join(f"{label} {value}" for label, value in facts)
+    else:
+        spec_text = "The job note does not name equipment or specs."
+    shop_html = ""
+    try:
+        shop_key = serving_shop(slug) if slug else ""
+    except KeyError:
+        shop_key = ""
+    if shop_key in SHOPS:
+        shop = SHOPS[shop_key]
+        shop_name = "Ramona" if shop_key == "ramona" else "Anza"
+        address = f"{shop['street']}, {shop['locality']}, CA {shop['postal']}"
+        shop_html = f"<div><dt>Shop</dt><dd>{_esc(shop_name)} shop, {_esc(address)}</dd></div>"
+    links: list[str] = []
+    if city_href:
+        links.append(_linked(city_href, f"{city} well service"))
+    service_name = _town_service_name(project)
+    service_labels = {
+        "well-pump-repair.html": "Well pump repair",
+        "booster-pump.html": "Booster pump service",
+        "pressure-tank.html": "Pressure tank service",
+        "water-testing.html": "Water testing",
+        "water-treatment.html": "Water treatment",
+        "well-inspection.html": "Well inspection",
+        "emergency-well-service.html": "Emergency well service",
+        "well-drilling.html": "Well drilling",
+    }
+    if slug and service_name and (ROOT / "services" / slug / service_name).is_file():
+        label = service_labels.get(service_name, "Well service")
+        links.append(_linked(f"/services/{slug}/{service_name}", f"{label} in {city}"))
+    if service_pair:
+        links.append(_linked(service_pair[0], service_pair[1]))
+    link_html = ""
+    if links:
+        link_html = "<p>Related: " + ". ".join(links) + ".</p>"
+    return (
+        "<!-- JOB_DETAILS_START -->\n"
+        '<section class="rw-panel" id="job-details">\n'
+        "<h2>Job details</h2>\n"
+        "<dl class=\"rw-facts\">"
+        f"<div><dt>Service type</dt><dd>{_esc(project.get('categoryLabel') or 'Well service')}</dd></div>"
+        f"<div><dt>Town</dt><dd>{_linked(city_href, city)}</dd></div>"
+        f"{shop_html}"
+        f"<div><dt>Equipment and specs</dt><dd>{_esc(spec_text)}</dd></div>"
+        "</dl>\n"
+        f"{link_html}\n"
+        "</section>\n"
+        "<!-- JOB_DETAILS_END -->"
+    )
+
+
 def render_job_page(project: dict[str, Any], *, title: str, description: str) -> str:
     slug = project["slug"]
     canonical = f"{SITE}/recent-work/{slug}.html"
@@ -346,6 +436,7 @@ def render_job_page(project: dict[str, Any], *, title: str, description: str) ->
 <h2>Project details</h2>
 <dl class="rw-facts">{"".join(fact_html)}</dl>
 </section>
+{job_details_section(project)}
 <section class="rw-panel">
 <h2>What we did</h2>
 <p class="rw-summary">{_esc(summary)}</p>

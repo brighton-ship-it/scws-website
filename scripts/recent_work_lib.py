@@ -1686,6 +1686,41 @@ def public_titles(projects: list[dict[str, Any]]) -> dict[str, str]:
     return out
 
 
+def serving_shop_name(location: str) -> str | None:
+    """Ramona or Anza when this town is on the shop list. Otherwise none."""
+    slug = city_slug_from_location(location or "")
+    if not slug:
+        return None
+    try:
+        from hub_schema_lib import serving_shop
+
+        key = serving_shop(slug)
+    except KeyError:
+        return None
+    if key == "ramona":
+        return "Ramona"
+    if key == "anza":
+        return "Anza"
+    return None
+
+
+def thin_job_description(project: dict[str, Any], *, place: str = "", when: str = "") -> str:
+    """Unique description from the job record. No invented specs."""
+    place = place or public_place_label(project.get("location") or "") or "the service area"
+    when = when or (project.get("dateLabel") or "").strip()
+    subject = _title_subject(project)
+    label = (project.get("categoryLabel") or "Well service").strip()
+    when_bit = f" on {when}" if when else ""
+    parts = [f"{subject} in {place}{when_bit}. {label}."]
+    shop = serving_shop_name(project.get("location") or "")
+    if shop:
+        parts.append(f"{shop} shop.")
+    facts = extract_project_facts(project.get("summary") or "")
+    if facts:
+        parts.append("Job note: " + "; ".join(f"{name} {value}" for name, value in facts) + ".")
+    return trim_meta_description(" ".join(parts))
+
+
 def public_meta_descriptions(projects: list[dict[str, Any]]) -> dict[str, str]:
     seen: dict[str, str] = {}
     out: dict[str, str] = {}
@@ -1695,12 +1730,7 @@ def public_meta_descriptions(projects: list[dict[str, Any]]) -> dict[str, str]:
         if job_is_indexable(project):
             desc = trim_meta_description(sanitize_public_text(project.get("summary") or ""))
         else:
-            subject = _title_subject(project)
-            desc = trim_meta_description(
-                f"{subject} in {place} on {when}. "
-                f"{project.get('categoryLabel') or 'Well service'} with field photos "
-                "from Southern California Well Service."
-            )
+            desc = thin_job_description(project, place=place, when=when)
         if desc in seen:
             number = str(project.get("id") or "").removeprefix("job")
             desc = trim_meta_description(desc.rstrip(".") + f" Job {number}.")
