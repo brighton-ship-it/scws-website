@@ -96,6 +96,7 @@ a.scws-book-online {
 }
 
 .city-landing .city-overview,
+.city-landing .local-groundwater,
 .city-landing .why-choose-scws,
 .city-landing .common-problems,
 .city-landing .service-area-map,
@@ -107,6 +108,7 @@ a.scws-book-online {
 }
 
 .city-landing .city-overview > p,
+.city-landing .local-groundwater > p,
 .city-landing .why-choose-scws p,
 .city-landing .common-problems > p,
 .city-landing .service-area-map > p,

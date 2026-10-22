@@ -22,6 +22,8 @@ NON_CITY_SLUGS = frozenset({"agricultural", "hoa", "residential", "vineyard"})
 SPEC_SHOP = {
     "hemet": "anza",
     "menifee": "anza",
+    "perris": "anza",
+    "moreno-valley": "anza",
     "desert-hot-springs": "anza",
     "mountain-center": "anza",
     "el-cajon": "ramona",

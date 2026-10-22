@@ -22,7 +22,6 @@ FAR_CITY_SLUGS = frozenset(
         "apple-valley",
         "barstow",
         "victorville",
-        "perris",
         "hesperia",
         "lucerne-valley",
         "oak-hills",
