@@ -18,8 +18,8 @@ from recent_work_lib import (
 )
 
 ROOT = Path(__file__).resolve().parents[1]
-ANZA_LINE = "57174 CA-371 (US Hwy 79), Anza, CA 92539"
-ANZA_STREET = "57174 CA-371 (US Hwy 79)"
+ANZA_LINE = "57174 CA-371, Anza, CA 92539"
+ANZA_STREET = "57174 CA-371"
 TODAY = date.today().isoformat()
 MONEY_URLS = [
     ("https://scwellservice.com/locations/", "0.8"),

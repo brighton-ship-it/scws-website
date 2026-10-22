@@ -206,7 +206,7 @@ def generate_page(city, service_slug, service_data, output_dir):
             "telephone": "(760) 440-8520",
             "address": {{
                 "@type": "PostalAddress",
-                "streetAddress": "1077 Main St",
+                "streetAddress": "1077 Main St, Unit B",
                 "addressLocality": "Ramona",
                 "addressRegion": "CA",
                 "postalCode": "92065"

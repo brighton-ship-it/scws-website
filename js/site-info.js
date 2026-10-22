@@ -6,10 +6,10 @@
  * leftover blog-footer licenses) were leftovers, not alternate licenses.
  *
  * Physical shops (not service-area labels):
- *   Ramona: 1077 Main Street, Unit B, Ramona, CA 92065
+ *   Ramona: 1077 Main St, Unit B, Ramona, CA 92065
  *           (ZIP 92065 was already in the repo; Unit B confirmed 20 Aug 2026)
- *   Anza:   57174 CA-371 (US Hwy 79), Anza, CA 92539
- *           Do not use "57174 CA-371 (US Hwy 79)" alone.
+ *   Anza:   57174 CA-371, Anza, CA 92539
+ *           Do not use "57174 CA-371" alone.
  *
  * Company: founded 2020 by Brighton Scala and Travis Sego.
  * Heritage claim: "60+ years family heritage" — not company age.
@@ -36,11 +36,11 @@
     phoneText: '(760) 219-5877',
     phoneTextSms: 'sms:7602195877',
     phoneRansom: '(760) 789-5955',
-    ramona: '1077 Main Street, Unit B, Ramona, CA 92065',
-    ramonaStreet: '1077 Main Street, Unit B',
+    ramona: '1077 Main St, Unit B, Ramona, CA 92065',
+    ramonaStreet: '1077 Main St, Unit B',
     ramonaZip: '92065',
-    anza: '57174 CA-371 (US Hwy 79), Anza, CA 92539',
-    anzaStreet: '57174 CA-371 (US Hwy 79)',
+    anza: '57174 CA-371, Anza, CA 92539',
+    anzaStreet: '57174 CA-371',
     anzaZip: '92539',
     yelpUrl: 'https://www.yelp.com/biz/southern-california-well-service-ramona'
   };

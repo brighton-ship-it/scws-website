@@ -55,7 +55,7 @@ class HubSchemaUnitTests(unittest.TestCase):
         anza = hub_schema("anza")
         self.assertEqual(ramona["@type"], "LocalBusiness")
         self.assertEqual(anza["@type"], "LocalBusiness")
-        self.assertEqual(ramona["address"]["streetAddress"], "1077 Main St Unit B")
+        self.assertEqual(ramona["address"]["streetAddress"], "1077 Main St, Unit B")
         self.assertEqual(ramona["address"]["addressLocality"], "Ramona")
         self.assertEqual(ramona["address"]["postalCode"], "92065")
         self.assertIn("57174 CA-371", anza["address"]["streetAddress"])
