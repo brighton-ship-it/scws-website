@@ -873,7 +873,7 @@
             document.getElementById('truckList').innerHTML = trucks.map(t => `
                 <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #eee;">
                     <span>${t.icon} ${t.name} <small style="color:#888;">${t.currentMileage ? t.currentMileage.toLocaleString() + ' mi' : ''}</small></span>
-                    <button onclick="removeTruck(${t.id})" style="background: none; border: none; color: var(--danger); cursor: pointer; font-size: 18px;">×</button>
+                    <button type="button" onclick="removeTruck(${t.id})" aria-label="Remove truck" style="background: none; border: none; color: var(--danger); cursor: pointer; font-size: 18px;">×</button>
                 </div>
             `).join('');
         }

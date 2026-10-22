@@ -70,7 +70,8 @@ def _chrome(title: str, description: str, canonical: str, *, robots: str, og_ima
 {ld_html}
 <style>
     .rw-hero {{ position: relative; background: #1f3b4d; }}
-    .rw-hero img {{ width: 100%; height: 280px; object-fit: cover; display: block; }}
+    .rw-hero picture, .rw-thumbs picture {{ display: block; }}
+    .rw-hero img {{ width: 100%; height: auto; max-width: 100%; object-fit: contain; display: block; background: #1f3b4d; }}
     .rw-hero-copy {{
         position: absolute; left: 0; right: 0; bottom: 0;
         padding: 1.25rem 1.25rem 1.4rem;
@@ -98,7 +99,7 @@ def _chrome(title: str, description: str, canonical: str, *, robots: str, og_ima
     .rw-summary {{ color: #374151; font-size: 1.05rem; line-height: 1.7; margin: 0; }}
     .rw-thumbs {{ display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 0.6rem; margin-top: 1rem; }}
     .rw-thumbs img, .rw-hero img {{ cursor: pointer; }}
-    .rw-thumbs img {{ width: 100%; height: 110px; object-fit: cover; border-radius: 10px; background: #e5e7eb; }}
+    .rw-thumbs img {{ width: 100%; height: auto; object-fit: contain; border-radius: 10px; background: #e5e7eb; }}
     .rw-cta {{ background: #1f3b4d; color: #fff; border-radius: 16px; padding: 1.25rem; }}
     .rw-cta h2 {{ color: #fff; font-size: 1.35rem; margin: 0 0 0.4rem; }}
     .rw-cta p {{ color: rgba(255,255,255,0.88); margin: 0 0 1rem; }}
@@ -143,7 +144,6 @@ def _chrome(title: str, description: str, canonical: str, *, robots: str, og_ima
     .lightbox.active {{ display: flex; }}
     .lightbox img {{ max-width: 90vw; max-height: 90vh; object-fit: contain; border-radius: 8px; }}
     @media (min-width: 768px) {{
-        .rw-hero img {{ height: 460px; }}
         .rw-hero h1 {{ font-size: 2.4rem; }}
         .rw-grid {{ grid-template-columns: 1.4fr 0.8fr; align-items: start; }}
         .rw-cards {{ grid-template-columns: 1fr 1fr; }}
@@ -168,7 +168,7 @@ def _chrome(title: str, description: str, canonical: str, *, robots: str, og_ima
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 <div class="flex justify-between items-center py-2 gap-2">
 <a class="shrink min-w-0" href="/">
-<img width="840" height="150" alt="Southern California Well Service" class="site-logo-img" loading="lazy" src="/images/logo-text-only-3x.png"/>
+<img width="840" height="150" alt="Southern California Well Service" class="site-logo-img" src="/images/logo-text-only-3x.png"/>
 </a>
 <nav class="hidden xl:flex space-x-4 items-center">
 <a class="text-white hover:text-accent transition whitespace-nowrap" href="/#services">Services</a>
@@ -372,8 +372,6 @@ def render_job_page(project: dict[str, Any], *, title: str, description: str) ->
             caption,
             prefix="/images/recent-work/",
             lazy=False,
-            width=1200,
-            height=800,
             sizes="100vw",
         )
     else:
@@ -385,9 +383,7 @@ def render_job_page(project: dict[str, Any], *, title: str, description: str) ->
                 photo["file"],
                 caption,
                 prefix="/images/recent-work/",
-                width=400,
-                height=300,
-                sizes="140px",
+                sizes="(min-width: 768px) 180px, 45vw",
             )
             for photo in photos[1:]
         ]
@@ -566,8 +562,6 @@ def render_city_hub(hub: dict[str, Any]) -> str:
             "Well service in " + label,
             prefix="/images/recent-work/",
             lazy=False,
-            width=1200,
-            height=800,
             sizes="100vw",
             lightbox=False,
         )

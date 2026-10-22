@@ -41,7 +41,8 @@
 </script>
 <style>
     .rw-hero { position: relative; background: #1f3b4d; }
-    .rw-hero img { width: 100%; height: 280px; object-fit: cover; display: block; }
+    .rw-hero picture, .rw-thumbs picture { display: block; }
+    .rw-hero img { width: 100%; height: auto; max-width: 100%; object-fit: contain; display: block; background: #1f3b4d; }
     .rw-hero-copy {
         position: absolute; left: 0; right: 0; bottom: 0;
         padding: 1.25rem 1.25rem 1.4rem;
@@ -69,7 +70,7 @@
     .rw-summary { color: #374151; font-size: 1.05rem; line-height: 1.7; margin: 0; }
     .rw-thumbs { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 0.6rem; margin-top: 1rem; }
     .rw-thumbs img, .rw-hero img { cursor: pointer; }
-    .rw-thumbs img { width: 100%; height: 110px; object-fit: cover; border-radius: 10px; background: #e5e7eb; }
+    .rw-thumbs img { width: 100%; height: auto; object-fit: contain; border-radius: 10px; background: #e5e7eb; }
     .rw-cta { background: #1f3b4d; color: #fff; border-radius: 16px; padding: 1.25rem; }
     .rw-cta h2 { color: #fff; font-size: 1.35rem; margin: 0 0 0.4rem; }
     .rw-cta p { color: rgba(255,255,255,0.88); margin: 0 0 1rem; }
@@ -114,7 +115,6 @@
     .lightbox.active { display: flex; }
     .lightbox img { max-width: 90vw; max-height: 90vh; object-fit: contain; border-radius: 8px; }
     @media (min-width: 768px) {
-        .rw-hero img { height: 460px; }
         .rw-hero h1 { font-size: 2.4rem; }
         .rw-grid { grid-template-columns: 1.4fr 0.8fr; align-items: start; }
         .rw-cards { grid-template-columns: 1fr 1fr; }
@@ -139,7 +139,7 @@
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 <div class="flex justify-between items-center py-2 gap-2">
 <a class="shrink min-w-0" href="/">
-<img width="840" height="150" alt="Southern California Well Service" class="site-logo-img" loading="lazy" src="/images/logo-text-only-3x.png"/>
+<picture><source type="image/webp" srcset="/images/logo-text-only-3x-480.webp 260w" sizes="(min-width: 1024px) 40vw, 100vw"><img width="840" height="150" alt="Southern California Well Service" class="site-logo-img" src="/images/logo-text-only-3x.png" decoding="async" sizes="(min-width: 1024px) 40vw, 100vw"/></picture>
 </a>
 <nav class="hidden xl:flex space-x-4 items-center">
 <a class="text-white hover:text-accent transition whitespace-nowrap" href="/#services">Services</a>
@@ -174,7 +174,7 @@
 </div>
 </div>
 <section class="rw-hero">
-<img src="/images/recent-work/job3673_1.jpg" alt="Well service in Temecula" width="1200" height="800" fetchpriority="high" decoding="async" sizes="100vw">
+<picture><source type="image/webp" srcset="/images/recent-work/job3673_1-480.webp 480w, /images/recent-work/job3673_1.webp 800w" sizes="100vw"><img src="/images/recent-work/job3673_1.jpg" alt="Well service in Temecula" width="810" height="1080" fetchpriority="high" decoding="async" sizes="100vw"></picture>
 <div class="rw-hero-copy">
 <p><span class="rw-kicker">86 jobs</span></p>
 <h1>Recent work in Temecula</h1>
@@ -217,8 +217,8 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 <div class="rw-cards">
 <article class="project-card" data-category="pump" data-town="temecula" data-static="1" data-job="job3673">
 <div class="project-photos double">
-<img src="/images/recent-work/job3673_1.jpg" alt="Pressure tank and check valve replacement in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3673_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job3673_2.jpg" alt="Pressure tank and check valve replacement in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3673_2.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job3673_1-480.webp 480w, /images/recent-work/job3673_1.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job3673_1.jpg" alt="Pressure tank and check valve replacement in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3673_1.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job3673_2-480.webp 480w, /images/recent-work/job3673_2.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job3673_2.jpg" alt="Pressure tank and check valve replacement in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3673_2.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -233,8 +233,8 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="pump" data-town="temecula" data-static="1" data-job="job3118">
 <div class="project-photos double">
-<img src="/images/recent-work/job3118_1.jpg" alt="Pull 30 HP pump and motor in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3118_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job3118_2.jpg" alt="Pull 30 HP pump and motor in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3118_2.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job3118_1-480.webp 480w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job3118_1.jpg" alt="Pull 30 HP pump and motor in Temecula" width="750" height="1000" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3118_1.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job3118_2-480.webp 480w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job3118_2.jpg" alt="Pull 30 HP pump and motor in Temecula" width="750" height="1000" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3118_2.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -249,8 +249,8 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="maintenance" data-town="temecula" data-static="1" data-job="job3123">
 <div class="project-photos double">
-<img src="/images/recent-work/job3123_1.jpg" alt="Overload diagnostic in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3123_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job3123_2.jpg" alt="Overload diagnostic in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3123_2.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job3123_1-480.webp 480w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job3123_1.jpg" alt="Overload diagnostic in Temecula" width="750" height="1000" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3123_1.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job3123_2-480.webp 480w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job3123_2.jpg" alt="Overload diagnostic in Temecula" width="750" height="1000" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3123_2.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -265,8 +265,8 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="maintenance" data-town="temecula" data-static="1" data-job="job3117">
 <div class="project-photos double">
-<img src="/images/recent-work/job3117_1.jpg" alt="Wellhead inspection in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3117_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job3117_2.jpg" alt="Wellhead inspection in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3117_2.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job3117_1-480.webp 480w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job3117_1.jpg" alt="Wellhead inspection in Temecula" width="675" height="900" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3117_1.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job3117_2-480.webp 480w, /images/recent-work/job3117_2.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job3117_2.jpg" alt="Wellhead inspection in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3117_2.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -281,8 +281,8 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="pump" data-town="temecula" data-static="1" data-job="job3036">
 <div class="project-photos double">
-<img src="/images/recent-work/job3036_1.jpg" alt="Pressure switch replacement in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3036_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job3036_2.jpg" alt="Pressure switch replacement in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3036_2.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job3036_1-480.webp 480w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job3036_1.jpg" alt="Pressure switch replacement in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3036_1.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job3036_2-480.webp 480w, /images/recent-work/job3036_2.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job3036_2.jpg" alt="Pressure switch replacement in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3036_2.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -297,9 +297,9 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="pump" data-town="temecula" data-static="1" data-job="job2998">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2998_1.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2998_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2998_2.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2998_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2998_3.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2998_3.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job2998_1-480.webp 480w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2998_1.jpg" alt="Well service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2998_1.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2998_2-480.webp 480w, /images/recent-work/job2998_2.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2998_2.jpg" alt="Well service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2998_2.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2998_3-480.webp 480w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2998_3.jpg" alt="Well service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2998_3.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -314,8 +314,8 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="tank" data-town="temecula" data-static="1" data-job="job3017">
 <div class="project-photos double">
-<img src="/images/recent-work/job3017_1.jpg" alt="Transducer and pressure tank replacement in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3017_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job3017_2.jpg" alt="Transducer and pressure tank replacement in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3017_2.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job3017_1-480.webp 480w, /images/recent-work/job3017_1.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job3017_1.jpg" alt="Transducer and pressure tank replacement in Temecula" width="1200" height="900" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3017_1.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job3017_2-480.webp 480w, /images/recent-work/job3017_2.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job3017_2.jpg" alt="Transducer and pressure tank replacement in Temecula" width="1280" height="960" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3017_2.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -330,9 +330,9 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="pump" data-town="temecula" data-static="1" data-job="job2888">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2888_1.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2888_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2888_2.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2888_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2888_3.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2888_3.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job2888_1-480.webp 480w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2888_1.jpg" alt="Well service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2888_1.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2888_2-480.webp 480w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2888_2.jpg" alt="Well service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2888_2.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2888_3-480.webp 480w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2888_3.jpg" alt="Well service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2888_3.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -347,9 +347,9 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="pump" data-town="temecula" data-static="1" data-job="job2906">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2906_1.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2906_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2906_2.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2906_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2906_3.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2906_3.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job2906_1-480.webp 480w, /images/recent-work/job2906_1.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2906_1.jpg" alt="Well service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2906_1.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2906_2-480.webp 480w, /images/recent-work/job2906_2.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2906_2.jpg" alt="Well service in Temecula" width="1080" height="810" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2906_2.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2906_3-480.webp 480w, /images/recent-work/job2906_3.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2906_3.jpg" alt="Well service in Temecula" width="1080" height="810" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2906_3.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -364,7 +364,7 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="pump" data-town="temecula" data-static="1" data-job="job2870">
 <div class="project-photos single">
-<img src="/images/recent-work/job2870_1.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2870_1.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job2870_1-480.webp 480w, /images/recent-work/job2870_1.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2870_1.jpg" alt="Well service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2870_1.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -379,9 +379,9 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="pump" data-town="temecula" data-static="1" data-job="job2819">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2819_1.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2819_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2819_2.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2819_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2819_3.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2819_3.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job2819_1-480.webp 480w, /images/recent-work/job2819_1.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2819_1.jpg" alt="Well service in Temecula" width="1080" height="810" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2819_1.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2819_2-480.webp 480w, /images/recent-work/job2819_2.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2819_2.jpg" alt="Well service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2819_2.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2819_3-480.webp 480w, /images/recent-work/job2819_3.webp 768w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2819_3.jpg" alt="Well service in Temecula" width="768" height="1024" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2819_3.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -396,9 +396,9 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="pump" data-town="temecula" data-static="1" data-job="job2785">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2785_1.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2785_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2785_2.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2785_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2785_3.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2785_3.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job2785_1-480.webp 480w, /images/recent-work/job2785_1.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2785_1.jpg" alt="Well service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2785_1.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2785_2-480.webp 480w, /images/recent-work/job2785_2.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2785_2.jpg" alt="Well service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2785_2.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2785_3-480.webp 480w, /images/recent-work/job2785_3.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2785_3.jpg" alt="Well service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2785_3.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -413,9 +413,9 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="pump" data-town="temecula" data-static="1" data-job="job2763">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2763_1.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2763_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2763_2.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2763_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2763_3.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2763_3.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job2763_1-480.webp 480w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2763_1.jpg" alt="Well service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2763_1.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2763_2-480.webp 480w, /images/recent-work/job2763_2.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2763_2.jpg" alt="Well service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2763_2.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2763_3-480.webp 480w, /images/recent-work/job2763_3.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2763_3.jpg" alt="Well service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2763_3.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -430,9 +430,9 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="pump" data-town="temecula" data-static="1" data-job="job2744">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2744_1.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2744_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2744_2.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2744_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2744_3.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2744_3.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job2744_1-480.webp 480w, /images/recent-work/job2744_1.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2744_1.jpg" alt="Well service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2744_1.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2744_2-480.webp 480w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2744_2.jpg" alt="Well service in Temecula" width="750" height="1000" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2744_2.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2744_3-480.webp 480w, /images/recent-work/job2744_3.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2744_3.jpg" alt="Well service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2744_3.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -447,7 +447,7 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="pump" data-town="temecula" data-static="1" data-job="job2745">
 <div class="project-photos single">
-<img src="/images/recent-work/job2745_1.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2745_1.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job2745_1-480.webp 480w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2745_1.jpg" alt="Well service in Temecula" width="750" height="1000" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2745_1.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -462,9 +462,9 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="tank" data-town="temecula" data-static="1" data-job="job2728">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2728_1.jpg" alt="Pressure tank replacement in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2728_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2728_2.jpg" alt="Pressure tank replacement in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2728_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2728_3.jpg" alt="Pressure tank replacement in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2728_3.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job2728_1-480.webp 480w, /images/recent-work/job2728_1.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2728_1.jpg" alt="Pressure tank replacement in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2728_1.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2728_2-480.webp 480w, /images/recent-work/job2728_2.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2728_2.jpg" alt="Pressure tank replacement in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2728_2.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2728_3-480.webp 480w, /images/recent-work/job2728_3.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2728_3.jpg" alt="Pressure tank replacement in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2728_3.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -479,9 +479,9 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="pump" data-town="temecula" data-static="1" data-job="job2714">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2714_1.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2714_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2714_2.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2714_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2714_3.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2714_3.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job2714_1-480.webp 480w, /images/recent-work/job2714_1.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2714_1.jpg" alt="Well service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2714_1.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2714_2-480.webp 480w, /images/recent-work/job2714_2.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2714_2.jpg" alt="Well service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2714_2.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2714_3-480.webp 480w, /images/recent-work/job2714_3.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2714_3.jpg" alt="Well service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2714_3.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -496,9 +496,9 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="pump" data-town="temecula" data-static="1" data-job="job2522">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2522_1.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2522_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2522_2.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2522_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2522_3.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2522_3.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job2522_1-480.webp 480w, /images/recent-work/job2522_1.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2522_1.jpg" alt="Well service in Temecula" width="1080" height="810" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2522_1.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2522_2-480.webp 480w, /images/recent-work/job2522_2.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2522_2.jpg" alt="Well service in Temecula" width="1080" height="810" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2522_2.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2522_3-480.webp 480w, /images/recent-work/job2522_3.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2522_3.jpg" alt="Well service in Temecula" width="1280" height="549" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2522_3.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -513,8 +513,8 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="pump" data-town="temecula" data-static="1" data-job="job2676">
 <div class="project-photos double">
-<img src="/images/recent-work/job2676_1.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2676_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2676_2.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2676_2.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job2676_1-480.webp 480w, /images/recent-work/job2676_1.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2676_1.jpg" alt="Well service in Temecula" width="1280" height="960" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2676_1.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2676_2-480.webp 480w, /images/recent-work/job2676_2.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2676_2.jpg" alt="Well service in Temecula" width="1280" height="960" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2676_2.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -529,9 +529,9 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="pump" data-town="temecula" data-static="1" data-job="job2661">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2661_1.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2661_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2661_2.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2661_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2661_3.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2661_3.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job2661_1-480.webp 480w, /images/recent-work/job2661_1.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2661_1.jpg" alt="Well service in Temecula" width="1400" height="1050" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2661_1.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2661_2-480.webp 480w, /images/recent-work/job2661_2.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2661_2.jpg" alt="Well service in Temecula" width="1280" height="960" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2661_2.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2661_3-480.webp 480w, /images/recent-work/job2661_3.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2661_3.jpg" alt="Well service in Temecula" width="1280" height="960" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2661_3.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -546,8 +546,8 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="pump" data-town="temecula" data-static="1" data-job="job2673">
 <div class="project-photos double">
-<img src="/images/recent-work/job2673_1.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2673_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2673_2.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2673_2.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job2673_1-480.webp 480w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2673_1.jpg" alt="Well service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2673_1.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2673_2-480.webp 480w, /images/recent-work/job2673_2.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2673_2.jpg" alt="Well service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2673_2.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -562,9 +562,9 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="pump" data-town="temecula" data-static="1" data-job="job2655">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2655_1.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2655_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2655_2.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2655_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2655_3.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2655_3.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job2655_1-480.webp 480w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2655_1.jpg" alt="Well service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2655_1.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2655_2-480.webp 480w, /images/recent-work/job2655_2.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2655_2.jpg" alt="Well service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2655_2.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2655_3-480.webp 480w, /images/recent-work/job2655_3.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2655_3.jpg" alt="Well service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2655_3.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -579,9 +579,9 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="pump" data-town="temecula" data-static="1" data-job="job2656">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2656_1.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2656_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2656_2.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2656_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2656_3.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2656_3.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job2656_1-480.webp 480w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2656_1.jpg" alt="Well service in Temecula" width="750" height="1000" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2656_1.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2656_2-480.webp 480w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2656_2.jpg" alt="Well service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2656_2.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2656_3-480.webp 480w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2656_3.jpg" alt="Well service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2656_3.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -596,9 +596,9 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="pump" data-town="temecula" data-static="1" data-job="job2594">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2594_1.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2594_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2594_2.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2594_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2594_3.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2594_3.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job2594_1-480.webp 480w, /images/recent-work/job2594_1.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2594_1.jpg" alt="Well service in Temecula" width="1280" height="549" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2594_1.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2594_2-480.webp 480w, /images/recent-work/job2594_2.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2594_2.jpg" alt="Well service in Temecula" width="1280" height="549" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2594_2.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2594_3-480.webp 480w, /images/recent-work/job2594_3.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2594_3.jpg" alt="Well service in Temecula" width="1280" height="549" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2594_3.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -613,8 +613,8 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="pump" data-town="temecula" data-static="1" data-job="job2583">
 <div class="project-photos double">
-<img src="/images/recent-work/job2583_2.jpg" alt="Pump replacement in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2583_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2583_3.jpg" alt="Pump replacement in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2583_3.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job2583_2-480.webp 480w, /images/recent-work/job2583_2.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2583_2.jpg" alt="Pump replacement in Temecula" width="1280" height="549" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2583_2.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2583_3-480.webp 480w, /images/recent-work/job2583_3.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2583_3.jpg" alt="Pump replacement in Temecula" width="1280" height="549" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2583_3.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -629,9 +629,9 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="pump" data-town="temecula" data-static="1" data-job="job2588">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2588_1.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2588_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2588_2.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2588_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2588_3.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2588_3.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job2588_1-480.webp 480w, /images/recent-work/job2588_1.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2588_1.jpg" alt="Well service in Temecula" width="1000" height="750" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2588_1.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2588_2-480.webp 480w, /images/recent-work/job2588_2.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2588_2.jpg" alt="Well service in Temecula" width="1200" height="900" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2588_2.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2588_3-480.webp 480w, /images/recent-work/job2588_3.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2588_3.jpg" alt="Well service in Temecula" width="1000" height="750" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2588_3.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -646,7 +646,7 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="pump" data-town="temecula" data-static="1" data-job="job2569">
 <div class="project-photos single">
-<img src="/images/recent-work/job2569_1.jpg" alt="Pump replacement in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2569_1.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job2569_1-480.webp 480w, /images/recent-work/job2569_1.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2569_1.jpg" alt="Pump replacement in Temecula" width="1280" height="960" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2569_1.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -661,9 +661,9 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="pump" data-town="temecula" data-static="1" data-job="job2561">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2561_1.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2561_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2561_2.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2561_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2561_3.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2561_3.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job2561_1-480.webp 480w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2561_1.jpg" alt="Well service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2561_1.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2561_2-480.webp 480w, /images/recent-work/job2561_2.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2561_2.jpg" alt="Well service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2561_2.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2561_3-480.webp 480w, /images/recent-work/job2561_3.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2561_3.jpg" alt="Well service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2561_3.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -678,8 +678,8 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="pump" data-town="temecula" data-static="1" data-job="job2496">
 <div class="project-photos double">
-<img src="/images/recent-work/job2496_2.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2496_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2496_3.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2496_3.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job2496_2-480.webp 480w, /images/recent-work/job2496_2.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2496_2.jpg" alt="Well service in Temecula" width="1280" height="550" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2496_2.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2496_3-480.webp 480w, /images/recent-work/job2496_3.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2496_3.jpg" alt="Well service in Temecula" width="1280" height="550" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2496_3.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -694,7 +694,7 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="pump" data-town="temecula" data-static="1" data-job="job2527">
 <div class="project-photos single">
-<img src="/images/recent-work/job2527_1.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2527_1.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job2527_1-480.webp 480w, /images/recent-work/job2527_1.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2527_1.jpg" alt="Well service in Temecula" width="1280" height="960" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2527_1.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -709,8 +709,8 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="pump" data-town="temecula" data-static="1" data-job="job2518">
 <div class="project-photos double">
-<img src="/images/recent-work/job2518_1.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2518_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2518_2.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2518_2.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job2518_1-480.webp 480w, /images/recent-work/job2518_1.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2518_1.jpg" alt="Well service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2518_1.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2518_2-480.webp 480w, /images/recent-work/job2518_2.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2518_2.jpg" alt="Well service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2518_2.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -725,8 +725,8 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="pump" data-town="temecula" data-static="1" data-job="job2508">
 <div class="project-photos double">
-<img src="/images/recent-work/job2508_1.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2508_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2508_2.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2508_2.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job2508_1-480.webp 480w, /images/recent-work/job2508_1.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2508_1.jpg" alt="Well service in Temecula" width="1080" height="810" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2508_1.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2508_2-480.webp 480w, /images/recent-work/job2508_2.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2508_2.jpg" alt="Well service in Temecula" width="1080" height="810" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2508_2.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -741,9 +741,9 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="pump" data-town="temecula" data-static="1" data-job="job2466">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2466_1.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2466_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2466_2.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2466_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2466_3.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2466_3.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job2466_1-480.webp 480w, /images/recent-work/job2466_1.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2466_1.jpg" alt="Well service in Temecula" width="1280" height="960" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2466_1.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2466_2-480.webp 480w, /images/recent-work/job2466_2.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2466_2.jpg" alt="Well service in Temecula" width="1280" height="960" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2466_2.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2466_3-480.webp 480w, /images/recent-work/job2466_3.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2466_3.jpg" alt="Well service in Temecula" width="1280" height="960" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2466_3.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -758,9 +758,9 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="pump" data-town="temecula" data-static="1" data-job="job2509">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2509_1.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2509_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2509_2.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2509_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2509_3.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2509_3.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job2509_1-480.webp 480w, /images/recent-work/job2509_1.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2509_1.jpg" alt="Well service in Temecula" width="1080" height="486" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2509_1.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2509_2-480.webp 480w, /images/recent-work/job2509_2.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2509_2.jpg" alt="Well service in Temecula" width="1080" height="486" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2509_2.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2509_3-480.webp 480w, /images/recent-work/job2509_3.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2509_3.jpg" alt="Well service in Temecula" width="1080" height="486" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2509_3.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -775,9 +775,9 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="pump" data-town="temecula" data-static="1" data-job="job2469">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2469_1.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2469_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2469_2.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2469_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2469_3.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2469_3.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job2469_1-480.webp 480w, /images/recent-work/job2469_1.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2469_1.jpg" alt="Well service in Temecula" width="1280" height="550" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2469_1.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2469_2-480.webp 480w, /images/recent-work/job2469_2.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2469_2.jpg" alt="Well service in Temecula" width="1280" height="550" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2469_2.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2469_3-480.webp 480w, /images/recent-work/job2469_3.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2469_3.jpg" alt="Well service in Temecula" width="1280" height="550" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2469_3.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -792,7 +792,7 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="pump" data-town="temecula" data-static="1" data-job="job2488">
 <div class="project-photos single">
-<img src="/images/recent-work/job2488_1.jpg" alt="Booster service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2488_1.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job2488_1-480.webp 480w, /images/recent-work/job2488_1.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2488_1.jpg" alt="Booster service in Temecula" width="1280" height="550" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2488_1.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -807,8 +807,8 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="pump" data-town="temecula" data-static="1" data-job="job2482">
 <div class="project-photos double">
-<img src="/images/recent-work/job2482_2.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2482_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2482_3.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2482_3.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job2482_2-480.webp 480w, /images/recent-work/job2482_2.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2482_2.jpg" alt="Well service in Temecula" width="1280" height="550" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2482_2.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2482_3-480.webp 480w, /images/recent-work/job2482_3.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2482_3.jpg" alt="Well service in Temecula" width="1280" height="550" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2482_3.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -823,9 +823,9 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="pump" data-town="temecula" data-static="1" data-job="job2448">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2448_1.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2448_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2448_2.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2448_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2448_3.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2448_3.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job2448_1-480.webp 480w, /images/recent-work/job2448_1.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2448_1.jpg" alt="Well service in Temecula" width="1280" height="549" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2448_1.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2448_2-480.webp 480w, /images/recent-work/job2448_2.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2448_2.jpg" alt="Well service in Temecula" width="1280" height="549" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2448_2.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2448_3-480.webp 480w, /images/recent-work/job2448_3.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2448_3.jpg" alt="Well service in Temecula" width="1280" height="549" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2448_3.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -840,9 +840,9 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="pump" data-town="temecula" data-static="1" data-job="job2391">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2391_1.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2391_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2391_2.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2391_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2391_3.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2391_3.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job2391_1-480.webp 480w, /images/recent-work/job2391_1.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2391_1.jpg" alt="Well service in Temecula" width="1280" height="549" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2391_1.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2391_2-480.webp 480w, /images/recent-work/job2391_2.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2391_2.jpg" alt="Well service in Temecula" width="1280" height="549" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2391_2.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2391_3-480.webp 480w, /images/recent-work/job2391_3.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2391_3.jpg" alt="Well service in Temecula" width="1080" height="486" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2391_3.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -857,9 +857,9 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="pump" data-town="temecula" data-static="1" data-job="job2371">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2371_1.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2371_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2371_2.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2371_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2371_3.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2371_3.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job2371_1-480.webp 480w, /images/recent-work/job2371_1.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2371_1.jpg" alt="Well service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2371_1.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2371_2-480.webp 480w, /images/recent-work/job2371_2.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2371_2.jpg" alt="Well service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2371_2.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2371_3-480.webp 480w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2371_3.jpg" alt="Well service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2371_3.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -889,9 +889,9 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="pump" data-town="temecula" data-static="1" data-job="job2287">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2287_1.jpg" alt="Pump replacement in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2287_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2287_2.jpg" alt="Pump replacement in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2287_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2287_3.jpg" alt="Pump replacement in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2287_3.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job2287_1-480.webp 480w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2287_1.jpg" alt="Pump replacement in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2287_1.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2287_2-480.webp 480w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2287_2.jpg" alt="Pump replacement in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2287_2.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2287_3-480.webp 480w, /images/recent-work/job2287_3.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2287_3.jpg" alt="Pump replacement in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2287_3.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -906,9 +906,9 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="pump" data-town="temecula" data-static="1" data-job="job2244">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2244_1.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2244_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2244_2.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2244_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2244_3.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2244_3.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job2244_1-480.webp 480w, /images/recent-work/job2244_1.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2244_1.jpg" alt="Well service in Temecula" width="1280" height="960" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2244_1.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2244_2-480.webp 480w, /images/recent-work/job2244_2.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2244_2.jpg" alt="Well service in Temecula" width="1280" height="960" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2244_2.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2244_3-480.webp 480w, /images/recent-work/job2244_3.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2244_3.jpg" alt="Well service in Temecula" width="1280" height="960" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2244_3.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -923,9 +923,9 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="pump" data-town="temecula" data-static="1" data-job="job2277">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2277_1.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2277_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2277_2.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2277_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2277_3.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2277_3.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job2277_1-480.webp 480w, /images/recent-work/job2277_1.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2277_1.jpg" alt="Well service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2277_1.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2277_2-480.webp 480w, /images/recent-work/job2277_2.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2277_2.jpg" alt="Well service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2277_2.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2277_3-480.webp 480w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2277_3.jpg" alt="Well service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2277_3.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -940,9 +940,9 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="pump" data-town="temecula" data-static="1" data-job="job2255">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2255_1.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2255_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2255_2.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2255_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2255_3.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2255_3.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job2255_1-480.webp 480w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2255_1.jpg" alt="Well service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2255_1.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2255_2-480.webp 480w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2255_2.jpg" alt="Well service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2255_2.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2255_3-480.webp 480w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2255_3.jpg" alt="Well service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2255_3.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -957,9 +957,9 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="pump" data-town="temecula" data-static="1" data-job="job2174">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2174_1.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2174_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2174_2.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2174_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2174_3.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2174_3.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job2174_1-480.webp 480w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2174_1.jpg" alt="Well service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2174_1.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2174_2-480.webp 480w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2174_2.jpg" alt="Well service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2174_2.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2174_3-480.webp 480w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2174_3.jpg" alt="Well service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2174_3.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -974,9 +974,9 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="pump" data-town="temecula" data-static="1" data-job="job2155">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2155_1.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2155_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2155_2.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2155_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2155_3.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2155_3.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job2155_1-480.webp 480w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2155_1.jpg" alt="Well service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2155_1.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2155_2-480.webp 480w, /images/recent-work/job2155_2.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2155_2.jpg" alt="Well service in Temecula" width="1080" height="810" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2155_2.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2155_3-480.webp 480w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2155_3.jpg" alt="Well service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2155_3.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -991,9 +991,9 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="pump" data-town="temecula" data-static="1" data-job="job2181">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2181_1.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2181_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2181_2.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2181_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2181_3.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2181_3.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job2181_1-480.webp 480w, /images/recent-work/job2181_1.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2181_1.jpg" alt="Well service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2181_1.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2181_2-480.webp 480w, /images/recent-work/job2181_2.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2181_2.jpg" alt="Well service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2181_2.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2181_3-480.webp 480w, /images/recent-work/job2181_3.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2181_3.jpg" alt="Well service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2181_3.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -1008,9 +1008,9 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="pump" data-town="temecula" data-static="1" data-job="job2142">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2142_1.jpg" alt="Pump replacement in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2142_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2142_2.jpg" alt="Pump replacement in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2142_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2142_3.jpg" alt="Pump replacement in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2142_3.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job2142_1-480.webp 480w, /images/recent-work/job2142_1.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2142_1.jpg" alt="Pump replacement in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2142_1.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2142_2-480.webp 480w, /images/recent-work/job2142_2.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2142_2.jpg" alt="Pump replacement in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2142_2.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2142_3-480.webp 480w, /images/recent-work/job2142_3.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2142_3.jpg" alt="Pump replacement in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2142_3.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -1025,9 +1025,9 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="pump" data-town="temecula" data-static="1" data-job="job2133">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2133_1.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2133_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2133_2.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2133_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2133_3.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2133_3.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job2133_1-480.webp 480w, /images/recent-work/job2133_1.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2133_1.jpg" alt="Well service in Temecula" width="1080" height="486" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2133_1.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2133_2-480.webp 480w, /images/recent-work/job2133_2.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2133_2.jpg" alt="Well service in Temecula" width="1080" height="486" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2133_2.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2133_3-480.webp 480w, /images/recent-work/job2133_3.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2133_3.jpg" alt="Well service in Temecula" width="1080" height="486" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2133_3.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -1042,9 +1042,9 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="pump" data-town="temecula" data-static="1" data-job="job2043">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2043_1.jpg" alt="Pump replacement in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2043_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2043_2.jpg" alt="Pump replacement in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2043_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2043_3.jpg" alt="Pump replacement in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2043_3.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job2043_1-480.webp 480w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2043_1.jpg" alt="Pump replacement in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2043_1.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2043_2-480.webp 480w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2043_2.jpg" alt="Pump replacement in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2043_2.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2043_3-480.webp 480w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2043_3.jpg" alt="Pump replacement in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2043_3.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -1059,9 +1059,9 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="pump" data-town="temecula" data-static="1" data-job="job2083">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2083_1.jpg" alt="Booster service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2083_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2083_2.jpg" alt="Booster service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2083_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2083_3.jpg" alt="Booster service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2083_3.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job2083_1-480.webp 480w, /images/recent-work/job2083_1.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2083_1.jpg" alt="Booster service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2083_1.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2083_2-480.webp 480w, /images/recent-work/job2083_2.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2083_2.jpg" alt="Booster service in Temecula" width="1080" height="810" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2083_2.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2083_3-480.webp 480w, /images/recent-work/job2083_3.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2083_3.jpg" alt="Booster service in Temecula" width="1080" height="810" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2083_3.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -1076,9 +1076,9 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="pump" data-town="temecula" data-static="1" data-job="job2013">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2013_1.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2013_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2013_2.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2013_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2013_3.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2013_3.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job2013_1-480.webp 480w, /images/recent-work/job2013_1.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2013_1.jpg" alt="Well service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2013_1.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2013_2-480.webp 480w, /images/recent-work/job2013_2.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2013_2.jpg" alt="Well service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2013_2.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2013_3-480.webp 480w, /images/recent-work/job2013_3.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2013_3.jpg" alt="Well service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2013_3.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -1093,9 +1093,9 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="pump" data-town="temecula" data-static="1" data-job="job1960">
 <div class="project-photos triple">
-<img src="/images/recent-work/job1960_1.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1960_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1960_2.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1960_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1960_3.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1960_3.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job1960_1-480.webp 480w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1960_1.jpg" alt="Well service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1960_1.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job1960_2-480.webp 480w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1960_2.jpg" alt="Well service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1960_2.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job1960_3-480.webp 480w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1960_3.jpg" alt="Well service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1960_3.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -1110,7 +1110,7 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="pump" data-town="temecula" data-static="1" data-job="job1917">
 <div class="project-photos single">
-<img src="/images/recent-work/job1917_1.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1917_1.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job1917_1-480.webp 480w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1917_1.jpg" alt="Well service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1917_1.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -1125,9 +1125,9 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="pump" data-town="temecula" data-static="1" data-job="job1824">
 <div class="project-photos triple">
-<img src="/images/recent-work/job1824_1.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1824_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1824_2.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1824_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1824_3.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1824_3.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job1824_1-480.webp 480w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1824_1.jpg" alt="Well service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1824_1.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job1824_2-480.webp 480w, /images/recent-work/job1824_2.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1824_2.jpg" alt="Well service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1824_2.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job1824_3-480.webp 480w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1824_3.jpg" alt="Well service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1824_3.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -1142,9 +1142,9 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="pump" data-town="temecula" data-static="1" data-job="job1835">
 <div class="project-photos triple">
-<img src="/images/recent-work/job1835_1.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1835_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1835_2.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1835_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1835_3.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1835_3.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job1835_1-480.webp 480w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1835_1.jpg" alt="Well service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1835_1.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job1835_2-480.webp 480w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1835_2.jpg" alt="Well service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1835_2.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job1835_3-480.webp 480w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1835_3.jpg" alt="Well service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1835_3.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -1159,9 +1159,9 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="pump" data-town="temecula" data-static="1" data-job="job1705">
 <div class="project-photos triple">
-<img src="/images/recent-work/job1705_1.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1705_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1705_2.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1705_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1705_3.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1705_3.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job1705_1-480.webp 480w, /images/recent-work/job1705_1.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1705_1.jpg" alt="Well service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1705_1.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job1705_2-480.webp 480w, /images/recent-work/job1705_2.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1705_2.jpg" alt="Well service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1705_2.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job1705_3-480.webp 480w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1705_3.jpg" alt="Well service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1705_3.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -1176,7 +1176,7 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="pump" data-town="temecula" data-static="1" data-job="job1818">
 <div class="project-photos single">
-<img src="/images/recent-work/job1818_1.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1818_1.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job1818_1-480.webp 480w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1818_1.jpg" alt="Well service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1818_1.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -1191,9 +1191,9 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="pump" data-town="temecula" data-static="1" data-job="job1827">
 <div class="project-photos triple">
-<img src="/images/recent-work/job1827_1.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1827_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1827_2.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1827_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1827_3.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1827_3.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job1827_1-480.webp 480w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1827_1.jpg" alt="Well service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1827_1.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job1827_2-480.webp 480w, /images/recent-work/job1827_2.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1827_2.jpg" alt="Well service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1827_2.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job1827_3-480.webp 480w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1827_3.jpg" alt="Well service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1827_3.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -1208,9 +1208,9 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="pump" data-town="temecula" data-static="1" data-job="job1763">
 <div class="project-photos triple">
-<img src="/images/recent-work/job1763_1.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1763_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1763_2.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1763_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1763_3.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1763_3.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job1763_1-480.webp 480w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1763_1.jpg" alt="Well service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1763_1.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job1763_2-480.webp 480w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1763_2.jpg" alt="Well service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1763_2.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job1763_3-480.webp 480w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1763_3.jpg" alt="Well service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1763_3.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -1225,9 +1225,9 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="pump" data-town="temecula" data-static="1" data-job="job1767">
 <div class="project-photos triple">
-<img src="/images/recent-work/job1767_1.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1767_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1767_2.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1767_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1767_3.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1767_3.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job1767_1-480.webp 480w, /images/recent-work/job1767_1.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1767_1.jpg" alt="Well service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1767_1.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job1767_2-480.webp 480w, /images/recent-work/job1767_2.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1767_2.jpg" alt="Well service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1767_2.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job1767_3-480.webp 480w, /images/recent-work/job1767_3.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1767_3.jpg" alt="Well service in Temecula" width="960" height="1280" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1767_3.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -1242,9 +1242,9 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="pump" data-town="temecula" data-static="1" data-job="job1766">
 <div class="project-photos triple">
-<img src="/images/recent-work/job1766_1.jpg" alt="Booster service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1766_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1766_2.jpg" alt="Booster service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1766_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1766_3.jpg" alt="Booster service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1766_3.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job1766_1-480.webp 480w, /images/recent-work/job1766_1.webp 549w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1766_1.jpg" alt="Booster service in Temecula" width="549" height="1280" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1766_1.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job1766_2-480.webp 480w, /images/recent-work/job1766_2.webp 549w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1766_2.jpg" alt="Booster service in Temecula" width="549" height="1280" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1766_2.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job1766_3-480.webp 480w, /images/recent-work/job1766_3.webp 549w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1766_3.jpg" alt="Booster service in Temecula" width="549" height="1280" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1766_3.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -1259,9 +1259,9 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="pump" data-town="temecula" data-static="1" data-job="job1736">
 <div class="project-photos triple">
-<img src="/images/recent-work/job1736_1.jpg" alt="Booster service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1736_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1736_2.jpg" alt="Booster service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1736_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1736_3.jpg" alt="Booster service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1736_3.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job1736_1-480.webp 480w, /images/recent-work/job1736_1.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1736_1.jpg" alt="Booster service in Temecula" width="1280" height="960" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1736_1.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job1736_2-480.webp 480w, /images/recent-work/job1736_2.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1736_2.jpg" alt="Booster service in Temecula" width="1280" height="960" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1736_2.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job1736_3-480.webp 480w, /images/recent-work/job1736_3.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1736_3.jpg" alt="Booster service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1736_3.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -1276,9 +1276,9 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="pump" data-town="temecula" data-static="1" data-job="job1732">
 <div class="project-photos triple">
-<img src="/images/recent-work/job1732_1.jpg" alt="Booster service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1732_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1732_2.jpg" alt="Booster service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1732_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1732_3.jpg" alt="Booster service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1732_3.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job1732_1-480.webp 480w, /images/recent-work/job1732_1.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1732_1.jpg" alt="Booster service in Temecula" width="1080" height="810" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1732_1.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job1732_2-480.webp 480w, /images/recent-work/job1732_2.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1732_2.jpg" alt="Booster service in Temecula" width="1080" height="810" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1732_2.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job1732_3-480.webp 480w, /images/recent-work/job1732_3.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1732_3.jpg" alt="Booster service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1732_3.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -1293,8 +1293,8 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="pump" data-town="temecula" data-static="1" data-job="job1696">
 <div class="project-photos double">
-<img src="/images/recent-work/job1696_1.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1696_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1696_2.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1696_2.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job1696_1-480.webp 480w, /images/recent-work/job1696_1.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1696_1.jpg" alt="Well service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1696_1.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job1696_2-480.webp 480w, /images/recent-work/job1696_2.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1696_2.jpg" alt="Well service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1696_2.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -1309,8 +1309,8 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="pump" data-town="temecula" data-static="1" data-job="job1693">
 <div class="project-photos double">
-<img src="/images/recent-work/job1693_1.jpg" alt="Booster service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1693_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1693_2.jpg" alt="Booster service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1693_2.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job1693_1-480.webp 480w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1693_1.jpg" alt="Booster service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1693_1.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job1693_2-480.webp 480w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1693_2.jpg" alt="Booster service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1693_2.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -1325,8 +1325,8 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="pump" data-town="temecula" data-static="1" data-job="job1691">
 <div class="project-photos double">
-<img src="/images/recent-work/job1691_1.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1691_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1691_2.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1691_2.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job1691_1-480.webp 480w, /images/recent-work/job1691_1.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1691_1.jpg" alt="Well service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1691_1.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job1691_2-480.webp 480w, /images/recent-work/job1691_2.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1691_2.jpg" alt="Well service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1691_2.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -1341,8 +1341,8 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="pump" data-town="temecula" data-static="1" data-job="job1690">
 <div class="project-photos double">
-<img src="/images/recent-work/job1690_1.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1690_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1690_2.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1690_2.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job1690_1-480.webp 480w, /images/recent-work/job1690_1.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1690_1.jpg" alt="Well service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1690_1.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job1690_2-480.webp 480w, /images/recent-work/job1690_2.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1690_2.jpg" alt="Well service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1690_2.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -1357,8 +1357,8 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="pump" data-town="temecula" data-static="1" data-job="job1485">
 <div class="project-photos double">
-<img src="/images/recent-work/job1485_1.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1485_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1485_2.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1485_2.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job1485_1-480.webp 480w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1485_1.jpg" alt="Well service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1485_1.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job1485_2-480.webp 480w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1485_2.jpg" alt="Well service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1485_2.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -1373,9 +1373,9 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="pump" data-town="temecula" data-static="1" data-job="job1683">
 <div class="project-photos triple">
-<img src="/images/recent-work/job1683_1.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1683_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1683_2.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1683_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1683_3.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1683_3.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job1683_1-480.webp 480w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1683_1.jpg" alt="Well service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1683_1.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job1683_2-480.webp 480w, /images/recent-work/job1683_2.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1683_2.jpg" alt="Well service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1683_2.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job1683_3-480.webp 480w, /images/recent-work/job1683_3.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1683_3.jpg" alt="Well service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1683_3.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -1390,8 +1390,8 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="pump" data-town="temecula" data-static="1" data-job="job1662">
 <div class="project-photos double">
-<img src="/images/recent-work/job1662_1.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1662_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1662_2.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1662_2.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job1662_1-480.webp 480w, /images/recent-work/job1662_1.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1662_1.jpg" alt="Well service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1662_1.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job1662_2-480.webp 480w, /images/recent-work/job1662_2.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1662_2.jpg" alt="Well service in Temecula" width="1080" height="810" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1662_2.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -1406,9 +1406,9 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="pump" data-town="temecula" data-static="1" data-job="job1675">
 <div class="project-photos triple">
-<img src="/images/recent-work/job1675_1.jpg" alt="Pump replacement in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1675_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1675_2.jpg" alt="Pump replacement in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1675_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1675_3.jpg" alt="Pump replacement in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1675_3.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job1675_1-480.webp 480w, /images/recent-work/job1675_1.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1675_1.jpg" alt="Pump replacement in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1675_1.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job1675_2-480.webp 480w, /images/recent-work/job1675_2.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1675_2.jpg" alt="Pump replacement in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1675_2.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job1675_3-480.webp 480w, /images/recent-work/job1675_3.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1675_3.jpg" alt="Pump replacement in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1675_3.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -1423,9 +1423,9 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="pump" data-town="temecula" data-static="1" data-job="job1667">
 <div class="project-photos triple">
-<img src="/images/recent-work/job1667_1.jpg" alt="Pump replacement in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1667_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1667_2.jpg" alt="Pump replacement in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1667_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1667_3.jpg" alt="Pump replacement in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1667_3.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job1667_1-480.webp 480w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1667_1.jpg" alt="Pump replacement in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1667_1.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job1667_2-480.webp 480w, /images/recent-work/job1667_2.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1667_2.jpg" alt="Pump replacement in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1667_2.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job1667_3-480.webp 480w, /images/recent-work/job1667_3.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1667_3.jpg" alt="Pump replacement in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1667_3.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -1440,9 +1440,9 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="pump" data-town="temecula" data-static="1" data-job="job1658">
 <div class="project-photos triple">
-<img src="/images/recent-work/job1658_1.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1658_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1658_2.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1658_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1658_3.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1658_3.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job1658_1-480.webp 480w, /images/recent-work/job1658_1.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1658_1.jpg" alt="Well service in Temecula" width="960" height="1280" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1658_1.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job1658_2-480.webp 480w, /images/recent-work/job1658_2.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1658_2.jpg" alt="Well service in Temecula" width="960" height="1280" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1658_2.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job1658_3-480.webp 480w, /images/recent-work/job1658_3.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1658_3.jpg" alt="Well service in Temecula" width="960" height="1280" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1658_3.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -1457,9 +1457,9 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="pump" data-town="temecula" data-static="1" data-job="job1664">
 <div class="project-photos triple">
-<img src="/images/recent-work/job1664_1.jpg" alt="Booster service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1664_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1664_2.jpg" alt="Booster service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1664_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1664_3.jpg" alt="Booster service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1664_3.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job1664_1-480.webp 480w, /images/recent-work/job1664_1.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1664_1.jpg" alt="Booster service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1664_1.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job1664_2-480.webp 480w, /images/recent-work/job1664_2.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1664_2.jpg" alt="Booster service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1664_2.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job1664_3-480.webp 480w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1664_3.jpg" alt="Booster service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1664_3.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -1474,9 +1474,9 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="pump" data-town="temecula" data-static="1" data-job="job1654">
 <div class="project-photos triple">
-<img src="/images/recent-work/job1654_1.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1654_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1654_2.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1654_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1654_3.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1654_3.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job1654_1-480.webp 480w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1654_1.jpg" alt="Well service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1654_1.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job1654_2-480.webp 480w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1654_2.jpg" alt="Well service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1654_2.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job1654_3-480.webp 480w, /images/recent-work/job1654_3.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1654_3.jpg" alt="Well service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1654_3.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -1491,9 +1491,9 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="pump" data-town="temecula" data-static="1" data-job="job1637">
 <div class="project-photos triple">
-<img src="/images/recent-work/job1637_1.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1637_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1637_2.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1637_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1637_3.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1637_3.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job1637_1-480.webp 480w, /images/recent-work/job1637_1.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1637_1.jpg" alt="Well service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1637_1.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job1637_2-480.webp 480w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1637_2.jpg" alt="Well service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1637_2.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job1637_3-480.webp 480w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1637_3.jpg" alt="Well service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1637_3.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -1508,9 +1508,9 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="pump" data-town="temecula" data-static="1" data-job="job1567">
 <div class="project-photos triple">
-<img src="/images/recent-work/job1567_1.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1567_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1567_2.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1567_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1567_3.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1567_3.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job1567_1-480.webp 480w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1567_1.jpg" alt="Well service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1567_1.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job1567_2-480.webp 480w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1567_2.jpg" alt="Well service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1567_2.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job1567_3-480.webp 480w, /images/recent-work/job1567_3.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1567_3.jpg" alt="Well service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1567_3.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -1525,8 +1525,8 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="pump" data-town="temecula" data-static="1" data-job="job1574">
 <div class="project-photos double">
-<img src="/images/recent-work/job1574_1.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1574_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1574_2.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1574_2.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job1574_1-480.webp 480w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1574_1.jpg" alt="Well service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1574_1.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job1574_2-480.webp 480w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1574_2.jpg" alt="Well service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1574_2.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -1541,9 +1541,9 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="pump" data-town="temecula" data-static="1" data-job="job1553">
 <div class="project-photos triple">
-<img src="/images/recent-work/job1553_1.jpg" alt="Pump replacement in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1553_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1553_2.jpg" alt="Pump replacement in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1553_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1553_3.jpg" alt="Pump replacement in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1553_3.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job1553_1-480.webp 480w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1553_1.jpg" alt="Pump replacement in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1553_1.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job1553_2-480.webp 480w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1553_2.jpg" alt="Pump replacement in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1553_2.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job1553_3-480.webp 480w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1553_3.jpg" alt="Pump replacement in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1553_3.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -1558,9 +1558,9 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="pump" data-town="temecula" data-static="1" data-job="job1526">
 <div class="project-photos triple">
-<img src="/images/recent-work/job1526_1.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1526_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1526_2.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1526_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1526_3.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1526_3.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job1526_1-480.webp 480w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1526_1.jpg" alt="Well service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1526_1.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job1526_2-480.webp 480w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1526_2.jpg" alt="Well service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1526_2.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job1526_3-480.webp 480w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1526_3.jpg" alt="Well service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1526_3.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -1575,9 +1575,9 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="pump" data-town="temecula" data-static="1" data-job="job1482">
 <div class="project-photos triple">
-<img src="/images/recent-work/job1482_1.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1482_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1482_2.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1482_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1482_3.jpg" alt="Well service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1482_3.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job1482_1-480.webp 480w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1482_1.jpg" alt="Well service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1482_1.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job1482_2-480.webp 480w, /images/recent-work/job1482_2.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1482_2.jpg" alt="Well service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1482_2.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job1482_3-480.webp 480w, /images/recent-work/job1482_3.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1482_3.jpg" alt="Well service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1482_3.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -1592,9 +1592,9 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="pump" data-town="temecula" data-static="1" data-job="job1463">
 <div class="project-photos triple">
-<img src="/images/recent-work/job1463_1.jpg" alt="Booster service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1463_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1463_2.jpg" alt="Booster service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1463_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1463_3.jpg" alt="Booster service in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1463_3.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job1463_1-480.webp 480w, /images/recent-work/job1463_1.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1463_1.jpg" alt="Booster service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1463_1.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job1463_2-480.webp 480w, /images/recent-work/job1463_2.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1463_2.jpg" alt="Booster service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1463_2.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job1463_3-480.webp 480w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1463_3.jpg" alt="Booster service in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1463_3.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -1609,8 +1609,8 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="pump" data-town="temecula" data-static="1" data-job="job1439">
 <div class="project-photos double">
-<img src="/images/recent-work/job1439_1.jpg" alt="Pump replacement in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1439_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1439_2.jpg" alt="Pump replacement in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1439_2.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job1439_1-480.webp 480w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1439_1.jpg" alt="Pump replacement in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1439_1.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job1439_2-480.webp 480w, /images/recent-work/job1439_2.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1439_2.jpg" alt="Pump replacement in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1439_2.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -1625,9 +1625,9 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="pump" data-town="temecula" data-static="1" data-job="job1394">
 <div class="project-photos triple">
-<img src="/images/recent-work/job1394_1.jpg" alt="Well diagnostic in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1394_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1394_2.jpg" alt="Well diagnostic in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1394_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1394_3.jpg" alt="Well diagnostic in Temecula" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1394_3.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job1394_1-480.webp 480w, /images/recent-work/job1394_1.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1394_1.jpg" alt="Well diagnostic in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1394_1.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job1394_2-480.webp 480w, /images/recent-work/job1394_2.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1394_2.jpg" alt="Well diagnostic in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1394_2.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job1394_3-480.webp 480w, /images/recent-work/job1394_3.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1394_3.jpg" alt="Well diagnostic in Temecula" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1394_3.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">

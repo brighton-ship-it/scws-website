@@ -41,7 +41,8 @@
 </script>
 <style>
     .rw-hero { position: relative; background: #1f3b4d; }
-    .rw-hero img { width: 100%; height: 280px; object-fit: cover; display: block; }
+    .rw-hero picture, .rw-thumbs picture { display: block; }
+    .rw-hero img { width: 100%; height: auto; max-width: 100%; object-fit: contain; display: block; background: #1f3b4d; }
     .rw-hero-copy {
         position: absolute; left: 0; right: 0; bottom: 0;
         padding: 1.25rem 1.25rem 1.4rem;
@@ -69,7 +70,7 @@
     .rw-summary { color: #374151; font-size: 1.05rem; line-height: 1.7; margin: 0; }
     .rw-thumbs { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 0.6rem; margin-top: 1rem; }
     .rw-thumbs img, .rw-hero img { cursor: pointer; }
-    .rw-thumbs img { width: 100%; height: 110px; object-fit: cover; border-radius: 10px; background: #e5e7eb; }
+    .rw-thumbs img { width: 100%; height: auto; object-fit: contain; border-radius: 10px; background: #e5e7eb; }
     .rw-cta { background: #1f3b4d; color: #fff; border-radius: 16px; padding: 1.25rem; }
     .rw-cta h2 { color: #fff; font-size: 1.35rem; margin: 0 0 0.4rem; }
     .rw-cta p { color: rgba(255,255,255,0.88); margin: 0 0 1rem; }
@@ -114,7 +115,6 @@
     .lightbox.active { display: flex; }
     .lightbox img { max-width: 90vw; max-height: 90vh; object-fit: contain; border-radius: 8px; }
     @media (min-width: 768px) {
-        .rw-hero img { height: 460px; }
         .rw-hero h1 { font-size: 2.4rem; }
         .rw-grid { grid-template-columns: 1.4fr 0.8fr; align-items: start; }
         .rw-cards { grid-template-columns: 1fr 1fr; }
@@ -139,7 +139,7 @@
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 <div class="flex justify-between items-center py-2 gap-2">
 <a class="shrink min-w-0" href="/">
-<img width="840" height="150" alt="Southern California Well Service" class="site-logo-img" loading="lazy" src="/images/logo-text-only-3x.png"/>
+<picture><source type="image/webp" srcset="/images/logo-text-only-3x-480.webp 260w" sizes="(min-width: 1024px) 40vw, 100vw"><img width="840" height="150" alt="Southern California Well Service" class="site-logo-img" src="/images/logo-text-only-3x.png" decoding="async" sizes="(min-width: 1024px) 40vw, 100vw"/></picture>
 </a>
 <nav class="hidden xl:flex space-x-4 items-center">
 <a class="text-white hover:text-accent transition whitespace-nowrap" href="/#services">Services</a>
@@ -174,7 +174,7 @@
 </div>
 </div>
 <section class="rw-hero">
-<img src="/images/recent-work/job3125_1.jpg" alt="Well service in Menifee" width="1200" height="800" fetchpriority="high" decoding="async" sizes="100vw">
+<picture><source type="image/webp" srcset="/images/recent-work/job3125_1-480.webp 480w, /images/recent-work/job3125_1.webp 800w" sizes="100vw"><img src="/images/recent-work/job3125_1.jpg" alt="Well service in Menifee" width="810" height="1080" fetchpriority="high" decoding="async" sizes="100vw"></picture>
 <div class="rw-hero-copy">
 <p><span class="rw-kicker">30 jobs</span></p>
 <h1>Recent work in Menifee</h1>
@@ -217,9 +217,9 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 <div class="rw-cards">
 <article class="project-card" data-category="pump" data-town="menifee" data-static="1" data-job="job3125">
 <div class="project-photos triple">
-<img src="/images/recent-work/job3125_1.jpg" alt="Well service in Menifee" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3125_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job3125_2.jpg" alt="Well service in Menifee" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3125_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job3125_3.jpg" alt="Well service in Menifee" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3125_3.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job3125_1-480.webp 480w, /images/recent-work/job3125_1.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job3125_1.jpg" alt="Well service in Menifee" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3125_1.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job3125_2-480.webp 480w, /images/recent-work/job3125_2.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job3125_2.jpg" alt="Well service in Menifee" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3125_2.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job3125_3-480.webp 480w, /images/recent-work/job3125_3.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job3125_3.jpg" alt="Well service in Menifee" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job3125_3.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -234,7 +234,7 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="tank" data-town="menifee" data-static="1" data-job="job2997">
 <div class="project-photos single">
-<img src="/images/recent-work/job2997_1.jpg" alt="Pump-down float replacement in Menifee" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2997_1.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job2997_1-480.webp 480w, /images/recent-work/job2997_1.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2997_1.jpg" alt="Pump-down float replacement in Menifee" width="1200" height="674" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2997_1.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -249,8 +249,8 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="tank" data-town="menifee" data-static="1" data-job="job2878">
 <div class="project-photos double">
-<img src="/images/recent-work/job2878_1.jpg" alt="Tank float replacement in Menifee" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2878_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2878_2.jpg" alt="Tank float replacement in Menifee" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2878_2.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job2878_1-480.webp 480w, /images/recent-work/job2878_1.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2878_1.jpg" alt="Tank float replacement in Menifee" width="900" height="1200" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2878_1.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2878_2-480.webp 480w, /images/recent-work/job2878_2.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2878_2.jpg" alt="Tank float replacement in Menifee" width="900" height="1200" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2878_2.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -265,9 +265,9 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="pump" data-town="menifee" data-static="1" data-job="job2708">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2708_1.jpg" alt="Pump replacement in Menifee" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2708_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2708_2.jpg" alt="Pump replacement in Menifee" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2708_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2708_3.jpg" alt="Pump replacement in Menifee" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2708_3.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job2708_1-480.webp 480w, /images/recent-work/job2708_1.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2708_1.jpg" alt="Pump replacement in Menifee" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2708_1.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2708_2-480.webp 480w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2708_2.jpg" alt="Pump replacement in Menifee" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2708_2.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2708_3-480.webp 480w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2708_3.jpg" alt="Pump replacement in Menifee" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2708_3.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -282,9 +282,9 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="pump" data-town="menifee" data-static="1" data-job="job2565">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2565_1.jpg" alt="Well service in Menifee" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2565_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2565_2.jpg" alt="Well service in Menifee" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2565_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2565_3.jpg" alt="Well service in Menifee" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2565_3.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job2565_1-480.webp 480w, /images/recent-work/job2565_1.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2565_1.jpg" alt="Well service in Menifee" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2565_1.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2565_2-480.webp 480w, /images/recent-work/job2565_2.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2565_2.jpg" alt="Well service in Menifee" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2565_2.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2565_3-480.webp 480w, /images/recent-work/job2565_3.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2565_3.jpg" alt="Well service in Menifee" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2565_3.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -299,9 +299,9 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="pump" data-town="menifee" data-static="1" data-job="job2613">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2613_1.jpg" alt="Well service in Menifee" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2613_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2613_2.jpg" alt="Well service in Menifee" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2613_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2613_3.jpg" alt="Well service in Menifee" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2613_3.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job2613_1-480.webp 480w, /images/recent-work/job2613_1.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2613_1.jpg" alt="Well service in Menifee" width="1200" height="514" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2613_1.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2613_2-480.webp 480w, /images/recent-work/job2613_2.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2613_2.jpg" alt="Well service in Menifee" width="1280" height="549" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2613_2.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2613_3-480.webp 480w, /images/recent-work/job2613_3.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2613_3.jpg" alt="Well service in Menifee" width="1280" height="549" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2613_3.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -316,9 +316,9 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="pump" data-town="menifee" data-static="1" data-job="job2590">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2590_1.jpg" alt="Well service in Menifee" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2590_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2590_2.jpg" alt="Well service in Menifee" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2590_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2590_3.jpg" alt="Well service in Menifee" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2590_3.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job2590_1-480.webp 480w, /images/recent-work/job2590_1.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2590_1.jpg" alt="Well service in Menifee" width="1400" height="600" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2590_1.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2590_2-480.webp 480w, /images/recent-work/job2590_2.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2590_2.jpg" alt="Well service in Menifee" width="1280" height="549" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2590_2.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2590_3-480.webp 480w, /images/recent-work/job2590_3.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2590_3.jpg" alt="Well service in Menifee" width="1280" height="549" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2590_3.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -333,9 +333,9 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="pump" data-town="menifee" data-static="1" data-job="job2548">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2548_1.jpg" alt="Pump replacement in Menifee" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2548_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2548_2.jpg" alt="Pump replacement in Menifee" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2548_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2548_3.jpg" alt="Pump replacement in Menifee" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2548_3.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job2548_1-480.webp 480w, /images/recent-work/job2548_1.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2548_1.jpg" alt="Pump replacement in Menifee" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2548_1.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2548_2-480.webp 480w, /images/recent-work/job2548_2.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2548_2.jpg" alt="Pump replacement in Menifee" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2548_2.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2548_3-480.webp 480w, /images/recent-work/job2548_3.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2548_3.jpg" alt="Pump replacement in Menifee" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2548_3.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -350,9 +350,9 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="pump" data-town="menifee" data-static="1" data-job="job2543">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2543_1.jpg" alt="Well service in Menifee" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2543_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2543_2.jpg" alt="Well service in Menifee" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2543_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2543_3.jpg" alt="Well service in Menifee" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2543_3.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job2543_1-480.webp 480w, /images/recent-work/job2543_1.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2543_1.jpg" alt="Well service in Menifee" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2543_1.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2543_2-480.webp 480w, /images/recent-work/job2543_2.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2543_2.jpg" alt="Well service in Menifee" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2543_2.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2543_3-480.webp 480w, /images/recent-work/job2543_3.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2543_3.jpg" alt="Well service in Menifee" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2543_3.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -367,9 +367,9 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="pump" data-town="menifee" data-static="1" data-job="job2458">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2458_1.jpg" alt="Well service in Menifee" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2458_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2458_2.jpg" alt="Well service in Menifee" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2458_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2458_3.jpg" alt="Well service in Menifee" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2458_3.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job2458_1-480.webp 480w, /images/recent-work/job2458_1.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2458_1.jpg" alt="Well service in Menifee" width="1280" height="549" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2458_1.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2458_2-480.webp 480w, /images/recent-work/job2458_2.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2458_2.jpg" alt="Well service in Menifee" width="1280" height="549" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2458_2.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2458_3-480.webp 480w, /images/recent-work/job2458_3.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2458_3.jpg" alt="Well service in Menifee" width="1280" height="549" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2458_3.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -384,9 +384,9 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="pump" data-town="menifee" data-static="1" data-job="job2445">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2445_1.jpg" alt="Well service in Menifee" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2445_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2445_2.jpg" alt="Well service in Menifee" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2445_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2445_3.jpg" alt="Well service in Menifee" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2445_3.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job2445_1-480.webp 480w, /images/recent-work/job2445_1.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2445_1.jpg" alt="Well service in Menifee" width="1280" height="549" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2445_1.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2445_2-480.webp 480w, /images/recent-work/job2445_2.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2445_2.jpg" alt="Well service in Menifee" width="1280" height="549" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2445_2.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2445_3-480.webp 480w, /images/recent-work/job2445_3.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2445_3.jpg" alt="Well service in Menifee" width="1280" height="549" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2445_3.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -401,9 +401,9 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="pump" data-town="menifee" data-static="1" data-job="job2336">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2336_1.jpg" alt="Pull pump in Menifee" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2336_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2336_2.jpg" alt="Pull pump in Menifee" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2336_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2336_3.jpg" alt="Pull pump in Menifee" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2336_3.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job2336_1-480.webp 480w, /images/recent-work/job2336_1.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2336_1.jpg" alt="Pull pump in Menifee" width="960" height="1280" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2336_1.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2336_2-480.webp 480w, /images/recent-work/job2336_2.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2336_2.jpg" alt="Pull pump in Menifee" width="960" height="1280" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2336_2.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2336_3-480.webp 480w, /images/recent-work/job2336_3.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2336_3.jpg" alt="Pull pump in Menifee" width="960" height="1280" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2336_3.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -418,9 +418,9 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="pump" data-town="menifee" data-static="1" data-job="job2367">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2367_1.jpg" alt="Pump replacement in Menifee" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2367_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2367_2.jpg" alt="Pump replacement in Menifee" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2367_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2367_3.jpg" alt="Pump replacement in Menifee" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2367_3.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job2367_1-480.webp 480w, /images/recent-work/job2367_1.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2367_1.jpg" alt="Pump replacement in Menifee" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2367_1.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2367_2-480.webp 480w, /images/recent-work/job2367_2.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2367_2.jpg" alt="Pump replacement in Menifee" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2367_2.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2367_3-480.webp 480w, /images/recent-work/job2367_3.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2367_3.jpg" alt="Pump replacement in Menifee" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2367_3.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -435,9 +435,9 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="pump" data-town="menifee" data-static="1" data-job="job2328">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2328_1.jpg" alt="Well service in Menifee" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2328_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2328_2.jpg" alt="Well service in Menifee" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2328_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2328_3.jpg" alt="Well service in Menifee" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2328_3.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job2328_1-480.webp 480w, /images/recent-work/job2328_1.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2328_1.jpg" alt="Well service in Menifee" width="960" height="1280" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2328_1.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2328_2-480.webp 480w, /images/recent-work/job2328_2.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2328_2.jpg" alt="Well service in Menifee" width="960" height="1280" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2328_2.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2328_3-480.webp 480w, /images/recent-work/job2328_3.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2328_3.jpg" alt="Well service in Menifee" width="960" height="1280" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2328_3.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -452,8 +452,8 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="pump" data-town="menifee" data-static="1" data-job="job2247">
 <div class="project-photos double">
-<img src="/images/recent-work/job2247_2.jpg" alt="Well service in Menifee" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2247_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2247_3.jpg" alt="Well service in Menifee" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2247_3.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job2247_2-480.webp 480w, /images/recent-work/job2247_2.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2247_2.jpg" alt="Well service in Menifee" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2247_2.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2247_3-480.webp 480w, /images/recent-work/job2247_3.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2247_3.jpg" alt="Well service in Menifee" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2247_3.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -468,9 +468,9 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="pump" data-town="menifee" data-static="1" data-job="job2219">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2219_1.jpg" alt="Well service in Menifee" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2219_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2219_2.jpg" alt="Well service in Menifee" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2219_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2219_3.jpg" alt="Well service in Menifee" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2219_3.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job2219_1-480.webp 480w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2219_1.jpg" alt="Well service in Menifee" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2219_1.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2219_2-480.webp 480w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2219_2.jpg" alt="Well service in Menifee" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2219_2.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2219_3-480.webp 480w, /images/recent-work/job2219_3.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2219_3.jpg" alt="Well service in Menifee" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2219_3.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -485,9 +485,9 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="pump" data-town="menifee" data-static="1" data-job="job2226">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2226_1.jpg" alt="Well service in Menifee" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2226_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2226_2.jpg" alt="Well service in Menifee" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2226_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2226_3.jpg" alt="Well service in Menifee" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2226_3.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job2226_1-480.webp 480w, /images/recent-work/job2226_1.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2226_1.jpg" alt="Well service in Menifee" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2226_1.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2226_2-480.webp 480w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2226_2.jpg" alt="Well service in Menifee" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2226_2.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2226_3-480.webp 480w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2226_3.jpg" alt="Well service in Menifee" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2226_3.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -502,9 +502,9 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="pump" data-town="menifee" data-static="1" data-job="job2213">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2213_1.jpg" alt="Well service in Menifee" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2213_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2213_2.jpg" alt="Well service in Menifee" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2213_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2213_3.jpg" alt="Well service in Menifee" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2213_3.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job2213_1-480.webp 480w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2213_1.jpg" alt="Well service in Menifee" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2213_1.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2213_2-480.webp 480w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2213_2.jpg" alt="Well service in Menifee" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2213_2.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2213_3-480.webp 480w, /images/recent-work/job2213_3.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2213_3.jpg" alt="Well service in Menifee" width="1080" height="810" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2213_3.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -519,9 +519,9 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="pump" data-town="menifee" data-static="1" data-job="job2178">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2178_1.jpg" alt="Well service in Menifee" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2178_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2178_2.jpg" alt="Well service in Menifee" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2178_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2178_3.jpg" alt="Well service in Menifee" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2178_3.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job2178_1-480.webp 480w, /images/recent-work/job2178_1.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2178_1.jpg" alt="Well service in Menifee" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2178_1.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2178_2-480.webp 480w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2178_2.jpg" alt="Well service in Menifee" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2178_2.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2178_3-480.webp 480w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2178_3.jpg" alt="Well service in Menifee" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2178_3.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -536,9 +536,9 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="pump" data-town="menifee" data-static="1" data-job="job2104">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2104_1.jpg" alt="Pull pump in Menifee" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2104_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2104_2.jpg" alt="Pull pump in Menifee" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2104_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2104_3.jpg" alt="Pull pump in Menifee" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2104_3.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job2104_1-480.webp 480w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2104_1.jpg" alt="Pull pump in Menifee" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2104_1.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2104_2-480.webp 480w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2104_2.jpg" alt="Pull pump in Menifee" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2104_2.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2104_3-480.webp 480w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2104_3.jpg" alt="Pull pump in Menifee" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2104_3.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -553,9 +553,9 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="tank" data-town="menifee" data-static="1" data-job="job2054">
 <div class="project-photos triple">
-<img src="/images/recent-work/job2054_1.jpg" alt="Pressure tank replacement in Menifee" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2054_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2054_2.jpg" alt="Pressure tank replacement in Menifee" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2054_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job2054_3.jpg" alt="Pressure tank replacement in Menifee" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2054_3.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job2054_1-480.webp 480w, /images/recent-work/job2054_1.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2054_1.jpg" alt="Pressure tank replacement in Menifee" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2054_1.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2054_2-480.webp 480w, /images/recent-work/job2054_2.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2054_2.jpg" alt="Pressure tank replacement in Menifee" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2054_2.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job2054_3-480.webp 480w, /images/recent-work/job2054_3.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job2054_3.jpg" alt="Pressure tank replacement in Menifee" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job2054_3.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -570,9 +570,9 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="pump" data-town="menifee" data-static="1" data-job="job1918">
 <div class="project-photos triple">
-<img src="/images/recent-work/job1918_1.jpg" alt="Well service in Menifee" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1918_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1918_2.jpg" alt="Well service in Menifee" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1918_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1918_3.jpg" alt="Well service in Menifee" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1918_3.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job1918_1-480.webp 480w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1918_1.jpg" alt="Well service in Menifee" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1918_1.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job1918_2-480.webp 480w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1918_2.jpg" alt="Well service in Menifee" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1918_2.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job1918_3-480.webp 480w, /images/recent-work/job1918_3.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1918_3.jpg" alt="Well service in Menifee" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1918_3.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -587,9 +587,9 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="pump" data-town="menifee" data-static="1" data-job="job1853">
 <div class="project-photos triple">
-<img src="/images/recent-work/job1853_1.jpg" alt="Well service in Menifee" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1853_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1853_2.jpg" alt="Well service in Menifee" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1853_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1853_3.jpg" alt="Well service in Menifee" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1853_3.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job1853_1-480.webp 480w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1853_1.jpg" alt="Well service in Menifee" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1853_1.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job1853_2-480.webp 480w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1853_2.jpg" alt="Well service in Menifee" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1853_2.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job1853_3-480.webp 480w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1853_3.jpg" alt="Well service in Menifee" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1853_3.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -604,9 +604,9 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="pump" data-town="menifee" data-static="1" data-job="job1889">
 <div class="project-photos triple">
-<img src="/images/recent-work/job1889_1.jpg" alt="Well service in Menifee" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1889_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1889_2.jpg" alt="Well service in Menifee" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1889_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1889_3.jpg" alt="Well service in Menifee" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1889_3.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job1889_1-480.webp 480w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1889_1.jpg" alt="Well service in Menifee" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1889_1.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job1889_2-480.webp 480w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1889_2.jpg" alt="Well service in Menifee" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1889_2.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job1889_3-480.webp 480w, /images/recent-work/job1889_3.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1889_3.jpg" alt="Well service in Menifee" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1889_3.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -621,9 +621,9 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="pump" data-town="menifee" data-static="1" data-job="job1837">
 <div class="project-photos triple">
-<img src="/images/recent-work/job1837_1.jpg" alt="Well service in Menifee" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1837_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1837_2.jpg" alt="Well service in Menifee" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1837_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1837_3.jpg" alt="Well service in Menifee" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1837_3.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job1837_1-480.webp 480w, /images/recent-work/job1837_1.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1837_1.jpg" alt="Well service in Menifee" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1837_1.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job1837_2-480.webp 480w, /images/recent-work/job1837_2.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1837_2.jpg" alt="Well service in Menifee" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1837_2.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job1837_3-480.webp 480w, /images/recent-work/job1837_3.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1837_3.jpg" alt="Well service in Menifee" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1837_3.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -638,9 +638,9 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="pump" data-town="menifee" data-static="1" data-job="job1819">
 <div class="project-photos triple">
-<img src="/images/recent-work/job1819_1.jpg" alt="Well service in Menifee" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1819_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1819_2.jpg" alt="Well service in Menifee" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1819_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1819_3.jpg" alt="Well service in Menifee" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1819_3.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job1819_1-480.webp 480w, /images/recent-work/job1819_1.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1819_1.jpg" alt="Well service in Menifee" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1819_1.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job1819_2-480.webp 480w, /images/recent-work/job1819_2.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1819_2.jpg" alt="Well service in Menifee" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1819_2.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job1819_3-480.webp 480w, /images/recent-work/job1819_3.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1819_3.jpg" alt="Well service in Menifee" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1819_3.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -655,9 +655,9 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="pump" data-town="menifee" data-static="1" data-job="job1677">
 <div class="project-photos triple">
-<img src="/images/recent-work/job1677_1.jpg" alt="Well service in Menifee" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1677_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1677_2.jpg" alt="Well service in Menifee" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1677_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1677_3.jpg" alt="Well service in Menifee" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1677_3.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job1677_1-480.webp 480w, /images/recent-work/job1677_1.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1677_1.jpg" alt="Well service in Menifee" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1677_1.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job1677_2-480.webp 480w, /images/recent-work/job1677_2.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1677_2.jpg" alt="Well service in Menifee" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1677_2.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job1677_3-480.webp 480w, /images/recent-work/job1677_3.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1677_3.jpg" alt="Well service in Menifee" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1677_3.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -672,9 +672,9 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="pump" data-town="menifee" data-static="1" data-job="job1670">
 <div class="project-photos triple">
-<img src="/images/recent-work/job1670_1.jpg" alt="Well service in Menifee" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1670_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1670_2.jpg" alt="Well service in Menifee" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1670_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1670_3.jpg" alt="Well service in Menifee" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1670_3.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job1670_1-480.webp 480w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1670_1.jpg" alt="Well service in Menifee" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1670_1.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job1670_2-480.webp 480w, /images/recent-work/job1670_2.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1670_2.jpg" alt="Well service in Menifee" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1670_2.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job1670_3-480.webp 480w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1670_3.jpg" alt="Well service in Menifee" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1670_3.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -689,9 +689,9 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="pump" data-town="menifee" data-static="1" data-job="job1610">
 <div class="project-photos triple">
-<img src="/images/recent-work/job1610_1.jpg" alt="Well service in Menifee" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1610_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1610_2.jpg" alt="Well service in Menifee" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1610_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1610_3.jpg" alt="Well service in Menifee" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1610_3.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job1610_1-480.webp 480w, /images/recent-work/job1610_1.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1610_1.jpg" alt="Well service in Menifee" width="1080" height="810" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1610_1.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job1610_2-480.webp 480w, /images/recent-work/job1610_2.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1610_2.jpg" alt="Well service in Menifee" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1610_2.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job1610_3-480.webp 480w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1610_3.jpg" alt="Well service in Menifee" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1610_3.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">
@@ -706,9 +706,9 @@ document.querySelectorAll('#hub-filters .filter-btn').forEach(function (btn) {
 </article>
 <article class="project-card" data-category="pump" data-town="menifee" data-static="1" data-job="job1460">
 <div class="project-photos triple">
-<img src="/images/recent-work/job1460_1.jpg" alt="Pump replacement in Menifee" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1460_1.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1460_2.jpg" alt="Pump replacement in Menifee" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1460_2.jpg')" style="cursor:pointer">
-<img src="/images/recent-work/job1460_3.jpg" alt="Pump replacement in Menifee" width="800" height="450" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1460_3.jpg')" style="cursor:pointer">
+<picture><source type="image/webp" srcset="/images/recent-work/job1460_1-480.webp 480w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1460_1.jpg" alt="Pump replacement in Menifee" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1460_1.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job1460_2-480.webp 480w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1460_2.jpg" alt="Pump replacement in Menifee" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1460_2.jpg')" style="cursor:pointer"></picture>
+<picture><source type="image/webp" srcset="/images/recent-work/job1460_3-480.webp 480w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><img src="/images/recent-work/job1460_3.jpg" alt="Pump replacement in Menifee" width="810" height="1080" loading="lazy" decoding="async" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" onclick="openLightbox('/images/recent-work/job1460_3.jpg')" style="cursor:pointer"></picture>
 </div>
 <div class="p-4">
 <div class="flex items-center justify-between mb-2 gap-2">

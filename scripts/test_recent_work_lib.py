@@ -14,6 +14,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
+from photo_webp import close_heading_gaps, demote_footer_headings
 from recent_work_lib import (
     MIN_INDEXABLE_SUMMARY_WORDS,
     MONEY_PAGE_SLUGS,
@@ -660,6 +661,61 @@ class QualityGateTests(unittest.TestCase):
         self.assertIn("1077 Main St, Unit B, Ramona, CA 92065", html)
         self.assertNotIn("with field photos", html)
         self.assertNotIn("463-0493", html)
+
+
+class PhotoMarkupTests(unittest.TestCase):
+    def test_pixel_size_and_picture_keep_the_jpeg(self):
+        import recent_work_lib
+
+        jpg = bytes.fromhex(
+            "ffd8ffe000104a46494600010100000100010000ffdb004300100b0c0e0c0a100e0d0e1211101318281a181616183123251d283a333d3c3933383740485c4e404457453738506d51575f626768673e4d71797064785c656763ffdb0043011112121815182f1a1a2f634238426363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363ffc00011080004000803012200021101031101ffc4001f0000010501010101010100000000000000000102030405060708090a0bffc400b5100002010303020403050504040000017d01020300041105122131410613516107227114328191a1082342b1c11552d1f02433627282090a161718191a25262728292a3435363738393a434445464748494a535455565758595a636465666768696a737475767778797a838485868788898a92939495969798999aa2a3a4a5a6a7a8a9aab2b3b4b5b6b7b8b9bac2c3c4c5c6c7c8c9cad2d3d4d5d6d7d8d9dae1e2e3e4e5e6e7e8e9eaf1f2f3f4f5f6f7f8f9faffc4001f0100030101010101010101010000000000000102030405060708090a0bffc400b51100020102040403040705040400010277000102031104052131061241510761711322328108144291a1b1c109233352f0156272d10a162434e125f11718191a262728292a35363738393a434445464748494a535455565758595a636465666768696a737475767778797a82838485868788898a92939495969798999aa2a3a4a5a6a7a8a9aab2b3b4b5b6b7b8b9bac2c3c4c5c6c7c8c9cad2d3d4d5d6d7d8d9dae2e3e4e5e6e7e8e9eaf2f3f4f5f6f7f8f9faffda000c03010002110311003f00e468a28ad8c4ffd9"
+        )
+        webp = bytes.fromhex(
+            "524946462c0000005745425056503820200000005001009d012a0400020003805a25004e80280000fef0e8e8b51254bc9fa23000"
+        )
+        self.assertEqual(recent_work_lib._jpeg_size(jpg), (8, 4))
+        self.assertEqual(recent_work_lib._webp_size(webp), (4, 2))
+        with tempfile.TemporaryDirectory() as tmp:
+            folder = Path(tmp)
+            (folder / "pump.jpg").write_bytes(jpg)
+            (folder / "pump.webp").write_bytes(webp)
+            (folder / "pump-480.webp").write_bytes(webp)
+            original = recent_work_lib.PHOTO_DIR
+            recent_work_lib.PHOTO_DIR = folder
+            try:
+                hero = recent_work_lib.responsive_photo_html(
+                    "pump.jpg", "Pull pump", prefix="/images/recent-work/", lazy=False, sizes="100vw"
+                )
+                thumb = recent_work_lib.responsive_photo_html(
+                    "pump.jpg", "Pull pump", prefix="/images/recent-work/", lazy=True, sizes="140px"
+                )
+            finally:
+                recent_work_lib.PHOTO_DIR = original
+        self.assertIn("<picture>", hero)
+        self.assertIn('src="/images/recent-work/pump.jpg"', hero)
+        self.assertIn('type="image/webp"', hero)
+        self.assertIn('width="8"', hero)
+        self.assertIn('height="4"', hero)
+        self.assertIn('fetchpriority="high"', hero)
+        self.assertNotIn("loading=", hero)
+        self.assertIn('loading="lazy"', thumb)
+        self.assertNotIn("fetchpriority", thumb)
+
+    def test_blog_footer_headings_do_not_skip(self):
+        html = "<article><h2>Job</h2></article><footer><h4 class=\"x\">Ramona Office</h4><h4>Anza Office</h4></footer>"
+        fixed = demote_footer_headings(html)
+        self.assertIn("<h3 class=\"x\">Ramona Office</h3>", fixed)
+        self.assertIn("<h3>Anza Office</h3>", fixed)
+        self.assertNotIn("<h4", fixed)
+        self.assertIn("<h2>Job</h2>", fixed)
+
+    def test_heading_gaps_close_without_changing_text(self):
+        html = "<h1>Guide</h1><h3>First section</h3><script><h4>ignore</h4></script><h2>Next</h2><h4>Detail</h4>"
+        fixed = close_heading_gaps(html)
+        self.assertIn("<h2>First section</h2>", fixed)
+        self.assertIn("<h3>Detail</h3>", fixed)
+        self.assertIn("<h2>Next</h2>", fixed)
+        self.assertIn("<h4>ignore</h4>", fixed)
 
 
 if __name__ == "__main__":
