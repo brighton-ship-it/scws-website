@@ -1,7 +1,8 @@
-/* Book online on hub, town, and service pages.
+/* Book online on hub, town, service, and blog pages.
    Opens SCWS's public Jobber request form in a new tab.
    Estimate, call, and text links stay on /contact.html and the shop numbers.
-   Voice number stays (760) 440-8520; call-tracking.js swaps it. */
+   Voice number stays (760) 440-8520; call-tracking.js swaps it.
+   Blog pages only point an existing .scws-book-online link. They do not get a hero button. */
 (function () {
   var BOOK_URL = 'https://clienthub.getjobber.com/hubs/7c569177-85d0-4bac-9c7f-e2afe6652ee1/public/requests/1604593/new';
 
@@ -14,12 +15,15 @@
   function place() {
     if (!document.body) return;
     var path = location.pathname || '';
-    if (path.indexOf('/services/') === -1) return;
+    var onService = path.indexOf('/services/') !== -1;
+    var onBlog = path.indexOf('/blog/') !== -1;
+    if (!onService && !onBlog) return;
     var existing = document.querySelectorAll('a.scws-book-online');
     if (existing.length) {
       for (var i = 0; i < existing.length; i++) point(existing[i]);
       return;
     }
+    if (!onService) return;
     var link = document.createElement('a');
     link.id = 'scws-book-online';
     link.className = 'scws-book-online';
