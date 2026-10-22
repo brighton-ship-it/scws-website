@@ -24,7 +24,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 class ClassifierTests(unittest.TestCase):
     def test_named_far_cities_are_factory(self):
-        for slug in ("barstow", "victorville", "adelanto", "apple-valley", "perris"):
+        for slug in ("barstow", "victorville", "adelanto", "apple-valley", "hesperia"):
             self.assertIn(slug, FAR_CITY_SLUGS)
             self.assertTrue(is_far_city_factory_path(ROOT / "services" / slug / "index.html"))
             self.assertTrue(
@@ -75,7 +75,7 @@ class NoindexApplyTests(unittest.TestCase):
             self.assertFalse(html_is_noindex(path), path)
 
     def test_live_far_city_hubs_noindexed_and_kept_on_disk(self):
-        for slug in ("barstow", "victorville", "adelanto", "apple-valley", "perris"):
+        for slug in ("barstow", "victorville", "adelanto", "apple-valley", "hesperia"):
             path = ROOT / "services" / slug / "index.html"
             self.assertTrue(path.is_file(), path)
             self.assertTrue(html_is_noindex(path), path)
@@ -83,10 +83,22 @@ class NoindexApplyTests(unittest.TestCase):
 
     def test_sitemap_services_dropped_far_kept_money(self):
         xml = (ROOT / "sitemap-services.xml").read_text(encoding="utf-8")
-        for slug in ("barstow", "victorville", "adelanto", "apple-valley", "perris"):
+        for slug in ("barstow", "victorville", "adelanto", "apple-valley", "hesperia"):
             self.assertNotIn(f"/services/{slug}/", xml)
         for slug in ("ramona", "anza", "temecula", "valley-center", "escondido", "julian"):
             self.assertIn(f"https://scwellservice.com/services/{slug}/", xml)
+        self.assertNotIn("perris", FAR_CITY_SLUGS)
+        perris = ROOT / "services" / "perris" / "index.html"
+        self.assertTrue(perris.is_file())
+        self.assertFalse(html_is_noindex(perris))
+        self.assertFalse(is_far_city_factory_path(perris))
+        self.assertIn("https://scwellservice.com/services/perris/", xml)
+        self.assertIn("https://scwellservice.com/services/moreno-valley/", xml)
+        for slug in ("palm-springs", "cathedral-city"):
+            self.assertIn(slug, FAR_CITY_SLUGS)
+            path = ROOT / "services" / slug / "index.html"
+            self.assertTrue(html_is_noindex(path), slug)
+            self.assertNotIn(f"/services/{slug}/", xml)
 
     def test_apply_does_not_delete_files(self):
         before = {p for p in (ROOT / "services" / "barstow").glob("*.html")}
