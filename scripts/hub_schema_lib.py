@@ -66,6 +66,22 @@ SHOPS = {
 
 PHONE = "(760) 440-8520"
 CSLB = "1086994"
+OPENING_HOURS_SPEC = [
+    {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+            "Sunday",
+        ],
+        "opens": "07:00",
+        "closes": "17:00",
+    }
+]
 
 NOINDEX_RE = re.compile(
     r"<meta\b[^>]*(?:name=[\"']robots[\"'][^>]*content=[\"'][^\"']*noindex|"
@@ -137,6 +153,7 @@ def _shop_node(shop_key: str) -> dict:
             "name": "CSLB C-57",
             "identifier": CSLB,
         },
+        "openingHoursSpecification": OPENING_HOURS_SPEC,
     }
 
 

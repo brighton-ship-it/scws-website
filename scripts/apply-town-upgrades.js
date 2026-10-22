@@ -416,7 +416,7 @@ function hubBlock(which) {
       '<section class="hub-shop-card" id="' + which + '-shop-visit">\n' +
       '<h2>' + s.title + '</h2>\n' +
       '<p>' + s.address + '</p>\n' +
-      '<p>Voice <a href="' + PHONE_TEL + '">' + PHONE_DISPLAY + '</a>. Text <a href="' + TEXT_SMS + '">' + TEXT_DISPLAY + '</a>. Mon–Sun 7:00am–5:00pm PT. Emergency 24/7.</p>\n' +
+      '<p>Voice <a href="' + PHONE_TEL + '">' + PHONE_DISPLAY + '</a>. Text <a href="' + TEXT_SMS + '">' + TEXT_DISPLAY + '</a>. Mon–Sun 7:00 AM–5:00 PM. Emergency 24/7.</p>\n' +
       '<p>' + s.note + '</p>\n' +
       '<div class="hub-map">\n' +
       '<iframe title="Map of the ' + s.title + '" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=' + encodeURIComponent(s.map) + '&amp;z=15&amp;output=embed"></iframe>\n' +

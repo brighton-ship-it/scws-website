@@ -289,7 +289,7 @@
           <div id="exit-success" class="success-message" style="display:none;">
             <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
             <h3>We'll Call You Soon!</h3>
-            <p>Expect a call within 5 minutes during business hours (Mon-Sun 7am-5pm). For emergencies, call us directly.</p>
+            <p>Expect a call within 5 minutes during business hours (Mon–Sun 7:00 AM–5:00 PM). For emergencies, call us directly.</p>
             <a href="${PHONE_LINK}" style="display:inline-block;margin-top:16px;padding:12px 24px;background:#166534;color:white;text-decoration:none;border-radius:8px;font-weight:600;">Call Now: ${PHONE}</a>
           </div>
         </div>
