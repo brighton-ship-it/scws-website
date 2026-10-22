@@ -13,9 +13,33 @@
 <meta property="og:image" content="https://scwellservice.com/images/logo-text-only-3x.png"/>
 <script src="/js/ga4-filter.js"></script>
 <script src="/js/cookie-consent.js"></script>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-5LL1YRWT5T"></script>
-<script src="/js/scws-tracking.js"></script>
-<script src="/js/call-tracking.js"></script>
+<link rel="preconnect" href="https://www.googletagmanager.com">
+<link rel="preconnect" href="https://www.google-analytics.com">
+<link rel="preconnect" href="https://googleads.g.doubleclick.net">
+<style id="scws-phone-ready">html:not(.scws-phones-ready) a[href^="tel:"]{visibility:hidden !important;pointer-events:none !important}</style>
+<noscript><style>a[href^="tel:"]{visibility:visible !important}</style></noscript>
+<script>setTimeout(function(){if(!window.scwsCallTracking)document.documentElement.classList.add("scws-phones-ready")},12000);</script>
+<script>
+(function(){
+  if (window.__scwsGtagLoading) return;
+  window.__scwsGtagLoading = true;
+  var id = 'G-5LL1YRWT5T';
+  function load(){
+    if (window.__scwsGtagLoaded) return;
+    window.__scwsGtagLoaded = true;
+    var s = document.createElement("script");
+    s.async = true;
+    s.src = "https://www.googletagmanager.com/gtag/js?id=" + id;
+    document.head.appendChild(s);
+  }
+  if (window.requestIdleCallback) requestIdleCallback(load, {timeout: 1200});
+  else setTimeout(load, 1);
+  addEventListener("pointerdown", load, {once: true, passive: true});
+  addEventListener("keydown", load, {once: true, passive: true});
+})();
+</script>
+<script  src="/js/scws-tracking.js" defer></script>
+<script  src="/js/call-tracking.js" defer></script>
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
 tailwind.config = { theme: { extend: { colors: { primary: '#1f3b4d', accent: '#4e9271' } } } }
@@ -231,39 +255,45 @@ tailwind.config = { theme: { extend: { colors: { primary: '#1f3b4d', accent: '#4
 <!-- MONEY_PAGE_RECENT_WORK_START -->
 <section class="recent-jobs-cards" id="recent-jobs">
 <h2>Recent booster jobs</h2>
-<p class="rw-lede">Real booster pump and motor jobs.</p>
+<p class="rw-lede">Real booster pump and motor jobs. Real photos.</p>
 <div class="recent-work-grid">
 <a class="recent-work-card" href="/recent-work/ramona-booster-pump-replacement.html">
+<img src="/images/recent-work/job3081_1.jpg" alt="Booster pump replacement in Ramona" width="800" height="450" loading="lazy">
 <div class="rw-body">
 <h3>Booster pump replacement</h3>
 <p>Ramona</p>
 </div>
 </a>
 <a class="recent-work-card" href="/recent-work/ramona-highland-booster-motor.html">
+<img src="/images/recent-work/job3134_1.jpg" alt="Booster pump motor replacement (5 HP, 3-phase) in Ramona" width="800" height="450" loading="lazy">
 <div class="rw-body">
 <h3>Booster pump motor replacement (5 HP, 3-phase)</h3>
 <p>Ramona</p>
 </div>
 </a>
 <a class="recent-work-card" href="/recent-work/ramona-booster-pump-evaluation.html">
+<img src="/images/recent-work/job3097_1.jpg" alt="Booster pump evaluation in Ramona" width="800" height="450" loading="lazy">
 <div class="rw-body">
 <h3>Booster pump evaluation</h3>
 <p>Ramona</p>
 </div>
 </a>
 <a class="recent-work-card" href="/recent-work/fallbrook-booster-pump-diagnostic.html">
+<img src="/images/recent-work/job3172_1.jpg" alt="Booster pump diagnostic in Fallbrook" width="800" height="450" loading="lazy">
 <div class="rw-body">
 <h3>Booster pump diagnostic</h3>
 <p>Fallbrook</p>
 </div>
 </a>
 <a class="recent-work-card" href="/recent-work/warner-springs-booster-and-tank-diagnostic.html">
+<img src="/images/recent-work/job3033_1.jpg" alt="Booster and tank diagnostic in Warner Springs" width="800" height="450" loading="lazy">
 <div class="rw-body">
 <h3>Booster and tank diagnostic</h3>
 <p>Warner Springs</p>
 </div>
 </a>
 <a class="recent-work-card" href="/recent-work/descanso-well-and-booster-plumbing-evaluation.html">
+<img src="/images/recent-work/job2886_1.jpg" alt="Well and booster plumbing evaluation in Descanso" width="800" height="450" loading="lazy">
 <div class="rw-body">
 <h3>Well and booster plumbing evaluation</h3>
 <p>Descanso</p>
@@ -273,6 +303,7 @@ tailwind.config = { theme: { extend: { colors: { primary: '#1f3b4d', accent: '#4
 <p class="rw-all"><a href="/recent-work/">See all recent work →</a></p>
 </section>
 <!-- MONEY_PAGE_RECENT_WORK_END -->
+
 
 
 

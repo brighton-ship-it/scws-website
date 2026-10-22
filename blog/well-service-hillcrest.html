@@ -3,9 +3,33 @@
 <head>
     <script src="/js/ga4-filter.js"></script>
 <script src="/js/cookie-consent.js"></script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LL1YRWT5T"></script>
-        <script src="/js/scws-tracking.js"></script>
-    <script src="/js/call-tracking.js"></script>
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+<link rel="preconnect" href="https://www.google-analytics.com">
+<link rel="preconnect" href="https://googleads.g.doubleclick.net">
+<style id="scws-phone-ready">html:not(.scws-phones-ready) a[href^="tel:"]{visibility:hidden !important;pointer-events:none !important}</style>
+<noscript><style>a[href^="tel:"]{visibility:visible !important}</style></noscript>
+<script>setTimeout(function(){if(!window.scwsCallTracking)document.documentElement.classList.add("scws-phones-ready")},12000);</script>
+<script>
+(function(){
+  if (window.__scwsGtagLoading) return;
+  window.__scwsGtagLoading = true;
+  var id = 'G-5LL1YRWT5T';
+  function load(){
+    if (window.__scwsGtagLoaded) return;
+    window.__scwsGtagLoaded = true;
+    var s = document.createElement("script");
+    s.async = true;
+    s.src = "https://www.googletagmanager.com/gtag/js?id=" + id;
+    document.head.appendChild(s);
+  }
+  if (window.requestIdleCallback) requestIdleCallback(load, {timeout: 1200});
+  else setTimeout(load, 1);
+  addEventListener("pointerdown", load, {once: true, passive: true});
+  addEventListener("keydown", load, {once: true, passive: true});
+})();
+</script>
+        <script  src="/js/scws-tracking.js" defer></script>
+    <script  src="/js/call-tracking.js" defer></script>
     <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Well Service Hillcrest CA | Licensed Pros • CSLB #1086994</title>

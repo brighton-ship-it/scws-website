@@ -12,8 +12,29 @@
 <script>if(/[?&]scws_test=1\b/.test(location.search)){window['ga-disable-G-5LL1YRWT5T']=true;window['ga-disable-AW-490838730']=true;}</script>
 <script src="/js/ga4-filter.js"></script>
 <script src="/js/cookie-consent.js"></script>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-5LL1YRWT5T"></script>
-<script src="/js/scws-tracking.js"></script>
+<link rel="preconnect" href="https://www.googletagmanager.com">
+<link rel="preconnect" href="https://www.google-analytics.com">
+<link rel="preconnect" href="https://googleads.g.doubleclick.net">
+<script>
+(function(){
+  if (window.__scwsGtagLoading) return;
+  window.__scwsGtagLoading = true;
+  var id = 'G-5LL1YRWT5T';
+  function load(){
+    if (window.__scwsGtagLoaded) return;
+    window.__scwsGtagLoaded = true;
+    var s = document.createElement("script");
+    s.async = true;
+    s.src = "https://www.googletagmanager.com/gtag/js?id=" + id;
+    document.head.appendChild(s);
+  }
+  if (window.requestIdleCallback) requestIdleCallback(load, {timeout: 1200});
+  else setTimeout(load, 1);
+  addEventListener("pointerdown", load, {once: true, passive: true});
+  addEventListener("keydown", load, {once: true, passive: true});
+})();
+</script>
+<script  src="/js/scws-tracking.js" defer></script>
 <style>
 *{box-sizing:border-box}body{margin:0;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;color:#1f3b4d;background:#f7f3e8}
 a{color:inherit}.wrap{max-width:760px;margin:0 auto;padding:20px}

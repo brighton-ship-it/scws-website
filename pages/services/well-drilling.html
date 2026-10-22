@@ -4,9 +4,33 @@
     <!-- Google Analytics -->
     <script src="/js/ga4-filter.js"></script>
 <script src="/js/cookie-consent.js"></script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LL1YRWT5T"></script>
-        <script src="/js/scws-tracking.js"></script>
-    <script src="/js/call-tracking.js"></script>
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+<link rel="preconnect" href="https://www.google-analytics.com">
+<link rel="preconnect" href="https://googleads.g.doubleclick.net">
+<style id="scws-phone-ready">html:not(.scws-phones-ready) a[href^="tel:"]{visibility:hidden !important;pointer-events:none !important}</style>
+<noscript><style>a[href^="tel:"]{visibility:visible !important}</style></noscript>
+<script>setTimeout(function(){if(!window.scwsCallTracking)document.documentElement.classList.add("scws-phones-ready")},12000);</script>
+<script>
+(function(){
+  if (window.__scwsGtagLoading) return;
+  window.__scwsGtagLoading = true;
+  var id = 'G-5LL1YRWT5T';
+  function load(){
+    if (window.__scwsGtagLoaded) return;
+    window.__scwsGtagLoaded = true;
+    var s = document.createElement("script");
+    s.async = true;
+    s.src = "https://www.googletagmanager.com/gtag/js?id=" + id;
+    document.head.appendChild(s);
+  }
+  if (window.requestIdleCallback) requestIdleCallback(load, {timeout: 1200});
+  else setTimeout(load, 1);
+  addEventListener("pointerdown", load, {once: true, passive: true});
+  addEventListener("keydown", load, {once: true, passive: true});
+})();
+</script>
+        <script  src="/js/scws-tracking.js" defer></script>
+    <script  src="/js/call-tracking.js" defer></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Well Drilling San Diego | Licensed C-57 Contractor • Free Quotes</title>
@@ -517,45 +541,52 @@
 <p class="rw-lede">Real field work on wells we already service. New-drill cards publish here when those jobs do.</p>
 <div class="recent-work-grid">
 <a class="recent-work-card" href="/recent-work/jamul-well-production-test.html">
+<img src="/images/recent-work/job3105_1.jpg" alt="Well production test in Jamul" width="800" height="450" loading="lazy">
 <div class="rw-body">
 <h3>Well production test</h3>
 <p>Jamul</p>
 </div>
 </a>
-<a class="recent-work-card" href="/recent-work/aguanga-low-yield-well-diagnostic.html">
-<div class="rw-body">
-<h3>Low-yield well diagnostic</h3>
-<p>Aguanga</p>
-</div>
-</a>
 <a class="recent-work-card" href="/recent-work/santa-ysabel-well-bail-and-brush.html">
+<img src="/images/recent-work/job3085_1.jpg" alt="Well bail and brush in Santa Ysabel" width="800" height="450" loading="lazy">
 <div class="rw-body">
 <h3>Well bail and brush</h3>
 <p>Santa Ysabel</p>
 </div>
 </a>
 <a class="recent-work-card" href="/recent-work/ramona-two-well-system-evaluation.html">
+<img src="/images/recent-work/job3143_1.jpg" alt="Two-well system evaluation in Ramona" width="800" height="450" loading="lazy">
 <div class="rw-body">
 <h3>Two-well system evaluation</h3>
 <p>Ramona</p>
 </div>
 </a>
 <a class="recent-work-card" href="/recent-work/temecula-pull-30-hp-pump-and-motor.html">
+<img src="/images/recent-work/job3118_1.jpg" alt="Pull 30 HP pump and motor in Temecula" width="800" height="450" loading="lazy">
 <div class="rw-body">
 <h3>Pull 30 HP pump and motor</h3>
 <p>Temecula</p>
 </div>
 </a>
 <a class="recent-work-card" href="/recent-work/alpine-pull-and-replace-deep-set-pump.html">
+<img src="/images/recent-work/job3060_1.jpg" alt="Pull and replace deep-set pump in Alpine" width="800" height="450" loading="lazy">
 <div class="rw-body">
 <h3>Pull and replace deep-set pump</h3>
 <p>Alpine</p>
+</div>
+</a>
+<a class="recent-work-card" href="/recent-work/anza-well-diagnostic.html">
+<img src="/images/recent-work/job3178_1.jpg" alt="Well diagnostic in Anza" width="800" height="450" loading="lazy">
+<div class="rw-body">
+<h3>Well diagnostic</h3>
+<p>Anza</p>
 </div>
 </a>
 </div>
 <p class="rw-all"><a href="/recent-work/">See all recent work →</a></p>
 </section>
 <!-- MONEY_PAGE_RECENT_WORK_END -->
+
 
 
 
