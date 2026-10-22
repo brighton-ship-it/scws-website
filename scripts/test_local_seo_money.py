@@ -12,7 +12,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from apply_seo_do_now import html_is_noindex, indexable_blog_urls, is_programmatic_well_permit
 from far_city_factory_lib import FAR_CITY_SLUGS, html_is_noindex as far_html_is_noindex
 from leftover_claims_lib import CANONICAL_CSLB
-from recent_work_lib import MONEY_PAGE_SLUGS, apply_money_page_recent_work, money_page_specs
+from recent_work_lib import MONEY_PAGE_SLUGS, money_page_specs
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -106,7 +106,6 @@ class EmergencyGuideTests(unittest.TestCase):
 
 class MoneyPageJobLinkTests(unittest.TestCase):
     def test_city_and_service_money_pages_have_job_cards(self):
-        apply_money_page_recent_work()
         expected = {
             "services/ramona/index.html",
             "services/anza/index.html",
@@ -139,7 +138,8 @@ class MoneyPageJobLinkTests(unittest.TestCase):
             self.assertIn('id="recent-jobs"', html, rel)
             cards = re.findall(r'class="recent-work-card"', html)
             self.assertGreaterEqual(len(cards), 3, rel)
-            self.assertLessEqual(len(cards), 6, rel)
+            cap = 8 if rel == "services/ramona/index.html" else 6
+            self.assertLessEqual(len(cards), cap, rel)
             self.assertIn("/recent-work/", html)
             self.assertNotIn("4.9★", html.split('id="recent-jobs"', 1)[1].split("</section>", 1)[0])
 

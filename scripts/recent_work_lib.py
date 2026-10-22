@@ -779,6 +779,8 @@ MONEY_PAGE_SLUGS = {
         "ramona-pressure-switch-replacement",
         "el-cajon-well-contactor-replacement",
         "alpine-pull-and-replace-deep-set-pump",
+        "ramona-well-service",
+        "ramona-well-service-2",
     ],
     "services/anza/index.html": [
         "anza-pull-and-inspect-pump",
@@ -1335,7 +1337,15 @@ def pick_money_page_projects(
     spec: dict[str, Any],
     limit: int = 6,
 ) -> list[dict[str, Any]]:
-    """Prefer listed slugs, then newest city/service matches with unique titles."""
+    """Prefer listed slugs, then newest city/service matches with unique titles.
+
+    The cap grows to fit every curated slug. Two curated Ramona jobs share the
+    title "Well service", and a rebuild has to keep both. Backfill still
+    refuses a title that is already on the row.
+    """
+    prefer = [str(slug) for slug in (spec.get("prefer") or [])]
+    limit = max(limit, len(prefer))
+    prefer_set = set(prefer)
     picked: list[dict[str, Any]] = []
     seen_ids: set[str] = set()
     seen_titles: set[str] = set()
@@ -1349,9 +1359,10 @@ def pick_money_page_projects(
             return False
         pid = str(project.get("id") or project.get("slug") or "")
         title = (project.get("title") or "").strip().lower()
-        if not pid or pid in seen_ids:
+        preferred = pid in prefer_set or str(project.get("slug") or "") in prefer_set
+        if not pid or pid in seen_ids or not title:
             return False
-        if not title or title in seen_titles:
+        if not preferred and title in seen_titles:
             return False
         seen_ids.add(pid)
         seen_titles.add(title)
@@ -1359,7 +1370,7 @@ def pick_money_page_projects(
         return True
 
     by_slug = {str(p.get("slug")): p for p in projects if p.get("slug")}
-    for slug in spec.get("prefer") or []:
+    for slug in prefer:
         project = by_slug.get(slug)
         if project:
             add(project)
