@@ -14,7 +14,19 @@
   function getTrafficSource() {
     var utm = {};
     try { utm = JSON.parse(sessionStorage.getItem('scws_utm') || '{}'); } catch(e) {}
-    
+
+    // Click ids count even when utm_medium is absent (gclid-only landing, or a
+    // later page in the same session). A returning Ads visitor keeps the Ads
+    // number from localStorage after sessionStorage is gone, so the click
+    // source has to follow that stored source too. Ads wins before a generic
+    // utm_source, matching the number swap.
+    if (utm.gclid || utm.gbraid || utm.wbraid) return 'google_ads';
+    if (isAdsLanding(window.location.search || '')) return 'google_ads';
+    try {
+      var rec = visitorSource();
+      if (rec && rec.source === 'google_ads') return 'google_ads';
+    } catch (e) {}
+
     if (utm.utm_medium === 'cpc' || utm.utm_source === 'google' && utm.utm_medium === 'cpc') return 'google_ads';
     if (utm.utm_source) return utm.utm_source + '/' + (utm.utm_medium || 'none');
     
