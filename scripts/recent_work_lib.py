@@ -521,6 +521,102 @@ def public_photos(project: dict[str, Any]) -> list[dict[str, Any]]:
     return kept
 
 
+def image_pixel_size(path: Path) -> tuple[int, int] | None:
+    """Width and height from a JPEG, PNG, or WebP header. No image library required."""
+    try:
+        data = path.read_bytes()
+    except OSError:
+        return None
+    if len(data) < 24:
+        return None
+    if data[:2] == b"\xff\xd8":
+        return _jpeg_size(data)
+    if data[:8] == b"\x89PNG\r\n\x1a\n":
+        return _png_size(data)
+    if data[:4] == b"RIFF" and data[8:12] == b"WEBP":
+        return _webp_size(data)
+    return None
+
+
+def _jpeg_size(data: bytes) -> tuple[int, int] | None:
+    i = 2
+    limit = len(data) - 8
+    while i < limit:
+        if data[i] != 0xFF:
+            i += 1
+            continue
+        marker = data[i + 1]
+        if marker in (0xC0, 0xC1, 0xC2):
+            height = int.from_bytes(data[i + 5 : i + 7], "big")
+            width = int.from_bytes(data[i + 7 : i + 9], "big")
+            if width and height:
+                return width, height
+            return None
+        if marker == 0xD8 or marker in range(0xD0, 0xD8):
+            i += 2
+            continue
+        if i + 4 > len(data):
+            return None
+        length = int.from_bytes(data[i + 2 : i + 4], "big")
+        if length < 2:
+            return None
+        i += 2 + length
+    return None
+
+
+def _png_size(data: bytes) -> tuple[int, int] | None:
+    if len(data) < 24:
+        return None
+    width = int.from_bytes(data[16:20], "big")
+    height = int.from_bytes(data[20:24], "big")
+    if width and height:
+        return width, height
+    return None
+
+
+def _webp_size(data: bytes) -> tuple[int, int] | None:
+    if len(data) < 30:
+        return None
+    chunk = data[12:16]
+    if chunk == b"VP8X" and len(data) >= 30:
+        width = 1 + int.from_bytes(data[24:27], "little")
+        height = 1 + int.from_bytes(data[27:30], "little")
+        return width, height
+    if chunk == b"VP8 " and len(data) >= 30:
+        width = int.from_bytes(data[26:28], "little") & 0x3FFF
+        height = int.from_bytes(data[28:30], "little") & 0x3FFF
+        if width and height:
+            return width, height
+    if chunk == b"VP8L" and len(data) >= 25:
+        b0, b1, b2, b3 = data[21:25]
+        width = 1 + (((b1 & 0x3F) << 8) | b0)
+        height = 1 + (((b3 & 0x0F) << 10) | (b2 << 2) | ((b1 & 0xC0) >> 6))
+        return width, height
+    return None
+
+
+def _webp_srcset(filename: str, prefix: str) -> str:
+    """Smaller WebP siblings only. The original JPEG or PNG URL stays on the img."""
+    stem = Path(filename).stem
+    original = PHOTO_DIR / filename
+    original_bytes = original.stat().st_size if original.is_file() else 0
+    parts: list[tuple[int, str]] = []
+    seen: set[int] = set()
+    for name in (f"{stem}-480.webp", f"{stem}.webp"):
+        path = PHOTO_DIR / name
+        if not path.is_file():
+            continue
+        if original_bytes and path.stat().st_size >= original_bytes:
+            continue
+        dim = image_pixel_size(path)
+        if not dim or dim[0] in seen:
+            continue
+        seen.add(dim[0])
+        parts.append((dim[0], f"{prefix}{name} {dim[0]}w"))
+    parts.sort()
+    return ", ".join(bit for _, bit in parts)
+
+
 def responsive_photo_html(
     filename: str,
     alt: str,
@@ -532,8 +628,15 @@ def responsive_photo_html(
     sizes: str = "(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw",
     lightbox: bool = True,
 ) -> str:
-    """JPEG with a WebP source when the sibling file exists. Width and height are set."""
+    """Picture with a WebP source, and the original file kept as the img fallback.
+
+    Width and height match the file's pixels so the reserved box is not stretched.
+    The first photo (lazy=False) is eager. Later photos use loading=lazy.
+    """
     jpg = f"{prefix}{filename}"
+    natural = image_pixel_size(PHOTO_DIR / filename)
+    if natural:
+        width, height = natural
     alt_e = html.escape(alt, quote=True)
     loading = ' loading="lazy"' if lazy else ' fetchpriority="high"'
     click = f" onclick=\"openLightbox('{jpg}')\" style=\"cursor:pointer\"" if lightbox else ""
@@ -541,13 +644,13 @@ def responsive_photo_html(
         f'<img src="{jpg}" alt="{alt_e}" width="{width}" height="{height}"{loading} '
         f'decoding="async" sizes="{sizes}"{click}>'
     )
-    webp_name = str(Path(filename).with_suffix(".webp"))
-    webp_path = PHOTO_DIR / webp_name
-    jpg_path = PHOTO_DIR / filename
-    if webp_path.is_file() and jpg_path.is_file() and webp_path.stat().st_size < jpg_path.stat().st_size:
-        webp = f"{prefix}{webp_name}"
-        return f'<picture><source srcset="{webp}" type="image/webp">{img}</picture>'
-    return img
+    srcset = _webp_srcset(filename, prefix)
+    if not srcset:
+        return img
+    return (
+        f'<picture><source type="image/webp" srcset="{srcset}" sizes="{sizes}">'
+        f"{img}</picture>"
+    )
 
 
 def card_html(

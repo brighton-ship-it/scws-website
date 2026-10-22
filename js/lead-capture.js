@@ -271,7 +271,7 @@
       </style>
       <div class="popup-content">
         <div class="popup-header">
-          <button class="close-btn" onclick="closeExitPopup()">×</button>
+          <button class="close-btn" type="button" onclick="closeExitPopup()" aria-label="Close">×</button>
           <h2>Wait! Before You Go...</h2>
           <p>Get a FREE callback from our well experts</p>
         </div>

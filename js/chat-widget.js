@@ -101,7 +101,7 @@
           border-radius: 50%;
           background: white;
         }
-        #scws-chat-header-text h3 {
+        #scws-chat-header-text .scws-chat-title {
           margin: 0;
           font-size: 16px;
           font-weight: 600;
@@ -207,10 +207,10 @@
             <svg width="24" height="24" viewBox="0 0 24 24" fill="${WIDGET_COLOR}"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
           </div>
           <div id="scws-chat-header-text">
-            <h3>SCWS Support</h3>
+            <p class="scws-chat-title">SCWS Support</p>
             <p>We typically reply instantly</p>
           </div>
-          <button id="scws-chat-close">
+          <button id="scws-chat-close" type="button" aria-label="Close chat">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
           </button>
         </div>
@@ -221,13 +221,13 @@
         </div>
         <div id="scws-chat-input-container">
           <input type="text" id="scws-chat-input" placeholder="Type a message..." />
-          <button id="scws-chat-send">
+          <button id="scws-chat-send" type="button" aria-label="Send message">
             <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
           </button>
         </div>
       </div>
       
-      <button id="scws-chat-button">
+      <button id="scws-chat-button" type="button" aria-label="Open chat">
         <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
       </button>
     `;
