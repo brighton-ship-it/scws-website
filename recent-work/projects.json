@@ -3,6 +3,48 @@
   "note": "Public copy only. No customer names, street addresses, prices, or Jobber URLs.",
   "projects": [
     {
+      "id": "job3673",
+      "slug": "temecula-pressure-tank-check-valve-replacement",
+      "title": "Pressure tank and check valve replacement",
+      "location": "Temecula",
+      "date": "2026-10-21",
+      "dateLabel": "October 21, 2026",
+      "category": "pump",
+      "categoryLabel": "Pump Service",
+      "summary": "This Temecula well was due for a new pressure tank and a new 1-1/4 inch check valve. We dug out and reset the buried tank pad, then set the new tank and check valve with no extra plumbing needed.",
+      "photos": [
+        {
+          "file": "job3673_1.jpg",
+          "alt": "New pressure tank on the reset tank pad in Temecula"
+        },
+        {
+          "file": "job3673_2.jpg",
+          "alt": "Wellhead and new pressure tank inside the well enclosure in Temecula"
+        }
+      ]
+    },
+    {
+      "id": "job3616",
+      "slug": "julian-booster-pump-upgrade",
+      "title": "Booster pump upgrade",
+      "location": "Julian",
+      "date": "2026-10-20",
+      "dateLabel": "October 20, 2026",
+      "category": "pump",
+      "categoryLabel": "Pump Service",
+      "summary": "The old booster pump on a well system in Julian couldn't build past about 42 psi and was running hot. We replaced the booster, built a new platform for the pressure tank, and added a 1-1/2 inch spin-down sand separator and a pressure relief valve.",
+      "photos": [
+        {
+          "file": "job3616_1.jpg",
+          "alt": "New booster pump and pressure tank on a new platform in Julian"
+        },
+        {
+          "file": "job3616_2.jpg",
+          "alt": "New booster plumbing with sand separator next to the storage tank in Julian"
+        }
+      ]
+    },
+    {
       "id": "job3598",
       "slug": "vista-booster-motor-float-replacement",
       "title": "Booster motor and top float replacement",
