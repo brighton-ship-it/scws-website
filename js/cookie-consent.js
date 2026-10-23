@@ -31,6 +31,25 @@
   }
   ensureHeaderCallCss();
 
+  function ensureTapTargetCss() {
+    if (document.getElementById('scws-tap-css')) return;
+    var style = document.createElement('style');
+    style.id = 'scws-tap-css';
+    style.textContent =
+      '@media (max-width:767px){' +
+      'footer a,.rw-all a,.homepage-trust-pills a,a[href$="recent-work/"],a[href*="google.com/maps"],.bg-gray-50.border-b a{min-height:44px;display:inline-flex;align-items:center;box-sizing:border-box}' +
+      'details>summary{min-height:44px;display:flex;align-items:center}' +
+      '.filter-btn,#town-filter,button[aria-label="Previous reviews"],button[aria-label="Next reviews"]{min-height:44px;min-width:44px;box-sizing:border-box}' +
+      '#carousel-dots{gap:0}' +
+      '#carousel-dots button{width:44px;height:44px;min-width:44px;min-height:44px;padding:0;background:transparent !important;position:relative;display:inline-flex;align-items:center;justify-content:center}' +
+      '#carousel-dots button::after{content:"";width:12px;height:12px;border-radius:9999px;background:#d1d5db;display:block}' +
+      '#carousel-dots button.bg-accent::after{background:#4e9271}' +
+      'input[name="sms_consent"]{width:44px !important;height:44px !important;min-width:44px;min-height:44px}' +
+      '}';
+    (document.head || document.documentElement).appendChild(style);
+  }
+  ensureTapTargetCss();
+
   function getStoredConsent() {
     try { return localStorage.getItem(STORAGE_KEY); } catch (e) { return null; }
   }
