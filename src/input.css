@@ -219,6 +219,21 @@ footer .text-accent,
 .response-time .time { color: #166534; }
 #recent-work-filters { min-height: 4.5rem; }
 
+/* Mobile: one bottom bar (Call / Text / Estimate). Chat and the extra
+   phone bar stay in the page for desktop. */
+@media (max-width: 768px) {
+    #scws-chat-widget,
+    body:has(#sticky-cta) #scws-sticky-phone,
+    body:has(#sticky-cta) .floating-call {
+        display: none !important;
+    }
+}
+@media (max-width: 1023px) {
+    body:has(#sticky-cta) {
+        padding-bottom: 104px !important;
+    }
+}
+
 /* Service card hover effects */
 .service-card {
     transition: all 0.3s ease;
