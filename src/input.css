@@ -219,6 +219,56 @@ footer .text-accent,
 .response-time .time { color: #166534; }
 #recent-work-filters { min-height: 4.5rem; }
 
+/* Recent-work city chips. Column count follows the viewport, and each
+   chip is a fixed 44px row, so the block does not reflow when webfonts load. */
+#recent-work-areas > .max-w-7xl > .flex.flex-wrap.gap-2,
+#recent-work-areas > div.flex.flex-wrap.gap-2 {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.5rem;
+    align-items: stretch;
+}
+@media (min-width: 640px) {
+    #recent-work-areas > .max-w-7xl > .flex.flex-wrap.gap-2,
+    #recent-work-areas > div.flex.flex-wrap.gap-2 {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+@media (min-width: 1024px) {
+    #recent-work-areas > .max-w-7xl > .flex.flex-wrap.gap-2,
+    #recent-work-areas > div.flex.flex-wrap.gap-2 {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}
+@media (min-width: 1280px) {
+    #recent-work-areas > .max-w-7xl > .flex.flex-wrap.gap-2,
+    #recent-work-areas > div.flex.flex-wrap.gap-2 {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+    }
+}
+#recent-work-areas > .max-w-7xl > .flex.flex-wrap.gap-2 > a,
+#recent-work-areas > div.flex.flex-wrap.gap-2 > a {
+    min-height: 44px;
+    height: 44px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.35rem;
+    font-size: 0.8125rem;
+    white-space: normal;
+    overflow: hidden;
+    line-height: 1.15;
+    padding: 0 0.75rem;
+}
+.project-card h3 a,
+.project-card p a {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    box-sizing: border-box;
+}
+
 /* Mobile: one bottom bar (Call / Text / Estimate). Chat and the extra
    phone bar stay in the page for desktop. */
 @media (max-width: 768px) {

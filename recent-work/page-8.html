@@ -46,8 +46,8 @@
 <link href="../css/styles.css" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" onload="this.onload=null;this.rel='stylesheet'" rel="preload"/>
-<noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/></noscript>
+<link as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=optional" onload="this.onload=null;this.rel='stylesheet'" rel="preload"/>
+<noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=optional" rel="stylesheet"/></noscript>
 <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -214,6 +214,48 @@
     }
     </script>
 <style>
+        /* City chips: fixed rows. Column count follows the viewport, not the font. */
+        #recent-work-areas > .max-w-7xl > .flex.flex-wrap.gap-2,
+        #recent-work-areas > div.flex.flex-wrap.gap-2 {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 0.5rem;
+            align-items: stretch;
+        }
+        @media (min-width: 640px) {
+            #recent-work-areas > .max-w-7xl > .flex.flex-wrap.gap-2,
+            #recent-work-areas > div.flex.flex-wrap.gap-2 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+        }
+        @media (min-width: 1024px) {
+            #recent-work-areas > .max-w-7xl > .flex.flex-wrap.gap-2,
+            #recent-work-areas > div.flex.flex-wrap.gap-2 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+        }
+        @media (min-width: 1280px) {
+            #recent-work-areas > .max-w-7xl > .flex.flex-wrap.gap-2,
+            #recent-work-areas > div.flex.flex-wrap.gap-2 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+        }
+        #recent-work-areas > .max-w-7xl > .flex.flex-wrap.gap-2 > a,
+        #recent-work-areas > div.flex.flex-wrap.gap-2 > a {
+            min-height: 44px;
+            height: 44px;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.35rem;
+            font-size: 0.8125rem;
+            white-space: normal;
+            overflow: hidden;
+            line-height: 1.15;
+            padding: 0 0.75rem;
+        }
+        .project-card h3 a,
+        .project-card p a {
+            min-height: 44px;
+            display: inline-flex;
+            align-items: center;
+            box-sizing: border-box;
+        }
         .project-card {
             background: white;
             border-radius: 12px;
@@ -1030,7 +1072,7 @@
 <a class="flex-1 bg-blue-500 text-white text-center py-2.5 rounded-full font-bold text-sm" href="sms:+17608237963" title="Text-only line: (760) 823-7963">💬 Text Us</a>
 <a class="flex-1 bg-accent text-white text-center py-2.5 rounded-full font-bold text-sm" href="../cost-calculator.html" onclick="trackFormClick()">Free Estimate</a>
 </div>
-<script src="/js/recent-work-projects.js"></script>
+<script src="/js/recent-work-projects.js" defer></script>
 <script>
     const SUPABASE_URL = 'https://htzsnpqrrrdfleldgybn.supabase.co';
     const SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imh0enNucHFycnJkZmxlbGRneWJuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njk5MTQ0NDgsImV4cCI6MjA4NTQ5MDQ0OH0.-jZ7sUn7Q_U8OwsBEk2O_czrA4_eOYIZqKMU5M4i2Oo';
