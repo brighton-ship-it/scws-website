@@ -81,12 +81,22 @@
             "servicePhone": "+1-760-440-8520",
             "availableLanguage": "English"
         },
-        "hoursAvailable": {
-            "@type": "OpeningHoursSpecification",
-            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-            "opens": "00:00",
-            "closes": "23:59"
-        }
+        "hoursAvailable": [
+            {
+                "@type": "OpeningHoursSpecification",
+                "description": "Shop hours, 7 days a week, 7:00 AM–5:00 PM",
+                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+                "opens": "07:00",
+                "closes": "17:00"
+            },
+            {
+                "@type": "OpeningHoursSpecification",
+                "description": "24/7 emergency",
+                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+                "opens": "00:00",
+                "closes": "23:59"
+            }
+        ]
     }
     </script>
     <meta name="twitter:card" content="summary_large_image">
@@ -209,7 +219,7 @@
             <figure class="blog-hero-image">
                 <picture><source type="image/webp" srcset="/assets/images/blog-images/well-service-5-480.webp 480w, /assets/images/blog-images/well-service-5.webp 800w" sizes="100vw"><img src="/assets/images/blog-images/well-service-5.png" alt="24 Hour Emergency Well Service in Southern California" width="800" height="600" fetchpriority="high" decoding="async" sizes="100vw"></picture>
             </figure>
-                <p class="post-meta">Available 24/7 • Immediate Response</p>
+                <p class="post-meta">Shop hours Mon–Sun 7:00 AM–5:00 PM • Emergency service 24/7</p>
 <details id="table-of-contents" class="bg-gray-50 rounded-xl p-4 my-6 border border-gray-200">
     <summary class="font-bold text-primary text-base cursor-pointer select-none">📋 In This Guide</summary>
     <ul class="space-y-1 mt-3 text-sm">
