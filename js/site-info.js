@@ -17,7 +17,7 @@
  *
  * Phones:
  *   Voice (primary): (760) 440-8520 / tel:+17604408520
- *   Text-only:       (760) 219-5877 / sms:7602195877
+ *   Text-only:       (760) 823-7963 / sms:+17608237963
  *   Former Ransom:   (760) 789-5955 (label it if it stays)
  *
  * Yelp (claimed Ramona listing; no separate Anza page):
@@ -33,8 +33,8 @@
     heritage: '60+ years family heritage',
     phoneVoice: '(760) 440-8520',
     phoneVoiceTel: 'tel:+17604408520',
-    phoneText: '(760) 219-5877',
-    phoneTextSms: 'sms:7602195877',
+    phoneText: '(760) 823-7963',
+    phoneTextSms: 'sms:+17608237963',
     phoneRansom: '(760) 789-5955',
     ramona: '1077 Main St, Unit B, Ramona, CA 92065',
     ramonaStreet: '1077 Main St, Unit B',

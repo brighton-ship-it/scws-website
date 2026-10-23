@@ -115,13 +115,13 @@ class ShopTests(unittest.TestCase):
 class CaptionTests(unittest.TestCase):
     def test_city_plus_work_no_pii_or_phone(self):
         out = caption_for_photo(
-            title="Pull & replace pump at 123 Oak Street for $1,200 — call 760-219-5877",
+            title="Pull & replace pump at 123 Oak Street for $1,200 — call 760-823-7963",
             city="Ramona",
         )
         self.assertIn("Ramona", out)
         self.assertNotIn("123", out)
         self.assertNotIn("$", out)
-        self.assertNotIn("760-219-5877", out)
+        self.assertNotIn("760-823-7963", out)
         self.assertNotIn("760-440-8520", out)
         self.assertFalse(SHOP_PHONE_RE.search(out))
 
@@ -140,7 +140,7 @@ class PageAndRobotsTests(unittest.TestCase):
         html = page.read_text()
         self.assertIn('name="robots" content="noindex, nofollow, noarchive"', html)
         self.assertNotIn("googletagmanager", html)
-        self.assertNotIn("760-219-5877", html)
+        self.assertNotIn("760-823-7963", html)
         self.assertNotIn("gotmikedaniels", html.lower())
         robots = (Path(__file__).resolve().parents[1] / "robots.txt").read_text()
         self.assertIn("Disallow: /ops/photo-audit", robots)

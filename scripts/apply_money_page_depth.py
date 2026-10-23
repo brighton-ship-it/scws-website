@@ -15,10 +15,10 @@ DEPTH_MARKERS = ("<!-- MONEY_PAGE_DEPTH_START -->", "<!-- MONEY_PAGE_DEPTH_END -
 
 CTA = """<p class="shop-local-ctas">
 <a class="shop-lead-call" href="tel:+17604408520">Call (760) 440-8520</a>
-<a class="shop-lead-text" href="sms:7602195877">Text (760) 219-5877</a>
+<a class="shop-lead-text" href="sms:+17608237963">Text (760) 823-7963</a>
 <a class="shop-lead-est" href="/contact.html">Get estimate</a>
 </p>
-<p class="shop-local-license">CSLB #1086994 (C-57). Voice (760) 440-8520. Text (760) 219-5877. Founded 2020. Shops in Ramona and Anza.</p>"""
+<p class="shop-local-license">CSLB #1086994 (C-57). Voice (760) 440-8520. Text (760) 823-7963. Founded 2020. Shops in Ramona and Anza.</p>"""
 
 
 def note(title: str, paragraphs: list[str], proof: str) -> str:
@@ -63,7 +63,7 @@ DEPTH_HTML = {
         [
             "Brighton lives in Valley Center. That is why this page is not a copied city template with the name swapped. Avocado and citrus places out here run irrigation pumps that work all summer, then a house well that nobody thinks about until the kitchen is dry. We treat those as two systems even when they share a parcel.",
             "Valley Center sits between the Escondido grade and Pauma. Alluvial floor, granite on the hills. Some domestic wells are easy 180-foot settings. Grove wells go deeper and harder. When a VFD faults or a motor lead burns, we want the model and the last time anyone opened the control box — not a story about a company that has always been here. We have not. SCWS started in 2020. We still run these roads every week.",
-            "If the grove is out and the house still has water, say that on the phone. We will not pull the domestic pump to chase an irrigation breaker. Text photos of the panel if you can. The text line is (760) 219-5877.",
+            "If the grove is out and the house still has water, say that on the phone. We will not pull the domestic pump to chase an irrigation breaker. Text photos of the panel if you can. The text line is (760) 823-7963.",
         ],
         'Real Valley Center jobs live on <a href="/recent-work/">Recent Work</a> — overcurrent faults, pump replacements, and electrical diagnostics, not brochure copy.',
     ),
@@ -81,7 +81,7 @@ DEPTH_HTML = {
         [
             "Temecula wells are a mix: De Luz hills, estate tanks, and the occasional 30-horse pump that is doing agricultural work next to a tasting room. We pull those. We also replace transducers and pressure tanks when the house side of the system is the part that died.",
             "This is Riverside County work out of both shops. Anza is closer to some De Luz gates than Ramona is. If you are on the valley floor, say so — response is different than a locked ranch off a dirt road. We do not pretend we have a Temecula storefront. We have Ramona and Anza, and we already run Temecula jobs every week.",
-            "No water on a weekend in Wine Country still gets the same two numbers: voice (760) 440-8520, text (760) 219-5877. Founded 2020. C-57 #1086994. We will not quote a new well on the phone from a guess. We will tell you if it sounds like a control, a pump, or a well that is done.",
+            "No water on a weekend in Wine Country still gets the same two numbers: voice (760) 440-8520, text (760) 823-7963. Founded 2020. C-57 #1086994. We will not quote a new well on the phone from a guess. We will tell you if it sounds like a control, a pump, or a well that is done.",
         ],
         'Temecula pull-and-replace and diagnostic jobs are listed on <a href="/recent-work/">Recent Work</a>.',
     ),
@@ -135,7 +135,7 @@ DEPTH_HTML = {
         [
             "Ramona pump repair is the Main Street shop’s daily work. Deep-set submersibles, boosters on hillside tanks, and control panels that cook in a pump house with no shade. We see iron staining and summer yield drop on the same properties year after year.",
             "If your pump short-cycles, start with the tank and the switch. If you have sand, we talk about the well before we sell a new motor that will eat itself. Same-day from town is normal when we are not already in a hole. Anza covers if both Ramona trucks are out.",
-            "Call (760) 440-8520 or text (760) 219-5877. Licensed C-57 #1086994. Founded 2020. Ask for Ramona pump repair and give us the neighborhood — SDCE, Woodson, Barona — so we know the typical setting depth. Mussey Grade and the back side of the Estates are the same shop, just a longer dirt driveway.",
+            "Call (760) 440-8520 or text (760) 823-7963. Licensed C-57 #1086994. Founded 2020. Ask for Ramona pump repair and give us the neighborhood — SDCE, Woodson, Barona — so we know the typical setting depth. Mussey Grade and the back side of the Estates are the same shop, just a longer dirt driveway.",
         ],
         'Ramona pump cards are below and on <a href="/recent-work/">Recent Work</a>.',
     ),
@@ -153,7 +153,7 @@ DEPTH_HTML = {
         [
             "If you are in Ramona and the house is dry, you are calling the shop that is on Main Street, not a dispatch board in another county. After hours we still answer. Tell us if the neighbors have water. That is the fastest way to know if it is the well or SDG&amp;E.",
             "Power blinks kill contactors and VFDs on this grid. We carry those parts because we replace them here constantly. Country Estates and Dye Road houses lose a switch or a tank bladder more often than they lose a motor — we would rather say that on the phone than sell a pull you do not need.",
-            "If it is a pull, we schedule the hoist and tell you whether you need a tank of water overnight. Same two numbers every time. Voice (760) 440-8520. Text (760) 219-5877. CSLB #1086994. Founded 2020.",
+            "If it is a pull, we schedule the hoist and tell you whether you need a tank of water overnight. Same two numbers every time. Voice (760) 440-8520. Text (760) 823-7963. CSLB #1086994. Founded 2020.",
         ],
         'Ramona diagnostic jobs are in the cards below and on <a href="/recent-work/">Recent Work</a>.',
     ),
@@ -180,7 +180,7 @@ DEPTH_HTML = {
         [
             "No water in Anza at 9 p.m. is usually stock, a house on a tank, or both. Tell us which. A dry storage tank is a different call than a pump that will not start. We answer the same two numbers as Ramona.",
             "Dirt roads and locked gates waste time. Put the combo in the first text. If you can hear the pump and the tank is empty, say that — we will talk about a leak or a float before we wake a second tech.",
-            "If the cows are out of water and the house still has a trickle, we load for the tank first. CSLB #1086994. Founded 2020. Anza shop on CA-371. Voice (760) 440-8520. Text (760) 219-5877.",
+            "If the cows are out of water and the house still has a trickle, we load for the tank first. CSLB #1086994. Founded 2020. Anza shop on CA-371. Voice (760) 440-8520. Text (760) 823-7963.",
         ],
         'Anza no-water jobs: <a href="/recent-work/">Recent Work</a>.',
     ),
@@ -189,7 +189,7 @@ DEPTH_HTML = {
         [
             "This location page is the same company as /services/ramona/ — Southern California Well Service, 1077 Main St, Unit B, Ramona, CA 92065. Founded 2020. Not a second contractor. Not a 20-year franchise.",
             "If you found this URL from a search, use it to call or text and then look at Recent Work. The job photos are the local proof. Geology and neighborhoods — Country Estates, Woodson, Barona, Dye Road — are on the city service hub. We are not going to paste a fake review count here.",
-            "Need a pump, a well look, or a dry-house call? Voice (760) 440-8520. Text (760) 219-5877. CSLB #1086994. If you are standing in a dry kitchen in Ramona, start with the voice line. If you can send a photo of the tank gauge, use the text line.",
+            "Need a pump, a well look, or a dry-house call? Voice (760) 440-8520. Text (760) 823-7963. CSLB #1086994. If you are standing in a dry kitchen in Ramona, start with the voice line. If you can send a photo of the tank gauge, use the text line.",
         ],
         'Ramona field jobs: <a href="/recent-work/">Recent Work</a> and <a href="/services/ramona/">the Ramona hub</a>.',
     ),
@@ -207,7 +207,7 @@ DEPTH_HTML = {
         [
             "There is no SCWS shop in Temecula. The work still happens — pump pulls, tanks, diagnostics — from the two shops we do have. If you are in De Luz or on a locked ranch, say that up front so we do not quote a valley-floor ETA.",
             "Founded 2020. C-57 #1086994. We will not put a fake decades-in-business line on this page to look older than the LLC. Wine Country estates and agricultural pumps are different tickets; tell us which side of the property is dry.",
-            "Call (760) 440-8520 or text (760) 219-5877. The city hub with more local notes is <a href=\"/services/temecula/\">Temecula well services</a>. Recent Work has the Temecula pull jobs if you want to see the truck work before you call.",
+            "Call (760) 440-8520 or text (760) 823-7963. The city hub with more local notes is <a href=\"/services/temecula/\">Temecula well services</a>. Recent Work has the Temecula pull jobs if you want to see the truck work before you call.",
         ],
         'Temecula jobs: <a href="/recent-work/">Recent Work</a>.',
     ),
@@ -216,7 +216,7 @@ DEPTH_HTML = {
         [
             "57174 CA-371, Anza, CA 92539 is a real yard. If you searched “well service Anza” and landed here, that is the address to put in the truck GPS. Ramona is the other shop. Same license, same phones.",
             "High-desert wells, tanks, and after-hours ranch calls are why this location exists. Founded 2020. Family heritage in the trade. No invented company-age story. Terwilliger and Aguanga are on the same radio.",
-            "Voice (760) 440-8520. Text (760) 219-5877. CSLB #1086994. Longer Anza page: <a href=\"/services/anza/\">well services in Anza</a>. If you need a pump pull and you already have a tank on the hill, say so — that is most of the Anza tickets we publish.",
+            "Voice (760) 440-8520. Text (760) 823-7963. CSLB #1086994. Longer Anza page: <a href=\"/services/anza/\">well services in Anza</a>. If you need a pump pull and you already have a tank on the hill, say so — that is most of the Anza tickets we publish.",
         ],
         'Anza jobs: <a href="/recent-work/">Recent Work</a>.',
     ),
@@ -234,7 +234,7 @@ DEPTH_HTML = {
         [
             "El Cajon is Ramona-shop work. The address is 1077 Main St, Unit B, Ramona, CA 92065, not a yard in El Cajon. The calls we publish are service calls, controls and contactors, wire and check valves, and pressure tanks. A contactor that welds shut looks like a pump that will not stop. A check valve that fails looks like the pump is weak.",
             "We already have an El Cajon check-valve job, a contactor replacement, and a control diagnostic on Recent Work. Start there if you want to see the truck work before you call. Pressure-tank work on this route is the same crew: <a href=\"/pages/services/pressure-tanks.html\">pressure tanks and switches</a>. Controls live on <a href=\"/pages/services/controls.html\">the controls page</a>.",
-            "Founded 2020. CSLB C-57 #1086994. Voice (760) 440-8520. Text (760) 219-5877. If you are between El Cajon and Alpine or Lakeside, say the cross street. Area page: <a href=\"/recent-work/areas/el-cajon.html\">El Cajon recent work</a>. Ramona hub: <a href=\"/services/ramona/\">Ramona shop</a>.",
+            "Founded 2020. CSLB C-57 #1086994. Voice (760) 440-8520. Text (760) 823-7963. If you are between El Cajon and Alpine or Lakeside, say the cross street. Area page: <a href=\"/recent-work/areas/el-cajon.html\">El Cajon recent work</a>. Ramona hub: <a href=\"/services/ramona/\">Ramona shop</a>.",
         ],
         "El Cajon cards below are real jobs, not a city-name swap.",
     ),
@@ -261,7 +261,7 @@ DEPTH_HTML = {
         [
             "Rancho Santa Fe does not get a fake local shop. The crew comes from 1077 Main St, Unit B, Ramona, CA 92065. The work is service calls, controls, boosters, and pump or motor replacement. We have published an electrical panel job, a high-amp diagnostic, and a pull of the well pump and motor. High amp draw is a reason to stop and test, not a reason to order a motor over the phone.",
             "Boosters on estate tanks are a separate ticket from the submersible in the hole. Say which one is dead. <a href=\"/pages/services/booster-pumps.html\">Booster pump repair</a> and <a href=\"/pages/services/pump-repair.html\">well pump repair</a> are the two pages. Controls: <a href=\"/pages/services/controls.html\">pump controls</a>.",
-            "Founded 2020. CSLB C-57 #1086994. Voice (760) 440-8520. Text (760) 219-5877. Area page: <a href=\"/recent-work/areas/rancho-santa-fe.html\">Rancho Santa Fe recent work</a>.",
+            "Founded 2020. CSLB C-57 #1086994. Voice (760) 440-8520. Text (760) 823-7963. Area page: <a href=\"/recent-work/areas/rancho-santa-fe.html\">Rancho Santa Fe recent work</a>.",
         ],
         "Rancho Santa Fe cards below are the published jobs.",
     ),
@@ -279,7 +279,7 @@ DEPTH_HTML = {
         [
             "There is no shop in Desert Hot Springs. The yard is 57174 CA-371, Anza, CA 92539. The work is service calls and diagnostics, wire and drop pipe, check valves and well seals, pump and motor replacement, pressure tanks and switches, and a little drilling. Rancho Mirage, Palm Desert, La Quinta, Thousand Palms, and Thermal are towns on the same stretch where we have already worked. Those are Recent Work area pages, not extra city hubs.",
             "A Thermal pressure-switch job is published because that is the kind of ticket this valley produces. If you are in Desert Hot Springs and the pump will not start, say so. If the tank is full and the house is dry, say that too. <a href=\"/pages/services/pressure-tanks.html\">Pressure tanks</a> and <a href=\"/pages/services/pump-repair.html\">pump repair</a> are the matching service pages. The Anza hub is <a href=\"/services/anza/\">here</a>.",
-            "Founded 2020. CSLB C-57 #1086994. Voice (760) 440-8520. Text (760) 219-5877. Ramona is the other shop, at 1077 Main St, Unit B, Ramona, CA 92065. It is the long way for this valley.",
+            "Founded 2020. CSLB C-57 #1086994. Voice (760) 440-8520. Text (760) 823-7963. Ramona is the other shop, at 1077 Main St, Unit B, Ramona, CA 92065. It is the long way for this valley.",
         ],
         'Coachella Valley proof: <a href="/recent-work/areas/desert-hot-springs.html">Desert Hot Springs recent work</a>.',
     ),
@@ -288,7 +288,7 @@ DEPTH_HTML = {
         [
             "Mountain Center is the grade between Hemet and Idyllwild. The shop is Anza: 57174 CA-371, Anza, CA 92539. Calls are service, pressure tank and switch replacement, pump and motor replacement, and controls. Idyllwild and Pine Cove are the next community on the same route. The Idyllwild hub is <a href=\"/services/idyllwild/\">here</a>.",
             "A pressure tank on a cabin and a pump that has to come out are different jobs. Tell us which one you think you have, and whether the well house can freeze. <a href=\"/pages/services/pressure-tanks.html\">Pressure tanks and switches</a> and <a href=\"/pages/services/pump-repair.html\">pump repair</a> cover those two. Storage tanks: <a href=\"/pages/services/water-storage-tanks.html\">float switches and tanks</a>.",
-            "Founded 2020. CSLB C-57 #1086994. Text (760) 219-5877 if you cannot talk. Put the gate combo in the first message. Area pages: <a href=\"/recent-work/areas/mountain-center.html\">Mountain Center</a> and <a href=\"/recent-work/areas/idyllwild.html\">Idyllwild</a>.",
+            "Founded 2020. CSLB C-57 #1086994. Text (760) 823-7963 if you cannot talk. Put the gate combo in the first message. Area pages: <a href=\"/recent-work/areas/mountain-center.html\">Mountain Center</a> and <a href=\"/recent-work/areas/idyllwild.html\">Idyllwild</a>.",
         ],
         'Mountain proof is the area pages: <a href="/recent-work/areas/mountain-center.html">Mountain Center recent work</a> and <a href="/recent-work/areas/idyllwild.html">Idyllwild recent work</a>.',
     ),
@@ -315,7 +315,7 @@ DEPTH_HTML = {
         [
             "A pump that starts and stops every few seconds is often a waterlogged pressure tank, not a dead motor. We replace tanks, replace or adjust pressure switches, and repair the plumbing at the tank tee. On a constant-pressure system the transducer and the tank get replaced together when both are done. Lost pressure gets a diagnostic before anyone talks about a new submersible.",
             "Read <a href=\"/blog/how-to-check-pressure-tank.html\">how to check a pressure tank</a> and <a href=\"/blog/bladder-tank-vs-pressure-tank.html\">bladder tank versus pressure tank</a> if you want the background. Sizing, draining, a stuck gauge, short-cycling, and the switch itself stay on the guides: <a href=\"/blog/pressure-tank-sizing-guide.html\">pressure tank sizing</a>, <a href=\"/blog/well-pressure-tank-sizing-guide.html\">well pressure tank sizing</a>, <a href=\"/blog/how-to-drain-pressure-tank.html\">how to drain a pressure tank</a>, <a href=\"/blog/pressure-gauge-stuck-at-zero.html\">pressure gauge stuck at zero</a>, <a href=\"/blog/well-pump-short-cycling.html\">well pump short cycling</a>, and <a href=\"/blog/well-pressure-switch-guide.html\">the pressure switch guide</a>. This page is the service call. Storage tanks with floats are a different piece of equipment: <a href=\"/pages/services/water-storage-tanks.html\">water storage tanks</a>.",
-            "Ramona shop, 1077 Main St, Unit B, Ramona, CA 92065. Anza shop, 57174 CA-371, Anza, CA 92539. Founded 2020. CSLB C-57 #1086994. Voice (760) 440-8520. Text (760) 219-5877. Tell us what the gauge is doing.",
+            "Ramona shop, 1077 Main St, Unit B, Ramona, CA 92065. Anza shop, 57174 CA-371, Anza, CA 92539. Founded 2020. CSLB C-57 #1086994. Voice (760) 440-8520. Text (760) 823-7963. Tell us what the gauge is doing.",
         ],
         "Pressure tank and switch photos are in the cards below.",
     ),

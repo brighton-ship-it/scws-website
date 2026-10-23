@@ -35,7 +35,7 @@ DECISIONS_PATH = ROOT / "ops" / "photo-audit" / "decisions.json"
 PACIFIC = ZoneInfo("America/Los_Angeles")
 
 SHOP_PHONE_RE = re.compile(
-    r"760[-.\s]?219[-.\s]?5877|760[-.\s]?440[-.\s]?8520|\(760\)\s*219[-.\s]?5877|\(760\)\s*440[-.\s]?8520",
+    r"760[-.\s]?219[-.\s]?5877|760[-.\s]?823[-.\s]?7963|760[-.\s]?440[-.\s]?8520|\(760\)\s*219[-.\s]?5877|\(760\)\s*823[-.\s]?7963|\(760\)\s*440[-.\s]?8520",
     re.I,
 )
 INVOICE_HINT_RE = re.compile(r"\binvoice\s*#?\s*(\d+)\b", re.I)

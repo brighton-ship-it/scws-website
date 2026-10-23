@@ -302,7 +302,7 @@ class HtmlTests(unittest.TestCase):
         self.assertNotIn("job3149_1.jpg", fallback)
         self.assertIn("photo-fallback", fallback)
         self.assertIn("project-photos empty", fallback)
-        self.assertNotIn("760-219-5877", markup)
+        self.assertNotIn("760-823-7963", markup)
         self.assertNotIn("(760) 440-8520", markup)
         self.assertNotIn("jobber", markup.lower())
         items = jsonld_items([project])
@@ -331,7 +331,7 @@ class HtmlTests(unittest.TestCase):
         self.assertIn(CARD_MARKERS[1], text)
         self.assertLessEqual(text.count('class="project-card"'), PAGE_SIZE)
         self.assertGreaterEqual(text.count('class="project-card"'), 1)
-        self.assertIn("7602195877", text)
+        self.assertIn("7608237963", text)
         self.assertIn("(760) 440-8520", text)
         listing_text = "\n".join(
             p.read_text()
@@ -368,7 +368,7 @@ class HtmlTests(unittest.TestCase):
             self.assertTrue((Path(tmp) / "page-2.html").exists())
             expected_pages = max(1, (len(data["projects"]) + PAGE_SIZE - 1) // PAGE_SIZE)
             self.assertEqual(len(pages), expected_pages)
-            self.assertIn("7602195877", rewritten)
+            self.assertIn("7608237963", rewritten)
             self.assertIn("(760) 440-8520", rewritten)
             rewritten_listing = rewritten + "\n".join(
                 page.read_text() for page in Path(tmp).glob("page-*.html")

@@ -23,8 +23,8 @@ const RAMONA_GBP = 'https://g.page/r/CU9X_NG3TvP2EBM/review';
 const ANZA_GBP = 'https://g.page/r/Cajtn6jSo-ONEBM';
 const PHONE_DISPLAY = '(760) 440-8520';
 const PHONE_TEL = 'tel:+17604408520';
-const TEXT_DISPLAY = '(760) 219-5877';
-const TEXT_SMS = 'sms:7602195877';
+const TEXT_DISPLAY = '(760) 823-7963';
+const TEXT_SMS = 'sms:+17608237963';
 
 const CALCULATOR_RANGES = [
   ['Well pump repair', '$300–$1,200'],

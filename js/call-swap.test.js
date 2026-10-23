@@ -3,7 +3,7 @@ const fs = require('fs');
 const assert = require('assert');
 const { JSDOM } = require('jsdom');
 const src = fs.readFileSync(__dirname + '/call-tracking.js', 'utf8');
-const html = '<body><a id="a" href="tel:7604408520">(760) 440-8520</a><a id="b" href="tel:+17604408520">Call 760-440-8520</a><a id="s" href="sms:7602195877">Text (760) 219-5877</a><script type="application/ld+json">{"telephone":"+1-760-440-8520"}</script></body>';
+const html = '<body><a id="a" href="tel:7604408520">(760) 440-8520</a><a id="b" href="tel:+17604408520">Call 760-440-8520</a><a id="s" href="sms:+17608237963">Text (760) 823-7963</a><script type="application/ld+json">{"telephone":"+1-760-440-8520"}</script></body>';
 function load(url) {
   const dom = new JSDOM(html, { url, runScripts: 'outside-only' });
   dom.window.eval(src);
@@ -16,7 +16,7 @@ assert.strictEqual(doc.getElementById('a').getAttribute('href'), 'tel:+176033125
 assert.strictEqual(doc.getElementById('b').getAttribute('href'), 'tel:+17603312502');
 assert.strictEqual(doc.getElementById('a').textContent, '(760) 331-2502');
 assert.strictEqual(doc.getElementById('b').textContent, 'Call (760) 331-2502');
-assert.strictEqual(doc.getElementById('s').getAttribute('href'), 'sms:7602195877');
+assert.strictEqual(doc.getElementById('s').getAttribute('href'), 'sms:+17608237963');
 assert.ok(doc.querySelector('script').textContent.includes('440-8520'));
 assert.ok(doc.documentElement.classList.contains('scws-phones-ready'));
 d = load('https://scwellservice.com/x.html');

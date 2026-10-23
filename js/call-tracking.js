@@ -1,7 +1,7 @@
 /**
  * SCWS Click-to-Call / Click-to-Text Conversion Tracking
  * Tracks tel: and sms: clicks as GA4 events with source attribution
- * Works with voice (760) 440-8520 and text (760) 219-5877
+ * Works with voice (760) 440-8520 and text (760) 823-7963
  * Ads phone conversion is voice-only — never sent on SMS clicks
  */
 (function() {
