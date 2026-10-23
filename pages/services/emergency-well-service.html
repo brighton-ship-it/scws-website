@@ -102,12 +102,22 @@
             "servicePhone": "+1-760-440-8520",
             "availableLanguage": "English"
         },
-        "hoursAvailable": {
-            "@type": "OpeningHoursSpecification",
-            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-            "opens": "00:00",
-            "closes": "23:59"
-        }
+        "hoursAvailable": [
+            {
+                "@type": "OpeningHoursSpecification",
+                "description": "Shop hours, 7 days a week, 7:00 AM–5:00 PM",
+                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+                "opens": "07:00",
+                "closes": "17:00"
+            },
+            {
+                "@type": "OpeningHoursSpecification",
+                "description": "24/7 emergency",
+                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+                "opens": "00:00",
+                "closes": "23:59"
+            }
+        ]
     }
     </script>
     <script type="application/ld+json">

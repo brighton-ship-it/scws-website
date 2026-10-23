@@ -76,12 +76,22 @@
         "areaServed": [
             {"@type": "State", "name": "California"}
         ],
-        "openingHoursSpecification": {
-            "@type": "OpeningHoursSpecification",
-            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-            "opens": "00:00",
-            "closes": "23:59"
-        },
+        "openingHoursSpecification": [
+            {
+                "@type": "OpeningHoursSpecification",
+                "description": "Shop hours, 7 days a week, 7:00 AM–5:00 PM",
+                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+                "opens": "07:00",
+                "closes": "17:00"
+            },
+            {
+                "@type": "OpeningHoursSpecification",
+                "description": "24/7 emergency",
+                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+                "opens": "00:00",
+                "closes": "23:59"
+            }
+        ],
         "priceRange": "$$-$$$"
     }
     </script>
@@ -466,7 +476,8 @@
                     <h3 class="font-bold mb-4">Emergency</h3>
                     <ul class="space-y-2 text-gray-300">
                         <li><a href="tel:7604408520" class="hover:text-white font-bold">(760) 440-8520</a></li>
-                        <li>Available 24/7</li>
+                        <li>Shop hours: Mon–Sun 7:00 AM–5:00 PM</li>
+                        <li>Available 24/7 for emergencies</li>
                         <li>Same-day response</li>
                     </ul>
                 </div>
