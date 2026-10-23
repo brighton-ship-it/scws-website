@@ -4,6 +4,9 @@
  * <script src="/js/chat-widget.js?v=5"></script>
  */
 (function() {
+  // Mobile keeps the call/text bar only. Do not build the bubble there.
+  if (window.matchMedia && window.matchMedia('(max-width: 768px)').matches) return;
+
   const API_URL = 'https://scws-jobs.vercel.app/api/chat';
   const WIDGET_COLOR = '#166534'; // green-800
 
@@ -389,7 +392,7 @@
 
   function start() {
     if (window.requestIdleCallback) requestIdleCallback(init, { timeout: 2000 });
-    else setTimeout(init, 1);
+    else init();
   }
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', start);
