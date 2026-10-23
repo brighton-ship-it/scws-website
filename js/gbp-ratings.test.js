@@ -86,7 +86,15 @@ async function run() {
   assert.match(src, /count:\s*62/);
   assert.match(src, /countLabel: '175'/);
   assert.match(src, /2026-10-21/);
-  assert.match(src, /scws-jobs\.vercel\.app\/api\/gbp-ratings/);
+  assert.match(src, /\/data\/gbp-ratings\.json/);
+  assert.doesNotMatch(src, /scws-jobs\.vercel\.app/);
+  var snap = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'gbp-ratings.json'), 'utf8'));
+  assert.strictEqual(snap.ramona.rating, 4.7);
+  assert.strictEqual(snap.ramona.count, 62);
+  assert.strictEqual(snap.anza.rating, 4.8);
+  assert.strictEqual(snap.anza.count, 113);
+  assert.strictEqual(snap.updated, '2026-10-21');
+  assert.ok(snap.ramona.count + snap.anza.count >= 175);
   assert.match(src, /g\.page\/r\/CU9X_NG3TvP2EBM\/review/);
   assert.match(src, /g\.page\/r\/Cajtn6jSo-ONEBM/);
   assert.doesNotMatch(src, /Cajtn6jSo-ONEBM\/review/);

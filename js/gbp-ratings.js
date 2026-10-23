@@ -1,10 +1,12 @@
 /**
  * Combined Google ratings for the homepage hero kicker and shared mounts.
  *
- * Fetches public JSON from the jobs app (GitHub Pages cannot hold GBP secrets).
- * Success body (from scws-jobs src/lib/gbp.ts GbpRatingsPayload):
- *   { ramona: { rating, count, url? }, anza: { rating, count, url? }, updated }
- * Failure body: { error: "gbp_unconfigured" | "gbp_unavailable" }
+ * Reads /data/gbp-ratings.json on this site. The jobs app
+ * (scws-jobs /api/gbp-ratings) answers 503 gbp_unconfigured when its
+ * secrets are unset, and GitHub Pages cannot host that function, so the
+ * browser must not call it. The static file is the 2026-10-21 snapshot
+ * and returns 200. A live payload is used only when both shops are
+ * present and the total is at least 175.
  *
  * Visible copy is the combined Ramona + Anza figure, not a single shop:
  *   ★★★★★  4.8  from 175 Google reviews  across our Ramona and Anza shops
@@ -20,7 +22,7 @@
 (function (root) {
   'use strict';
 
-  var API_URL = 'https://scws-jobs.vercel.app/api/gbp-ratings';
+  var API_URL = '/data/gbp-ratings.json';
   var FETCH_MS = 6000;
 
   // Documented so it is never reused as the Anza href.
