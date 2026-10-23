@@ -3,6 +3,40 @@
   "note": "Public copy only. No customer names, street addresses, prices, or Jobber URLs.",
   "projects": [
     {
+      "id": "job3687",
+      "slug": "campo-well-pump-protection",
+      "title": "Well pump protection install",
+      "location": "Campo",
+      "date": "2026-10-22",
+      "dateLabel": "October 22, 2026",
+      "category": "pump",
+      "categoryLabel": "Pump Service",
+      "summary": "Pump protection was on the list for a Campo well with the pump set at 356 feet. We installed it per the estimate and had the storage tank filling before we left.",
+      "photos": [
+        {
+          "file": "job3687_1.jpg",
+          "alt": "Pressure tank and booster pump on the well pad in Campo"
+        }
+      ]
+    },
+    {
+      "id": "job3680",
+      "slug": "temecula-booster-pump-pvc-leak-repair",
+      "title": "Booster pump line leak repair",
+      "location": "Temecula",
+      "date": "2026-10-22",
+      "dateLabel": "October 22, 2026",
+      "category": "pump",
+      "categoryLabel": "Pump Service",
+      "summary": "Water was leaking at the coupler where the 2-inch PVC line feeds the booster pump on a Temecula well. We glued in a new 2 by 12 inch nipple and coupler, and the system is back to running normal.",
+      "photos": [
+        {
+          "file": "job3680_1.jpg",
+          "alt": "New 2-inch PVC nipple and coupler on the booster pump line in Temecula"
+        }
+      ]
+    },
+    {
       "id": "job3673",
       "slug": "temecula-pressure-tank-check-valve-replacement",
       "title": "Pressure tank and check valve replacement",
