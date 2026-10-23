@@ -4,20 +4,22 @@
  * Reads /data/gbp-ratings.json on this site. The jobs app
  * (scws-jobs /api/gbp-ratings) answers 503 gbp_unconfigured when its
  * secrets are unset, and GitHub Pages cannot host that function, so the
- * browser must not call it. The static file is the 2026-10-21 snapshot
- * and returns 200. A live payload is used only when both shops are
- * present and the total is at least 175.
+ * browser must not call it. The static file is the source of truth
+ * (Ramona 4.7 from 65, Anza 4.8 from 114, combined 179, weighted about
+ * 4.76, shown as 4.8, as of 2026-10-23) and returns 200. A fetched
+ * payload is used only when both shops are present and the total is at
+ * least that snapshot.
  *
  * Visible copy is the combined Ramona + Anza figure, not a single shop:
- *   ★★★★★  4.8  from 175 Google reviews  across our Ramona and Anza shops
+ *   ★★★★★  4.8  from 179 Google reviews  across our Ramona and Anza shops
  * The link stays the Anza GBP listing already used on the homepage.
  * Never reuse the Ramona review URL for that href.
  *
- * Live Google Business Profile counts on 2026-10-21:
- *   Ramona 4.7 (62), Anza 4.8 (113), combined 175, weighted about 4.76 → 4.8.
- * The API is often unconfigured, so that snapshot is what visitors see.
- * A live payload is used only when both shops are present and the total
- * is at least 175, so an older 170-review pull cannot overwrite it.
+ * The jobs API answers 503 gbp_unconfigured with no credentials in this
+ * repo, so nothing here refreshes the file on a schedule. The fallback
+ * below matches data/gbp-ratings.json. A fetched payload replaces it
+ * only when both shops are present and the total is at least 179, so an
+ * older 175-review pull cannot overwrite it.
  */
 (function (root) {
   'use strict';
@@ -32,13 +34,24 @@
   // street-address Maps pin (57174 CA-371, Anza, CA 92539) or the Ramona g.page above.
   var ANZA_LISTING = 'https://g.page/r/Cajtn6jSo-ONEBM';
 
-  // Live counts, 2026-10-21. Weighted average about 4.76 displays as 4.8.
+  // Must match data/gbp-ratings.json. Weighted average about 4.76 displays as 4.8.
   var SHOPS = {
-    asOf: '2026-10-21',
-    anza: { rating: 4.8, count: 113 },
-    ramona: { rating: 4.7, count: 62 }
+    asOf: '2026-10-23',
+    anza: { rating: 4.8, count: 114 },
+    ramona: { rating: 4.7, count: 65 }
   };
-  var COMBINED_SNAPSHOT = { rating: 4.8, countLabel: '175', asOf: '2026-10-21' };
+  var MIN_TOTAL = SHOPS.anza.count + SHOPS.ramona.count;
+  var COMBINED_SNAPSHOT = (function () {
+    var weighted =
+      (SHOPS.anza.rating * SHOPS.anza.count +
+        SHOPS.ramona.rating * SHOPS.ramona.count) /
+      MIN_TOTAL;
+    return {
+      rating: Math.round(weighted * 10) / 10,
+      countLabel: String(MIN_TOTAL),
+      asOf: SHOPS.asOf
+    };
+  })();
 
   var SHOP_LABEL = 'across our Ramona and Anza shops';
   var STAR_ROW = '<span class="gbp-stars" aria-hidden="true">★★★★★</span>';
@@ -64,7 +77,7 @@
     if (!payload || typeof payload !== 'object' || payload.error) return null;
     if (!hasLive(payload.anza) || !hasLive(payload.ramona)) return null;
     var count = payload.anza.count + payload.ramona.count;
-    if (!(count >= 175)) return null;
+    if (!(count >= MIN_TOTAL)) return null;
     var weighted =
       (payload.anza.rating * payload.anza.count +
         payload.ramona.rating * payload.ramona.count) /
@@ -125,11 +138,26 @@
     mount.innerHTML = widgetHtml(payload);
   }
 
+  function applySchema(payload) {
+    if (!root.document || !root.document.getElementById) return;
+    var node = root.document.getElementById('town-aggregate-rating');
+    if (!node) return;
+    var data = combinedLive(payload) || COMBINED_SNAPSHOT;
+    try {
+      var schema = JSON.parse(node.textContent);
+      if (!schema.aggregateRating) return;
+      schema.aggregateRating.ratingValue = formatRating(data.rating);
+      schema.aggregateRating.reviewCount = String(data.countLabel);
+      node.textContent = JSON.stringify(schema);
+    } catch (e) {}
+  }
+
   function renderAll(payload) {
     var nodes = mountNodes();
     for (var i = 0; i < nodes.length; i++) {
       renderMount(nodes[i], payload);
     }
+    applySchema(payload);
   }
 
   function fetchRatings() {
@@ -162,7 +190,9 @@
   }
 
   function init() {
-    if (!mountNodes().length) return Promise.resolve();
+    var hasMount = mountNodes().length > 0;
+    var hasSchema = !!(root.document && root.document.getElementById && root.document.getElementById('town-aggregate-rating'));
+    if (!hasMount && !hasSchema) return Promise.resolve();
     renderAll(null);
     return fetchRatings()
       .then(function (data) {
