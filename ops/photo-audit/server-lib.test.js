@@ -62,7 +62,7 @@ assert.ok(!queue.some((p) => p.jobId === "job3224"));
 assert.ok(queue.some((p) => p.shop === "ramona" && p.city === "Ramona area"));
 assert.ok(queue.some((p) => p.filename === "invoice-scan.png" && p.junk));
 assert.ok(!JSON.stringify(queue).toLowerCase().includes("gotmikedaniels"));
-assert.ok(!JSON.stringify(queue).includes("760-219-5877"));
+assert.ok(!JSON.stringify(queue).includes("760-823-7963"));
 
 const handoff = eligibleFrom(
   {

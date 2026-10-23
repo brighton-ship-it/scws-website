@@ -75,7 +75,7 @@ Each visitor gets one source, first touch, kept 30 days in `localStorage.scws_sr
 | `apple_maps` | `utm_source=apple_maps` or maps.apple.com referrer | main `(760) 440-8520` (no Apple number yet) |
 | `referral` / `direct` | other sites / no referrer | main `(760) 440-8520` |
 
-Text `(760) 219-5877` and JSON-LD numbers are never swapped. Every lead-form POST to `scws-jobs.vercel.app/api/booking` or `/api/leads/create` gets `site_source`, `first_referrer`, `first_landing_page` (plus `landing_page`/`referrer` if missing) added by a `fetch` wrapper; scws-jobs stores the channel on `booking_requests.lead_source` and referrer/landing on the request notes. Same rules server-side: `scws-jobs/src/lib/leads/lead-channel.ts`.
+Text `(760) 823-7963` and JSON-LD numbers are never swapped. Every lead-form POST to `scws-jobs.vercel.app/api/booking` or `/api/leads/create` gets `site_source`, `first_referrer`, `first_landing_page` (plus `landing_page`/`referrer` if missing) added by a `fetch` wrapper; scws-jobs stores the channel on `booking_requests.lead_source` and referrer/landing on the request notes. Same rules server-side: `scws-jobs/src/lib/leads/lead-channel.ts`.
 
 Verification-only submissions send `scws_test: "1"`: stored with `lead_source=test`, no staff notification, excluded from dashboards.
 

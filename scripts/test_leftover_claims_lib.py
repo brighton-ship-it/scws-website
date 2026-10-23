@@ -218,7 +218,7 @@ class LeftoverClaimsTests(unittest.TestCase):
         self.assertNotIn("4.9", no_water)
         self.assertNotIn("for decades", no_water.lower())
         self.assertIn("1086994", no_water)
-        self.assertIn("sms:7602195877", no_water)
+        self.assertIn("sms:+17608237963", no_water)
         self.assertIn("shop-lead-cta", no_water)
 
     def test_live_fontana_and_escondido_after_fix(self):

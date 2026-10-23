@@ -28,8 +28,8 @@
 
   var VOICE_DISPLAY = '(760) 440-8520';
   var VOICE_TEL = 'tel:7604408520';
-  var TEXT_DISPLAY = '(760) 219-5877';
-  var TEXT_SMS = 'sms:7602195877';
+  var TEXT_DISPLAY = '(760) 823-7963';
+  var TEXT_SMS = 'sms:+17608237963';
 
   function hasGtag() {
     return typeof window.gtag === 'function';

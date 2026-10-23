@@ -10,7 +10,7 @@ const RULES_PATH = path.join(ROOT, "ops", "photo-audit", "rules.json");
 const DECISIONS_PATH = path.join(ROOT, "ops", "photo-audit", "decisions.json");
 
 const SHOP_PHONE_RE =
-  /760[-.\s]?219[-.\s]?5877|760[-.\s]?440[-.\s]?8520|\(760\)\s*219[-.\s]?5877|\(760\)\s*440[-.\s]?8520/gi;
+  /760[-.\s]?219[-.\s]?5877|760[-.\s]?823[-.\s]?7963|760[-.\s]?440[-.\s]?8520|\(760\)\s*219[-.\s]?5877|\(760\)\s*823[-.\s]?7963|\(760\)\s*440[-.\s]?8520/gi;
 const STREET_RE =
   /\b\d{1,6}\s+[A-Za-z0-9.'-]+(?:\s+[A-Za-z0-9.'-]+){0,4}\s+(?:St|Street|Ave|Avenue|Rd|Road|Dr|Drive|Ln|Lane|Way|Ct|Court|Blvd|Boulevard|Hwy|Highway|Cir|Circle|Pl|Place|Ter|Terrace|Pkwy|Parkway)\b\.?/gi;
 const PRICE_RE =

@@ -145,4 +145,4 @@ as written.
 - The old `scws-jobs` / Supabase `job_attachments` live feed is still in
   `index.html` as a silent extra, but it is not the publish store. That API
   has been 401/RLS. Do not revive it unless someone confirms it is healthy.
-- Do not change the public text number `760-219-5877` or voice `(760) 440-8520`.
+- Do not change the public text number `760-823-7963` or voice `(760) 440-8520`.

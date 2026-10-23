@@ -515,7 +515,7 @@
           '?days=7|28</code> on scws-jobs (status: ' +
           escapeHtml(statusLabel(notes.scoreboard)) +
           '). Until then this page does not invent Jobber numbers.</li>' +
-          '<li><strong>Texts by source — stub.</strong> Public SMS is (760) 219-5877 and is not in the Twilio source-number map.</li>' +
+          '<li><strong>Texts by source — stub.</strong> Public SMS is (760) 823-7963 and is not in the Twilio source-number map.</li>' +
         '</ul>' +
       '</section>';
   }

@@ -24,7 +24,7 @@ var HOMEPAGE_BAR =
 var STICKY =
   '<div id="sticky-cta">' +
     '<a href="tel:+17604408520" class="cta-call">📞 Call Now</a>' +
-    '<a href="sms:7602195877" class="cta-text">💬 Text Us</a>' +
+    '<a href="sms:+17608237963" class="cta-text">💬 Text Us</a>' +
     '<a href="#contact" class="cta-est">Free Estimate</a>' +
   '</div>';
 
@@ -124,7 +124,7 @@ test('variant adds an equal Text button and keeps the voice tel: node', function
   assert.ok(call);
   assert.ok(text);
   assert.strictEqual(call.getAttribute('href'), 'tel:7604408520');
-  assert.strictEqual(text.getAttribute('href'), 'sms:7602195877');
+  assert.strictEqual(text.getAttribute('href'), 'sms:+17608237963');
   assert.strictEqual(call.textContent, 'Call');
   assert.strictEqual(text.textContent, 'Text');
   assert.strictEqual(call.style.minWidth, '');

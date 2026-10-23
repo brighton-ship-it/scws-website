@@ -68,13 +68,13 @@ HEADER = """<body class="shop-page" style="padding-bottom:80px">
 
 TAIL = """<footer class="footer shop-footer-nap" style="background:#0f172a;color:#94a3b8;padding:2rem 1rem;">
 <p><strong style="color:#fff;">Southern California Well Service</strong></p>
-<p>Voice <a href="tel:+17604408520">(760) 440-8520</a> · Text <a href="sms:7602195877">(760) 219-5877</a></p>
+<p>Voice <a href="tel:+17604408520">(760) 440-8520</a> · Text <a href="sms:+17608237963">(760) 823-7963</a></p>
 <p>1077 Main St, Unit B, Ramona, CA 92065 · 57174 CA-371, Anza, CA 92539</p>
 <p>Founded 2020 · CSLB License #1086994 (C-57)</p>
 </footer>
 <div id="sticky-cta">
 <a class="cta-call" href="tel:+17604408520">Call</a>
-<a class="cta-text" href="sms:7602195877">Text</a>
+<a class="cta-text" href="sms:+17608237963">Text</a>
 <a class="cta-est" href="/contact.html">Estimate</a>
 </div>
 </body>
@@ -238,7 +238,7 @@ def _service_page(
 <p class="text-lg">{lede}</p>
 <p class="shop-local-ctas" style="justify-content:center;">
 <a class="shop-lead-call" href="tel:+17604408520">Call (760) 440-8520</a>
-<a class="shop-lead-text" href="sms:7602195877">Text (760) 219-5877</a>
+<a class="shop-lead-text" href="sms:+17608237963">Text (760) 823-7963</a>
 <a class="shop-lead-est" href="/contact.html">Get estimate</a>
 </p>
 </div>
@@ -345,7 +345,7 @@ def write_service_pages() -> None:
 <h2>What we do</h2>
 <p>Replacement, motor replacement, diagnostics, mechanical seals, and constant-pressure booster packages. Brands we already service are on the <a href="/pages/brands-we-service.html">brands page</a>: Franklin Electric, Grundfos, Goulds, Pentair, and the others listed there. No model numbers from a phone description.</p>
 <h2>When to call</h2>
-<p>Tell us whether the storage tank has water. That decides if we load a booster or a well pump. Voice (760) 440-8520. Text (760) 219-5877. Founded 2020. CSLB C-57 #1086994. Ramona: 1077 Main St, Unit B, Ramona, CA 92065. Anza: 57174 CA-371, Anza, CA 92539.</p>
+<p>Tell us whether the storage tank has water. That decides if we load a booster or a well pump. Voice (760) 440-8520. Text (760) 823-7963. Founded 2020. CSLB C-57 #1086994. Ramona: 1077 Main St, Unit B, Ramona, CA 92065. Anza: 57174 CA-371, Anza, CA 92539.</p>
 <h2>Related pages</h2>
 <ul>
 <li><a href="/pages/services/pump-repair.html">Well pump repair</a></li>
@@ -397,7 +397,7 @@ def write_service_pages() -> None:
 <h2>What we do</h2>
 <p>Pressure tank replacement, pressure switch replacement or adjustment, pressure-tank plumbing repair, transducer and tank replacement on constant-pressure systems, and pressure-loss diagnostics.</p>
 <h2>When to call</h2>
-<p>If the pump is clicking on and off every few seconds, or the gauge sits at zero and the switch will not start the pump, call or text. Voice (760) 440-8520. Text (760) 219-5877. Founded 2020. CSLB C-57 #1086994.</p>
+<p>If the pump is clicking on and off every few seconds, or the gauge sits at zero and the switch will not start the pump, call or text. Voice (760) 440-8520. Text (760) 823-7963. Founded 2020. CSLB C-57 #1086994.</p>
 <h2>Related pages</h2>
 <ul>
 <li><a href="/blog/how-to-check-pressure-tank.html">How to check a pressure tank</a></li>
@@ -439,7 +439,7 @@ def _city_page(slug: str, title: str, description: str, h1: str, lede: str, body
 <p>{lede}</p>
 <p class="shop-local-ctas" style="justify-content:center;">
 <a class="shop-lead-call" href="tel:+17604408520">Call (760) 440-8520</a>
-<a class="shop-lead-text" href="sms:7602195877">Text (760) 219-5877</a>
+<a class="shop-lead-text" href="sms:+17608237963">Text (760) 823-7963</a>
 <a class="shop-lead-est" href="/contact.html">Get estimate</a>
 </p>
 </section>
@@ -463,7 +463,7 @@ def write_city_hubs() -> None:
 <section>
 <h2>The work we actually do here</h2>
 <p>Calls are mostly service and diagnostics. The rest is wire, drop pipe, check valves, and well seals; pump and motor replacement; pressure tank and pressure switch replacement; and a little drilling. If the house is dry, say whether you hear the pump and whether a storage tank is in the yard. That is the difference between a control ticket and a pull.</p>
-<p>Southern California Well Service was founded in 2020. CSLB C-57 #1086994. Voice (760) 440-8520. Text (760) 219-5877. The other shop is Ramona, at 1077 Main St, Unit B, Ramona, CA 92065. Desert Hot Springs rolls from Anza.</p>
+<p>Southern California Well Service was founded in 2020. CSLB C-57 #1086994. Voice (760) 440-8520. Text (760) 823-7963. The other shop is Ramona, at 1077 Main St, Unit B, Ramona, CA 92065. Desert Hot Springs rolls from Anza.</p>
 </section>
 <section>
 <h2>Nearby Coachella Valley towns we have worked</h2>
@@ -501,7 +501,7 @@ def write_city_hubs() -> None:
 <section>
 <h2>The work we actually do here</h2>
 <p>Service calls, pressure tank and pressure switch replacement, pump and motor replacement, and controls. Idyllwild and Pine Cove are the same Anza route. If the cabin is vacant, text the gate combo and whether the well house has heat. A frozen switch and a dead motor are different loads.</p>
-<p>Founded 2020. CSLB C-57 #1086994. Voice (760) 440-8520. Text (760) 219-5877. Anza shop: 57174 CA-371, Anza, CA 92539. Ramona shop: 1077 Main St, Unit B, Ramona, CA 92065.</p>
+<p>Founded 2020. CSLB C-57 #1086994. Voice (760) 440-8520. Text (760) 823-7963. Anza shop: 57174 CA-371, Anza, CA 92539. Ramona shop: 1077 Main St, Unit B, Ramona, CA 92065.</p>
 </section>
 <section>
 <h2>Idyllwild and Pine Cove</h2>
