@@ -68,6 +68,17 @@
   }
   ensureContrastCss();
 
+  function ensureMobileBarCss() {
+    if (document.getElementById('scws-mobile-bar-css')) return;
+    var style = document.createElement('style');
+    style.id = 'scws-mobile-bar-css';
+    style.textContent =
+      '@media (max-width:768px){#scws-chat-widget,body:has(#sticky-cta) #scws-sticky-phone,body:has(#sticky-cta) .floating-call{display:none !important}}' +
+      '@media (max-width:1023px){body:has(#sticky-cta){padding-bottom:104px !important}}';
+    (document.head || document.documentElement).appendChild(style);
+  }
+  ensureMobileBarCss();
+
   function getStoredConsent() {
     try { return localStorage.getItem(STORAGE_KEY); } catch (e) { return null; }
   }
