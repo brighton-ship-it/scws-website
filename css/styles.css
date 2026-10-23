@@ -4,3 +4,53 @@
 @media (min-width:640px){.site-logo-img{height:auto;max-height:2.5rem;max-width:200px}}
 @media (min-width:1280px){.site-logo-img{height:auto;max-height:3rem;max-width:none}}
 .blog-hero-image img{width:100%;height:auto;max-height:none;-o-object-fit:contain;object-fit:contain}
+
+/* Narrow phones: keep the header call button fully on screen and tappable. */
+@media (max-width: 767px) {
+  header > div,
+  header .header-content,
+  header .shop-header-inner { min-width: 0; }
+  header .flex.justify-between,
+  header .flex.items-center,
+  header .header-content {
+    flex-wrap: nowrap !important;
+    min-width: 0;
+    gap: 0.35rem;
+  }
+  header a.shrink-0,
+  header a.shrink { flex-shrink: 1 !important; min-width: 0 !important; }
+  header img[src*="logo"],
+  header .site-logo-img {
+    max-width: 108px !important;
+    width: auto !important;
+    height: auto !important;
+    max-height: 2rem !important;
+  }
+  header a[href^="tel:"],
+  header .site-phone-cta {
+    flex: 0 0 auto !important;
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    min-height: 44px;
+    max-width: none !important;
+    box-sizing: border-box;
+    font-size: 0.75rem !important;
+    line-height: 1.15 !important;
+    padding: 0.45rem 0.55rem !important;
+  }
+  header #mobile-menu-btn,
+  header button[aria-label="Toggle menu"],
+  header .shop-menu-btn {
+    flex: 0 0 auto;
+    min-width: 44px;
+    min-height: 44px;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+}
+@media (max-width: 380px) {
+  header img[src*="logo"],
+  header .site-logo-img { max-width: 88px !important; }
+}

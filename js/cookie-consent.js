@@ -11,6 +11,26 @@
   var STORAGE_KEY = 'cookieConsent';
   var GA_ID = 'G-5LL1YRWT5T';
 
+  // Same rules as css/styles.css and css/shop-chrome.css, for pages that
+  // load Tailwind from the CDN and neither stylesheet.
+  function ensureHeaderCallCss() {
+    if (document.getElementById('scws-header-call-css')) return;
+    var style = document.createElement('style');
+    style.id = 'scws-header-call-css';
+    style.textContent =
+      '@media (max-width:767px){' +
+      'header > div,header .header-content,header .shop-header-inner{min-width:0}' +
+      'header .flex.justify-between,header .flex.items-center,header .header-content{flex-wrap:nowrap !important;min-width:0;gap:.35rem}' +
+      'header a.shrink-0,header a.shrink{flex-shrink:1 !important;min-width:0 !important}' +
+      'header img[src*="logo"],header .site-logo-img{max-width:108px !important;width:auto !important;height:auto !important;max-height:2rem !important}' +
+      'header a[href^="tel:"],header .site-phone-cta{flex:0 0 auto !important;display:inline-flex !important;align-items:center;justify-content:center;white-space:nowrap;min-height:44px;max-width:none !important;box-sizing:border-box;font-size:.75rem !important;line-height:1.15 !important;padding:.45rem .55rem !important}' +
+      'header #mobile-menu-btn,header button[aria-label="Toggle menu"],header .shop-menu-btn{flex:0 0 auto;min-width:44px;min-height:44px;padding:10px;box-sizing:border-box}' +
+      '}' +
+      '@media (max-width:380px){header img[src*="logo"],header .site-logo-img{max-width:88px !important}}';
+    (document.head || document.documentElement).appendChild(style);
+  }
+  ensureHeaderCallCss();
+
   function getStoredConsent() {
     try { return localStorage.getItem(STORAGE_KEY); } catch (e) { return null; }
   }
