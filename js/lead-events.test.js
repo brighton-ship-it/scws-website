@@ -209,6 +209,32 @@ Promise.resolve()
     });
   })
   .then(function () {
+    return test('exit popup stays below the header and is easy to close', function () {
+      var page = loadExitCapture();
+      var popup = page.document.getElementById('scws-exit-popup');
+      assert.ok(popup, 'popup still exists');
+      var css = popup.innerHTML;
+      assert.match(css, /z-index:\s*40/);
+      assert.match(css, /width:\s*44px/);
+      assert.match(css, /height:\s*44px/);
+      assert.doesNotMatch(css, /z-index:\s*999999/);
+      var header = page.document.createElement('header');
+      header.style.height = '64px';
+      header.getBoundingClientRect = function () {
+        return { top: 0, bottom: 64, left: 0, right: 390, width: 390, height: 64 };
+      };
+      page.document.body.insertBefore(header, page.document.body.firstChild);
+      page.window.showExitPopup();
+      assert.ok(popup.classList.contains('show'));
+      assert.strictEqual(popup.style.top, '64px');
+      page.window.closeExitPopup();
+      assert.ok(!popup.classList.contains('show'));
+      popup.classList.add('show');
+      page.document.dispatchEvent(new page.window.KeyboardEvent('keydown', { key: 'Escape' }));
+      assert.ok(!popup.classList.contains('show'));
+    });
+  })
+  .then(function () {
     return test('exit-intent still fires when lead-events.js is not loaded', function () {
       var page = loadExitCapture({ withLeadEvents: false });
       page.document.getElementById('exit-name').value = 'Test User';

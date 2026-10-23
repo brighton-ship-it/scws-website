@@ -139,15 +139,18 @@
         #scws-exit-popup {
           display: none;
           position: fixed;
-          top: 0;
+          top: var(--scws-popup-top, 4.5rem);
           left: 0;
           right: 0;
           bottom: 0;
           background: rgba(0,0,0,0.6);
-          z-index: 999999;
-          align-items: center;
+          /* Below the sticky header (z-50/z-60) so the menu stays tappable. */
+          z-index: 40;
+          align-items: flex-start;
           justify-content: center;
-          padding: 20px;
+          padding: 12px 16px 24px;
+          overflow: auto;
+          box-sizing: border-box;
         }
         #scws-exit-popup.show {
           display: flex;
@@ -223,22 +226,25 @@
         }
         #scws-exit-popup .close-btn {
           position: absolute;
-          top: 12px;
-          right: 12px;
-          background: rgba(255,255,255,0.2);
+          top: 8px;
+          right: 8px;
+          background: #fff;
           border: none;
-          color: white;
-          width: 32px;
-          height: 32px;
+          color: #14532d;
+          width: 44px;
+          height: 44px;
           border-radius: 50%;
           cursor: pointer;
-          font-size: 20px;
+          font-size: 28px;
+          font-weight: 700;
+          line-height: 1;
           display: flex;
           align-items: center;
           justify-content: center;
+          z-index: 2;
         }
         #scws-exit-popup .close-btn:hover {
-          background: rgba(255,255,255,0.3);
+          background: #f3f4f6;
         }
         #scws-exit-popup .skip-link {
           display: block;
@@ -271,7 +277,7 @@
       </style>
       <div class="popup-content">
         <div class="popup-header">
-          <button class="close-btn" type="button" onclick="closeExitPopup()" aria-label="Close">×</button>
+          <button class="close-btn" type="button" onclick="closeExitPopup()" aria-label="Close popup">×</button>
           <h2>Wait! Before You Go...</h2>
           <p>Get a FREE callback from our well experts</p>
         </div>
@@ -297,6 +303,13 @@
     `;
     document.body.appendChild(popup);
 
+    popup.addEventListener('click', function (e) {
+      if (e.target === popup) closeExitPopup();
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') closeExitPopup();
+    });
+
     // Exit intent detection (desktop only)
     let triggered = false;
     document.addEventListener('mouseout', function(e) {
@@ -319,13 +332,32 @@
     }, 45000);
   }
 
+  function placeExitPopup() {
+    var popup = document.getElementById('scws-exit-popup');
+    if (!popup) return;
+    var header = document.querySelector('header');
+    var top = 72;
+    if (header) {
+      var rect = header.getBoundingClientRect();
+      if (rect.bottom > 8) top = Math.ceil(rect.bottom);
+      else top = Math.ceil(header.offsetHeight || 72);
+    }
+    popup.style.top = top + 'px';
+  }
+
   window.showExitPopup = function() {
     const popup = document.getElementById('scws-exit-popup');
     if (popup) {
+      placeExitPopup();
       popup.classList.add('show');
       sessionStorage.setItem('scws-exit-shown', 'true');
+      var closeBtn = popup.querySelector('.close-btn');
+      if (closeBtn && closeBtn.focus) closeBtn.focus();
     }
   };
+
+  window.addEventListener('resize', placeExitPopup);
+  window.addEventListener('scroll', placeExitPopup, { passive: true });
 
   window.closeExitPopup = function() {
     const popup = document.getElementById('scws-exit-popup');
