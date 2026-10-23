@@ -50,6 +50,24 @@
   }
   ensureTapTargetCss();
 
+  function ensureContrastCss() {
+    if (document.getElementById('scws-contrast-css')) return;
+    var style = document.createElement('style');
+    style.id = 'scws-contrast-css';
+    style.textContent =
+      '.text-yellow-400{color:#a16207}' +
+      '.gbp-ratings-hero .gbp-stars{color:#facc15}' +
+      '.text-gray-400{color:#4b5563}' +
+      'footer .text-gray-400,footer.text-gray-400,.bg-slate-900 .text-gray-400,.bg-gray-900 .text-gray-400,.bg-primary .text-gray-400,.bg-slate-800 .text-gray-400{color:#d1d5db}' +
+      '.text-accent{color:#166534}' +
+      'footer .text-accent,.bg-primary .text-accent,.bg-slate-900 .text-accent,.bg-slate-800 .text-accent{color:#86efac}' +
+      '.bg-accent,#sticky-cta .cta-est{background-color:#1f6b4a !important}' +
+      '.bg-red-600 .text-red-100,.bg-red-600 .text-green-100,.bg-red-700 .text-red-100,.bg-red-700 .text-green-100{color:#fff}' +
+      '.response-time .time{color:#166534}';
+    (document.head || document.documentElement).appendChild(style);
+  }
+  ensureContrastCss();
+
   function getStoredConsent() {
     try { return localStorage.getItem(STORAGE_KEY); } catch (e) { return null; }
   }

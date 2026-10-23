@@ -1109,13 +1109,15 @@
                 else if (live.length === 2) box.classList.add('double');
                 else box.classList.add('triple');
             }
+            let removed = false;
             imgs.forEach(img => {
                 img.addEventListener('error', () => { img.remove(); syncGrid(); });
                 if (img.complete && img.naturalWidth === 0) {
                     img.remove();
+                    removed = true;
                 }
             });
-            syncGrid();
+            if (removed) syncGrid();
         });
     }
 

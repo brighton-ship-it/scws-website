@@ -247,8 +247,12 @@
         offset += sticky.offsetHeight;
       }
     }
-    if (cookie && cookie.style.display !== 'none' && cookie.offsetParent !== null) {
-      offset += cookie.offsetHeight;
+    if (cookie && cookie.style.display !== 'none') {
+      var cookieStyle = window.getComputedStyle(cookie);
+      var cookieRect = cookie.getBoundingClientRect();
+      if (cookieStyle.display !== 'none' && cookieStyle.visibility !== 'hidden' && cookieRect.height > 8) {
+        offset += cookieRect.height;
+      }
     }
     return offset;
   }
@@ -383,10 +387,13 @@
     });
   }
 
-  // Start when DOM is ready
+  function start() {
+    if (window.requestIdleCallback) requestIdleCallback(init, { timeout: 2000 });
+    else setTimeout(init, 1);
+  }
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
+    document.addEventListener('DOMContentLoaded', start);
   } else {
-    init();
+    start();
   }
 })();
