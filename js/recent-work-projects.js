@@ -14,7 +14,7 @@
         "dateLabel": "October 23, 2026",
         "category": "pump",
         "categoryLabel": "Pump Service",
-        "summary": "Sediment kept showing up in an Alpine water system where two wells fill a concrete storage tank that serves five homes. We went through the system and are putting together a quote for a large sediment filter after the tank, with an option for a filter at each house.",
+        "summary": "Sediment was showing up in an Alpine water system. We went through the setup and are putting together a quote for a large sediment filter after the tank, with an option for a filter at each house.",
         "photos": [
             {
                 "file": "job3677_1.jpg",
