@@ -6,6 +6,40 @@
 (function (root) {
   root.SCWS_RECENT_WORK = [
     {
+        "id": "job3677",
+        "slug": "alpine-well-system-sediment-check",
+        "title": "Well system sediment check",
+        "location": "Alpine",
+        "date": "2026-10-23",
+        "dateLabel": "October 23, 2026",
+        "category": "pump",
+        "categoryLabel": "Pump Service",
+        "summary": "Sediment kept showing up in an Alpine water system where two wells fill a concrete storage tank that serves five homes. We went through the system and are putting together a quote for a large sediment filter after the tank, with an option for a filter at each house.",
+        "photos": [
+            {
+                "file": "job3677_1.jpg",
+                "alt": "Pressure tank and booster pump on the well pad next to the pump house in Alpine"
+            }
+        ]
+    },
+    {
+        "id": "job3694",
+        "slug": "mountain-center-pump-saver-control-box-repair",
+        "title": "Pump saver and control box repair",
+        "location": "Mountain Center",
+        "date": "2026-10-23",
+        "dateLabel": "October 23, 2026",
+        "category": "pump",
+        "categoryLabel": "Pump Service",
+        "summary": "A Mountain Center well would start for a few seconds and then the pump saver would shut it down. We tested it with a spare control box, then swapped the pump saver on the existing 1 hp box, and the pump now runs steady.",
+        "photos": [
+            {
+                "file": "job3694_1.jpg",
+                "alt": "Well head and open pump control box during testing in Mountain Center"
+            }
+        ]
+    },
+    {
         "id": "job3687",
         "slug": "campo-well-pump-protection",
         "title": "Well pump protection install",
