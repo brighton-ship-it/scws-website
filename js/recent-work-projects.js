@@ -6,6 +6,40 @@
 (function (root) {
   root.SCWS_RECENT_WORK = [
     {
+        "id": "job3705",
+        "slug": "el-cajon-pump-drive-overcurrent-diagnosis",
+        "title": "Pump drive overcurrent diagnosis",
+        "location": "El Cajon",
+        "date": "2026-10-25",
+        "dateLabel": "October 25, 2026",
+        "category": "pump",
+        "categoryLabel": "Pump Service",
+        "summary": "Overcurrent faults kept shutting down the pump drive at an El Cajon well. We found the 3 hp motor drawing more amps than the drive allows, pulled the pump to check the wire, and are quoting a new drive.",
+        "photos": [
+            {
+                "file": "job3705_1.jpg",
+                "alt": "Well pipe, pump wire and submersible pump laid out after pulling the pump in El Cajon"
+            }
+        ]
+    },
+    {
+        "id": "job3706",
+        "slug": "san-jacinto-no-pressure-filtration-bypass",
+        "title": "No pressure service call",
+        "location": "San Jacinto",
+        "date": "2026-10-25",
+        "dateLabel": "October 25, 2026",
+        "category": "pump",
+        "categoryLabel": "Pump Service",
+        "summary": "No pressure at the house sent us out to a San Jacinto well. The well itself checked out fine and the trouble was in the home's filtration system, so we bypassed it for now to get the water back on.",
+        "photos": [
+            {
+                "file": "job3706_1.jpg",
+                "alt": "Wellhead plumbing with valves and pressure switch next to the pressure tank in San Jacinto"
+            }
+        ]
+    },
+    {
         "id": "job3677",
         "slug": "alpine-well-system-sediment-check",
         "title": "Well system sediment check",
