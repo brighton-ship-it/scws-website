@@ -3,6 +3,40 @@
   "note": "Public copy only. No customer names, street addresses, prices, or Jobber URLs.",
   "projects": [
     {
+      "id": "job3708",
+      "slug": "valley-center-booster-pump-replacement",
+      "title": "Booster pump replacement",
+      "location": "Valley Center",
+      "date": "2026-10-27",
+      "dateLabel": "October 27, 2026",
+      "category": "pump",
+      "categoryLabel": "Pump Service",
+      "summary": "Time for a new booster pump at a Valley Center property. We installed the replacement booster along with a stainless steel fitting, and the system is back on and running well.",
+      "photos": [
+        {
+          "file": "job3708_1.jpg",
+          "alt": "New booster pump plumbed in beside the pressure tanks and storage tank in Valley Center"
+        }
+      ]
+    },
+    {
+      "id": "job3707",
+      "slug": "wildomar-pressure-tank-replacement",
+      "title": "Pressure tank replacement",
+      "location": "Wildomar",
+      "date": "2026-10-26",
+      "dateLabel": "October 26, 2026",
+      "category": "pump",
+      "categoryLabel": "Pump Service",
+      "summary": "An 86-gallon pressure tank at a Wildomar well was ready to be replaced. We put in a new Well-X-Trol tank with a new pressure switch and gauge, and the system is back on and running well.",
+      "photos": [
+        {
+          "file": "job3707_1.jpg",
+          "alt": "New pressure tank tee with pressure switch and gauge at a Wildomar well"
+        }
+      ]
+    },
+    {
       "id": "job3705",
       "slug": "el-cajon-pump-drive-overcurrent-diagnosis",
       "title": "Pump drive overcurrent diagnosis",
