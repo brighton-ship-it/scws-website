@@ -6,6 +6,23 @@
 (function (root) {
   root.SCWS_RECENT_WORK = [
     {
+        "id": "job3663",
+        "slug": "lake-arrowhead-direct-pump-system-install",
+        "title": "Direct pump system install",
+        "location": "Lake Arrowhead",
+        "date": "2026-10-28",
+        "dateLabel": "October 28, 2026",
+        "category": "pump",
+        "categoryLabel": "Pump Service",
+        "summary": "New direct pump system for a Lake Arrowhead well, sized for 12 gallons a minute at 70 psi. We set the pump at 440 feet and put in a new concrete slab at the wellhead.",
+        "photos": [
+            {
+                "file": "job3663_1.jpg",
+                "alt": "Well casing and wellhead set in a new concrete slab at a Lake Arrowhead well"
+            }
+        ]
+    },
+    {
         "id": "job3708",
         "slug": "valley-center-booster-pump-replacement",
         "title": "Booster pump replacement",
