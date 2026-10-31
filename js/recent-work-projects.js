@@ -6,6 +6,74 @@
 (function (root) {
   root.SCWS_RECENT_WORK = [
     {
+        "id": "job3750",
+        "slug": "poway-booster-pump-pressure-fix",
+        "title": "Booster pump pressure fix",
+        "location": "Poway",
+        "date": "2026-10-30",
+        "dateLabel": "October 30, 2026",
+        "category": "pump",
+        "categoryLabel": "Pump Service",
+        "summary": "With no protection on the system, a Poway booster pump ran out of water, overheated, and melted the pipe on its pressure side. After the pipe was fixed the pump still couldn't build pressure or shut off, so we turned the pressure setting down a little and now it cycles off like it should.",
+        "photos": [
+            {
+                "file": "job3750_1.jpg",
+                "alt": "Booster pump and pressure switch with PVC plumbing at a Poway water system"
+            }
+        ]
+    },
+    {
+        "id": "job3740",
+        "slug": "murrieta-booster-pump-service-call",
+        "title": "Booster pump service call",
+        "location": "Murrieta",
+        "date": "2026-10-30",
+        "dateLabel": "October 30, 2026",
+        "category": "pump",
+        "categoryLabel": "Pump Service",
+        "summary": "Heavy use on a Murrieta horse ranch made the booster pump motor run hot until its thermal overload tripped. We tracked down the cause on site and the owner is now getting an estimate for a new booster.",
+        "photos": [
+            {
+                "file": "job3740_1.jpg",
+                "alt": "Two pressure tanks beside a fenced pasture at a Murrieta ranch"
+            }
+        ]
+    },
+    {
+        "id": "job3716",
+        "slug": "el-cajon-pump-and-motor-replacement",
+        "title": "Pump and motor replacement",
+        "location": "El Cajon",
+        "date": "2026-10-29",
+        "dateLabel": "October 29, 2026",
+        "category": "pump",
+        "categoryLabel": "Pump Service",
+        "summary": "This El Cajon well needed its pump and motor pulled and replaced. We set the new 5GS10 pump and motor at 200 feet, and it's running with good amps.",
+        "photos": [
+            {
+                "file": "job3716_1.jpg",
+                "alt": "Pressure tank and well plumbing inside a pump house at an El Cajon well"
+            }
+        ]
+    },
+    {
+        "id": "job3725",
+        "slug": "lake-elsinore-well-video-log",
+        "title": "Well video log",
+        "location": "Lake Elsinore",
+        "date": "2026-10-29",
+        "dateLabel": "October 29, 2026",
+        "category": "maintenance",
+        "categoryLabel": "Maintenance",
+        "summary": "Before this Lake Elsinore well can be destroyed, it needed a video log. We ran the camera down the 10.5-inch steel casing, found no signs of perforations, and set a heavy steel lid over the well.",
+        "photos": [
+            {
+                "file": "job3725_1.jpg",
+                "alt": "Steel well casing with a heavy steel lid at a Lake Elsinore well site"
+            }
+        ]
+    },
+    {
         "id": "job3708",
         "slug": "valley-center-booster-pump-replacement",
         "title": "Booster pump replacement",
