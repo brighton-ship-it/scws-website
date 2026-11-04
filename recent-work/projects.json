@@ -3,6 +3,40 @@
   "note": "Public copy only. No customer names, street addresses, prices, or Jobber URLs.",
   "projects": [
     {
+      "id": "job3052",
+      "slug": "ramona-pressure-tank-replumb",
+      "title": "Pressure tank replacement and re-plumb",
+      "location": "Ramona",
+      "date": "2026-11-03",
+      "dateLabel": "November 3, 2026",
+      "category": "pump",
+      "categoryLabel": "Pump Service",
+      "summary": "Rotten pipes and an old pressure tank needed replacing at a Ramona home. We put in a new pressure tank and re-plumbed the rotted lines, and the system is working well again.",
+      "photos": [
+        {
+          "file": "job3052_1.jpg",
+          "alt": "New pressure tank with a booster pump and fresh plumbing on a concrete pad at a Ramona home"
+        }
+      ]
+    },
+    {
+      "id": "job3738",
+      "slug": "temecula-pressure-tank-pump-house-repipe",
+      "title": "Pressure tank and pump house re-pipe",
+      "location": "Temecula",
+      "date": "2026-11-03",
+      "dateLabel": "November 3, 2026",
+      "category": "pump",
+      "categoryLabel": "Pump Service",
+      "summary": "This Temecula booster system, which pushes city water, was due for a new pressure tank and an all-new manifold. We installed the new tank, re-piped the pump house and checked the pressure switch settings before we left.",
+      "photos": [
+        {
+          "file": "job3738_1.jpg",
+          "alt": "New pressure tank installed inside a Temecula pump house"
+        }
+      ]
+    },
+    {
       "id": "job3699",
       "slug": "san-diego-storage-tank-well-tie-in",
       "title": "Storage tank and well tie-in",
