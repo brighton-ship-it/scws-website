@@ -3,6 +3,40 @@
   "note": "Public copy only. No customer names, street addresses, prices, or Jobber URLs.",
   "projects": [
     {
+      "id": "job3775",
+      "slug": "alpine-well-pump-capacitor-replacement",
+      "title": "Well pump capacitor replacement",
+      "location": "Alpine",
+      "date": "2026-11-04",
+      "dateLabel": "November 4, 2026",
+      "category": "pump",
+      "categoryLabel": "Pump Service",
+      "summary": "Bad capacitors had shut down this Alpine well. We put in new start and run capacitors, then watched the pump for 20 minutes with steady amps and no dry running.",
+      "photos": [
+        {
+          "file": "job3775_1.jpg",
+          "alt": "Well pump control box opened on a wooden post at an Alpine property"
+        }
+      ]
+    },
+    {
+      "id": "job3759",
+      "slug": "temecula-pump-plumbing-union-repair",
+      "title": "Leaking union repair on pump plumbing",
+      "location": "Temecula",
+      "date": "2026-11-04",
+      "dateLabel": "November 4, 2026",
+      "category": "pump",
+      "categoryLabel": "Pump Service",
+      "summary": "Leaking plumbing at a 2-inch PVC union needed fixing at this Temecula pump setup. We replaced the union and a coupling, then ran the system and found no other leaks.",
+      "photos": [
+        {
+          "file": "job3759_1.jpg",
+          "alt": "Pump and PVC plumbing in a fenced yard at a Temecula home"
+        }
+      ]
+    },
+    {
       "id": "job3699",
       "slug": "san-diego-storage-tank-well-tie-in",
       "title": "Storage tank and well tie-in",
