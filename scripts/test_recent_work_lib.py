@@ -686,6 +686,43 @@ class QualityGateTests(unittest.TestCase):
         self.assertNotIn("463-0493", html)
 
 
+class AreaNavTests(unittest.TestCase):
+    def test_listing_nav_shows_popular_cities_and_keeps_every_hub(self):
+        from recent_work_lib import POPULAR_CITY_COUNT, area_nav_html, iter_city_hubs
+
+        projects = load_projects().get("projects") or []
+        hubs = iter_city_hubs(projects)
+        self.assertGreater(len(hubs), POPULAR_CITY_COUNT)
+        html_out = area_nav_html(projects)
+        details_at = html_out.index('<details class="mt-3" id="recent-work-all-cities">')
+        popular = html_out[:details_at]
+        rest = html_out[details_at:]
+        self.assertIn("Popular cities", popular)
+        self.assertIn(f"Show all cities ({len(hubs)})", rest)
+        self.assertNotIn("Recent work by city", html_out)
+        for hub in hubs[:POPULAR_CITY_COUNT]:
+            href = f'href="areas/{hub["slug"]}.html"'
+            self.assertIn(href, popular)
+            self.assertNotIn(href, rest)
+        for hub in hubs[POPULAR_CITY_COUNT:]:
+            href = f'href="areas/{hub["slug"]}.html"'
+            self.assertNotIn(href, popular)
+            self.assertIn(href, rest)
+
+    def test_listing_nav_skips_disclosure_when_every_city_fits(self):
+        from recent_work_lib import area_nav_html
+
+        projects = [
+            {"location": "Ramona", "title": "Pump replacement"},
+            {"location": "Poway", "title": "Well service"},
+        ]
+        html_out = area_nav_html(projects)
+        self.assertIn('href="areas/ramona.html"', html_out)
+        self.assertIn('href="areas/poway.html"', html_out)
+        self.assertNotIn("<details", html_out)
+        self.assertNotIn("Show all cities", html_out)
+
+
 class PhotoMarkupTests(unittest.TestCase):
     def test_pixel_size_and_picture_keep_the_jpeg(self):
         import recent_work_lib

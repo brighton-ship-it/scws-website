@@ -143,35 +143,45 @@ footer .text-accent,
 .response-time .time { color: #166534; }
 #recent-work-filters { min-height: 4.5rem; }
 
-/* Recent-work city chips. Column count follows the viewport, and each
-   chip is a fixed 44px row, so the block does not reflow when webfonts load. */
-#recent-work-areas > .max-w-7xl > .flex.flex-wrap.gap-2,
-#recent-work-areas > div.flex.flex-wrap.gap-2 {
+/* Recent-work city chips. The popular row is one fixed-height scroller so
+   the job cards stay on screen. "Show all cities" uses a column grid, and
+   each chip is a fixed 44px row so that grid does not reflow with webfonts. */
+#recent-work-areas .city-chip-row {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  padding-bottom: 0.25rem;
+  scrollbar-width: thin;
+}
+#recent-work-areas .city-chip-row > a {
+  flex: 0 0 auto;
+  height: 44px;
+  min-height: 44px;
+  box-sizing: border-box;
+  white-space: nowrap;
+}
+#recent-work-areas .city-chip-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0.5rem;
   align-items: stretch;
 }
 @media (min-width: 640px) {
-  #recent-work-areas > .max-w-7xl > .flex.flex-wrap.gap-2,
-  #recent-work-areas > div.flex.flex-wrap.gap-2 {
+  #recent-work-areas .city-chip-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 @media (min-width: 1024px) {
-  #recent-work-areas > .max-w-7xl > .flex.flex-wrap.gap-2,
-  #recent-work-areas > div.flex.flex-wrap.gap-2 {
+  #recent-work-areas .city-chip-grid {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }
 @media (min-width: 1280px) {
-  #recent-work-areas > .max-w-7xl > .flex.flex-wrap.gap-2,
-  #recent-work-areas > div.flex.flex-wrap.gap-2 {
+  #recent-work-areas .city-chip-grid {
     grid-template-columns: repeat(5, minmax(0, 1fr));
   }
 }
-#recent-work-areas > .max-w-7xl > .flex.flex-wrap.gap-2 > a,
-#recent-work-areas > div.flex.flex-wrap.gap-2 > a {
+#recent-work-areas .city-chip-grid > a {
   min-height: 44px;
   height: 44px;
   box-sizing: border-box;
@@ -185,6 +195,24 @@ footer .text-accent,
   line-height: 1.15;
   padding: 0 0.75rem;
 }
+#recent-work-areas .city-chip-more {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  list-style: none;
+  min-height: 44px;
+  padding: 0 1rem;
+  border-radius: 9999px;
+  border: 1px solid #1f3b4d;
+  background: #fff;
+  color: #1f3b4d;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+#recent-work-areas .city-chip-more::-webkit-details-marker { display: none; }
+#recent-work-areas .city-chip-more-open { display: none; }
+#recent-work-areas details[open] > .city-chip-more .city-chip-more-closed { display: none; }
+#recent-work-areas details[open] > .city-chip-more .city-chip-more-open { display: inline; }
 .project-card h3 a,
 .project-card p a {
   min-height: 44px;

@@ -1979,26 +1979,57 @@ def recent_work_sitemap_entries(projects: list[dict[str, Any]]) -> list[tuple[st
     return entries
 
 
+# Listing pages show this many busiest city hubs before the disclosure.
+# Hubs are already sorted by job count. The rest stay in the HTML inside
+# <details> so every city URL is still on the page. The town <select>
+# lists the same hubs. City hub pages themselves are unchanged.
+POPULAR_CITY_COUNT = 16
+
+
+def _city_chip_html(hub: dict[str, Any]) -> str:
+    label = html.escape(hub["label"])
+    count = len(hub["projects"])
+    return (
+        f'<a class="inline-flex items-center gap-2 bg-gray-50 border border-gray-200 '
+        f'rounded-full px-3 py-1.5 text-sm font-semibold text-primary hover:border-accent" '
+        f'href="areas/{html.escape(hub["slug"])}.html">{label} '
+        f'<span class="text-accent">{count}</span></a>'
+    )
+
+
 def area_nav_html(projects: list[dict[str, Any]]) -> str:
+    """Compact city nav for the gallery listing.
+
+    A single row of the busiest cities, then a disclosure for the rest.
+    The full chip wall used to sit above the job cards and fill the viewport.
+    """
     hubs = iter_city_hubs(projects)
-    links = []
-    for hub in hubs:
-        label = html.escape(hub["label"])
-        count = len(hub["projects"])
-        links.append(
-            f'<a class="inline-flex items-center gap-2 bg-gray-50 border border-gray-200 '
-            f'rounded-full px-3 py-1.5 text-sm font-semibold text-primary hover:border-accent" '
-            f'href="areas/{html.escape(hub["slug"])}.html">{label} '
-            f'<span class="text-accent">{count}</span></a>'
+    shown = hubs[:POPULAR_CITY_COUNT]
+    hidden = hubs[POPULAR_CITY_COUNT:]
+    shown_html = "".join(_city_chip_html(hub) for hub in shown)
+    extra = ""
+    if hidden:
+        rest_html = "".join(_city_chip_html(hub) for hub in hidden)
+        extra = (
+            '<details class="mt-3" id="recent-work-all-cities">\n'
+            '<summary class="city-chip-more">'
+            f'<span class="city-chip-more-closed">Show all cities ({len(hubs)})</span>'
+            '<span class="city-chip-more-open">Hide extra cities</span>'
+            "</summary>\n"
+            f'<div class="city-chip-grid mt-3">\n{rest_html}\n</div>\n'
+            "</details>\n"
         )
     return (
         '<section class="bg-white border-b" id="recent-work-areas">\n'
-        '<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">\n'
-        '<h2 class="text-2xl font-bold text-primary mb-2">Recent work by city</h2>\n'
-        '<p class="text-gray-600 mb-4 max-w-3xl">Field photos grouped by the city we worked in. '
-        "Open a city for the job grid and a link to that city's service page. "
-        "Write-ups with a real job note are linked from the grid; short photo cards stay on the city page.</p>\n"
-        f'<div class="flex flex-wrap gap-2">\n{"".join(links)}\n</div>\n'
+        '<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">\n'
+        '<div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 mb-2">\n'
+        '<h2 class="text-lg font-bold text-primary">Popular cities</h2>\n'
+        '<p class="text-sm text-gray-600">Every city hub is still linked. '
+        "Use the town menu, or show the full list.</p>\n"
+        "</div>\n"
+        f'<div class="city-chip-row" id="recent-work-popular-cities" tabindex="0" '
+        f'aria-label="Popular cities">\n{shown_html}\n</div>\n'
+        f"{extra}"
         "</div>\n</section>"
     )
 
