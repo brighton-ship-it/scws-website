@@ -5,8 +5,8 @@
  * (scws-jobs /api/gbp-ratings) answers 503 gbp_unconfigured when its
  * secrets are unset, and GitHub Pages cannot host that function, so the
  * browser must not call it. The static file is the source of truth
- * (Ramona 4.7 from 65, Anza 4.8 from 114, combined 179, weighted about
- * 4.76, shown as 4.8, as of 2026-10-23) and returns 200. A fetched
+ * (Ramona 4.8 from 65, Anza 4.8 from 114, combined 179, shown as 4.8,
+ * as of 2026-11-06) and returns 200. A fetched
  * payload is used only when both shops are present and the total is at
  * least that snapshot.
  *
@@ -34,11 +34,12 @@
   // street-address Maps pin (57174 CA-371, Anza, CA 92539) or the Ramona g.page above.
   var ANZA_LISTING = 'https://g.page/r/Cajtn6jSo-ONEBM';
 
-  // Must match data/gbp-ratings.json. Weighted average about 4.76 displays as 4.8.
+  // Must match data/gbp-ratings.json. Both shops are 4.8, so the
+  // weighted average is 4.8. Counts are the last full totals (65 and 114).
   var SHOPS = {
-    asOf: '2026-10-23',
+    asOf: '2026-11-06',
     anza: { rating: 4.8, count: 114 },
-    ramona: { rating: 4.7, count: 65 }
+    ramona: { rating: 4.8, count: 65 }
   };
   var MIN_TOTAL = SHOPS.anza.count + SHOPS.ramona.count;
   var COMBINED_SNAPSHOT = (function () {
