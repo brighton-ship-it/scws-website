@@ -19,7 +19,7 @@ function snapshotWidgetInner() {
     '<a class="gbp-ratings-link" href="' + ANZA_GBP + '" target="_blank" rel="noopener">' +
       '<span class="gbp-stars" aria-hidden="true">★★★★★</span>' +
       '<span class="gbp-ratings-score" data-gbp-heading>4.8</span>' +
-      '<span class="gbp-ratings-count">from 179 Google reviews</span>' +
+      '<span class="gbp-ratings-count">from 183 Google reviews</span>' +
       '<span class="gbp-ratings-label" data-gbp-shops>across our Ramona and Anza shops</span>' +
     '</a>'
   );
@@ -33,7 +33,7 @@ function assertCombinedSnapshot(html, heading) {
   assert.strictEqual(heading, '4.8');
   assert.match(html, /★★★★★/);
   assert.match(html, /gbp-ratings-score[^>]*>4\.8</);
-  assert.match(html, /from 179 Google reviews/);
+  assert.match(html, /from 183 Google reviews/);
   assert.match(html, /across our Ramona and Anza shops/);
   assert.match(html, /g\.page\/r\/Cajtn6jSo-ONEBM/);
   assert.doesNotMatch(html, /Cajtn6jSo-ONEBM\/review/);
@@ -80,18 +80,18 @@ async function run() {
   assert.doesNotMatch(src, /4\.9/);
   assert.doesNotMatch(src, /127/);
   assert.doesNotMatch(src, /count:\s*94/);
-  assert.match(src, /ramona:\s*\{\s*rating:\s*4\.8,\s*count:\s*65\s*\}/);
-  assert.match(src, /anza:\s*\{\s*rating:\s*4\.8,\s*count:\s*114\s*\}/);
-  assert.match(src, /2026-11-06/);
+  assert.match(src, /ramona:\s*\{\s*rating:\s*4\.8,\s*count:\s*66\s*\}/);
+  assert.match(src, /anza:\s*\{\s*rating:\s*4\.8,\s*count:\s*117\s*\}/);
+  assert.match(src, /2026-11-05/);
   assert.match(src, /\/data\/gbp-ratings\.json/);
   assert.doesNotMatch(src, /scws-jobs\.vercel\.app/);
   var snap = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'gbp-ratings.json'), 'utf8'));
   assert.strictEqual(snap.ramona.rating, 4.8);
-  assert.strictEqual(snap.ramona.count, 65);
+  assert.strictEqual(snap.ramona.count, 66);
   assert.strictEqual(snap.anza.rating, 4.8);
-  assert.strictEqual(snap.anza.count, 114);
-  assert.strictEqual(snap.updated, '2026-11-06');
-  assert.strictEqual(snap.ramona.count + snap.anza.count, 179);
+  assert.strictEqual(snap.anza.count, 117);
+  assert.strictEqual(snap.updated, '2026-11-05');
+  assert.strictEqual(snap.ramona.count + snap.anza.count, 183);
   assert.match(src, /g\.page\/r\/CU9X_NG3TvP2EBM\/review/);
   assert.match(src, /g\.page\/r\/Cajtn6jSo-ONEBM/);
   assert.doesNotMatch(src, /Cajtn6jSo-ONEBM\/review/);
@@ -116,7 +116,7 @@ async function run() {
   assert.match(trustBlock, /Years Family Heritage/);
   assert.match(trustBlock, /Founded/);
   assert.match(trustBlock, /text-3xl font-bold text-primary">4\.8★</);
-  assert.match(trustBlock, /179 Google reviews/);
+  assert.match(trustBlock, /183 Google reviews/);
   assert.match(trustBlock, /24\/7/);
   assert.match(trustBlock, /Emergency Service/);
   assert.match(trustBlock, /Licensed &amp; Insured/);
@@ -135,7 +135,7 @@ async function run() {
   assert.doesNotMatch(indexHtml, /Read us on Google/);
   assert.doesNotMatch(indexHtml, /do not publish a combined rating/i);
   assert.doesNotMatch(indexHtml, /\(94\)/);
-  assert.match(indexHtml, /about 4\.8 ★ from 179 Google reviews across our Ramona and Anza shops\./);
+  assert.match(indexHtml, /about 4\.8 ★ from 183 Google reviews across our Ramona and Anza shops\./);
 
   var whyEnd = indexHtml.indexOf('<!-- Services Section -->');
   var whyBlock = indexHtml.slice(whyIdx, whyEnd > whyIdx ? whyEnd : indexHtml.length);
@@ -159,8 +159,8 @@ async function run() {
 
   var liveWin = loadWidget(function () {
     return jsonResponse({
-      ramona: { rating: 4.8, count: 65, url: 'https://example.com/ramona' },
-      anza: { rating: 4.8, count: 114 },
+      ramona: { rating: 4.8, count: 66, url: 'https://example.com/ramona' },
+      anza: { rating: 4.8, count: 117 },
       updated: '2026-10-02T15:00:00Z'
     });
   });
@@ -229,8 +229,8 @@ async function run() {
   assert.doesNotMatch(api.LINKS.anzaListing, /\/review/);
   assert.doesNotMatch(api.LINKS.anzaListing, /57174/);
   assert.strictEqual(api.COMBINED_SNAPSHOT.rating, 4.8);
-  assert.strictEqual(api.COMBINED_SNAPSHOT.countLabel, '179');
-  assert.strictEqual(api.COMBINED_SNAPSHOT.asOf, '2026-11-06');
+  assert.strictEqual(api.COMBINED_SNAPSHOT.countLabel, '183');
+  assert.strictEqual(api.COMBINED_SNAPSHOT.asOf, '2026-11-05');
   assert.strictEqual(api.SHOPS.anza.rating, snap.anza.rating);
   assert.strictEqual(api.SHOPS.anza.count, snap.anza.count);
   assert.strictEqual(api.SHOPS.ramona.rating, snap.ramona.rating);
@@ -239,10 +239,10 @@ async function run() {
   var schemaMatch = reviewsHtml.match(/<script type="application\/ld\+json" id="town-aggregate-rating">([\s\S]*?)<\/script>/);
   assert.ok(schemaMatch, 'reviews page schema');
   var schema = JSON.parse(schemaMatch[1]);
-  assert.strictEqual(schema.aggregateRating.reviewCount, '179');
+  assert.strictEqual(schema.aggregateRating.reviewCount, '183');
   assert.strictEqual(schema.aggregateRating.ratingValue, '4.8');
-  assert.match(reviewsHtml, /Ramona is 4\.8 from 65/);
-  assert.match(reviewsHtml, /Anza is 4\.8 from 114/);
+  assert.match(reviewsHtml, /Ramona is 4\.8 from 66/);
+  assert.match(reviewsHtml, /Anza is 4\.8 from 117/);
   assert.doesNotMatch(reviewsHtml, /175 Google reviews/);
 
   var partial = api.shopsHtml({

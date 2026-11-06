@@ -5,21 +5,21 @@
  * (scws-jobs /api/gbp-ratings) answers 503 gbp_unconfigured when its
  * secrets are unset, and GitHub Pages cannot host that function, so the
  * browser must not call it. The static file is the source of truth
- * (Ramona 4.8 from 65, Anza 4.8 from 114, combined 179, shown as 4.8,
- * as of 2026-11-06) and returns 200. A fetched
+ * (Ramona 4.8 from 66, Anza 4.8 from 117, combined 183, shown as 4.8,
+ * as of 2026-11-05) and returns 200. A fetched
  * payload is used only when both shops are present and the total is at
  * least that snapshot.
  *
  * Visible copy is the combined Ramona + Anza figure, not a single shop:
- *   ★★★★★  4.8  from 179 Google reviews  across our Ramona and Anza shops
+ *   ★★★★★  4.8  from 183 Google reviews  across our Ramona and Anza shops
  * The link stays the Anza GBP listing already used on the homepage.
  * Never reuse the Ramona review URL for that href.
  *
  * The jobs API answers 503 gbp_unconfigured with no credentials in this
  * repo, so nothing here refreshes the file on a schedule. The fallback
  * below matches data/gbp-ratings.json. A fetched payload replaces it
- * only when both shops are present and the total is at least 179, so an
- * older 175-review pull cannot overwrite it.
+ * only when both shops are present and the total is at least 183, so an
+ * older 179-review pull cannot overwrite it.
  */
 (function (root) {
   'use strict';
@@ -35,11 +35,11 @@
   var ANZA_LISTING = 'https://g.page/r/Cajtn6jSo-ONEBM';
 
   // Must match data/gbp-ratings.json. Both shops are 4.8, so the
-  // weighted average is 4.8. Counts are the last full totals (65 and 114).
+  // weighted average is 4.8. Counts are Ramona 66 and Anza 117.
   var SHOPS = {
-    asOf: '2026-11-06',
-    anza: { rating: 4.8, count: 114 },
-    ramona: { rating: 4.8, count: 65 }
+    asOf: '2026-11-05',
+    anza: { rating: 4.8, count: 117 },
+    ramona: { rating: 4.8, count: 66 }
   };
   var MIN_TOTAL = SHOPS.anza.count + SHOPS.ramona.count;
   var COMBINED_SNAPSHOT = (function () {
