@@ -46,8 +46,10 @@ PRICE_RE = re.compile(
     r"\b\d+\.\d{2}\s*(?:dollars?)?\b",
     re.I,
 )
+# Horsepower and other unit tokens are not street names. "10 HP drive" is a
+# pump drive, and the Drive suffix would otherwise strip it as an address.
 STREET_RE = re.compile(
-    r"\b\d{1,6}\s+[A-Za-z0-9.'-]+(?:\s+[A-Za-z0-9.'-]+){0,4}\s+"
+    r"\b\d{1,6}\s+(?!hp\b|gpm\b|psi\b|vfd\b)[A-Za-z0-9.'-]+(?:\s+[A-Za-z0-9.'-]+){0,4}\s+"
     r"(?:St|Street|Ave|Avenue|Rd|Road|Dr|Drive|Ln|Lane|Way|Ct|Court|"
     r"Blvd|Boulevard|Hwy|Highway|Cir|Circle|Pl|Place|Ter|Terrace|Pkwy|Parkway)\b\.?",
     re.I,

@@ -67,6 +67,13 @@ class SanitizeTests(unittest.TestCase):
         self.assertNotIn("760-555-0100", out)
         self.assertIn("Replaced pump", out)
 
+    def test_keeps_horsepower_drive_wording(self):
+        raw = "We installed a new 10 HP drive on the 230-volt motor."
+        self.assertEqual(sanitize_public_text(raw), raw)
+        out = sanitize_public_text("Pump at 123 Oak Drive was a 10 HP.")
+        self.assertNotIn("Oak", out)
+        self.assertIn("10 HP", out)
+
     def test_city_only_location(self):
         self.assertEqual(public_location("Ramona"), "Ramona")
         self.assertEqual(public_location("Ramona, CA 92065"), "Ramona")
