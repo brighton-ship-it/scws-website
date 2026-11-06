@@ -3,6 +3,40 @@
   "note": "Public copy only. No customer names, street addresses, prices, or Jobber URLs.",
   "projects": [
     {
+      "id": "job3764",
+      "slug": "alpine-well-pump-drive-replacement",
+      "title": "Well pump drive replacement",
+      "location": "Alpine",
+      "date": "2026-11-05",
+      "dateLabel": "November 5, 2026",
+      "category": "pump",
+      "categoryLabel": "Pump Service",
+      "summary": "The drive running this Alpine well's 10 HP pump motor had to be replaced. We installed a new 10 HP drive on the 230-volt motor, and the system is back on and running normal.",
+      "photos": [
+        {
+          "file": "job3764_0.jpg",
+          "alt": "Well pump drive and electrical panels mounted at an Alpine well site"
+        }
+      ]
+    },
+    {
+      "id": "job3767",
+      "slug": "hemet-well-pump-and-motor-replacement",
+      "title": "Well pump and motor replacement",
+      "location": "Hemet",
+      "date": "2026-11-05",
+      "dateLabel": "November 5, 2026",
+      "category": "pump",
+      "categoryLabel": "Pump Service",
+      "summary": "This Hemet well needed its pump and motor pulled and replaced. We brought up 480 feet of pipe, set a new 1 HP pump and motor back in, and measured 13 gallons per minute at open flow.",
+      "photos": [
+        {
+          "file": "job3767_1.jpg",
+          "alt": "Wellhead with new discharge plumbing at a Hemet property"
+        }
+      ]
+    },
+    {
       "id": "job3699",
       "slug": "san-diego-storage-tank-well-tie-in",
       "title": "Storage tank and well tie-in",
