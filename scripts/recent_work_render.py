@@ -112,7 +112,7 @@ def _chrome(title: str, description: str, canonical: str, *, robots: str, og_ima
     .rw-text {{ background: #2563eb; color: #fff; }}
     .rw-est {{ background: #4e9271; color: #fff; }}
     .rw-links {{ margin-top: 1rem; display: flex; flex-direction: column; gap: 0.35rem; }}
-    .rw-links a {{ color: #fff; font-weight: 600; }}
+    .rw-links a {{ color: #fff; font-weight: 600; min-height: 24px; display: inline-block; box-sizing: border-box; }}
     .filter-btn {{
         padding: 6px 14px; border-radius: 999px; border: 1px solid #ddd; background: #fff;
         font-size: 0.875rem; cursor: pointer;

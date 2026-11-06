@@ -521,9 +521,28 @@ header .site-phone-cta {
   font-size: 0.95rem;
 }
 
+/* Area nav and related Recent Work text links. 24px floor.
+   The mobile block below still raises .rw-all links to 44px. */
+.bg-white.border-b:not(#recent-work-areas) > .max-w-7xl a,
+.rw-links a,
+.rw-facts a,
+.rw-panel > p a,
+.rw-all a,
+#service-town-local a[href*="/recent-work/"],
+.service-town-local a[href*="/recent-work/"],
+.shop-local-note a[href*="/recent-work/"],
+.recent-jobs-links a[href*="/recent-work/"],
+p a[href*="/recent-work/"],
+li a[href*="/recent-work/"] {
+  min-height: 24px;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
 @media (max-width: 767px) {
   footer a,
   .rw-all a,
+  p.rw-all a,
   .homepage-trust-pills a,
   a[href$="recent-work/"],
   a[href*="google.com/maps"],

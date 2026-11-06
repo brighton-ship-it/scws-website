@@ -18,6 +18,7 @@ const MODE = process.argv[2] || 'all';
 
 const gbpSnap = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/gbp-ratings.json'), 'utf8'));
 const RATING = '4.8';
+const RAMONA_RATING = Number(gbpSnap.ramona.rating).toFixed(1);
 const RAMONA_COUNT = String(gbpSnap.ramona.count);
 const ANZA_COUNT = String(gbpSnap.anza.count);
 const REVIEW_COUNT = String(gbpSnap.ramona.count + gbpSnap.anza.count);
@@ -285,7 +286,7 @@ function extrasHtml(town, jobs, reviews, includeJobs) {
     '<section class="town-extras" id="town-extras">\n' +
     '<div class="town-rating">\n' +
     '<p class="town-stars" aria-hidden="true">★★★★★</p>\n' +
-    '<p>About <strong>' + RATING + '</strong> from ' + REVIEW_COUNT_LABEL + ' Google reviews across our Ramona and Anza shops. Ramona is 4.7 from ' + RAMONA_COUNT + '. Anza is 4.8 from ' + ANZA_COUNT + '.</p>\n' +
+    '<p>About <strong>' + RATING + '</strong> from ' + REVIEW_COUNT_LABEL + ' Google reviews across our Ramona and Anza shops. Ramona is ' + RAMONA_RATING + ' from ' + RAMONA_COUNT + '. Anza is 4.8 from ' + ANZA_COUNT + '.</p>\n' +
     '<p><a href="/reviews/">Read our Google reviews</a></p>\n' +
     '<p><a href="' + RAMONA_GBP + '" target="_blank" rel="noopener">Ramona Google reviews</a> · <a href="' + ANZA_GBP + '" target="_blank" rel="noopener">Anza Google reviews</a></p>\n' +
     '</div>\n' +
@@ -501,14 +502,14 @@ function reviewsPage(list) {
     '<meta charset="utf-8"/>\n' +
     '<meta name="viewport" content="width=device-width, initial-scale=1.0"/>\n' +
     '<title>Customer Reviews | Southern California Well Service</title>\n' +
-    '<meta name="description" content="Southern California Well Service is about 4.8 from ' + REVIEW_COUNT + ' Google reviews. Ramona is 4.7 from ' + RAMONA_COUNT + '. Anza is 4.8 from ' + ANZA_COUNT + '. Call (760) 440-8520."/>\n' +
+    '<meta name="description" content="Southern California Well Service is about 4.8 from ' + REVIEW_COUNT + ' Google reviews. Ramona is ' + RAMONA_RATING + ' from ' + RAMONA_COUNT + '. Anza is 4.8 from ' + ANZA_COUNT + '. Call (760) 440-8520."/>\n' +
     '<link rel="canonical" href="https://scwellservice.com/reviews/"/>\n' +
     '<meta property="og:title" content="Customer Reviews | Southern California Well Service"/>\n' +
-    '<meta property="og:description" content="About 4.8 from ' + REVIEW_COUNT + ' Google reviews. Ramona 4.7 from ' + RAMONA_COUNT + '. Anza 4.8 from ' + ANZA_COUNT + '."/>\n' +
+    '<meta property="og:description" content="About 4.8 from ' + REVIEW_COUNT + ' Google reviews. Ramona ' + RAMONA_RATING + ' from ' + RAMONA_COUNT + '. Anza 4.8 from ' + ANZA_COUNT + '."/>\n' +
     '<meta property="og:image" content="https://www.scwellservice.com/images/logo-text-only-3x.png"/>\n' +
     '<link rel="stylesheet" href="/css/shop-chrome.css"/>\n' +
     '<link rel="stylesheet" href="/css/city-pages.css"/>\n' +
-    '<!-- Combined Google rating: Ramona 4.7/' + RAMONA_COUNT + ' and Anza 4.8/' + ANZA_COUNT + ', ' + REVIEW_COUNT + ' reviews, about 4.8. -->\n' +
+    '<!-- Combined Google rating: Ramona ' + RAMONA_RATING + '/' + RAMONA_COUNT + ' and Anza 4.8/' + ANZA_COUNT + ', ' + REVIEW_COUNT + ' reviews, about 4.8. -->\n' +
     '<script type="application/ld+json" id="town-aggregate-rating">\n' + schema + '\n</script>\n' +
     '</head>\n<body class="shop-page">\n' +
     '<div id="scws-emergency-cta"><span>🚨 No Water?</span> <a href="' + PHONE_TEL + '">Call Now →</a></div>\n' +
@@ -525,14 +526,14 @@ function reviewsPage(list) {
     '<script>document.getElementById("mobile-menu-btn").addEventListener("click",function(){var m=document.getElementById("mobile-menu");m.hidden=!m.hidden;});</script>\n' +
     '<main class="city-landing">\n' +
     '<section class="hero">\n<h1>Customer Reviews</h1>\n' +
-    '<p>About <strong>' + RATING + '</strong> from ' + REVIEW_COUNT_LABEL + ' Google reviews across our Ramona and Anza shops. Ramona is 4.7 from ' + RAMONA_COUNT + '. Anza is 4.8 from ' + ANZA_COUNT + '.</p>\n' +
+    '<p>About <strong>' + RATING + '</strong> from ' + REVIEW_COUNT_LABEL + ' Google reviews across our Ramona and Anza shops. Ramona is ' + RAMONA_RATING + ' from ' + RAMONA_COUNT + '. Anza is 4.8 from ' + ANZA_COUNT + '.</p>\n' +
     '<a class="cta-button" href="' + PHONE_TEL + '">Call ' + PHONE_DISPLAY + '</a>\n' +
     '<a id="scws-book-online" class="scws-book-online" href="/contact.html">Book online</a>\n' +
     '</section>\n' +
     '<section class="town-extras">\n' +
     '<div class="town-rating">\n' +
     '<p class="town-stars" aria-hidden="true">★★★★★</p>\n' +
-    '<p>Ramona is 4.7 from ' + RAMONA_COUNT + ' Google reviews. Anza is 4.8 from ' + ANZA_COUNT + '. Together that is ' + REVIEW_COUNT + ' reviews, about 4.8.</p>\n' +
+    '<p>Ramona is ' + RAMONA_RATING + ' from ' + RAMONA_COUNT + ' Google reviews. Anza is 4.8 from ' + ANZA_COUNT + '. Together that is ' + REVIEW_COUNT + ' reviews, about 4.8.</p>\n' +
     '<p><a href="' + RAMONA_GBP + '" target="_blank" rel="noopener">Ramona Google reviews</a> · <a href="' + ANZA_GBP + '" target="_blank" rel="noopener">Anza Google reviews</a></p>\n' +
     '<p>Voice <a href="' + PHONE_TEL + '">' + PHONE_DISPLAY + '</a> · Text <a href="' + TEXT_SMS + '">' + TEXT_DISPLAY + '</a></p>\n' +
     '</div>\n' +
@@ -717,7 +718,7 @@ function newTownPage(meta, jobs, reviews) {
     '</section>\n' +
     '<section class="town-extras">\n<div class="town-rating">\n' +
     '<p class="town-stars" aria-hidden="true">★★★★★</p>\n' +
-    '<p>About <strong>' + RATING + '</strong> from ' + REVIEW_COUNT_LABEL + ' Google reviews across our Ramona and Anza shops. Ramona is 4.7 from ' + RAMONA_COUNT + '. Anza is 4.8 from ' + ANZA_COUNT + '.</p>\n' +
+    '<p>About <strong>' + RATING + '</strong> from ' + REVIEW_COUNT_LABEL + ' Google reviews across our Ramona and Anza shops. Ramona is ' + RAMONA_RATING + ' from ' + RAMONA_COUNT + '. Anza is 4.8 from ' + ANZA_COUNT + '.</p>\n' +
     '<p><a href="/reviews/">Read our Google reviews</a></p>\n' +
     '</div>\n<div class="town-reviews"><h2>Reviews</h2>\n' + reviewBlock +
     '<p><a href="' + RAMONA_GBP + '" target="_blank" rel="noopener">Ramona Google reviews</a> · <a href="' + ANZA_GBP + '" target="_blank" rel="noopener">Anza Google reviews</a></p>\n' +
