@@ -6,6 +6,40 @@
 (function (root) {
   root.SCWS_RECENT_WORK = [
     {
+        "id": "job3792",
+        "slug": "murrieta-grounded-submersible-diagnosis",
+        "title": "Grounded submersible motor diagnosis",
+        "location": "Murrieta",
+        "date": "2026-11-06",
+        "dateLabel": "November 6, 2026",
+        "category": "pump",
+        "categoryLabel": "Pump Service",
+        "summary": "Out of water in Murrieta traced to a grounded 1.5 HP submersible motor. We tested the pump, watched amps climb past 16 on the pump saver, and pulled the unit for replace.",
+        "photos": [
+            {
+                "file": "job3792_2.jpg",
+                "alt": "Wellhead with pulled submersible pump during a Murrieta service call"
+            }
+        ]
+    },
+    {
+        "id": "job3782",
+        "slug": "alpine-1hp-booster-replacement",
+        "title": "1 HP booster pump replacement",
+        "location": "Alpine",
+        "date": "2026-11-05",
+        "dateLabel": "November 5, 2026",
+        "category": "pump",
+        "categoryLabel": "Pump Service",
+        "summary": "An Alpine well needed its 1 HP booster replaced after the old unit died and rapid-cycled. We set a new 1 HP booster with misc plumbing and added a check valve so the pressure switch would stop short-cycling.",
+        "photos": [
+            {
+                "file": "job3782_1.jpg",
+                "alt": "New blue 1 HP booster pump installed on a pad at an Alpine well"
+            }
+        ]
+    },
+    {
         "id": "job3699",
         "slug": "san-diego-storage-tank-well-tie-in",
         "title": "Storage tank and well tie-in",
