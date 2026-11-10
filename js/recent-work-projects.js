@@ -6,6 +6,40 @@
 (function (root) {
   root.SCWS_RECENT_WORK = [
     {
+        "id": "job3781",
+        "slug": "menifee-pump-system-startup-check",
+        "title": "Pump system startup check",
+        "location": "Menifee",
+        "date": "2026-11-09",
+        "dateLabel": "November 9, 2026",
+        "category": "pump",
+        "categoryLabel": "Pump Service",
+        "summary": "We went back to a Menifee pump system for a startup check after a new transformer was installed. Voltage held stable and the pump ran at normal amps.",
+        "photos": [
+            {
+                "file": "job3781_3.jpg",
+                "alt": "Drive and transformer on a concrete pad at a Menifee pump system"
+            }
+        ]
+    },
+    {
+        "id": "job3801",
+        "slug": "alpine-pressure-switch-melted-contacts",
+        "title": "Pressure switch replacement",
+        "location": "Alpine",
+        "date": "2026-11-08",
+        "dateLabel": "November 8, 2026",
+        "category": "pump",
+        "categoryLabel": "Pump Service",
+        "summary": "Breaker blinking and water dropping out at an Alpine well came down to a pressure switch with melted contacts. We put in a new pressure switch and flagged a pump saver that was clicking on and off.",
+        "photos": [
+            {
+                "file": "job3801_1.jpg",
+                "alt": "Pressure switch box and plumbing at the tank of an Alpine well"
+            }
+        ]
+    },
+    {
         "id": "job3699",
         "slug": "san-diego-storage-tank-well-tie-in",
         "title": "Storage tank and well tie-in",
