@@ -5,6 +5,40 @@
  */
 (function (root) {
   root.SCWS_RECENT_WORK = [
+{
+        "id": "job3815",
+        "slug": "el-cajon-float-wire-bypass-contactor",
+        "title": "Pump contactor and float wire repair",
+        "location": "El Cajon",
+        "date": "2026-11-10",
+        "dateLabel": "November 10, 2026",
+        "category": "pump",
+        "categoryLabel": "Pump Service",
+        "summary": "A contactor that would not engage kept an El Cajon pump from running. The cause was a broken float wire to the tank, so we bypassed the float at the control box to get the pump running and the well filling the tanks again.",
+        "photos": [
+            {
+                "file": "job3815_7.jpg",
+                "alt": "Storage tanks fed by a well in El Cajon"
+            }
+        ]
+    },
+    {
+        "id": "job3817",
+        "slug": "desert-hot-springs-high-amps-no-water",
+        "title": "No water to the house service call",
+        "location": "Desert Hot Springs",
+        "date": "2026-11-10",
+        "dateLabel": "November 10, 2026",
+        "category": "pump",
+        "categoryLabel": "Pump Service",
+        "summary": "No water was reaching the house in Desert Hot Springs, and the pressure switch and tank both tested fine. The pump was pulling high amps, so we tried a new breaker and flagged a worn union and brass check valve for replacement.",
+        "photos": [
+            {
+                "file": "job3817_0.jpg",
+                "alt": "Wellhead plumbing at a Desert Hot Springs well"
+            }
+        ]
+    },
     {
         "id": "job3699",
         "slug": "san-diego-storage-tank-well-tie-in",
