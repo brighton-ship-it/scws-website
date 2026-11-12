@@ -3,6 +3,40 @@
   "note": "Public copy only. No customer names, street addresses, prices, or Jobber URLs.",
   "projects": [
     {
+      "id": "job3822",
+      "slug": "lakeside-pressure-tank-replumb",
+      "title": "Pressure tank replumb",
+      "location": "Lakeside",
+      "date": "2026-11-11",
+      "dateLabel": "November 11, 2026",
+      "category": "pump",
+      "categoryLabel": "Pump Service",
+      "summary": "A Lakeside pressure tank needed its plumbing redone. We replumbed the system with all new 1-1/4 inch schedule 80 PVC, and it came back up to pressure and ran right.",
+      "photos": [
+        {
+          "file": "job3822_3.jpg",
+          "alt": "Pressure tank with new schedule 80 PVC plumbing at a Lakeside well"
+        }
+      ]
+    },
+    {
+      "id": "job3804",
+      "slug": "desert-hot-springs-well-pump-replacement",
+      "title": "Well pump, motor and wire replacement",
+      "location": "Desert Hot Springs",
+      "date": "2026-11-11",
+      "dateLabel": "November 11, 2026",
+      "category": "pump",
+      "categoryLabel": "Pump Service",
+      "summary": "A Desert Hot Springs well was due for a new pump set. We pulled the old one and installed a 3 HP single-phase motor with a deluxe control box, new galvanized drop pipe, wire and a check valve.",
+      "photos": [
+        {
+          "file": "job3804_2.jpg",
+          "alt": "Wellhead plumbing and pressure tank at a Desert Hot Springs well"
+        }
+      ]
+    },
+    {
       "id": "job3699",
       "slug": "san-diego-storage-tank-well-tie-in",
       "title": "Storage tank and well tie-in",
