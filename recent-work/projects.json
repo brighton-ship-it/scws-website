@@ -3,6 +3,40 @@
   "note": "Public copy only. No customer names, street addresses, prices, or Jobber URLs.",
   "projects": [
     {
+      "id": "job3840",
+      "slug": "poway-booster-pump-replacement-quote",
+      "title": "Booster pump replacement quote",
+      "location": "Poway",
+      "date": "2026-11-12",
+      "dateLabel": "November 12, 2026",
+      "category": "pump",
+      "categoryLabel": "Pump Service",
+      "summary": "The booster pump motor on a Poway system had given out after about three years. We identified the Goulds 25GBC15 booster and wrote up a replacement quote, and the customer asked about something that will last longer.",
+      "photos": [
+        {
+          "file": "job3840_1.jpg",
+          "alt": "Goulds 25GBC15 booster nameplate at a Poway system"
+        }
+      ]
+    },
+    {
+      "id": "job3837",
+      "slug": "temecula-booster-pump-diagnostic",
+      "title": "Booster pump diagnostic",
+      "location": "Temecula",
+      "date": "2026-11-12",
+      "dateLabel": "November 12, 2026",
+      "category": "pump",
+      "categoryLabel": "Pump Service",
+      "summary": "A Temecula tank system had no water because the Grundfos booster pump would not turn on. We went through the setup and found the 2 inch valve would not fully close and the 1 inch valve behind it was seized.",
+      "photos": [
+        {
+          "file": "job3837_1.jpg",
+          "alt": "Open valve box with booster pump and piping at a Temecula tank system"
+        }
+      ]
+    },
+    {
       "id": "job3699",
       "slug": "san-diego-storage-tank-well-tie-in",
       "title": "Storage tank and well tie-in",
