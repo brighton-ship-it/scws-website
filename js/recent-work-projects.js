@@ -6,6 +6,40 @@
 (function (root) {
   root.SCWS_RECENT_WORK = [
     {
+        "id": "job3820",
+        "slug": "jamul-float-wire-conduit",
+        "title": "Float wire conduit run",
+        "location": "Jamul",
+        "date": "2026-11-13",
+        "dateLabel": "November 13, 2026",
+        "category": "pump",
+        "categoryLabel": "Pump Service",
+        "summary": "The float wire to a Jamul storage tank was lying exposed on the ground with some insulation damage. We ran about 250 feet of three-quarter inch conduit with new stranded wire out to the tank and tested the floats, which work normally.",
+        "photos": [
+            {
+                "file": "job3820_1.jpg",
+                "alt": "New conduit run to a storage tank at a Jamul well"
+            }
+        ]
+    },
+    {
+        "id": "job3794",
+        "slug": "hemet-ball-valve-replacement",
+        "title": "Ball valve replacement",
+        "location": "Hemet",
+        "date": "2026-11-13",
+        "dateLabel": "November 13, 2026",
+        "category": "pump",
+        "categoryLabel": "Pump Service",
+        "summary": "Brand new ball valves went in on a Hemet water system, and we redid the fittings into the ground with 1-1/2 inch PVC.",
+        "photos": [
+            {
+                "file": "job3794_1.jpg",
+                "alt": "New ball valves and PVC fittings at a Hemet well system"
+            }
+        ]
+    },
+    {
         "id": "job3699",
         "slug": "san-diego-storage-tank-well-tie-in",
         "title": "Storage tank and well tie-in",
