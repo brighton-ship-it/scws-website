@@ -6,6 +6,40 @@
 (function (root) {
   root.SCWS_RECENT_WORK = [
     {
+        "id": "job3858",
+        "slug": "hemet-tank-gate-valves",
+        "title": "Tank valve replacement",
+        "location": "Hemet",
+        "date": "2026-11-16",
+        "dateLabel": "November 16, 2026",
+        "category": "pump",
+        "categoryLabel": "Pump Service",
+        "summary": "Two valves at a Hemet storage tank kept leaking once the tank filled. We swapped them for brass gate valves and redid the 1 1/4 inch PVC fittings.",
+        "photos": [
+            {
+                "file": "job3858_1.jpg",
+                "alt": "New brass gate valves and PVC fittings at a Hemet tank"
+            }
+        ]
+    },
+    {
+        "id": "job3848",
+        "slug": "valley-center-control-box-pump-saver",
+        "title": "Control box and pump saver replacement",
+        "location": "Valley Center",
+        "date": "2026-11-14",
+        "dateLabel": "November 14, 2026",
+        "category": "pump",
+        "categoryLabel": "Pump Service",
+        "summary": "Melted electronics in the control box, a bad contactor and a faulty pump saver were behind this Valley Center well trouble. We replaced the control box and pump saver, then checked amps and everything runs within specs.",
+        "photos": [
+            {
+                "file": "job3848_1.jpg",
+                "alt": "New control box and pump saver mounted at a Valley Center well"
+            }
+        ]
+    },
+    {
         "id": "job3699",
         "slug": "san-diego-storage-tank-well-tie-in",
         "title": "Storage tank and well tie-in",
