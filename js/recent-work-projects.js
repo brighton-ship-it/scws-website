@@ -7,35 +7,35 @@
   root.SCWS_RECENT_WORK = [
     {
         "id": "job3858",
-        "slug": "hemet-brass-valve-replacement",
-        "title": "Brass valve replacement",
+        "slug": "hemet-tank-gate-valves",
+        "title": "Tank valve replacement",
         "location": "Hemet",
         "date": "2026-11-16",
         "dateLabel": "November 16, 2026",
         "category": "pump",
         "categoryLabel": "Pump Service",
-        "summary": "Two 1-1/4 inch valves on a Hemet tank line were replaced with brass valves, and the fittings were redone with 1-1/4 inch PVC, after a valve would not hold once the tank was full. The leaks on that manifold are closed.",
+        "summary": "Two valves at a Hemet storage tank kept leaking once the tank filled. We swapped them for brass gate valves and redid the 1 1/4 inch PVC fittings.",
         "photos": [
             {
                 "file": "job3858_1.jpg",
-                "alt": "New brass valves and PVC fittings on a Hemet tank line"
+                "alt": "New brass gate valves and PVC fittings at a Hemet tank"
             }
         ]
     },
     {
         "id": "job3848",
-        "slug": "valley-center-control-box-and-pump-saver",
+        "slug": "valley-center-control-box-pump-saver",
         "title": "Control box and pump saver replacement",
         "location": "Valley Center",
         "date": "2026-11-14",
         "dateLabel": "November 14, 2026",
         "category": "pump",
         "categoryLabel": "Pump Service",
-        "summary": "A Valley Center control box had melted electronics and the overloads were bypassed, and both the contactor and the old pump saver were faulty. We replaced the control box and pump saver, then tested the system and checked the amps, which are within specs.",
+        "summary": "Melted electronics in the control box, a bad contactor and a faulty pump saver were behind this Valley Center well trouble. We replaced the control box and pump saver, then checked amps and everything runs within specs.",
         "photos": [
             {
                 "file": "job3848_1.jpg",
-                "alt": "Control boxes and a pump saver on a wood panel at a Valley Center well"
+                "alt": "New control box and pump saver mounted at a Valley Center well"
             }
         ]
     },
