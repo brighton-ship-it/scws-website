@@ -6,6 +6,40 @@
 (function (root) {
   root.SCWS_RECENT_WORK = [
     {
+        "id": "job3862",
+        "slug": "escondido-pump-contactor",
+        "title": "Pump contactor added",
+        "location": "Escondido",
+        "date": "2026-11-17",
+        "dateLabel": "November 17, 2026",
+        "category": "pump",
+        "categoryLabel": "Pump Service",
+        "summary": "A pressure switch was carrying the full 16 amp pump load at an Escondido well. We added a 30 amp contactor to take that load, and both phases now read balanced on voltage and amps.",
+        "photos": [
+            {
+                "file": "job3862_1.jpg",
+                "alt": "Booster pump at an Escondido well"
+            }
+        ]
+    },
+    {
+        "id": "job3860",
+        "slug": "murrieta-well-booster-contactors",
+        "title": "New wiring, floats and contactors",
+        "location": "Murrieta",
+        "date": "2026-11-17",
+        "dateLabel": "November 17, 2026",
+        "category": "pump",
+        "categoryLabel": "Pump Service",
+        "summary": "Wiring, floats and contactors were replaced on a Murrieta well and booster setup. We pulled new wire, ran about 100 feet of #12 for the floats and mounted fresh contactors in a new junction box.",
+        "photos": [
+            {
+                "file": "job3860_1.jpg",
+                "alt": "New well and booster contactors in a junction box at a Murrieta well"
+            }
+        ]
+    },
+    {
         "id": "job3699",
         "slug": "san-diego-storage-tank-well-tie-in",
         "title": "Storage tank and well tie-in",
