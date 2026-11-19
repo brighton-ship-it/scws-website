@@ -6,6 +6,40 @@
 (function (root) {
   root.SCWS_RECENT_WORK = [
     {
+        "id": "job3861",
+        "slug": "santa-ysabel-pump-motor-drop-pipe",
+        "title": "New pump, motor and drop pipe",
+        "location": "Santa Ysabel",
+        "date": "2026-11-18",
+        "dateLabel": "November 18, 2026",
+        "category": "pump",
+        "categoryLabel": "Pump Service",
+        "summary": "A Santa Ysabel well needed a new pump, motor and galvanized drop pipe. We installed the replacement set at about 588 feet, and the system is pumping well again.",
+        "photos": [
+            {
+                "file": "job3861_1.jpg",
+                "alt": "Pressure tank and pump equipment at a Santa Ysabel well"
+            }
+        ]
+    },
+    {
+        "id": "job3855",
+        "slug": "temecula-booster-pump-replacement",
+        "title": "Booster pump replaced",
+        "location": "Temecula",
+        "date": "2026-11-18",
+        "dateLabel": "November 18, 2026",
+        "category": "pump",
+        "categoryLabel": "Pump Service",
+        "summary": "A booster pump at a Temecula property needed replacing. The new pump was a direct drop-in, so no plumbing changes were needed.",
+        "photos": [
+            {
+                "file": "job3855_1.jpg",
+                "alt": "New booster pump at a Temecula property"
+            }
+        ]
+    },
+    {
         "id": "job3699",
         "slug": "san-diego-storage-tank-well-tie-in",
         "title": "Storage tank and well tie-in",
@@ -9057,7 +9091,9 @@
         "photos": [
             {
                 "file": "job2623_1.jpg",
-                "alt": "Well service in Winchester"
+                "alt": "Well service in Winchester",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             },
             {
                 "file": "job2623_2.jpg",
@@ -10715,7 +10751,9 @@
         "photos": [
             {
                 "file": "job2494_1.jpg",
-                "alt": "Well service in Winchester"
+                "alt": "Well service in Winchester",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             },
             {
                 "file": "job2494_2.jpg",
@@ -10738,7 +10776,9 @@
         "photos": [
             {
                 "file": "job2408_1.jpg",
-                "alt": "Pump replacement in Winchester"
+                "alt": "Pump replacement in Winchester",
+                "excluded": true,
+                "excludeReason": "pii-paperwork-or-screen"
             },
             {
                 "file": "job2408_2.jpg",
